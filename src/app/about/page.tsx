@@ -10,54 +10,95 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="space-y-6 font-english text-white leading-relaxed">
+      <div className="space-y-5 font-english text-white leading-relaxed">
+
+        <h2 className="font-english text-gold text-lg font-semibold mt-2 mb-3 pb-2 border-b border-gold/20">
+          The Translator and Editor
+        </h2>
         <p>
-          This digital edition presents the Arabic text of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by
-          Shaykh Ibrāhīm Niasse (d. 1975), with a facing-page English translation by Amadu Kunateh,
-          PhD Candidate in Philosophy of Religion and African Studies at Harvard University.
+          This edition was conceived, translated, digitized, and built by{' '}
+          <strong className="text-gold-light">Amadu Kunateh</strong>, PhD Candidate in Philosophy of
+          Religion and African Studies at Harvard University. Kunateh is the sole translator of the
+          English text and has been the primary researcher, proofreader, and digital architect of
+          this edition from its inception.
         </p>
         <p>
-          The Arabic edition was compiled by Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī
-          from the original cassette recordings of the Shaykh&apos;s oral delivery of the tafsīr in
-          Arabic in 1383 AH (c. 1963–64). The compiler subjected the transcription to a rigorous
-          process of hadith verification and scholarly annotation across ten volumes.
+          His engagement with this tafsīr began with the earlier six-volume Arabic edition and
+          deepened substantially with the transition to the current ten-volume edition from 2022
+          onward. The preparation of this bilingual digital edition has proceeded in parallel with
+          his doctoral research.
         </p>
         <p>
-          The Qurʾānic text follows the Warsh ʿan Nāfiʿ rasm. Audio recitation is by Maḥmūd Khalīl
+          His dissertation — the first sustained, book-length scholarly treatment of this tafsīr —
+          investigates the theology (Who is God?), anthropology (Who is the human being?), and
+          cosmology (What is the cosmos?) as found in Fī Riyāḍ al-Tafsīr, reading it as a case
+          study in twentieth-century West African Islamic erudition and its theological,
+          philosophical, and Sufi dimensions. Expected completion: May 2027.
+        </p>
+
+        <h2 className="font-english text-gold text-lg font-semibold mt-8 mb-3 pb-2 border-b border-gold/20">
+          The Arabic Edition
+        </h2>
+        <p>
+          The Arabic text is drawn from the ten-volume edition compiled by{' '}
+          <strong className="text-gold-light">Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī</strong>,
+          who transcribed, verified, and annotated the tafsīr from the original cassette recordings
+          of Shaykh Ibrāhīm Niasse&apos;s oral delivery in Arabic in 1383 AH (c. 1963–64). The
+          compiler&apos;s hadith apparatus alone records more than six thousand citations traced to
+          their canonical sources. This edition was prepared with the authorisation and blessing of
+          the Niasse family.
+        </p>
+
+        <h2 className="font-english text-gold text-lg font-semibold mt-8 mb-3 pb-2 border-b border-gold/20">
+          The Qurʾānic Text and Audio
+        </h2>
+        <p>
+          The Qurʾānic text follows the Warsh ʿan Nāfiʿ rasm, the orthographic standard of North
+          and West Africa in which the tafsīr was delivered. Audio recitation is by Maḥmūd Khalīl
           al-Ḥuṣarī (1917–1980) in the Warsh riwāya.
         </p>
+
         <h2 className="font-english text-gold text-lg font-semibold mt-8 mb-3 pb-2 border-b border-gold/20">
           Companion Texts
         </h2>
         <p>
           Each lesson includes the corresponding passage from{' '}
-          <em>Tafsīr al-Jalālayn</em> (Jalāl al-Dīn al-Maḥallī and Jalāl al-Dīn al-Suyūṭī,
-          d. 864/1459 and 911/1505), in the English translation of Feras Hamza (Royal Aal al-Bayt
-          Institute, 2007), and a link to the corresponding passage in{' '}
-          <em>Rūḥ al-Bayān</em> of Ismāʿīl Ḥaqqī al-Burūsawī (d. 1127/1715) via{' '}
-          <a href="https://usul.ai" target="_blank" rel="noopener" className="text-gold/70 hover:text-gold underline">
+          <em>Tafsīr al-Jalālayn</em> (Jalāl al-Dīn al-Maḥallī, d. 864/1459, and Jalāl al-Dīn
+          al-Suyūṭī, d. 911/1505), in the English translation of Feras Hamza (Royal Aal al-Bayt
+          Institute for Islamic Thought, 2007), and a link to the corresponding passage in{' '}
+          <em>Rūḥ al-Bayān fī Tafsīr al-Qurʾān</em> of Ismāʿīl Ḥaqqī al-Burūsawī (d. 1127/1715)
+          via{' '}
+          <a href="https://usul.ai" target="_blank" rel="noopener"
+            className="text-gold/70 hover:text-gold underline">
             Usul.ai
           </a>.
+          These companion texts appear as inline comparative notes after each section of Niasse&apos;s
+          commentary, enabling direct scholarly comparison.
         </p>
+
         <h2 className="font-english text-gold text-lg font-semibold mt-8 mb-3 pb-2 border-b border-gold/20">
           Copyright
         </h2>
         <p className="text-white/70">
-          Arabic edition © Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī. English translation
-          © Amadu Kunateh. All rights reserved. Scholarly quotation with full citation is permitted.
-          Reproduction or redistribution without written permission is prohibited.
+          Arabic edition © Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī. English
+          translation © Amadu Kunateh. All rights reserved. Scholarly quotation with full citation
+          is permitted. Reproduction, redistribution, or commercial use without written permission
+          is prohibited.
         </p>
+
         <h2 className="font-english text-gold text-lg font-semibold mt-8 mb-3 pb-2 border-b border-gold/20">
           Team
         </h2>
         <p className="text-white/70">
-          Web development verification and review: Ally Mahmoud. Arabic textual verification:
-          Dayyid Bashir Sheikh Ṭāhir Bouchī and Kabir Sayyid ʿAlī Usmān Ṭāhir Bouchī.
+          Web development review: Ally Mahmoud. Arabic textual verification and proofreading:
+          Dayyib Bashir Sheikh Dahir and Kabir Aliyu Sheikh Dahir.
         </p>
+
       </div>
 
       <div className="mt-10 pt-6 border-t border-gold/15 text-center">
-        <Link href="/" className="font-english text-sm text-white/50 hover:text-gold border border-gold/20 hover:border-gold/50 px-5 py-2 rounded-lg transition-all">
+        <Link href="/"
+          className="font-english text-sm text-white/50 hover:text-gold border border-gold/20 hover:border-gold/50 px-5 py-2 rounded-lg transition-all">
           ← Back to Contents
         </Link>
       </div>
