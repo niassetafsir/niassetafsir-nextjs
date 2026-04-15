@@ -84,7 +84,7 @@ export default function HomePage() {
           <br />
           فمن جمع الفرقان بالجمع ختم · قراءة الفرقان مع ما هانا
         </div>
-        <div className="font-english text-white/40 text-sm italic" dir="ltr">
+        <div className="font-english text-white text-sm italic" dir="ltr">
           &quot;Al-Fātiḥah, al-Māʾida, Yūnus, al-Isrāʾ, al-Shuʿarāʾ, al-Ṣāffāt, Qāf — thus it is clarified.
           He who joins the Criterion with the Joining completes a full recitation of the Criterion.&quot;
           — Shaykh Ibrāhīm Niasse
