@@ -47,15 +47,12 @@ const MANZILS = [
 ];
 
 export default function HomePage() {
-  // All manzils collapsed by default
   const [openManzils, setOpenManzils] = useState<Record<number, boolean>>({1: true});
-
-  const toggleManzil = (id: number) => {
-    setOpenManzils(prev => ({ ...prev, [id]: !prev[id] }));
-  };
+  const toggle = (id: number) => setOpenManzils(prev => ({...prev, [id]: !prev[id]}));
 
   return (
     <main className="max-w-4xl mx-auto px-4 pb-20">
+
       {/* Header */}
       <div className="text-center py-12 border-b border-gold/20 mb-8">
         <div className="font-arabic text-gold text-4xl font-bold mb-3" dir="rtl">
@@ -64,29 +61,30 @@ export default function HomePage() {
         <div className="font-arabic text-gold-light text-xl italic mb-2 mt-1" dir="rtl">
           الشيخ إبراهيم نياس رضي اللّٰه عنه
         </div>
-        <div className="font-english text-white/50 text-sm mt-2" dir="ltr">
-          In the Gardens of Exegesis — The Digital Bilingual Edition · niassetafsir.com
+        <div className="font-english text-white/55 text-base mt-2" dir="ltr">
+          In the Gardens of Exegesis — The Digital Bilingual Edition
         </div>
         <div className="flex gap-3 justify-center mt-6 flex-wrap">
-          <Link href="/lesson/1" className="font-english text-sm text-bg bg-gold hover:bg-gold-light px-5 py-2 rounded-lg font-semibold transition-all">
+          <Link href="/lesson/1" className="font-english text-base text-bg bg-gold hover:bg-gold-light px-5 py-2 rounded-lg font-semibold transition-all">
             Start Reading →
           </Link>
-          <Link href="/introduction" className="font-english text-sm text-white/60 border border-gold/30 hover:border-gold/60 hover:text-gold px-5 py-2 rounded-lg transition-all">
+          <Link href="/introduction" className="font-english text-base text-white/65 border border-gold/30 hover:border-gold/60 hover:text-gold px-5 py-2 rounded-lg transition-all">
             Translator&apos;s Introduction
           </Link>
-          <Link href="/about" className="font-english text-sm text-white/40 border border-white/15 hover:border-gold/30 hover:text-white/60 px-5 py-2 rounded-lg transition-all">
+          <Link href="/about" className="font-english text-base text-white/45 border border-white/15 hover:border-gold/30 hover:text-white/65 px-5 py-2 rounded-lg transition-all">
             About This Edition
           </Link>
         </div>
       </div>
 
       {/* Manzil verse */}
-      <div className="mb-8 p-4 border border-gold/15 rounded-xl bg-gold/3 text-center">
-        <div className="font-arabic text-gold/70 text-sm leading-9 mb-2" dir="rtl">
+      <div className="mb-8 p-5 border border-gold/15 rounded-xl bg-gold/3 text-center">
+        <div className="font-arabic text-gold/80 text-base leading-9 mb-3" dir="rtl">
           الفاتحة والمائدة يونس الإسرا · والشعراء والصافات قاف قد أُبانا
-          <br />فمن جمع الفرقان بالجمع ختم · قراءة الفرقان مع ما هانا
+          <br />
+          فمن جمع الفرقان بالجمع ختم · قراءة الفرقان مع ما هانا
         </div>
-        <div className="font-english text-white/30 text-xs italic" dir="ltr">
+        <div className="font-english text-white/40 text-sm italic" dir="ltr">
           &quot;Al-Fātiḥah, al-Māʾida, Yūnus, al-Isrāʾ, al-Shuʿarāʾ, al-Ṣāffāt, Qāf — thus it is clarified.
           He who joins the Criterion with the Joining completes a full recitation of the Criterion.&quot;
           — Shaykh Ibrāhīm Niasse
@@ -99,19 +97,20 @@ export default function HomePage() {
         const hasLessons = manzil.lessons.length > 0;
         return (
           <div key={manzil.id} className="mb-4 border border-gold/15 rounded-xl overflow-hidden">
-            {/* Manzil header — clickable */}
             <button
-              onClick={() => toggleManzil(manzil.id)}
-              className="w-full bg-gold/8 hover:bg-gold/12 px-5 py-4 border-b border-gold/15 flex items-center justify-between transition-colors"
+              onClick={() => toggle(manzil.id)}
+              className="w-full bg-gold/8 hover:bg-gold/13 px-5 py-4 flex items-center justify-between transition-colors"
             >
               <div dir="rtl" className="text-right">
-                <div className="font-arabic text-gold font-bold">{'`${manzil.titleAr}`'}</div>
-                <div className="font-arabic text-gold/45 text-xs mt-0.5">{'`${manzil.suras}`'}</div>
+                <div className="font-arabic text-gold font-bold text-base">{manzil.titleAr}</div>
+                <div className="font-arabic text-gold/45 text-sm mt-0.5">{manzil.suras}</div>
               </div>
               <div className="flex items-center gap-3" dir="ltr">
                 <div className="text-right hidden sm:block">
-                  <div className="font-english text-gold/80 font-semibold text-sm">{'`${manzil.titleEn}`'}</div>
-                  <div className="font-english text-gold/35 text-xs">{'`${hasLessons ? `${manzil.lessons.length} lessons` : "Coming soon"}`'}</div>
+                  <div className="font-english text-gold/85 font-semibold text-sm">{manzil.titleEn}</div>
+                  <div className="font-english text-gold/40 text-xs">
+                    {hasLessons ? `${manzil.lessons.length} lessons` : "Coming soon"}
+                  </div>
                 </div>
                 <ChevronDown
                   size={18}
@@ -120,11 +119,10 @@ export default function HomePage() {
               </div>
             </button>
 
-            {/* Lessons — shown when open */}
             {isOpen && (
               <div>
                 {!hasLessons ? (
-                  <div className="px-5 py-4 font-english text-white/20 italic text-sm" dir="ltr">
+                  <div className="px-5 py-4 font-english text-white/25 italic text-sm" dir="ltr">
                     Coming soon — further volumes in preparation.
                   </div>
                 ) : (
@@ -138,14 +136,14 @@ export default function HomePage() {
                             {n}
                           </div>
                           <div dir="rtl" className="flex-1 min-w-0">
-                            <div className="font-arabic text-gold-light text-sm font-bold group-hover:text-gold transition-colors truncate">{m.ar}</div>
-                            <div className="font-arabic text-white/30 text-xs">{m.sura}</div>
+                            <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors truncate">{m.ar}</div>
+                            <div className="font-arabic text-white/30 text-sm">{m.sura}</div>
                           </div>
                           <div dir="ltr" className="flex-1 min-w-0 hidden sm:block">
-                            <div className="font-english text-white/50 text-sm italic truncate">{m.en}</div>
+                            <div className="font-english text-white/55 text-sm italic truncate">{m.en}</div>
                           </div>
                           {m.hasEn && (
-                            <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>
+                            <span className="font-english text-xs text-gold/60 border border-gold/25 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>
                           )}
                         </Link>
                       );
@@ -160,7 +158,9 @@ export default function HomePage() {
 
       <footer className="text-center mt-12 pt-8 border-t border-gold/15">
         <div className="font-arabic text-gold text-sm">فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ</div>
-        <div className="font-english text-white/20 text-xs mt-1">niassetafsir.com · © Amadu Kunateh</div>
+        <div className="font-english text-white/25 text-xs mt-2">
+          niassetafsir.com · niassetafsir.org · © Amadu Kunateh. All rights reserved.
+        </div>
       </footer>
     </main>
   );
