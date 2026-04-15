@@ -104,11 +104,11 @@ export default function HomePage() {
               <div dir="rtl" className="text-right flex-1">
                 <div className="font-arabic text-gold font-bold text-base">{manzil.titleAr}</div>
                 <div className="font-english text-gold/70 text-xs mt-0.5 font-semibold" dir="ltr">{manzil.titleEn}</div>
-                <div className="font-english text-gold/35 text-xs" dir="ltr">{manzil.suras}</div>
+                <div className="font-english text-white/50 text-xs" dir="ltr">{manzil.suras}</div>
               </div>
               <div className="flex items-center gap-2" dir="ltr">
                 <div className="text-right hidden sm:block">
-                  <div className="font-english text-gold/40 text-xs">
+                  <div className="font-english text-white/50 text-xs">
                     {hasLessons ? `${manzil.lessons.length} lessons` : "Coming soon"}
                   </div>
                 </div>
@@ -136,11 +136,11 @@ export default function HomePage() {
                             {n}
                           </div>
                           <div dir="rtl" className="flex-1 min-w-0">
-                            <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors truncate">{m.ar}</div>
+                            <div className="font-arabic text-gold-light text-lg font-bold group-hover:text-gold transition-colors truncate">{m.ar}</div>
                             <div className="font-arabic text-white/30 text-sm">{m.sura}</div>
                           </div>
                           <div dir="ltr" className="flex-1 min-w-0 hidden sm:block">
-                            <div className="font-english text-white/55 text-sm italic truncate">{m.en}</div>
+                            <div className="font-english text-white/70 text-sm italic truncate">{m.en}</div>
                           </div>
                           {m.hasEn && (
                             <span className="font-english text-xs text-gold/60 border border-gold/25 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>

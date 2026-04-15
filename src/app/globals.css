@@ -17,6 +17,15 @@ body {
   color: var(--text);
   font-family: 'Amiri', 'Traditional Arabic', serif;
   min-height: 100vh;
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* English prose — Inter-like clean reading */
+.font-english {
+  font-size: 17px;
+  line-height: 1.85;
 }
 
 /* Arabic text */
