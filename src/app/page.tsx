@@ -58,20 +58,17 @@ function ManzilCard({ manzil, isOpen, onToggle }: {
         onClick={onToggle}
         className="w-full bg-gold/8 hover:bg-gold/13 px-4 py-3 flex items-center justify-between transition-colors"
       >
-        <div dir="rtl" className="text-right flex-1">
-          <div className="font-arabic text-gold font-bold text-sm leading-snug">{manzil.titleAr}</div>
-          <div className="font-english text-white font-bold text-sm mt-0.5">{manzil.titleEn}</div>
+        
+        <div className="flex-1 text-center">
+          <div className="font-arabic text-gold font-bold text-base leading-snug" dir="rtl">{manzil.titleAr}</div>
+          <div className="font-english text-white font-bold text-sm mt-1">{manzil.titleEn}</div>
           <div className="font-english text-white/70 text-xs mt-0.5">{manzil.suras}</div>
+          <div className="font-english text-white/50 text-xs mt-1">
+            {hasLessons ? `${manzil.lessons.length} lessons available` : "Coming soon"}
+          </div>
         </div>
-        <div className="flex items-center gap-2 ml-3 flex-shrink-0">
-          <span className="font-english text-white/35 text-xs hidden sm:block">
-            {hasLessons ? `${manzil.lessons.length} lessons` : "Coming soon"}
-          </span>
-          <ChevronDown
-            size={16}
-            className={`text-gold/50 transition-transform ${isOpen ? "rotate-180" : ""}`}
-          />
-        </div>
+        <ChevronDown size={16} className={`text-gold/50 flex-shrink-0 ml-2 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+      
       </button>
 
       {isOpen && (
