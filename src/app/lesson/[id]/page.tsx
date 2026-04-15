@@ -49,7 +49,22 @@ export default async function LessonPage({ params }: { params: { id: string } })
         />
       </Panel>
 
-      {/* 2. Reading Notes */}
+      {/* 2. Sheikh's Tafsir */}
+      <Panel icon="📜" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text">
+        <BilingualText
+          arabicText={lesson.arabicText}
+          englishText={lesson.englishText}
+          hasEnglish={lesson.hasEnglish}
+        />
+        <div className="border-t border-white/10 p-4 pb-3" dir="ltr">
+          <InlineCompare
+            jalalaynText={lesson.jalalaynText ? lesson.jalalaynText.substring(0, 800) + (lesson.jalalaynText.length > 800 ? '...' : '') : undefined}
+            usulaiUrl={usulBaseUrl}
+          />
+        </div>
+      </Panel>
+
+      {/* 3. Reading Notes */}
       <Panel icon="🖊️" titleAr="ملاحظات القراءة" titleEn="Reading Notes — Comparative Commentary">
         <div className="p-5" dir="ltr">
           <div className="mb-3 pb-3 border-b border-gold/15">
@@ -74,21 +89,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
               </p>
             </div>
           )}
-        </div>
-      </Panel>
-
-      {/* 3. Sheikh's Tafsir — bilingual with view toggle */}
-      <Panel icon="📜" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text">
-        <BilingualText
-          arabicText={lesson.arabicText}
-          englishText={lesson.englishText}
-          hasEnglish={lesson.hasEnglish}
-        />
-        <div className="border-t border-white/10 p-4 pb-3" dir="ltr">
-          <InlineCompare
-            jalalaynText={lesson.jalalaynText ? lesson.jalalaynText.substring(0, 800) + (lesson.jalalaynText.length > 800 ? '...' : '') : undefined}
-            usulaiUrl={usulBaseUrl}
-          />
         </div>
       </Panel>
 
