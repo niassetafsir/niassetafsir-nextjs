@@ -101,13 +101,13 @@ export default function HomePage() {
               onClick={() => toggle(manzil.id)}
               className="w-full bg-gold/8 hover:bg-gold/13 px-5 py-4 flex items-center justify-between transition-colors"
             >
-              <div dir="rtl" className="text-right">
+              <div dir="rtl" className="text-right flex-1">
                 <div className="font-arabic text-gold font-bold text-base">{manzil.titleAr}</div>
-                <div className="font-arabic text-gold/45 text-sm mt-0.5">{manzil.suras}</div>
+                <div className="font-english text-gold/70 text-xs mt-0.5 font-semibold" dir="ltr">{manzil.titleEn}</div>
+                <div className="font-english text-gold/35 text-xs" dir="ltr">{manzil.suras}</div>
               </div>
-              <div className="flex items-center gap-3" dir="ltr">
+              <div className="flex items-center gap-2" dir="ltr">
                 <div className="text-right hidden sm:block">
-                  <div className="font-english text-gold/85 font-semibold text-sm">{manzil.titleEn}</div>
                   <div className="font-english text-gold/40 text-xs">
                     {hasLessons ? `${manzil.lessons.length} lessons` : "Coming soon"}
                   </div>
