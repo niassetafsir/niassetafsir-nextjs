@@ -37,7 +37,24 @@ body {
 ::-webkit-scrollbar-track { background: #0a1a07; }
 ::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 3px; }
 
-/* Brighter white defaults */
-.text-white\/55 { color: rgba(255,255,255,0.72) !important; }
-.text-white\/45 { color: rgba(255,255,255,0.62) !important; }
-.text-white\/35 { color: rgba(255,255,255,0.52) !important; }
+/* ── Global white text brightness boost ──────────────────── */
+/* All English prose and interface text: brighter, crisper   */
+.font-english {
+  color: rgba(255,255,255,0.90);
+}
+.font-english.text-white\/70,
+.font-english.text-white\/65,
+.font-english.text-white\/60,
+.font-english.text-white\/55,
+.font-english.text-white\/50,
+.font-english.text-white\/45,
+.font-english.text-white\/40,
+.font-english.text-white\/35,
+.font-english.text-white\/30 {
+  color: rgba(255,255,255,0.80) !important;
+}
+/* Slightly dimmer for secondary labels — still readable */
+.font-english.text-white\/25,
+.font-english.text-white\/20 {
+  color: rgba(255,255,255,0.45) !important;
+}
