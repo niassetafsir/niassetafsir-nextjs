@@ -1,4 +1,5 @@
 import { getLesson, getAllLessons } from '@/lib/lessons';
+import { getReadingNotes } from '@/lib/readingNotes';
 import { notFound } from 'next/navigation';
 import Panel from '@/components/Panel';
 import AudioPanel from '@/components/AudioPanel';
@@ -10,25 +11,12 @@ export async function generateStaticParams() {
   return lessons.map(l => ({ id: String(l.id) }));
 }
 
-type View = 'both' | 'arabic' | 'english';
-
-// Server component: no useState, pass view as searchParam or just default to both
 export default async function LessonPage({ params }: { params: { id: string } }) {
   const lesson = await getLesson(Number(params.id));
   if (!lesson) notFound();
 
+  const readingNotes = getReadingNotes(Number(params.id));
   const arParagraphs = lesson.arabicText.split('\n').filter((p: string) => p.trim());
-  
-  // Map Jalalayn by verse for inline notes
-  const JAL_VERSE_MAP: Record<string, string> = {};
-  if (lesson.jalalaynText) {
-    const blocks = lesson.jalalaynText.split(/(?=\[\d+:\d+\])/);
-    for (const block of blocks) {
-      const m = block.match(/^\[(\d+):(\d+)\]/);
-      if (m) JAL_VERSE_MAP[`${m[1]}:${m[2]}`] = block.trim();
-    }
-  }
-
   const usulBaseUrl = 'https://usul.ai/t/ruh-bayan';
 
   return (
@@ -61,7 +49,35 @@ export default async function LessonPage({ params }: { params: { id: string } })
         />
       </Panel>
 
-      {/* 2. Sheikh's Tafsir — bilingual with inline compare */}
+      {/* 2. Reading Notes — scholarly comparative commentary */}
+      <Panel icon="🖊️" titleAr="ملاحظات القراءة" titleEn="Reading Notes — Comparative Commentary">
+        <div className="p-5" dir="ltr">
+          <div className="mb-3 pb-3 border-b border-gold/15">
+            <div className="font-english text-white/50 text-xs italic">
+              Scholarly notes comparing Niasse to Tafsīr al-Jalālayn and Rūḥ al-Bayān ·
+              Amadu Kunateh, Harvard University
+            </div>
+          </div>
+          {readingNotes ? (
+            <div
+              className="font-english text-white/85 text-sm leading-7 space-y-3"
+              dangerouslySetInnerHTML={{ __html: readingNotes }}
+            />
+          ) : (
+            <div className="text-center py-6">
+              <p className="font-english text-white/20 italic text-sm">
+                Reading notes for this lesson are in preparation.
+              </p>
+              <p className="font-english text-white/15 text-xs mt-2">
+                Notes will include: overview · Niasse&apos;s distinctive position ·
+                comparative analysis with Jalālayn and Rūḥ al-Bayān · theological significance
+              </p>
+            </div>
+          )}
+        </div>
+      </Panel>
+
+      {/* 3. Sheikh's Tafsir — bilingual */}
       <Panel icon="📜" titleAr="تفسير الشيخ" titleEn="Sheikh's Tafsīr">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
           {/* Arabic */}
@@ -70,7 +86,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
               <p key={i} className="mb-3">{p}</p>
             ))}
           </div>
-          {/* English with inline notes */}
+          {/* English */}
           <div dir="ltr" className="p-5">
             {lesson.hasEnglish && lesson.englishText ? (
               <div
@@ -82,16 +98,15 @@ export default async function LessonPage({ params }: { params: { id: string } })
                 English translation forthcoming.
               </p>
             )}
-            {/* Inline compare after all content */}
             <InlineCompare
-              jalalaynText={lesson.jalalaynText ? lesson.jalalaynText.substring(0, 1000) + (lesson.jalalaynText.length > 1000 ? '...' : '') : undefined}
+              jalalaynText={lesson.jalalaynText ? lesson.jalalaynText.substring(0, 800) + (lesson.jalalaynText.length > 800 ? '...' : '') : undefined}
               usulaiUrl={usulBaseUrl}
             />
           </div>
         </div>
       </Panel>
 
-      {/* 3. Jalalayn — full text */}
+      {/* 4. Jalalayn — full text */}
       <Panel icon="📖" titleAr="تفسير الجلالين" titleEn="Tafsīr al-Jalālayn — Full Text">
         <div className="p-5" dir="ltr">
           <div className="flex justify-between items-center mb-3 pb-3 border-b border-blue-900/30">
@@ -112,7 +127,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </Panel>
 
-      {/* 4. Ruh al-Bayan */}
+      {/* 5. Ruh al-Bayan */}
       <Panel icon="📗" titleAr="رُوحُ الْبَيَانِ" titleEn="Rūḥ al-Bayān">
         <div className="p-5" dir="ltr">
           <div className="flex justify-between items-center mb-3 pb-3 border-b border-green-900/30">
