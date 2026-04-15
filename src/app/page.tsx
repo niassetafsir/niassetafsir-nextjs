@@ -189,21 +189,17 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Manzils — 2-column grid on desktop */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* Days 1 & 2 */}
-        <ManzilCard manzil={MANZILS[0]} isOpen={openManzils[1] ?? false} onToggle={() => toggle(1)} />
-        <ManzilCard manzil={MANZILS[1]} isOpen={openManzils[2] ?? false} onToggle={() => toggle(2)} />
-        {/* Days 3 & 4 */}
-        <ManzilCard manzil={MANZILS[2]} isOpen={openManzils[3] ?? false} onToggle={() => toggle(3)} />
-        <ManzilCard manzil={MANZILS[3]} isOpen={openManzils[4] ?? false} onToggle={() => toggle(4)} />
-        {/* Days 5 & 6 */}
-        <ManzilCard manzil={MANZILS[4]} isOpen={openManzils[5] ?? false} onToggle={() => toggle(5)} />
-        <ManzilCard manzil={MANZILS[5]} isOpen={openManzils[6] ?? false} onToggle={() => toggle(6)} />
-        {/* Day 7 — full width */}
-        <div className="md:col-span-2">
-          <ManzilCard manzil={MANZILS[6]} isOpen={openManzils[7] ?? false} onToggle={() => toggle(7)} />
-        </div>
+      {/* Manzils — horizontal centered row with overflow scroll */}
+      <div className="flex justify-center gap-3 overflow-x-auto pb-2 -mx-4 px-4">
+        {MANZILS.map((manzil, idx) => (
+          <div key={manzil.id} className="flex-shrink-0 w-48">
+            <ManzilCard
+              manzil={manzil}
+              isOpen={openManzils[manzil.id] ?? false}
+              onToggle={() => toggle(manzil.id)}
+            />
+          </div>
+        ))}
       </div>
 
       <footer className="text-center mt-12 pt-8 border-t border-gold/15">
