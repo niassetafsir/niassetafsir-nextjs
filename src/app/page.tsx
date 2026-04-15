@@ -47,7 +47,7 @@ const MANZILS = [
 ];
 
 export default function HomePage() {
-  const [openManzils, setOpenManzils] = useState<Record<number, boolean>>({1: true});
+  const [openManzils, setOpenManzils] = useState<Record<number, boolean>>({});
   const toggle = (id: number) => setOpenManzils(prev => ({...prev, [id]: !prev[id]}));
 
   return (
