@@ -37,21 +37,84 @@ const LESSON_META: Record<number, {ar: string, en: string, sura: string, hasEn: 
 };
 
 const MANZILS = [
-  {id:1, titleAr:"المنزل الأول — اليوم الأول", titleEn:"First Manzil · Day One", suras:"Al-Fātiḥa → Al-Nisāʾ (Suras 1–4)", lessons:[1,2,3,4,5,6,7,8,9,10,11,12,13]},
-  {id:2, titleAr:"المنزل الثاني — اليوم الثاني", titleEn:"Second Manzil · Day Two", suras:"Al-Māʾida → Al-Tawba (Suras 5–9)", lessons:[14,15,16,17,18,19,20,21,22,23]},
-  {id:3, titleAr:"المنزل الثالث — اليوم الثالث", titleEn:"Third Manzil · Day Three", suras:"Yūnus → Al-Naḥl (Suras 10–16)", lessons:[24,25,26,27,28,29,30]},
-  {id:4, titleAr:"المنزل الرابع — اليوم الرابع", titleEn:"Fourth Manzil · Day Four", suras:"Al-Isrāʾ → Al-Furqān (Suras 17–25)", lessons:[]},
-  {id:5, titleAr:"المنزل الخامس — اليوم الخامس", titleEn:"Fifth Manzil · Day Five", suras:"Al-Shuʿarāʾ → Yā Sīn (Suras 26–36)", lessons:[]},
-  {id:6, titleAr:"المنزل السادس — اليوم السادس", titleEn:"Sixth Manzil · Day Six", suras:"Al-Ṣāffāt → Al-Ḥujurāt (Suras 37–49)", lessons:[]},
-  {id:7, titleAr:"المنزل السابع — اليوم السابع", titleEn:"Seventh Manzil · Day Seven", suras:"Qāf → Al-Nās (Suras 50–114)", lessons:[]},
+  {id:1, titleAr:"المنزل الأول — اليوم الأول", titleEn:"First Manzil · Day One", suras:"Al-Fātiḥa → Al-Nisāʾ", lessons:[1,2,3,4,5,6,7,8,9,10,11,12,13]},
+  {id:2, titleAr:"المنزل الثاني — اليوم الثاني", titleEn:"Second Manzil · Day Two", suras:"Al-Māʾida → Al-Tawba", lessons:[14,15,16,17,18,19,20,21,22,23]},
+  {id:3, titleAr:"المنزل الثالث — اليوم الثالث", titleEn:"Third Manzil · Day Three", suras:"Yūnus → Al-Naḥl", lessons:[24,25,26,27,28,29,30]},
+  {id:4, titleAr:"المنزل الرابع — اليوم الرابع", titleEn:"Fourth Manzil · Day Four", suras:"Al-Isrāʾ → Al-Furqān", lessons:[]},
+  {id:5, titleAr:"المنزل الخامس — اليوم الخامس", titleEn:"Fifth Manzil · Day Five", suras:"Al-Shuʿarāʾ → Yā Sīn", lessons:[]},
+  {id:6, titleAr:"المنزل السادس — اليوم السادس", titleEn:"Sixth Manzil · Day Six", suras:"Al-Ṣāffāt → Al-Ḥujurāt", lessons:[]},
+  {id:7, titleAr:"المنزل السابع — اليوم السابع", titleEn:"Seventh Manzil · Day Seven", suras:"Qāf → Al-Nās", lessons:[]},
 ];
+
+function ManzilCard({ manzil, isOpen, onToggle }: {
+  manzil: typeof MANZILS[0];
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  const hasLessons = manzil.lessons.length > 0;
+  return (
+    <div className="border border-gold/15 rounded-xl overflow-hidden flex flex-col">
+      <button
+        onClick={onToggle}
+        className="w-full bg-gold/8 hover:bg-gold/13 px-4 py-3 flex items-center justify-between transition-colors"
+      >
+        <div dir="rtl" className="text-right flex-1">
+          <div className="font-arabic text-gold font-bold text-sm leading-snug">{manzil.titleAr}</div>
+          <div className="font-english text-white font-semibold text-xs mt-0.5">{manzil.titleEn}</div>
+          <div className="font-english text-white/45 text-xs">{manzil.suras}</div>
+        </div>
+        <div className="flex items-center gap-2 ml-3 flex-shrink-0">
+          <span className="font-english text-white/35 text-xs hidden sm:block">
+            {hasLessons ? `${manzil.lessons.length} lessons` : "Coming soon"}
+          </span>
+          <ChevronDown
+            size={16}
+            className={`text-gold/50 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          />
+        </div>
+      </button>
+
+      {isOpen && (
+        <div className="flex-1">
+          {!hasLessons ? (
+            <div className="px-4 py-3 font-english text-white/25 italic text-sm" dir="ltr">
+              Coming soon — further volumes in preparation.
+            </div>
+          ) : (
+            <div className="divide-y divide-white/5">
+              {manzil.lessons.map(n => {
+                const m = LESSON_META[n];
+                if (!m) return null;
+                return (
+                  <Link key={n} href={`/lesson/${n}`} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gold/5 transition-colors group">
+                    <div className="w-6 h-6 rounded-full bg-gold flex items-center justify-center text-bg text-xs font-bold flex-shrink-0">
+                      {n}
+                    </div>
+                    <div dir="rtl" className="flex-1 min-w-0">
+                      <div className="font-arabic text-gold-light text-sm font-bold group-hover:text-gold transition-colors truncate">{m.ar}</div>
+                      <div className="font-english text-white/45 text-xs truncate">{m.sura}</div>
+                    </div>
+                    {m.hasEn && (
+                      <span className="font-english text-xs text-gold/50 border border-gold/20 px-1.5 py-0.5 rounded-full flex-shrink-0">EN</span>
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function HomePage() {
   const [openManzils, setOpenManzils] = useState<Record<number, boolean>>({});
+  const [showGuide, setShowGuide] = useState(false);
   const toggle = (id: number) => setOpenManzils(prev => ({...prev, [id]: !prev[id]}));
 
   return (
-    <main className="max-w-4xl mx-auto px-4 pb-20">
+    <main className="max-w-5xl mx-auto px-4 pb-20">
 
       {/* Header */}
       <div className="text-center py-12 border-b border-gold/20 mb-8">
@@ -64,17 +127,52 @@ export default function HomePage() {
         <div className="font-english text-white/55 text-base mt-2" dir="ltr">
           In the Gardens of Exegesis — The Digital Bilingual Edition
         </div>
-        <div className="flex gap-3 justify-center mt-6 flex-wrap">
+        <div className="flex gap-3 justify-center mt-6 flex-wrap items-center">
           <Link href="/lesson/1" className="font-english text-base text-bg bg-gold hover:bg-gold-light px-5 py-2 rounded-lg font-semibold transition-all">
             Start Reading →
           </Link>
-          <Link href="/introduction" className="font-english text-base text-white/65 border border-gold/30 hover:border-gold/60 hover:text-gold px-5 py-2 rounded-lg transition-all">
-            Translator&apos;s Introduction
+          <button
+            onClick={() => setShowGuide(!showGuide)}
+            className="font-english text-sm text-white/55 border border-white/20 hover:border-gold/40 hover:text-white/80 px-4 py-2 rounded-lg transition-all"
+          >
+            {showGuide ? "Close Guide" : "How to Use This Site"}
+          </button>
+          <Link href="/introduction" className="font-english text-sm text-white/45 border border-white/12 hover:border-gold/30 hover:text-white/65 px-4 py-2 rounded-lg transition-all">
+            Introduction
           </Link>
-          <Link href="/about" className="font-english text-base text-white/45 border border-white/15 hover:border-gold/30 hover:text-white/65 px-5 py-2 rounded-lg transition-all">
-            About This Edition
+          <Link href="/about" className="font-english text-sm text-white/35 border border-white/10 hover:border-gold/25 hover:text-white/55 px-4 py-2 rounded-lg transition-all">
+            About
           </Link>
         </div>
+
+        {/* How to Use guide */}
+        {showGuide && (
+          <div className="mt-6 p-5 border border-gold/20 rounded-xl bg-gold/4 text-left max-w-2xl mx-auto" dir="ltr">
+            <h3 className="font-english text-gold font-semibold text-base mb-3">Using This Site</h3>
+            <div className="font-english text-white/75 text-sm leading-7 space-y-2">
+              <p>
+                This is a digital scholarly edition of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by
+                Shaykh Ibrāhīm Niasse (d. 1975), with an English translation by Amadu Kunateh (Harvard University).
+              </p>
+              <p>
+                The Qurʾān is divided into <strong className="text-white">7 manzils</strong> — daily recitation
+                portions as practised by Shaykh Ibrāhīm. Click any manzil below to expand its lessons,
+                then select a lesson to begin reading.
+              </p>
+              <p>
+                Each lesson offers: <strong className="text-white">audio</strong> (Wolof and Arabic),
+                the <strong className="text-white">bilingual tafsīr text</strong> in Arabic and English,
+                <strong className="text-white"> Reading Notes</strong> with comparative commentary,
+                and companion texts from <strong className="text-white">Tafsīr al-Jalālayn</strong> and
+                <strong className="text-white"> Rūḥ al-Bayān</strong>.
+              </p>
+              <p>
+                The site supports five languages: Arabic, English, Français, Wolof, and Hausa — with
+                French, Wolof, and Hausa translations in preparation.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Manzil verse */}
@@ -91,70 +189,22 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Collapsible Manzils */}
-      {MANZILS.map(manzil => {
-        const isOpen = openManzils[manzil.id] ?? false;
-        const hasLessons = manzil.lessons.length > 0;
-        return (
-          <div key={manzil.id} className="mb-4 border border-gold/15 rounded-xl overflow-hidden">
-            <button
-              onClick={() => toggle(manzil.id)}
-              className="w-full bg-gold/8 hover:bg-gold/13 px-5 py-4 flex items-center justify-between transition-colors"
-            >
-              <div dir="rtl" className="text-right flex-1">
-                <div className="font-arabic text-gold font-bold text-base">{manzil.titleAr}</div>
-                <div className="font-english text-gold/70 text-xs mt-0.5 font-semibold" dir="ltr">{manzil.titleEn}</div>
-                <div className="font-english text-white/50 text-xs" dir="ltr">{manzil.suras}</div>
-              </div>
-              <div className="flex items-center gap-2" dir="ltr">
-                <div className="text-right hidden sm:block">
-                  <div className="font-english text-white/50 text-xs">
-                    {hasLessons ? `${manzil.lessons.length} lessons` : "Coming soon"}
-                  </div>
-                </div>
-                <ChevronDown
-                  size={18}
-                  className={`text-gold/50 transition-transform ${isOpen ? "rotate-180" : ""}`}
-                />
-              </div>
-            </button>
-
-            {isOpen && (
-              <div>
-                {!hasLessons ? (
-                  <div className="px-5 py-4 font-english text-white/25 italic text-sm" dir="ltr">
-                    Coming soon — further volumes in preparation.
-                  </div>
-                ) : (
-                  <div className="divide-y divide-white/5">
-                    {manzil.lessons.map(n => {
-                      const m = LESSON_META[n];
-                      if (!m) return null;
-                      return (
-                        <Link key={n} href={`/lesson/${n}`} className="flex items-center gap-4 px-5 py-3 hover:bg-gold/5 transition-colors group">
-                          <div className="w-7 h-7 rounded-full bg-gold flex items-center justify-center text-bg text-xs font-bold flex-shrink-0">
-                            {n}
-                          </div>
-                          <div dir="rtl" className="flex-1 min-w-0">
-                            <div className="font-arabic text-gold-light text-lg font-bold group-hover:text-gold transition-colors truncate">{m.ar}</div>
-                            <div className="font-arabic text-white/30 text-sm">{m.sura}</div>
-                          </div>
-                          <div dir="ltr" className="flex-1 min-w-0 hidden sm:block">
-                            <div className="font-english text-white/70 text-sm italic truncate">{m.en}</div>
-                          </div>
-                          {m.hasEn && (
-                            <span className="font-english text-xs text-gold/60 border border-gold/25 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>
-                          )}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        );
-      })}
+      {/* Manzils — 2-column grid on desktop */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Days 1 & 2 */}
+        <ManzilCard manzil={MANZILS[0]} isOpen={openManzils[1] ?? false} onToggle={() => toggle(1)} />
+        <ManzilCard manzil={MANZILS[1]} isOpen={openManzils[2] ?? false} onToggle={() => toggle(2)} />
+        {/* Days 3 & 4 */}
+        <ManzilCard manzil={MANZILS[2]} isOpen={openManzils[3] ?? false} onToggle={() => toggle(3)} />
+        <ManzilCard manzil={MANZILS[3]} isOpen={openManzils[4] ?? false} onToggle={() => toggle(4)} />
+        {/* Days 5 & 6 */}
+        <ManzilCard manzil={MANZILS[4]} isOpen={openManzils[5] ?? false} onToggle={() => toggle(5)} />
+        <ManzilCard manzil={MANZILS[5]} isOpen={openManzils[6] ?? false} onToggle={() => toggle(6)} />
+        {/* Day 7 — full width */}
+        <div className="md:col-span-2">
+          <ManzilCard manzil={MANZILS[6]} isOpen={openManzils[7] ?? false} onToggle={() => toggle(7)} />
+        </div>
+      </div>
 
       <footer className="text-center mt-12 pt-8 border-t border-gold/15">
         <div className="font-arabic text-gold text-sm">فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ</div>
