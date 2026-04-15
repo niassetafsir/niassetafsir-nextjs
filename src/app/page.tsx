@@ -189,16 +189,15 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Manzils — horizontal centered row with overflow scroll */}
-      <div className="flex justify-center gap-3 overflow-x-auto pb-2 -mx-4 px-4">
-        {MANZILS.map((manzil, idx) => (
-          <div key={manzil.id} className="flex-shrink-0 w-48">
-            <ManzilCard
-              manzil={manzil}
-              isOpen={openManzils[manzil.id] ?? false}
-              onToggle={() => toggle(manzil.id)}
-            />
-          </div>
+      {/* Manzils — vertical stack, centered, max-width contained */}
+      <div className="max-w-2xl mx-auto space-y-3">
+        {MANZILS.map(manzil => (
+          <ManzilCard
+            key={manzil.id}
+            manzil={manzil}
+            isOpen={openManzils[manzil.id] ?? false}
+            onToggle={() => toggle(manzil.id)}
+          />
         ))}
       </div>
 
