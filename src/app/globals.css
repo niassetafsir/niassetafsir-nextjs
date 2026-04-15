@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0D1F0A;
+  --gold: #C9A84C;
+  --gold-light: #E8D4A0;
+  --text: #E8E8E0;
+  --border: rgba(201,168,76,0.25);
+}
+
+html { background: var(--bg); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  min-height: 100vh;
+}
+
+/* Arabic text */
+.font-arabic { font-family: 'Amiri', 'Traditional Arabic', serif; }
+.font-english { font-family: 'EB Garamond', Georgia, serif; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a1a07; }
+::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 3px; }
