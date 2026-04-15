@@ -60,8 +60,8 @@ function ManzilCard({ manzil, isOpen, onToggle }: {
       >
         <div dir="rtl" className="text-right flex-1">
           <div className="font-arabic text-gold font-bold text-sm leading-snug">{manzil.titleAr}</div>
-          <div className="font-english text-white font-semibold text-xs mt-0.5">{manzil.titleEn}</div>
-          <div className="font-english text-white/45 text-xs">{manzil.suras}</div>
+          <div className="font-english text-white font-bold text-sm mt-0.5">{manzil.titleEn}</div>
+          <div className="font-english text-white/70 text-xs mt-0.5">{manzil.suras}</div>
         </div>
         <div className="flex items-center gap-2 ml-3 flex-shrink-0">
           <span className="font-english text-white/35 text-xs hidden sm:block">
@@ -92,7 +92,7 @@ function ManzilCard({ manzil, isOpen, onToggle }: {
                     </div>
                     <div dir="rtl" className="flex-1 min-w-0">
                       <div className="font-arabic text-gold-light text-sm font-bold group-hover:text-gold transition-colors truncate">{m.ar}</div>
-                      <div className="font-english text-white/45 text-xs truncate">{m.sura}</div>
+                      <div className="font-english text-white/65 text-xs truncate">{m.sura}</div>
                     </div>
                     {m.hasEn && (
                       <span className="font-english text-xs text-gold/50 border border-gold/20 px-1.5 py-0.5 rounded-full flex-shrink-0">EN</span>

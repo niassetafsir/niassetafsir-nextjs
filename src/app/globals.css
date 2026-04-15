@@ -36,3 +36,8 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #0a1a07; }
 ::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 3px; }
+
+/* Brighter white defaults */
+.text-white\/55 { color: rgba(255,255,255,0.72) !important; }
+.text-white\/45 { color: rgba(255,255,255,0.62) !important; }
+.text-white\/35 { color: rgba(255,255,255,0.52) !important; }
