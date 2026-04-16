@@ -251,3 +251,18 @@ body {
 [data-theme="light"] .font-arabic.text-gold-light {
   color: #5c3d0e !important;
 }
+
+/* Light mode: maroon headings, jet black body */
+[data-theme="light"] .text-gold,
+[data-theme="light"] .font-arabic.text-gold,
+[data-theme="light"] .font-english.text-gold {
+  color: #7B1C1C !important;
+}
+[data-theme="light"] .text-gold-light,
+[data-theme="light"] .font-arabic.text-gold-light {
+  color: #5c1a1a !important;
+}
+/* Manzil section Arabic title */
+[data-theme="light"] .font-arabic.text-gold.font-bold {
+  color: #7B1C1C !important;
+}
