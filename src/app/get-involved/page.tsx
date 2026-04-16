@@ -2,11 +2,6 @@ import Link from 'next/link';
 
 const ROLES = [
   {
-    title: "Arabic Text Verification",
-    desc: "Review the digitised Arabic text against the physical volumes, flagging errors, typos, and scan artifacts. Knowledge of classical Arabic required.",
-    contact: "niassetafsirproject@gmail.com"
-  },
-  {
     title: "Wolof Audio Transcription",
     desc: "Assist in transcribing Shaykh Ibrāhīm Niasse's Wolof tafsīr sessions from the audio recordings. Native or advanced Wolof speaker required.",
     contact: "niassetafsirproject@gmail.com"
