@@ -51,8 +51,8 @@ function NavDropdown({ label, items }: { label: string; items: DropdownItem[] })
               onClick={() => setOpen(false)}
               className="flex flex-col items-center px-3 py-2 hover:bg-gold/8 transition-colors border-b border-white/5 last:border-0 text-center"
             >
-              <span className="font-english text-[11px] text-white/80 font-medium tracking-wide">{item.label}</span>
-              {item.sub && <span className="font-english text-[9px] text-white/25 mt-0.5 italic">{item.sub}</span>}
+              <span className="font-english text-[13px] text-white/80 font-medium">{item.label}</span>
+              {item.sub && <span className="font-english text-[11px] text-white/40 mt-0.5">{item.sub}</span>}
             </Link>
           ))}
         </div>
@@ -83,10 +83,10 @@ export default function SiteNav() {
   ];
 
   const CONTRIBUTE_ITEMS: DropdownItem[] = [
-    { label: "Feedback", sub: "", href: "/get-involved#feedback" },
-    { label: "Suggestions", sub: "", href: "/get-involved#suggestions" },
-    { label: "Transcribe", sub: "(Wolof & Hausa Transcription Project)", href: "/get-involved#transcribe" },
-    { label: "Translate", sub: "(Hausa Translation Project)", href: "/get-involved#translate" },
+    { label: "Feedback", sub: "Share your experience", href: "/get-involved/feedback" },
+    { label: "Suggestions", sub: "Ideas for the project", href: "/get-involved/suggestions" },
+    { label: "Transcribe", sub: "Wolof & Hausa Transcription", href: "/get-involved/transcribe" },
+    { label: "Translate", sub: "Hausa Translation Project", href: "/get-involved/translate" },
   ];
 
   return (
