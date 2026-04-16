@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import ArabicWordTool from '@/components/ArabicWordTool';
 
 type View = 'bilingual' | 'arabic' | 'english' | 'french' | 'wolof' | 'hausa';
 
@@ -164,8 +165,8 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
 
       {/* Arabic only */}
       {view === 'arabic' && (
-        <div dir="rtl" className="p-5 font-arabic text-[1.1rem] leading-[2.2] text-text-main text-justify">
-          {commentaryParagraphs.map((p, i) => <p key={i} className="mb-3">{p}</p>)}
+        <div className="p-5">
+          <ArabicWordTool text={commentaryParagraphs.map(p => `<p class="mb-3">${p}</p>`).join('')} />
         </div>
       )}
 
