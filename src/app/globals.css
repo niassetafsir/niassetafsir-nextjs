@@ -58,3 +58,102 @@ body {
 .font-english.text-white\/20 {
   color: rgba(255,255,255,0.45) !important;
 }
+
+/* ── Light Mode (al-Attas cream + DOCX palette) ──────────── */
+[data-theme="light"] {
+  --bg: #FAF6EF;
+  --gold: #8b6914;
+  --gold-light: #5c3d0e;
+  --text: #1a1a1a;
+  --text-en: #444444;
+  --border-color: rgba(139,105,20,0.2);
+}
+
+[data-theme="light"] body {
+  background: #FAF6EF;
+  color: #1a1a1a;
+}
+
+/* Overrides for light mode */
+[data-theme="light"] .bg-bg,
+[data-theme="light"] main {
+  background: #FAF6EF;
+}
+
+[data-theme="light"] .text-gold,
+[data-theme="light"] .font-arabic.text-gold {
+  color: #8b6914 !important;
+}
+
+[data-theme="light"] .text-gold-light {
+  color: #5c3d0e !important;
+}
+
+[data-theme="light"] .text-text-main,
+[data-theme="light"] .font-arabic {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .font-english {
+  color: #444444 !important;
+}
+
+[data-theme="light"] .font-english.text-white,
+[data-theme="light"] .font-english.text-white\/90,
+[data-theme="light"] .font-english.text-white\/85,
+[data-theme="light"] .font-english.text-white\/80 {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .border-gold\/20,
+[data-theme="light"] .border-gold\/15 {
+  border-color: rgba(139,105,20,0.2) !important;
+}
+
+[data-theme="light"] .bg-gold\/8,
+[data-theme="light"] .bg-gold\/3 {
+  background: rgba(139,105,20,0.06) !important;
+}
+
+[data-theme="light"] .bg-black\/30 {
+  background: rgba(250,246,239,0.95) !important;
+  border-bottom-color: rgba(139,105,20,0.2) !important;
+}
+
+/* Nav in light mode */
+[data-theme="light"] nav.sticky {
+  background: rgba(250,246,239,0.97) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Panels in light mode */
+[data-theme="light"] .border-white\/10 {
+  border-color: rgba(139,105,20,0.15) !important;
+}
+
+[data-theme="light"] .bg-gold\/5,
+[data-theme="light"] .hover\:bg-gold\/5:hover {
+  background: rgba(139,105,20,0.05) !important;
+}
+
+[data-theme="light"] .bg-gold {
+  background: #8b6914 !important;
+  color: #FAF6EF !important;
+}
+
+/* Manzil cards */
+[data-theme="light"] .rounded-xl.border {
+  background: #FAF6EF;
+  box-shadow: 0 1px 4px rgba(92,61,14,0.08);
+}
+
+/* Footer */
+[data-theme="light"] footer {
+  background: #F0EAE0;
+  border-top-color: rgba(139,105,20,0.2) !important;
+}
+
+[data-theme="light"] .text-white\/25,
+[data-theme="light"] .text-white\/20 {
+  color: rgba(92,61,14,0.45) !important;
+}

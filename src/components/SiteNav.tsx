@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { type Lang } from '@/lib/i18n';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const LANGS: { code: Lang; label: string }[] = [
   { code: 'en', label: 'EN' },
@@ -45,8 +46,7 @@ export default function SiteNav() {
         <Link href="/about" className="font-english text-xs text-white/50 hover:text-gold border border-gold/20 hover:border-gold/50 px-3 py-1 rounded-full transition-all hidden sm:block">
           {nav.about}
         </Link>
-        {/* Language switcher */}
-        <div className="flex gap-1 ml-2 border-l border-white/10 pl-2">
+        <div className="flex gap-1 ml-1 border-l border-white/10 pl-2">
           {LANGS.map(l => (
             <button
               key={l.code}
@@ -61,6 +61,7 @@ export default function SiteNav() {
             </button>
           ))}
         </div>
+        <ThemeToggle />
       </div>
     </nav>
   );
