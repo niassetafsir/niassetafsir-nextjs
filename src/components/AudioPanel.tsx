@@ -10,6 +10,10 @@ interface AudioPanelProps {
 
 type Tab = 'wolof' | 'arabic';
 
+const IA_ITEM = 'Baye-tafsir';
+const IA_EMBED = `https://archive.org/embed/${IA_ITEM}`;
+const IA_URL = `https://archive.org/details/${IA_ITEM}`;
+
 export default function AudioPanel({ wolofPlaylistId, arabicPlaylistId, arabicAudioUrl, sura }: AudioPanelProps) {
   const [tab, setTab] = useState<Tab>('wolof');
 
@@ -26,7 +30,7 @@ export default function AudioPanel({ wolofPlaylistId, arabicPlaylistId, arabicAu
                 : 'text-white/40 hover:text-white/60'
             }`}
           >
-            🔊 {t === 'wolof' ? 'Wolof Tafsīr' : 'Arabic Tafsīr'}
+            {t === 'wolof' ? 'Wolof Tafsīr' : 'Arabic Tafsīr'}
           </button>
         ))}
       </div>
@@ -34,24 +38,31 @@ export default function AudioPanel({ wolofPlaylistId, arabicPlaylistId, arabicAu
       <div className="p-4" dir="ltr">
         {tab === 'wolof' && (
           <div>
+            {/* Internet Archive embed — full playlist, 122 sessions */}
             <iframe
-              src={`https://www.youtube.com/embed/videoseries?list=${wolofPlaylistId}`}
-              width="100%" height="110"
+              src={IA_EMBED}
+              width="100%"
+              height="150"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media"
               allowFullScreen
               loading="lazy"
               className="rounded block"
+              style={{ background: 'transparent' }}
             />
-            <p className="font-english text-xs text-yellow-200/30 mt-2">
-              {sura} · TAFSÎR DE BAYE NIASS (RTA) ·{' '}
+            <div className="flex items-center justify-between mt-2">
+              <p className="font-english text-xs text-yellow-200/50">
+                Shaykh Ibrāhīm Niasse · Wolof Tafsīr · {sura}
+              </p>
               <a
-                href={`https://www.youtube.com/playlist?list=${wolofPlaylistId}`}
+                href={IA_URL}
                 target="_blank" rel="noopener"
-                className="text-yellow-400/40 hover:text-yellow-400/60"
+                className="font-english text-xs text-yellow-400/50 hover:text-yellow-400/80 border border-yellow-400/20 hover:border-yellow-400/40 px-2 py-0.5 rounded-full transition-all"
               >
-                Open full playlist ↗
+                Internet Archive ↗
               </a>
+            </div>
+            <p className="font-english text-xs text-white/20 mt-1">
+              122 sessions available. Navigate within the player to find the session for this lesson.
             </p>
           </div>
         )}
@@ -59,17 +70,23 @@ export default function AudioPanel({ wolofPlaylistId, arabicPlaylistId, arabicAu
         {tab === 'arabic' && (
           <div>
             {arabicAudioUrl ? (
-              <audio controls className="w-full rounded" style={{ accentColor: '#C9A84C' }}>
-                <source src={arabicAudioUrl} type="audio/mpeg" />
-              </audio>
+              <div>
+                <audio controls className="w-full rounded" style={{ accentColor: '#C9A84C' }}>
+                  <source src={arabicAudioUrl} type="audio/mpeg" />
+                </audio>
+                <p className="font-english text-xs text-white/30 mt-2">{sura} · Arabic Tafsīr</p>
+              </div>
             ) : (
-              <iframe
-                src={`https://www.youtube.com/embed/videoseries?list=${arabicPlaylistId}`}
-                width="100%" height="110"
-                frameBorder="0"
-                allowFullScreen loading="lazy"
-                className="rounded block"
-              />
+              <div>
+                <iframe
+                  src={`https://www.youtube.com/embed/videoseries?list=${arabicPlaylistId}`}
+                  width="100%" height="110"
+                  frameBorder="0"
+                  allowFullScreen loading="lazy"
+                  className="rounded block"
+                />
+                <p className="font-english text-xs text-white/25 mt-2">{sura} · Arabic Tafsīr</p>
+              </div>
             )}
           </div>
         )}
