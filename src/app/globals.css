@@ -331,3 +331,30 @@ body {
 [data-theme="light"] .font-english.text-white\/20 {
   color: #555555 !important;
 }
+
+/* ── Email input: always dark text ──────────────── */
+input[type="email"] {
+  color: #111111 !important;
+  background: #ffffff !important;
+}
+input[type="email"]::placeholder {
+  color: #888888 !important;
+}
+
+/* ── Wider content, larger reading fonts ─────────── */
+/* Usul.ai style: wider container, bigger text */
+.lesson-container {
+  max-width: 1100px !important;
+}
+
+/* Arabic tafsir text — larger, more readable */
+.font-arabic {
+  font-size: 19px !important;
+  line-height: 2.2 !important;
+}
+
+/* English body text — larger */
+.font-english {
+  font-size: 17px !important;
+  line-height: 1.9 !important;
+}

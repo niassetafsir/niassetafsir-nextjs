@@ -85,7 +85,7 @@ export default function SearchPage() {
   });
 
   return (
-    <main className="max-w-3xl mx-auto px-4 pb-20 pt-6" dir="ltr">
+    <main className="max-w-4xl mx-auto px-4 pb-20 pt-6" dir="ltr">
       <div className="mb-8">
         <h1 className="font-arabic text-gold text-2xl font-bold mb-1 text-center" dir="rtl">
           البحث في التفسير

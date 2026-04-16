@@ -20,7 +20,7 @@ const ROLES = [
 
 export default function GetInvolvedPage() {
   return (
-    <main className="max-w-3xl mx-auto px-4 pb-20 pt-6" dir="ltr">
+    <main className="max-w-4xl mx-auto px-4 pb-20 pt-6" dir="ltr">
       <div className="text-center pb-8 mb-8 border-b border-gold/20">
         <div className="font-english text-gold text-2xl font-semibold">Get Involved</div>
         <div className="font-english text-white/50 text-sm mt-2 italic">
