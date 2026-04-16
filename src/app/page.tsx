@@ -172,17 +172,12 @@ export default function HomePage() {
         )}
       </div>
 
-      {/* Manzil verse */}
-      <div className="mb-8 p-5 border border-gold/15 rounded-xl bg-gold/3 text-center">
-        <div className="font-arabic text-gold/80 text-base leading-9 mb-3" dir="rtl">
-          الفاتحة والمائدة يونس الإسرا · والشعراء والصافات قاف قد أُبانا
-          <br />
-          فمن جمع الفرقان بالجمع ختم · قراءة الفرقان مع ما هانا
-        </div>
+      {/* Manzil verse — English only */}
+      <div className="mb-8 p-4 border border-gold/15 rounded-xl bg-gold/3 text-center">
         <div className="font-english text-white text-sm italic" dir="ltr">
           &quot;Al-Fātiḥah, al-Māʾida, Yūnus, al-Isrāʾ, al-Shuʿarāʾ, al-Ṣāffāt, Qāf — thus it is clarified.
           He who joins the Criterion with the Joining completes a full recitation of the Criterion.&quot;
-          — Shaykh Ibrāhīm Niasse
+          <span className="block mt-1 text-xs not-italic text-white/45">— Shaykh Ibrāhīm Niasse</span>
         </div>
       </div>
 
