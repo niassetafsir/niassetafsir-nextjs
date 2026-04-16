@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SubscribeBar from '@/components/SubscribeBar';
 
 export default function AboutPage() {
   return (
@@ -96,7 +97,10 @@ export default function AboutPage() {
 
       </div>
 
-      <div className="mt-10 pt-6 border-t border-gold/15 text-center">
+      <div className="mt-10 mb-6">
+        <SubscribeBar />
+      </div>
+      <div className="mt-6 pt-6 border-t border-gold/15 text-center">
         <Link href="/"
           className="font-english text-sm text-white/50 hover:text-gold border border-gold/20 hover:border-gold/50 px-5 py-2 rounded-lg transition-all">
           ← Back to Contents

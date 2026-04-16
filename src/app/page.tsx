@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import SubscribeBar from '@/components/SubscribeBar';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
@@ -208,7 +209,10 @@ export default function HomePage() {
         ))}
       </div>
 
-      <footer className="text-center mt-12 pt-8 border-t border-gold/15">
+      <div className="mt-12 mb-8">
+        <SubscribeBar />
+      </div>
+      <footer className="text-center mt-4 pt-8 border-t border-gold/15">
         <div className="font-arabic text-gold text-sm">فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ</div>
         <div className="font-english text-white/25 text-xs mt-2">
           niassetafsir.com · niassetafsir.org · © Amadu Kunateh. All rights reserved.
