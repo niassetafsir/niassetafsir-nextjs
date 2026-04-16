@@ -160,7 +160,7 @@ export default function HomePage() {
                 <ul className="space-y-1 text-white/70">
                   <li><strong className="text-white/90">🎧 Audio</strong> — Wolof tafsīr (122 sessions, Internet Archive) + Arabic tafsīr</li>
                   <li><strong className="text-white/90">📜 Sheikh&apos;s Tafsīr Text</strong> — bilingual Arabic/English; toggle Arabic only, English only, or both</li>
-                  <li><strong className="text-white/90">🖊️ Scholarly Commentary</strong> — comparative analysis with Jalālayn and Rūḥ al-Bayān (forthcoming)</li>
+                  <li><strong className="text-white/90">🖊️ Lesson Summary</strong> — comparative analysis with Jalālayn and Rūḥ al-Bayān (forthcoming)</li>
                   <li><strong className="text-white/90">📖 Tafsīr al-Jalālayn</strong> — full companion text for comparison</li>
                   <li><strong className="text-white/90">📗 Rūḥ al-Bayān</strong> — link to Usul.ai digital edition</li>
                 </ul>
