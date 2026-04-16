@@ -91,8 +91,7 @@ export default function AboutPage() {
         </h2>
         <p className="text-white/70">
           Web development review: Ally Mahmoud. Arabic textual verification and proofreading:
-          Dayyib Bashir Sheikh Dahir and Kabir Aliyu Sheikh Dahir. Publishing affiliation:
-          Being: A Golden Spiral.
+          Dayyib Bashir Sheikh Dahir and Kabir Aliyu Sheikh Dahir.
         </p>
 
       </div>
