@@ -139,28 +139,50 @@ export default function HomePage() {
         {/* How to Use guide */}
         {showGuide && (
           <div className="mt-6 p-5 border border-gold/20 rounded-xl bg-gold/4 text-left max-w-2xl mx-auto" dir="ltr">
-            <h3 className="font-english text-gold font-semibold text-base mb-3">Using This Site</h3>
-            <div className="font-english text-white/75 text-sm leading-7 space-y-2">
+            <h3 className="font-english text-gold font-semibold text-base mb-4">Using This Scholarly Database</h3>
+            <div className="font-english text-white/80 text-sm leading-7 space-y-3">
               <p>
-                This is a digital scholarly edition of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by
+                This is the first digital bilingual edition of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by
                 Shaykh Ibrāhīm Niasse (d. 1975), with an English translation by Amadu Kunateh (Harvard University).
+                It functions as a living scholarly database for research on Niasse&apos;s tafsīr tradition.
               </p>
-              <p>
-                The Qurʾān is divided into <strong className="text-white">7 manzils</strong> — daily recitation
-                portions as practised by Shaykh Ibrāhīm. Click any manzil below to expand its lessons,
-                then select a lesson to begin reading.
-              </p>
-              <p>
-                Each lesson offers: <strong className="text-white">audio</strong> (Wolof and Arabic),
-                the <strong className="text-white">bilingual tafsīr text</strong> in Arabic and English,
-                <strong className="text-white"> Reading Notes</strong> with comparative commentary,
-                and companion texts from <strong className="text-white">Tafsīr al-Jalālayn</strong> and
-                <strong className="text-white"> Rūḥ al-Bayān</strong>.
-              </p>
-              <p>
-                The site supports five languages: Arabic, English, Français, Wolof, and Hausa — with
-                French, Wolof, and Hausa translations in preparation.
-              </p>
+
+              <div className="border-t border-gold/15 pt-3">
+                <p className="font-semibold text-white mb-1">Navigating the Content</p>
+                <p>
+                  The Qurʾān is divided into <strong className="text-white">7 manzils</strong> — the weekly recitation
+                  cycle practised by Shaykh Ibrāhīm. Click any manzil below to expand its lessons, then select a lesson.
+                </p>
+              </div>
+
+              <div className="border-t border-gold/15 pt-3">
+                <p className="font-semibold text-white mb-1">Inside Each Lesson</p>
+                <ul className="space-y-1 text-white/70">
+                  <li><strong className="text-white/90">🎧 Audio</strong> — Wolof tafsīr (122 sessions, Internet Archive) + Arabic tafsīr</li>
+                  <li><strong className="text-white/90">📜 Sheikh&apos;s Tafsīr Text</strong> — bilingual Arabic/English; toggle Arabic only, English only, or both</li>
+                  <li><strong className="text-white/90">🖊️ Scholarly Commentary</strong> — comparative analysis with Jalālayn and Rūḥ al-Bayān (forthcoming)</li>
+                  <li><strong className="text-white/90">📖 Tafsīr al-Jalālayn</strong> — full companion text for comparison</li>
+                  <li><strong className="text-white/90">📗 Rūḥ al-Bayān</strong> — link to Usul.ai digital edition</li>
+                </ul>
+              </div>
+
+              <div className="border-t border-gold/15 pt-3">
+                <p className="font-semibold text-white mb-1">Research Tools</p>
+                <ul className="space-y-1 text-white/70">
+                  <li><strong className="text-white/90">🔍 Search</strong> — full-text search across all 30 lessons in Arabic and English</li>
+                  <li><strong className="text-white/90">🔖 Bookmarks</strong> — save passages; export as .txt for study notes</li>
+                  <li><strong className="text-white/90">Arabic word tool</strong> — select any Arabic word to see its root and English gloss</li>
+                </ul>
+              </div>
+
+              <div className="border-t border-gold/15 pt-3">
+                <p className="font-semibold text-white mb-1">Display Options</p>
+                <ul className="space-y-1 text-white/70">
+                  <li><strong className="text-white/90">☀ / ◐</strong> — toggle between dark mode (forest green) and light mode (cream ivory)</li>
+                  <li><strong className="text-white/90">EN / FR / ع</strong> — switch interface language (Arabic, English, Français)</li>
+                  <li><strong className="text-white/90">5 translation languages</strong> — Arabic · English · Français · Wolof · Hausa (latter three forthcoming)</li>
+                </ul>
+              </div>
             </div>
           </div>
         )}
