@@ -358,3 +358,17 @@ input[type="email"]::placeholder {
   font-size: 17px !important;
   line-height: 1.9 !important;
 }
+
+/* ── Usul.ai style: no max-width cap, large text ── */
+.font-arabic {
+  font-size: 22px !important;
+  line-height: 2.4 !important;
+}
+.font-english {
+  font-size: 19px !important;
+  line-height: 2.0 !important;
+}
+body {
+  font-size: 19px;
+  line-height: 2.0;
+}
