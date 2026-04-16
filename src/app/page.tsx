@@ -174,7 +174,7 @@ export default function HomePage() {
 
       {/* Manzil verse — English only */}
       <div className="mb-8 p-4 border border-gold/15 rounded-xl bg-gold/3 text-center">
-        <div className="font-english text-white text-sm italic" dir="ltr">
+        <div className="font-english text-white dark:text-white text-sm italic [data-theme=light_&]:text-[#2C1810]" dir="ltr">
           &quot;Al-Fātiḥah, al-Māʾida, Yūnus, al-Isrāʾ, al-Shuʿarāʾ, al-Ṣāffāt, Qāf — thus it is clarified.
           He who joins the Criterion with the Joining completes a full recitation of the Criterion.&quot;
           <span className="block mt-1 text-xs not-italic text-white/45">— Shaykh Ibrāhīm Niasse</span>

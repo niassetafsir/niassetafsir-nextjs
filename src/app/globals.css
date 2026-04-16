@@ -157,3 +157,35 @@ body {
 [data-theme="light"] .text-white\/20 {
   color: rgba(92,61,14,0.45) !important;
 }
+
+/* Light mode: manzil verse and attribution text */
+[data-theme="light"] .text-white.italic,
+[data-theme="light"] .font-english.text-white.text-sm.italic {
+  color: #2C1810 !important;
+}
+[data-theme="light"] .text-white\/45.not-italic,
+[data-theme="light"] .not-italic.text-white\/45 {
+  color: rgba(92,61,14,0.65) !important;
+}
+/* Arabic author name in header */
+[data-theme="light"] .font-arabic.text-gold-light {
+  color: #5c3d0e !important;
+}
+[data-theme="light"] .font-english.text-white\/55 {
+  color: #444444 !important;
+}
+
+/* Light mode: ALL text inside the manzil verse box → dark */
+[data-theme="light"] .bg-gold\/3 .font-english,
+[data-theme="light"] .bg-gold\/3 p,
+[data-theme="light"] .bg-gold\/3 div,
+[data-theme="light"] .bg-gold\/3 span {
+  color: #2C1810 !important;
+}
+/* Header subtitle — Sheikh's name */
+[data-theme="light"] .font-arabic.text-gold-light.text-xl {
+  color: #5c3d0e !important;
+}
+[data-theme="light"] .font-english.text-white\/55.text-base {
+  color: #444444 !important;
+}
