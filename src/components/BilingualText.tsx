@@ -82,6 +82,11 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
   const poemLines = allArParagraphs.filter(p => isPoem(p));
   const commentaryParagraphs = allArParagraphs.filter(p => !isPoem(p));
 
+  // Parse English paragraphs for mobile paragraph interleaving
+  const enParagraphs: string[] = englishText
+    ? (englishText.match(/<p[^>]*>.*?<\/p>/gs) ?? []).filter((p: string) => p.replace(/<[^>]+>/g, '').trim())
+    : [];
+
   const showBilingual = view === 'bilingual';
 
   return (
