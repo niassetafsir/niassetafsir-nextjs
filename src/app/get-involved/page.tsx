@@ -15,12 +15,7 @@ const ROLES = [
     title: "Hausa Translation",
     desc: "Lead or contribute to the Hausa-language edition, drawing on the rich tradition of Niasse's teaching in Hausa-speaking communities.",
     contact: "niassetafsirproject@gmail.com"
-  },
-  {
-    title: "Research & Editorial",
-    desc: "Assist with citation verification, hadith tracing, cross-referencing with Jalālayn and Rūḥ al-Bayān, and general scholarly editing.",
-    contact: "niassetafsirproject@gmail.com"
-  },
+  }
 ];
 
 export default function GetInvolvedPage() {
