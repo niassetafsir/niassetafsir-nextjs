@@ -20,7 +20,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const usulBaseUrl = 'https://usul.ai/t/ruh-bayan';
 
   return (
-    <main className="max-w-6xl mx-auto px-8 pb-20 pt-6">
+    <main className="w-full px-8 xl:px-16 pb-20 pt-6">
       {/* Work title */}
       <div className="text-center pb-5 mb-5 border-b border-gold/20">
         <div className="font-arabic text-gold font-bold text-xl" dir="rtl">
