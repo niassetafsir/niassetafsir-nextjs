@@ -189,3 +189,43 @@ body {
 [data-theme="light"] .font-english.text-white\/55.text-base {
   color: #444444 !important;
 }
+
+/* ── Text contrast boost ────────────────────────────────── */
+
+/* Dark mode: pure white for primary text — maximum contrast */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.font-english {
+  color: rgba(255,255,255,0.95);
+}
+.font-arabic {
+  color: #F0EDE6;
+}
+
+/* Light mode: jet black for maximum contrast on cream */
+[data-theme="light"] .font-english {
+  color: #111111 !important;
+}
+[data-theme="light"] .font-arabic {
+  color: #0a0a0a !important;
+}
+[data-theme="light"] body {
+  color: #111111;
+}
+/* Secondary text in light mode — still dark, just slightly softer */
+[data-theme="light"] .font-english.text-white\/80,
+[data-theme="light"] .font-english.text-white\/70,
+[data-theme="light"] .font-english.text-white\/65,
+[data-theme="light"] .font-english.text-white\/60,
+[data-theme="light"] .font-english.text-white\/55,
+[data-theme="light"] .font-english.text-white\/50,
+[data-theme="light"] .font-english.text-white\/45 {
+  color: #333333 !important;
+}
+[data-theme="light"] .font-english.text-white\/40,
+[data-theme="light"] .font-english.text-white\/35,
+[data-theme="light"] .font-english.text-white\/30 {
+  color: #555555 !important;
+}
