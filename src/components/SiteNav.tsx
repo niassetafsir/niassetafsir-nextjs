@@ -49,10 +49,10 @@ function NavDropdown({ label, items }: { label: string; items: DropdownItem[] })
               key={i}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="flex flex-col px-4 py-3 hover:bg-gold/8 transition-colors border-b border-white/5 last:border-0"
+              className="flex flex-col items-center px-4 py-2.5 hover:bg-gold/8 transition-colors border-b border-white/5 last:border-0 text-center"
             >
-              <span className="font-english text-sm text-white/85 font-medium">{item.label}</span>
-              {item.sub && <span className="font-english text-xs text-white/35 mt-0.5">{item.sub}</span>}
+              <span className="font-english text-xs text-white/80 font-medium">{item.label}</span>
+              {item.sub && <span className="font-english text-[10px] text-white/28 mt-0.5">{item.sub}</span>}
             </Link>
           ))}
         </div>
@@ -75,14 +75,15 @@ export default function SiteNav() {
   };
 
   const ABOUT_ITEMS: DropdownItem[] = [
-    { label: "Translator's Introduction", sub: "Amadu Kunateh, Harvard University", href: "/introduction" },
-    { label: "About This Edition", sub: "The text, translation, and tools", href: "/about" },
+    { label: "Translator\'s Introduction", sub: "(Amadu Kunateh)", href: "/introduction" },
+    { label: "About This Edition", sub: "", href: "/about" },
   ];
 
   const CONTRIBUTE_ITEMS: DropdownItem[] = [
-    { label: "Wolof Transcription", sub: "Transcribe audio sessions", href: "/get-involved" },
-    { label: "Hausa Translation", sub: "Build the Hausa edition", href: "/get-involved" },
-    { label: "Feedback & Suggestions", sub: "Share your thoughts", href: "/get-involved" },
+    { label: "Feedback", sub: "", href: "/get-involved" },
+    { label: "Suggestions", sub: "", href: "/get-involved" },
+    { label: "Transcribe", sub: "(Wolof & Hausa Transcription Project)", href: "/get-involved" },
+    { label: "Translate", sub: "(Hausa Translation Project)", href: "/get-involved" },
   ];
 
   return (
