@@ -32,14 +32,9 @@ export default function SubscribeBar() {
   };
 
   return (
-    <div className="border border-gold/20 rounded-xl p-6 bg-gold/3 text-center" dir="ltr">
-      <div className="font-arabic text-gold text-base font-bold mb-2" dir="rtl">
-        فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
-      </div>
-      <p className="font-english text-white/70 text-sm leading-6 mb-4 max-w-lg mx-auto">
-        A digital scholarly edition of Shaykh Ibrāhīm Niasse&apos;s <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> — 
-        bilingual, comparative, and freely accessible. Subscribe to receive updates when new translations, 
-        audio, or content are added.
+    <div className="border border-gold/15 rounded-xl p-4 bg-gold/3 text-center" dir="ltr">
+      <p className="font-english text-white/55 text-xs leading-5 mb-3 max-w-md mx-auto">
+        Subscribe to receive updates when new translations or content are added to <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>.
       </p>
 
       {status === 'success' ? (
@@ -54,18 +49,18 @@ export default function SubscribeBar() {
             onChange={e => setEmail(e.target.value)}
             placeholder="Email address"
             required
-            className="flex-1 bg-white border border-gold/30 rounded-lg px-3 py-2 font-english text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-gold/60"
+            className="flex-1 bg-white border border-gold/25 rounded-lg px-3 py-1.5 font-english text-gray-900 placeholder-gray-400 text-xs focus:outline-none focus:border-gold/50"
           />
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="font-english text-sm text-bg bg-gold hover:bg-gold-light px-4 py-2 rounded-lg font-semibold transition-all disabled:opacity-50 flex-shrink-0"
+            className="font-english text-xs text-bg bg-gold hover:bg-gold-light px-3 py-1.5 rounded-lg font-semibold transition-all disabled:opacity-50 flex-shrink-0"
           >
             {status === 'loading' ? '...' : 'Subscribe'}
           </button>
         </form>
       )}
-      <p className="font-english text-white/25 text-xs mt-3">
+      <p className="font-english text-white/20 text-[10px] mt-2">
         No spam. Updates only when new content is published.
       </p>
     </div>
