@@ -128,18 +128,26 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
             </div>
           </div>
 
-          {/* Mobile: Arabic block then English block — stacked cleanly */}
-          <div className="md:hidden">
-            <div dir="rtl" className="p-4 font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify border-b border-gold/10">
-              {commentaryParagraphs.map((p, i) => <p key={i} className="mb-3">{p}</p>)}
-            </div>
-            <div dir="ltr" className="p-4">
-              {hasEnglish && englishText ? (
-                <div className="font-english text-[16px] leading-[1.9] text-white" dangerouslySetInnerHTML={{ __html: englishText }} />
-              ) : (
-                <ComingSoonNote lang="english" />
-              )}
-            </div>
+          {/* Mobile: paragraph-by-paragraph interleaved (poem already extracted above) */}
+          <div className="md:hidden divide-y divide-white/5">
+            {commentaryParagraphs.map((p, i) => (
+              <div key={i} className="px-4 py-3">
+                <div dir="rtl" className="font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2">
+                  {p}
+                </div>
+                {hasEnglish && enParagraphs[i] ? (
+                  <div
+                    dir="ltr"
+                    className="font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 pl-3"
+                    dangerouslySetInnerHTML={{ __html: enParagraphs[i] }}
+                  />
+                ) : i === 0 && !hasEnglish ? (
+                  <p className="font-english text-white/20 text-xs italic pl-3" dir="ltr">
+                    English translation forthcoming.
+                  </p>
+                ) : null}
+              </div>
+            ))}
           </div>
         </>
       )}
