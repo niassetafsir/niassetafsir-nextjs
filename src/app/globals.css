@@ -294,3 +294,39 @@ body {
 [data-theme="light"] .container {
   background: #EDE0CC;
 }
+
+/* ── Light mode: larger, jet-black body text ──────────── */
+[data-theme="light"] body {
+  font-size: 18px;
+  line-height: 1.85;
+  color: #050505;
+}
+[data-theme="light"] .font-english {
+  color: #050505 !important;
+  font-size: 17px;
+  line-height: 1.9;
+}
+[data-theme="light"] .font-arabic {
+  color: #000000 !important;
+  font-size: 19px;
+  line-height: 2.2;
+}
+/* Override the soft grey secondary text — still darker in light mode */
+[data-theme="light"] .font-english.text-white\/80,
+[data-theme="light"] .font-english.text-white\/70,
+[data-theme="light"] .font-english.text-white\/65,
+[data-theme="light"] .font-english.text-white\/60,
+[data-theme="light"] .font-english.text-white\/55,
+[data-theme="light"] .font-english.text-white\/50,
+[data-theme="light"] .font-english.text-white\/45 {
+  color: #1a1a1a !important;
+}
+[data-theme="light"] .font-english.text-white\/40,
+[data-theme="light"] .font-english.text-white\/35,
+[data-theme="light"] .font-english.text-white\/30 {
+  color: #333333 !important;
+}
+[data-theme="light"] .font-english.text-white\/25,
+[data-theme="light"] .font-english.text-white\/20 {
+  color: #555555 !important;
+}
