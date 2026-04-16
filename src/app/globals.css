@@ -386,3 +386,19 @@ body {
 body {
   font-size: 20px;
 }
+
+/* ── English column: larger, readable ─────────────── */
+.en-column,
+.en-column p,
+.en-column .en-para,
+[dir="ltr"].font-english {
+  font-size: 20px !important;
+  line-height: 2.0 !important;
+}
+
+/* ── Jalalayn text: centered ───────────────────────── */
+.jalalayn-text {
+  text-align: center !important;
+  direction: ltr;
+  line-height: 2.0;
+}
