@@ -37,7 +37,7 @@ export default function AboutPage() {
           philosophical, and Sufi dimensions. Expected completion: May 2027.
         </p>
 
-        <h2 className="font-english text-gold text-lg font-semibold mt-8 mb-3 pb-2 border-b border-gold/20">
+        <h2 id="arabic" className="font-english text-gold text-lg font-semibold mt-8 mb-3 pb-2 border-b border-gold/20 scroll-mt-20">
           The Arabic Edition
         </h2>
         <p>
@@ -59,7 +59,7 @@ export default function AboutPage() {
           al-Ḥuṣarī (1917–1980) in the Warsh riwāya.
         </p>
 
-        <h2 className="font-english text-gold text-lg font-semibold mt-8 mb-3 pb-2 border-b border-gold/20">
+        <h2 id="companion" className="font-english text-gold text-lg font-semibold mt-8 mb-3 pb-2 border-b border-gold/20 scroll-mt-20">
           Companion Texts
         </h2>
         <p>

@@ -42,18 +42,23 @@ export default function GetInvolvedPage() {
       </div>
 
       <div className="space-y-4 mb-10">
-        {ROLES.map((role, i) => (
-          <div key={i} className="border border-gold/15 rounded-xl p-5">
-            <h3 className="font-english text-gold font-semibold text-base mb-2">{role.title}</h3>
-            <p className="font-english text-white/80 text-sm leading-6 mb-3">{role.desc}</p>
-            <a
-              href={`mailto:${role.contact}?subject=Get Involved: ${role.title}`}
-              className="font-english text-xs text-gold/70 border border-gold/25 px-3 py-1.5 rounded-full hover:border-gold/50 hover:text-gold transition-all inline-block"
-            >
-              Express interest ↗
-            </a>
-          </div>
-        ))}
+        {ROLES.map((role, i) => {
+          const anchor = role.title === 'Feedback & Suggestions' ? 'feedback' :
+                         role.title === 'Wolof Audio Transcription' ? 'transcribe' :
+                         role.title === 'Hausa Translation' ? 'translate' : undefined;
+          return (
+            <div key={i} id={anchor} className="border border-gold/15 rounded-xl p-5 scroll-mt-20">
+              <h3 className="font-english text-gold font-semibold text-base mb-2">{role.title}</h3>
+              <p className="font-english text-white/80 text-sm leading-6 mb-3">{role.desc}</p>
+              <a
+                href={`mailto:${role.contact}?subject=Get Involved: ${role.title}`}
+                className="font-english text-xs text-gold/70 border border-gold/25 px-3 py-1.5 rounded-full hover:border-gold/50 hover:text-gold transition-all inline-block"
+              >
+                Express interest ↗
+              </a>
+            </div>
+          );
+        })}
       </div>
 
       <div className="border border-gold/15 rounded-xl p-5 bg-gold/3 text-center">

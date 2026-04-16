@@ -75,18 +75,18 @@ export default function SiteNav() {
   };
 
   const ABOUT_ITEMS: DropdownItem[] = [
-    { label: "Translator\'s Introduction", sub: "(Amadu Kunateh)", href: "/introduction#top" },
-    { label: "Shaykh Ibrāhīm Niasse", sub: "West African Scholarly Tradition", href: "/introduction#shaykh" },
-    { label: "About This Edition", sub: "Text, translation & tools", href: "/about" },
+    { label: "Translator\'s Introduction", sub: "(Amadu Kunateh)", href: "/introduction" },
+    { label: "Shaykh Ibrāhīm Niasse", sub: "West African Scholarly Tradition", href: "/introduction" },
+    { label: "About This Edition", sub: "", href: "/about" },
     { label: "The Arabic Edition", sub: "Compiler & manuscript", href: "/about#arabic" },
     { label: "Companion Texts", sub: "Jalālayn & Rūḥ al-Bayān", href: "/about#companion" },
   ];
 
   const CONTRIBUTE_ITEMS: DropdownItem[] = [
-    { label: "Feedback", sub: "", href: "/get-involved" },
-    { label: "Suggestions", sub: "", href: "/get-involved" },
-    { label: "Transcribe", sub: "(Wolof & Hausa Transcription Project)", href: "/get-involved" },
-    { label: "Translate", sub: "(Hausa Translation Project)", href: "/get-involved" },
+    { label: "Feedback", sub: "", href: "/get-involved#feedback" },
+    { label: "Suggestions", sub: "", href: "/get-involved#suggestions" },
+    { label: "Transcribe", sub: "(Wolof & Hausa Transcription Project)", href: "/get-involved#transcribe" },
+    { label: "Translate", sub: "(Hausa Translation Project)", href: "/get-involved#translate" },
   ];
 
   return (
