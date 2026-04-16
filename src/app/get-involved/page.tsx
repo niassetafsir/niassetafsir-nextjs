@@ -7,15 +7,15 @@ const ROLES = [
     contact: "niassetafsirproject@gmail.com"
   },
   {
-    title: "French Translation",
-    desc: "Collaborate on the French translation of the tafsīr. Strong command of classical Islamic terminology in French required.",
-    contact: "niassetafsirproject@gmail.com"
-  },
-  {
     title: "Hausa Translation",
     desc: "Lead or contribute to the Hausa-language edition, drawing on the rich tradition of Niasse's teaching in Hausa-speaking communities.",
     contact: "niassetafsirproject@gmail.com"
   }
+  {
+    title: "Feedback & Suggestions",
+    desc: "Use the site, read the tafsīr, and share your thoughts. Feedback on the user experience, scholarly framing, translation choices, or any aspect of the project is welcome and genuinely valued.",
+    contact: "niassetafsirproject@gmail.com"
+  },
 ];
 
 export default function GetInvolvedPage() {
