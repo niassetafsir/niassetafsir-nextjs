@@ -134,12 +134,6 @@ export default function HomePage() {
           >
             {showGuide ? "Close Guide" : "How to Use This Site"}
           </button>
-          <Link href="/introduction" className="font-english text-sm text-white/45 border border-white/12 hover:border-gold/30 hover:text-white/65 px-4 py-2 rounded-lg transition-all">
-            Introduction
-          </Link>
-          <Link href="/about" className="font-english text-sm text-white/35 border border-white/10 hover:border-gold/25 hover:text-white/55 px-4 py-2 rounded-lg transition-all">
-            About
-          </Link>
         </div>
 
         {/* How to Use guide */}
