@@ -214,7 +214,28 @@ export default function HomePage() {
       </div>
       <footer className="text-center mt-4 pt-8 border-t border-gold/15">
         <div className="font-arabic text-gold text-sm">فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ</div>
-        <div className="font-english text-white/25 text-xs mt-2">
+        
+        {/* Social links */}
+        <div className="flex justify-center gap-4 mt-4 mb-3">
+          <a href="https://www.instagram.com/niassetafsirproject" target="_blank" rel="noopener"
+            className="font-english text-xs text-white/40 hover:text-gold/80 border border-white/15 hover:border-gold/35 px-3 py-1.5 rounded-full transition-all">
+            Instagram
+          </a>
+          <a href="https://x.com/niassetafsir" target="_blank" rel="noopener"
+            className="font-english text-xs text-white/40 hover:text-gold/80 border border-white/15 hover:border-gold/35 px-3 py-1.5 rounded-full transition-all">
+            X
+          </a>
+          <a href="https://www.facebook.com/niassetafsirproject" target="_blank" rel="noopener"
+            className="font-english text-xs text-white/40 hover:text-gold/80 border border-white/15 hover:border-gold/35 px-3 py-1.5 rounded-full transition-all">
+            Facebook
+          </a>
+          <a href="mailto:niassetafsirproject@gmail.com"
+            className="font-english text-xs text-white/40 hover:text-gold/80 border border-white/15 hover:border-gold/35 px-3 py-1.5 rounded-full transition-all">
+            Contact
+          </a>
+        </div>
+        
+        <div className="font-english text-white/25 text-xs">
           niassetafsir.com · niassetafsir.org · © Amadu Kunateh. All rights reserved.
         </div>
       </footer>
