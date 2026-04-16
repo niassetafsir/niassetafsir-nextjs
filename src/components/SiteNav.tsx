@@ -85,8 +85,8 @@ export default function SiteNav() {
   const CONTRIBUTE_ITEMS: DropdownItem[] = [
     { label: "Feedback", sub: "Share your experience", href: "/get-involved/feedback" },
     { label: "Suggestions", sub: "Ideas for the project", href: "/get-involved/suggestions" },
-    { label: "Transcribe", sub: "Wolof & Hausa Transcription", href: "/get-involved/transcribe" },
-    { label: "Translate", sub: "Hausa Translation Project", href: "/get-involved/translate" },
+    { label: "Report an Error", sub: "Flag a textual issue", href: "/get-involved/report-error" },
+    { label: "Join the Team", sub: "Transcription & translation", href: "/get-involved/join" },
   ];
 
   return (
