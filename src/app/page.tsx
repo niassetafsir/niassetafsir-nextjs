@@ -137,6 +137,19 @@ export default function HomePage() {
           </button>
         </div>
 
+        {/* Inline search bar */}
+        <div className="mt-5 max-w-md mx-auto" dir="ltr">
+          <a href="/search" className="flex items-center gap-3 bg-white/5 hover:bg-white/8 border border-gold/20 hover:border-gold/40 rounded-full px-4 py-2.5 transition-all group">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-gold/50 flex-shrink-0">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <span className="font-english text-sm text-white/35 group-hover:text-white/55 transition-colors flex-1 text-left">
+              Search the tafsīr — Arabic or English...
+            </span>
+            <span className="font-english text-xs text-gold/35 border border-gold/20 px-2 py-0.5 rounded-full">⌘K</span>
+          </a>
+        </div>
+
         {/* How to Use guide */}
         {showGuide && (
           <div className="mt-6 p-5 border border-gold/20 rounded-xl bg-gold/4 text-left max-w-2xl mx-auto" dir="ltr">
