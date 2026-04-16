@@ -17,7 +17,15 @@ const LANG_TABS: { id: View; label: string }[] = [
   { id: 'hausa',    label: 'Hausa' },
 ];
 
-function TabBtn({ id, label, active, onClick }: { id: string; label: string; active: boolean; onClick: () => void }) {
+// Poem pattern — the opening invocation present in every lesson
+const POEM_PATTERN = /^(يا ?همة الشيخ|ياهمة الشيخ|لنا بهذا المحضر|ولتعطفي بنظرة|تأتي لنا بالظفر|يا همة)/;
+const BASMALA_PATTERN = /^(أعوذ بالله|بسم الله|اللهم صل)/;
+
+function isPoem(text: string) {
+  return POEM_PATTERN.test(text.trim()) || BASMALA_PATTERN.test(text.trim());
+}
+
+function TabBtn({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
   return (
     <button
       onClick={onClick}
@@ -67,20 +75,14 @@ function ComingSoonNote({ lang }: { lang: string }) {
 
 export default function BilingualText({ arabicText, englishText, hasEnglish }: BilingualTextProps) {
   const [view, setView] = useState<View>('bilingual');
-  const arParagraphs = arabicText.split('\n').filter(p => p.trim());
 
-  // For bilingual mode: try to pair Arabic paragraphs with English paragraphs
-  // On desktop: two columns. On mobile: interleaved paragraph-by-paragraph.
-  const enParagraphs: string[] = [];
-  if (englishText) {
-    const div = typeof document !== 'undefined' ? document.createElement('div') : null;
-    if (div) {
-      div.innerHTML = englishText;
-      div.querySelectorAll('p').forEach(p => {
-        if (p.textContent?.trim()) enParagraphs.push(p.outerHTML);
-      });
-    }
-  }
+  const allArParagraphs = arabicText.split('\n').filter(p => p.trim());
+  
+  // Separate poem/invocation lines from commentary paragraphs
+  const poemLines = allArParagraphs.filter(p => isPoem(p));
+  const commentaryParagraphs = allArParagraphs.filter(p => !isPoem(p));
+
+  const showBilingual = view === 'bilingual';
 
   return (
     <div>
@@ -88,23 +90,34 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
       <div className="p-3 border-b border-white/10 space-y-2" dir="ltr">
         <div className="flex gap-2 flex-wrap items-center">
           <span className="font-english text-xs text-white/30">Layout:</span>
-          <TabBtn id="bilingual" label="⇌ Bilingual" active={view === 'bilingual'} onClick={() => setView('bilingual')} />
+          <TabBtn label="⇌ Bilingual" active={showBilingual} onClick={() => setView('bilingual')} />
         </div>
         <div className="flex gap-1.5 flex-wrap items-center">
           <span className="font-english text-xs text-white/30">Language:</span>
           {LANG_TABS.map(tab => (
-            <TabBtn key={tab.id} id={tab.id} label={tab.label} active={view === tab.id} onClick={() => setView(tab.id as View)} />
+            <TabBtn key={tab.id} label={tab.label} active={view === tab.id} onClick={() => setView(tab.id as View)} />
           ))}
         </div>
       </div>
 
+      {/* Opening poem / invocation — displayed full-width, centered, before columns */}
+      {poemLines.length > 0 && (showBilingual || view === 'arabic') && (
+        <div className="px-6 py-4 border-b border-gold/10 text-center bg-gold/3">
+          {poemLines.map((line, i) => (
+            <div key={i} className="font-arabic text-gold/80 text-base leading-9" dir="rtl">
+              {line}
+            </div>
+          ))}
+        </div>
+      )}
+
       {/* Bilingual view */}
-      {view === 'bilingual' && (
+      {showBilingual && (
         <>
           {/* Desktop: two columns */}
           <div className="hidden md:grid md:grid-cols-2 gap-0">
             <div dir="rtl" className="p-5 font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify border-l border-gold/15">
-              {arParagraphs.map((p, i) => <p key={i} className="mb-3">{p}</p>)}
+              {commentaryParagraphs.map((p, i) => <p key={i} className="mb-3">{p}</p>)}
             </div>
             <div dir="ltr" className="p-5">
               {hasEnglish && englishText ? (
@@ -115,38 +128,30 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
             </div>
           </div>
 
-          {/* Mobile: interleaved paragraphs */}
+          {/* Mobile: Arabic block then English block — stacked cleanly */}
           <div className="md:hidden">
-            {arParagraphs.map((ar, i) => (
-              <div key={i} className="border-b border-white/5 last:border-0">
-                <div dir="rtl" className="px-4 pt-4 pb-2 font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify">
-                  {ar}
-                </div>
-                {hasEnglish && enParagraphs[i] ? (
-                  <div
-                    dir="ltr"
-                    className="px-4 pb-4 pt-1 font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 ml-4"
-                    dangerouslySetInnerHTML={{ __html: enParagraphs[i] }}
-                  />
-                ) : hasEnglish ? null : (
-                  i === 0 ? (
-                    <div className="px-4 pb-3 font-english text-white/20 text-xs italic" dir="ltr">
-                      English translation forthcoming.
-                    </div>
-                  ) : null
-                )}
-              </div>
-            ))}
+            <div dir="rtl" className="p-4 font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify border-b border-gold/10">
+              {commentaryParagraphs.map((p, i) => <p key={i} className="mb-3">{p}</p>)}
+            </div>
+            <div dir="ltr" className="p-4">
+              {hasEnglish && englishText ? (
+                <div className="font-english text-[16px] leading-[1.9] text-white" dangerouslySetInnerHTML={{ __html: englishText }} />
+              ) : (
+                <ComingSoonNote lang="english" />
+              )}
+            </div>
           </div>
         </>
       )}
 
-      {/* Single language views */}
+      {/* Arabic only */}
       {view === 'arabic' && (
         <div dir="rtl" className="p-5 font-arabic text-[1.1rem] leading-[2.2] text-text-main text-justify">
-          {arParagraphs.map((p, i) => <p key={i} className="mb-3">{p}</p>)}
+          {commentaryParagraphs.map((p, i) => <p key={i} className="mb-3">{p}</p>)}
         </div>
       )}
+
+      {/* English only */}
       {view === 'english' && (
         <div dir="ltr" className="p-5">
           {hasEnglish && englishText ? (
@@ -156,6 +161,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
           )}
         </div>
       )}
+
       {view === 'french' && <div dir="ltr" className="p-5"><ComingSoonNote lang="french" /></div>}
       {view === 'wolof' && <div dir="ltr" className="p-5"><ComingSoonNote lang="wolof" /></div>}
       {view === 'hausa' && <div dir="ltr" className="p-5"><ComingSoonNote lang="hausa" /></div>}
