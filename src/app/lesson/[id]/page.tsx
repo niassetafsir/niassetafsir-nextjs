@@ -45,6 +45,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
           wolofPlaylistId={lesson.wolofPlaylistId}
           arabicPlaylistId={lesson.arabicPlaylistId}
           arabicAudioUrl={lesson.arabicAudioUrl}
+          wolofAudioUrl={lesson.wolofAudioUrl}
           sura={lesson.sura}
         />
       </Panel>

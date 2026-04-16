@@ -12,6 +12,7 @@ export interface Lesson {
   wolofPlaylistId: string;
   arabicPlaylistId: string;
   arabicAudioUrl: string | null;
+  wolofAudioUrl?: string | null;
   prevId: number | null;
   nextId: number | null;
 }
