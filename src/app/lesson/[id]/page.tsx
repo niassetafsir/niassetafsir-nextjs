@@ -66,7 +66,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </Panel>
 
       {/* 3. Reading Notes */}
-      <Panel icon="🖊️" titleAr="ملاحظات القراءة" titleEn="Reading Notes — Comparative Commentary">
+      <Panel icon="🖊️" titleAr="ملاحظات القراءة" titleEn="Scholarly Commentary">
         <div className="p-5" dir="ltr">
           <div className="mb-3 pb-3 border-b border-gold/15">
             <div className="font-english text-white/40 text-xs italic">
@@ -82,11 +82,10 @@ export default async function LessonPage({ params }: { params: { id: string } })
           ) : (
             <div className="text-center py-6">
               <p className="font-english text-white/20 italic text-sm">
-                Reading notes for this lesson are in preparation.
+                Scholarly commentary for this lesson is forthcoming.
               </p>
               <p className="font-english text-white/12 text-xs mt-2">
-                Notes will include: overview · Niasse&apos;s distinctive position ·
-                comparative analysis with Jalālayn and Rūḥ al-Bayān · theological significance
+                Comparative analysis of Niasse&apos;s tafsīr alongside Jalālayn and Rūḥ al-Bayān, with theological and philological commentary by Amadu Kunateh (Harvard University).
               </p>
             </div>
           )}
