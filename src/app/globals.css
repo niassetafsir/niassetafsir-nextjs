@@ -229,3 +229,25 @@ body {
 [data-theme="light"] .font-english.text-white\/30 {
   color: #555555 !important;
 }
+
+/* Preserve gold on headings — overrides the broad font-english/font-arabic rules */
+.text-gold,
+.font-arabic.text-gold,
+.font-english.text-gold {
+  color: #C9A84C !important;
+}
+.text-gold-light,
+.font-arabic.text-gold-light,
+.font-english.text-gold-light {
+  color: #E8D4A0 !important;
+}
+/* Light mode gold */
+[data-theme="light"] .text-gold,
+[data-theme="light"] .font-arabic.text-gold,
+[data-theme="light"] .font-english.text-gold {
+  color: #8b6914 !important;
+}
+[data-theme="light"] .text-gold-light,
+[data-theme="light"] .font-arabic.text-gold-light {
+  color: #5c3d0e !important;
+}
