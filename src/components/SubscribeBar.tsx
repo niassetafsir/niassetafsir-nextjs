@@ -12,7 +12,7 @@ export default function SubscribeBar() {
     
     // Use Formspree for simple email collection
     try {
-      const res = await fetch('https://formspree.io/f/xdkoznoe', {
+      const res = await fetch('https://formspree.io/f/xeevaerk', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, _subject: 'New subscriber — niassetafsir.com' }),
