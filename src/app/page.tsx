@@ -126,7 +126,7 @@ export default function HomePage() {
           Shaykh Ibrāhīm Niasse (d. 1975)
         </div>
         <div className="font-english text-white/55 text-base" dir="ltr">
-          The Digital Bilingual Edition
+          A Scholarly Research Database
         </div>
         <div className="flex gap-3 justify-center mt-6 flex-wrap items-center">
           <Link href="/lesson/1" className="font-english text-base text-bg bg-gold hover:bg-gold-light px-5 py-2 rounded-lg font-semibold transition-all">
@@ -136,7 +136,7 @@ export default function HomePage() {
             onClick={() => setShowGuide(!showGuide)}
             className="font-english text-sm text-white/55 border border-white/20 hover:border-gold/40 hover:text-white/80 px-4 py-2 rounded-lg transition-all"
           >
-            {showGuide ? "Close" : "Using This Edition"}
+            {showGuide ? "Close" : "About This Database"}
           </button>
         </div>
 
