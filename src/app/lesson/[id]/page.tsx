@@ -34,7 +34,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
 
       {/* Lesson heading */}
       <div className="text-center mb-6">
-        <div className="font-arabic text-gold font-bold text-2xl" dir="rtl">{lesson.arabicTitle}</divv>
+        <div className="font-arabic text-gold font-bold text-2xl" dir="rtl">{lesson.arabicTitle}</div>
         <div className="font-english text-white/60 text-sm mt-1" dir="ltr">
           {lesson.englishTitle} · {lesson.verseRange}
         </div>
@@ -59,7 +59,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         verseRange={lesson.verseRange}
       />
 
-      {/* 2. Sheikh's Tafsir */
+      {/* 2. Sheikh's Tafsir */}
       <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text">
         <BilingualText
           arabicText={lesson.arabicText}
@@ -74,7 +74,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </Panel>
 
-      {/* 3. Reading Notes */
+      {/* 3. Reading Notes */}
       <Panel icon="" titleAr="ملاحظات القراءة" titleEn="Lesson Summary">
         <div className="p-5" dir="ltr">
           <div className="mb-3 pb-3 border-b border-gold/15">

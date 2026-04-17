@@ -83,7 +83,7 @@ export default function ConcordancePage() {
                 <div className="divide-y divide-white/5">
                   {refs.map((ref, i) => (
                     <Link key={i} 
-                      href={`/lesson/${ref.lessonId}${ref.anchor === 'jalalayn' ? '#jalalayn' : ref.anchor === 'tafsir' ? '#tafsir' : ''}`}
+                      href={`/lesson/${ref.lessonId}`}
                       className="flex items-start gap-3 px-4 py-3 hover:bg-gold/5 transition-colors group">
                       <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center text-gold text-xs font-bold flex-shrink-0 mt-0.5">
                         {ref.lessonId}
