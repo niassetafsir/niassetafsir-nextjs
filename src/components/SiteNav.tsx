@@ -75,11 +75,11 @@ export default function SiteNav() {
   };
 
   const ABOUT_ITEMS: DropdownItem[] = [
-    { label: "Translator\'s Introduction", sub: "Amadu Kunateh", href: "/introduction" },
-    { label: "Shaykh Ibrāhīm Niasse", sub: "West African Scholarly Tradition", href: "/about/shaykh" },
-    { label: "About This Edition", sub: "The project overview", href: "/about" },
-    { label: "The Arabic Edition", sub: "Compiler & manuscript", href: "/about/arabic-edition" },
+    { label: "This Edition", sub: "Overview, text & tools", href: "/about" },
+    { label: "Shaykh Ibrāhīm Niasse", sub: "West African scholarly tradition", href: "/about/shaykh" },
+    { label: "The Arabic Text", sub: "Compiler & ten-volume edition", href: "/about/arabic-edition" },
     { label: "Companion Texts", sub: "Jalālayn & Rūḥ al-Bayān", href: "/about/companion-texts" },
+    { label: "The Translator", sub: "Amadu Kunateh, Harvard", href: "/about/translator" },
   ];
 
   const CONTRIBUTE_ITEMS: DropdownItem[] = [
@@ -103,6 +103,9 @@ export default function SiteNav() {
           ⌂
         </Link>
         <NavDropdown label="About" items={ABOUT_ITEMS} />
+        <Link href="/introduction" className="font-english text-xs text-white/45 hover:text-white/75 px-3 py-1.5 rounded-md hover:bg-white/5 transition-all hidden sm:block">
+          Introduction
+        </Link>
         <NavDropdown label="Get Involved" items={CONTRIBUTE_ITEMS} />
         <Link href="/search" className="font-english text-xs text-white/45 hover:text-white/75 px-2.5 py-1.5 rounded-md hover:bg-white/5 transition-all" title="Search">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
