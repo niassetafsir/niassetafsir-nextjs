@@ -32,9 +32,7 @@ export default function Page() {
           interlocutors — the figures he names, invokes, and positions himself in relation to within his 
           own oral commentary. This is an act of intellectual history, not source documentation. It answers 
           the question: <em>with whom does Niasse think?</em> No printed edition of this tafsīr — including 
-          the Arabic ten-volume compiled edition — undertakes this mapping. Kunateh is the first scholar 
-          to have read the full text with sufficient care to produce it, and does so as part of his 
-          sustained argument about Niasse&apos;s theological and Sufi genealogy.
+          the Arabic ten-volume compiled edition — undertakes this mapping. This edition does so as part of the sustained aim to document Niasse&apos;s intellectual genealogy.
         </p>
         <p>
           His dissertation — <em>Leaders of Knowledge: Tafsīr, Philosophical-Theology, and the Remapping of 
