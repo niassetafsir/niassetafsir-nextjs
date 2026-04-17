@@ -10,12 +10,11 @@ export default function Page() {
       </div>
 
       <h1 className="font-english text-white text-3xl font-semibold mt-6 mb-1">The Translator & Editor</h1>
-      <p className="font-english text-white/45 text-base mb-8">Amadu Kunateh · Columbia University</p>
+      <p className="font-english text-white/45 text-base mb-8">Amadu Kunateh</p>
 
       <div className="font-english text-white/70 text-base leading-relaxed space-y-5">
         <p>
-          <strong className="text-white/90">Amadu Kunateh</strong> is a PhD candidate in Philosophy of Religion 
-          and African Studies at Columbia University. This digital scholarly edition is part of his sustained 
+          <strong className="text-white/90">Amadu Kunateh</strong> is a PhD candidate in Philosophy of Religion and African Studies. This digital scholarly edition is part of his sustained 
           doctoral research on the tafsīr of Shaykh Ibrāhīm Niasse — work he has conducted since 2022 across 
           both the six-volume and current ten-volume Arabic editions of the text.
         </p>
@@ -26,7 +25,7 @@ export default function Page() {
         </p>
         <p>
           His dissertation — <em>Leaders of Knowledge: Tafsīr, Philosophical-Theology, and the Remapping of 
-          Islamic Thought in West Africa</em> (Columbia University, expected 2027) — is the first sustained, 
+          Islamic Thought in West Africa</em> (expected 2027) — is the first sustained, 
           book-length scholarly treatment of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>. It investigates 
           the theology (Who is God?), anthropology (Who is the human being?), and cosmology (What is the cosmos?) 
           as found in Niasse&apos;s tafsīr, reading it as a case study in twentieth-century West African Islamic 

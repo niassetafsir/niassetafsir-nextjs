@@ -62,7 +62,7 @@ export default function Page() {
 
         <p>The present work builds on and complements foundational studies of the tafsīr. Andrea Brigaglia&apos;s early analysis marked an important step in recovering its exegetical and historical dimensions. His comparison of Shaykh Ibrāhīm&apos;s tafsīr with that of his contemporary and ideological rival, Shaykh Abū Bakr Gumi — <em>Fī Riyāḍ al-Tafsīr</em> and <em>Radd al-adhhān</em>, respectively — highlights how Qurʾānic exegesis served as a critical arena for competing visions of tajdīd (renewal) in twentieth-century West Africa. Oludamini Ogunnaike explored the commentary through a focus on a particular verse, relating its source texts in earlier Sufi metaphysics to elucidate the meanings of Niasse&apos;s reading. Zachary Wright&apos;s recent work on the exegesis highlighted Shaykh Ibrāhīm&apos;s selective reliance on the Ottoman Sufi Ismāʿīl Ḥaqqī&apos;s <em>Rūḥ al-Bayān</em> to argue that his tafsīr reflects a globally entangled dialectic vision of Islamic knowledge centered on gnosis (maʿrifa) as the telos and focus of Qurʾānic engagement for Niasse&apos;s community.</p>
 
-        <p>Building on these foundational and illuminating contributions, no comprehensive study has yet examined <em>Fī Riyāḍ al-Tafsīr</em> as a unified intellectual project. Kunateh&apos;s dissertation (Harvard University, expected 2027) offers the first sustained treatment of the work&apos;s full metaphysical, linguistic, and pedagogical architecture.</p>
+        <p>Building on these foundational and illuminating contributions, no comprehensive study has yet examined <em>Fī Riyāḍ al-Tafsīr</em> as a unified intellectual project. Kunateh&apos;s dissertation (expected 2027) offers the first sustained treatment of the work&apos;s full metaphysical, linguistic, and pedagogical architecture.</p>
 
         <h2 className="font-english text-gold text-xl font-semibold pt-6 pb-2 border-b border-gold/15">
           Contextualizing Niasse Within 20th-Century Hermeneutics
@@ -108,7 +108,7 @@ export default function Page() {
         <div className="border border-gold/15 rounded-xl p-4 bg-gold/3">
           <p className="font-english text-gold/60 text-xs uppercase tracking-widest mb-2">Forthcoming</p>
           <p className="font-english text-white/50 text-xs leading-5 italic">
-            Amadu Kunateh, <em>Leaders of Knowledge: Tafsīr, Philosophical-Theology, and the Remapping of Islamic Thought in West Africa</em> (Harvard University, expected 2027). The first book-length study of <em>Fī Riyāḍ al-Tafsīr</em>.
+            Amadu Kunateh, <em>Leaders of Knowledge: Tafsīr, Philosophical-Theology, and the Remapping of Islamic Thought in West Africa</em> (expected 2027). The first book-length study of <em>Fī Riyāḍ al-Tafsīr</em>.
           </p>
         </div>
       </div>

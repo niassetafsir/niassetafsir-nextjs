@@ -12,7 +12,7 @@ export default function IntroductionPage() {
         </div>
         <p className="font-english text-white font-semibold text-center mt-4">Amadu Kunateh</p>
         <p className="font-english text-white/45 text-sm text-center">PhD Candidate, Philosophy of Religion and African Studies</p>
-        <p className="font-english text-white/45 text-sm text-center">Harvard University</p>
+        
       </div>
       <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">This Edition: Structure, Method, and Translation Approach</h2>
         <p className="font-english text-white leading-relaxed mb-3 text-justify">The present edition presents the Arabic text of Fī Riyāḍ al-Tafsīr in the Warsh ʿan Nāfiʼ rasm, the orthographic standard of North and West Africa in which the tafsīr was delivered, with an English translation on facing pages. The edition is structured in seven volumes, each corresponding to one of the seven manzils, the weekly Qurʾānic recitation cycle that Niasse himself practised and celebrated in verse. He enumerated the opening sūra of each manzil in verse and invoked two of the Qurʾān’s names, al-Furqān (the Criterion) and al-Jamʼ (the Joining):</p>

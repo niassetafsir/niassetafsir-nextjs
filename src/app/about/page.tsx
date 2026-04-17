@@ -28,7 +28,7 @@ export default function AboutPage() {
             The Arabic text is based on the compiled edition of 
             <strong className="text-white/85"> Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī</strong>, 
             with editorial corrections. The database has been digitised, verified, and built by 
-            <strong className="text-white/85"> Amadu Kunateh</strong> (Harvard University) as part 
+            <strong className="text-white/85"> Amadu Kunateh</strong> as part 
             of his doctoral research on Niasse&apos;s tafsīr.
           </p>
         </div>
@@ -83,9 +83,9 @@ export default function AboutPage() {
           </h2>
           <p className="leading-6">
             <strong className="text-white/85">Amadu Kunateh</strong> — Translator, Editor, Digitiser, 
-            and builder of this scholarly database. Kunateh conceived and developed this resource 
+            and builder of this scholarly platform. Kunateh conceived and developed this resource 
             to make Shaykh Ibrāhīm Niasse&apos;s tafsīr accessible and searchable for scholarly 
-            research, building the first digital comparative database of the text.
+            research, building the first digital scholarly edition of the text.
           </p>
           <p className="leading-6 mt-3">
             <strong className="text-white/70">Ally Mahmoud</strong> — Web development review.<br />

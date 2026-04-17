@@ -60,7 +60,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       />
 
       {/* 2. Sheikh's Tafsir */}
-      <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text" panelId="tafsir">
+      <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <BilingualText
           arabicText={lesson.arabicText}
           englishText={lesson.englishText}
