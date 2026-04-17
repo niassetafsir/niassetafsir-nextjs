@@ -58,9 +58,11 @@ export default function Page() {
 
         <p>By the early twentieth century, Qurʾānic interpretation in West Africa already operated within a layered exegetical ecology. A small number of comprehensive commentaries circulated widely as stable teaching texts, while a far more expansive body of short, locally generated exegetical writings clustered around particular verses and sūras treated as spiritually efficacious and hermeneutically dense. These brief commentaries, often unattributed and typically embedded in teaching cycles and devotional practice, constituted a distributed tradition of tafsīr that functioned through pedagogy rather than through the accumulation of formal treatises.</p>
 
-        <p>As Zachary Wright notes, despite a centuries-old practice of interpreting the Qurʾān through oral performance, memorization, and teaching circles, printed Arabic sources of tafsīr from the region have only recently begun to circulate. West African scholars were often "walking Qurʾāns," to borrow Rudolph Ware&apos;s phrase, whose interpretive authority derived from the internalization of revelation rather than from textual citation alone. Wright&apos;s work, along with that of Andrea Brigaglia and Oludamini Ogunnaike, demonstrates that Shaykh Ibrāhīm Niasse&apos;s <em>Fī Riyāḍ al-Tafsīr</em> operates within a sustained dialectic with both Tafsīr al-Jalālayn and Ismāʿīl Ḥaqqī al-Burūsawī&apos;s <em>Rūḥ al-Bayān</em>, producing an African contribution squarely within the classical tafsīr tradition.</p>
+        <p>As Zachary Wright notes, despite a centuries-old practice of interpreting the Qurʾān through oral performance, memorization, and teaching circles, printed Arabic sources of tafsīr from the region have only recently begun to circulate. West African scholars were often "walking Qurʾāns," to borrow Rudolph Ware&apos;s phrase, whose interpretive authority derived from the internalization of revelation rather than from textual citation alone.</p>
 
-        <p>Despite these advances, no comprehensive study has yet examined <em>Fī Riyāḍ al-Tafsīr</em> as a unified intellectual project. Existing analyses — Brigaglia&apos;s 2013 article, Ogunnaike&apos;s 2018 essay, and Wright&apos;s 2024 study — offer valuable insights but remain limited in scope, focusing on select themes rather than the work&apos;s full metaphysical, linguistic, and pedagogical architecture.</p>
+        <p>The present work builds on and complements foundational studies of the tafsīr. Andrea Brigaglia&apos;s early analysis marked an important step in recovering its exegetical and historical dimensions. His comparison of Shaykh Ibrāhīm&apos;s tafsīr with that of his contemporary and ideological rival, Shaykh Abū Bakr Gumi — <em>Fī Riyāḍ al-Tafsīr</em> and <em>Radd al-adhhān</em>, respectively — highlights how Qurʾānic exegesis served as a critical arena for competing visions of tajdīd (renewal) in twentieth-century West Africa. Oludamini Ogunnaike explored the commentary through a focus on a particular verse, relating its source texts in earlier Sufi metaphysics to elucidate the meanings of Niasse&apos;s reading. Zachary Wright&apos;s recent work on the exegesis highlighted Shaykh Ibrāhīm&apos;s selective reliance on the Ottoman Sufi Ismāʿīl Ḥaqqī&apos;s <em>Rūḥ al-Bayān</em> to argue that his tafsīr reflects a globally entangled dialectic vision of Islamic knowledge centered on gnosis (maʿrifa) as the telos and focus of Qurʾānic engagement for Niasse&apos;s community.</p>
+
+        <p>Building on these foundational and illuminating contributions, no comprehensive study has yet examined <em>Fī Riyāḍ al-Tafsīr</em> as a unified intellectual project. The present study offers the first sustained treatment of its full metaphysical, linguistic, and pedagogical architecture.</p>
 
         <h2 className="font-english text-gold text-xl font-semibold pt-6 pb-2 border-b border-gold/15">
           Contextualizing Niasse Within 20th-Century Hermeneutics
@@ -85,17 +87,30 @@ export default function Page() {
 
       {/* Further Reading */}
       <div className="mt-8 pt-6 border-t border-gold/15">
-        <p className="font-english text-gold/60 text-xs uppercase tracking-widest mb-4">For Further Research</p>
-        <ul className="space-y-2 font-english text-white/40 text-xs leading-5">
-          <li>Zachary Wright, <em>Realizing Islam: The Tijaniyya in North Africa and the Eighteenth-Century Muslim World</em> (Chapel Hill: University of North Carolina Press, 2020).</li>
-          <li>Andrea Brigaglia, &ldquo;Two Published Hausa Translations of the Quran and the African Contribution to the International Debate,&rdquo; <em>Islamic Africa</em> 4, no. 2 (2013): 169–210.</li>
-          <li>Oludamini Ogunnaike, <em>Poetry in Praise of Prophetic Perfection</em> (Cambridge: Islamic Texts Society, 2020).</li>
-          <li>Samuel J. Ross, &ldquo;What Were the Most Popular Tafsīrs in Islamic History?&rdquo; <em>Journal of Qurʾānic Studies</em> 25, no. 3 (2023).</li>
-          <li>Rudolph T. Ware III, <em>The Walking Quran: Islamic Education, Embodied Knowledge, and History in West Africa</em> (Chapel Hill: University of North Carolina Press, 2014).</li>
+        <p className="font-english text-gold/60 text-xs uppercase tracking-widest mb-6">For Further Research</p>
+
+        <p className="font-english text-gold/50 text-xs uppercase tracking-widest mb-3">On Shaykh Ibrāhīm Niasse and the Fayḍa</p>
+        <ul className="space-y-2 font-english text-white/45 text-xs leading-6 mb-8">
+          <li>Ruediger Seesemann, <em>The Divine Flood: Ibrāhīm Niasse and the Roots of a Twentieth-Century Sufi Revival</em> (Oxford: Oxford University Press, 2011).</li>
+          <li>Zachary Wright, <em>Living Knowledge in West African Islam: The Sufi Community of Ibrāhīm Niasse</em> (Leiden: Brill, 2015).</li>
+          <li>Oludamini Ogunnaike, <em>Deep Knowledge: Ways of Knowing in Sufism and Ifá, Two West African Intellectual Traditions</em> (University Park: Penn State University Press, 2020).</li>
+          <li>Joseph Hill, &ldquo;Divine Knowledge and Islamic Authority: Religious Specialization among Disciples of Baay Ñas,&rdquo; PhD dissertation, Department of Anthropology, Yale University, 2007.</li>
         </ul>
-        <p className="font-english text-gold/40 text-xs mt-4 italic">
-          For a full treatment: Amadu Kunateh, <em>Leaders of Knowledge: Tafsīr, Philosophical-Theology, and the Remapping of Islamic Thought in West Africa</em> (Harvard University, expected 2027).
-        </p>
+
+        <p className="font-english text-gold/50 text-xs uppercase tracking-widest mb-3">On Niasse&apos;s Tafsīr</p>
+        <ul className="space-y-2 font-english text-white/45 text-xs leading-6 mb-8">
+          <li>Andrea Brigaglia, &ldquo;Two Exegetical Works from Twentieth-Century West Africa: Shaykh Abū Bakr Gumi&apos;s <em>Radd al-adhhān</em> and Shaykh Ibrāhīm Niasse&apos;s <em>Fī riyāḍ al-tafsīr</em>,&rdquo; <em>Journal of Qurʾānic Studies</em> 15, no. 3 (2013): 253–266.</li>
+          <li>Oludamini Ogunnaike, &ldquo;In the Gardens with Ibrāhīm: An Evaluation of <em>Fī riyāḍ al-tafsīr</em> by Shaykh Ibrāhīm Niasse, a Contemporary, Traditional Tafsīr,&rdquo; <em>Journal of Qurʾānic Studies</em> 20, no. 1 (2018): 28–46.</li>
+          <li>Zachary Wright, &ldquo;The Qurʾān and Knowledge of God in West Africa: The Sufi Tafsīr of Shaykh Ibrāhīm Niasse,&rdquo; <em>Islamic Africa</em> 15, no. 1 (2023): 69–97.</li>
+          <li>Amadu Kunateh, &ldquo;Identity Without Being: Personhood in the Tafsīr of Shaykh Ibrāhīm Niasse,&rdquo; Special Issue: Presents and Futures of Islamic Philosophy, <em>Sophia</em> (under review).</li>
+        </ul>
+
+        <div className="border border-gold/15 rounded-xl p-4 bg-gold/3">
+          <p className="font-english text-gold/60 text-xs uppercase tracking-widest mb-2">Forthcoming</p>
+          <p className="font-english text-white/50 text-xs leading-5 italic">
+            Amadu Kunateh, <em>Leaders of Knowledge: Tafsīr, Philosophical-Theology, and the Remapping of Islamic Thought in West Africa</em> (Harvard University, expected 2027). The first book-length study of <em>Fī Riyāḍ al-Tafsīr</em>.
+          </p>
+        </div>
       </div>
 
       <div className="mt-10 text-center">
