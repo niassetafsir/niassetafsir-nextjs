@@ -9,8 +9,8 @@ export default function Page() {
         </Link>
       </div>
 
-      <h1 className="font-english text-white text-3xl font-semibold mt-6 mb-1">Shaykh Ibrāhīm Niasse</h1>
-      <p className="font-english text-white/45 text-base mb-8">The West African Scholarly Tradition</p>
+      <h1 className="font-english text-white text-3xl font-semibold mt-6 mb-1">Shaykh Ibrāhīm Niasse and the Tafsīr Tradition</h1>
+      <p className="font-english text-white/45 text-base mb-8">West African Islamic Intellectual History</p>
 
       <div className="font-english text-white/70 text-base leading-relaxed space-y-5">
         <p>Shaykh Ibrāhīm Niasse (d. 1975) was a Senegalese scholar and spiritual leader whose formation was shaped entirely by the West African scholarly tradition. He emerged from a lineage of West African scholars who had, from the fifteenth century onward, contributed substantially to Islamic theology, logic, jurisprudence, and spirituality.</p>
@@ -18,7 +18,15 @@ export default function Page() {
         <p>Tafsīr was the medium in which Niasse most fully expressed his scholarly mission. He completed the entire tafsīr of the Qurʾān between ten and twelve times throughout his life, in public sessions, primarily in Wolof, with several complete cycles delivered in Arabic for his non-Wolof-speaking students.</p>
       </div>
 
-      <div className="mt-12 pt-6 border-t border-gold/15 text-center">
+      <div className="mt-8 p-4 border border-gold/15 rounded-xl bg-gold/3">
+        <p className="font-english text-white/40 text-xs leading-5 italic">
+          This section is being developed from ongoing doctoral research. For a full treatment see: 
+          Amadu Kunateh, <em>Leaders of Knowledge: Tafsīr, Philosophical-Theology, and the Remapping of 
+          Islamic Thought in West Africa</em> (Harvard University, expected 2027).
+        </p>
+      </div>
+
+      <div className="mt-6 pt-6 border-t border-gold/15 text-center">
         <Link href="/" className="font-english text-sm text-white/50 hover:text-gold border border-gold/20 hover:border-gold/50 px-5 py-2 rounded-lg transition-all">
           ← Return to Contents
         </Link>

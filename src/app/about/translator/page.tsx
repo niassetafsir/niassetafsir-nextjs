@@ -9,36 +9,44 @@ export default function Page() {
         </Link>
       </div>
 
-      <h1 className="font-english text-white text-3xl font-semibold mt-6 mb-1">The Translator</h1>
-      <p className="font-english text-white/45 text-base mb-8">Amadu Kunateh, Harvard University</p>
+      <h1 className="font-english text-white text-3xl font-semibold mt-6 mb-1">The Translator & Editor</h1>
+      <p className="font-english text-white/45 text-base mb-8">Amadu Kunateh · Harvard University</p>
 
       <div className="font-english text-white/70 text-base leading-relaxed space-y-5">
         <p>
           <strong className="text-white/90">Amadu Kunateh</strong> is a PhD candidate in Philosophy of Religion 
-          and African Studies at Harvard University. His dissertation — the first sustained, book-length scholarly 
-          treatment of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> — investigates the theology, anthropology, 
-          and cosmology as found in Niasse&apos;s tafsīr, reading it as a case study in twentieth-century West 
-          African Islamic erudition and its theological, philosophical, and Sufi dimensions.
+          and African Studies at Harvard University. This digital scholarly edition is part of his sustained 
+          doctoral research on the tafsīr of Shaykh Ibrāhīm Niasse — work he has conducted since 2022 across 
+          both the six-volume and current ten-volume Arabic editions of the text.
         </p>
         <p>
-          His engagement with this tafsīr began with the earlier six-volume Arabic edition and deepened with the 
-          transition to the current ten-volume edition from 2022. This digital bilingual edition has been developed 
-          in parallel with his doctoral research. Kunateh is the sole translator of the English text and the primary 
-          researcher, proofreader, and architect of this edition.
+          Kunateh conceived, built, and maintains this edition. He is the sole translator of the English text 
+          and has been responsible for the digitisation, proofreading, structural design, and scholarly 
+          annotation of every component of this resource.
         </p>
         <p>
-          The print translation is in preparation for publication with Brill Academic Publishers. Expected 
-          completion of the dissertation: May 2027.
+          His dissertation — <em>Leaders of Knowledge: Tafsīr, Philosophical-Theology, and the Remapping of 
+          Islamic Thought in West Africa</em> (Harvard University, expected 2027) — is the first sustained, 
+          book-length scholarly treatment of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>. It investigates 
+          the theology (Who is God?), anthropology (Who is the human being?), and cosmology (What is the cosmos?) 
+          as found in Niasse&apos;s tafsīr, reading it as a case study in twentieth-century West African Islamic 
+          erudition and its theological, philosophical, and Sufi dimensions.
+        </p>
+        <p>
+          The print translation is in preparation for publication with Brill Academic Publishers.
         </p>
       </div>
 
-      <div className="mt-10 pt-6 border-t border-gold/15">
-        <Link href="/introduction" className="font-english text-sm text-gold/60 hover:text-gold transition-all">
+      <div className="mt-10 pt-6 border-t border-gold/15 space-y-3">
+        <Link href="/introduction" className="block font-english text-sm text-gold/60 hover:text-gold transition-all">
           Read the Translator&apos;s Introduction →
         </Link>
+        <a href="mailto:niassetafsirproject@gmail.com" className="block font-english text-sm text-white/35 hover:text-gold/60 transition-all">
+          Contact: niassetafsirproject@gmail.com
+        </a>
       </div>
 
-      <div className="mt-6 text-center">
+      <div className="mt-8 text-center">
         <Link href="/" className="font-english text-xs text-white/35 hover:text-gold/60 border border-white/10 hover:border-gold/30 px-4 py-2 rounded-lg transition-all">
           ← Return to Contents
         </Link>
