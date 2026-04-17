@@ -45,7 +45,7 @@ export function buildCitation(
   const url = `https://niassetafsir.org/lesson/${lessonId}`;
   // Chicago 17th edition — note format
   if (language === 'en') {
-    return `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, trans. Amadu Kunateh (Cambridge: forthcoming), ${lessonTitleEn} (${verseRange}). Digital scholarly database: ${url}, accessed ${date}.`;
+    return `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, trans. Amadu Kunateh, ${lessonTitleEn} (${verseRange}). Digital scholarly database: ${url}, accessed ${date}.`;
   }
   return `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, 10 vols. (2nd ed.), ${lessonTitleEn} (${verseRange}). Digital scholarly database: ${url}, accessed ${date}.`;
 }
@@ -53,7 +53,7 @@ export function buildCitation(
 export function buildBibliography(language: 'ar' | 'en'): string {
   // Chicago 17th bibliography entry
   if (language === 'en') {
-    return 'Niasse, Ibrāhīm. Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. Translated by Amadu Kunateh. Cambridge: forthcoming. Digital scholarly database: https://niassetafsir.org.';
+    return 'Niasse, Ibrāhīm. Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. Translated by Amadu Kunateh. Digital scholarly database: https://niassetafsir.org.';
   }
   return 'Niasse, Ibrāhīm. Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. Compiled by Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī. 10 vols. 2nd ed. Digital scholarly database: https://niassetafsir.org.';
 }

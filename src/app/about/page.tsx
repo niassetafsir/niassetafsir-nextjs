@@ -39,7 +39,7 @@ export default function AboutPage() {
           </h2>
           <p className="leading-6">
             The complete bilingual print edition (Arabic facing English) is currently under review 
-            for publication with Brill Academic Publishers. It differs from the Arabic compiled 
+            for publication with an academic publisher. It differs from the Arabic compiled 
             edition in its organisation: rather than following the ten-volume structure of the 
             Arabic edition, the print bilingual edition is organised around the 
             <strong className="text-white/85"> seven manzils</strong> — the daily recitation portions 

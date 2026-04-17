@@ -53,7 +53,7 @@ export default function ClipsPage() {
           <div className="text-3xl mb-4 opacity-30">📎</div>
           <p className="font-english text-white/30 italic text-sm">No research clips saved yet.</p>
           <p className="font-english text-white/20 text-xs mt-2 max-w-sm mx-auto">
-            Select any Arabic or English text in a lesson to save it here with an auto-generated Brill citation.
+            Select any Arabic or English text in a lesson to save it here with an auto-generated  citation.
           </p>
           <Link href="/lesson/1" className="inline-block mt-6 font-english text-sm text-white/50 hover:text-gold border border-gold/20 hover:border-gold/50 px-4 py-2 rounded-lg transition-all">
             Start Reading →
@@ -85,7 +85,7 @@ export default function ClipsPage() {
                 </p>
 
                 <div className="bg-white/3 rounded-lg p-3 mb-3">
-                  <p className="font-english text-xs text-white/40 uppercase tracking-widest mb-1">Brill Citation</p>
+                  <p className="font-english text-xs text-white/40 uppercase tracking-widest mb-1"> Citation</p>
                   <p className="font-english text-xs text-white/65 leading-5">{clip.citation}</p>
                 </div>
 

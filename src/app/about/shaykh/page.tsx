@@ -92,7 +92,7 @@ export default function Page() {
         <p className="font-english text-gold/50 text-xs uppercase tracking-widest mb-3">On Shaykh Ibrāhīm Niasse and the Fayḍa</p>
         <ul className="space-y-2 font-english text-white/45 text-xs leading-6 mb-8">
           <li>Ruediger Seesemann, <em>The Divine Flood: Ibrāhīm Niasse and the Roots of a Twentieth-Century Sufi Revival</em> (Oxford: Oxford University Press, 2011).</li>
-          <li>Zachary Wright, <em>Living Knowledge in West African Islam: The Sufi Community of Ibrāhīm Niasse</em> (Leiden: Brill, 2015).</li>
+          <li>Zachary Wright, <em>Living Knowledge in West African Islam: The Sufi Community of Ibrāhīm Niasse</em> (Leiden: , 2015).</li>
           <li>Oludamini Ogunnaike, <em>Deep Knowledge: Ways of Knowing in Sufism and Ifá, Two West African Intellectual Traditions</em> (University Park: Penn State University Press, 2020).</li>
           <li>Joseph Hill, &ldquo;Divine Knowledge and Islamic Authority: Religious Specialization among Disciples of Baay Ñas,&rdquo; PhD dissertation, Department of Anthropology, Yale University, 2007.</li>
         </ul>
