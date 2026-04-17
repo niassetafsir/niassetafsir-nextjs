@@ -57,9 +57,9 @@ export default function FootnotesPage() {
   }, []);
 
   // Build filter options
-  const scholars = [...new Set(footnotes.map(f => f.scholar).filter(Boolean))].sort() as string[];
-  const genres = [...new Set(footnotes.map(f => f.genre))].sort();
-  const lessons = [...new Set(footnotes.map(f => f.lessonId))].sort((a,b) => a-b);
+  const scholars = Array.from(new Set(footnotes.map(f => f.scholar).filter(Boolean))).sort() as string[];
+  const genres = Array.from(new Set(footnotes.map(f => f.genre))).sort();
+  const lessons = Array.from(new Set(footnotes.map(f => f.lessonId))).sort((a,b) => a-b);
 
   // Scholar frequency
   const scholarCount: Record<string, number> = {};
