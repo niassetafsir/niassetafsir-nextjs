@@ -55,9 +55,9 @@ function ManzilCard({ manzil, isOpen, onToggle }: {
   const hasLessons = manzil.lessons.length > 0;
   return (
     <div className="border border-gold/15 rounded-xl overflow-hidden flex flex-col">
-      <button
-        onClick={onToggle}
-        className="w-full bg-gold/8 hover:bg-gold/13 px-4 py-3 flex items-center justify-between transition-colors"
+      <Link
+        href={`/manzil/${manzil.id}`}
+        className="w-full bg-gold/8 hover:bg-gold/13 px-4 py-3 flex items-center justify-between transition-colors block"
       >
         
         <div className="flex-1 text-center">
@@ -70,7 +70,7 @@ function ManzilCard({ manzil, isOpen, onToggle }: {
         </div>
         <ChevronDown size={16} className={`text-gold/50 flex-shrink-0 ml-2 transition-transform ${isOpen ? "rotate-180" : ""}`} />
       
-      </button>
+      </Link>
 
       {isOpen && (
         <div className="flex-1">
@@ -187,7 +187,7 @@ export default function HomePage() {
               <div className="border-t border-gold/15 pt-3">
                 <p className="font-semibold text-white mb-1">Research Tools</p>
                 <ul className="space-y-1 text-white/70">
-                  <li><strong className="text-white/90">Search</strong> — full-text search across the complete Arabic edition and partial English translation (Lessons 1–2)</li>
+                  <li><strong className="text-white/90">Search</strong> — full-text search across the complete Arabic edition and partial English translation</li>
                   <li><strong className="text-white/90">Bookmarks</strong> — save passages; export as .txt for study notes</li>
                   <li><strong className="text-white/90">Arabic word tool</strong> — select any Arabic word to see its root and English gloss</li>
                 </ul>
@@ -216,13 +216,14 @@ export default function HomePage() {
 
       {/* Manzils — compact grid: 3 cols desktop, 2 cols tablet, 1 col mobile */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto">
-        {MANZILS.map(manzil => (
-          <ManzilCard
-            key={manzil.id}
-            manzil={manzil}
-            isOpen={openManzils[manzil.id] ?? false}
-            onToggle={() => toggle(manzil.id)}
-          />
+        {MANZILS.map((manzil, idx) => (
+          <div key={manzil.id} className={idx === MANZILS.length - 1 && MANZILS.length % 3 !== 0 ? "sm:col-span-2 lg:col-start-2 lg:col-span-1" : ""}>
+            <ManzilCard
+              manzil={manzil}
+              isOpen={openManzils[manzil.id] ?? false}
+              onToggle={() => toggle(manzil.id)}
+            />
+          </div>
         ))}
       </div>
 
