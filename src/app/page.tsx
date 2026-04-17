@@ -190,6 +190,7 @@ export default function HomePage() {
                 <ul className="space-y-1 text-white/70">
                   <li><strong className="text-white/90">Search</strong> — full-text search across the complete Arabic edition and partial English translation</li>
                   <li><strong className="text-white/90">Bookmarks</strong> — save passages; export as .txt for study notes</li>
+                  <li><strong className="text-white/90">Research Clips</strong> — select any passage to save with auto-generated Chicago citation; export for papers</li>
                   <li><strong className="text-white/90">Arabic word tool</strong> — select any Arabic word to see its root and English gloss</li>
                 </ul>
               </div>
