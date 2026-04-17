@@ -103,15 +103,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
 
       {/* Compare prompt between tafsir and jalalayn */}
       <div className="flex justify-end px-1 -mt-2 mb-1">
-        <a href="#jalalayn-panel" onClick={(e) => {
-          e.preventDefault();
-          const el = document.getElementById('jalalayn-panel');
-          if (el) { el.scrollIntoView({behavior:'smooth', block:'start'}); }
-          // Also open the panel by simulating a click on its button
-          const btn = el?.querySelector('button');
-          const isOpen = btn?.getAttribute('data-open');
-          if (!isOpen) btn?.click();
-        }} className="font-english text-xs text-white/30 hover:text-gold transition-colors">
+        <a href={`/lesson/${lesson.id}?panel=jalalayn`}
+          className="font-english text-xs text-white/30 hover:text-gold transition-colors">
           See Jalālayn commentary on this passage ↓
         </a>
       </div>
