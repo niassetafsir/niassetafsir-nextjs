@@ -43,16 +43,16 @@ function NavDropdown({ label, items }: { label: string; items: DropdownItem[] })
       </button>
 
       {open && (
-        <div className="absolute top-full left-0 mt-1 w-52 bg-bg border border-gold/20 rounded-xl shadow-2xl z-50 overflow-hidden">
+        <div className="absolute top-full left-0 mt-1 w-44 bg-bg border border-gold/20 rounded-xl shadow-2xl z-50 overflow-hidden">
           {items.map((item, i) => (
             <Link
               key={i}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="flex flex-col items-center px-3 py-2 hover:bg-gold/8 transition-colors border-b border-white/5 last:border-0 text-center"
+              className="flex flex-col items-center px-3 py-1.5 hover:bg-gold/8 transition-colors border-b border-white/5 last:border-0 text-center"
             >
-              <span className="font-english text-[13px] text-white/80 font-medium">{item.label}</span>
-              {item.sub && <span className="font-english text-[11px] text-white/40 mt-0.5">{item.sub}</span>}
+              <span className="font-english text-[11px] text-white/75 font-medium tracking-wide uppercase">{item.label}</span>
+              {item.sub && <span className="font-english text-[10px] text-white/30 mt-0.5 normal-case">{item.sub}</span>}
             </Link>
           ))}
         </div>
