@@ -101,7 +101,7 @@ export default function SearchPage() {
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="Search in Arabic or English... (e.g. الرحمن, mercy, Q.2:255)"
-            className="w-full bg-white/5 border border-gold/25 rounded-xl px-4 py-3 font-english text-white placeholder-white/30 focus:outline-none focus:border-gold/60 text-base"
+            className="w-full bg-white/5 border border-gold/25 rounded-xl px-4 py-3 font-english text-white placeholder-white/30 focus:outline-none focus:border-gold/60 text-base search-input"
             autoFocus
             dir="auto"
           />

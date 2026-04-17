@@ -417,3 +417,18 @@ body {
 [data-theme="light"] nav .text-gold {
   color: #7B1C1C !important;
 }
+
+/* Search bar: white text dark mode, black text light mode */
+input[type="text"].search-input {
+  color: rgba(255,255,255,0.90);
+}
+input[type="text"].search-input::placeholder {
+  color: rgba(255,255,255,0.30);
+}
+[data-theme="light"] input[type="text"].search-input {
+  color: #111111 !important;
+  background: rgba(0,0,0,0.05) !important;
+}
+[data-theme="light"] input[type="text"].search-input::placeholder {
+  color: #888888 !important;
+}
