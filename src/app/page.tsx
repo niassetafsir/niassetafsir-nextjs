@@ -197,6 +197,9 @@ export default function HomePage() {
                   <li><strong className="text-white/90">Research Clips</strong> — view all saved passages at /clips; export as .txt with full citations for academic writing</li>
                   <li><strong className="text-white/90">Arabic word tool</strong> — select any Arabic word to see its root and English gloss</li>
                   <li><strong className="text-white/90">Verse concordance</strong> — click any Quranic verse to see every lesson where Niasse comments on it</li>
+                  <li><strong className="text-white/90">Critical apparatus</strong> — 798 footnotes by the compiler, classified by scholar, genre, and lesson; click any inline <sup>[n]</sup> to jump directly to the footnote</li>
+                  <li><strong className="text-white/90">Scholar index</strong> — every figure Niasse cites, sorted by frequency across all 30 lessons</li>
+                  <li><strong className="text-white/90">Glossary</strong> — key theological and Sufi terms as Niasse employs them, with lesson links</li>
                 </ul>
               </div>
 

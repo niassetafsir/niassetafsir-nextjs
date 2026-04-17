@@ -21,7 +21,10 @@ export default function Page() {
         <p>
           Kunateh conceived, built, and maintains this edition. He is the sole translator of the English text 
           and has been responsible for the digitisation, proofreading, structural design, and scholarly 
-          annotation of every component of this resource.
+          annotation of every component of this resource. The genre classification of the critical apparatus — 
+          organising the compiler's 798 footnotes by subject (Hadith Sciences, Tafsīr, Theology, Sufism, 
+          Fiqh, Linguistics, History) — is an original editorial contribution of this digital edition, not 
+          present in the printed Arabic text.
         </p>
         <p>
           His dissertation — <em>Leaders of Knowledge: Tafsīr, Philosophical-Theology, and the Remapping of 
