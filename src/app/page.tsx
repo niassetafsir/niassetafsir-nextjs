@@ -187,7 +187,7 @@ export default function HomePage() {
               <div className="border-t border-gold/15 pt-3">
                 <p className="font-semibold text-white mb-1">Research Tools</p>
                 <ul className="space-y-1 text-white/70">
-                  <li><strong className="text-white/90">Search</strong> — full-text search across all 30 lessons in Arabic and English</li>
+                  <li><strong className="text-white/90">Search</strong> — full-text search across the complete Arabic edition and partial English translation (Lessons 1–2)</li>
                   <li><strong className="text-white/90">Bookmarks</strong> — save passages; export as .txt for study notes</li>
                   <li><strong className="text-white/90">Arabic word tool</strong> — select any Arabic word to see its root and English gloss</li>
                 </ul>
