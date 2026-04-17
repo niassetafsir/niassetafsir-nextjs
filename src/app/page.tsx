@@ -119,11 +119,14 @@ export default function HomePage() {
         <div className="font-arabic text-gold text-4xl font-bold mb-3" dir="rtl">
           فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
         </div>
-        <div className="font-arabic text-gold-light text-xl italic mb-2 mt-1" dir="rtl">
-          الشيخ إبراهيم نياس رضي اللّٰه عنه
+        <div className="font-arabic text-gold-light text-xl mb-1 mt-1 font-bold" dir="rtl">
+          الشيخ إبراهيم نياس
         </div>
-        <div className="font-english text-white/55 text-base mt-2" dir="ltr">
-          In the Gardens of Exegesis — The Digital Bilingual Edition
+        <div className="font-english text-gold/45 text-xs mb-2" dir="ltr">
+          Shaykh Ibrāhīm Niasse (d. 1975)
+        </div>
+        <div className="font-english text-white/55 text-base" dir="ltr">
+          The Digital Bilingual Edition
         </div>
         <div className="flex gap-3 justify-center mt-6 flex-wrap items-center">
           <Link href="/lesson/1" className="font-english text-base text-bg bg-gold hover:bg-gold-light px-5 py-2 rounded-lg font-semibold transition-all">
@@ -153,12 +156,12 @@ export default function HomePage() {
         {/* How to Use guide */}
         {showGuide && (
           <div className="mt-6 p-5 border border-gold/20 rounded-xl bg-gold/4 text-left max-w-2xl mx-auto" dir="ltr">
-            <h3 className="font-english text-gold font-semibold text-base mb-4">Using This Scholarly Database</h3>
+            <h3 className="font-english text-gold font-semibold text-base mb-4">Using This Edition</h3>
             <div className="font-english text-white/80 text-sm leading-7 space-y-3">
               <p>
-                This is the first digital bilingual edition of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by
-                Shaykh Ibrāhīm Niasse (d. 1975), with an English translation by Amadu Kunateh (Harvard University).
-                It functions as a living scholarly database for research on Niasse&apos;s tafsīr tradition.
+                A digital bilingual edition of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by Shaykh Ibrāhīm Niasse (d. 1975),
+                with an English translation by Amadu Kunateh (Harvard University). Designed as a research resource 
+                for scholars, students, and all who seek to engage the text and elicit its meanings.
               </p>
 
               <div className="border-t border-gold/15 pt-3">

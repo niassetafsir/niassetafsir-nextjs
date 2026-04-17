@@ -92,8 +92,9 @@ export default function SiteNav() {
   return (
     <nav className="flex items-center justify-between px-5 py-2.5 bg-black/30 border-b border-gold/15 sticky top-0 z-50 backdrop-blur">
       {/* Logo */}
-      <Link href="/" className="font-arabic text-gold font-bold text-base hover:text-gold-light transition-colors flex-shrink-0" dir="rtl">
-        في رياض التفسير
+      <Link href="/" className="flex flex-col flex-shrink-0 hover:opacity-80 transition-opacity">
+        <span className="font-arabic text-gold font-bold text-sm leading-tight" dir="rtl">في رياض التفسير</span>
+        <span className="font-english text-gold/45 text-[9px] leading-tight tracking-wide" dir="ltr">Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</span>
       </Link>
 
       {/* Nav items */}

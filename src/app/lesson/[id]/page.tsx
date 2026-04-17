@@ -40,7 +40,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </div>
 
       {/* 1. Audio */}
-      <Panel icon="🎧" titleAr="تسجيل صوتي للشيخ" titleEn="Sheikh Ibrāhīm Niasse — Audio">
+      <Panel icon="" titleAr="تسجيل صوتي للشيخ" titleEn="Sheikh Ibrāhīm Niasse — Audio">
         <AudioPanel
           wolofPlaylistId={lesson.wolofPlaylistId}
           arabicPlaylistId={lesson.arabicPlaylistId}
@@ -51,7 +51,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </Panel>
 
       {/* 2. Sheikh's Tafsir */}
-      <Panel icon="📜" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text">
+      <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text">
         <BilingualText
           arabicText={lesson.arabicText}
           englishText={lesson.englishText}
@@ -66,7 +66,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </Panel>
 
       {/* 3. Reading Notes */}
-      <Panel icon="🖊️" titleAr="ملاحظات القراءة" titleEn="Lesson Summary">
+      <Panel icon="" titleAr="ملاحظات القراءة" titleEn="Lesson Summary">
         <div className="p-5" dir="ltr">
           <div className="mb-3 pb-3 border-b border-gold/15">
             <div className="font-english text-white/40 text-xs italic">
@@ -93,7 +93,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </Panel>
 
       {/* 4. Jalalayn */}
-      <Panel icon="📖" titleAr="تفسير الجلالين" titleEn="Tafsīr al-Jalālayn — Full Text">
+      <Panel icon="" titleAr="تفسير الجلالين" titleEn="Tafsīr al-Jalālayn — Full Text">
         <div className="p-5" dir="ltr">
           <div className="flex justify-between items-center mb-3 pb-3 border-b border-blue-900/30">
             <div>
@@ -114,7 +114,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </Panel>
 
       {/* 5. Ruh al-Bayan */}
-      <Panel icon="📗" titleAr="رُوحُ الْبَيَانِ" titleEn="Rūḥ al-Bayān">
+      <Panel icon="" titleAr="رُوحُ الْبَيَانِ" titleEn="Rūḥ al-Bayān">
         <div className="p-5" dir="ltr">
           <div className="flex justify-between items-center mb-3 pb-3 border-b border-green-900/30">
             <div>
