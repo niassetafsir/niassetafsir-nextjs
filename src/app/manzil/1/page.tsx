@@ -12,6 +12,7 @@ export default function Page() {
         <h1 className="font-arabic text-gold text-3xl font-bold mb-1" dir="rtl">المنزل الأول</h1>
         <p className="font-english text-white/55 text-base mt-1">First Manzil · Day One</p>
         <p className="font-english text-white/30 text-sm mt-1">Al-Fātiḥa → Al-Nisāʾ (Suras 1–4)</p>
+        <p className="font-english text-white/20 text-xs mt-2 leading-5">Al-Fātiḥa · Al-Baqara · Āl ʿImrān · Al-Nisāʾ</p>
       </div>
       <div className="border border-gold/15 rounded-xl overflow-hidden">
       <a href="/lesson/1" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">

@@ -12,6 +12,7 @@ export default function Page() {
         <h1 className="font-arabic text-gold text-3xl font-bold mb-1" dir="rtl">المنزل الرابع</h1>
         <p className="font-english text-white/55 text-base mt-1">Fourth Manzil · Day Four</p>
         <p className="font-english text-white/30 text-sm mt-1">Al-Isrāʾ → Al-Furqān (Suras 17–25)</p>
+        <p className="font-english text-white/20 text-xs mt-2 leading-5">Al-Isrāʾ · Al-Kahf · Maryam · Ṭāhā · Al-Anbiyāʾ · Al-Ḥajj · Al-Muʾminūn · Al-Nūr · Al-Furqān</p>
       </div>
       <div className="text-center py-12"><p className="font-english text-white/30 italic">Coming soon — further volumes in preparation.</p></div>
     </main>

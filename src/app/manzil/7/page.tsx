@@ -12,6 +12,7 @@ export default function Page() {
         <h1 className="font-arabic text-gold text-3xl font-bold mb-1" dir="rtl">المنزل السابع</h1>
         <p className="font-english text-white/55 text-base mt-1">Seventh Manzil · Day Seven</p>
         <p className="font-english text-white/30 text-sm mt-1">Qāf → Al-Nās (Suras 50–114)</p>
+        <p className="font-english text-white/20 text-xs mt-2 leading-5">Qāf · Al-Dhāriyāt · Al-Ṭūr · Al-Najm · Al-Qamar · Al-Raḥmān · Al-Wāqiʿa · Al-Ḥadīd … Al-Nās</p>
       </div>
       <div className="text-center py-12"><p className="font-english text-white/30 italic">Coming soon — further volumes in preparation.</p></div>
     </main>
