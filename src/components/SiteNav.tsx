@@ -51,8 +51,8 @@ function NavDropdown({ label, items }: { label: string; items: DropdownItem[] })
               onClick={() => setOpen(false)}
               className="flex flex-col items-center px-3 py-1.5 hover:bg-gold/8 transition-colors border-b border-white/5 last:border-0 text-center"
             >
-              <span className="font-english text-[8px] text-white/75 font-bold capitalize">{item.label}</span>
-              {item.sub && <span className="font-english text-[7px] text-white/30 mt-0.5 font-normal">{item.sub}</span>}
+              <span className="font-english text-[6px] text-white/75 font-bold capitalize">{item.label}</span>
+              {item.sub && <span className="font-english text-[5px] text-white/30 mt-0.5 font-normal">{item.sub}</span>}
             </Link>
           ))}
         </div>
@@ -75,11 +75,11 @@ export default function SiteNav() {
   };
 
   const ABOUT_ITEMS: DropdownItem[] = [
-    { label: "Translator\'s Introduction", sub: "(Amadu Kunateh)", href: "/introduction" },
-    { label: "Shaykh Ibrāhīm Niasse", sub: "West African Scholarly Tradition", href: "/introduction" },
-    { label: "About This Edition", sub: "", href: "/about" },
-    { label: "The Arabic Edition", sub: "Compiler & manuscript", href: "/about#arabic" },
-    { label: "Companion Texts", sub: "Jalālayn & Rūḥ al-Bayān", href: "/about#companion" },
+    { label: "Translator\'s Introduction", sub: "Amadu Kunateh", href: "/introduction" },
+    { label: "Shaykh Ibrāhīm Niasse", sub: "West African Scholarly Tradition", href: "/about/shaykh" },
+    { label: "About This Edition", sub: "The project overview", href: "/about" },
+    { label: "The Arabic Edition", sub: "Compiler & manuscript", href: "/about/arabic-edition" },
+    { label: "Companion Texts", sub: "Jalālayn & Rūḥ al-Bayān", href: "/about/companion-texts" },
   ];
 
   const CONTRIBUTE_ITEMS: DropdownItem[] = [
