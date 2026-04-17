@@ -433,6 +433,23 @@ input[type="text"].search-input::placeholder {
   color: #888888 !important;
 }
 
+/* All text inputs in light mode */
+[data-theme="light"] input[type="text"],
+[data-theme="light"] input[type="search"] {
+  color: #111111 !important;
+  background: rgba(0,0,0,0.05) !important;
+  border-color: rgba(139,105,20,0.35) !important;
+}
+[data-theme="light"] input[type="text"]::placeholder,
+[data-theme="light"] input[type="search"]::placeholder {
+  color: #888888 !important;
+}
+[data-theme="light"] input[type="text"]:focus,
+[data-theme="light"] input[type="search"]:focus {
+  border-color: rgba(139,105,20,0.6) !important;
+  outline: none;
+}
+
 /* Light mode: ALL headings jet black */
 [data-theme="light"] h1,
 [data-theme="light"] h2,
@@ -506,3 +523,31 @@ input[type="text"].search-input::placeholder {
   text-decoration: underline;
 }
 sup { line-height: 0; vertical-align: super; font-size: 0.7em; }
+
+/* ── Academic readability minimums ──────────────── */
+/* Nav labels: slightly larger than Tailwind xs */
+nav .font-english.text-xs {
+  font-size: 13px !important;
+}
+
+/* Page titles (h1 equivalents) across research pages */
+.font-arabic.text-2xl {
+  font-size: 26px;
+}
+
+/* Apparatus and index body text: never below 12px */
+.font-english.text-\[10px\],
+.font-english.text-\[11px\] {
+  font-size: 12px !important;
+}
+
+/* Search/filter sidebar items */
+.font-english.text-xs {
+  font-size: 13px;
+}
+
+/* Footnote Arabic text: comfortable reading */
+#footnotes-list .font-arabic.text-sm {
+  font-size: 16px;
+  line-height: 2;
+}
