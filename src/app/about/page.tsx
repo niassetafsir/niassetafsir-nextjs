@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <main className="max-w-2xl mx-auto px-6 pb-20 pt-6" dir="ltr">
       <div className="text-center pb-8 mb-8 border-b border-gold/20">
-        <div className="font-english text-gold text-2xl font-semibold">About This Edition</div>
+        <div className="font-english text-gold text-2xl font-semibold">About This Edition &amp; Database</div>
         <div className="font-english text-white/40 text-sm mt-2 italic">
           Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
         </div>
@@ -14,25 +14,42 @@ export default function AboutPage() {
 
         <div>
           <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
-            The Edition
+            This Scholarly Database
           </h2>
           <p className="leading-6">
-            This is a digital bilingual scholarly edition of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> 
-            by Shaykh Ibrāhīm Niasse (d. 1975). The edition presents the complete Arabic text of the 
-            ten-volume compiled edition alongside a partial English translation (currently Lessons 1–2), 
-            with the full translation in preparation for print publication.
+            This is a digital scholarly research database for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> 
+            by Shaykh Ibrāhīm Niasse (d. 1975) — the first resource of its kind designed to make this 
+            tafsīr accessible, searchable, and analytically usable for academic research. It provides 
+            the complete Arabic text, a partial English translation (Lessons 1–2), comparative passages 
+            from Tafsīr al-Jalālayn and <em>Rūḥ al-Bayān</em>, full-text search, and research tools 
+            including text clipping with auto-citation.
           </p>
           <p className="leading-6 mt-3">
-            The digital edition is based on the Arabic text compiled by 
-            <strong className="text-white/85"> Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī</strong> 
-            from recordings of Shaykh Ibrāhīm&apos;s oral delivery, with editorial corrections and 
-            scholarly annotations. Each lesson is accompanied by comparative notes drawing on 
-            Tafsīr al-Jalālayn and Rūḥ al-Bayān of Ismāʿīl Ḥaqqī al-Burūsawī — the two works 
-            Niasse himself most closely consulted.
+            The Arabic text is based on the compiled edition of 
+            <strong className="text-white/85"> Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī</strong>, 
+            with editorial corrections. The database has been digitised, verified, and built by 
+            <strong className="text-white/85"> Amadu Kunateh</strong> (Harvard University) as part 
+            of his doctoral research on Niasse&apos;s tafsīr.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
+            The Print Bilingual Edition
+          </h2>
+          <p className="leading-6">
+            The complete bilingual print edition (Arabic facing English) is currently under review 
+            for publication with Brill Academic Publishers. It differs from the Arabic compiled 
+            edition in its organisation: rather than following the ten-volume structure of the 
+            Arabic edition, the print bilingual edition is organised around the 
+            <strong className="text-white/85"> seven manzils</strong> — the daily recitation portions 
+            that Shaykh Ibrāhīm himself enumerated in verse and practised as a weekly cycle of 
+            Qurʾānic recitation.
           </p>
           <p className="leading-6 mt-3">
-            The print bilingual edition (Arabic facing English) is currently under review for 
-            publication with Brill Academic Publishers.
+            This seven-volume structure — each volume corresponding to one manzil — reflects the 
+            Sheikh&apos;s own relationship to the Qurʾān and provides a framework for the translation 
+            that is rooted in his practice rather than in the conventions of the printed Arabic edition.
           </p>
         </div>
 

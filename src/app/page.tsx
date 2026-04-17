@@ -156,12 +156,13 @@ export default function HomePage() {
         {/* How to Use guide */}
         {showGuide && (
           <div className="mt-6 p-5 border border-gold/20 rounded-xl bg-gold/4 text-left max-w-2xl mx-auto" dir="ltr">
-            <h3 className="font-english text-gold font-semibold text-base mb-4">Using This Edition</h3>
+            <h3 className="font-english text-gold font-semibold text-base mb-4">About This Scholarly Database</h3>
             <div className="font-english text-white/80 text-sm leading-7 space-y-3">
               <p>
-                A digital bilingual edition of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by Shaykh Ibrāhīm Niasse (d. 1975),
-                with an English translation by Amadu Kunateh (Harvard University). Designed as a research resource 
-                for scholars, students, and all who seek to engage the text and elicit its meanings.
+                A digital scholarly database for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by Shaykh Ibrāhīm Niasse (d. 1975) — 
+                the first resource of its kind to make this tafsīr accessible, searchable, and analytically usable for 
+                academic research. Built by Amadu Kunateh (Harvard University) as part of his doctoral research on 
+                Niasse&apos;s tafsīr.
               </p>
 
               <div className="border-t border-gold/15 pt-3">

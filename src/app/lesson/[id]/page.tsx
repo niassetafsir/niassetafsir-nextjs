@@ -58,14 +58,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
           lessonTitleAr={lesson.arabicTitle}
           lessonTitleEn={lesson.englishTitle}
           verseRange={lesson.verseRange}
-          language="ar"
-        />
-        <SelectionClip
-          lessonId={lesson.id}
-          lessonTitleAr={lesson.arabicTitle}
-          lessonTitleEn={lesson.englishTitle}
-          verseRange={lesson.verseRange}
-          language="en"
         />
         <BilingualText
           arabicText={lesson.arabicText}

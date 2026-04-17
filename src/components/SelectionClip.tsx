@@ -7,13 +7,12 @@ interface SelectionClipProps {
   lessonTitleAr: string;
   lessonTitleEn: string;
   verseRange: string;
-  language: 'ar' | 'en';
 }
 
 export default function SelectionClip({
-  lessonId, lessonTitleAr, lessonTitleEn, verseRange, language
+  lessonId, lessonTitleAr, lessonTitleEn, verseRange
 }: SelectionClipProps) {
-  const [popup, setPopup] = useState<{text: string; x: number; y: number} | null>(null);
+  const [popup, setPopup] = useState<{text: string; x: number; y: number; lang: 'ar'|'en'} | null>(null);
   const [saved, setSaved] = useState(false);
   const [flash, setFlash] = useState(false);
   const popupRef = useRef<HTMLDivElement>(null);
@@ -22,51 +21,41 @@ export default function SelectionClip({
     const handleMouseUp = (e: MouseEvent) => {
       setTimeout(() => {
         const selection = window.getSelection();
-        const text = selection?.toString().trim();
-        if (!text || text.length < 10) { setPopup(null); return; }
-        
-        // Check it's from this language's column
-        const range = selection?.getRangeAt(0);
-        const container = range?.commonAncestorContainer;
-        const el = container instanceof Element ? container : container?.parentElement;
-        
-        // Only show for the relevant column
-        const isAr = el?.closest('[dir="rtl"]');
-        const isEn = el?.closest('[dir="ltr"]') && !el?.closest('[dir="rtl"]');
-        if (language === 'ar' && !isAr) { setPopup(null); return; }
-        if (language === 'en' && !isEn) { setPopup(null); return; }
-        
+        const text = selection?.toString().trim() || '';
+        if (text.length < 8) { setPopup(null); return; }
+
+        // Detect language from selected text
+        const arChars = (text.match(/[\u0600-\u06FF]/g) || []).length;
+        const lang = arChars / text.length > 0.4 ? 'ar' : 'en';
+
         setSaved(isClipped(text));
-        setPopup({ text, x: e.clientX, y: e.clientY + window.scrollY });
-      }, 10);
+        setPopup({
+          text,
+          lang,
+          x: Math.min(e.clientX, window.innerWidth - 220),
+          y: e.clientY + window.scrollY
+        });
+      }, 20);
     };
-    
+
     const handleMouseDown = (e: MouseEvent) => {
       if (popupRef.current && !popupRef.current.contains(e.target as Node)) {
         setPopup(null);
       }
     };
-    
+
     document.addEventListener('mouseup', handleMouseUp);
     document.addEventListener('mousedown', handleMouseDown);
     return () => {
       document.removeEventListener('mouseup', handleMouseUp);
       document.removeEventListener('mousedown', handleMouseDown);
     };
-  }, [language]);
+  }, []);
 
   const handleSave = () => {
     if (!popup || saved) return;
-    const citation = buildCitation(lessonId, lessonTitleEn, verseRange, language);
-    saveClip({
-      text: popup.text,
-      language,
-      lessonId,
-      lessonTitleAr,
-      lessonTitleEn,
-      verseRange,
-      citation,
-    });
+    const citation = buildCitation(lessonId, lessonTitleEn, verseRange, popup.lang);
+    saveClip({ text: popup.text, language: popup.lang, lessonId, lessonTitleAr, lessonTitleEn, verseRange, citation });
     setSaved(true);
     setFlash(true);
     setTimeout(() => { setFlash(false); setPopup(null); }, 1200);
@@ -77,23 +66,19 @@ export default function SelectionClip({
   return (
     <div
       ref={popupRef}
-      className="fixed z-[100] flex items-center gap-2 bg-bg border border-gold/30 rounded-full px-3 py-1.5 shadow-2xl"
-      style={{ top: popup.y - 48, left: Math.min(Math.max(popup.x - 80, 8), window.innerWidth - 200) }}
+      className="fixed z-[200] flex items-center gap-2 bg-bg border border-gold/40 rounded-full px-3 py-2 shadow-2xl backdrop-blur"
+      style={{ top: popup.y - 52, left: Math.max(8, popup.x - 100) }}
     >
       <button
         onClick={handleSave}
         disabled={saved}
-        className={`font-english text-xs font-medium transition-all flex items-center gap-1.5 ${
-          saved ? 'text-gold cursor-default' : 'text-white/70 hover:text-gold'
-        } ${flash ? 'scale-110' : 'scale-100'}`}
+        className={`font-english text-xs font-medium flex items-center gap-1.5 transition-all ${
+          saved ? 'text-gold' : 'text-white/80 hover:text-gold'
+        } ${flash ? 'scale-110' : ''}`}
       >
-        {saved ? (
-          <><span>✓</span><span>Saved to Clips</span></>
-        ) : (
-          <><span>📎</span><span>Save to Research Clips</span></>
-        )}
+        {saved ? '✓ Saved to Clips' : '📎 Save to Research Clips'}
       </button>
-      <button onClick={() => setPopup(null)} className="text-white/25 hover:text-white/50 text-xs ml-1">✕</button>
+      <button onClick={() => setPopup(null)} className="text-white/25 hover:text-white/60 text-xs">✕</button>
     </div>
   );
 }
