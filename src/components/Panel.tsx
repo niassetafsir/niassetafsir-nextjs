@@ -1,5 +1,5 @@
 'use client';
-import { useState, ReactNode } from 'react';
+import { useState, ReactNode, useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 interface PanelProps {
@@ -9,13 +9,29 @@ interface PanelProps {
   children: ReactNode;
   defaultOpen?: boolean;
   iconColor?: string;
+  panelId?: string;  // e.g. "jalalayn", "tafsir", "wolof"
 }
 
-export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = false, iconColor = 'text-blue-300' }: PanelProps) {
+export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = false, iconColor = 'text-blue-300', panelId }: PanelProps) {
   const [open, setOpen] = useState(defaultOpen);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!panelId) return;
+    // Read ?panel= from URL and auto-open + scroll
+    const params = new URLSearchParams(window.location.search);
+    const target = params.get('panel');
+    if (target === panelId) {
+      setOpen(true);
+      // Scroll after a short delay to let the panel render
+      setTimeout(() => {
+        ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+  }, [panelId]);
 
   return (
-    <div className="border border-white/10 rounded-lg mb-3 overflow-hidden">
+    <div ref={ref} className="border border-white/10 rounded-lg mb-3 overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center gap-3 px-4 py-3 bg-white/5 hover:bg-white/10 transition-colors text-left"

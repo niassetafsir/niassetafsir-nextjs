@@ -60,7 +60,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       />
 
       {/* 2. Sheikh's Tafsir */}
-      <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text">
+      <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text" panelId="tafsir">
         <BilingualText
           arabicText={lesson.arabicText}
           englishText={lesson.englishText}
@@ -102,7 +102,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </Panel>
 
       {/* 4. Jalalayn */}
-      <Panel icon="" titleAr="تفسير الجلالين" titleEn="Tafsīr al-Jalālayn — Full Text">
+      <Panel icon="" titleAr="تفسير الجلالين" titleEn="Tafsīr al-Jalālayn — Full Text" panelId="jalalayn">
         <div className="p-5" dir="ltr">
           <div className="flex justify-between items-center mb-3 pb-3 border-b border-blue-900/30">
             <div>
