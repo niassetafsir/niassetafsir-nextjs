@@ -32,7 +32,7 @@ function NavDropdown({ label, items }: { label: string; items: DropdownItem[] })
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`flex items-center gap-1 font-english text-xs px-3 py-1.5 rounded-md transition-all ${
+        className={`flex items-center gap-1 font-english text-sm px-3 py-1.5 rounded-md transition-all ${
           open ? 'bg-gold/15 text-gold' : 'text-white/55 hover:text-white/80 hover:bg-white/5'
         }`}
       >
