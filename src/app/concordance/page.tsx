@@ -97,7 +97,7 @@ function VerseEntry({ entryKey, refs, vt }: { entryKey: string; refs: VerseRef[]
                 </span>
                 <span className="ml-2 font-english text-[10px] px-1 py-0.5 rounded border border-white/10"
                   style={{color:'rgba(255,255,255,0.25)'}}>
-                  {ref.source === 'jalalayn' ? 'Jalālayn' : ref.source === 'niasse-primary' ? 'Lesson' : 'Niasse'}
+                  {ref.source === 'primary' ? 'Commentary' : 'Cross-reference'}
                 </span>
               </div>
               <span className="text-gold/30 text-xs">→</span>
@@ -142,7 +142,7 @@ export default function ConcordancePage() {
         </h1>
         <p className="font-english text-sm text-center mb-5"
           style={{color:'rgba(255,255,255,0.4)'}}>
-          Verse Concordance — every Quranic reference in the tafsīr and commentary
+          Verse Concordance — verses Niasse directly comments on, with cross-references
         </p>
 
         <input

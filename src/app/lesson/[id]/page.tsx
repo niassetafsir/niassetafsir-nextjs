@@ -101,8 +101,23 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </Panel>
 
+      {/* Compare prompt between tafsir and jalalayn */}
+      <div className="flex justify-end px-1 -mt-2 mb-1">
+        <a href="#jalalayn-panel" onClick={(e) => {
+          e.preventDefault();
+          const el = document.getElementById('jalalayn-panel');
+          if (el) { el.scrollIntoView({behavior:'smooth', block:'start'}); }
+          // Also open the panel by simulating a click on its button
+          const btn = el?.querySelector('button');
+          const isOpen = btn?.getAttribute('data-open');
+          if (!isOpen) btn?.click();
+        }} className="font-english text-xs text-white/30 hover:text-gold transition-colors">
+          See Jalālayn commentary on this passage ↓
+        </a>
+      </div>
+
       {/* 4. Jalalayn */}
-      <Panel icon="" titleAr="تفسير الجلالين" titleEn="Tafsīr al-Jalālayn — Full Text" panelId="jalalayn">
+      <div id="jalalayn-panel"><Panel icon="" titleAr="تفسير الجلالين" titleEn="Tafsīr al-Jalālayn — Full Text" panelId="jalalayn">
         <div className="p-5" dir="ltr">
           <div className="flex justify-between items-center mb-3 pb-3 border-b border-blue-900/30">
             <div>
@@ -122,6 +137,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </Panel>
 
+      </div>
       {/* 5. Ruh al-Bayan */}
       <Panel icon="" titleAr="رُوحُ الْبَيَانِ" titleEn="Rūḥ al-Bayān">
         <div className="p-5" dir="ltr">
