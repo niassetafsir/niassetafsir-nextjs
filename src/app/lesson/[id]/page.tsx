@@ -59,7 +59,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
         verseRange={lesson.verseRange}
       />
 
-      <div id="tafsir" className="scroll-mt-16">
       {/* 2. Sheikh's Tafsir */
       <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text">
         <BilingualText
@@ -75,7 +74,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </Panel>
 
-      </div>
       {/* 3. Reading Notes */
       <Panel icon="" titleAr="ملاحظات القراءة" titleEn="Lesson Summary">
         <div className="p-5" dir="ltr">
@@ -103,6 +101,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </Panel>
 
+      <div id="jalalayn" />
       {/* 4. Jalalayn */}
       <div id="jalalayn" className="scroll-mt-16">
       <Panel icon="" titleAr="تفسير الجلالين" titleEn="Tafsīr al-Jalālayn — Full Text">
@@ -125,7 +124,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </Panel>
 
-      </div>
       {/* 5. Ruh al-Bayan */}
       <Panel icon="" titleAr="رُوحُ الْبَيَانِ" titleEn="Rūḥ al-Bayān">
         <div className="p-5" dir="ltr">
