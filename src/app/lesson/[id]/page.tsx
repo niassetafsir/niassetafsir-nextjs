@@ -5,6 +5,7 @@ import Panel from '@/components/Panel';
 import AudioPanel from '@/components/AudioPanel';
 import BilingualText from '@/components/BilingualText';
 import InlineCompare from '@/components/InlineCompare';
+import SelectionClip from '@/components/SelectionClip';
 import Link from 'next/link';
 
 export async function generateStaticParams() {
@@ -52,6 +53,20 @@ export default async function LessonPage({ params }: { params: { id: string } })
 
       {/* 2. Sheikh's Tafsir */}
       <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text">
+        <SelectionClip
+          lessonId={lesson.id}
+          lessonTitleAr={lesson.arabicTitle}
+          lessonTitleEn={lesson.englishTitle}
+          verseRange={lesson.verseRange}
+          language="ar"
+        />
+        <SelectionClip
+          lessonId={lesson.id}
+          lessonTitleAr={lesson.arabicTitle}
+          lessonTitleEn={lesson.englishTitle}
+          verseRange={lesson.verseRange}
+          language="en"
+        />
         <BilingualText
           arabicText={lesson.arabicText}
           englishText={lesson.englishText}
