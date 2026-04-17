@@ -1,0 +1,204 @@
+[
+  {
+    "term": "al-Fayḍa",
+    "arabic": "الفيضة",
+    "plural": "",
+    "definition": "The Spiritual Flood — the outpouring of divine grace that Shaykh Ibrāhīm Niasse identified as the defining spiritual event of the age, predicted in the traditions of the Tijānī order. The term denotes both the historical phenomenon of Niasse's mass spiritual education movement and the metaphysical reality of divine emanation from which it draws its name.",
+    "lessons": [
+      1,
+      2,
+      4,
+      6,
+      16,
+      20,
+      23,
+      30
+    ],
+    "related": [
+      "Tarbiya",
+      "al-Tawḥīd"
+    ]
+  },
+  {
+    "term": "Tarbiya",
+    "arabic": "التربية",
+    "plural": "",
+    "definition": "Spiritual education and formation — the guided process by which a murshid (spiritual guide) leads a disciple toward the realization of tawḥīd. In Niasse's practice, tarbiya was a rapid and intensive method distinct from the slower methods of earlier Sufi masters.",
+    "lessons": [
+      1,
+      4,
+      6,
+      20
+    ],
+    "related": [
+      "al-Fayḍa",
+      "Murshid"
+    ]
+  },
+  {
+    "term": "al-Tawḥīd",
+    "arabic": "التوحيد",
+    "plural": "",
+    "definition": "Divine unity — the foundational Islamic doctrine of God's oneness. In Niasse's tafsīr, tawḥīd operates at multiple registers: the affirmation of God's existence (tawḥīd al-dhāt), His attributes (tawḥīd al-ṣifāt), and His acts (tawḥīd al-afʿāl). The deeper register — realised tawḥīd — is the experiential extinction of the self in the awareness of divine unity.",
+    "lessons": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7
+    ],
+    "related": [
+      "Fanāʾ",
+      "al-Fayḍa"
+    ]
+  },
+  {
+    "term": "Fanāʾ",
+    "arabic": "الفناء",
+    "plural": "",
+    "definition": "Annihilation — the Sufi technical term for the dissolution of the ego-self in the awareness of God. Niasse treats fanāʾ not as a permanent obliteration but as a station (maqām) on the way to baqāʾ (subsistence in God), following the classical Sufi understanding.",
+    "lessons": [
+      1,
+      3,
+      5,
+      20,
+      23
+    ],
+    "related": [
+      "Baqāʾ",
+      "al-Tawḥīd",
+      "Maqām"
+    ]
+  },
+  {
+    "term": "Baqāʾ",
+    "arabic": "البقاء",
+    "plural": "",
+    "definition": "Subsistence — the station following fanāʾ (annihilation), in which the mystic continues to exist but in a transformed state: the self subsists in and through God. The pair fanāʾ/baqāʾ is foundational to Niasse's anthropology.",
+    "lessons": [
+      1,
+      3,
+      5,
+      20
+    ],
+    "related": [
+      "Fanāʾ",
+      "Maqām"
+    ]
+  },
+  {
+    "term": "Al-Insān al-Kāmil",
+    "arabic": "الإنسان الكامل",
+    "plural": "",
+    "definition": "The Perfect Human — a central concept in Ibn ʿArabī's metaphysics, taken up by Niasse to describe the fully realised human being who serves as the locus of divine self-disclosure. Niasse identifies this figure with the Prophet Muḥammad as the universal archetype and with the awliyāʾ (saints) as its partial manifestations.",
+    "lessons": [
+      1,
+      2,
+      3,
+      7,
+      28
+    ],
+    "related": [
+      "Walāya",
+      "Tajallī"
+    ]
+  },
+  {
+    "term": "Tajallī",
+    "arabic": "التجلي",
+    "plural": "Tajalliyāt",
+    "definition": "Divine self-disclosure — the act by which God makes Himself known through the cosmos, the Quran, and the human heart. Niasse follows Ibn ʿArabī in understanding creation as a continuous unfolding of divine self-disclosure.",
+    "lessons": [
+      1,
+      3,
+      7,
+      20,
+      28
+    ],
+    "related": [
+      "Al-Insān al-Kāmil",
+      "Walāya"
+    ]
+  },
+  {
+    "term": "Walāya",
+    "arabic": "الولاية",
+    "plural": "",
+    "definition": "Sainthood / divine friendship — the station of proximity to God attained by the awliyāʾ (saints). Niasse treats walāya as the inner dimension of prophecy, continuing after the seal of prophethood in the lineage of spiritual heirs.",
+    "lessons": [
+      1,
+      4,
+      6,
+      20,
+      23
+    ],
+    "related": [
+      "Al-Insān al-Kāmil",
+      "Khatm al-Walāya"
+    ]
+  },
+  {
+    "term": "Barzakh",
+    "arabic": "البرزخ",
+    "plural": "Barāzikh",
+    "definition": "The isthmus — a term with both cosmological and eschatological meanings in Niasse's tafsīr. Cosmologically, it denotes the intermediary reality between two orders of being (e.g., between the divine and creaturely realms). Eschatologically, it refers to the intermediary state between death and resurrection.",
+    "lessons": [
+      1,
+      2,
+      5,
+      7
+    ],
+    "related": [
+      "Tajallī",
+      "ʿĀlam al-Mithal"
+    ]
+  },
+  {
+    "term": "Maqām",
+    "arabic": "المقام",
+    "plural": "Maqāmāt",
+    "definition": "Spiritual station — a stable, achieved level of spiritual realisation, as distinct from ḥāl (spiritual state), which is transient. Niasse's tafsīr maps the Quranic narrative onto a sequence of spiritual stations traversed on the path to God.",
+    "lessons": [
+      1,
+      3,
+      5,
+      6,
+      20
+    ],
+    "related": [
+      "Fanāʾ",
+      "Baqāʾ"
+    ]
+  },
+  {
+    "term": "Iʿjāz",
+    "arabic": "الإعجاز",
+    "plural": "",
+    "definition": "Inimitability — the doctrine that the Quran cannot be matched or replicated by human composition, establishing its miraculous nature. Niasse engages this doctrine at length in his discussion of the opening suras, situating it within the broader tradition of Quranic sciences.",
+    "lessons": [
+      1,
+      2,
+      3
+    ],
+    "related": [
+      "Bayān",
+      "ʿUlūm al-Qurʾān"
+    ]
+  },
+  {
+    "term": "Ḥurūf al-Muqaṭṭaʿāt",
+    "arabic": "الحروف المقطعات",
+    "plural": "",
+    "definition": "The disjointed letters — the letter-combinations that open twenty-nine Quranic suras (Alif Lām Mīm, Yā Sīn, etc.). Niasse discusses multiple interpretive traditions — grammatical, mystical, and prophetic — and gives his own reading, which tends toward the Sufi understanding of these letters as keys to divine secrets.",
+    "lessons": [
+      2,
+      3,
+      4
+    ],
+    "related": [
+      "Iʿjāz",
+      "Tawḥīd"
+    ]
+  }
+]

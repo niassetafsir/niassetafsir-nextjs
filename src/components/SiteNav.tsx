@@ -129,7 +129,15 @@ export default function SiteNav() {
     localStorage.setItem('site-lang', code);
   };
 
-  const ABOUT_ITEMS: DropdownItem[] = [
+  const RESEARCH_ITEMS: DropdownItem[] = [
+  { label: "Verse Concordance", sub: "314 verses, Niasse's commentary", href: "/concordance" },
+  { label: "Scholar Index", sub: "Every figure Niasse cites", href: "/scholars" },
+  { label: "Glossary", sub: "Key terms in Niasse's vocabulary", href: "/glossary" },
+  { label: "Research Clips", sub: "Saved citations & excerpts", href: "/clips" },
+  { label: "Bookmarks", sub: "Saved passages", href: "/bookmarks" },
+];
+
+const ABOUT_ITEMS: DropdownItem[] = [
     { label: "This Platform", sub: "Digital scholarly edition & research tools", href: "/about" },
     { label: "Shaykh Ibrāhīm Niasse", sub: "Tafsīr tradition in West Africa", href: "/about/shaykh" },
     { label: "The Arabic Text", sub: "Compiler & ten-volume edition", href: "/about/arabic-edition" },
@@ -157,6 +165,7 @@ export default function SiteNav() {
       <div className="flex items-center gap-1">
 <NavDropdown label="About" items={ABOUT_ITEMS} />
 <NavDropdown label="Get Involved" items={CONTRIBUTE_ITEMS} />
+        <NavDropdown label="Research" items={RESEARCH_ITEMS} />
         <Link href="/search" className="font-english text-xs text-white/45 hover:text-white/75 px-2.5 py-1.5 rounded-md hover:bg-white/5 transition-all" title="Search">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
