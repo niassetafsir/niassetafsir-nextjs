@@ -1,0 +1,14 @@
+[
+  {
+    "task": "Wire i18n language switcher \u2014 make EN/FR/AR actually change interface text",
+    "details": "UI_STRINGS dictionary exists in src/lib/i18n.ts with EN, FR, AR. All components need to read from it based on localStorage site-lang. Language dropdown already built and saves preference but doesn't translate yet. ~1-2 hours to wire properly.",
+    "priority": "medium",
+    "saved": "2026-04-17T03:49:02.581588",
+    "files": [
+      "src/lib/i18n.ts",
+      "src/components/SiteNav.tsx",
+      "src/app/page.tsx",
+      "src/app/lesson/[id]/page.tsx"
+    ]
+  }
+]

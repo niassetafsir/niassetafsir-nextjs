@@ -174,7 +174,9 @@ export default function SiteNav() {
 
       {/* Right: language dropdown + theme */}
       <div className="flex items-center gap-2 border-l border-white/10 pl-3">
-        <LangDropdown current={lang} onChange={changeLang} />
+        <span className="font-english text-white/25 text-[10px] hidden sm:block">
+          EN · FR · AR
+        </span>
         <ThemeToggle />
       </div>
     </nav>
