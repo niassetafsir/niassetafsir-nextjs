@@ -402,3 +402,18 @@ body {
   direction: ltr;
   line-height: 2.0;
 }
+
+/* Light mode: dropdown text black */
+[data-theme="light"] nav .w-56 span,
+[data-theme="light"] nav [style*="fontSize"] {
+  color: #111111 !important;
+}
+[data-theme="light"] nav button {
+  color: #333333 !important;
+}
+[data-theme="light"] nav a {
+  color: #333333 !important;
+}
+[data-theme="light"] nav .text-gold {
+  color: #7B1C1C !important;
+}

@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="flex items-center justify-between max-w-5xl mx-auto">
             {/* Left: copyright */}
             <div className="font-english text-white/25 text-sm">
-              © Amadu Kunateh · niassetafsir.org
+              © Amadu Kunateh · niassetafsir.org · niassetafsir.com
             </div>
             {/* Center: contact */}
             <a href="mailto:niassetafsirproject@gmail.com"

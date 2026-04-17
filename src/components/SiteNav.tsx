@@ -43,7 +43,7 @@ function NavDropdown({ label, items }: { label: string; items: DropdownItem[] })
       </button>
 
       {open && (
-        <div className="absolute top-full left-0 mt-1 w-44 bg-bg border border-gold/20 rounded-xl shadow-2xl z-50 overflow-hidden">
+        <div className="absolute top-full left-0 mt-1 w-56 bg-bg border border-gold/20 rounded-xl shadow-2xl z-50 overflow-hidden">
           {items.map((item, i) => (
             <Link
               key={i}
@@ -51,8 +51,8 @@ function NavDropdown({ label, items }: { label: string; items: DropdownItem[] })
               onClick={() => setOpen(false)}
               className="flex flex-col items-center px-3 py-1.5 hover:bg-gold/8 transition-colors border-b border-white/5 last:border-0 text-center"
             >
-              <span style={{fontSize:'18px', fontWeight:'700', color:'rgba(255,255,255,0.75)', textTransform:'capitalize'}}>{item.label}</span>
-              {item.sub && <span style={{fontSize:'16px', color:'rgba(255,255,255,0.40)', marginTop:'2px'}}>{item.sub}</span>}
+              <span style={{fontSize:'13px', fontWeight:'600', color:'rgba(255,255,255,0.80)', textTransform:'capitalize', whiteSpace:'nowrap'}}>{item.label}</span>
+              {item.sub && <span style={{fontSize:'11px', color:'rgba(255,255,255,0.40)', marginTop:'1px', whiteSpace:'nowrap'}}>{item.sub}</span>}
             </Link>
           ))}
         </div>
@@ -123,8 +123,8 @@ export default function SiteNav() {
             onClick={() => changeLang(l.code)}
             className={`text-xs px-2 py-0.5 rounded border transition-all ${
               lang === l.code
-                ? 'bg-gold/20 text-gold border-gold/40 font-semibold'
-                : 'text-white/30 border-white/10 hover:text-white/50 hover:border-white/20'
+                ? 'bg-gold text-bg border-gold font-semibold'
+                : 'text-white/60 border-white/25 hover:text-white/85 hover:border-white/45'
             }`}
           >
             {l.label}
