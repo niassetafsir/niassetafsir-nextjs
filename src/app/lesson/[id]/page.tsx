@@ -34,7 +34,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
 
       {/* Lesson heading */}
       <div className="text-center mb-6">
-        <div className="font-arabic text-gold font-bold text-2xl" dir="rtl">{lesson.arabicTitle}</div>
+        <div className="font-arabic text-gold font-bold text-2xl" dir="rtl">{lesson.arabicTitle}</divv>
         <div className="font-english text-white/60 text-sm mt-1" dir="ltr">
           {lesson.englishTitle} · {lesson.verseRange}
         </div>
