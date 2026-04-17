@@ -133,6 +133,7 @@ export default function SiteNav() {
   { label: "Verse Concordance", sub: "314 verses, Niasse's commentary", href: "/concordance" },
   { label: "Scholar Index", sub: "Every figure Niasse cites", href: "/scholars" },
   { label: "Glossary", sub: "Key terms in Niasse's vocabulary", href: "/glossary" },
+  { label: "Critical Apparatus", sub: "798 footnotes & citations", href: "/footnotes" },
   { label: "Research Clips", sub: "Saved citations & excerpts", href: "/clips" },
   { label: "Bookmarks", sub: "Saved passages", href: "/bookmarks" },
 ];

@@ -490,3 +490,19 @@ input[type="text"].search-input::placeholder {
 [data-theme="light"] footer * {
   color: #444444 !important;
 }
+
+/* Footnote anchor links */
+.fn-link {
+  color: var(--color-gold, #C9A84C);
+  font-size: 0.7em;
+  font-family: 'EB Garamond', serif;
+  text-decoration: none;
+  opacity: 0.75;
+  padding: 0 1px;
+  transition: opacity 0.15s;
+}
+.fn-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+sup { line-height: 0; vertical-align: super; font-size: 0.7em; }
