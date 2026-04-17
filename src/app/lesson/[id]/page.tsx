@@ -51,14 +51,16 @@ export default async function LessonPage({ params }: { params: { id: string } })
         />
       </Panel>
 
+      {/* Selection popup - always mounted regardless of which panel is open */}
+      <SelectionClip
+        lessonId={lesson.id}
+        lessonTitleAr={lesson.arabicTitle}
+        lessonTitleEn={lesson.englishTitle}
+        verseRange={lesson.verseRange}
+      />
+
       {/* 2. Sheikh's Tafsir */}
       <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text">
-        <SelectionClip
-          lessonId={lesson.id}
-          lessonTitleAr={lesson.arabicTitle}
-          lessonTitleEn={lesson.englishTitle}
-          verseRange={lesson.verseRange}
-        />
         <BilingualText
           arabicText={lesson.arabicText}
           englishText={lesson.englishText}
