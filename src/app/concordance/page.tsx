@@ -53,7 +53,8 @@ export default function ConcordancePage() {
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder="Search by verse reference (e.g. 2:255, 1:)"
-          className="w-full bg-white/5 border border-gold/25 rounded-xl px-4 py-3 font-english text-white text-sm outline-none focus:border-gold/60 placeholder-white/25"
+          className="w-full bg-white/5 border border-gold/25 rounded-xl px-4 py-3 font-english text-sm outline-none focus:border-gold/60 search-input"
+          style={{color: 'inherit'}}
           dir="ltr"
         />
         {!loading && (
@@ -81,7 +82,8 @@ export default function ConcordancePage() {
                 </div>
                 <div className="divide-y divide-white/5">
                   {refs.map((ref, i) => (
-                    <Link key={i} href={`/lesson/${ref.lessonId}`}
+                    <Link key={i} 
+                      href={`/lesson/${ref.lessonId}${ref.anchor === 'jalalayn' ? '#jalalayn' : ref.anchor === 'tafsir' ? '#tafsir' : ''}`}
                       className="flex items-start gap-3 px-4 py-3 hover:bg-gold/5 transition-colors group">
                       <div className="w-6 h-6 rounded-full bg-gold/20 flex items-center justify-center text-gold text-xs font-bold flex-shrink-0 mt-0.5">
                         {ref.lessonId}
