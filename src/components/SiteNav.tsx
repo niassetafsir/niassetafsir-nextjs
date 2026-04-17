@@ -134,7 +134,7 @@ export default function SiteNav() {
     { label: "Shaykh Ibrāhīm Niasse", sub: "Tafsīr tradition in West Africa", href: "/about/shaykh" },
     { label: "The Arabic Text", sub: "Compiler & ten-volume edition", href: "/about/arabic-edition" },
     { label: "Companion Texts", sub: "Jalālayn & Rūḥ al-Bayān", href: "/about/companion-texts" },
-    { label: "The Translator", sub: "Amadu Kunateh, Harvard", href: "/about/translator" },
+    { label: "The Translator", sub: "Amadu Kunateh (Harvard University, 2021–)", href: "/about/translator" },
     { label: "Translator's Note", sub: "Methodology & conventions", href: "/translators-note" },
   ];
 
