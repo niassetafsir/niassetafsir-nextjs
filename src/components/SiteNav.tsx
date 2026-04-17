@@ -148,17 +148,14 @@ export default function SiteNav() {
   return (
     <nav className="flex items-center justify-between px-5 py-2.5 bg-black/30 border-b border-gold/15 sticky top-0 z-50 backdrop-blur">
       {/* Logo */}
-      <Link href="/" className="flex flex-col flex-shrink-0 hover:opacity-80 transition-opacity">
+      <Link href="/" className="flex flex-col flex-shrink-0 hover:opacity-80 transition-opacity group">
         <span className="font-arabic text-gold font-bold text-sm leading-tight" dir="rtl">في رياض التفسير</span>
-        <span className="font-english text-gold/45 text-[9px] leading-tight tracking-wide" dir="ltr">Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</span>
+        <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors" dir="ltr">Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</span>
       </Link>
 
       {/* Nav items */}
       <div className="flex items-center gap-1">
-        <Link href="/" className="font-english text-xs text-white/45 hover:text-white/75 px-3 py-1.5 rounded-md hover:bg-white/5 transition-all">
-          ⌂
-        </Link>
-        <NavDropdown label="About" items={ABOUT_ITEMS} />
+<NavDropdown label="About" items={ABOUT_ITEMS} />
 <NavDropdown label="Get Involved" items={CONTRIBUTE_ITEMS} />
         <Link href="/search" className="font-english text-xs text-white/45 hover:text-white/75 px-2.5 py-1.5 rounded-md hover:bg-white/5 transition-all" title="Search">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
