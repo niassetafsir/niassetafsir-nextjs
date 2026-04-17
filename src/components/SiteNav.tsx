@@ -61,6 +61,61 @@ function NavDropdown({ label, items }: { label: string; items: DropdownItem[] })
   );
 }
 
+
+function LangDropdown({ current, onChange }: { current: Lang; onChange: (l: Lang) => void }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  const LANG_LABELS: Record<Lang, string> = {
+    en: 'English',
+    fr: 'Français',
+    ar: 'العربية',
+  };
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className={`flex items-center gap-1 font-english text-xs px-2.5 py-1.5 rounded-md transition-all ${
+          open ? 'bg-gold/15 text-gold' : 'text-white/55 hover:text-white/80 hover:bg-white/5'
+        }`}
+      >
+        <span>{LANG_LABELS[current]}</span>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" className={`transition-transform ${open ? 'rotate-180' : ''}`}>
+          <path d="M2 3.5l3 3 3-3" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute top-full right-0 mt-1 w-36 bg-bg border border-gold/20 rounded-xl shadow-2xl z-50 overflow-hidden">
+          {(['en', 'fr', 'ar'] as Lang[]).map(code => (
+            <button
+              key={code}
+              onClick={() => { onChange(code); setOpen(false); }}
+              className={`w-full text-left px-4 py-2.5 transition-colors border-b border-white/5 last:border-0 ${
+                current === code
+                  ? 'bg-gold/10 text-gold'
+                  : 'text-white/70 hover:bg-gold/8 hover:text-white/90'
+              }`}
+              style={{fontSize: '13px', fontWeight: current === code ? '600' : '400'}}
+            >
+              {LANG_LABELS[code]}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function SiteNav() {
   const [lang, setLang] = useState<Lang>('en');
 
@@ -117,21 +172,9 @@ export default function SiteNav() {
         </Link>
       </div>
 
-      {/* Right: language + theme */}
-      <div className="flex items-center gap-1 border-l border-white/10 pl-3">
-        {LANGS.map(l => (
-          <button
-            key={l.code}
-            onClick={() => changeLang(l.code)}
-            className={`text-xs px-2 py-0.5 rounded border transition-all ${
-              lang === l.code
-                ? 'bg-gold text-bg border-gold font-semibold'
-                : 'text-white/60 border-white/25 hover:text-white/85 hover:border-white/45'
-            }`}
-          >
-            {l.label}
-          </button>
-        ))}
+      {/* Right: language dropdown + theme */}
+      <div className="flex items-center gap-2 border-l border-white/10 pl-3">
+        <LangDropdown current={lang} onChange={changeLang} />
         <ThemeToggle />
       </div>
     </nav>
