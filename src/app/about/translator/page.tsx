@@ -27,6 +27,16 @@ export default function Page() {
           present in the printed Arabic text.
         </p>
         <p>
+          The Scholar Index represents a further and distinct contribution. Where the compiler&apos;s 
+          apparatus documents Niasse&apos;s sources, the Scholar Index maps Niasse&apos;s intellectual 
+          interlocutors — the figures he names, invokes, and positions himself in relation to within his 
+          own oral commentary. This is an act of intellectual history, not source documentation. It answers 
+          the question: <em>with whom does Niasse think?</em> No printed edition of this tafsīr — including 
+          the Arabic ten-volume compiled edition — undertakes this mapping. Kunateh is the first scholar 
+          to have read the full text with sufficient care to produce it, and does so as part of his 
+          sustained argument about Niasse&apos;s theological and Sufi genealogy.
+        </p>
+        <p>
           His dissertation — <em>Leaders of Knowledge: Tafsīr, Philosophical-Theology, and the Remapping of 
           Islamic Thought in West Africa</em> (expected 2027) — is the first sustained, 
           book-length scholarly treatment of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>. It investigates 
