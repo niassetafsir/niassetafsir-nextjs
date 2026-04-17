@@ -448,3 +448,45 @@ input[type="text"].search-input::placeholder {
 [data-theme="light"] .text-white\/80 {
   color: #111111 !important;
 }
+
+/* ── Light mode: EVERYTHING black/near-black ──────────── */
+[data-theme="light"] *,
+[data-theme="light"] p,
+[data-theme="light"] span,
+[data-theme="light"] div,
+[data-theme="light"] li,
+[data-theme="light"] a:not(.nav-gold),
+[data-theme="light"] button:not(.bg-gold):not(.bg-gold-light) {
+  color: #111111 !important;
+}
+[data-theme="light"] .text-gold,
+[data-theme="light"] .font-arabic.text-gold,
+[data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3 {
+  color: #7B1C1C !important;
+}
+[data-theme="light"] .text-gold-light {
+  color: #5c3d0e !important;
+}
+[data-theme="light"] .text-gold\/60,
+[data-theme="light"] .text-gold\/50,
+[data-theme="light"] .text-gold\/40 {
+  color: #7B1C1C !important;
+  opacity: 0.75;
+}
+[data-theme="light"] nav a,
+[data-theme="light"] nav button:not(.bg-gold) {
+  color: #333333 !important;
+}
+[data-theme="light"] nav .text-gold {
+  color: #7B1C1C !important;
+}
+/* Keep gold bg buttons readable */
+[data-theme="light"] .bg-gold,
+[data-theme="light"] .bg-gold * {
+  color: #FAF6EF !important;
+}
+/* Footer stays muted black */
+[data-theme="light"] footer,
+[data-theme="light"] footer * {
+  color: #444444 !important;
+}
