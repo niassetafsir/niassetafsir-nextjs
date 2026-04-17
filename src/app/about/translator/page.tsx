@@ -14,7 +14,7 @@ export default function Page() {
 
       <div className="font-english text-white/70 text-base leading-relaxed space-y-5">
         <p>
-          <strong className="text-white/90">Amadu Kunateh</strong> is a PhD candidate in Philosophy of Religion and African Studies. This digital scholarly edition is part of his sustained 
+          <strong className="text-white/90">Amadu Kunateh</strong> is a PhD candidate in Philosophy of Religion and African Studies at Harvard University. This digital scholarly edition is part of his sustained 
           doctoral research on the tafsīr of Shaykh Ibrāhīm Niasse — work he has conducted since 2022 across 
           both the six-volume and current ten-volume Arabic editions of the text.
         </p>
