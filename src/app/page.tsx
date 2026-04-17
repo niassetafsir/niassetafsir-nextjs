@@ -136,7 +136,7 @@ export default function HomePage() {
             onClick={() => setShowGuide(!showGuide)}
             className="font-english text-sm text-white/55 border border-white/20 hover:border-gold/40 hover:text-white/80 px-4 py-2 rounded-lg transition-all"
           >
-            {showGuide ? "Close Guide" : "How to Use This Site"}
+            {showGuide ? "Close" : "Using This Edition"}
           </button>
         </div>
 
@@ -175,19 +175,19 @@ export default function HomePage() {
               <div className="border-t border-gold/15 pt-3">
                 <p className="font-semibold text-white mb-1">Inside Each Lesson</p>
                 <ul className="space-y-1 text-white/70">
-                  <li><strong className="text-white/90">🎧 Audio</strong> — Wolof tafsīr (122 sessions, Internet Archive) + Arabic tafsīr</li>
-                  <li><strong className="text-white/90">📜 Sheikh&apos;s Tafsīr Text</strong> — bilingual Arabic/English; toggle Arabic only, English only, or both</li>
-                  <li><strong className="text-white/90">🖊️ Lesson Summary</strong> — comparative analysis with Jalālayn and Rūḥ al-Bayān (forthcoming)</li>
-                  <li><strong className="text-white/90">📖 Tafsīr al-Jalālayn</strong> — full companion text for comparison</li>
-                  <li><strong className="text-white/90">📗 Rūḥ al-Bayān</strong> — link to Usul.ai digital edition</li>
+                  <li><strong className="text-white/90">Audio</strong> — Wolof tafsīr (122 sessions, Internet Archive) + Arabic tafsīr</li>
+                  <li><strong className="text-white/90">Sheikh&apos;s Tafsīr Text</strong> — bilingual Arabic/English; toggle Arabic only, English only, or both</li>
+                  <li><strong className="text-white/90">Lesson Summary</strong> — comparative analysis with Jalālayn and Rūḥ al-Bayān (forthcoming)</li>
+                  <li><strong className="text-white/90">Tafsīr al-Jalālayn</strong> — full companion text for comparison</li>
+                  <li><strong className="text-white/90">Rūḥ al-Bayān</strong> — link to Usul.ai digital edition</li>
                 </ul>
               </div>
 
               <div className="border-t border-gold/15 pt-3">
                 <p className="font-semibold text-white mb-1">Research Tools</p>
                 <ul className="space-y-1 text-white/70">
-                  <li><strong className="text-white/90">🔍 Search</strong> — full-text search across all 30 lessons in Arabic and English</li>
-                  <li><strong className="text-white/90">🔖 Bookmarks</strong> — save passages; export as .txt for study notes</li>
+                  <li><strong className="text-white/90">Search</strong> — full-text search across all 30 lessons in Arabic and English</li>
+                  <li><strong className="text-white/90">Bookmarks</strong> — save passages; export as .txt for study notes</li>
                   <li><strong className="text-white/90">Arabic word tool</strong> — select any Arabic word to see its root and English gloss</li>
                 </ul>
               </div>

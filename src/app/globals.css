@@ -432,3 +432,19 @@ input[type="text"].search-input::placeholder {
 [data-theme="light"] input[type="text"].search-input::placeholder {
   color: #888888 !important;
 }
+
+/* Light mode: ALL headings jet black */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] .text-white.text-3xl,
+[data-theme="light"] .text-white.text-2xl,
+[data-theme="light"] .text-white.text-xl,
+[data-theme="light"] .font-english.text-white.font-semibold,
+[data-theme="light"] .font-english.text-white.font-bold {
+  color: #0a0a0a !important;
+}
+[data-theme="light"] .text-white\/85,
+[data-theme="light"] .text-white\/80 {
+  color: #111111 !important;
+}
