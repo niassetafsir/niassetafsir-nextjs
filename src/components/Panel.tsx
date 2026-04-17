@@ -9,26 +9,27 @@ interface PanelProps {
   children: ReactNode;
   defaultOpen?: boolean;
   iconColor?: string;
-  panelId?: string;  // e.g. "jalalayn", "tafsir", "wolof"
+  panelId?: string;
 }
 
 export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = false, iconColor = 'text-blue-300', panelId }: PanelProps) {
   const [open, setOpen] = useState(defaultOpen);
   const ref = useRef<HTMLDivElement>(null);
+  const scrolled = useRef(false);
 
   useEffect(() => {
-    if (!panelId) return;
-    // Read ?panel= from URL and auto-open + scroll
+    if (!panelId || scrolled.current) return;
+    // Read ?panel= from the browser URL after hydration
     const params = new URLSearchParams(window.location.search);
-    const target = params.get('panel');
-    if (target === panelId) {
+    if (params.get('panel') === panelId) {
+      scrolled.current = true;
       setOpen(true);
-      // Scroll after a short delay to let the panel render
       setTimeout(() => {
         ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
+      }, 500);
     }
-  }, [panelId]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div ref={ref} className="border border-white/10 rounded-lg mb-3 overflow-hidden">
