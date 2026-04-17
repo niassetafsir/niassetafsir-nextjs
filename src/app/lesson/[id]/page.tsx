@@ -102,7 +102,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </Panel>
 
       {/* 4. Jalalayn */}
-      <div id="jalalayn" className="scroll-mt-16">
       <Panel icon="" titleAr="تفسير الجلالين" titleEn="Tafsīr al-Jalālayn — Full Text">
         <div className="p-5" dir="ltr">
           <div className="flex justify-between items-center mb-3 pb-3 border-b border-blue-900/30">
