@@ -51,8 +51,8 @@ function NavDropdown({ label, items }: { label: string; items: DropdownItem[] })
               onClick={() => setOpen(false)}
               className="flex flex-col items-center px-3 py-1.5 hover:bg-gold/8 transition-colors border-b border-white/5 last:border-0 text-center"
             >
-              <span className="font-english text-[11px] text-white/75 font-medium tracking-wide uppercase">{item.label}</span>
-              {item.sub && <span className="font-english text-[10px] text-white/30 mt-0.5 normal-case">{item.sub}</span>}
+              <span className="font-english text-[8px] text-white/75 font-bold capitalize">{item.label}</span>
+              {item.sub && <span className="font-english text-[7px] text-white/30 mt-0.5 font-normal">{item.sub}</span>}
             </Link>
           ))}
         </div>
