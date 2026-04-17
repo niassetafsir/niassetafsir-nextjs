@@ -130,7 +130,7 @@ export default function SiteNav() {
   };
 
   const ABOUT_ITEMS: DropdownItem[] = [
-    { label: "This Edition", sub: "Overview, text & tools", href: "/about" },
+    { label: "This Platform", sub: "Digital scholarly edition & research tools", href: "/about" },
     { label: "Shaykh Ibrāhīm Niasse", sub: "Tafsīr tradition in West Africa", href: "/about/shaykh" },
     { label: "The Arabic Text", sub: "Compiler & ten-volume edition", href: "/about/arabic-edition" },
     { label: "Companion Texts", sub: "Jalālayn & Rūḥ al-Bayān", href: "/about/companion-texts" },

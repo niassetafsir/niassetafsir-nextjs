@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <main className="max-w-2xl mx-auto px-6 pb-20 pt-6" dir="ltr">
       <div className="text-center pb-8 mb-8 border-b border-gold/20">
-        <div className="font-english text-gold text-2xl font-semibold">About This Edition &amp; Database</div>
+        <div className="font-english text-gold text-2xl font-semibold">About This Edition &amp; Platform</div>
         <div className="font-english text-white/40 text-sm mt-2 italic">
           Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
         </div>
@@ -14,10 +14,10 @@ export default function AboutPage() {
 
         <div>
           <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
-            This Scholarly Database
+            This Platform
           </h2>
           <p className="leading-6">
-            This is a digital scholarly research database for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> 
+            This is a digital scholarly edition and research platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> 
             by Shaykh Ibrāhīm Niasse (d. 1975) — the first resource of its kind designed to make this 
             tafsīr accessible, searchable, and analytically usable for academic research. It provides 
             the complete Arabic text, a partial English translation (Lessons 1–2), comparative passages 
