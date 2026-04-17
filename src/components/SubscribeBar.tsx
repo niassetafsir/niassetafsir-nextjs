@@ -34,7 +34,7 @@ export default function SubscribeBar() {
   return (
     <div className="border border-gold/15 rounded-xl p-4 bg-gold/3 text-center" dir="ltr">
       <p className="font-english text-white/55 text-xs leading-5 mb-3 max-w-md mx-auto">
-        Subscribe to receive updates when new translations or content are added to <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>.
+        The complete ten-volume Arabic edition of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>, bilingual, comparative, and freely accessible. Subscribe to receive updates as new translations and content are added.
       </p>
 
       {status === 'success' ? (

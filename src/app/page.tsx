@@ -167,8 +167,9 @@ export default function HomePage() {
               <div className="border-t border-gold/15 pt-3">
                 <p className="font-semibold text-white mb-1">Navigating the Content</p>
                 <p>
-                  The Qurʾān is divided into <strong className="text-white">7 manzils</strong> — the weekly recitation
-                  cycle practised by Shaykh Ibrāhīm. Click any manzil below to expand its lessons, then select a lesson.
+                  The complete ten-volume Arabic edition is available on this site, with lessons added as digitisation proceeds. 
+                  The Qurʾān is organised into <strong className="text-white">7 manzils</strong> — the weekly recitation 
+                  cycle practised by Shaykh Ibrāhīm. Click any manzil to expand its lessons.
                 </p>
               </div>
 
