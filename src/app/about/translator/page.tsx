@@ -32,17 +32,12 @@ export default function Page() {
           as found in Niasse&apos;s tafsīr, reading it as a case study in twentieth-century West African Islamic 
           erudition and its theological, philosophical, and Sufi dimensions.
         </p>
-        <p>
-          The print translation is in preparation for publication with Brill Academic Publishers.
-        </p>
+
       </div>
 
-      <div className="mt-10 pt-6 border-t border-gold/15 space-y-3">
-        <Link href="/introduction" className="block font-english text-sm text-gold/60 hover:text-gold transition-all">
-          Read the Translator&apos;s Introduction →
-        </Link>
-        <a href="mailto:niassetafsirproject@gmail.com" className="block font-english text-sm text-white/35 hover:text-gold/60 transition-all">
-          Contact: niassetafsirproject@gmail.com
+      <div className="mt-10 pt-6 border-t border-gold/15">
+        <a href="mailto:niassetafsirproject@gmail.com" className="font-english text-sm text-white/35 hover:text-gold/60 transition-all">
+          niassetafsirproject@gmail.com
         </a>
       </div>
 
