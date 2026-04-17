@@ -19,15 +19,23 @@ export default function AboutPage() {
           <p className="leading-6">
             This is a digital scholarly edition and research platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> 
             by Shaykh Ibrāhīm Niasse (d. 1975) — the first resource of its kind designed to make this 
-            tafsīr accessible, searchable, and analytically usable for academic research. It provides 
-            the complete Arabic text, a partial English translation (Lessons 1–2), comparative passages 
-            from Tafsīr al-Jalālayn and <em>Rūḥ al-Bayān</em>, full-text search, and research tools 
-            including text clipping with auto-citation.
+            tafsīr accessible, searchable, and analytically usable for academic research. It presents 
+            the complete Arabic text alongside a growing English translation, with comparative passages 
+            from Tafsīr al-Jalālayn and <em>Rūḥ al-Bayān</em>.
+          </p>
+          <p className="leading-6 mt-3">
+            Research tools include: full-text search; a verse concordance (314 verses linked to 
+            Niasse&apos;s commentary); a critical apparatus of 798 footnotes compiled by 
+            Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī — browsable by scholar, genre, 
+            and lesson with inline <sup>[n]</sup> links in the text; a scholar and source index 
+            (19 figures sorted by citation frequency); a glossary of key theological and Sufi terms; 
+            text clipping with Chicago auto-citation; and bookmarks. These tools are designed to 
+            support scholarly work going from text to meaning.
           </p>
           <p className="leading-6 mt-3">
             The Arabic text is based on the compiled edition of 
             <strong className="text-white/85"> Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī</strong>, 
-            with editorial corrections. The database has been digitised, verified, and built by 
+            with editorial corrections. This edition has been digitised, verified, and built by 
             <strong className="text-white/85"> Amadu Kunateh</strong> as part 
             of his doctoral research on Niasse&apos;s tafsīr.
           </p>
