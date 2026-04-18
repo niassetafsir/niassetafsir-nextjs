@@ -22,7 +22,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Māʾida</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Lesson Fourteen</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat al-Baqara · Q. 2:60–105teen</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
@@ -33,7 +33,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Māʾida</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Lesson Fifteen</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat al-Māʾida · Q. 5:27–86</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
@@ -44,7 +44,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Māʾida</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Lesson Sixteen</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat al-Baqara · Q. 2:203–286teen</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
@@ -55,7 +55,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Anʿām</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Lesson Seventeen</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat al-Baqara · Q. 2:253–285teen</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
@@ -66,7 +66,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Aʿrāf</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Lesson Eighteen</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat Āl ʿImrān · Q. 3:14–19een</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
@@ -77,7 +77,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Aʿrāf</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Lesson Nineteen</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat Āl ʿImrān · Q. 3:169–175teen</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
@@ -88,7 +88,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Aʿrāf</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Lesson Twenty</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat al-Aʿrāf · Q. 7:160–206</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
@@ -99,7 +99,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Anfāl</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Lesson Twenty-One</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat al-Aʿrāf · Q. 7:160–206-One</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
@@ -110,7 +110,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Tawba</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Lesson Twenty-Two</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat al-Aʿrāf · Q. 7:160–206-Two</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
@@ -121,7 +121,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Tawba</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Lesson Twenty-Three</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat al-Aʿrāf · Q. 7:160–206-Three</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
