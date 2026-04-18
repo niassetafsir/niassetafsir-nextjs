@@ -12,75 +12,81 @@ export const metadata: Metadata = {
 };
 
 
-const TOOLS = [
+// Research tools — primary scholarly infrastructure
+const PRIMARY_TOOLS = [
   {
     href: '/search',
     titleAr: 'البحث الشامل',
     titleEn: 'Full-Text Search',
-    desc: 'Search across all 30 lessons, Arabic commentary, English translation, and Jalālayn companion text.',
+    desc: 'Search across all 30 lessons in Arabic and English. Covers the commentary text, English translation, and Jalālayn companion text.',
   },
   {
     href: '/concordance',
     titleAr: 'فهرس الآيات',
     titleEn: 'Verse Concordance',
-    desc: '1,529 Quranic references mapped to the lessons where Niasse comments on them. Search any verse.',
+    desc: '1,079 Quranic references mapped to the lessons where Niasse comments on them. Click any verse to reach his commentary directly.',
+  },
+  {
+    href: '/footnotes',
+    titleAr: 'فهرس الحواشي والمصادر',
+    titleEn: 'Critical Apparatus',
+    desc: '798 footnotes compiled by Muḥammad ibn al-Shaykh, classified by genre (Hadith, Tafsīr, Theology, Sufism, Fiqh, Linguistics). Inline [n] links in the text.',
   },
   {
     href: '/hadith',
     titleAr: 'فهرس الأحاديث',
     titleEn: 'Hadith Index',
-    desc: '384 hadith citations from the critical apparatus, indexed by collection (Bukhārī, Muslim, Tirmidhī, and more) with lesson references.',
-  },
-  {
-    href: '/footnotes',
-    titleAr: 'فهرس الحواشي',
-    titleEn: 'Critical Apparatus',
-    desc: '798 footnotes compiled by Muḥammad ibn al-Shaykh, classified by scholar, genre, and lesson. Inline [n] links in the Arabic text.',
+    desc: '384 hadith citations indexed by collection — Bukhārī, Muslim, Tirmidhī, Abū Dāwūd, and eight others. Each entry links to its lesson and footnote.',
   },
   {
     href: '/scholars',
-    titleAr: 'فهرس العلماء',
-    titleEn: 'Scholar Index',
-    desc: "Every figure Niasse invokes in his own commentary, distinguished from the compiler's documentary citations.",
+    titleAr: 'فهرس العلماء والمصادر',
+    titleEn: 'Scholar & Source Index',
+    desc: "Every figure cited across the tafsīr, with a key distinction: scholars Niasse invokes in his own words versus sources documented by the compiler.",
   },
   {
     href: '/themes',
     titleAr: 'الفهرس الموضوعي',
     titleEn: 'Thematic Index',
-    desc: 'Browse all 30 lessons by subject: Sufism, Fiqh & Law, Quranic Sciences, Prophethood, Spiritual Ethics, History & Narrative.',
+    desc: 'Browse all 30 lessons by subject: Quranic Sciences, Prophethood, Fiqh & Law, Sufism, Spiritual Ethics, History & Narrative.',
+  },
+  {
+    href: '/glossary',
+    titleAr: 'مصطلحات التفسير',
+    titleEn: 'Glossary of Key Terms',
+    desc: 'Nineteen theological and Sufi terms as Niasse employs them, with his exact Arabic usage, apparatus citations, and conceptual connections.',
   },
   {
     href: '/glossary-map',
     titleAr: 'خريطة المصطلحات',
     titleEn: 'Theological Vocabulary Map',
-    desc: 'A knowledge graph of how Niasse deploys theological vocabulary, with confirmed connections drawn from his own words in the tafsīr.',
-    icon: '',
-  },
-  {
-    href: '/glossary',
-    titleAr: 'المصطلحات',
-    titleEn: 'Glossary',
-    desc: "Key theological and Sufi terms as Niasse employs them, with definitions, related concepts, and lesson links.",
-  },
-  {
-    href: '/clips',
-    titleAr: 'المقتطفات',
-    titleEn: 'Research Clips',
-    desc: 'Saved passages with auto-generated Chicago citations. Select any text in a lesson → Clip & Cite → export for academic writing.',
+    desc: 'A structured map of how key terms connect within Niasse's theological system — hierarchies, conditions, and conceptual relationships confirmed from his text.',
   },
   {
     href: '/audio',
     titleAr: 'تسجيلات التفسير',
-    titleEn: 'Audio Library',
-    desc: 'Stream or download the Arabic oral tafsīr recordings by Shaykh Ibrāhīm Niasse — one file per sura, recorded 1383 AH / 1964.',
+    titleEn: 'Audio Archive',
+    desc: 'Stream or download Shaykh Ibrāhīm's Arabic oral tafsīr — one recording per sura, from the 1383 AH / 1964 sessions. Wolof tafsīr (122 sessions) also available.',
+  },
+];
+
+// Personal research tools
+const PERSONAL_TOOLS = [
+  {
+    href: '/clips',
+    titleAr: 'المقتطفات البحثية',
+    titleEn: 'Research Clips',
+    desc: 'Select any passage → Clip & Cite → Chicago citation generated automatically with volume and page reference. Export for academic writing.',
   },
   {
     href: '/bookmarks',
     titleAr: 'الإشارات المرجعية',
     titleEn: 'Bookmarks',
-    desc: 'Save and organise passages for return visits. Export your reading list at any time.',
+    desc: 'Save passages for return visits. Export your reading list at any time.',
   },
 ];
+
+const TOOLS = [...PRIMARY_TOOLS, ...PERSONAL_TOOLS];
 
 export default function ResearchPage() {
   return (

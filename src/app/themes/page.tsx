@@ -10,6 +10,7 @@ interface ThemeLesson {
   score: number;
   volume?: number;
   pageInVolume?: number | null;
+  anchor?: string | null;
 }
 
 type ThemeIndex = Record<string, ThemeLesson[]>;
@@ -99,7 +100,7 @@ export default function ThemesPage() {
                 </div>
                 <div className="space-y-1.5 max-h-[70vh] overflow-y-auto pr-1">
                   {activeData.map(l => (
-                    <Link key={l.lessonId} href={`/lesson/${l.lessonId}?panel=tafsir`}
+                    <Link key={l.lessonId} href={`/lesson/${l.lessonId}?panel=tafsir${l.anchor ? '&q=' + encodeURIComponent(l.anchor) : ''}`}
                       className="flex items-start gap-2.5 p-2.5 rounded-lg border border-white/8 hover:border-gold/30 hover:bg-gold/5 transition-all group">
                       <div className="w-5 h-5 rounded-full bg-gold/20 flex items-center justify-center text-gold text-[10px] font-bold flex-shrink-0 mt-0.5">
                         {l.lessonId}
