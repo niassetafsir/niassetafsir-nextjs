@@ -2,13 +2,33 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+interface NiasseEvidence {
+  type: string;
+  lesson: number;
+  volume?: number;
+  page?: number | null;
+  arabic_quote: string;
+  translation_note: string;
+  verseRange: string;
+}
+
+interface ApparatusEvidence {
+  fn_id: string;
+  lesson: number;
+  arabic_quote: string;
+  note: string;
+}
+
 interface GlossaryEntry {
   term: string;
   arabic: string;
   plural: string;
   definition: string;
+  definition_pending?: boolean;
   lessons: number[];
   related: string[];
+  niasse_evidence?: NiasseEvidence[];
+  apparatus_evidence?: ApparatusEvidence[];
 }
 
 export default function GlossaryPage() {
@@ -76,17 +96,23 @@ export default function GlossaryPage() {
                     </div>
                   </div>
                   {!isOpen && (
-                    <p className="font-english text-xs mt-1.5 line-clamp-2" style={{color:'rgba(255,255,255,0.4)', lineHeight:'1.6'}}>
-                      {entry.definition.slice(0, 120)}…
+                    <p className="font-english text-xs mt-1.5 line-clamp-2" style={{color: entry.definition_pending ? 'rgba(201,168,76,0.4)' : 'rgba(255,255,255,0.4)', lineHeight:'1.6', fontStyle: entry.definition_pending ? 'italic' : 'normal'}}>
+                      {entry.definition_pending ? 'Definition in preparation — Quranic evidence available' : entry.definition.slice(0, 120) + '…'}
                     </p>
                   )}
                 </button>
 
                 {isOpen && (
                   <div className="px-4 pb-4 border-t border-white/8">
-                    <p className="font-english text-sm leading-7 mt-3" style={{color:'rgba(255,255,255,0.75)'}}>
-                      {entry.definition}
-                    </p>
+                    {entry.definition_pending ? (
+                      <p className="font-english text-xs italic mt-3 p-3 border border-gold/20 rounded-lg" style={{color:'rgba(201,168,76,0.6)', background:'rgba(201,168,76,0.05)'}}>
+                        Definition in preparation. Drawing on Muḥammad al-Mishri&apos;s commentary and Niasse&apos;s own usage in the tafsīr below.
+                      </p>
+                    ) : (
+                      <p className="font-english text-sm leading-7 mt-3" style={{color:'rgba(255,255,255,0.75)'}}>
+                        {entry.definition}
+                      </p>
+                    )}
 
                     {entry.related.length > 0 && (
                       <div className="mt-3 flex items-center gap-2 flex-wrap">
@@ -100,8 +126,58 @@ export default function GlossaryPage() {
                       </div>
                     )}
 
+                    {/* Niasse's own words */}
+                    {entry.niasse_evidence && entry.niasse_evidence.length > 0 && (
+                      <div className="mt-3 pt-3 border-t border-gold/15">
+                        <p className="font-english text-[11px] font-semibold mb-2" style={{color:'rgba(201,168,76,0.8)'}}>
+                          IN NIASSE'S OWN WORDS
+                        </p>
+                        <div className="space-y-3">
+                          {entry.niasse_evidence.map((ev, i) => (
+                            <div key={i} className="border-l-2 border-gold/30 pl-3">
+                              <p className="font-arabic text-sm leading-7" dir="rtl" style={{color:'rgba(255,255,255,0.8)'}}>
+                                «{ev.arabic_quote}»
+                              </p>
+                              <p className="font-english text-xs italic mt-0.5" style={{color:'rgba(255,255,255,0.45)'}}>
+                                "{ev.translation_note}"
+                              </p>
+                              <Link href={`/lesson/${ev.lesson}?panel=tafsir`}
+                                className="font-english text-[10px] text-gold/50 hover:text-gold mt-0.5 inline-block transition-colors">
+                                Lesson {ev.lesson}{ev.volume ? ` · Vol. ${ev.volume}${ev.page ? `, p. ${ev.page}` : ''}` : ''} · {ev.verseRange} →
+                              </Link>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Compiler apparatus citations */}
+                    {entry.apparatus_evidence && entry.apparatus_evidence.length > 0 && (
+                      <div className="mt-3 pt-3 border-t border-white/8">
+                        <p className="font-english text-[11px] font-semibold mb-2" style={{color:'rgba(255,255,255,0.35)'}}>
+                          IN THE CRITICAL APPARATUS
+                        </p>
+                        <div className="space-y-2">
+                          {entry.apparatus_evidence.map((ev, i) => (
+                            <div key={i} className="border-l-2 border-white/15 pl-3">
+                              <p className="font-arabic text-xs leading-6" dir="rtl" style={{color:'rgba(255,255,255,0.5)'}}>
+                                «{ev.arabic_quote}»
+                              </p>
+                              <p className="font-english text-[10px] italic mt-0.5" style={{color:'rgba(255,255,255,0.3)'}}>
+                                {ev.note}
+                              </p>
+                              <Link href={`/footnotes#${ev.fn_id}`}
+                                className="font-english text-[10px] text-gold/40 hover:text-gold mt-0.5 inline-block transition-colors">
+                                See footnote [{ev.fn_id}] →
+                              </Link>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     <div className="mt-3 pt-3 border-t border-white/8">
-                      <p className="font-english text-[11px] mb-2" style={{color:'rgba(255,255,255,0.3)'}}>Appears in:</p>
+                      <p className="font-english text-[11px] mb-2" style={{color:'rgba(255,255,255,0.3)'}}>All appearances:</p>
                       <div className="flex flex-wrap gap-1.5">
                         {entry.lessons.map(n => (
                           <Link key={n} href={`/lesson/${n}?panel=tafsir`}

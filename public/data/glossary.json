@@ -51,7 +51,28 @@
     "related": [
       "Fanāʾ",
       "al-Fayḍa"
-    ]
+    ],
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 12,
+        "volume": 2,
+        "page": null,
+        "arabic_quote": "فيفنى العبد ويفنى الوجود ويحصل التوحيد الحقيقي والحياة الأبدية",
+        "translation_note": "The servant becomes annihilated, existence becomes annihilated, and the real tawḥīd and eternal life are attained",
+        "verseRange": "Q. 4:86–94"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 7,
+        "volume": 2,
+        "page": null,
+        "arabic_quote": "تجد فيه المواعظ والتذكير والخبر والتوحيد",
+        "translation_note": "You find in it exhortation, reminder, report, and tawḥīd",
+        "verseRange": "Q. 2:253–285"
+      }
+    ],
+    "definition_pending": true
   },
   {
     "term": "Fanāʾ",
@@ -69,7 +90,27 @@
       "Baqāʾ",
       "al-Tawḥīd",
       "Maqām"
-    ]
+    ],
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 6,
+        "volume": 1,
+        "page": 167,
+        "arabic_quote": "فمن بذل ماله لله وجد الفناء في الأفعال، يعلم أن لا فاعل في الوجود إلا الله",
+        "translation_note": "Whoever gives his wealth for God finds annihilation in the acts — knowing there is no agent in existence but God",
+        "verseRange": "Q. 2:203–252"
+      }
+    ],
+    "apparatus_evidence": [
+      {
+        "fn_id": "fn-10-3",
+        "lesson": 10,
+        "arabic_quote": "بذكر القلب يجد الفناء في الصفات، وبذكر الروح يجد الفناء الكلي",
+        "note": "Compiler on three degrees of fanāʾ: in acts (afʿāl), attributes (ṣifāt), and totality (kullī)"
+      }
+    ],
+    "definition_pending": true
   },
   {
     "term": "Baqāʾ",
@@ -136,7 +177,27 @@
     "related": [
       "Al-Insān al-Kāmil",
       "Khatm al-Walāya"
-    ]
+    ],
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 13,
+        "volume": 3,
+        "page": 3,
+        "arabic_quote": "خاتما للولاية المحمدية تشريفا لهذه الأمة، فلا ولاية بعد نزول عيسى",
+        "translation_note": "Sealing the Muhammadan sainthood as an honour to this community; no walāya after the descent of Jesus",
+        "verseRange": "Q. 4:148–5:22"
+      }
+    ],
+    "apparatus_evidence": [
+      {
+        "fn_id": "fn-24-1",
+        "lesson": 24,
+        "arabic_quote": "أولياء اللّٰه بالولاية الصغرى... وأولياء اللّٰه بالولاية الكبرى",
+        "note": "Compiler distinguishing walāya ṣughrā (minor sainthood) from walāya kubrā (major sainthood)"
+      }
+    ],
+    "definition_pending": true
   },
   {
     "term": "Barzakh",
@@ -169,7 +230,19 @@
     "related": [
       "Fanāʾ",
       "Baqāʾ"
-    ]
+    ],
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 28,
+        "volume": 7,
+        "page": 61,
+        "arabic_quote": "لكل مقام مقال... مقام التذكر",
+        "translation_note": "For every maqām there is a corresponding utterance... the station of recollection (tatadhakkur)",
+        "verseRange": "Q. 13:19–14:52"
+      }
+    ],
+    "definition_pending": true
   },
   {
     "term": "Iʿjāz",
@@ -199,6 +272,379 @@
     "related": [
       "Iʿjāz",
       "Tawḥīd"
+    ]
+  },
+  {
+    "term": "Maʿrifa",
+    "arabic": "المعرفة",
+    "plural": "Maʿārif",
+    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
+    "definition_pending": true,
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 16,
+        "volume": 3,
+        "page": 112,
+        "arabic_quote": "المعرفة روح روح الروح، المعرفة روح العقل، والعقل روح الجسد",
+        "translation_note": "Maʿrifa is the spirit of the spirit of the spirit; maʿrifa is the spirit of the intellect, and the intellect is the spirit of the body",
+        "verseRange": "Q. 6:36–110"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 8,
+        "volume": 2,
+        "page": null,
+        "arabic_quote": "والجنة المعنوية هي المعرفة بالله تبارك وتعالى",
+        "translation_note": "The inward Garden is maʿrifa of God",
+        "verseRange": "Q. 3:14–19"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 13,
+        "volume": 3,
+        "page": 3,
+        "arabic_quote": "الرؤية التي هي معرفة الله، معرفة اللّٰه أولا بالإيمان",
+        "translation_note": "The vision that is maʿrifa of God — maʿrifa of God first through faith",
+        "verseRange": "Q. 4:148–5:22"
+      }
+    ],
+    "apparatus_evidence": [
+      {
+        "fn_id": "fn-24-1",
+        "lesson": 24,
+        "arabic_quote": "ولاية الكبرى من عرف اللّٰه معرفة فوق الإيمان وفوق الإيقان بل معرفة المشاهدة والعيان",
+        "note": "Compiler citing Niasse's distinction between levels of maʿrifa"
+      }
+    ],
+    "lessons": [
+      1,
+      5,
+      8,
+      13,
+      15,
+      16,
+      24,
+      26,
+      27,
+      28,
+      30
+    ],
+    "related": [
+      "Tarbiya",
+      "Fanāʾ",
+      "al-Fayḍa",
+      "Sulūk"
+    ]
+  },
+  {
+    "term": "Sirr",
+    "arabic": "السر",
+    "plural": "Asrār",
+    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
+    "definition_pending": true,
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 4,
+        "volume": 1,
+        "page": 96,
+        "arabic_quote": "مشرب السر الأنس والهيبة",
+        "translation_note": "The drinking-place of the sirr is intimacy (uns) and awe (hayba)",
+        "verseRange": "Q. 2:60–105"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 6,
+        "volume": 1,
+        "page": 167,
+        "arabic_quote": "والسر يفنى في ذات اللّٰه تبارك وتعالى",
+        "translation_note": "The sirr becomes annihilated in the Essence of God",
+        "verseRange": "Q. 2:203–252"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 21,
+        "volume": 4,
+        "page": null,
+        "arabic_quote": "ولابد من الذكر باللسان أولا ثم بالقلب ثم بالروح والسر حتى يصل إلى المطلوب",
+        "translation_note": "Dhikr must proceed: tongue, then heart (qalb), then spirit (rūḥ), then sirr — until the sought arrives",
+        "verseRange": "Q. 8:1–74"
+      }
+    ],
+    "apparatus_evidence": [
+      {
+        "fn_id": "fn-18-1",
+        "lesson": 18,
+        "arabic_quote": "لباس النفس ولباس القلب ولباس الروح ولباس السر",
+        "note": "Compiler on the four vestments of spiritual faculties: nafs, qalb, rūḥ, sirr"
+      }
+    ],
+    "lessons": [
+      4,
+      6,
+      18,
+      21,
+      27,
+      28
+    ],
+    "related": [
+      "Qalb",
+      "Rūḥ",
+      "Fanāʾ",
+      "Maqām"
+    ]
+  },
+  {
+    "term": "Rūḥ",
+    "arabic": "الروح",
+    "plural": "Arwāḥ",
+    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
+    "definition_pending": true,
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 16,
+        "volume": 3,
+        "page": 112,
+        "arabic_quote": "المعرفة روح العقل، والعقل روح الجسد",
+        "translation_note": "Maʿrifa is the spirit of the intellect; the intellect is the spirit of the body",
+        "verseRange": "Q. 6:36–110"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 27,
+        "volume": 7,
+        "page": 18,
+        "arabic_quote": "الروح هو السلطان والعقل هو الوزير والقلب هو المفتي",
+        "translation_note": "The rūḥ is the sovereign, the intellect is the vizier, the heart is the jurist",
+        "verseRange": "Q. 12:53–13:18"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 4,
+        "volume": 1,
+        "page": 96,
+        "arabic_quote": "مشرب الروح مشاهدة الجمال والجلال",
+        "translation_note": "The drinking-place of the rūḥ is the vision of Beauty (jamāl) and Majesty (jalāl)",
+        "verseRange": "Q. 2:60–105"
+      }
+    ],
+    "apparatus_evidence": [
+      {
+        "fn_id": "fn-18-1",
+        "lesson": 18,
+        "arabic_quote": "ولباس الروح التقوى ولكن تقوى يمنعه من الالتفات إلى غير اللّٰه",
+        "note": "Compiler on the vestment of the rūḥ: taqwā that prevents turning toward other than God"
+      }
+    ],
+    "lessons": [
+      3,
+      4,
+      6,
+      9,
+      12,
+      13,
+      16,
+      18,
+      21,
+      25,
+      27
+    ],
+    "related": [
+      "Qalb",
+      "Sirr",
+      "Fanāʾ",
+      "Maʿrifa"
+    ]
+  },
+  {
+    "term": "Ḥaqīqa Muḥammadiyya",
+    "arabic": "الحقيقة المحمدية",
+    "plural": "",
+    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
+    "definition_pending": true,
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 13,
+        "volume": 3,
+        "page": 3,
+        "arabic_quote": "لما أراد إظهار وجود غير وجوده تجلى في الحقيقة المحمدية فهي أول تجلٍ بعد الغيب المحض",
+        "translation_note": "When God willed to manifest an existence other than His own, He disclosed Himself in the Muhammadan Reality — it is the first tajallī after sheer hiddenness",
+        "verseRange": "Q. 4:148–5:22"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 13,
+        "volume": 3,
+        "page": 3,
+        "arabic_quote": "هذا الروح هو الحقيقة المحمدية",
+        "translation_note": "This spirit is the Muhammadan Reality",
+        "verseRange": "Q. 4:148–5:22"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 25,
+        "volume": 5,
+        "page": null,
+        "arabic_quote": "اللّٰه تبارك وتعالى أول ما أوجد درة بيضاء وهي الحقيقة المحمدية",
+        "translation_note": "The first thing God brought into existence was a white pearl — that is the Muhammadan Reality",
+        "verseRange": "Q. 11:1–123"
+      }
+    ],
+    "apparatus_evidence": [
+      {
+        "fn_id": "fn-13-2",
+        "lesson": 13,
+        "arabic_quote": "هذا الروح هو الذي به ضل النصارى",
+        "note": "Compiler contextualising the Muhammadan Reality against Christian deviation"
+      }
+    ],
+    "lessons": [
+      13,
+      25
+    ],
+    "related": [
+      "Tajallī",
+      "Al-Insān al-Kāmil",
+      "Rūḥ",
+      "Walāya"
+    ]
+  },
+  {
+    "term": "Ḥaḍra",
+    "arabic": "الحضرة",
+    "plural": "Ḥaḍarāt",
+    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
+    "definition_pending": true,
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 7,
+        "volume": 2,
+        "page": null,
+        "arabic_quote": "قصدوا الحضرة، إذا صدقوا في أنّهم لا يقصدون غير الحضرة فهم لا مقصود عندهم إلا الله",
+        "translation_note": "They aimed for the Divine Presence (ḥaḍra); if they were sincere in seeking nothing but the ḥaḍra, then they have no goal but God",
+        "verseRange": "Q. 2:253–285"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 23,
+        "volume": 5,
+        "page": null,
+        "arabic_quote": "إلى أن تجد الأنس والهيبة بسرادقات الحضرة",
+        "translation_note": "Until you find intimacy and awe in the pavilions of the Divine Presence",
+        "verseRange": "Q. 9:100–129"
+      }
+    ],
+    "apparatus_evidence": [
+      {
+        "fn_id": "fn-20-1",
+        "lesson": 20,
+        "arabic_quote": "إذا ضربنا هذه الأسماء في الحضرات الثلاث الحقائق الثلاث",
+        "note": "Compiler on the three ḥaḍarāt — the three divine presences"
+      }
+    ],
+    "lessons": [
+      6,
+      7,
+      10,
+      21,
+      23,
+      27,
+      28,
+      30
+    ],
+    "related": [
+      "Tajallī",
+      "Fanāʾ",
+      "Maʿrifa",
+      "Maqām"
+    ]
+  },
+  {
+    "term": "Sulūk",
+    "arabic": "السلوك",
+    "plural": "",
+    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
+    "definition_pending": true,
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 9,
+        "volume": 2,
+        "page": null,
+        "arabic_quote": "بدعوى الوصول إلى اللّٰه تبارك وتعالى بدون السلوك",
+        "translation_note": "Claiming to reach God without sulūk [Niasse dismisses such claims as ẓulm]",
+        "verseRange": "Q. 3:169–175"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 27,
+        "volume": 7,
+        "page": 18,
+        "arabic_quote": "سلوك غير الأنبياء من النفس الأمارة بالسوء إلى أن تصل إلى الكمال، وسلوك الأنبياء من النفس المطمئنة",
+        "translation_note": "The sulūk of non-prophets proceeds from the commanding soul (nafs ammāra) toward perfection; the sulūk of prophets begins from the tranquil soul (nafs muṭmaʾinna)",
+        "verseRange": "Q. 12:53–13:18"
+      }
+    ],
+    "apparatus_evidence": [
+      {
+        "fn_id": "fn-23-1",
+        "lesson": 23,
+        "arabic_quote": "الإخوان في السلوك المريدون الصادقون ينتفعون بعضهم من بعض",
+        "note": "Compiler: brothers in sulūk — sincere murīdūn benefit one another"
+      }
+    ],
+    "lessons": [
+      9,
+      18,
+      20,
+      27
+    ],
+    "related": [
+      "Tarbiya",
+      "Maʿrifa",
+      "Maqām",
+      "Fanāʾ"
+    ]
+  },
+  {
+    "term": "Fayḍ",
+    "arabic": "الفيض",
+    "plural": "Fuyūḍ",
+    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
+    "definition_pending": true,
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 27,
+        "volume": 7,
+        "page": 18,
+        "arabic_quote": "فاضت عليها فيضة أخرى من رحمة اللّٰه تبارك وتعالى",
+        "translation_note": "Another outpouring (fayḍa) of divine mercy flooded over it [the soul]",
+        "verseRange": "Q. 12:53–13:18"
+      }
+    ],
+    "apparatus_evidence": [
+      {
+        "fn_id": "fn-28-1",
+        "lesson": 28,
+        "arabic_quote": "قال ابن عربي أوصيك أن...",
+        "note": "Compiler citing Ibn ʿArabī on fayḍ via Fayḍ al-Qadīr"
+      }
+    ],
+    "lessons": [
+      8,
+      13,
+      21,
+      27
+    ],
+    "related": [
+      "al-Fayḍa",
+      "Tajallī",
+      "Ḥaqīqa Muḥammadiyya"
     ]
   }
 ]
