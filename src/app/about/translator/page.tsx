@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Translator & Digital Editor",
-  description: "Amadu Kunateh — Translator & Digital Editor of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. PhD candidate in Philosophy of Religion and African Studies at Harvard University.",
+  description: "Amadu Kunateh — Translator & Digital Editor of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. PhD candidate in Philosophy of Religion and African Studies.",
   openGraph: {
     title: "Translator & Digital Editor | niassetafsir.org",
-    description: "Amadu Kunateh — Translator & Digital Editor of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. PhD candidate in Philosophy of Religion and African Studies at Harvard University.",
+    description: "Amadu Kunateh — Translator & Digital Editor of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. PhD candidate in Philosophy of Religion and African Studies.",
   },
 };
 
