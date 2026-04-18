@@ -50,6 +50,13 @@ const TOOLS = [
     desc: 'Browse all 30 lessons by subject: Sufism, Fiqh & Law, Quranic Sciences, Prophethood, Spiritual Ethics, History & Narrative.',
   },
   {
+    href: '/glossary-map',
+    titleAr: 'خريطة المصطلحات',
+    titleEn: 'Conceptual Map',
+    desc: 'How the key terms in the tafsīr connect, presuppose, and relate within Niasse\'s theological system.',
+    icon: '',
+  },
+  {
     href: '/glossary',
     titleAr: 'المصطلحات',
     titleEn: 'Glossary',

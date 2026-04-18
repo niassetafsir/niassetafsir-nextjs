@@ -1,0 +1,278 @@
+{
+  "nodes": [
+    {
+      "id": "tawḥīd",
+      "arabic": "التوحيد",
+      "tier": 1,
+      "category": "doctrine"
+    },
+    {
+      "id": "maʿrifa",
+      "arabic": "المعرفة",
+      "tier": 1,
+      "category": "state"
+    },
+    {
+      "id": "fanāʾ",
+      "arabic": "الفناء",
+      "tier": 2,
+      "category": "state"
+    },
+    {
+      "id": "baqāʾ",
+      "arabic": "البقاء",
+      "tier": 2,
+      "category": "state"
+    },
+    {
+      "id": "tarbiya",
+      "arabic": "التربية",
+      "tier": 1,
+      "category": "practice"
+    },
+    {
+      "id": "sulūk",
+      "arabic": "السلوك",
+      "tier": 1,
+      "category": "practice"
+    },
+    {
+      "id": "al-fayḍa",
+      "arabic": "الفيضة",
+      "tier": 1,
+      "category": "doctrine"
+    },
+    {
+      "id": "fayḍ",
+      "arabic": "الفيض",
+      "tier": 2,
+      "category": "metaphysics"
+    },
+    {
+      "id": "walāya",
+      "arabic": "الولاية",
+      "tier": 1,
+      "category": "doctrine"
+    },
+    {
+      "id": "maqām",
+      "arabic": "المقام",
+      "tier": 2,
+      "category": "state"
+    },
+    {
+      "id": "ḥāl",
+      "arabic": "الحال",
+      "tier": 2,
+      "category": "state"
+    },
+    {
+      "id": "rūḥ",
+      "arabic": "الروح",
+      "tier": 1,
+      "category": "faculty"
+    },
+    {
+      "id": "qalb",
+      "arabic": "القلب",
+      "tier": 2,
+      "category": "faculty"
+    },
+    {
+      "id": "sirr",
+      "arabic": "السر",
+      "tier": 2,
+      "category": "faculty"
+    },
+    {
+      "id": "nafs",
+      "arabic": "النفس",
+      "tier": 3,
+      "category": "faculty"
+    },
+    {
+      "id": "ʿaql",
+      "arabic": "العقل",
+      "tier": 2,
+      "category": "faculty"
+    },
+    {
+      "id": "ḥaqīqa-muḥammadiyya",
+      "arabic": "الحقيقة المحمدية",
+      "tier": 1,
+      "category": "metaphysics"
+    },
+    {
+      "id": "tajallī",
+      "arabic": "التجلي",
+      "tier": 1,
+      "category": "metaphysics"
+    },
+    {
+      "id": "ḥaḍra",
+      "arabic": "الحضرة",
+      "tier": 1,
+      "category": "metaphysics"
+    },
+    {
+      "id": "iʿjāz",
+      "arabic": "الإعجاز",
+      "tier": 2,
+      "category": "doctrine"
+    }
+  ],
+  "edges": [
+    {
+      "from": "fanāʾ",
+      "to": "baqāʾ",
+      "relation": "completed-by",
+      "note": "Niasse: 'fanaʾuhu ʿayn al-baqāʾ' — his annihilation was identical to subsistence",
+      "source": "fn-10-3",
+      "confirmed": true
+    },
+    {
+      "from": "rūḥ",
+      "to": "ʿaql",
+      "relation": "is-superior-to",
+      "note": "Niasse L27: 'al-rūḥ huwa al-sulṭān, al-ʿaql huwa al-wazīr, al-qalb huwa al-muftī'",
+      "source": "L27 body",
+      "confirmed": true
+    },
+    {
+      "from": "ʿaql",
+      "to": "qalb",
+      "relation": "is-superior-to",
+      "note": "Niasse L27: same hierarchy — rūḥ > ʿaql > qalb",
+      "source": "L27 body",
+      "confirmed": true
+    },
+    {
+      "from": "qalb",
+      "to": "nafs",
+      "relation": "is-superior-to",
+      "note": "Niasse L18: four vestments — nafs, qalb, rūḥ, sirr (ascending)",
+      "source": "fn-18-1",
+      "confirmed": true
+    },
+    {
+      "from": "maʿrifa",
+      "to": "rūḥ",
+      "relation": "is-spirit-of",
+      "note": "Niasse L16: 'al-maʿrifa rūḥ al-ʿaql, wa-l-ʿaql rūḥ al-jasad'",
+      "source": "L16 body",
+      "confirmed": true
+    },
+    {
+      "from": "tarbiya",
+      "to": "maʿrifa",
+      "relation": "produces",
+      "note": "Tarbiya is the method that produces the realization of maʿrifa",
+      "source": "Scholarly consensus",
+      "confirmed": true
+    },
+    {
+      "from": "tarbiya",
+      "to": "al-fayḍa",
+      "relation": "is-method-of",
+      "note": "Tarbiya is the spiritual education method of the Fayḍa movement",
+      "source": "Brigaglia 2009",
+      "confirmed": true
+    },
+    {
+      "from": "ḥaqīqa-muḥammadiyya",
+      "to": "tajallī",
+      "relation": "is-first-instance-of",
+      "note": "Niasse L13: 'tujulliya fī al-ḥaqīqa al-muḥammadiyya fa-hiya awwal tajallī'",
+      "source": "L13 body",
+      "confirmed": true
+    },
+    {
+      "from": "sulūk",
+      "to": "maqām",
+      "relation": "traverses",
+      "note": "Sulūk is the path through the maqāmāt (spiritual stations)",
+      "source": "Classical Sufi tradition",
+      "confirmed": true
+    },
+    {
+      "from": "sulūk",
+      "to": "maʿrifa",
+      "relation": "leads-to",
+      "note": "The purpose of sulūk is the attainment of maʿrifa",
+      "source": "Ogunnaike 2018",
+      "confirmed": true
+    },
+    {
+      "from": "fanāʾ",
+      "to": "maʿrifa",
+      "relation": "PENDING",
+      "note": "[AK to confirm: does fanāʾ precede or follow maʿrifa in Niasse's system?]",
+      "confirmed": false
+    },
+    {
+      "from": "sirr",
+      "to": "fanāʾ",
+      "relation": "PENDING",
+      "note": "[AK to confirm: is sirr the locus where fanāʾ occurs in Niasse's usage?]",
+      "confirmed": false
+    },
+    {
+      "from": "walāya",
+      "to": "maʿrifa",
+      "relation": "PENDING",
+      "note": "[AK to confirm: is walāya the station of maʿrifa, or its precondition?]",
+      "confirmed": false
+    },
+    {
+      "from": "tawḥīd",
+      "to": "fanāʾ",
+      "relation": "PENDING",
+      "note": "[AK to confirm: Niasse L12 suggests tawḥīd ḥaqīqī is attained through fanāʾ]",
+      "confirmed": false
+    },
+    {
+      "from": "ḥaḍra",
+      "to": "maʿrifa",
+      "relation": "PENDING",
+      "note": "[AK to confirm: is ḥaḍra the locus of maʿrifa, or what maʿrifa attains?]",
+      "confirmed": false
+    }
+  ],
+  "hierarchies": [
+    {
+      "name": "Faculty Hierarchy",
+      "arabic": "التسلسل الروحي",
+      "levels": [
+        "rūḥ",
+        "ʿaql",
+        "qalb",
+        "nafs"
+      ],
+      "source": "L27: 'al-rūḥ huwa al-sulṭān'",
+      "confirmed": true
+    },
+    {
+      "name": "Dhikr Progression",
+      "arabic": "تدرج الذكر",
+      "levels": [
+        "lisān",
+        "qalb",
+        "rūḥ",
+        "sirr"
+      ],
+      "source": "L21: 'bi-l-lisān awwalan thumma bi-l-qalb thumma bi-l-rūḥ wa-l-sirr'",
+      "confirmed": true
+    },
+    {
+      "name": "Tawḥīd Levels",
+      "arabic": "مراتب التوحيد",
+      "levels": [
+        "tawḥīd al-ʿāmma",
+        "tawḥīd al-khāṣṣa",
+        "tawḥīd khāṣṣ al-khāṣṣa"
+      ],
+      "source": "Niasse on tawḥīd for masses, elite, elite of elite",
+      "confirmed": true
+    }
+  ]
+}
