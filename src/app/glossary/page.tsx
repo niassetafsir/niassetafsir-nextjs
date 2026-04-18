@@ -25,6 +25,8 @@ interface GlossaryEntry {
   plural: string;
   definition: string;
   definition_pending?: boolean;
+  mishri_source?: string;
+  mishri_quote?: string;
   lessons: number[];
   related: string[];
   niasse_evidence?: NiasseEvidence[];
@@ -109,9 +111,23 @@ export default function GlossaryPage() {
                         Definition in preparation. Drawing on Muḥammad al-Mishri&apos;s commentary and Niasse&apos;s own usage in the tafsīr below.
                       </p>
                     ) : (
-                      <p className="font-english text-sm leading-7 mt-3" style={{color:'rgba(255,255,255,0.75)'}}>
-                        {entry.definition}
-                      </p>
+                      <div className="mt-3">
+                        <p className="font-english text-sm leading-7" style={{color:'rgba(255,255,255,0.75)'}}>
+                          {entry.definition}
+                        </p>
+                        {entry.mishri_quote && (
+                          <blockquote className="mt-3 pl-3 border-l-2 border-gold/30">
+                            <p className="font-english text-xs italic leading-6" style={{color:'rgba(255,255,255,0.5)'}}>
+                              &ldquo;{entry.mishri_quote}&rdquo;
+                            </p>
+                            {entry.mishri_source && (
+                              <p className="font-english text-[10px] mt-1" style={{color:'rgba(255,255,255,0.3)'}}>
+                                — {entry.mishri_source}
+                              </p>
+                            )}
+                          </blockquote>
+                        )}
+                      </div>
                     )}
 
                     {entry.related.length > 0 && (

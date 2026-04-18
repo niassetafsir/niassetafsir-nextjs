@@ -78,7 +78,7 @@
     "term": "Fanāʾ",
     "arabic": "الفناء",
     "plural": "",
-    "definition": "Annihilation — the Sufi technical term for the dissolution of the ego-self in the awareness of God. Niasse treats fanāʾ not as a permanent obliteration but as a station (maqām) on the way to baqāʾ (subsistence in God), following the classical Sufi understanding.",
+    "definition": "Annihilation — the dissolution of the ego-self in the consciousness of divine reality. Mishri defines it in relation to baqāʾ (subsistence) and locates it within the framework of the ḥaḍarāt: genuine Iman at its lowest level entails 'fanāʾ of the nafs and baqāʾ in Allah in the ḥaḍarāt of His Names and His Attributes.' In Niasse's own commentary, fanāʾ proceeds in three degrees: annihilation in the divine acts (fanāʾ fī al-afʿāl), then in the divine attributes (fanāʾ fī al-ṣifāt), then total annihilation (al-fanāʾ al-kullī) — after which 'his annihilation was identical to subsistence' (Lesson 10, compiler's apparatus, fn. 3).",
     "lessons": [
       1,
       3,
@@ -110,13 +110,15 @@
         "note": "Compiler on three degrees of fanāʾ: in acts (afʿāl), attributes (ṣifāt), and totality (kullī)"
       }
     ],
-    "definition_pending": true
+    "definition_pending": false,
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018)",
+    "mishri_quote": "The lowest degree of [true Iman] is fanāʾ of the nafs and baqāʾ in Allah in the ḥaḍarāt of His Names and His Attributes."
   },
   {
     "term": "Baqāʾ",
     "arabic": "البقاء",
     "plural": "",
-    "definition": "Subsistence — the station following fanāʾ (annihilation), in which the mystic continues to exist but in a transformed state: the self subsists in and through God. The pair fanāʾ/baqāʾ is foundational to Niasse's anthropology.",
+    "definition": "Subsistence — the station that follows and completes fanāʾ (annihilation). The self does not cease to exist but subsists in and through the divine reality. As the compiler's apparatus records of Niasse's teaching: 'his annihilation was identical to subsistence' (fanāʾuhu ʿayn al-baqāʾ). The pair fanāʾ/baqāʾ constitutes the fundamental dyad of Sufi anthropology in Niasse's system, and Mishri places both within the ḥaḍarāt of the divine Names and Attributes — locating the spiritual ascent within a precise cosmological framework.",
     "lessons": [
       1,
       3,
@@ -126,7 +128,10 @@
     "related": [
       "Fanāʾ",
       "Maqām"
-    ]
+    ],
+    "definition_pending": false,
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018)",
+    "mishri_quote": "The lowest degree of true Iman is fanāʾ of the nafs and baqāʾ in Allah in the ḥaḍarāt of His Names and His Attributes."
   },
   {
     "term": "Al-Insān al-Kāmil",
@@ -278,8 +283,8 @@
     "term": "Maʿrifa",
     "arabic": "المعرفة",
     "plural": "Maʿārif",
-    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
-    "definition_pending": true,
+    "definition": "Direct, experiential knowledge of God — the supreme object of the spiritual path in Niasse's Tijānī tradition. Mishri distinguishes maʿrifa from mere doctrinal knowledge: the Qurʾān possesses an outward dimension (the foundation of the sharīʿa, governing right action) and an inward dimension (the foundation of the ḥaqīqa, which is the domain of maʿrifa). While the sharīʿa is sealed and admits no addition, the inward undergoes 'constant renewal in regards to how its meanings become manifest' for the ʿārifūn — those who have attained maʿrifa. In Niasse's own usage, maʿrifa is 'the spirit of the intellect, and the intellect is the spirit of the body' (Lesson 16, Q. 6:36–110), situating it at the apex of the spiritual faculties hierarchy.",
+    "definition_pending": false,
     "niasse_evidence": [
       {
         "type": "niasse-direct",
@@ -335,7 +340,9 @@
       "Fanāʾ",
       "al-Fayḍa",
       "Sulūk"
-    ]
+    ],
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018), Q. 17 (pp. 36–37).",
+    "mishri_quote": "Allah's speech... has an outward and an inward: its outward is the foundation of the sharīʿa, and its inward is the foundation of the haqīqah... constant renewal happens in regards to how its meanings become manifest."
   },
   {
     "term": "Sirr",
@@ -462,8 +469,8 @@
     "term": "Ḥaqīqa Muḥammadiyya",
     "arabic": "الحقيقة المحمدية",
     "plural": "",
-    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
-    "definition_pending": true,
+    "definition": "The Muhammadan Reality — the first of the divine self-disclosures (tajalliyyāt) and the metaphysical principle through which creation proceeds. Mishri provides a full cosmological account: 'To bring these ḥaqāʾiq and nisbahs into existence, Allah brought the Ḥaqīqa Muḥammadiyya into existence, for were it not for that, Allah's relation to creation would not have appeared or been known.' It is the 'shadow' of the Aḥadiyya, the locus of the divine Names and their sealhood (khatmiyya), and the barzakh between the pure divine and the created order. In Niasse's tafsīr, it is the first tajallī: 'When God willed to manifest an existence other than His own, He disclosed Himself in the Ḥaqīqa Muḥammadiyya — it is the first tajallī after sheer hiddenness' (Lesson 13, Q. 4:148–5:22).",
+    "definition_pending": false,
     "niasse_evidence": [
       {
         "type": "niasse-direct",
@@ -510,14 +517,16 @@
       "Al-Insān al-Kāmil",
       "Rūḥ",
       "Walāya"
-    ]
+    ],
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018), Q. 15.",
+    "mishri_quote": "To bring these ḥaqāʾiq into existence, Allah brought the Ḥaqīqa Muḥammadiyya into existence, for were it not for that, Allah's relation to creation would not have appeared or been known."
   },
   {
     "term": "Ḥaḍra",
     "arabic": "الحضرة",
     "plural": "Ḥaḍarāt",
-    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
-    "definition_pending": true,
+    "definition": "The Divine Presence — in Mishri's account, the term denotes the metaphysical stations or modes through which the divine self-disclosure (tajallī) operates. The ḥaḍarāt are the loci through which the Qurʾān 'descended' and through which the divine Names and Attributes are manifest. Mishri connects them directly to the four ḥaqāʾiq: the ḥaqīqa Muḥammadiyya, the realm of the Names, the realm of the spirits, and the realm of sensible existence. In Niasse's usage, the ḥaḍara is the spiritual goal of the murīd: 'until you find intimacy and awe in the pavilions of the Divine Presence' (Lesson 23, Q. 9:100–129).",
+    "definition_pending": false,
     "niasse_evidence": [
       {
         "type": "niasse-direct",
@@ -561,7 +570,9 @@
       "Fanāʾ",
       "Maʿrifa",
       "Maqām"
-    ]
+    ],
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018), Q. 15.",
+    "mishri_quote": "The Exalted Essence was and there was nothing other than it... It wanted to be known, so it manifested in itself, for itself, through itself."
   },
   {
     "term": "Sulūk",
