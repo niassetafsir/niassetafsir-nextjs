@@ -132,8 +132,8 @@ export default function HomePage() {
           <Link href="/lesson/1" className="font-english text-base text-bg bg-gold hover:bg-gold-light px-5 py-2 rounded-lg font-semibold transition-all">
             Start Reading →
           </Link>
-          <Link href="/concordance" className="font-english text-base text-white/75 hover:text-gold border border-gold/30 hover:border-gold/70 px-5 py-2 rounded-lg transition-all">
-            Verse Concordance
+          <Link href="/search" className="font-english text-base text-white/75 hover:text-gold border border-gold/30 hover:border-gold/70 px-5 py-2 rounded-lg transition-all">
+            Research →
           </Link>
           <button
             onClick={() => setShowGuide(!showGuide)}
