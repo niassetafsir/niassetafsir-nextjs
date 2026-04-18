@@ -13,6 +13,7 @@ interface Footnote {
   genre: string;
   enHeader: string;
   enTranslation: string | null;
+  volRef?: string;
 }
 
 const GENRE_COLORS: Record<string, string> = {
@@ -179,6 +180,11 @@ export default function FootnotesPage() {
                           className="font-english text-[10px] text-gold/60 hover:text-gold border border-gold/20 px-1.5 py-0.5 rounded transition-colors">
                           Lesson {fn.lessonId} [{fn.num}]
                         </Link>
+                        {fn.volRef && (
+                          <span className="font-english text-[10px]" style={{color:'rgba(255,255,255,0.3)'}}>
+                            {fn.volRef}
+                          </span>
+                        )}
                         {fn.scholar && (
                           <span className="font-english text-xs font-semibold" style={{color:'rgba(255,255,255,0.8)'}}>
                             {fn.scholar}

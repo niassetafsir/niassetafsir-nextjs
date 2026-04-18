@@ -46,7 +46,7 @@ function ComingSoonNote({ lang }: { lang: string }) {
     english: {
       title: "English Translation",
       body: "English translation forthcoming.",
-      sub: "Amadu Kunateh (Harvard University) · Lessons 1–2 available · Full bilingual edition in preparation",
+      sub: "Lessons 1–2 available · Full bilingual print edition in preparation · Amadu Kunateh",
     },
     french: {
       title: "Traduction Française",

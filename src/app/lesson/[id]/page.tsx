@@ -38,6 +38,11 @@ export default async function LessonPage({ params }: { params: { id: string } })
         <div className="font-english text-white/60 text-sm mt-1" dir="ltr">
           {lesson.englishTitle} · {lesson.verseRange}
         </div>
+        <div className="font-english text-white/30 text-xs mt-1" dir="ltr">
+          Arabic compiled edition · Vol. {lesson.volume ?? '—'}
+          {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ''}
+          {!lesson.pageInVolume && lesson.volume ? ' · page to be confirmed' : ''}
+        </div>
       </div>
 
       {/* 1. Audio */}
@@ -62,7 +67,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       {/* 2. Sheikh's Tafsir */}
       <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <BilingualText
-          arabicText={lesson.arabicText}
+          arabicText={lesson.arabicBody || lesson.arabicText}
           englishText={lesson.englishText}
           hasEnglish={lesson.hasEnglish}
         />

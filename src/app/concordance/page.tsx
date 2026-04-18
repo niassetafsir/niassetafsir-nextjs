@@ -8,6 +8,7 @@ interface VerseRef {
   verseRange: string;
   source: string;
   excerpt: string;
+  volRef?: string;
 }
 
 interface VerseText {

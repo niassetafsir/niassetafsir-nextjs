@@ -6,9 +6,13 @@ export interface Lesson {
   sura: string;
   manzil: number;
   arabicText: string;
+  arabicBody?: string;
+  arabicFootnotes?: string;
   englishText: string | null;
   jalalaynText: string;
   hasEnglish: boolean;
+  volume?: number;
+  pageInVolume?: number | null;
   wolofPlaylistId: string;
   arabicPlaylistId: string;
   arabicAudioUrl: string | null;
