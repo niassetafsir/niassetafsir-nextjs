@@ -25,7 +25,7 @@ export default function Page() {
       <p className="font-english text-white/45 text-base mb-2">Amadu Kunateh</p>
       <a href="https://orcid.org/0009-0002-7839-6474" target="_blank" rel="noopener"
         className="inline-flex items-center gap-1.5 font-english text-xs text-white/35 hover:text-gold transition-colors mb-8">
-        <svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor" style={opacity:0.7}>
+        <svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor" style={{opacity:0.7}}>
           <path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zm-9.1 57.7c4.6 0 8.3 3.8 8.3 8.5s-3.7 8.5-8.3 8.5-8.3-3.8-8.3-8.5 3.7-8.5 8.3-8.5zm-9 29h18v91.5h-18V86.7zm48.1 0h22.9c21.8 0 36.4 14.9 36.4 45.4s-14.6 46.1-36.4 46.1H158V86.7zm18 18v55.5h4.4c12.1 0 18.6-9.1 18.6-27.8 0-18.7-6.5-27.7-18.6-27.7H176z"/>
         </svg>
         ORCID: 0009-0002-7839-6474
