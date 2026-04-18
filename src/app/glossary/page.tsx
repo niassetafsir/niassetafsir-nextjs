@@ -124,6 +124,7 @@ export default function GlossaryPage() {
                           </button>
                         ))}
                       </div>
+
                     )}
 
                     {/* Niasse's own words */}
