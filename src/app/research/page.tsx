@@ -18,63 +18,54 @@ const TOOLS = [
     titleAr: 'البحث الشامل',
     titleEn: 'Full-Text Search',
     desc: 'Search across all 30 lessons — Arabic commentary, English translation, and Jalālayn companion text.',
-    icon: '⌕',
   },
   {
     href: '/concordance',
     titleAr: 'فهرس الآيات',
     titleEn: 'Verse Concordance',
     desc: '1,529 Quranic references mapped to the lessons where Niasse comments on them. Search any verse.',
-    icon: '◎',
   },
   {
     href: '/hadith',
     titleAr: 'فهرس الأحاديث',
     titleEn: 'Hadith Index',
     desc: '384 hadith citations from the critical apparatus, indexed by collection (Bukhārī, Muslim, Tirmidhī, and more) with lesson references.',
-    icon: '📿',
   },
   {
     href: '/footnotes',
     titleAr: 'فهرس الحواشي',
     titleEn: 'Critical Apparatus',
     desc: '798 footnotes compiled by Muḥammad ibn al-Shaykh — classified by scholar, genre, and lesson. Inline [n] links in the Arabic text.',
-    icon: '†',
   },
   {
     href: '/scholars',
     titleAr: 'فهرس العلماء',
     titleEn: 'Scholar Index',
     desc: "Every figure Niasse invokes in his own commentary, distinguished from the compiler's documentary citations.",
-    icon: '◈',
   },
   {
     href: '/themes',
     titleAr: 'الفهرس الموضوعي',
     titleEn: 'Thematic Index',
     desc: 'Browse all 30 lessons by subject: Sufism, Fiqh & Law, Quranic Sciences, Prophethood, Spiritual Ethics, History & Narrative.',
-    icon: '◇',
   },
   {
     href: '/glossary',
     titleAr: 'المصطلحات',
     titleEn: 'Glossary',
     desc: "Key theological and Sufi terms as Niasse employs them — with definitions, related concepts, and lesson links.",
-    icon: '◻',
   },
   {
     href: '/clips',
     titleAr: 'المقتطفات',
     titleEn: 'Research Clips',
     desc: 'Saved passages with auto-generated Chicago citations. Select any text in a lesson → Clip & Cite → export for academic writing.',
-    icon: '📎',
   },
   {
     href: '/bookmarks',
     titleAr: 'الإشارات المرجعية',
     titleEn: 'Bookmarks',
     desc: 'Save and organise passages for return visits. Export your reading list at any time.',
-    icon: '🔖',
   },
 ];
 
@@ -106,8 +97,7 @@ export default function ResearchPage() {
         {TOOLS.map(tool => (
           <Link key={tool.href} href={tool.href}
             className="group border border-white/10 hover:border-gold/40 rounded-xl p-5 transition-all hover:bg-gold/5">
-            <div className="flex items-start gap-3 mb-3">
-              <span className="text-gold text-lg flex-shrink-0 mt-0.5">{tool.icon}</span>
+            <div className="mb-3">
               <div>
                 <div className="font-arabic text-sm" dir="rtl"
                   style={{color:'rgba(255,255,255,0.5)'}}>{tool.titleAr}</div>

@@ -141,7 +141,7 @@ export default function GlossaryPage() {
                               <p className="font-english text-xs italic mt-0.5" style={{color:'rgba(255,255,255,0.45)'}}>
                                 "{ev.translation_note}"
                               </p>
-                              <Link href={`/lesson/${ev.lesson}?panel=tafsir`}
+                              <Link href={`/lesson/${ev.lesson}?panel=tafsir&q=${encodeURIComponent(ev.arabic_quote.slice(0,25))}`}
                                 className="font-english text-[10px] text-gold/50 hover:text-gold mt-0.5 inline-block transition-colors">
                                 Lesson {ev.lesson}{ev.volume ? ` · Vol. ${ev.volume}${ev.page ? `, p. ${ev.page}` : ''}` : ''} · {ev.verseRange} →
                               </Link>

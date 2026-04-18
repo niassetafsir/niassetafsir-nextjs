@@ -57,7 +57,7 @@ export default function BookmarksPage() {
 
       {bookmarks.length === 0 ? (
         <div className="text-center py-16">
-          <div className="text-4xl mb-4">🔖</div>
+          
           <p className="font-english text-white/30 italic text-sm">No bookmarks yet.</p>
           <p className="font-english text-white/20 text-xs mt-2">
             Tap the bookmark icon on any passage to save it here.

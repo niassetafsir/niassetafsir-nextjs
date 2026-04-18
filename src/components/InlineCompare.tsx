@@ -22,7 +22,7 @@ export default function InlineCompare({ jalalaynText, usulaiUrl, verseRef }: Inl
             onClick={() => setJalOpen(!jalOpen)}
             className="w-full flex items-center gap-2 px-3 py-2 text-left hover:bg-blue-900/20 transition-colors"
           >
-            <span className="text-sm">📖</span>
+            
             <span className="font-english text-xs text-blue-300/80 flex-1" dir="ltr">
               <span className="font-arabic text-blue-300/70" dir="rtl">تفسير الجلالين</span>
               {verseRef && <span className="text-blue-300/40 ml-2">· {verseRef}</span>}

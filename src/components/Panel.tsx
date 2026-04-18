@@ -99,7 +99,7 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
             onPointerDown={handleCite}
             className="font-english text-xs text-white/60 hover:text-gold border border-white/15 hover:border-gold/40 px-2.5 py-1 rounded transition-colors"
           >
-            {cited ? '✓ Cited' : '📎 Cite this commentary'}
+            {cited ? '✓ Cited' : 'Cite this commentary'}
           </button>
         </div>
       )}

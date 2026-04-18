@@ -200,7 +200,7 @@ export default function HomePage() {
               <div className="border-t border-gold/15 pt-3">
                 <p className="font-semibold mb-1" style={{color:'rgba(255,255,255,0.9)'}}>Citing the Text</p>
                 <p style={{color:'rgba(255,255,255,0.55)'}}>
-                  Select any passage → <strong style={{color:'rgba(201,168,76,0.8)'}}>📎 Clip &amp; Cite</strong> → Chicago citation generated automatically.
+                  Select any passage → <strong style={{color:'rgba(201,168,76,0.8)'}}>Clip &amp; Cite</strong> → Chicago citation generated automatically.
                   Export all saved clips from <code style={{color:'rgba(255,255,255,0.5)', fontSize:'11px'}}>/clips</code>.
                 </p>
               </div>

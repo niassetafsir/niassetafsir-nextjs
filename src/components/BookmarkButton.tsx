@@ -43,7 +43,7 @@ export default function BookmarkButton({ id, lessonId, lessonTitle, lessonTitleA
         saved ? 'text-gold' : 'text-white/20 hover:text-gold/60'
       }`}
     >
-      {saved ? '🔖' : '🔖'}
+      saved ? 'Saved' : 'Bookmark'
     </button>
   );
 }

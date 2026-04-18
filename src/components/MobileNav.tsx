@@ -28,25 +28,25 @@ export default function MobileNav() {
         <Link href="/"
           className="flex flex-col items-center gap-0.5 py-1.5 px-4 rounded-xl transition-all"
           style={{color: isActive('/') && path === '/' ? '#C9A84C' : 'rgba(255,255,255,0.45)'}}>
-          <span className="text-lg">⌂</span>
+          
           <span className="font-english text-[10px]">Home</span>
         </Link>
         <Link href="/lesson/1"
           className="flex flex-col items-center gap-0.5 py-1.5 px-4 rounded-xl transition-all"
           style={{color: isActive('/lesson') || isActive('/manzil') ? '#C9A84C' : 'rgba(255,255,255,0.45)'}}>
-          <span className="text-lg">📖</span>
+          
           <span className="font-english text-[10px]">Read</span>
         </Link>
         <Link href="/research"
           className="flex flex-col items-center gap-0.5 py-1.5 px-4 rounded-xl transition-all"
           style={{color: isActive('/research') || isActive('/concordance') || isActive('/scholars') || isActive('/footnotes') || isActive('/glossary') || isActive('/themes') || isActive('/hadith') ? '#C9A84C' : 'rgba(255,255,255,0.45)'}}>
-          <span className="text-lg">◈</span>
+          
           <span className="font-english text-[10px]">Research</span>
         </Link>
         <Link href="/search"
           className="flex flex-col items-center gap-0.5 py-1.5 px-4 rounded-xl transition-all"
           style={{color: isActive('/search') ? '#C9A84C' : 'rgba(255,255,255,0.45)'}}>
-          <span className="text-lg">🔍</span>
+          
           <span className="font-english text-[10px]">Search</span>
         </Link>
       </div>

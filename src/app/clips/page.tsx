@@ -50,7 +50,7 @@ export default function ClipsPage() {
 
       {clips.length === 0 ? (
         <div className="text-center py-16">
-          <div className="text-3xl mb-4 opacity-30">📎</div>
+          
           <p className="font-english text-white/30 italic text-sm">No research clips saved yet.</p>
           <p className="font-english text-white/20 text-xs mt-2 max-w-sm mx-auto">
             Select any Arabic or English text in a lesson to save it here with an auto-generated  citation.

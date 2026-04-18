@@ -76,8 +76,29 @@ function ComingSoonNote({ lang }: { lang: string }) {
 
 export default function BilingualText({ arabicText, englishText, hasEnglish }: BilingualTextProps) {
   const [view, setView] = useState<View>('bilingual');
+  const [highlightQuery, setHighlightQuery] = useState<string>('');
+  const [highlightedPara, setHighlightedPara] = useState<number>(-1);
 
   const allArParagraphs = arabicText.split('\n').filter(p => p.trim());
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q');
+    if (q) {
+      setHighlightQuery(decodeURIComponent(q));
+      // Find matching paragraph index
+      const commentaryParagraphsList = allArParagraphs.filter(p => !POEM_PATTERN.test(p.trim()) && !BASMALA_PATTERN.test(p.trim()));
+      const idx = commentaryParagraphsList.findIndex(p => p.includes(decodeURIComponent(q)));
+      if (idx >= 0) {
+        setHighlightedPara(idx);
+        setTimeout(() => {
+          const el = document.getElementById(`ar-para-${idx}`);
+          el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 600);
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   
   // Separate poem/invocation lines from commentary paragraphs
   const poemLines = allArParagraphs.filter(p => isPoem(p));
@@ -128,7 +149,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
           <div className="hidden md:grid md:grid-cols-2 gap-0">
             <div dir="rtl" className="p-5 font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify border-l border-gold/15">
               {commentaryParagraphs.map((p, i) => (
-                <p key={i} className="mb-3" dangerouslySetInnerHTML={{ __html: p }} />
+                <p key={i} id={`ar-para-${i}`} className={`mb-3 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`} dangerouslySetInnerHTML={{ __html: p }} />
               ))}
             </div>
             <div dir="ltr" className="p-5">
