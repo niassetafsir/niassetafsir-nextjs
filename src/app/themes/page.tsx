@@ -68,12 +68,12 @@ export default function ThemesPage() {
   return (
     <main className="max-w-5xl mx-auto px-4 pb-20 pt-6" dir="ltr">
       <div className="mb-6 text-center">
-        <h1 className="font-arabic text-gold text-2xl font-bold mb-1" dir="rtl">الفهرس الموضوعي</h1>
+        <h1 className="font-arabic text-gold text-2xl font-bold mb-1" dir="rtl">فهرس علوم التفسير</h1>
         <p className="font-english text-sm mb-1" style={{color:'rgba(255,255,255,0.45)'}}>
-          Thematic Index
+          Tafsīr Sciences Index
         </p>
         <p className="font-english text-xs mb-5" style={{color:'rgba(255,255,255,0.25)'}}>
-          12 disciplinary categories · click any to see which lessons engage it
+          12 categories drawn from classical ʿulūm al-tafsīr · semantic classification of Niasse's commentary
         </p>
       </div>
 

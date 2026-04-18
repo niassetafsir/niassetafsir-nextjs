@@ -192,7 +192,7 @@ export default function HomePage() {
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Verse Concordance</strong> — find every passage where Niasse comments on a specific verse</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Critical Apparatus</strong> — 798 footnotes classified by scholar, genre, and lesson</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Scholar Index</strong> — every figure Niasse cites, distinguished from compiler citations</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Thematic Index</strong> — browse by Sufism, Fiqh, Quranic Sciences, Prophethood</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Tafsīr Sciences Index</strong> — browse by Sufism, Fiqh, Quranic Sciences, Prophethood</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Glossary</strong> — 19 key terms with Niasse's exact usage and apparatus citations</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Theological Vocabulary Map</strong> — a knowledge graph showing how terms connect in Niasse's system</li>
                 </ul>

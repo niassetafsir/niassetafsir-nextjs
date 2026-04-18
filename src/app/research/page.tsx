@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Research Platform",
-  description: "Research tools for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm: full-text search, verse concordance, critical apparatus, scholar index, thematic index, glossary, and citation tools.",
+  description: "Research tools for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm: full-text search, verse concordance, critical apparatus, scholar index, tafsīr sciences index, glossary, and citation tools.",
   openGraph: {
     title: "Research Platform | niassetafsir.org",
-    description: "Research tools for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm: full-text search, verse concordance, critical apparatus, scholar index, thematic index, glossary, and citation tools.",
+    description: "Research tools for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm: full-text search, verse concordance, critical apparatus, scholar index, tafsīr sciences index, glossary, and citation tools.",
   },
 };
 
@@ -46,9 +46,9 @@ const PRIMARY_TOOLS = [
   },
   {
     href: '/themes',
-    titleAr: 'الفهرس الموضوعي',
-    titleEn: 'Thematic Index',
-    desc: 'Browse all 30 lessons by subject: Quranic Sciences, Prophethood, Fiqh & Law, Sufism, Spiritual Ethics, History & Narrative.',
+    titleAr: 'فهرس علوم التفسير',
+    titleEn: 'Tafsīr Sciences Index',
+    desc: 'Classified by tafsīr discipline — 12 categories drawn from classical ʿulūm al-tafsīr: Quranic Sciences, Prophethood, Fiqh & Law, Sufism, Spiritual Ethics, History & Narrative.',
   },
   {
     href: '/glossary',

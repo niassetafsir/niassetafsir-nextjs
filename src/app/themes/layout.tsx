@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Thematic Index — الفهرس الموضوعي",
-  description: "Browse the tafsīr by subject: Sufism, Fiqh, Quranic Sciences, Prophethood, Spiritual Ethics.",
+  title: "Tafsīr Sciences Index — فهرس علوم التفسير",
+  description: "Tafsīr Sciences Index — semantic classification of Niasse's commentary by the 12 disciplines of classical ʿulūm al-tafsīr: Sufism, Fiqh, Quranic Sciences, Prophethood, Spiritual Ethics.",
   openGraph: {
-    title: "Thematic Index — الفهرس الموضوعي | niassetafsir.org",
-    description: "Browse the tafsīr by subject: Sufism, Fiqh, Quranic Sciences, Prophethood, Spiritual Ethics.",
+    title: "Tafsīr Sciences Index — فهرس علوم التفسير | niassetafsir.org",
+    description: "Tafsīr Sciences Index — semantic classification of Niasse's commentary by the 12 disciplines of classical ʿulūm al-tafsīr: Sufism, Fiqh, Quranic Sciences, Prophethood, Spiritual Ethics.",
   },
 };
 
