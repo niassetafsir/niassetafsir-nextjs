@@ -85,10 +85,20 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
     const params = new URLSearchParams(window.location.search);
     const q = params.get('q');
     if (q) {
-      setHighlightQuery(decodeURIComponent(q));
+      const decodedQ = decodeURIComponent(q);
+      setHighlightQuery(decodedQ);
+      // Normalize Arabic text for matching (strip HTML, diacritics, special chars)
+      const normalizeAr = (text: string) => text
+        .replace(/<[^>]+>/g, '')
+        .replace(/[\u064B-\u065F\u0670\u0671]/g, '')
+        .replace(/\u0640/g, '')
+        .replace(/\u0644\u0644\u0651\u0670\u0647/g, '\u0627\u0644\u0644\u0647')
+        .replace(/[\s]+/g, ' ')
+        .trim();
+      const normQ = normalizeAr(decodedQ).slice(0, 20);
       // Find matching paragraph index
       const commentaryParagraphsList = allArParagraphs.filter(p => !POEM_PATTERN.test(p.trim()) && !BASMALA_PATTERN.test(p.trim()));
-      const idx = commentaryParagraphsList.findIndex(p => p.includes(decodeURIComponent(q)));
+      const idx = commentaryParagraphsList.findIndex(p => normalizeAr(p).includes(normQ));
       if (idx >= 0) {
         setHighlightedPara(idx);
         setTimeout(() => {
