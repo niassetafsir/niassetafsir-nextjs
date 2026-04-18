@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Companion Texts",
-  description: "Tafsīr al-Jalālayn and Rūḥ al-Bayān as companion texts in Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — their role as exegetical interlocutors in Niasse's commentary.",
+  description: "Tafsīr al-Jalālayn and Rūḥ al-Bayān as companion texts in Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, their role as exegetical interlocutors in Niasse's commentary.",
 };
 
 export default function CompanionTextsPage() {
@@ -25,8 +25,8 @@ export default function CompanionTextsPage() {
       <div className="font-english text-white/70 text-base leading-relaxed space-y-8">
 
         <p className="leading-7">
-          The two companion texts featured in this edition — <em>Tafsīr al-Jalālayn</em> and{' '}
-          <em>Rūḥ al-Bayān</em> — are not supplementary additions. They are the primary exegetical
+          The two companion texts featured in this edition, <em>Tafsīr al-Jalālayn</em> and{' '}
+          <em>Rūḥ al-Bayān</em>, are not supplementary additions. They are the primary exegetical
           interlocutors of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>. Their inclusion here 
           reflects the scholarly consensus established in the academic literature on Niasse&apos;s 
           tafsīr, and their relationship to his commentary defines the intellectual character of the work.
@@ -42,11 +42,11 @@ export default function CompanionTextsPage() {
           </div>
 
           <p className="leading-7">
-            <em>Tafsīr al-Jalālayn</em> — the concise fifteenth-century Egyptian tafsīr completed
+            <em>Tafsīr al-Jalālayn</em>, the concise fifteenth-century Egyptian tafsīr completed
             jointly by Jalāl al-Dīn al-Maḥallī (d. 864/1459), a Shāfiʿī jurist and Quranic 
             scholar of Cairo, and his student Jalāl al-Dīn al-Suyūṭī (d. 911/1505), one of the 
             most prolific scholars of the Islamic tradition and a master of the Quranic sciences, 
-            hadith, and jurisprudence — forms the
+            hadith, and jurisprudence, forms the
             foundational reference for the development of tafsīr practice in West Africa since the
             sixteenth century. As Ogunnaike has observed, it constitutes &ldquo;the basis of most
             West African tafsīrs, both written works and oral performances.&rdquo;<sup>1</sup>
@@ -71,7 +71,7 @@ export default function CompanionTextsPage() {
             began to expound on his own.&rdquo;<sup>3</sup> <em>Fī Riyāḍ al-Tafsīr</em> adheres
             relatively closely to al-Ṣāwī&apos;s commentary before departing into independent
             spiritual instruction. In this sense, the Jalālayn-Ṣāwī serves as a <em>maṭlaʿ</em> —
-            a point of departure — from which Niasse launches into metaphysical exposition, practical
+            a point of departure, from which Niasse launches into metaphysical exposition, practical
             spiritual guidance, and his own distinctive reading of the Qurʾānic text.
           </p>
         </div>
@@ -87,9 +87,9 @@ export default function CompanionTextsPage() {
 
           <p className="leading-7">
             The relationship between <em>Fī Riyāḍ al-Tafsīr</em> and the <em>Rūḥ al-Bayān</em> of
-            Ismāʿīl Ḥaqqī al-Burūsawī (d. 1127/1715) — Ottoman scholar, Sufi shaykh of the 
+            Ismāʿīl Ḥaqqī al-Burūsawī (d. 1127/1715), Ottoman scholar, Sufi shaykh of the 
             Khalwatiyya order, and one of the foremost synthesisers of Sufi Quranic hermeneutics 
-            in the post-Akbarian tradition — marks one of the most significant findings
+            in the post-Akbarian tradition, marks one of the most significant findings
             of recent scholarship on Niasse&apos;s tafsīr. In his 2024 study, Wright argues that
             Niasse&apos;s commentary &ldquo;exhibits a clear preference for an early
             eighteenth-century Ottoman multivolume work, Ismāʿīl Ḥaqqī&apos;s &lsquo;Spirit of

@@ -17,7 +17,7 @@ const TOOLS = [
     href: '/search',
     titleAr: 'البحث الشامل',
     titleEn: 'Full-Text Search',
-    desc: 'Search across all 30 lessons — Arabic commentary, English translation, and Jalālayn companion text.',
+    desc: 'Search across all 30 lessons, Arabic commentary, English translation, and Jalālayn companion text.',
   },
   {
     href: '/concordance',
@@ -35,7 +35,7 @@ const TOOLS = [
     href: '/footnotes',
     titleAr: 'فهرس الحواشي',
     titleEn: 'Critical Apparatus',
-    desc: '798 footnotes compiled by Muḥammad ibn al-Shaykh — classified by scholar, genre, and lesson. Inline [n] links in the Arabic text.',
+    desc: '798 footnotes compiled by Muḥammad ibn al-Shaykh, classified by scholar, genre, and lesson. Inline [n] links in the Arabic text.',
   },
   {
     href: '/scholars',
@@ -53,7 +53,7 @@ const TOOLS = [
     href: '/glossary',
     titleAr: 'المصطلحات',
     titleEn: 'Glossary',
-    desc: "Key theological and Sufi terms as Niasse employs them — with definitions, related concepts, and lesson links.",
+    desc: "Key theological and Sufi terms as Niasse employs them, with definitions, related concepts, and lesson links.",
   },
   {
     href: '/clips',
@@ -81,7 +81,7 @@ export default function ResearchPage() {
           Research Platform
         </h1>
         <p className="font-english text-sm max-w-xl mx-auto" style={{color:'rgba(255,255,255,0.45)'}}>
-          Tools for scholarly work on <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> — 
+          Tools for scholarly work on <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>, 
           from text to meaning, passage to citation.
         </p>
         <div className="flex justify-center gap-4 mt-4">

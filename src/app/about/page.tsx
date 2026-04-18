@@ -31,7 +31,7 @@ export default function AboutPage() {
           </h2>
           <p className="leading-6">
             This site presents two interconnected resources in one: a digital bilingual edition and a research platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> 
-            by Shaykh Ibrāhīm Niasse (d. 1975) — designed to make this 
+            by Shaykh Ibrāhīm Niasse (d. 1975), designed to make this 
             tafsīr accessible, searchable, and analytically usable for academic research. It presents 
             the complete Arabic text alongside a growing English translation, with comparative passages 
             from Tafsīr al-Jalālayn and <em>Rūḥ al-Bayān</em>.
@@ -39,7 +39,7 @@ export default function AboutPage() {
           <p className="leading-6 mt-3">
             Research tools include: full-text search; a verse concordance (314 verses linked to 
             Niasse&apos;s commentary); a critical apparatus of 798 footnotes compiled by 
-            Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī — browsable by scholar, genre, 
+            Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, browsable by scholar, genre, 
             and lesson with inline <sup>[n]</sup> links in the text; a scholar and source index 
             (19 figures sorted by citation frequency); a glossary of key theological and Sufi terms; 
             text clipping with Chicago auto-citation; and bookmarks. These tools are designed to 
@@ -63,12 +63,12 @@ export default function AboutPage() {
             for publication with an academic publisher. It differs from the Arabic compiled 
             edition in its organisation: rather than following the ten-volume structure of the 
             Arabic edition, the print bilingual edition is organised around the 
-            <strong className="text-white/85"> seven manzils</strong> — the daily recitation portions 
+            <strong className="text-white/85"> seven manzils</strong>, the daily recitation portions 
             that Shaykh Ibrāhīm himself enumerated in verse and practised as a weekly cycle of 
             Qurʾānic recitation.
           </p>
           <p className="leading-6 mt-3">
-            This seven-volume structure — each volume corresponding to one manzil — reflects the 
+            This seven-volume structure, each volume corresponding to one manzil, reflects the 
             Sheikh&apos;s own relationship to the Qurʾān and provides a framework for the translation 
             that is rooted in his practice rather than in the conventions of the printed Arabic edition.
           </p>
@@ -91,8 +91,8 @@ export default function AboutPage() {
             Editorial Note
           </h2>
           <p className="leading-6">
-            For a full account of editorial principles — digitisation methodology, footnote marker 
-            insertion, verse range verification, and version history — see the 
+            For a full account of editorial principles, digitisation methodology, footnote marker 
+            insertion, verse range verification, and version history, see the 
             <Link href="/editorial-note" className="text-gold/70 hover:text-gold transition-colors mx-1">Editorial Note</Link> 
             for this edition.
           </p>
@@ -115,15 +115,15 @@ export default function AboutPage() {
             Team
           </h2>
           <p className="leading-6">
-            <strong className="text-white/85">Amadu Kunateh</strong> — Founder, Translator &amp; Digital Editor. 
+            <strong className="text-white/85">Amadu Kunateh</strong>, Founder, Translator &amp; Digital Editor. 
             and builder of this scholarly platform. Kunateh conceived and developed this resource 
             to make Shaykh Ibrāhīm Niasse&apos;s tafsīr accessible and searchable for scholarly 
             research, building a digital scholarly edition and critical apparatus for the text.
           </p>
           <p className="leading-6 mt-3">
-            <strong className="text-white/70">Ally Mahmoud</strong> — Web development review.<br />
-            <strong className="text-white/70">Dayyib Bashir Sheikh Dahir</strong> — Arabic textual verification and proofreading.<br />
-            <strong className="text-white/70">Kabir Aliyu Sheikh Dahir</strong> — Arabic textual verification and proofreading.
+            <strong className="text-white/70">Ally Mahmoud</strong>, Web development review.<br />
+            <strong className="text-white/70">Dayyib Bashir Sheikh Dahir</strong>, Arabic textual verification and proofreading.<br />
+            <strong className="text-white/70">Kabir Aliyu Sheikh Dahir</strong>, Arabic textual verification and proofreading.
           </p>
         </div>
 

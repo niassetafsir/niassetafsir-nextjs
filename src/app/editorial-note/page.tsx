@@ -31,7 +31,7 @@ export default function EditorialNotePage() {
             audio recordings to achieve a more accurate transcription of Niasse&apos;s oral delivery.
           </p>
           <p className="leading-7 mt-3">
-            The text follows the <strong className="text-white/85">Warsh ʿan Nāfiʿ rasm</strong> — the 
+            The text follows the <strong className="text-white/85">Warsh ʿan Nāfiʿ rasm</strong>, the 
             orthographic standard of North and West Africa in which the tafsīr was delivered. This is the 
             standard of the Quran as recited and taught in the Tijānī tradition, and it differs in certain 
             orthographic details from the Ḥafṣ rasm more familiar to readers outside this tradition.
@@ -67,8 +67,8 @@ export default function EditorialNotePage() {
             translation preserves the footnote numbering of the Arabic source.
           </p>
           <p className="leading-7 mt-3">
-            The footnote apparatus for this edition has been classified by subject genre — 
-            Hadith Sciences, Tafsīr, Theology, Sufism, Fiqh, Linguistics, History — a classification 
+            The footnote apparatus for this edition has been classified by subject genre, 
+            Hadith Sciences, Tafsīr, Theology, Sufism, Fiqh, Linguistics, History, a classification 
             not present in the printed Arabic text and constituting an original editorial contribution 
             of this digital edition.
           </p>
@@ -96,7 +96,7 @@ export default function EditorialNotePage() {
             The English translation is by Amadu Kunateh and currently covers Lessons 1–2. 
             The complete bilingual translation is in preparation for academic publication. 
             Three translation choices warrant explicit notice: the Basmala is rendered 
-            &ldquo;By Allāh&apos;s Name — The Entirely Merciful, The Especially Merciful&rdquo;; 
+            &ldquo;By Allāh&apos;s Name, The Entirely Merciful, The Especially Merciful&rdquo;; 
             <em>ʿabd</em> is translated &ldquo;slave&rdquo; (following the established convention 
             in the study of Islamic anthropology); and <em>al-ḥamdu lillāh</em> is rendered 
             &ldquo;The Praise is for God&rdquo; (two words, not three). For full methodological 
