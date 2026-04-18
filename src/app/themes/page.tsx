@@ -77,6 +77,38 @@ export default function ThemesPage() {
         </p>
       </div>
 
+      {/* Disciplinary coverage summary */}
+      {data && (
+        <div className="mb-6 border border-gold/20 rounded-xl p-5 bg-gold/4">
+          <p className="font-english text-sm font-semibold mb-2" style={{color:'rgba(255,255,255,0.8)'}}>
+            Disciplinary Coverage of <em>Fī Riyāḍ al-Tafsīr</em>
+          </p>
+          <p className="font-english text-xs leading-6" style={{color:'rgba(255,255,255,0.55)'}}>
+            Across the first thirty lessons, Niasse&apos;s commentary engages all twelve disciplines of classical 
+            Qurʾānic scholarship simultaneously — legal, linguistic, theological, spiritual, narrative, 
+            and hermeneutical. The Tafsīr Sciences Index documents this disciplinary range, making 
+            visible the encyclopedic character of his exegetical method. The classification is 
+            computational, based on keyword detection in the Arabic text, and is subject to 
+            editorial review as the scholarly apparatus develops.
+          </p>
+          <div className="flex flex-wrap gap-2 mt-3">
+            {Object.entries(data.themes).map(([key, lessons]) => {
+              const strong = lessons.filter(l => l.bodyScore >= 2).length;
+              const catNum = key.split('.')[0].trim();
+              const catName = key.split('. ')[1];
+              return (
+                <button key={key} onClick={() => setActive(active === key ? null : key)}
+                  className={`font-english text-[10px] px-2 py-1 rounded border transition-all ${
+                    active === key ? 'border-gold/50 text-gold bg-gold/10' : 'border-white/15 text-white/45 hover:border-white/30'
+                  }`}>
+                  {catNum}. {catName} <span style={{color:'rgba(255,255,255,0.3)'}}>({lessons.length})</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       <div className="flex gap-5">
         {/* Category grid */}
         <div className="flex-1">
@@ -130,10 +162,16 @@ export default function ThemesPage() {
             })}
           </div>
 
-          <div className="mt-4 p-3 border border-white/8 rounded-xl">
-            <p className="font-english text-[11px]" style={{color:'rgba(255,255,255,0.25)'}}>
-              <strong style={{color:'rgba(255,255,255,0.4)'}}>Primary</strong> = strong presence in Niasse&apos;s own commentary.
-              Detection is computational and subject to editorial review.
+          <div className="mt-4 p-4 border border-white/8 rounded-xl">
+            <p className="font-english text-xs font-semibold mb-1" style={{color:'rgba(255,255,255,0.45)'}}>
+              Note on Classification
+            </p>
+            <p className="font-english text-[11px] leading-5" style={{color:'rgba(255,255,255,0.25)'}}>
+              <strong style={{color:'rgba(255,255,255,0.4)'}}>Primary</strong> indicates a strong presence 
+              in Niasse&apos;s own words (body text). Secondary indicators appear chiefly in the compiler&apos;s 
+              apparatus. Classification is based on keyword detection in the Arabic text and is 
+              subject to ongoing editorial review. The twelve categories follow the classical 
+              framework of <em>ʿulūm al-tafsīr</em> as codified in the Islamic scholarly tradition.
             </p>
           </div>
         </div>

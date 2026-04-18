@@ -76,6 +76,10 @@ export default function Page() {
 
         <p>Building on these foundational and illuminating contributions, no comprehensive study has yet examined <em>Fī Riyāḍ al-Tafsīr</em> as a unified intellectual project. Kunateh&apos;s dissertation (expected 2027) offers the first sustained treatment of the work&apos;s full metaphysical, linguistic, and pedagogical architecture.</p>
 
+        <p><em>Fī Riyāḍ al-Tafsīr</em> is, among other things, a case study in twentieth-century Islamic erudition in West Africa. The work is not specialized. It draws simultaneously on the full range of classical tafsīr disciplines: legal interpretation, theological reasoning, linguistic analysis, narrative engagement, hadith evidence, and Sufi hermeneutics. Its breadth instantiates the encyclopedic ideal that Islamic scholarly tradition associates with the <em>mufassir kāmil</em>, the complete exegete. That this ideal was sustained, and produced in Kaolack in 1964, is itself a contribution to the historiography of Islam in Africa, and a correction to scholarly assumptions that have too often located Islamic intellectual vitality elsewhere. The digital platform accompanying this edition is designed, in part, to make that case visible: the Tafsīr Sciences Index documents, for the first time, the disciplinary range of Niasse&apos;s engagement across all thirty lessons of the first cycle of the tafsīr.</p>
+
+        <p>This work builds on a growing body of scholarship that has increasingly challenged peripheral framings of West African Islam, including the foundational contributions of Seesemann, Wright, Brigaglia, Ogunnaike, and others. <em>Fī Riyāḍ al-Tafsīr</em> as a site of analysis extends that scholarship into the specific domain of Qurʾānic exegesis, asking not only who Niasse was but what kind of intellectual work his tafsīr performs, and how.</p>
+
         <h2 className="font-english text-gold text-xl font-semibold pt-6 pb-2 border-b border-gold/15">
           Contextualizing Niasse Within 20th-Century Hermeneutics
         </h2>
