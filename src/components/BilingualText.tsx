@@ -115,9 +115,8 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
       {poemLines.length > 0 && (showBilingual || view === 'arabic') && (
         <div className="px-6 py-4 border-b border-gold/10 text-center bg-gold/3">
           {poemLines.map((line, i) => (
-            <div key={i} className="font-arabic text-gold/80 text-base leading-9" dir="rtl">
-              {line}
-            </div>
+            <div key={i} className="font-arabic text-gold/80 text-base leading-9" dir="rtl"
+              dangerouslySetInnerHTML={{ __html: line }} />
           ))}
         </div>
       )}
