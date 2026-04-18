@@ -128,7 +128,9 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
           {/* Desktop: two columns */}
           <div className="hidden md:grid md:grid-cols-2 gap-0">
             <div dir="rtl" className="p-5 font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify border-l border-gold/15">
-              {commentaryParagraphs.map((p, i) => <p key={i} className="mb-3">{p}</p>)}
+              {commentaryParagraphs.map((p, i) => (
+                <p key={i} className="mb-3" dangerouslySetInnerHTML={{ __html: p }} />
+              ))}
             </div>
             <div dir="ltr" className="p-5">
               {hasEnglish && englishText ? (
@@ -143,9 +145,8 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
           <div className="md:hidden divide-y divide-white/5">
             {commentaryParagraphs.map((p, i) => (
               <div key={i} className="px-4 py-3">
-                <div dir="rtl" className="font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2">
-                  {p}
-                </div>
+                <div dir="rtl" className="font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2"
+                  dangerouslySetInnerHTML={{ __html: p }} />
                 {hasEnglish && enParagraphs[i] ? (
                   <div
                     dir="ltr"
