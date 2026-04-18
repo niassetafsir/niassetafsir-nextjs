@@ -56,7 +56,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
           {lesson.hasEnglish && lesson.englishText ? (
             <div dangerouslySetInnerHTML={{ __html: lesson.englishText }} />
           ) : (
-            <p className="no-en">English translation forthcoming. The complete bilingual print edition (Arabic/English) is in preparation — Amadu Kunateh, Translator &amp; Digital Editor.</p>
+            <p className="no-en">English translation forthcoming. The complete bilingual print edition (Arabic/English) is in preparation — Amadu Kunateh, Founder, Translator &amp; Digital Editor.</p>
           )}
         </div>
 

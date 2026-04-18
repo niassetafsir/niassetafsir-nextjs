@@ -3,11 +3,11 @@ import Link from 'next/link';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Translator & Digital Editor",
-  description: "Amadu Kunateh — Translator & Digital Editor of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. PhD candidate in Philosophy of Religion and African Studies.",
+  title: "Founder, Translator & Digital Editor",
+  description: "Amadu Kunateh — Founder, Translator & Digital Editor of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. PhD candidate in Philosophy of Religion and African Studies.",
   openGraph: {
-    title: "Translator & Digital Editor | niassetafsir.org",
-    description: "Amadu Kunateh — Translator & Digital Editor of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. PhD candidate in Philosophy of Religion and African Studies.",
+    title: "Founder, Translator & Digital Editor | niassetafsir.org",
+    description: "Amadu Kunateh — Founder, Translator & Digital Editor of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. PhD candidate in Philosophy of Religion and African Studies.",
   },
 };
 
@@ -21,7 +21,7 @@ export default function Page() {
         </Link>
       </div>
 
-      <h1 className="font-english text-white text-3xl font-semibold mt-6 mb-1">Translator &amp; Digital Editor</h1>
+      <h1 className="font-english text-white text-3xl font-semibold mt-6 mb-1">Founder, Translator &amp; Digital Editor</h1>
       <p className="font-english text-white/45 text-base mb-2">Amadu Kunateh</p>
       <a href="https://orcid.org/0009-0002-7839-6474" target="_blank" rel="noopener"
         className="inline-flex items-center gap-1.5 font-english text-xs text-white/35 hover:text-gold transition-colors mb-8">

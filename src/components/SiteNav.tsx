@@ -146,7 +146,7 @@ const ABOUT_ITEMS: DropdownItem[] = [
     { label: "Shaykh Ibrāhīm Niasse", sub: "Tafsīr tradition in West Africa", href: "/about/shaykh" },
     { label: "The Arabic Text", sub: "Compiler & ten-volume edition", href: "/about/arabic-edition" },
     { label: "Companion Texts", sub: "Jalālayn & Rūḥ al-Bayān", href: "/about/companion-texts" },
-    { label: "Translator & Digital Editor", sub: "Amadu Kunateh", href: "/about/translator" },
+    { label: "Founder, Translator & Digital Editor", sub: "Amadu Kunateh", href: "/about/translator" },
     { label: "Translator's Note", sub: "Methodology & conventions", href: "/translators-note" },
     { label: "Editorial Note", sub: "Digital edition methodology · v1.0", href: "/editorial-note" },
   ];
