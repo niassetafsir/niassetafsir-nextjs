@@ -46,7 +46,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
         `}</style>
       </head>
       <body>
-        <button className="print-btn" onClick={() => window.print()}>⬇ Print / Save PDF</button>
+        <script dangerouslySetInnerHTML={{__html: "document.addEventListener('DOMContentLoaded',function(){var b=document.createElement('button');b.className='print-btn';b.textContent='⬇ Print / Save PDF';b.onclick=function(){window.print()};document.body.appendChild(b);})"}} />
 
         <div className="work-title">Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm · فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ</div>
         <div className="lesson-title-ar">{lesson.arabicTitle}</div>
