@@ -129,7 +129,7 @@ export default function HomePage() {
           The Quranic Commentary of Shaykh Ibrāhīm Niasse · Twentieth-Century West Africa
         </div>
         <div className="font-english text-white/55 text-base" dir="ltr">
-          <span style={{color:'rgba(255,255,255,0.7)'}}>Bilingual Edition</span>
+          <span style={{color:'rgba(255,255,255,0.7)'}}>Digital Bilingual Edition</span>
           <span className="mx-2" style={{color:'rgba(201,168,76,0.4)'}}>·</span>
           <span style={{color:'rgba(255,255,255,0.7)'}}>Research Platform</span>
         </div>
