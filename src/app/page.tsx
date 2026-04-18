@@ -159,7 +159,7 @@ export default function HomePage() {
         {/* How to Use guide */}
         {showGuide && (
           <div className="mt-6 p-5 border border-gold/20 rounded-xl bg-gold/4 text-left max-w-2xl mx-auto" dir="ltr">
-            <h3 className="font-english text-gold font-semibold text-base mb-4">About This Scholarly Database</h3>
+            <h3 className="font-english text-gold font-semibold text-base mb-4">About This Edition & Platform</h3>
             <div className="font-english text-white/80 text-sm leading-7 space-y-3">
               <p>
                 A digital scholarly edition and research platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by 
