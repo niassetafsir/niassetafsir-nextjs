@@ -9,7 +9,7 @@ export default function Page() {
         </Link>
       </div>
 
-      <h1 className="font-english text-white text-3xl font-semibold mt-6 mb-1">The Translator & Editor</h1>
+      <h1 className="font-english text-white text-3xl font-semibold mt-6 mb-1">Translator &amp; Digital Editor</h1>
       <p className="font-english text-white/45 text-base mb-8">Amadu Kunateh</p>
 
       <div className="font-english text-white/70 text-base leading-relaxed space-y-5">

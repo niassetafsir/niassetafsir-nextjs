@@ -90,7 +90,7 @@ export default function AboutPage() {
             Team
           </h2>
           <p className="leading-6">
-            <strong className="text-white/85">Amadu Kunateh</strong> — Translator, Editor, Digitiser, 
+            <strong className="text-white/85">Amadu Kunateh</strong> — Translator &amp; Digital Editor. 
             and builder of this scholarly platform. Kunateh conceived and developed this resource 
             to make Shaykh Ibrāhīm Niasse&apos;s tafsīr accessible and searchable for scholarly 
             research, building the first digital scholarly edition of the text.
