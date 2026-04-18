@@ -15,9 +15,9 @@ interface ThemeLesson {
 type ThemeIndex = Record<string, ThemeLesson[]>;
 
 const THEME_DESC: Record<string, { ar: string; desc: string; color: string }> = {
-  'Theology':       { ar: 'علم الكلام والعقيدة', desc: 'Divine nature, attributes, tawḥīd, kalām', color: 'border-amber-500/40 text-amber-300/80 bg-amber-500/5' },
-  'Anthropology':   { ar: 'علم الإنسان', desc: 'The human being, soul, al-insān al-kāmil, khalīfa', color: 'border-teal-500/40 text-teal-300/80 bg-teal-500/5' },
-  'Cosmology':      { ar: 'علم الكون', desc: 'Creation, cosmos, barzakh, hereafter, eschatology', color: 'border-indigo-500/40 text-indigo-300/80 bg-indigo-500/5' },
+
+
+
   'Sufism':         { ar: 'التصوف', desc: 'Ṭarīqa, walāya, fanāʾ, baqāʾ, fayḍa, tarbiya', color: 'border-purple-500/40 text-purple-300/80 bg-purple-500/5' },
   'Fiqh & Law':     { ar: 'الفقه والشريعة', desc: 'Legal rulings, ḥalāl/ḥarām, worship obligations', color: 'border-orange-500/40 text-orange-300/80 bg-orange-500/5' },
   'Quranic Sciences':{ ar: 'علوم القرآن', desc: 'Inimitability, qirāʾāt, exegetical method, tafsīr theory', color: 'border-green-500/40 text-green-300/80 bg-green-500/5' },

@@ -32,10 +32,8 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
           .lesson-title-en { text-align: center; font-size: 11pt; color: #444; margin-bottom: 0.1cm; }
           .vol-ref { text-align: center; font-size: 9pt; color: #888; margin-bottom: 0.6cm; }
           hr { border: none; border-top: 1px solid #C9A84C; margin: 0.5cm 0; opacity: 0.4; }
-          .bilingual { display: grid; grid-template-columns: 1fr 1fr; gap: 1cm; margin-top: 0.5cm; }
-          .col-ar { direction: rtl; font-family: 'Amiri', serif; font-size: 13pt; line-height: 2; text-align: justify; }
-          .col-en { font-size: 11pt; line-height: 1.9; }
-          .col-ar p, .col-en p { margin-bottom: 0.4cm; }
+          .body-en { font-size: 12pt; line-height: 1.9; margin-top: 0.5cm; }
+          .body-en p { margin-bottom: 0.5cm; }
           .fn-link { color: #7B5C14; text-decoration: none; font-size: 8pt; vertical-align: super; }
           sup { font-size: 8pt; vertical-align: super; }
           .no-en { color: #aaa; font-style: italic; font-size: 10pt; }
@@ -54,15 +52,12 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
         <div className="vol-ref">{lesson.verseRange}{volStr ? ` · Arabic compiled edition, ${volStr}` : ''}</div>
         <hr />
 
-        <div className="bilingual">
-          <div className="col-ar" dangerouslySetInnerHTML={{ __html: body.split('\n').filter((l: string) => l.trim()).map((p: string) => `<p>${p}</p>`).join('') }} />
-          <div className="col-en">
-            {lesson.hasEnglish && lesson.englishText ? (
-              <div dangerouslySetInnerHTML={{ __html: lesson.englishText }} />
-            ) : (
-              <p className="no-en">English translation forthcoming. Full bilingual print edition in preparation — Amadu Kunateh.</p>
-            )}
-          </div>
+        <div className="body-en">
+          {lesson.hasEnglish && lesson.englishText ? (
+            <div dangerouslySetInnerHTML={{ __html: lesson.englishText }} />
+          ) : (
+            <p className="no-en">English translation forthcoming. The complete bilingual print edition (Arabic/English) is in preparation — Amadu Kunateh, Translator &amp; Digital Editor.</p>
+          )}
         </div>
 
         <div className="citation-block">
