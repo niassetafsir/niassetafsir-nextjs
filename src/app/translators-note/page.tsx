@@ -1,5 +1,17 @@
 import Link from 'next/link';
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Translator's Note",
+  description: "Amadu Kunateh's note on translation methodology, conventions, and editorial choices for the English bilingual edition of Niasse's tafsīr.",
+  openGraph: {
+    title: "Translator's Note | niassetafsir.org",
+    description: "Amadu Kunateh's note on translation methodology, conventions, and editorial choices for the English bilingual edition of Niasse's tafsīr.",
+  },
+};
+
+
 export default function IntroductionPage() {
   return (
     <main className="max-w-4xl mx-auto px-4 pb-20 pt-6" dir="ltr">

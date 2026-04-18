@@ -1,5 +1,17 @@
 import Link from 'next/link';
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About This Edition & Platform",
+  description: "About the digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Translator, editorial contributions, and critical apparatus.",
+  openGraph: {
+    title: "About This Edition & Platform | niassetafsir.org",
+    description: "About the digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Translator, editorial contributions, and critical apparatus.",
+  },
+};
+
+
 export default function AboutPage() {
   return (
     <main className="max-w-2xl mx-auto px-6 pb-20 pt-6" dir="ltr">

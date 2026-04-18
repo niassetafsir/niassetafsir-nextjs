@@ -1,5 +1,17 @@
 import Link from 'next/link';
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Shaykh Ibrāhīm Niasse",
+  description: "Shaykh Ibrāhīm Niasse (d. 1975) and the West African tafsīr tradition. His tafsīr Fī Riyāḍ al-Qurʾān and its place in twentieth-century Islamic scholarship.",
+  openGraph: {
+    title: "Shaykh Ibrāhīm Niasse | niassetafsir.org",
+    description: "Shaykh Ibrāhīm Niasse (d. 1975) and the West African tafsīr tradition. His tafsīr Fī Riyāḍ al-Qurʾān and its place in twentieth-century Islamic scholarship.",
+  },
+};
+
+
 export default function Page() {
   return (
     <main className="max-w-3xl mx-auto px-6 py-16" dir="ltr">

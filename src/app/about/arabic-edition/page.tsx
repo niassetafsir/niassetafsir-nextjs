@@ -1,5 +1,17 @@
 import Link from 'next/link';
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "The Arabic Edition",
+  description: "The revised ten-volume compiled edition of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī. Compiler, manuscript, and textual history.",
+  openGraph: {
+    title: "The Arabic Edition | niassetafsir.org",
+    description: "The revised ten-volume compiled edition of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī. Compiler, manuscript, and textual history.",
+  },
+};
+
+
 export default function Page() {
   return (
     <main className="max-w-2xl mx-auto px-6 py-16" dir="ltr">

@@ -1,16 +1,41 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SiteNav from "@/components/SiteNav";
+import MobileNav from "@/components/MobileNav";
 
 export const metadata: Metadata = {
-  title: "في رياض التفسير — الشيخ إبراهيم نياس | niassetafsir.com",
-  description: "The digital bilingual edition of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse",
+  title: {
+    default: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Bilingual Edition | niassetafsir.org",
+    template: "%s | niassetafsir.org",
+  },
+  description: "The digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Complete Arabic text, English translation, critical apparatus, and scholarly research tools.",
+  keywords: ["Niasse", "tafsir", "tafsīr", "Quran", "West African Islam", "Tijaniyya", "Ibrahim Niasse", "Islamic studies", "Fī Riyāḍ", "bilingual edition"],
+  authors: [{ name: "Amadu Kunateh" }],
+  creator: "Amadu Kunateh",
+  metadataBase: new URL("https://niassetafsir.org"),
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://niassetafsir.org",
+    siteName: "niassetafsir.org",
+    title: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Bilingual Edition & Research Platform",
+    description: "The digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse (d. 1975). Complete Arabic text, English translation, 798-footnote critical apparatus, verse concordance, and scholarly research tools.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Fī Riyāḍ Tafsīr — niassetafsir.org" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Bilingual Edition",
+    description: "The digital bilingual edition and research platform for Niasse's tafsīr. Arabic text, English translation, critical apparatus, verse concordance.",
+    images: ["/og-image.png"],
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ar" dir="rtl">
-      <body className="bg-bg min-h-screen">
+      <body className="bg-bg min-h-screen pb-16 md:pb-0">
         <SiteNav />
         {children}
         <footer className="border-t border-black/10 py-5 px-6 bg-transparent">
@@ -44,6 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
         </footer>
+      <MobileNav />
       </body>
     </html>
   );

@@ -136,6 +136,7 @@ export default function SiteNav() {
   { label: "Scholar Index", sub: "Every figure Niasse cites", href: "/scholars" },
   { label: "Glossary", sub: "Key terms in Niasse's vocabulary", href: "/glossary" },
   { label: "Critical Apparatus", sub: "798 footnotes & citations", href: "/footnotes" },
+  { label: "Hadith Index", sub: "384 hadith citations indexed", href: "/hadith" },
   { label: "Research Clips", sub: "Saved citations & excerpts", href: "/clips" },
   { label: "Bookmarks", sub: "Saved passages", href: "/bookmarks" },
 ];

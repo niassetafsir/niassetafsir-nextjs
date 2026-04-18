@@ -1,5 +1,17 @@
 import Link from 'next/link';
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Translator & Digital Editor",
+  description: "Amadu Kunateh — Translator & Digital Editor of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. PhD candidate in Philosophy of Religion and African Studies at Harvard University.",
+  openGraph: {
+    title: "Translator & Digital Editor | niassetafsir.org",
+    description: "Amadu Kunateh — Translator & Digital Editor of Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. PhD candidate in Philosophy of Religion and African Studies at Harvard University.",
+  },
+};
+
+
 export default function Page() {
   return (
     <main className="max-w-2xl mx-auto px-6 py-16" dir="ltr">

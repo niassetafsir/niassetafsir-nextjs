@@ -1,5 +1,17 @@
 import Link from 'next/link';
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Research Platform",
+  description: "Research tools for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm: full-text search, verse concordance, critical apparatus, scholar index, thematic index, glossary, and citation tools.",
+  openGraph: {
+    title: "Research Platform | niassetafsir.org",
+    description: "Research tools for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm: full-text search, verse concordance, critical apparatus, scholar index, thematic index, glossary, and citation tools.",
+  },
+};
+
+
 const TOOLS = [
   {
     href: '/search',
@@ -14,6 +26,13 @@ const TOOLS = [
     titleEn: 'Verse Concordance',
     desc: '1,529 Quranic references mapped to the lessons where Niasse comments on them. Search any verse.',
     icon: '◎',
+  },
+  {
+    href: '/hadith',
+    titleAr: 'فهرس الأحاديث',
+    titleEn: 'Hadith Index',
+    desc: '384 hadith citations from the critical apparatus, indexed by collection (Bukhārī, Muslim, Tirmidhī, and more) with lesson references.',
+    icon: '📿',
   },
   {
     href: '/footnotes',
