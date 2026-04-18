@@ -125,6 +125,9 @@ export default function HomePage() {
         <div className="font-english text-gold/45 text-xs mb-2" dir="ltr">
           Shaykh Ibrāhīm Niasse (d. 1975)
         </div>
+        <div className="font-english text-white/40 text-sm italic mb-3" dir="ltr">
+          The Quranic Commentary of Shaykh Ibrāhīm Niasse · Twentieth-Century West Africa
+        </div>
         <div className="font-english text-white/55 text-base" dir="ltr">
           <span style={{color:'rgba(255,255,255,0.7)'}}>Bilingual Edition</span>
           <span className="mx-2" style={{color:'rgba(201,168,76,0.4)'}}>·</span>
