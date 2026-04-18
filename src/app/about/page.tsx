@@ -14,10 +14,10 @@ export default function AboutPage() {
 
         <div>
           <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
-            This Platform
+            Bilingual Edition &amp; Research Platform
           </h2>
           <p className="leading-6">
-            This is a digital scholarly edition and research platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> 
+            This site presents two interconnected resources in one: a digital bilingual edition and a research platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> 
             by Shaykh Ibrāhīm Niasse (d. 1975) — the first resource of its kind designed to make this 
             tafsīr accessible, searchable, and analytically usable for academic research. It presents 
             the complete Arabic text alongside a growing English translation, with comparative passages 

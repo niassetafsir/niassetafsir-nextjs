@@ -126,20 +126,22 @@ export default function HomePage() {
           Shaykh Ibrāhīm Niasse (d. 1975)
         </div>
         <div className="font-english text-white/55 text-base" dir="ltr">
-          A Digital Scholarly Edition and Research Platform
+          <span style={{color:'rgba(255,255,255,0.7)'}}>Bilingual Edition</span>
+          <span className="mx-2" style={{color:'rgba(201,168,76,0.4)'}}>·</span>
+          <span style={{color:'rgba(255,255,255,0.7)'}}>Research Platform</span>
         </div>
         <div className="flex gap-3 justify-center mt-6 flex-wrap items-center">
           <Link href="/lesson/1" className="font-english text-base text-bg bg-gold hover:bg-gold-light px-5 py-2 rounded-lg font-semibold transition-all">
             Start Reading →
           </Link>
-          <Link href="/search" className="font-english text-base text-white/75 hover:text-gold border border-gold/30 hover:border-gold/70 px-5 py-2 rounded-lg transition-all">
+          <Link href="/research" className="font-english text-base text-white/75 hover:text-gold border border-gold/30 hover:border-gold/70 px-5 py-2 rounded-lg transition-all">
             Research →
           </Link>
           <button
             onClick={() => setShowGuide(!showGuide)}
             className="font-english text-sm text-white/55 border border-white/20 hover:border-gold/40 hover:text-white/80 px-4 py-2 rounded-lg transition-all"
           >
-            {showGuide ? "Close" : "About This Platform"}
+            {showGuide ? "Close" : "How to Use This Platform"}
           </button>
         </div>
 
@@ -158,59 +160,48 @@ export default function HomePage() {
 
         {/* How to Use guide */}
         {showGuide && (
-          <div className="mt-6 p-5 border border-gold/20 rounded-xl bg-gold/4 text-left max-w-2xl mx-auto" dir="ltr">
-            <h3 className="font-english text-gold font-semibold text-base mb-4">About This Edition & Platform</h3>
-            <div className="font-english text-white/80 text-sm leading-7 space-y-3">
-              <p>
-                A digital scholarly edition and research platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by 
-                Shaykh Ibrāhīm Niasse (d. 1975). This platform presents the complete Arabic text alongside research 
-                tools — full-text search, text clipping with Chicago citation, bookmarks, and comparative 
-                passages — designed to support scholarly work going from text to meaning. Built by Amadu Kunateh 
-                (Harvard University) as part of his doctoral research on Niasse&apos;s tafsīr.
+          <div className="mt-6 p-6 border border-gold/20 rounded-xl bg-gold/4 text-left max-w-2xl mx-auto" dir="ltr">
+            <h3 className="font-english text-gold font-semibold text-base mb-4">How to Use This Platform</h3>
+            <div className="font-english text-sm leading-7 space-y-4" style={{color:'rgba(255,255,255,0.75)'}}>
+
+              <p style={{color:'rgba(255,255,255,0.55)'}}>
+                <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by Shaykh Ibrāhīm Niasse is organised here into{' '}
+                <strong style={{color:'rgba(255,255,255,0.9)'}}>30 lessons</strong> across{' '}
+                <strong style={{color:'rgba(255,255,255,0.9)'}}>7 manzils</strong> — the weekly Quranic recitation
+                cycle he practised. Each lesson covers a passage of the Quran with his full Arabic commentary
+                and English translation.
               </p>
 
               <div className="border-t border-gold/15 pt-3">
-                <p className="font-semibold text-white mb-1">Navigating the Content</p>
-                <p>
-                  The complete ten-volume Arabic edition is available on this site, with lessons added as digitisation proceeds. 
-                  The Qurʾān is organised into <strong className="text-white">7 manzils</strong> — the weekly recitation 
-                  cycle practised by Shaykh Ibrāhīm. Click any manzil to expand its lessons.
+                <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>Reading the Text</p>
+                <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
+                  <li>Click any manzil on this page → then any lesson</li>
+                  <li>Inside the lesson: toggle between <strong style={{color:'rgba(255,255,255,0.85)'}}>Arabic</strong>, <strong style={{color:'rgba(255,255,255,0.85)'}}>English</strong>, or <strong style={{color:'rgba(255,255,255,0.85)'}}>Bilingual</strong> view</li>
+                  <li>Footnote numbers <code style={{color:'rgba(201,168,76,0.9)', fontSize:'11px'}}>[n]</code> in the text link directly to the full critical apparatus</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio</strong> — Wolof oral tafsīr (122 sessions) and Arabic delivery available per lesson</li>
+                </ul>
+              </div>
+
+              <div className="border-t border-gold/15 pt-3">
+                <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>Researching the Text</p>
+                <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Search</strong> — full-text across 30 Arabic lessons and English translation</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Verse Concordance</strong> — find every passage where Niasse comments on a specific verse</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Critical Apparatus</strong> — 798 footnotes classified by scholar, genre, and lesson</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Scholar Index</strong> — every figure Niasse cites, distinguished from compiler citations</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Thematic Index</strong> — browse by Sufism, Fiqh, Quranic Sciences, Prophethood</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Glossary</strong> — key terms in Niasse&apos;s theological vocabulary</li>
+                </ul>
+              </div>
+
+              <div className="border-t border-gold/15 pt-3">
+                <p className="font-semibold mb-1" style={{color:'rgba(255,255,255,0.9)'}}>Citing the Text</p>
+                <p style={{color:'rgba(255,255,255,0.55)'}}>
+                  Select any passage → <strong style={{color:'rgba(201,168,76,0.8)'}}>📎 Clip &amp; Cite</strong> → Chicago citation generated automatically.
+                  Export all saved clips from <code style={{color:'rgba(255,255,255,0.5)', fontSize:'11px'}}>/clips</code>.
                 </p>
               </div>
 
-              <div className="border-t border-gold/15 pt-3">
-                <p className="font-semibold text-white mb-1">Inside Each Lesson</p>
-                <ul className="space-y-1 text-white/70">
-                  <li><strong className="text-white/90">Audio</strong> — Wolof tafsīr (122 sessions, Internet Archive) + Arabic tafsīr</li>
-                  <li><strong className="text-white/90">Sheikh&apos;s Tafsīr Text</strong> — bilingual Arabic/English; toggle Arabic only, English only, or both</li>
-                  <li><strong className="text-white/90">Lesson Summary</strong> — comparative analysis with Jalālayn and Rūḥ al-Bayān (forthcoming)</li>
-                  <li><strong className="text-white/90">Tafsīr al-Jalālayn</strong> — full companion text for comparison</li>
-                  <li><strong className="text-white/90">Rūḥ al-Bayān</strong> — link to Usul.ai digital edition</li>
-                </ul>
-              </div>
-
-              <div className="border-t border-gold/15 pt-3">
-                <p className="font-semibold text-white mb-1">Research Tools</p>
-                <ul className="space-y-1 text-white/70">
-                  <li><strong className="text-white/90">Search</strong> — full-text search across the complete Arabic edition and partial English translation</li>
-                  <li><strong className="text-white/90">Bookmark &amp; Clip &amp; Cite</strong> — select any Arabic or English passage to open a floating toolbar. Choose Bookmark (save to your reading list) or Clip &amp; Cite (save with auto-generated Chicago citation, ready to paste into a paper)</li>
-                  <li><strong className="text-white/90">Research Clips</strong> — view all saved passages at /clips; export as .txt with full citations for academic writing</li>
-                  <li><strong className="text-white/90">Arabic word tool</strong> — select any Arabic word to see its root and English gloss</li>
-                  <li><strong className="text-white/90">Verse concordance</strong> — click any Quranic verse to see every lesson where Niasse comments on it</li>
-                  <li><strong className="text-white/90">Critical apparatus</strong> — 798 footnotes by the compiler, classified by scholar, genre, and lesson; click any inline <sup>[n]</sup> to jump directly to the footnote</li>
-                  <li><strong className="text-white/90">Scholar index</strong> — every figure Niasse cites, sorted by frequency across all 30 lessons</li>
-                  <li><strong className="text-white/90">Glossary</strong> — key theological and Sufi terms as Niasse employs them, with lesson links</li>
-                </ul>
-              </div>
-
-              <div className="border-t border-gold/15 pt-3">
-                <p className="font-semibold text-white mb-1">Display Options</p>
-                <ul className="space-y-1 text-white/70">
-                  <li><strong className="text-white/90">☀ / ◐</strong> — toggle between dark mode (forest green) and light mode (cream ivory)</li>
-                  <li><strong className="text-white/90">EN / FR / ع</strong> — switch interface language (Arabic, English, Français)</li>
-                  <li><strong className="text-white/90">5 translation languages</strong> — Arabic · English · Français · Wolof · Hausa (latter three forthcoming)</li>
-                </ul>
-              </div>
             </div>
           </div>
         )}

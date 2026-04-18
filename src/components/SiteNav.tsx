@@ -130,6 +130,7 @@ export default function SiteNav() {
   };
 
   const RESEARCH_ITEMS: DropdownItem[] = [
+  { label: "Research Hub", sub: "All research tools in one place", href: "/research" },
   { label: "Thematic Index", sub: "Browse by theology, law, Sufism…", href: "/themes" },
   { label: "Verse Concordance", sub: "314 verses, Niasse's commentary", href: "/concordance" },
   { label: "Scholar Index", sub: "Every figure Niasse cites", href: "/scholars" },
