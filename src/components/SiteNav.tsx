@@ -130,6 +130,7 @@ export default function SiteNav() {
   };
 
   const RESEARCH_ITEMS: DropdownItem[] = [
+  { label: "Thematic Index", sub: "Browse by theology, law, Sufism…", href: "/themes" },
   { label: "Verse Concordance", sub: "314 verses, Niasse's commentary", href: "/concordance" },
   { label: "Scholar Index", sub: "Every figure Niasse cites", href: "/scholars" },
   { label: "Glossary", sub: "Key terms in Niasse's vocabulary", href: "/glossary" },

@@ -1,0 +1,1775 @@
+{
+  "Quranic Sciences": [
+    {
+      "lessonId": 1,
+      "lessonTitleEn": "Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa",
+      "lessonTitleAr": "الدرس الأول",
+      "verseRange": "Al-Istiʿādha, Basmala, Q. 1:1–7",
+      "score": 34,
+      "volume": 1,
+      "pageInVolume": 29
+    },
+    {
+      "lessonId": 2,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:6–25",
+      "lessonTitleAr": "الدرس الثاني",
+      "verseRange": "Q. 2:6–25",
+      "score": 8,
+      "volume": 1,
+      "pageInVolume": 59
+    },
+    {
+      "lessonId": 6,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:203–286",
+      "lessonTitleAr": "الدرس السادس",
+      "verseRange": "Q. 2:203–286",
+      "score": 3,
+      "volume": 1,
+      "pageInVolume": 167
+    },
+    {
+      "lessonId": 9,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:169–175",
+      "lessonTitleAr": "الدرس التاسع",
+      "verseRange": "Q. 3:169–175",
+      "score": 2,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 11,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–29",
+      "lessonTitleAr": "الدرس الحادي عشر",
+      "verseRange": "Q. 4:23–29",
+      "score": 2,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 15,
+      "lessonTitleEn": "Sūrat al-Māʾida · Q. 5:27–86",
+      "lessonTitleAr": "الدرس الخامس عشر",
+      "verseRange": "Q. 5:27–86",
+      "score": 3,
+      "volume": 3,
+      "pageInVolume": 49
+    },
+    {
+      "lessonId": 16,
+      "lessonTitleEn": "Sūrat al-Māʾida / Al-Anʿām · Q. 5:87–6:69",
+      "lessonTitleAr": "الدرس السادس عشر",
+      "verseRange": "Q. 5:87–6:69",
+      "score": 3,
+      "volume": 3,
+      "pageInVolume": 112
+    },
+    {
+      "lessonId": 17,
+      "lessonTitleEn": "Sūrat al-Anʿām · Q. 6:70–140",
+      "lessonTitleAr": "الدرس السابع عشر",
+      "verseRange": "Q. 6:70–140",
+      "score": 2,
+      "volume": 3,
+      "pageInVolume": 122
+    },
+    {
+      "lessonId": 26,
+      "lessonTitleEn": "Sūrat Hūd / Yūsuf · Q. 11:84–12:52",
+      "lessonTitleAr": "الدرس السادس والعشرون",
+      "verseRange": "Q. 11:84–12:52",
+      "score": 5,
+      "volume": 7,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 27,
+      "lessonTitleEn": "Sūrat Yūsuf · Q. 12:53–111",
+      "lessonTitleAr": "الدرس السابع والعشرون",
+      "verseRange": "Q. 12:53–111",
+      "score": 3,
+      "volume": 7,
+      "pageInVolume": 18
+    },
+    {
+      "lessonId": 28,
+      "lessonTitleEn": "Sūrat al-Raʿd · Q. 13:1–52",
+      "lessonTitleAr": "الدرس الثامن والعشرون",
+      "verseRange": "Q. 13:1–52",
+      "score": 3,
+      "volume": 7,
+      "pageInVolume": 61
+    },
+    {
+      "lessonId": 29,
+      "lessonTitleEn": "Sūrat al-Ḥijr · Q. 15:1–99",
+      "lessonTitleAr": "الدرس التاسع والعشرون",
+      "verseRange": "Q. 15:1–99",
+      "score": 3,
+      "volume": 7,
+      "pageInVolume": 100
+    },
+    {
+      "lessonId": 30,
+      "lessonTitleEn": "Sūrat al-Naḥl · Q. 16:90–128",
+      "lessonTitleAr": "الدرس الثلاثون",
+      "verseRange": "Q. 16:90–128",
+      "score": 4,
+      "volume": 7,
+      "pageInVolume": 144
+    }
+  ],
+  "Prophethood": [
+    {
+      "lessonId": 1,
+      "lessonTitleEn": "Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa",
+      "lessonTitleAr": "الدرس الأول",
+      "verseRange": "Al-Istiʿādha, Basmala, Q. 1:1–7",
+      "score": 30,
+      "volume": 1,
+      "pageInVolume": 29
+    },
+    {
+      "lessonId": 2,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:6–25",
+      "lessonTitleAr": "الدرس الثاني",
+      "verseRange": "Q. 2:6–25",
+      "score": 50,
+      "volume": 1,
+      "pageInVolume": 59
+    },
+    {
+      "lessonId": 3,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:26–59",
+      "lessonTitleAr": "الدرس الثالث",
+      "verseRange": "Q. 2:26–59",
+      "score": 2,
+      "volume": 1,
+      "pageInVolume": 72
+    },
+    {
+      "lessonId": 4,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:60–105",
+      "lessonTitleAr": "الدرس الرابع",
+      "verseRange": "Q. 2:60–105",
+      "score": 5,
+      "volume": 1,
+      "pageInVolume": 96
+    },
+    {
+      "lessonId": 5,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:106–202",
+      "lessonTitleAr": "الدرس الخامس",
+      "verseRange": "Q. 2:106–202",
+      "score": 29,
+      "volume": 1,
+      "pageInVolume": 120
+    },
+    {
+      "lessonId": 6,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:203–286",
+      "lessonTitleAr": "الدرس السادس",
+      "verseRange": "Q. 2:203–286",
+      "score": 23,
+      "volume": 1,
+      "pageInVolume": 167
+    },
+    {
+      "lessonId": 7,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:253–285",
+      "lessonTitleAr": "الدرس السابع",
+      "verseRange": "Q. 2:253–285",
+      "score": 28,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 8,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:14–19",
+      "lessonTitleAr": "الدرس الثامن",
+      "verseRange": "Q. 3:14–19",
+      "score": 4,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 9,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:169–175",
+      "lessonTitleAr": "الدرس التاسع",
+      "verseRange": "Q. 3:169–175",
+      "score": 7,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 10,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:189–194",
+      "lessonTitleAr": "الدرس العاشر",
+      "verseRange": "Q. 3:189–194",
+      "score": 21,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 11,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–29",
+      "lessonTitleAr": "الدرس الحادي عشر",
+      "verseRange": "Q. 4:23–29",
+      "score": 9,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 12,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:86–94",
+      "lessonTitleAr": "الدرس الثاني عشر",
+      "verseRange": "Q. 4:86–94",
+      "score": 20,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 13,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–175",
+      "lessonTitleAr": "الدرس الثالث عشر",
+      "verseRange": "Q. 4:23–175",
+      "score": 14,
+      "volume": 3,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 14,
+      "lessonTitleEn": "Sūrat al-Māʾida · Q. 5:1–26",
+      "lessonTitleAr": "الدرس الرابع عشر",
+      "verseRange": "Q. 5:1–26",
+      "score": 13,
+      "volume": 3,
+      "pageInVolume": 33
+    },
+    {
+      "lessonId": 15,
+      "lessonTitleEn": "Sūrat al-Māʾida · Q. 5:27–86",
+      "lessonTitleAr": "الدرس الخامس عشر",
+      "verseRange": "Q. 5:27–86",
+      "score": 37,
+      "volume": 3,
+      "pageInVolume": 49
+    },
+    {
+      "lessonId": 16,
+      "lessonTitleEn": "Sūrat al-Māʾida / Al-Anʿām · Q. 5:87–6:69",
+      "lessonTitleAr": "الدرس السادس عشر",
+      "verseRange": "Q. 5:87–6:69",
+      "score": 29,
+      "volume": 3,
+      "pageInVolume": 112
+    },
+    {
+      "lessonId": 17,
+      "lessonTitleEn": "Sūrat al-Anʿām · Q. 6:70–140",
+      "lessonTitleAr": "الدرس السابع عشر",
+      "verseRange": "Q. 6:70–140",
+      "score": 11,
+      "volume": 3,
+      "pageInVolume": 122
+    },
+    {
+      "lessonId": 18,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:1–59",
+      "lessonTitleAr": "الدرس الثامن عشر",
+      "verseRange": "Q. 7:1–59",
+      "score": 4,
+      "volume": 3,
+      "pageInVolume": 159
+    },
+    {
+      "lessonId": 19,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:60–159",
+      "lessonTitleAr": "الدرس التاسع عشر",
+      "verseRange": "Q. 7:60–159",
+      "score": 3,
+      "volume": 3,
+      "pageInVolume": 191
+    },
+    {
+      "lessonId": 20,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:160–206",
+      "lessonTitleAr": "الدرس العشرون",
+      "verseRange": "Q. 7:160–206",
+      "score": 15,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 21,
+      "lessonTitleEn": "Sūrat al-Anfāl · Q. 8:1–74",
+      "lessonTitleAr": "الدرس الحادي والعشرون",
+      "verseRange": "Q. 8:1–74",
+      "score": 31,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 22,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:1–99",
+      "lessonTitleAr": "الدرس الثاني والعشرون",
+      "verseRange": "Q. 9:1–99",
+      "score": 29,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 23,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:100–129",
+      "lessonTitleAr": "الدرس الثالث والعشرون",
+      "verseRange": "Q. 9:100–129",
+      "score": 29,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 24,
+      "lessonTitleEn": "Sūrat Yūnus · Q. 10:1–109",
+      "lessonTitleAr": "الدرس الرابع والعشرون",
+      "verseRange": "Q. 10:1–109",
+      "score": 9,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 25,
+      "lessonTitleEn": "Sūrat Hūd · Q. 11:1–123",
+      "lessonTitleAr": "الدرس الخامس والعشرون",
+      "verseRange": "Q. 11:1–123",
+      "score": 14,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 28,
+      "lessonTitleEn": "Sūrat al-Raʿd · Q. 13:1–52",
+      "lessonTitleAr": "الدرس الثامن والعشرون",
+      "verseRange": "Q. 13:1–52",
+      "score": 3,
+      "volume": 7,
+      "pageInVolume": 61
+    },
+    {
+      "lessonId": 29,
+      "lessonTitleEn": "Sūrat al-Ḥijr · Q. 15:1–99",
+      "lessonTitleAr": "الدرس التاسع والعشرون",
+      "verseRange": "Q. 15:1–99",
+      "score": 3,
+      "volume": 7,
+      "pageInVolume": 100
+    },
+    {
+      "lessonId": 30,
+      "lessonTitleEn": "Sūrat al-Naḥl · Q. 16:90–128",
+      "lessonTitleAr": "الدرس الثلاثون",
+      "verseRange": "Q. 16:90–128",
+      "score": 6,
+      "volume": 7,
+      "pageInVolume": 144
+    }
+  ],
+  "Theology": [
+    {
+      "lessonId": 1,
+      "lessonTitleEn": "Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa",
+      "lessonTitleAr": "الدرس الأول",
+      "verseRange": "Al-Istiʿādha, Basmala, Q. 1:1–7",
+      "score": 24,
+      "volume": 1,
+      "pageInVolume": 29
+    },
+    {
+      "lessonId": 2,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:6–25",
+      "lessonTitleAr": "الدرس الثاني",
+      "verseRange": "Q. 2:6–25",
+      "score": 23,
+      "volume": 1,
+      "pageInVolume": 59
+    },
+    {
+      "lessonId": 3,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:26–59",
+      "lessonTitleAr": "الدرس الثالث",
+      "verseRange": "Q. 2:26–59",
+      "score": 6,
+      "volume": 1,
+      "pageInVolume": 72
+    },
+    {
+      "lessonId": 5,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:106–202",
+      "lessonTitleAr": "الدرس الخامس",
+      "verseRange": "Q. 2:106–202",
+      "score": 11,
+      "volume": 1,
+      "pageInVolume": 120
+    },
+    {
+      "lessonId": 6,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:203–286",
+      "lessonTitleAr": "الدرس السادس",
+      "verseRange": "Q. 2:203–286",
+      "score": 6,
+      "volume": 1,
+      "pageInVolume": 167
+    },
+    {
+      "lessonId": 7,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:253–285",
+      "lessonTitleAr": "الدرس السابع",
+      "verseRange": "Q. 2:253–285",
+      "score": 9,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 8,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:14–19",
+      "lessonTitleAr": "الدرس الثامن",
+      "verseRange": "Q. 3:14–19",
+      "score": 10,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 11,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–29",
+      "lessonTitleAr": "الدرس الحادي عشر",
+      "verseRange": "Q. 4:23–29",
+      "score": 5,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 12,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:86–94",
+      "lessonTitleAr": "الدرس الثاني عشر",
+      "verseRange": "Q. 4:86–94",
+      "score": 6,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 13,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–175",
+      "lessonTitleAr": "الدرس الثالث عشر",
+      "verseRange": "Q. 4:23–175",
+      "score": 9,
+      "volume": 3,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 15,
+      "lessonTitleEn": "Sūrat al-Māʾida · Q. 5:27–86",
+      "lessonTitleAr": "الدرس الخامس عشر",
+      "verseRange": "Q. 5:27–86",
+      "score": 2,
+      "volume": 3,
+      "pageInVolume": 49
+    },
+    {
+      "lessonId": 17,
+      "lessonTitleEn": "Sūrat al-Anʿām · Q. 6:70–140",
+      "lessonTitleAr": "الدرس السابع عشر",
+      "verseRange": "Q. 6:70–140",
+      "score": 5,
+      "volume": 3,
+      "pageInVolume": 122
+    },
+    {
+      "lessonId": 18,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:1–59",
+      "lessonTitleAr": "الدرس الثامن عشر",
+      "verseRange": "Q. 7:1–59",
+      "score": 3,
+      "volume": 3,
+      "pageInVolume": 159
+    },
+    {
+      "lessonId": 19,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:60–159",
+      "lessonTitleAr": "الدرس التاسع عشر",
+      "verseRange": "Q. 7:60–159",
+      "score": 5,
+      "volume": 3,
+      "pageInVolume": 191
+    },
+    {
+      "lessonId": 20,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:160–206",
+      "lessonTitleAr": "الدرس العشرون",
+      "verseRange": "Q. 7:160–206",
+      "score": 11,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 21,
+      "lessonTitleEn": "Sūrat al-Anfāl · Q. 8:1–74",
+      "lessonTitleAr": "الدرس الحادي والعشرون",
+      "verseRange": "Q. 8:1–74",
+      "score": 15,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 22,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:1–99",
+      "lessonTitleAr": "الدرس الثاني والعشرون",
+      "verseRange": "Q. 9:1–99",
+      "score": 2,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 23,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:100–129",
+      "lessonTitleAr": "الدرس الثالث والعشرون",
+      "verseRange": "Q. 9:100–129",
+      "score": 2,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 24,
+      "lessonTitleEn": "Sūrat Yūnus · Q. 10:1–109",
+      "lessonTitleAr": "الدرس الرابع والعشرون",
+      "verseRange": "Q. 10:1–109",
+      "score": 10,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 28,
+      "lessonTitleEn": "Sūrat al-Raʿd · Q. 13:1–52",
+      "lessonTitleAr": "الدرس الثامن والعشرون",
+      "verseRange": "Q. 13:1–52",
+      "score": 6,
+      "volume": 7,
+      "pageInVolume": 61
+    }
+  ],
+  "Fiqh & Law": [
+    {
+      "lessonId": 1,
+      "lessonTitleEn": "Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa",
+      "lessonTitleAr": "الدرس الأول",
+      "verseRange": "Al-Istiʿādha, Basmala, Q. 1:1–7",
+      "score": 21,
+      "volume": 1,
+      "pageInVolume": 29
+    },
+    {
+      "lessonId": 2,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:6–25",
+      "lessonTitleAr": "الدرس الثاني",
+      "verseRange": "Q. 2:6–25",
+      "score": 19,
+      "volume": 1,
+      "pageInVolume": 59
+    },
+    {
+      "lessonId": 3,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:26–59",
+      "lessonTitleAr": "الدرس الثالث",
+      "verseRange": "Q. 2:26–59",
+      "score": 5,
+      "volume": 1,
+      "pageInVolume": 72
+    },
+    {
+      "lessonId": 4,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:60–105",
+      "lessonTitleAr": "الدرس الرابع",
+      "verseRange": "Q. 2:60–105",
+      "score": 19,
+      "volume": 1,
+      "pageInVolume": 96
+    },
+    {
+      "lessonId": 5,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:106–202",
+      "lessonTitleAr": "الدرس الخامس",
+      "verseRange": "Q. 2:106–202",
+      "score": 20,
+      "volume": 1,
+      "pageInVolume": 120
+    },
+    {
+      "lessonId": 6,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:203–286",
+      "lessonTitleAr": "الدرس السادس",
+      "verseRange": "Q. 2:203–286",
+      "score": 28,
+      "volume": 1,
+      "pageInVolume": 167
+    },
+    {
+      "lessonId": 7,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:253–285",
+      "lessonTitleAr": "الدرس السابع",
+      "verseRange": "Q. 2:253–285",
+      "score": 6,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 8,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:14–19",
+      "lessonTitleAr": "الدرس الثامن",
+      "verseRange": "Q. 3:14–19",
+      "score": 4,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 9,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:169–175",
+      "lessonTitleAr": "الدرس التاسع",
+      "verseRange": "Q. 3:169–175",
+      "score": 35,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 10,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:189–194",
+      "lessonTitleAr": "الدرس العاشر",
+      "verseRange": "Q. 3:189–194",
+      "score": 4,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 11,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–29",
+      "lessonTitleAr": "الدرس الحادي عشر",
+      "verseRange": "Q. 4:23–29",
+      "score": 15,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 12,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:86–94",
+      "lessonTitleAr": "الدرس الثاني عشر",
+      "verseRange": "Q. 4:86–94",
+      "score": 2,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 13,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–175",
+      "lessonTitleAr": "الدرس الثالث عشر",
+      "verseRange": "Q. 4:23–175",
+      "score": 13,
+      "volume": 3,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 14,
+      "lessonTitleEn": "Sūrat al-Māʾida · Q. 5:1–26",
+      "lessonTitleAr": "الدرس الرابع عشر",
+      "verseRange": "Q. 5:1–26",
+      "score": 12,
+      "volume": 3,
+      "pageInVolume": 33
+    },
+    {
+      "lessonId": 15,
+      "lessonTitleEn": "Sūrat al-Māʾida · Q. 5:27–86",
+      "lessonTitleAr": "الدرس الخامس عشر",
+      "verseRange": "Q. 5:27–86",
+      "score": 7,
+      "volume": 3,
+      "pageInVolume": 49
+    },
+    {
+      "lessonId": 16,
+      "lessonTitleEn": "Sūrat al-Māʾida / Al-Anʿām · Q. 5:87–6:69",
+      "lessonTitleAr": "الدرس السادس عشر",
+      "verseRange": "Q. 5:87–6:69",
+      "score": 8,
+      "volume": 3,
+      "pageInVolume": 112
+    },
+    {
+      "lessonId": 17,
+      "lessonTitleEn": "Sūrat al-Anʿām · Q. 6:70–140",
+      "lessonTitleAr": "الدرس السابع عشر",
+      "verseRange": "Q. 6:70–140",
+      "score": 5,
+      "volume": 3,
+      "pageInVolume": 122
+    },
+    {
+      "lessonId": 18,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:1–59",
+      "lessonTitleAr": "الدرس الثامن عشر",
+      "verseRange": "Q. 7:1–59",
+      "score": 2,
+      "volume": 3,
+      "pageInVolume": 159
+    },
+    {
+      "lessonId": 19,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:60–159",
+      "lessonTitleAr": "الدرس التاسع عشر",
+      "verseRange": "Q. 7:60–159",
+      "score": 6,
+      "volume": 3,
+      "pageInVolume": 191
+    },
+    {
+      "lessonId": 20,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:160–206",
+      "lessonTitleAr": "الدرس العشرون",
+      "verseRange": "Q. 7:160–206",
+      "score": 5,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 21,
+      "lessonTitleEn": "Sūrat al-Anfāl · Q. 8:1–74",
+      "lessonTitleAr": "الدرس الحادي والعشرون",
+      "verseRange": "Q. 8:1–74",
+      "score": 10,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 22,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:1–99",
+      "lessonTitleAr": "الدرس الثاني والعشرون",
+      "verseRange": "Q. 9:1–99",
+      "score": 48,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 23,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:100–129",
+      "lessonTitleAr": "الدرس الثالث والعشرون",
+      "verseRange": "Q. 9:100–129",
+      "score": 12,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 24,
+      "lessonTitleEn": "Sūrat Yūnus · Q. 10:1–109",
+      "lessonTitleAr": "الدرس الرابع والعشرون",
+      "verseRange": "Q. 10:1–109",
+      "score": 8,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 25,
+      "lessonTitleEn": "Sūrat Hūd · Q. 11:1–123",
+      "lessonTitleAr": "الدرس الخامس والعشرون",
+      "verseRange": "Q. 11:1–123",
+      "score": 6,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 26,
+      "lessonTitleEn": "Sūrat Hūd / Yūsuf · Q. 11:84–12:52",
+      "lessonTitleAr": "الدرس السادس والعشرون",
+      "verseRange": "Q. 11:84–12:52",
+      "score": 4,
+      "volume": 7,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 28,
+      "lessonTitleEn": "Sūrat al-Raʿd · Q. 13:1–52",
+      "lessonTitleAr": "الدرس الثامن والعشرون",
+      "verseRange": "Q. 13:1–52",
+      "score": 2,
+      "volume": 7,
+      "pageInVolume": 61
+    },
+    {
+      "lessonId": 29,
+      "lessonTitleEn": "Sūrat al-Ḥijr · Q. 15:1–99",
+      "lessonTitleAr": "الدرس التاسع والعشرون",
+      "verseRange": "Q. 15:1–99",
+      "score": 3,
+      "volume": 7,
+      "pageInVolume": 100
+    },
+    {
+      "lessonId": 30,
+      "lessonTitleEn": "Sūrat al-Naḥl · Q. 16:90–128",
+      "lessonTitleAr": "الدرس الثلاثون",
+      "verseRange": "Q. 16:90–128",
+      "score": 2,
+      "volume": 7,
+      "pageInVolume": 144
+    }
+  ],
+  "Cosmology": [
+    {
+      "lessonId": 1,
+      "lessonTitleEn": "Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa",
+      "lessonTitleAr": "الدرس الأول",
+      "verseRange": "Al-Istiʿādha, Basmala, Q. 1:1–7",
+      "score": 12,
+      "volume": 1,
+      "pageInVolume": 29
+    },
+    {
+      "lessonId": 2,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:6–25",
+      "lessonTitleAr": "الدرس الثاني",
+      "verseRange": "Q. 2:6–25",
+      "score": 10,
+      "volume": 1,
+      "pageInVolume": 59
+    },
+    {
+      "lessonId": 3,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:26–59",
+      "lessonTitleAr": "الدرس الثالث",
+      "verseRange": "Q. 2:26–59",
+      "score": 20,
+      "volume": 1,
+      "pageInVolume": 72
+    },
+    {
+      "lessonId": 5,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:106–202",
+      "lessonTitleAr": "الدرس الخامس",
+      "verseRange": "Q. 2:106–202",
+      "score": 6,
+      "volume": 1,
+      "pageInVolume": 120
+    },
+    {
+      "lessonId": 6,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:203–286",
+      "lessonTitleAr": "الدرس السادس",
+      "verseRange": "Q. 2:203–286",
+      "score": 13,
+      "volume": 1,
+      "pageInVolume": 167
+    },
+    {
+      "lessonId": 7,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:253–285",
+      "lessonTitleAr": "الدرس السابع",
+      "verseRange": "Q. 2:253–285",
+      "score": 14,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 8,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:14–19",
+      "lessonTitleAr": "الدرس الثامن",
+      "verseRange": "Q. 3:14–19",
+      "score": 8,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 9,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:169–175",
+      "lessonTitleAr": "الدرس التاسع",
+      "verseRange": "Q. 3:169–175",
+      "score": 10,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 10,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:189–194",
+      "lessonTitleAr": "الدرس العاشر",
+      "verseRange": "Q. 3:189–194",
+      "score": 6,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 12,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:86–94",
+      "lessonTitleAr": "الدرس الثاني عشر",
+      "verseRange": "Q. 4:86–94",
+      "score": 7,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 13,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–175",
+      "lessonTitleAr": "الدرس الثالث عشر",
+      "verseRange": "Q. 4:23–175",
+      "score": 7,
+      "volume": 3,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 15,
+      "lessonTitleEn": "Sūrat al-Māʾida · Q. 5:27–86",
+      "lessonTitleAr": "الدرس الخامس عشر",
+      "verseRange": "Q. 5:27–86",
+      "score": 2,
+      "volume": 3,
+      "pageInVolume": 49
+    },
+    {
+      "lessonId": 16,
+      "lessonTitleEn": "Sūrat al-Māʾida / Al-Anʿām · Q. 5:87–6:69",
+      "lessonTitleAr": "الدرس السادس عشر",
+      "verseRange": "Q. 5:87–6:69",
+      "score": 16,
+      "volume": 3,
+      "pageInVolume": 112
+    },
+    {
+      "lessonId": 17,
+      "lessonTitleEn": "Sūrat al-Anʿām · Q. 6:70–140",
+      "lessonTitleAr": "الدرس السابع عشر",
+      "verseRange": "Q. 6:70–140",
+      "score": 6,
+      "volume": 3,
+      "pageInVolume": 122
+    },
+    {
+      "lessonId": 18,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:1–59",
+      "lessonTitleAr": "الدرس الثامن عشر",
+      "verseRange": "Q. 7:1–59",
+      "score": 19,
+      "volume": 3,
+      "pageInVolume": 159
+    },
+    {
+      "lessonId": 20,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:160–206",
+      "lessonTitleAr": "الدرس العشرون",
+      "verseRange": "Q. 7:160–206",
+      "score": 15,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 21,
+      "lessonTitleEn": "Sūrat al-Anfāl · Q. 8:1–74",
+      "lessonTitleAr": "الدرس الحادي والعشرون",
+      "verseRange": "Q. 8:1–74",
+      "score": 5,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 22,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:1–99",
+      "lessonTitleAr": "الدرس الثاني والعشرون",
+      "verseRange": "Q. 9:1–99",
+      "score": 2,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 23,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:100–129",
+      "lessonTitleAr": "الدرس الثالث والعشرون",
+      "verseRange": "Q. 9:100–129",
+      "score": 8,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 24,
+      "lessonTitleEn": "Sūrat Yūnus · Q. 10:1–109",
+      "lessonTitleAr": "الدرس الرابع والعشرون",
+      "verseRange": "Q. 10:1–109",
+      "score": 7,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 25,
+      "lessonTitleEn": "Sūrat Hūd · Q. 11:1–123",
+      "lessonTitleAr": "الدرس الخامس والعشرون",
+      "verseRange": "Q. 11:1–123",
+      "score": 28,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 28,
+      "lessonTitleEn": "Sūrat al-Raʿd · Q. 13:1–52",
+      "lessonTitleAr": "الدرس الثامن والعشرون",
+      "verseRange": "Q. 13:1–52",
+      "score": 2,
+      "volume": 7,
+      "pageInVolume": 61
+    },
+    {
+      "lessonId": 29,
+      "lessonTitleEn": "Sūrat al-Ḥijr · Q. 15:1–99",
+      "lessonTitleAr": "الدرس التاسع والعشرون",
+      "verseRange": "Q. 15:1–99",
+      "score": 3,
+      "volume": 7,
+      "pageInVolume": 100
+    }
+  ],
+  "Anthropology": [
+    {
+      "lessonId": 1,
+      "lessonTitleEn": "Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa",
+      "lessonTitleAr": "الدرس الأول",
+      "verseRange": "Al-Istiʿādha, Basmala, Q. 1:1–7",
+      "score": 7,
+      "volume": 1,
+      "pageInVolume": 29
+    },
+    {
+      "lessonId": 2,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:6–25",
+      "lessonTitleAr": "الدرس الثاني",
+      "verseRange": "Q. 2:6–25",
+      "score": 14,
+      "volume": 1,
+      "pageInVolume": 59
+    },
+    {
+      "lessonId": 3,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:26–59",
+      "lessonTitleAr": "الدرس الثالث",
+      "verseRange": "Q. 2:26–59",
+      "score": 7,
+      "volume": 1,
+      "pageInVolume": 72
+    },
+    {
+      "lessonId": 4,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:60–105",
+      "lessonTitleAr": "الدرس الرابع",
+      "verseRange": "Q. 2:60–105",
+      "score": 8,
+      "volume": 1,
+      "pageInVolume": 96
+    },
+    {
+      "lessonId": 5,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:106–202",
+      "lessonTitleAr": "الدرس الخامس",
+      "verseRange": "Q. 2:106–202",
+      "score": 3,
+      "volume": 1,
+      "pageInVolume": 120
+    },
+    {
+      "lessonId": 6,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:203–286",
+      "lessonTitleAr": "الدرس السادس",
+      "verseRange": "Q. 2:203–286",
+      "score": 12,
+      "volume": 1,
+      "pageInVolume": 167
+    },
+    {
+      "lessonId": 8,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:14–19",
+      "lessonTitleAr": "الدرس الثامن",
+      "verseRange": "Q. 3:14–19",
+      "score": 3,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 9,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:169–175",
+      "lessonTitleAr": "الدرس التاسع",
+      "verseRange": "Q. 3:169–175",
+      "score": 11,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 10,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:189–194",
+      "lessonTitleAr": "الدرس العاشر",
+      "verseRange": "Q. 3:189–194",
+      "score": 6,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 11,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–29",
+      "lessonTitleAr": "الدرس الحادي عشر",
+      "verseRange": "Q. 4:23–29",
+      "score": 21,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 12,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:86–94",
+      "lessonTitleAr": "الدرس الثاني عشر",
+      "verseRange": "Q. 4:86–94",
+      "score": 3,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 13,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–175",
+      "lessonTitleAr": "الدرس الثالث عشر",
+      "verseRange": "Q. 4:23–175",
+      "score": 22,
+      "volume": 3,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 15,
+      "lessonTitleEn": "Sūrat al-Māʾida · Q. 5:27–86",
+      "lessonTitleAr": "الدرس الخامس عشر",
+      "verseRange": "Q. 5:27–86",
+      "score": 7,
+      "volume": 3,
+      "pageInVolume": 49
+    },
+    {
+      "lessonId": 16,
+      "lessonTitleEn": "Sūrat al-Māʾida / Al-Anʿām · Q. 5:87–6:69",
+      "lessonTitleAr": "الدرس السادس عشر",
+      "verseRange": "Q. 5:87–6:69",
+      "score": 12,
+      "volume": 3,
+      "pageInVolume": 112
+    },
+    {
+      "lessonId": 17,
+      "lessonTitleEn": "Sūrat al-Anʿām · Q. 6:70–140",
+      "lessonTitleAr": "الدرس السابع عشر",
+      "verseRange": "Q. 6:70–140",
+      "score": 2,
+      "volume": 3,
+      "pageInVolume": 122
+    },
+    {
+      "lessonId": 18,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:1–59",
+      "lessonTitleAr": "الدرس الثامن عشر",
+      "verseRange": "Q. 7:1–59",
+      "score": 5,
+      "volume": 3,
+      "pageInVolume": 159
+    },
+    {
+      "lessonId": 20,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:160–206",
+      "lessonTitleAr": "الدرس العشرون",
+      "verseRange": "Q. 7:160–206",
+      "score": 5,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 21,
+      "lessonTitleEn": "Sūrat al-Anfāl · Q. 8:1–74",
+      "lessonTitleAr": "الدرس الحادي والعشرون",
+      "verseRange": "Q. 8:1–74",
+      "score": 4,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 23,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:100–129",
+      "lessonTitleAr": "الدرس الثالث والعشرون",
+      "verseRange": "Q. 9:100–129",
+      "score": 2,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 24,
+      "lessonTitleEn": "Sūrat Yūnus · Q. 10:1–109",
+      "lessonTitleAr": "الدرس الرابع والعشرون",
+      "verseRange": "Q. 10:1–109",
+      "score": 3,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 25,
+      "lessonTitleEn": "Sūrat Hūd · Q. 11:1–123",
+      "lessonTitleAr": "الدرس الخامس والعشرون",
+      "verseRange": "Q. 11:1–123",
+      "score": 6,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 27,
+      "lessonTitleEn": "Sūrat Yūsuf · Q. 12:53–111",
+      "lessonTitleAr": "الدرس السابع والعشرون",
+      "verseRange": "Q. 12:53–111",
+      "score": 36,
+      "volume": 7,
+      "pageInVolume": 18
+    },
+    {
+      "lessonId": 28,
+      "lessonTitleEn": "Sūrat al-Raʿd · Q. 13:1–52",
+      "lessonTitleAr": "الدرس الثامن والعشرون",
+      "verseRange": "Q. 13:1–52",
+      "score": 4,
+      "volume": 7,
+      "pageInVolume": 61
+    },
+    {
+      "lessonId": 30,
+      "lessonTitleEn": "Sūrat al-Naḥl · Q. 16:90–128",
+      "lessonTitleAr": "الدرس الثلاثون",
+      "verseRange": "Q. 16:90–128",
+      "score": 4,
+      "volume": 7,
+      "pageInVolume": 144
+    }
+  ],
+  "Spiritual Ethics": [
+    {
+      "lessonId": 1,
+      "lessonTitleEn": "Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa",
+      "lessonTitleAr": "الدرس الأول",
+      "verseRange": "Al-Istiʿādha, Basmala, Q. 1:1–7",
+      "score": 4,
+      "volume": 1,
+      "pageInVolume": 29
+    },
+    {
+      "lessonId": 2,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:6–25",
+      "lessonTitleAr": "الدرس الثاني",
+      "verseRange": "Q. 2:6–25",
+      "score": 3,
+      "volume": 1,
+      "pageInVolume": 59
+    },
+    {
+      "lessonId": 5,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:106–202",
+      "lessonTitleAr": "الدرس الخامس",
+      "verseRange": "Q. 2:106–202",
+      "score": 2,
+      "volume": 1,
+      "pageInVolume": 120
+    },
+    {
+      "lessonId": 6,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:203–286",
+      "lessonTitleAr": "الدرس السادس",
+      "verseRange": "Q. 2:203–286",
+      "score": 5,
+      "volume": 1,
+      "pageInVolume": 167
+    },
+    {
+      "lessonId": 7,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:253–285",
+      "lessonTitleAr": "الدرس السابع",
+      "verseRange": "Q. 2:253–285",
+      "score": 2,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 8,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:14–19",
+      "lessonTitleAr": "الدرس الثامن",
+      "verseRange": "Q. 3:14–19",
+      "score": 15,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 10,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:189–194",
+      "lessonTitleAr": "الدرس العاشر",
+      "verseRange": "Q. 3:189–194",
+      "score": 3,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 11,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–29",
+      "lessonTitleAr": "الدرس الحادي عشر",
+      "verseRange": "Q. 4:23–29",
+      "score": 4,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 12,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:86–94",
+      "lessonTitleAr": "الدرس الثاني عشر",
+      "verseRange": "Q. 4:86–94",
+      "score": 3,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 13,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–175",
+      "lessonTitleAr": "الدرس الثالث عشر",
+      "verseRange": "Q. 4:23–175",
+      "score": 5,
+      "volume": 3,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 20,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:160–206",
+      "lessonTitleAr": "الدرس العشرون",
+      "verseRange": "Q. 7:160–206",
+      "score": 3,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 21,
+      "lessonTitleEn": "Sūrat al-Anfāl · Q. 8:1–74",
+      "lessonTitleAr": "الدرس الحادي والعشرون",
+      "verseRange": "Q. 8:1–74",
+      "score": 6,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 23,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:100–129",
+      "lessonTitleAr": "الدرس الثالث والعشرون",
+      "verseRange": "Q. 9:100–129",
+      "score": 6,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 28,
+      "lessonTitleEn": "Sūrat al-Raʿd · Q. 13:1–52",
+      "lessonTitleAr": "الدرس الثامن والعشرون",
+      "verseRange": "Q. 13:1–52",
+      "score": 5,
+      "volume": 7,
+      "pageInVolume": 61
+    }
+  ],
+  "Sufism": [
+    {
+      "lessonId": 1,
+      "lessonTitleEn": "Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa",
+      "lessonTitleAr": "الدرس الأول",
+      "verseRange": "Al-Istiʿādha, Basmala, Q. 1:1–7",
+      "score": 2,
+      "volume": 1,
+      "pageInVolume": 29
+    },
+    {
+      "lessonId": 5,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:106–202",
+      "lessonTitleAr": "الدرس الخامس",
+      "verseRange": "Q. 2:106–202",
+      "score": 6,
+      "volume": 1,
+      "pageInVolume": 120
+    },
+    {
+      "lessonId": 6,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:203–286",
+      "lessonTitleAr": "الدرس السادس",
+      "verseRange": "Q. 2:203–286",
+      "score": 6,
+      "volume": 1,
+      "pageInVolume": 167
+    },
+    {
+      "lessonId": 7,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:253–285",
+      "lessonTitleAr": "الدرس السابع",
+      "verseRange": "Q. 2:253–285",
+      "score": 6,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 8,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:14–19",
+      "lessonTitleAr": "الدرس الثامن",
+      "verseRange": "Q. 3:14–19",
+      "score": 5,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 9,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:169–175",
+      "lessonTitleAr": "الدرس التاسع",
+      "verseRange": "Q. 3:169–175",
+      "score": 2,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 10,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:189–194",
+      "lessonTitleAr": "الدرس العاشر",
+      "verseRange": "Q. 3:189–194",
+      "score": 2,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 11,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–29",
+      "lessonTitleAr": "الدرس الحادي عشر",
+      "verseRange": "Q. 4:23–29",
+      "score": 5,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 12,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:86–94",
+      "lessonTitleAr": "الدرس الثاني عشر",
+      "verseRange": "Q. 4:86–94",
+      "score": 4,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 13,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–175",
+      "lessonTitleAr": "الدرس الثالث عشر",
+      "verseRange": "Q. 4:23–175",
+      "score": 3,
+      "volume": 3,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 14,
+      "lessonTitleEn": "Sūrat al-Māʾida · Q. 5:1–26",
+      "lessonTitleAr": "الدرس الرابع عشر",
+      "verseRange": "Q. 5:1–26",
+      "score": 2,
+      "volume": 3,
+      "pageInVolume": 33
+    },
+    {
+      "lessonId": 15,
+      "lessonTitleEn": "Sūrat al-Māʾida · Q. 5:27–86",
+      "lessonTitleAr": "الدرس الخامس عشر",
+      "verseRange": "Q. 5:27–86",
+      "score": 2,
+      "volume": 3,
+      "pageInVolume": 49
+    },
+    {
+      "lessonId": 17,
+      "lessonTitleEn": "Sūrat al-Anʿām · Q. 6:70–140",
+      "lessonTitleAr": "الدرس السابع عشر",
+      "verseRange": "Q. 6:70–140",
+      "score": 3,
+      "volume": 3,
+      "pageInVolume": 122
+    },
+    {
+      "lessonId": 18,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:1–59",
+      "lessonTitleAr": "الدرس الثامن عشر",
+      "verseRange": "Q. 7:1–59",
+      "score": 4,
+      "volume": 3,
+      "pageInVolume": 159
+    },
+    {
+      "lessonId": 20,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:160–206",
+      "lessonTitleAr": "الدرس العشرون",
+      "verseRange": "Q. 7:160–206",
+      "score": 2,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 21,
+      "lessonTitleEn": "Sūrat al-Anfāl · Q. 8:1–74",
+      "lessonTitleAr": "الدرس الحادي والعشرون",
+      "verseRange": "Q. 8:1–74",
+      "score": 19,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 22,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:1–99",
+      "lessonTitleAr": "الدرس الثاني والعشرون",
+      "verseRange": "Q. 9:1–99",
+      "score": 3,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 23,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:100–129",
+      "lessonTitleAr": "الدرس الثالث والعشرون",
+      "verseRange": "Q. 9:100–129",
+      "score": 2,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 24,
+      "lessonTitleEn": "Sūrat Yūnus · Q. 10:1–109",
+      "lessonTitleAr": "الدرس الرابع والعشرون",
+      "verseRange": "Q. 10:1–109",
+      "score": 3,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 26,
+      "lessonTitleEn": "Sūrat Hūd / Yūsuf · Q. 11:84–12:52",
+      "lessonTitleAr": "الدرس السادس والعشرون",
+      "verseRange": "Q. 11:84–12:52",
+      "score": 2,
+      "volume": 7,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 28,
+      "lessonTitleEn": "Sūrat al-Raʿd · Q. 13:1–52",
+      "lessonTitleAr": "الدرس الثامن والعشرون",
+      "verseRange": "Q. 13:1–52",
+      "score": 4,
+      "volume": 7,
+      "pageInVolume": 61
+    },
+    {
+      "lessonId": 30,
+      "lessonTitleEn": "Sūrat al-Naḥl · Q. 16:90–128",
+      "lessonTitleAr": "الدرس الثلاثون",
+      "verseRange": "Q. 16:90–128",
+      "score": 4,
+      "volume": 7,
+      "pageInVolume": 144
+    }
+  ],
+  "History & Narrative": [
+    {
+      "lessonId": 1,
+      "lessonTitleEn": "Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa",
+      "lessonTitleAr": "الدرس الأول",
+      "verseRange": "Al-Istiʿādha, Basmala, Q. 1:1–7",
+      "score": 2,
+      "volume": 1,
+      "pageInVolume": 29
+    },
+    {
+      "lessonId": 3,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:26–59",
+      "lessonTitleAr": "الدرس الثالث",
+      "verseRange": "Q. 2:26–59",
+      "score": 5,
+      "volume": 1,
+      "pageInVolume": 72
+    },
+    {
+      "lessonId": 4,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:60–105",
+      "lessonTitleAr": "الدرس الرابع",
+      "verseRange": "Q. 2:60–105",
+      "score": 34,
+      "volume": 1,
+      "pageInVolume": 96
+    },
+    {
+      "lessonId": 5,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:106–202",
+      "lessonTitleAr": "الدرس الخامس",
+      "verseRange": "Q. 2:106–202",
+      "score": 12,
+      "volume": 1,
+      "pageInVolume": 120
+    },
+    {
+      "lessonId": 7,
+      "lessonTitleEn": "Sūrat al-Baqara · Q. 2:253–285",
+      "lessonTitleAr": "الدرس السابع",
+      "verseRange": "Q. 2:253–285",
+      "score": 61,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 8,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:14–19",
+      "lessonTitleAr": "الدرس الثامن",
+      "verseRange": "Q. 3:14–19",
+      "score": 3,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 9,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:169–175",
+      "lessonTitleAr": "الدرس التاسع",
+      "verseRange": "Q. 3:169–175",
+      "score": 35,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 10,
+      "lessonTitleEn": "Sūrat Āl ʿImrān · Q. 3:189–194",
+      "lessonTitleAr": "الدرس العاشر",
+      "verseRange": "Q. 3:189–194",
+      "score": 2,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 11,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–29",
+      "lessonTitleAr": "الدرس الحادي عشر",
+      "verseRange": "Q. 4:23–29",
+      "score": 16,
+      "volume": 2,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 13,
+      "lessonTitleEn": "Sūrat al-Nisāʾ · Q. 4:23–175",
+      "lessonTitleAr": "الدرس الثالث عشر",
+      "verseRange": "Q. 4:23–175",
+      "score": 51,
+      "volume": 3,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 14,
+      "lessonTitleEn": "Sūrat al-Māʾida · Q. 5:1–26",
+      "lessonTitleAr": "الدرس الرابع عشر",
+      "verseRange": "Q. 5:1–26",
+      "score": 40,
+      "volume": 3,
+      "pageInVolume": 33
+    },
+    {
+      "lessonId": 16,
+      "lessonTitleEn": "Sūrat al-Māʾida / Al-Anʿām · Q. 5:87–6:69",
+      "lessonTitleAr": "الدرس السادس عشر",
+      "verseRange": "Q. 5:87–6:69",
+      "score": 4,
+      "volume": 3,
+      "pageInVolume": 112
+    },
+    {
+      "lessonId": 17,
+      "lessonTitleEn": "Sūrat al-Anʿām · Q. 6:70–140",
+      "lessonTitleAr": "الدرس السابع عشر",
+      "verseRange": "Q. 6:70–140",
+      "score": 4,
+      "volume": 3,
+      "pageInVolume": 122
+    },
+    {
+      "lessonId": 18,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:1–59",
+      "lessonTitleAr": "الدرس الثامن عشر",
+      "verseRange": "Q. 7:1–59",
+      "score": 2,
+      "volume": 3,
+      "pageInVolume": 159
+    },
+    {
+      "lessonId": 19,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:60–159",
+      "lessonTitleAr": "الدرس التاسع عشر",
+      "verseRange": "Q. 7:60–159",
+      "score": 79,
+      "volume": 3,
+      "pageInVolume": 191
+    },
+    {
+      "lessonId": 20,
+      "lessonTitleEn": "Sūrat al-Aʿrāf · Q. 7:160–206",
+      "lessonTitleAr": "الدرس العشرون",
+      "verseRange": "Q. 7:160–206",
+      "score": 21,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 21,
+      "lessonTitleEn": "Sūrat al-Anfāl · Q. 8:1–74",
+      "lessonTitleAr": "الدرس الحادي والعشرون",
+      "verseRange": "Q. 8:1–74",
+      "score": 7,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 22,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:1–99",
+      "lessonTitleAr": "الدرس الثاني والعشرون",
+      "verseRange": "Q. 9:1–99",
+      "score": 6,
+      "volume": 4,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 23,
+      "lessonTitleEn": "Sūrat al-Tawba · Q. 9:100–129",
+      "lessonTitleAr": "الدرس الثالث والعشرون",
+      "verseRange": "Q. 9:100–129",
+      "score": 2,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 25,
+      "lessonTitleEn": "Sūrat Hūd · Q. 11:1–123",
+      "lessonTitleAr": "الدرس الخامس والعشرون",
+      "verseRange": "Q. 11:1–123",
+      "score": 17,
+      "volume": 5,
+      "pageInVolume": null
+    },
+    {
+      "lessonId": 26,
+      "lessonTitleEn": "Sūrat Hūd / Yūsuf · Q. 11:84–12:52",
+      "lessonTitleAr": "الدرس السادس والعشرون",
+      "verseRange": "Q. 11:84–12:52",
+      "score": 2,
+      "volume": 7,
+      "pageInVolume": 3
+    },
+    {
+      "lessonId": 27,
+      "lessonTitleEn": "Sūrat Yūsuf · Q. 12:53–111",
+      "lessonTitleAr": "الدرس السابع والعشرون",
+      "verseRange": "Q. 12:53–111",
+      "score": 7,
+      "volume": 7,
+      "pageInVolume": 18
+    }
+  ]
+}
