@@ -657,5 +657,137 @@
       "Tajallī",
       "Ḥaqīqa Muḥammadiyya"
     ]
+  },
+  {
+    "term": "Murāqaba",
+    "arabic": "المراقبة",
+    "plural": "",
+    "definition": "Vigilant-awareness — the sustained consciousness of being seen by God, which Mishri identifies as the primary differentiator of spiritual rank. Murāqaba is the station below mushāhada (direct vision), and Niasse positions it as the minimum attainment of the Sufi path: 'If you cannot reach the station of mushāhada, at least reach the station of murāqaba' (Lesson 30, Q. 16:90–17:111). Mishri elaborates: 'People differ in their standing with Allah according to the degree of their murāqaba, and the people of hearts are the people of Allah.' The station is practised through attending to God's presence at all times, and is the foundation of all subsequent spiritual realisation.",
+    "mishri_source": "Muḥammad al-Mishri, Words of Mishri (unpublished transcriptions, n.d.), authorised by Shaykh Ibrāhīm Niasse",
+    "mishri_quote": "People differ in their standing with Allah according to the degree of their murāqabah, and the people of hearts are the people of Allah. Whoever wishes to be foremost and not overtaken must hasten toward murāqabah.",
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 30,
+        "volume": 5,
+        "page": 144,
+        "arabic_quote": "إن لم تقدر أن تصل إلى مرتبة المشاهدة فلا أقل من أن تصل إلى مرتبة المراقبة",
+        "translation_note": "If you cannot reach the station of mushāhada (direct vision), at least reach the station of murāqaba",
+        "verseRange": "Q. 16:90–17:111"
+      }
+    ],
+    "lessons": [
+      30
+    ],
+    "related": [
+      "Maʿrifa",
+      "Fanāʾ",
+      "Maqām",
+      "Sulūk"
+    ],
+    "definition_pending": false
+  },
+  {
+    "term": "Himma",
+    "arabic": "الهمة",
+    "plural": "Himam",
+    "definition": "Spiritual aspiration — the directed force of the soul toward God and toward God's people. In Niasse's tafsīr sessions, the opening poem of every lesson is an invocation of the Shaykh's himma: 'Yā himmat al-shaykh uḥḍurī / lanā bi-hādhā al-maḥḍar / wa-ltaṭifī bi-naẓra / tātī lanā bi-l-ẓafar' (O aspiration of the Shaykh, be present with us in this gathering; look upon us with a glance that brings us victory). The invocation across all thirty lessons places himma at the threshold of Qurʾānic engagement — it is the spiritual condition of possibility for exegesis. Mishri distinguishes himma from related terms: 'Aspiration (himma) is of three types: zeal (himma), care (ihtimām), and worry (hamma). Whatever is for Allah and in Allah is zeal (himma).' This positions himma as the highest of the three — desire directed entirely toward the divine.",
+    "mishri_source": "Muḥammad al-Mishri, Words of Mishri (unpublished transcriptions, n.d.), authorised by Shaykh Ibrāhīm Niasse",
+    "mishri_quote": "Aspiration is of three types: zeal (himma), care (ihtimām), and worry (hamma). Whatever is for Allah and in Allah is zeal.",
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 1,
+        "volume": 1,
+        "page": 29,
+        "arabic_quote": "يا همة الشيخ احضري لنا بهذا المحضر ولتعطفي بنظرة تأتي لنا بالظفر",
+        "translation_note": "O aspiration of the Shaykh, be present with us in this gathering; look upon us with a glance that brings us victory [opening invocation of all 30 lessons]",
+        "verseRange": "All lessons"
+      }
+    ],
+    "lessons": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "related": [
+      "Walāya",
+      "Maʿrifa",
+      "Tarbiya",
+      "Sulūk"
+    ],
+    "definition_pending": false
+  },
+  {
+    "term": "Tawba",
+    "arabic": "التوبة",
+    "plural": "Tawbāt",
+    "definition": "Repentance and return — the act of turning back to God from heedlessness or transgression. In the Tijānī tradition, tawba is not merely moral amendment but a continuous spiritual orientation: Mishri states that 'any time that passes without murāqabah — let one be certain that what was lost of goodness in that moment exceeds all that was gained throughout one's entire past. Let him return to Allah and reclaim what has passed by saying, Innā lillāh wa-innā ilayhi rājiʿūn.' This frames tawba not as a single act of contrition but as a sustained return. In Niasse's tafsīr, tawba appears across multiple lessons as a condition for spiritual advancement, most explicitly in Lesson 10: 'He had spent his life in error; today I have cut my zunnār and here I am returning to You in tawba.' The formula of return — tawba followed by renewed orientation toward God — is the structuring logic of the Sufi path.",
+    "mishri_source": "Muḥammad al-Mishri, Words of Mishri (unpublished transcriptions, n.d.), authorised by Shaykh Ibrāhīm Niasse",
+    "mishri_quote": "Any time that passes without murāqabah — let one be certain that what was lost of goodness in that moment exceeds all that was gained throughout one's entire past. Let him return to Allah and reclaim what has passed by saying: Innā lillāh wa-innā ilayhi rājiʿūn.",
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 10,
+        "volume": 2,
+        "page": 79,
+        "arabic_quote": "قضى عمره في الضلالة، واليوم قطعت زناري وها أنا رجعت إليك بالتوبة",
+        "translation_note": "He had spent his life in error; today I have cut my zunnār and here I am returning to You in tawba",
+        "verseRange": "Q. 3:176–4:23"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 11,
+        "volume": 2,
+        "page": 124,
+        "arabic_quote": "أراد أن يقبل منا التوبة فنرجع إلى اللّٰه تبارك وتعالى",
+        "translation_note": "He willed to accept our repentance so that we return to God",
+        "verseRange": "Q. 4:24–86"
+      }
+    ],
+    "lessons": [
+      5,
+      6,
+      10,
+      11,
+      12,
+      20,
+      21,
+      28
+    ],
+    "related": [
+      "Murāqaba",
+      "Fanāʾ",
+      "Maqām",
+      "Sulūk"
+    ],
+    "definition_pending": false
   }
 ]
