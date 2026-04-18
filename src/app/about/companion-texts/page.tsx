@@ -43,7 +43,10 @@ export default function CompanionTextsPage() {
 
           <p className="leading-7">
             <em>Tafsīr al-Jalālayn</em> — the concise fifteenth-century Egyptian tafsīr completed
-            jointly by Jalāl al-Dīn al-Maḥallī and his student Jalāl al-Dīn al-Suyūṭī — forms the
+            jointly by Jalāl al-Dīn al-Maḥallī (d. 864/1459), a Shāfiʿī jurist and Quranic 
+            scholar of Cairo, and his student Jalāl al-Dīn al-Suyūṭī (d. 911/1505), one of the 
+            most prolific scholars of the Islamic tradition and a master of the Quranic sciences, 
+            hadith, and jurisprudence — forms the
             foundational reference for the development of tafsīr practice in West Africa since the
             sixteenth century. As Oludamini Ogunnaike (The College of William and Mary) has observed, it constitutes &ldquo;the basis of most
             West African tafsīrs, both written works and oral performances.&rdquo;<sup>1</sup>
@@ -51,8 +54,9 @@ export default function CompanionTextsPage() {
 
           <p className="leading-7 mt-3">
             The specific recension of the Jalālayn that Niasse consulted was the edition bearing
-            the marginal notes of Aḥmad al-Ṣāwī (d. 1241/1825), an Egyptian Mālikī scholar and
-            a Sufi of the Khalwatiyya order. The late Ustādh Barham Diop (1932–2014), a prominent
+            the marginal notes of Aḥmad al-Ṣāwī (d. 1241/1825), an Egyptian Mālikī scholar, 
+            a student of al-Dardir, and a Sufi of the Khalwatiyya order whose commentary 
+            integrated the legal and spiritual dimensions of Quranic interpretation. The late Ustādh Barham Diop (1932–2014), a prominent
             student of Niasse, confirmed to Ogunnaike that Shaykh Ibrāhīm delivered the 1964
             Ramaḍān sessions with a physical copy of the Jalālayn with al-Ṣāwī&apos;s marginal
             notes in his hand.<sup>2</sup> The compiler&apos;s annotations confirm this: from the
@@ -83,7 +87,9 @@ export default function CompanionTextsPage() {
 
           <p className="leading-7">
             The relationship between <em>Fī Riyāḍ al-Tafsīr</em> and the <em>Rūḥ al-Bayān</em> of
-            Ismāʿīl Ḥaqqī al-Burūsawī (d. 1127/1715) marks one of the most significant findings
+            Ismāʿīl Ḥaqqī al-Burūsawī (d. 1127/1715) — Ottoman scholar, Sufi shaykh of the 
+            Khalwatiyya order, and one of the foremost synthesisers of Sufi Quranic hermeneutics 
+            in the post-Akbarian tradition — marks one of the most significant findings
             of recent scholarship on Niasse&apos;s tafsīr. In his 2024 study, Zachary Wright (Northwestern University in Qatar) argues that
             Niasse&apos;s commentary &ldquo;exhibits a clear preference for an early
             eighteenth-century Ottoman multivolume work, Ismāʿīl Ḥaqqī&apos;s &lsquo;Spirit of
