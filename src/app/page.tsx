@@ -232,25 +232,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* Khatm al-Quran Supplication */}
-      <div className="mt-12 mb-6 max-w-xl mx-auto border border-gold/20 rounded-2xl p-6 text-center bg-gold/3">
-        <div className="font-arabic text-gold text-lg font-bold mb-1" dir="rtl">
-          دعاء ختم القرآن الكريم
-        </div>
-        <p className="font-english text-white/45 text-xs mb-4 italic">
-          Supplication at the Completion of the Qurʾān · Shaykh Ibrāhīm Niasse
-        </p>
-        <audio
-          controls
-          className="w-full"
-          style={{accentColor: '#C9A84C'}}
-          preload="none"
-        >
-          <source src="https://utfs.io/f/THPX9CeGNWHP3m1j6FH3ODvN1ErmqX" type="audio/mpeg" />
-        </audio>
-      </div>
-
-      <div className="mt-6 mb-8">
+      <div className="mt-12 mb-8">
         <SubscribeBar />
       </div>
     </main>
