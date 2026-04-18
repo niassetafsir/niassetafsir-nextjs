@@ -8,39 +8,62 @@ interface ThemeLesson {
   lessonTitleAr: string;
   verseRange: string;
   score: number;
+  bodyScore: number;
   volume?: number;
   pageInVolume?: number | null;
   anchor?: string | null;
 }
 
-type ThemeIndex = Record<string, ThemeLesson[]>;
+interface TaxonomyMeta {
+  ar: string;
+  desc: string;
+}
 
-const THEME_DESC: Record<string, { ar: string; desc: string; color: string }> = {
+interface ThemesData {
+  themes: Record<string, ThemeLesson[]>;
+  taxonomy: Record<string, TaxonomyMeta>;
+}
 
-
-
-  'Sufism':         { ar: 'التصوف', desc: 'Ṭarīqa, walāya, fanāʾ, baqāʾ, fayḍa, tarbiya', color: 'border-purple-500/40 text-purple-300/80 bg-purple-500/5' },
-  'Fiqh & Law':     { ar: 'الفقه والشريعة', desc: 'Legal rulings, ḥalāl/ḥarām, worship obligations', color: 'border-orange-500/40 text-orange-300/80 bg-orange-500/5' },
-  'Quranic Sciences':{ ar: 'علوم القرآن', desc: 'Inimitability, qirāʾāt, exegetical method, tafsīr theory', color: 'border-green-500/40 text-green-300/80 bg-green-500/5' },
-  'Prophethood':    { ar: 'النبوة والرسالة', desc: 'Prophets, companions, revelation, miracles', color: 'border-blue-500/40 text-blue-300/80 bg-blue-500/5' },
-  'Spiritual Ethics':{ ar: 'الأخلاق الروحية', desc: 'Sincerity, piety, patience, gratitude, repentance', color: 'border-rose-500/40 text-rose-300/80 bg-rose-500/5' },
-  'History & Narrative':{ ar: 'القصص والتاريخ', desc: 'Prophetic narratives, Israelites, historical accounts', color: 'border-cyan-500/40 text-cyan-300/80 bg-cyan-500/5' },
+const CATEGORY_COLORS: Record<string, string> = {
+  '1': 'border-cyan-500/40 text-cyan-200/80 bg-cyan-500/8',
+  '2': 'border-blue-500/40 text-blue-200/80 bg-blue-500/8',
+  '3': 'border-amber-500/40 text-amber-200/80 bg-amber-500/8',
+  '4': 'border-orange-500/40 text-orange-200/80 bg-orange-500/8',
+  '5': 'border-red-500/40 text-red-200/80 bg-red-500/8',
+  '6': 'border-rose-500/40 text-rose-200/80 bg-rose-500/8',
+  '7': 'border-gold/40 text-gold/80 bg-gold/8',
+  '8': 'border-yellow-500/40 text-yellow-200/80 bg-yellow-500/8',
+  '9': 'border-teal-500/40 text-teal-200/80 bg-teal-500/8',
+  '10': 'border-green-500/40 text-green-200/80 bg-green-500/8',
+  '11': 'border-purple-500/40 text-purple-200/80 bg-purple-500/8',
+  '12': 'border-indigo-500/40 text-indigo-200/80 bg-indigo-500/8',
 };
 
+function getCatNum(key: string) {
+  return key.split('.')[0].trim();
+}
+
 export default function ThemesPage() {
-  const [index, setIndex] = useState<ThemeIndex>({});
+  const [data, setData] = useState<ThemesData | null>(null);
   const [active, setActive] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/data/themes.json').then(r => r.json()).then(d => {
-      setIndex(d);
+      setData(d);
       setLoading(false);
     });
   }, []);
 
-  const themes = Object.keys(THEME_DESC).filter(t => index[t]);
-  const activeData = active ? (index[active] || []).sort((a,b) => b.score - a.score) : [];
+  if (!data || loading) return (
+    <main className="max-w-4xl mx-auto px-4 py-12 text-center">
+      <p className="font-english animate-pulse" style={{color:'rgba(255,255,255,0.3)'}}>Loading…</p>
+    </main>
+  );
+
+  const { themes, taxonomy } = data;
+  const activeData = active ? themes[active] || [] : [];
+  const activeMeta = active ? taxonomy[active] : null;
 
   return (
     <main className="max-w-5xl mx-auto px-4 pb-20 pt-6" dir="ltr">
@@ -49,80 +72,112 @@ export default function ThemesPage() {
         <p className="font-english text-sm mb-1" style={{color:'rgba(255,255,255,0.45)'}}>
           Thematic Index
         </p>
-        <p className="font-english text-xs mb-6" style={{color:'rgba(255,255,255,0.25)'}}>
-          Browse the tafsīr by subject — theology, anthropology, cosmology, Sufism, law, and more
-        </p>
-        <p className="font-english text-[11px] italic" style={{color:'rgba(255,255,255,0.2)'}}>
-          Thematic tagging is computational and preliminary — subject to editorial revision.
-          Lessons may appear under multiple themes.
+        <p className="font-english text-xs mb-5" style={{color:'rgba(255,255,255,0.25)'}}>
+          12 disciplinary categories · click any to see which lessons engage it
         </p>
       </div>
 
-      {loading ? (
-        <p className="text-center py-12 animate-pulse font-english" style={{color:'rgba(255,255,255,0.3)'}}>Loading…</p>
-      ) : (
-        <div className="flex gap-5">
-          {/* Theme grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 h-fit flex-1">
-            {themes.map(theme => {
-              const meta = THEME_DESC[theme];
-              const lessons = index[theme] || [];
-              const isActive = active === theme;
+      <div className="flex gap-5">
+        {/* Category grid */}
+        <div className="flex-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {Object.entries(taxonomy).map(([key, meta]) => {
+              const lessons = themes[key] || [];
+              const catNum = getCatNum(key);
+              const color = CATEGORY_COLORS[catNum] || 'border-white/15 text-white/60';
+              const isActive = active === key;
+              const strongCount = lessons.filter(l => l.bodyScore >= 2).length;
               return (
-                <button key={theme}
-                  onClick={() => setActive(isActive ? null : theme)}
+                <button key={key}
+                  onClick={() => setActive(isActive ? null : key)}
                   className={`text-left p-4 rounded-xl border transition-all ${
-                    isActive ? meta.color + ' border-opacity-100' : 'border-white/10 hover:border-white/20'
+                    isActive ? color : 'border-white/10 hover:border-white/20'
                   }`}>
-                  <div className="font-arabic text-base mb-0.5" dir="rtl"
-                    style={{color: isActive ? 'inherit' : 'rgba(255,255,255,0.75)'}}>{meta.ar}</div>
-                  <div className="font-english font-semibold text-sm mb-1"
-                    style={{color: isActive ? 'inherit' : 'rgba(255,255,255,0.85)'}}>{theme}</div>
-                  <div className="font-english text-xs"
-                    style={{color:'rgba(255,255,255,0.35)'}}>{meta.desc}</div>
-                  <div className="font-english text-[11px] mt-2"
-                    style={{color:'rgba(255,255,255,0.3)'}}>{lessons.length} lessons</div>
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex-1 min-w-0">
+                      <div className="font-english text-xs font-bold mb-0.5" style={{
+                        color: isActive ? 'inherit' : 'rgba(255,255,255,0.4)'
+                      }}>
+                        {key.split('.')[0]}.
+                      </div>
+                      <div className="font-english text-sm font-semibold" style={{
+                        color: isActive ? 'inherit' : 'rgba(255,255,255,0.85)'
+                      }}>
+                        {key.split('. ')[1]}
+                      </div>
+                      <div className="font-arabic text-xs mt-0.5" dir="rtl" style={{color:'rgba(255,255,255,0.4)'}}>
+                        {meta.ar}
+                      </div>
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <div className="font-english text-[10px]" style={{color:'rgba(255,255,255,0.3)'}}>
+                        {lessons.length} lessons
+                      </div>
+                      {strongCount > 0 && (
+                        <div className="font-english text-[9px]" style={{color:'rgba(201,168,76,0.5)'}}>
+                          {strongCount} primary
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <p className="font-english text-[11px] mt-1.5 leading-4" style={{
+                    color: isActive ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.3)'
+                  }}>
+                    {meta.desc}
+                  </p>
                 </button>
               );
             })}
           </div>
 
-          {/* Lesson list for active theme */}
-          {active && (
-            <div className="w-72 flex-shrink-0">
-              <div className="sticky top-20">
-                <div className={`rounded-xl border p-3 mb-3 ${THEME_DESC[active]?.color}`}>
-                  <div className="font-english text-sm font-semibold">{active}</div>
-                  <div className="font-arabic text-sm" dir="rtl">{THEME_DESC[active]?.ar}</div>
-                  <div className="font-english text-[11px] mt-1" style={{color:'rgba(255,255,255,0.5)'}}>
-                    {activeData.length} lessons
-                  </div>
-                </div>
-                <div className="space-y-1.5 max-h-[70vh] overflow-y-auto pr-1">
-                  {activeData.map(l => (
-                    <Link key={l.lessonId} href={`/lesson/${l.lessonId}?panel=tafsir${l.anchor ? '&q=' + encodeURIComponent(l.anchor) : ''}`}
-                      className="flex items-start gap-2.5 p-2.5 rounded-lg border border-white/8 hover:border-gold/30 hover:bg-gold/5 transition-all group">
-                      <div className="w-5 h-5 rounded-full bg-gold/20 flex items-center justify-center text-gold text-[10px] font-bold flex-shrink-0 mt-0.5">
-                        {l.lessonId}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="font-english text-xs group-hover:text-gold transition-colors truncate"
-                          style={{color:'rgba(255,255,255,0.7)'}}>
-                          {l.lessonTitleEn}
-                        </div>
-                        <div className="font-english text-[10px]" style={{color:'rgba(255,255,255,0.3)'}}>
-                          {l.volume ? `Vol. ${l.volume}${l.pageInVolume ? `, p. ${l.pageInVolume}` : ''}` : ''}
-                        </div>
-                      </div>
-                      <span className="text-gold/25 text-xs">→</span>
-                    </Link>
-                  ))}
+          <div className="mt-4 p-3 border border-white/8 rounded-xl">
+            <p className="font-english text-[11px]" style={{color:'rgba(255,255,255,0.25)'}}>
+              <strong style={{color:'rgba(255,255,255,0.4)'}}>Primary</strong> = strong presence in Niasse&apos;s own commentary.
+              Detection is computational and subject to editorial review.
+            </p>
+          </div>
+        </div>
+
+        {/* Lesson list */}
+        {active && activeMeta && (
+          <div className="w-64 flex-shrink-0">
+            <div className="sticky top-20">
+              <div className={`rounded-xl border p-3 mb-3 ${CATEGORY_COLORS[getCatNum(active)] || ''}`}>
+                <div className="font-english text-sm font-semibold">{active.split('. ')[1]}</div>
+                <div className="font-arabic text-sm mt-0.5" dir="rtl">{activeMeta.ar}</div>
+                <div className="font-english text-[10px] mt-1" style={{color:'rgba(255,255,255,0.5)'}}>
+                  {activeData.length} lessons · click to go to relevant passage
                 </div>
               </div>
+              <div className="space-y-1.5 max-h-[70vh] overflow-y-auto pr-1">
+                {activeData.map((l, i) => (
+                  <Link key={i}
+                    href={`/lesson/${l.lessonId}?panel=tafsir${l.anchor ? '&q=' + encodeURIComponent(l.anchor) : ''}`}
+                    className="flex items-start gap-2.5 p-2.5 rounded-lg border border-white/8 hover:border-gold/30 hover:bg-gold/5 transition-all group">
+                    <div className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5"
+                      style={{
+                        background: l.bodyScore >= 2 ? 'rgba(201,168,76,0.25)' : 'rgba(255,255,255,0.1)',
+                        color: l.bodyScore >= 2 ? '#C9A84C' : 'rgba(255,255,255,0.4)'
+                      }}>
+                      {l.lessonId}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-english text-xs group-hover:text-gold transition-colors truncate"
+                        style={{color:'rgba(255,255,255,0.7)'}}>
+                        {l.lessonTitleEn}
+                      </div>
+                      <div className="font-english text-[10px]" style={{color:'rgba(255,255,255,0.3)'}}>
+                        {l.volume ? `Vol. ${l.volume}` : ''}{l.bodyScore >= 2 ? ' · primary' : ''}
+                      </div>
+                    </div>
+                    <span className="text-gold/25 text-xs">→</span>
+                  </Link>
+                ))}
+              </div>
             </div>
-          )}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </main>
   );
 }
