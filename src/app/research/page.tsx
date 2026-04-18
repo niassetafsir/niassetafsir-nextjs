@@ -69,6 +69,12 @@ const TOOLS = [
     desc: 'Saved passages with auto-generated Chicago citations. Select any text in a lesson → Clip & Cite → export for academic writing.',
   },
   {
+    href: '/audio',
+    titleAr: 'تسجيلات التفسير',
+    titleEn: 'Audio Library',
+    desc: 'Stream or download the Arabic oral tafsīr recordings by Shaykh Ibrāhīm Niasse — one file per sura, recorded 1383 AH / 1964.',
+  },
+  {
     href: '/bookmarks',
     titleAr: 'الإشارات المرجعية',
     titleEn: 'Bookmarks',

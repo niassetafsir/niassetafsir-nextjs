@@ -85,10 +85,21 @@ export default function AudioPanel({ wolofPlaylistId, arabicPlaylistId, arabicAu
           <div>
             {arabicAudioUrl ? (
               <div>
-                <audio controls className="w-full rounded" style={{ accentColor: '#C9A84C' }}>
+                <audio controls className="w-full rounded mb-1" style={{ accentColor: '#C9A84C' }}>
                   <source src={arabicAudioUrl} type="audio/mpeg" />
                 </audio>
-                <p className="font-english text-xs text-white/30 mt-2">{sura} · Arabic Tafsīr</p>
+                <div className="flex items-center justify-between mt-1">
+                  <p className="font-english text-xs text-white/30">{sura} · Arabic Tafsīr</p>
+                  <a
+                    href={arabicAudioUrl}
+                    download
+                    target="_blank"
+                    rel="noopener"
+                    className="font-english text-xs text-gold/50 hover:text-gold border border-gold/20 hover:border-gold/40 px-2 py-0.5 rounded transition-all"
+                  >
+                    ⬇ Download
+                  </a>
+                </div>
               </div>
             ) : (
               <div>
