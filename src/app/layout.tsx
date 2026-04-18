@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
   description: "The digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Complete Arabic text, English translation, critical apparatus, and scholarly research tools.",
   keywords: ["Niasse", "tafsir", "tafsīr", "Quran", "West African Islam", "Tijaniyya", "Ibrahim Niasse", "Islamic studies", "Fī Riyāḍ", "bilingual edition"],
-  authors: [{ name: "Amadu Kunateh" }],
+  authors: [{ name: "Amadu Kunateh", url: "https://orcid.org/0009-0002-7839-6474" }],
   creator: "Amadu Kunateh",
   metadataBase: new URL("https://niassetafsir.org"),
   alternates: { canonical: "/" },
