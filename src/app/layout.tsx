@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SiteNav from "@/components/SiteNav";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "في رياض التفسير — الشيخ إبراهيم نياس | niassetafsir.com",
