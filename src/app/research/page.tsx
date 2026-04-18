@@ -60,13 +60,13 @@ const PRIMARY_TOOLS = [
     href: '/glossary-map',
     titleAr: 'خريطة المصطلحات',
     titleEn: 'Theological Vocabulary Map',
-    desc: 'A structured map of how key terms connect within Niasse's theological system — hierarchies, conditions, and conceptual relationships confirmed from his text.',
+    desc: "A structured map of how key terms connect within Niasse's theological system — hierarchies, conditions, and conceptual relationships confirmed from his text.",
   },
   {
     href: '/audio',
     titleAr: 'تسجيلات التفسير',
     titleEn: 'Audio Archive',
-    desc: 'Stream or download Shaykh Ibrāhīm's Arabic oral tafsīr — one recording per sura, from the 1383 AH / 1964 sessions. Wolof tafsīr (122 sessions) also available.',
+    desc: "Stream or download Shaykh Ibrāhīm's Arabic oral tafsīr — one recording per sura, from the 1383 AH / 1964 sessions. Wolof tafsīr (122 sessions) also available.",
   },
 ];
 
