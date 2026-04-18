@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ArabicWordTool from '@/components/ArabicWordTool';
 
 type View = 'bilingual' | 'arabic' | 'english' | 'french' | 'wolof' | 'hausa';
