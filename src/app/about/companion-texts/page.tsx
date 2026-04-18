@@ -45,7 +45,7 @@ export default function CompanionTextsPage() {
             <em>Tafsīr al-Jalālayn</em> — the concise fifteenth-century Egyptian tafsīr completed
             jointly by Jalāl al-Dīn al-Maḥallī and his student Jalāl al-Dīn al-Suyūṭī — forms the
             foundational reference for the development of tafsīr practice in West Africa since the
-            sixteenth century. As Ogunnaike has observed, it constitutes &ldquo;the basis of most
+            sixteenth century. As Oludamini Ogunnaike (The College of William and Mary) has observed, it constitutes &ldquo;the basis of most
             West African tafsīrs, both written works and oral performances.&rdquo;<sup>1</sup>
           </p>
 
@@ -84,7 +84,7 @@ export default function CompanionTextsPage() {
           <p className="leading-7">
             The relationship between <em>Fī Riyāḍ al-Tafsīr</em> and the <em>Rūḥ al-Bayān</em> of
             Ismāʿīl Ḥaqqī al-Burūsawī (d. 1127/1715) marks one of the most significant findings
-            of recent scholarship on Niasse&apos;s tafsīr. In his 2024 study, Wright argues that
+            of recent scholarship on Niasse&apos;s tafsīr. In his 2024 study, Zachary Wright (Northwestern University in Qatar) argues that
             Niasse&apos;s commentary &ldquo;exhibits a clear preference for an early
             eighteenth-century Ottoman multivolume work, Ismāʿīl Ḥaqqī&apos;s &lsquo;Spirit of
             Explanation&rsquo; (<em>Rūḥ al-Bayān</em>), one of the most comprehensive summaries
@@ -118,10 +118,10 @@ export default function CompanionTextsPage() {
 
         {/* Footnotes */}
         <div className="border-t border-gold/15 pt-6 space-y-2 text-white/40 text-xs leading-6">
-          <p><sup>1</sup> Oludamini Ogunnaike, &ldquo;In the Gardens with Ibrāhīm: An Evaluation of <em>Fī Riyāḍ al-Tafsīr</em> by Shaykh Ibrāhīm Niasse, a Contemporary, Traditional Tafsīr,&rdquo; <em>Journal of Qurʾānic Studies</em> 20, no. 1 (2018): 29.</p>
+          <p><sup>1</sup> Oludamini Ogunnaike (Associate Professor of Religion, The College of William and Mary), &ldquo;In the Gardens with Ibrāhīm: An Evaluation of <em>Fī Riyāḍ al-Tafsīr</em> by Shaykh Ibrāhīm Niasse, a Contemporary, Traditional Tafsīr,&rdquo; <em>Journal of Qurʾānic Studies</em> 20, no. 1 (2018): 29.</p>
           <p><sup>2</sup> Ibid., 29.</p>
           <p><sup>3</sup> Ibid., 29.</p>
-          <p><sup>4</sup> Zachary Wright, &ldquo;The Qurʾān and Knowledge of God in West Africa: The Sufi Tafsīr of Shaykh Ibrāhīm Niasse,&rdquo; <em>Islamic Africa</em> 15 (2024): 69.</p>
+          <p><sup>4</sup> Zachary Wright (Associate Professor, Liberal Arts Program, Northwestern University in Qatar), &ldquo;The Qurʾān and Knowledge of God in West Africa: The Sufi Tafsīr of Shaykh Ibrāhīm Niasse,&rdquo; <em>Islamic Africa</em> 15 (2024): 69.</p>
           <p><sup>5</sup> Ibid., 71.</p>
           <p><sup>6</sup> Ogunnaike, &ldquo;In the Gardens with Ibrāhīm,&rdquo; 30.</p>
         </div>
