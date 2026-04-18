@@ -148,6 +148,7 @@ const ABOUT_ITEMS: DropdownItem[] = [
     { label: "Companion Texts", sub: "Jalālayn & Rūḥ al-Bayān", href: "/about/companion-texts" },
     { label: "Translator & Digital Editor", sub: "Amadu Kunateh", href: "/about/translator" },
     { label: "Translator's Note", sub: "Methodology & conventions", href: "/translators-note" },
+    { label: "Editorial Note", sub: "Digital edition methodology · v1.0", href: "/editorial-note" },
   ];
 
   const CONTRIBUTE_ITEMS: DropdownItem[] = [

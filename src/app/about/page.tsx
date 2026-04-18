@@ -17,6 +17,7 @@ export default function AboutPage() {
     <main className="max-w-2xl mx-auto px-6 pb-20 pt-6" dir="ltr">
       <div className="text-center pb-8 mb-8 border-b border-gold/20">
         <div className="font-english text-gold text-2xl font-semibold">About This Edition &amp; Platform</div>
+        <div className="font-english text-white/30 text-xs mt-1">Edition 1.0 · April 2025</div>
         <div className="font-english text-white/40 text-sm mt-2 italic">
           Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
         </div>
@@ -82,6 +83,18 @@ export default function AboutPage() {
             the orthographic standard of North and West Africa in which the tafsīr was delivered. 
             Audio recitation is by <strong className="text-white/85">Maḥmūd Khalīl al-Ḥuṣarī</strong> (1917–1980) 
             in the Warsh riwāya.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
+            Editorial Note
+          </h2>
+          <p className="leading-6">
+            For a full account of editorial principles — digitisation methodology, footnote marker 
+            insertion, verse range verification, and version history — see the 
+            <Link href="/editorial-note" className="text-gold/70 hover:text-gold transition-colors mx-1">Editorial Note</Link> 
+            for this edition.
           </p>
         </div>
 
