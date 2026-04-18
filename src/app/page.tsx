@@ -243,7 +243,7 @@ export default function HomePage() {
         <audio
           controls
           className="w-full"
-          style={accentColor: '#C9A84C'}
+          style={{accentColor: '#C9A84C'}}
           preload="none"
         >
           <source src="https://utfs.io/f/THPX9CeGNWHP3m1j6FH3ODvN1ErmqX" type="audio/mpeg" />
