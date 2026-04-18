@@ -1,8 +1,27 @@
 'use client';
 import { useState, ReactNode, useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { buildCitation } from '@/lib/clips';
-import { saveClip } from '@/lib/clips';
+// Inline citation helpers (avoids server-component import issues)
+const LESSON_VOLUME: Record<number, {vol:number;page:number|null}> = {
+  1:{vol:1,page:29},2:{vol:1,page:59},3:{vol:1,page:72},4:{vol:1,page:96},5:{vol:1,page:120},6:{vol:1,page:167},
+  7:{vol:2,page:null},8:{vol:2,page:null},9:{vol:2,page:null},10:{vol:2,page:null},11:{vol:2,page:null},12:{vol:2,page:null},
+  13:{vol:3,page:3},14:{vol:3,page:33},15:{vol:3,page:49},16:{vol:3,page:112},17:{vol:3,page:122},18:{vol:3,page:159},19:{vol:3,page:191},
+  20:{vol:4,page:null},21:{vol:4,page:null},22:{vol:4,page:null},23:{vol:5,page:null},24:{vol:5,page:null},25:{vol:5,page:null},
+  26:{vol:7,page:3},27:{vol:7,page:18},28:{vol:7,page:61},29:{vol:7,page:100},30:{vol:7,page:144},
+};
+function inlineBuildCitation(lessonId:number,titleEn:string,vrange:string):string{
+  const vd=LESSON_VOLUME[lessonId];
+  const volStr=vd?(', vol. '+vd.vol+(vd.page?', p. '+vd.page:'')):'';
+  const date=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  return \`Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, 10 vols. (n.p., n.d.)\${volStr}, \${titleEn} (\${vrange}). Digital ed., ed. Amadu Kunateh. niassetafsir.org. Accessed \${date}.\`;
+}
+function inlineSaveClip(text:string,lessonId:number,titleAr:string,titleEn:string,vrange:string,citation:string){
+  if(typeof window==='undefined')return;
+  const KEY='niassetafsir-clips';
+  const clips=JSON.parse(localStorage.getItem(KEY)||'[]');
+  clips.unshift({id:'clip-'+Date.now(),text,language:'ar',lessonId,lessonTitleAr:titleAr,lessonTitleEn:titleEn,verseRange:vrange,citation,timestamp:Date.now()});
+  localStorage.setItem(KEY,JSON.stringify(clips));
+}
 
 interface PanelProps {
   icon: string;
@@ -41,16 +60,8 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
 
   const handleCite = () => {
     if (!lessonId || !lessonTitleEn || !verseRange) return;
-    const citation = buildCitation(lessonId, lessonTitleEn, verseRange, 'en');
-    saveClip({
-      text: `[Commentary on Q.${verse}]`,
-      language: 'en',
-      lessonId,
-      lessonTitleAr: titleAr,
-      lessonTitleEn: lessonTitleEn,
-      verseRange,
-      citation,
-    });
+    const citation = inlineBuildCitation(lessonId, lessonTitleEn || '', verseRange || '');
+    inlineSaveClip(`[Commentary on Q.${verse}]`, lessonId!, titleAr, lessonTitleEn||'', verseRange||'', citation);
     setCited(true);
     setTimeout(() => setCited(false), 2000);
   };
