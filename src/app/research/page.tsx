@@ -52,8 +52,8 @@ const TOOLS = [
   {
     href: '/glossary-map',
     titleAr: 'خريطة المصطلحات',
-    titleEn: 'Conceptual Map',
-    desc: 'How the key terms in the tafsīr connect, presuppose, and relate within Niasse\'s theological system.',
+    titleEn: 'Theological Vocabulary Map',
+    desc: 'A knowledge graph of how Niasse deploys theological vocabulary, with confirmed connections drawn from his own words in the tafsīr.',
     icon: '',
   },
   {

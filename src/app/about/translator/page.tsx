@@ -46,6 +46,14 @@ export default function Page() {
           present in the printed Arabic text.
         </p>
         <p>
+          The Theological Vocabulary Map constitutes a third original contribution. Drawing 
+          on confirmed evidence from Niasse&apos;s own commentary, the Map presents the 
+          theological vocabulary of <em>Fī Riyāḍ al-Tafsīr</em> as a structured knowledge 
+          graph, with typed connections between terms (hierarchies, conditions, dyads, 
+          spiritual progressions). No existing resource on any Islamic scholarly figure 
+          presents its subject&apos;s theological vocabulary in this form.
+        </p>
+        <p>
           The Scholar Index represents a further and distinct contribution. Where the compiler&apos;s 
           apparatus documents Niasse&apos;s sources, the Scholar Index maps Niasse&apos;s intellectual 
           interlocutors, the figures he names, invokes, and positions himself in relation to within his 

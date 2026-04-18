@@ -135,7 +135,7 @@ export default function SiteNav() {
   { label: "Verse Concordance", sub: "314 verses, Niasse's commentary", href: "/concordance" },
   { label: "Scholar Index", sub: "Every figure Niasse cites", href: "/scholars" },
   { label: "Glossary", sub: "Key terms in Niasse's vocabulary", href: "/glossary" },
-  { label: "Conceptual Map", sub: "How terms connect in Niasse's system", href: "/glossary-map" },
+  { label: "Theological Vocabulary Map", sub: "Knowledge graph of Niasse's theological terms", href: "/glossary-map" },
   { label: "Critical Apparatus", sub: "798 footnotes & citations", href: "/footnotes" },
   { label: "Hadith Index", sub: "384 hadith citations indexed", href: "/hadith" },
   { label: "Research Clips", sub: "Saved citations & excerpts", href: "/clips" },

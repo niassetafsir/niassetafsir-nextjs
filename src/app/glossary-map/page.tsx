@@ -80,10 +80,10 @@ export default function GlossaryMapPage() {
       <div className="mb-6 text-center">
         <h1 className="font-arabic text-gold text-2xl font-bold mb-1" dir="rtl">خريطة المصطلحات</h1>
         <p className="font-english text-sm mb-1" style={{color:'rgba(255,255,255,0.45)'}}>
-          Conceptual Map of Niasse's Theological Vocabulary
+          Theological Vocabulary Map
         </p>
         <p className="font-english text-xs mb-4" style={{color:'rgba(255,255,255,0.25)'}}>
-          How the key terms in <em>Fī Riyāḍ al-Tafsīr</em> connect, presuppose, and relate
+          A knowledge graph of how Niasse deploys and connects theological vocabulary in <em>Fī Riyāḍ al-Tafsīr</em>
         </p>
         <div className="flex justify-center gap-3 flex-wrap">
           {Object.entries(CATEGORY_COLORS).map(([cat, cls]) => (
