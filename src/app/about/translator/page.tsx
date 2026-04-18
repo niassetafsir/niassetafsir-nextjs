@@ -16,7 +16,7 @@ export default function Page() {
         <p>
           <strong className="text-white/90">Amadu Kunateh</strong> is a PhD candidate in Philosophy of Religion and African Studies at Harvard University. This digital scholarly edition is part of his sustained 
           doctoral research on the tafsīr of Shaykh Ibrāhīm Niasse — work he has conducted since 2022 across 
-          both the six-volume and current ten-volume Arabic editions of the text.
+          both the six-volume compilation and the revised ten-volume recension of the text.
         </p>
         <p>
           Kunateh conceived, built, and maintains this edition. He is the sole translator of the English text 
