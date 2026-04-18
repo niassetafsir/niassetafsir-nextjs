@@ -107,7 +107,7 @@ export default function ResearchPage() {
         <p className="font-english text-xs" style={{color:'rgba(255,255,255,0.4)'}}>
           <strong style={{color:'rgba(255,255,255,0.65)'}}>Citing this platform:</strong>{' '}
           Ibrāhīm Niasse, <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>, comp. Muḥammad ibn Shaykh ʿAbd Allāh 
-          al-Tijānī al-Ibrāhīmī, 10 vols. (n.p., n.d.). Digital ed., ed. Amadu Kunateh. 
+          al-Tijānī al-Ibrāhīmī, rev. 10-vol. ed. (n.p., n.d.). Digital ed., ed. Amadu Kunateh. 
           niassetafsir.org, 2025.
         </p>
       </div>

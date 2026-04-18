@@ -67,7 +67,7 @@ export function buildCitation(
   if (language === 'en') {
     return `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, trans. Amadu Kunateh (niassetafsir.org, 2025)${volStr}, ${lessonTitleEn} (${verseRange}). Accessed ${date}.`;
   }
-  return `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, 10 vols. (n.p., n.d.)${volStr}, ${lessonTitleEn} (${verseRange}). Digital ed., ed. Amadu Kunateh, niassetafsir.org. Accessed ${date}.`;
+  return `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, rev. 10-vol. ed. (n.p., n.d.)${volStr}, ${lessonTitleEn} (${verseRange}). Digital ed., ed. Amadu Kunateh, niassetafsir.org. Accessed ${date}.`;
 }
 
 export function buildBibliography(language: 'ar' | 'en'): string {

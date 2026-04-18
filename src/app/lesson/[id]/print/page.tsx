@@ -17,7 +17,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
   const body = (lesson as any).arabicBody || lesson.arabicText;
   const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
-  const citationAr = `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, 10 vols. (n.p., n.d.)${volStr ? ', ' + volStr : ''}, ${lesson.englishTitle} (${lesson.verseRange}). Digital ed., ed. Amadu Kunateh. niassetafsir.org. Accessed ${today}.`;
+  const citationAr = `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, rev. 10-vol. ed. (n.p., n.d.)${volStr ? ', ' + volStr : ''}, ${lesson.englishTitle} (${lesson.verseRange}). Digital ed., ed. Amadu Kunateh. niassetafsir.org. Accessed ${today}.`;
 
   return (
     <html>

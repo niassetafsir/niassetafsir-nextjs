@@ -39,7 +39,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
           {lesson.englishTitle} · {lesson.verseRange}
         </div>
         <div className="font-english text-white/30 text-xs mt-1" dir="ltr">
-          Arabic compiled edition · Vol. {lesson.volume ?? '—'}
+          Revised 10-vol. Arabic edition · Vol. {lesson.volume ?? '—'}
           {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ''}
           {!lesson.pageInVolume && lesson.volume ? ' · page to be confirmed' : ''}
         </div>

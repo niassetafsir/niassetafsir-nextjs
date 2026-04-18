@@ -126,7 +126,7 @@ export default function HomePage() {
           Shaykh Ibrāhīm Niasse (d. 1975)
         </div>
         <div className="font-english text-white/40 text-sm italic mb-3" dir="ltr">
-          Complete Arabic Edition · Bilingual Translation · Critical Apparatus
+          10-Volume Revised Arabic Edition · Bilingual Translation · Critical Apparatus
         </div>
         <div className="font-english text-white/55 text-base" dir="ltr">
           <span style={{color:'rgba(255,255,255,0.7)'}}>Digital Bilingual Edition</span>

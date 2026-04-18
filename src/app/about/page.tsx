@@ -33,7 +33,7 @@ export default function AboutPage() {
             support scholarly work going from text to meaning.
           </p>
           <p className="leading-6 mt-3">
-            The Arabic text is based on the compiled edition of 
+            The Arabic text is based on the revised ten-volume compiled edition of 
             <strong className="text-white/85"> Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī</strong>, 
             with editorial corrections. This edition has been digitised, verified, and built by 
             <strong className="text-white/85"> Amadu Kunateh</strong> as part 
