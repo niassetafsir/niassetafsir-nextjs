@@ -18,7 +18,7 @@ export default function AboutPage() {
           </h2>
           <p className="leading-6">
             This site presents two interconnected resources in one: a digital bilingual edition and a research platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> 
-            by Shaykh Ibrāhīm Niasse (d. 1975) — the first resource of its kind designed to make this 
+            by Shaykh Ibrāhīm Niasse (d. 1975) — designed to make this 
             tafsīr accessible, searchable, and analytically usable for academic research. It presents 
             the complete Arabic text alongside a growing English translation, with comparative passages 
             from Tafsīr al-Jalālayn and <em>Rūḥ al-Bayān</em>.
@@ -93,7 +93,7 @@ export default function AboutPage() {
             <strong className="text-white/85">Amadu Kunateh</strong> — Translator &amp; Digital Editor. 
             and builder of this scholarly platform. Kunateh conceived and developed this resource 
             to make Shaykh Ibrāhīm Niasse&apos;s tafsīr accessible and searchable for scholarly 
-            research, building the first digital scholarly edition of the text.
+            research, building a digital scholarly edition and critical apparatus for the text.
           </p>
           <p className="leading-6 mt-3">
             <strong className="text-white/70">Ally Mahmoud</strong> — Web development review.<br />
