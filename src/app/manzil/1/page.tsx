@@ -77,7 +77,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Baqara</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Sūrat al-Baqara · Q. 2:203–286</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat al-Baqara · Q. 2:203–252</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
@@ -154,7 +154,7 @@ export default function Page() {
           <div className="font-arabic text-white/35 text-sm">Al-Nisāʾ</div>
         </div>
         <div dir="ltr" className="hidden sm:block flex-1">
-          <div className="font-english text-white/55 text-sm italic">Sūrat al-Nisāʾ · Q. 4:23–175</div>
+          <div className="font-english text-white/55 text-sm italic">Sūrat al-Nisāʾ · Q. 4:148–5:22</div>
         </div>
         {false && <span className="font-english text-xs text-gold/55 border border-gold/20 px-2 py-0.5 rounded-full flex-shrink-0">EN ✓</span>}
       </a>
