@@ -13,7 +13,7 @@ function inlineBuildCitation(lessonId:number,titleEn:string,vrange:string):strin
   const vd=LESSON_VOLUME[lessonId];
   const volStr=vd?(', vol. '+vd.vol+(vd.page?', p. '+vd.page:'')):'';
   const date=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-  return \`Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, 10 vols. (n.p., n.d.)\${volStr}, \${titleEn} (\${vrange}). Digital ed., ed. Amadu Kunateh. niassetafsir.org. Accessed \${date}.\`;
+  return 'Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, 10 vols. (n.p., n.d.)'+volStr+', '+titleEn+' ('+vrange+'). Digital ed., ed. Amadu Kunateh. niassetafsir.org. Accessed '+date+'.';
 }
 function inlineSaveClip(text:string,lessonId:number,titleAr:string,titleEn:string,vrange:string,citation:string){
   if(typeof window==='undefined')return;
@@ -61,7 +61,7 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
   const handleCite = () => {
     if (!lessonId || !lessonTitleEn || !verseRange) return;
     const citation = inlineBuildCitation(lessonId, lessonTitleEn || '', verseRange || '');
-    inlineSaveClip(`[Commentary on Q.${verse}]`, lessonId!, titleAr, lessonTitleEn||'', verseRange||'', citation);
+    inlineSaveClip('[Commentary on Q.'+verse+']', lessonId!, titleAr, lessonTitleEn||'', verseRange||'', citation);
     setCited(true);
     setTimeout(() => setCited(false), 2000);
   };
