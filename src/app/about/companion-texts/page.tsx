@@ -56,7 +56,7 @@ export default function CompanionTextsPage() {
             The specific recension of the Jalālayn that Niasse consulted was the edition bearing
             the marginal notes of Aḥmad al-Ṣāwī (d. 1241/1825), an Egyptian Mālikī scholar, 
             a student of al-Dardir, and a Sufi of the Khalwatiyya order whose commentary 
-            integrated the legal and spiritual dimensions of Quranic interpretation. The late Ustādh Barham Diop (1932–2014), a prominent
+            integrated the legal and spiritual dimensions of Quranic interpretation. Ustādh Barham Diop (1932–2014), a prominent
             student of Niasse, confirmed to Ogunnaike that Shaykh Ibrāhīm delivered the 1964
             Ramaḍān sessions with a physical copy of the Jalālayn with al-Ṣāwī&apos;s marginal
             notes in his hand.<sup>2</sup> The compiler&apos;s annotations confirm this: from the
