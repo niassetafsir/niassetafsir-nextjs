@@ -1,21 +1,32 @@
 {
-  "idrāk": {
-    "key_passage": "The human being is neither spirit nor body, but rather the perception (idrāk) generated between them when they come together.",
-    "key_ar": "الإنسان ليس هو الروح ولا هو الجسم، بل هو الإدراك الحاصل بينهما عند اجتماعهما",
-    "key_point": "Al-Tijānī's final, revised anthropology: the human being is idrāk — the awareness that arises when rūḥ and jism meet. Neither alone constitutes the human being.",
-    "source": "Mishri, Kitāb al-Jāmiʿ, reporting from Shaykh Aḥmad al-Tijānī",
+  "tawḥīd (prophetic vs kalām)": {
+    "key_passage": "The path to [prophetic tawḥīd] was abandoned and eventually effaced only because the general public turned away from it, inclining instead toward the rhetorical embellishments of kalām theology... they assumed that this was the ultimate goal in drawing near to God—whereas in truth, that path is the furthest one from God and leads only to misguidance. Those who continued to walk the path of the messengers' tawḥīd came to be known as Ṣūfīs and ʿārifīn.",
+    "key_point": "Al-Tijānī distinguishes prophetic tawḥīd (lived, experiential) from kalām tawḥīd (rational-speculative). The former is what all messengers taught; the latter is a philosophical deviation. The Sufis preserve the prophetic tawḥīd.",
+    "source": "Shaykh Aḥmad al-Tijānī (d. 1815), as reported in Muḥammad al-Mishri, Kitāb al-Jāmiʿ, pp. 66–67",
     "authority": "Shaykh Aḥmad al-Tijānī (d. 1815)"
   },
-  "rūḥ (Tijānī)": {
-    "key_passage": "From the moment God created it [the rūḥ], it has been knowing, aware, remembering, and has never ceased from the remembrance of God for even the blink of an eye.",
-    "key_point": "Al-Tijānī: the rūḥ is eternally aware and never heedless — making it unsuitable as the locus of moral accountability. Accountability belongs to the idrāk (the human being properly).",
-    "source": "Mishri, Kitāb al-Jāmiʿ, reporting from Shaykh Aḥmad al-Tijānī",
+  "maʿrifa (giveness/encounter)": {
+    "key_passage": "Maʿrifa is thus not only a matter of recognizing the oneness of the Real in a metaphysical sense, but relating to the Real in every circumstance, moment, givenness, and encounter. The Tijānī preference for the term maẓāhir (sites of manifestation) over tajalliyāt (disclosures) reflects a metaphysics grounded in encounter rather than transcendence.",
+    "key_point": "Tijānī maʿrifa is relational and immediate — God is encountered in the world as maẓhar (site of manifestation), not transcended. This is the defining distinction from the Akbarian-Sufi model.",
+    "source": "AK's notes on the Tijānī tradition",
+    "authority": "Analytical note"
+  },
+  "fanāʾ (annihilation of annihilation)": {
+    "key_passage": "There is a time when the knower (ʿārif) undergoes annihilation (fanāʾ) and immersion (istighrāq), until he exits the sphere of his senses... This may sometimes be in the Essence of the Truth, where He manifests to him from His divine holiness some of His secrets, overflowing upon him, necessitating that he witnesses his own essence as identical with the Essence of the Truth due to his dissolution in it.",
+    "key_point": "Al-Tijānī on the ecstatic utterances (shaṭaḥāt) of the saints: fanāʾ in the Essence may cause the wali to speak with the tongue of the Truth, not his own. This is the proper hermeneutical key to such statements.",
+    "source": "Shaykh Aḥmad al-Tijānī (d. 1815), as reported in Muḥammad al-Mishri, Kitāb al-Jāmiʿ",
     "authority": "Shaykh Aḥmad al-Tijānī (d. 1815)"
   },
-  "awliyāʾ (perception after death)": {
-    "key_passage": "As for God's chosen elect among His servants, perception does not leave their bodies when the spirit departs, just as it remains with their spirits. For this reason, it is reported that they continue worshipping God after death just as they did before it.",
-    "key_point": "The awliyāʾ are distinguished by the permanence of idrāk — perception remains in both rūḥ and jism after death, giving continuity of worship.",
-    "source": "Mishri, Kitāb al-Jāmiʿ, reporting from Shaykh Aḥmad al-Tijānī",
+  "ḥaqīqa muḥammadiyya (Tijānī)": {
+    "key_passage": "The essence (al-ʿayn) of relative oneness (wāḥidiyya) is the Muhammadan Reality (al-ḥaqīqa al-muḥammadiyya). To be drowned in it is to view it without veils.",
+    "key_point": "Al-Tijānī identifies the Muhammadan Reality with the ʿayn of wāḥidiyya — the first locus of divine self-disclosure through which the divine Names and Attributes become accessible.",
+    "source": "Shaykh Aḥmad al-Tijānī (d. 1815), as reported in Muḥammad al-Mishri, Kitāb al-Jāmiʿ",
+    "authority": "Shaykh Aḥmad al-Tijānī (d. 1815)"
+  },
+  "ranks of the hereafter": {
+    "key_passage": "Creation in the Hereafter consists of three categories: those who are the share of Allah's riḍā (the ṣiddīqūn, the aqṭāb, the prophets, and the messengers); those who are the share of His raḥma (the awliyāʾ, the righteous, and the martyrs); and those who are the people of pardon and forgiveness (the disobedient believers). And a fourth: khāṣṣat al-khāṣṣa — He loves them and they love Him (Q. 5:54).",
+    "key_point": "Al-Tijānī's eschatological hierarchy: four levels, the highest being mutual love (yūḥibbuhum wa-yuḥibbūnahu) — the most elect, encompassing the ṣiddīqūn, aqṭāb, prophets, and messengers.",
+    "source": "Shaykh Aḥmad al-Tijānī (d. 1815), as reported in Muḥammad al-Mishri, Kitāb al-Jāmiʿ",
     "authority": "Shaykh Aḥmad al-Tijānī (d. 1815)"
   }
 }
