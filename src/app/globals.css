@@ -570,13 +570,10 @@ nav .font-english.text-xs {
 
 /* Quranic verse citations in lesson body */
 .quranic-verse {
-  color: #34d399;
+  color: #34d399 !important;
   font-style: normal;
 }
 .light .quranic-verse,
 [data-theme="light"] .quranic-verse {
-  color: #0d7a5f;
-}
-@media (prefers-color-scheme: light) {
-  .quranic-verse { color: #0d7a5f; }
+  color: #0d7a5f !important;
 }
