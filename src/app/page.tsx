@@ -125,13 +125,8 @@ export default function HomePage() {
         <div className="font-english text-gold/45 text-xs mb-2" dir="ltr">
           Shaykh Ibrāhīm Niasse (d. 1975)
         </div>
-        <div className="font-english text-white/40 text-sm italic mb-3" dir="ltr">
-          10-Volume Revised Arabic Edition · Bilingual Translation · Footnotes & Citations
-        </div>
-        <div className="font-english text-white/55 text-base" dir="ltr">
-          <span style={{color:'rgba(255,255,255,0.7)'}}>Digital Bilingual Edition</span>
-          <span className="mx-2" style={{color:'rgba(201,168,76,0.4)'}}>·</span>
-          <span style={{color:'rgba(255,255,255,0.7)'}}>Research Platform</span>
+        <div className="font-english text-white/55 text-sm mb-3" dir="ltr">
+          10-Volume Revised Arabic Edition · Bilingual Translation · Scholarly Research Platform
         </div>
         <div className="flex gap-3 justify-center mt-6 flex-wrap items-center">
           <Link href="/lesson/1" className="font-english text-base text-bg bg-gold hover:bg-gold-light px-5 py-2 rounded-lg font-semibold transition-all">
