@@ -10,6 +10,7 @@ interface VerseRef {
   excerpt: string;
   volRef?: string;
   anchor?: string | null;
+  panel?: string | null;
 }
 
 interface VerseText {
@@ -88,7 +89,7 @@ function VerseEntry({ entryKey, refs, vt }: { entryKey: string; refs: VerseRef[]
         <div className="divide-y divide-white/5 border-t border-white/8">
           {refs.map((ref, i) => (
             <Link key={i} 
-              href={`/lesson/${ref.lessonId}?panel=tafsir${ref.anchor ? '&q=' + encodeURIComponent(ref.anchor) : ''}`}
+              href={`/lesson/${ref.lessonId}?panel=${ref.panel || 'tafsir'}${ref.anchor ? '&q=' + encodeURIComponent(ref.anchor) : ''}`}
               className="flex items-center gap-3 px-4 py-2.5 hover:bg-gold/5 transition-colors group">
               <div className="w-5 h-5 rounded-full bg-gold/20 flex items-center justify-center text-gold text-[10px] font-bold flex-shrink-0">
                 {ref.lessonId}
