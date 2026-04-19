@@ -9,6 +9,7 @@ interface VerseRef {
   source: string;
   excerpt: string;
   volRef?: string;
+  anchor?: string | null;
 }
 
 interface VerseText {
