@@ -166,37 +166,38 @@ export default function HomePage() {
                 <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by Shaykh Ibrāhīm Niasse is organised here into{' '}
                 <strong style={{color:'rgba(255,255,255,0.9)'}}>30 lessons</strong> across{' '}
                 <strong style={{color:'rgba(255,255,255,0.9)'}}>7 manzils</strong> — the weekly Quranic recitation
-                cycle he practised. Each lesson covers a passage of the Quran with his full Arabic commentary
-                and English translation.
+                cycle he practised. Each lesson covers a passage with his Arabic commentary and English translation.
               </p>
 
               <div className="border-t border-gold/15 pt-3">
                 <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>Reading the Text</p>
                 <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
-                  <li>Click any manzil on this page → then any lesson</li>
-                  <li>Inside the lesson: toggle between <strong style={{color:'rgba(255,255,255,0.85)'}}>Arabic</strong>, <strong style={{color:'rgba(255,255,255,0.85)'}}>English</strong>, or <strong style={{color:'rgba(255,255,255,0.85)'}}>Bilingual</strong> view</li>
-                  <li>Footnote numbers <code style={{color:'rgba(201,168,76,0.9)', fontSize:'11px'}}>[n]</code> in the text link directly to the full footnotes and citations</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio</strong> — Wolof oral tafsīr (122 sessions) and Arabic delivery by Shaykh Ibrāhīm, available for all 30 lessons</li>
+                  <li>Click any manzil → then any lesson</li>
+                  <li>Toggle <strong style={{color:'rgba(255,255,255,0.85)'}}>Arabic</strong>, <strong style={{color:'rgba(255,255,255,0.85)'}}>English</strong>, or <strong style={{color:'rgba(255,255,255,0.85)'}}>Bilingual</strong> view inside the lesson</li>
+                  <li>Footnote numbers <code style={{color:'rgba(201,168,76,0.9)', fontSize:'11px'}}>[n]</code> link directly to the Footnotes & Citations page</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio</strong> — Wolof oral tafsīr (122 sessions) and Arabic delivery by Shaykh Ibrāhīm for all 30 lessons</li>
                 </ul>
               </div>
 
               <div className="border-t border-gold/15 pt-3">
-                <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>Researching the Text</p>
+                <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>Research Tools</p>
                 <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Search</strong> — full-text across 30 Arabic lessons and English translation</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Verse Concordance</strong> — find every passage where Niasse comments on a specific verse</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Footnotes & Citations</strong> — 798 footnotes classified by scholar, genre, and lesson</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Scholar Index</strong> — every figure Niasse cites, distinguished from compiler citations</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Tafsīr Sciences Index</strong> — browse by Sufism, Fiqh, Quranic Sciences, Prophethood</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Glossary</strong> — 19 key terms with Niasse's exact usage and apparatus citations</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Theological Vocabulary Map</strong> — a knowledge graph showing how terms connect in Niasse's system</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Verse Concordance</strong> — search any verse to access Jalālayn&apos;s commentary and Shaykh Ibrāhīm&apos;s reflection</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Footnotes & Citations</strong> — 798 footnotes by the compiler, classified by scholar and subject; click [n] to go directly to the source</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Hadith Index</strong> — 384 hadith citations indexed by collection</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Scholar & Source Index</strong> — every figure Niasse cites in his own words, distinguished from compiler citations</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Tafsīr Sciences Index</strong> — 12 disciplinary categories drawn from classical ʿulūm al-tafsīr</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Glossary of Key Terms</strong> — 20 theological and Sufi terms as Niasse uses them, grounded in Shaykh Aḥmad al-Tijānī and Muḥammad al-Mishri</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Theological Vocabulary Map</strong> — a knowledge graph of how terms connect within Niasse&apos;s system</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio Library</strong> — stream or download the Arabic oral tafsīr recordings by sura</li>
                 </ul>
               </div>
 
               <div className="border-t border-gold/15 pt-3">
                 <p className="font-semibold mb-1" style={{color:'rgba(255,255,255,0.9)'}}>Citing the Text</p>
                 <p style={{color:'rgba(255,255,255,0.55)'}}>
-                  Select any passage → <strong style={{color:'rgba(201,168,76,0.8)'}}>Clip &amp; Cite</strong> → Chicago citation generated automatically.
+                  Select any passage → <strong style={{color:'rgba(201,168,76,0.8)'}}>Clip &amp; Cite</strong> → Chicago citation with volume and page reference generated automatically.
                   Export all saved clips from <code style={{color:'rgba(255,255,255,0.5)', fontSize:'11px'}}>/clips</code>.
                 </p>
               </div>
