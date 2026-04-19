@@ -158,9 +158,12 @@ export default function FootnotesPage() {
             <p className="text-center py-12 animate-pulse font-english" style={{color:'rgba(255,255,255,0.3)'}}>Loading…</p>
           ) : (
             <>
-              <p className="font-english text-xs mb-3" style={{color:'rgba(255,255,255,0.2)'}}>
+              <p className="font-english text-xs mb-1" style={{color:'rgba(255,255,255,0.2)'}}>
                 {filtered.length} footnote{filtered.length!==1?'s':''}
                 {active !== 'all' && ` · filtered by ${mode}: ${active}`}
+              </p>
+              <p className="font-english text-[10px] mb-3 italic" style={{color:'rgba(255,255,255,0.15)'}}>
+                Footnotes numbered as in the physical edition — numbers restart on each page of the original.
               </p>
               {filtered.map(fn => {
                 const isHighlighted = fn.id === highlightRef.current;
@@ -178,7 +181,7 @@ export default function FootnotesPage() {
                       <div className="flex items-center gap-2 flex-wrap">
                         <Link href={`/lesson/${fn.lessonId}?panel=tafsir`}
                           className="font-english text-[10px] text-gold/60 hover:text-gold border border-gold/20 px-1.5 py-0.5 rounded transition-colors">
-                          Lesson {fn.lessonId} [{fn.num}]
+                          Lesson {fn.lessonId} · fn. {fn.num}{fn.id.split('-').length > 3 ? ` (occ. ${fn.id.split('-').pop()})` : ''}
                         </Link>
                         {fn.volRef && (
                           <span className="font-english text-[10px]" style={{color:'rgba(255,255,255,0.3)'}}>
