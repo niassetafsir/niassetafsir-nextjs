@@ -53,7 +53,7 @@ const PRIMARY_TOOLS = [
   {
     href: '/glossary',
     titleAr: 'مصطلحات التفسير',
-    titleEn: 'Glossary of Key Terms',
+    titleEn: 'Concordance of Terms',
     desc: 'Nineteen theological and Sufi terms as Niasse employs them, with his exact Arabic usage, apparatus citations, and conceptual connections.',
   },
   {

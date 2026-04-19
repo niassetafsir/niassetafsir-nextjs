@@ -188,7 +188,7 @@ export default function HomePage() {
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Hadith Index</strong> — 384 hadith citations indexed by collection</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Scholar & Source Index</strong> — every figure Niasse cites in his own words, distinguished from compiler citations</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Tafsīr Sciences Index</strong> — 12 disciplinary categories drawn from classical ʿulūm al-tafsīr</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Glossary of Key Terms</strong> — 20 theological and Sufi terms as Niasse uses them, grounded in Shaykh Aḥmad al-Tijānī and Muḥammad al-Mishri</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Concordance of Terms</strong> — textual index of 20 key terms across all 30 lessons, grounded in Shaykh Aḥmad al-Tijānī and Muḥammad al-Mishri</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Theological Vocabulary Map</strong> — a knowledge graph of how terms connect within Niasse&apos;s system</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio Library</strong> — stream or download the Arabic oral tafsīr recordings by sura</li>
                 </ul>
