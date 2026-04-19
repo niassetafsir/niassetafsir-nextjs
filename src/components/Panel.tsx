@@ -130,22 +130,22 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
       )}
 
       {open && (
-        <div className="border-t border-white/10">
-          {children}
-          {/* Close strip — always visible at bottom of open panel */}
-          <button
-            onClick={() => {
-              setOpen(false);
-              ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
-            className="w-full flex items-center justify-center gap-1.5 px-4 py-2.5 border-t border-white/8 hover:bg-white/5 transition-colors group"
-          >
-            <ChevronDown size={13} className="text-white/20 rotate-180 group-hover:text-gold/50 transition-colors" />
-            <span className="font-english text-[11px] text-white/20 group-hover:text-white/45 transition-colors">
+        <div className="border-t border-white/10 relative">
+          {/* Sticky close bar — stays at top of viewport while panel is open */}
+          <div className="sticky top-0 z-20 flex justify-end px-3 py-1.5 border-b border-white/8"
+            style={{background:'rgba(13,31,10,0.92)', backdropFilter:'blur(6px)'}}>
+            <button
+              onClick={() => {
+                setOpen(false);
+                ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+              className="flex items-center gap-1 font-english text-[11px] text-white/30 hover:text-white/65 transition-colors px-2 py-0.5 rounded hover:bg-white/8"
+            >
+              <ChevronDown size={11} className="rotate-180" />
               Close
-            </span>
-            <ChevronDown size={13} className="text-white/20 rotate-180 group-hover:text-gold/50 transition-colors" />
-          </button>
+            </button>
+          </div>
+          {children}
         </div>
       )}
     </div>
