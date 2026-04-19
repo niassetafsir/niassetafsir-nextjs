@@ -132,6 +132,20 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
       {open && (
         <div className="border-t border-white/10">
           {children}
+          {/* Close strip — always visible at bottom of open panel */}
+          <button
+            onClick={() => {
+              setOpen(false);
+              ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+            className="w-full flex items-center justify-center gap-1.5 px-4 py-2.5 border-t border-white/8 hover:bg-white/5 transition-colors group"
+          >
+            <ChevronDown size={13} className="text-white/20 rotate-180 group-hover:text-gold/50 transition-colors" />
+            <span className="font-english text-[11px] text-white/20 group-hover:text-white/45 transition-colors">
+              Close
+            </span>
+            <ChevronDown size={13} className="text-white/20 rotate-180 group-hover:text-gold/50 transition-colors" />
+          </button>
         </div>
       )}
     </div>

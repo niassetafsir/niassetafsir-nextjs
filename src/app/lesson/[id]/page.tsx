@@ -71,20 +71,9 @@ export default async function LessonPage({ params }: { params: { id: string } })
           arabicText={lesson.arabicBody || lesson.arabicText}
           englishText={lesson.englishText}
           hasEnglish={lesson.hasEnglish}
+          lessonId={lesson.id}
         />
-        <div className="p-4" dir="ltr">
-          {lesson.jalalaynText ? (
-            <JalalaynVerseView
-              jalalaynText={lesson.jalalaynText}
-              niasseBody={lesson.arabicBody || lesson.arabicText || ''}
-              niasseEnglish={lesson.englishText || null}
-              verseRange={lesson.verseRange || ''}
-              lessonTitleEn={lesson.englishTitle || ''}
-            />
-          ) : (
-            <p className="font-english text-xs text-white/30 italic">Jalālayn text forthcoming.</p>
-          )}
-        </div>
+
       </Panel>
 
       {/* 3. Reading Notes */}
