@@ -133,9 +133,12 @@ export default async function LessonPage({ params }: { params: { id: string } })
             </div>
           </div>
           {lesson.jalalaynText ? (
-            <div className="font-english text-sm text-white/85 leading-7 whitespace-pre-wrap text-center jalalayn-text">
-              {lesson.jalalaynText}
-            </div>
+            <JalalaynVerseView
+              jalalaynText={lesson.jalalaynText}
+              niasseBody={lesson.arabicBody || lesson.arabicText || ''}
+              verseRange={lesson.verseRange || ''}
+              lessonTitleEn={lesson.englishTitle || ''}
+            />
           ) : (
             <p className="font-english text-white/20 italic text-sm">Text forthcoming.</p>
           )}
