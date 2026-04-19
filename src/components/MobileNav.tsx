@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 
 const ITEMS = [
   { href: '/', icon: '⌂', label: 'Home' },
-  { href: '/lesson/1', icon: '◎', label: 'Read' },
+  { href: '/', icon: '◎', label: 'Read' },
   { href: '/research', icon: '⌕', label: 'Research' },
   { href: '/search', icon: '⌕', label: 'Search', hidden: true },
 ];
@@ -31,7 +31,7 @@ export default function MobileNav() {
           
           <span className="font-english text-[10px]">Home</span>
         </Link>
-        <Link href="/lesson/1"
+        <Link href="/"
           className="flex flex-col items-center gap-0.5 py-1.5 px-4 rounded-xl transition-all"
           style={{color: isActive('/lesson') || isActive('/manzil') ? '#C9A84C' : 'rgba(255,255,255,0.45)'}}>
           
