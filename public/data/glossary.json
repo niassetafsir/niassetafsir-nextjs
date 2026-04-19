@@ -3,37 +3,60 @@
     "term": "al-Fayḍa",
     "arabic": "الفيضة",
     "plural": "",
-    "definition": "The Spiritual Flood — the outpouring of divine grace that Shaykh Ibrāhīm Niasse identified as the defining spiritual event of the age, predicted in the traditions of the Tijānī order. The term denotes both the historical phenomenon of Niasse's mass spiritual education movement and the metaphysical reality of divine emanation from which it draws its name.",
+    "definition": "The Spiritual Flood — the outpouring of divine grace that Shaykh Ibrāhīm Niasse identified as the defining spiritual event of the age, predicted in the traditions of Shaykh Aḥmad al-Tijānī. Mishri bears witness to Niasse as 'the owner of the Fayḍa that Shaykh Tijānī had mentioned' — his personal recognition of Niasse's claim constitutes one of the primary testimonies of authorisation within the tradition. In Niasse's tafsīr, the term *fayḍa* appears in its grammatical root (*fayḍa* — outpouring) in Lesson 27: 'when another outpouring (fayḍa) of divine mercy floods over it [the soul], it becomes inspired' (Q. 12:53–13:18). This usage situates the Fayḍa within Niasse's broader theology of divine mercy overflowing into the receptive soul — the Fayḍa movement is the collective realisation of what happens to the individual soul when grace descends.",
     "lessons": [
-      1,
-      2,
-      4,
-      6,
-      16,
-      20,
-      23,
-      30
+      27
     ],
     "related": [
       "Tarbiya",
-      "al-Tawḥīd"
-    ]
+      "Walāya",
+      "Maʿrifa",
+      "Ḥaqīqa Muḥammadiyya"
+    ],
+    "mishri_quote": "...the owner of the Faydah that Shaykh Tijani had mentioned, in addition to other matters that neither pen nor paper could do justice.",
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018)",
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 27,
+        "volume": 5,
+        "page": 39,
+        "arabic_quote": "فإذا فاضت عليها فيضة أخرى من رحمة اللّٰه تبارك وتعالى تكون ملهمة",
+        "translation_note": "When another outpouring (fayḍa) of divine mercy floods over it [the soul], it becomes inspired",
+        "verseRange": "Q. 12:53–13:18"
+      }
+    ],
+    "definition_pending": false
   },
   {
     "term": "Tarbiya",
     "arabic": "التربية",
     "plural": "",
-    "definition": "Spiritual education and formation — the guided process by which a murshid (spiritual guide) leads a disciple toward the realization of tawḥīd. In Niasse's practice, tarbiya was a rapid and intensive method distinct from the slower methods of earlier Sufi masters.",
+    "definition": "Spiritual education and formation — the initiatic method by which a murshid guides a disciple toward the realisation of tawḥīd and maʿrifa. Mishri testifies personally to receiving tarbiya at Niasse's hands: 'I went to Shaykh Ibrahim, who renewed the wird for me, and I received tarbiya at his hands.' This testimony establishes tarbiya as the foundational act of the Tijānī-Niassene path — the transmission of spiritual capacity through direct contact with the Shaykh. In Niasse's own tafsīr, tarbiya is described as the function that every divine sign and saintly miracle serves: 'every miracle of a prophet and every karāma of a wali, whether of the sciences or otherwise, is a tarbiya for the people of his time — whoever is prepared receives it at the first indication and benefits' (Lesson 17, Q. 6:111–165). Tarbiya is thus simultaneously personal (the Shaykh's formation of the individual disciple) and cosmological (God's formation of the community through His signs).",
     "lessons": [
-      1,
-      4,
-      6,
-      20
+      17
     ],
     "related": [
+      "Maʿrifa",
+      "Walāya",
+      "Sulūk",
       "al-Fayḍa",
-      "Murshid"
-    ]
+      "Maqām"
+    ],
+    "mishri_quote": "I woke up and went to Shaykh Ibrahim, who renewed the wird for me, and I received tarbiyah at his hands.",
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018)",
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 17,
+        "volume": 3,
+        "page": 122,
+        "arabic_quote": "كل معجزة لنبي وكل كرامة لولي سواء علمية كانت أو غيرها فهي تربية لأهل زمانه، فمن كان مستعدا يترى بأول إشارة وينتفع",
+        "translation_note": "Every miracle of a prophet and every karāma of a wali is a tarbiya for the people of his time — whoever is prepared receives it at the first indication and benefits",
+        "verseRange": "Q. 6:111–165"
+      }
+    ],
+    "definition_pending": false
   },
   {
     "term": "al-Tawḥīd",
@@ -137,17 +160,20 @@
     "term": "Walāya",
     "arabic": "الولاية",
     "plural": "",
-    "definition": "Sainthood / divine friendship — the station of proximity to God attained by the awliyāʾ (saints). Niasse treats walāya as the inner dimension of prophecy, continuing after the seal of prophethood in the lineage of spiritual heirs.",
+    "definition": "Sainthood — the station of proximity to God and spiritual authority that follows from the full realisation of tawḥīd. Mishri specifies the inaugural act of walāya: 'the first step a wali takes in walāya is the killing of the nafs' — meaning that walāya is not a passive state but an active, ongoing combat against the ego-self. In Niasse's tafsīr, walāya is graduated: he distinguishes between walāya ṣughrā (the minor walāya — anyone characterised by a single Qurʾānically praised quality) and walāya kubrā (the major walāya — maʿrifa of God exceeding faith and certainty, the walāya of direct vision) (Lesson 24, apparatus). His most explicit use in the body text appears in Lesson 13, where he describes ʿĪsā (Jesus) as 'sealing the Muhammadan walāya (khātim al-walāya al-muḥammadiyya) as an honour to this community, so that no walāya remains after the descent of Jesus' — positioning the sealing of walāya within the eschatological framework of the tafsīr.",
     "lessons": [
-      1,
-      4,
-      6,
-      20,
-      23
+      8,
+      9,
+      13,
+      21,
+      24
     ],
     "related": [
-      "Al-Insān al-Kāmil",
-      "Khatm al-Walāya"
+      "Maʿrifa",
+      "Maqām",
+      "Ḥaqīqa Muḥammadiyya",
+      "Sulūk",
+      "al-Fayḍa"
     ],
     "niasse_evidence": [
       {
@@ -156,8 +182,17 @@
         "volume": 3,
         "page": 3,
         "arabic_quote": "خاتما للولاية المحمدية تشريفا لهذه الأمة، فلا ولاية بعد نزول عيسى",
-        "translation_note": "Sealing the Muhammadan sainthood as an honour to this community; no walāya after the descent of Jesus",
+        "translation_note": "Sealing the Muhammadan walāya as an honour to this community — no walāya remains after the descent of Jesus",
         "verseRange": "Q. 4:148–5:22"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 8,
+        "volume": 2,
+        "page": 34,
+        "arabic_quote": "ن اتصف بصفة من الصفات التي مدحها القرآن فهو من الأولياء هذه الولاية الصغرى",
+        "translation_note": "Whoever is characterised by a quality the Qurʾān praises — he is among the awliyāʾ. This is the minor walāya (walāya ṣughrā)",
+        "verseRange": "Q. 3:15–91"
       }
     ],
     "apparatus_evidence": [
@@ -168,36 +203,56 @@
         "note": "Compiler distinguishing walāya ṣughrā (minor sainthood) from walāya kubrā (major sainthood)"
       }
     ],
-    "definition_pending": true
+    "definition_pending": false,
+    "mishri_quote": "The first step a wali takes in walaya is the killing of the nafs. Then he struggles against other nufus... The people of nufus are regimented soldiers who know their enemies and are constantly striving against anyone who threatens their dominance.",
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018)"
   },
   {
     "term": "Maqām",
     "arabic": "المقام",
     "plural": "Maqāmāt",
-    "definition": "Spiritual station — a stable, achieved level of spiritual realisation, as distinct from ḥāl (spiritual state), which is transient. Niasse's tafsīr maps the Quranic narrative onto a sequence of spiritual stations traversed on the path to God.",
+    "definition": "Spiritual station — a stable, attained level of realisation on the path toward God, as distinguished from ḥāl (a transient spiritual state). Mishri illuminates the epistemological significance of the maqām: a wali who speaks from the maqām of slavehood (ʿubūda) uses attributes of deficiency to describe himself, which the uninitiated misread as false piety — 'the denier has no choice but to say, he just said what he did to show everyone how pious he is.' This makes the maqām the hermeneutical key to the wali's speech: the maqām from which a statement is made determines its meaning. In Niasse's tafsīr, the maqāmāt are both spiritual and exegetical: 'for every maqām there is a corresponding utterance' (Lesson 28). His most explicit treatment appears in Lesson 9, where he enumerates the maqāmāt in relation to the spiritual path. The highest is named in Lesson 28: 'the maqām of recollection (tatadhakkur)', which succeeds reflection (tafakkur) and constitutes the apex of spiritual cognition.",
     "lessons": [
-      1,
-      3,
       5,
-      6,
-      20
+      7,
+      8,
+      9,
+      10,
+      11,
+      23,
+      27,
+      28
     ],
     "related": [
+      "Sulūk",
+      "Ḥaḍra",
       "Fanāʾ",
-      "Baqāʾ"
+      "Maʿrifa",
+      "Walāya"
     ],
     "niasse_evidence": [
       {
         "type": "niasse-direct",
         "lesson": 28,
-        "volume": 7,
-        "page": 61,
+        "volume": 5,
+        "page": 70,
         "arabic_quote": "لكل مقام مقال... مقام التذكر",
         "translation_note": "For every maqām there is a corresponding utterance... the station of recollection (tatadhakkur)",
         "verseRange": "Q. 13:19–14:52"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 27,
+        "volume": 5,
+        "page": 39,
+        "arabic_quote": "الروح هو السلطان والعقل هو الوزير والقلب هو المفتي. إذا اتفق هؤلاء",
+        "translation_note": "When rūḥ, ʿaql, and qalb agree, they overcome the nafs — that is the maqām of completion",
+        "verseRange": "Q. 12:53–13:18"
       }
     ],
-    "definition_pending": true
+    "definition_pending": false,
+    "mishri_quote": "If the wali speaks from the maqam of selfless slavehood and uses attributes of deficiency to describe him- or herself, the denier has no choice but to say, 'He just said what he did to show everyone how pious he is.' That is how the denier thinks.",
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018)"
   },
   {
     "term": "Iʿjāz",
@@ -356,34 +411,34 @@
     "term": "Rūḥ",
     "arabic": "الروح",
     "plural": "Arwāḥ",
-    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
-    "definition_pending": true,
+    "definition": "The spirit — the higher faculty that, in contest with the nafs (ego-self), determines the spiritual condition of the human being. Mishri identifies the rūḥ and the nafs as permanent companions in every person: 'until either the nafs dies or the ruh dies, they will remain companions and no human will be free of their contesting with each other.' For the rūḥ to be alive and the nafs to be dead is, in Mishri's formulation, 'real life after which there is no death.' Niasse maps the spiritual faculties in a hierarchy: 'the drinking-place of the spirit (rūḥ) is the vision of Beauty (jamāl) and Majesty (jalāl)' (Lesson 4), and positions the rūḥ above the qalb: 'the rūḥ is the sovereign, the intellect is the vizier, and the qalb is the jurist' (Lesson 27). His most compressed formulation places maʿrifa at the apex of this structure: 'maʿrifa is the spirit of the intellect, and the intellect is the spirit of the body' (Lesson 16).",
+    "definition_pending": false,
     "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 27,
+        "volume": 5,
+        "page": 39,
+        "arabic_quote": "الروح هو السلطان والعقل هو الوزير والقلب هو المفتي",
+        "translation_note": "The rūḥ is the sovereign, the intellect is the vizier, and the qalb is the jurist",
+        "verseRange": "Q. 12:53–13:18"
+      },
       {
         "type": "niasse-direct",
         "lesson": 16,
         "volume": 3,
         "page": 112,
         "arabic_quote": "المعرفة روح العقل، والعقل روح الجسد",
-        "translation_note": "Maʿrifa is the spirit of the intellect; the intellect is the spirit of the body",
+        "translation_note": "Maʿrifa is the spirit of the intellect, and the intellect is the spirit of the body",
         "verseRange": "Q. 6:36–110"
-      },
-      {
-        "type": "niasse-direct",
-        "lesson": 27,
-        "volume": 7,
-        "page": 18,
-        "arabic_quote": "الروح هو السلطان والعقل هو الوزير والقلب هو المفتي",
-        "translation_note": "The rūḥ is the sovereign, the intellect is the vizier, the heart is the jurist",
-        "verseRange": "Q. 12:53–13:18"
       },
       {
         "type": "niasse-direct",
         "lesson": 4,
         "volume": 1,
-        "page": 96,
+        "page": 72,
         "arabic_quote": "مشرب الروح مشاهدة الجمال والجلال",
-        "translation_note": "The drinking-place of the rūḥ is the vision of Beauty (jamāl) and Majesty (jalāl)",
+        "translation_note": "The drinking-place of the rūḥ is the vision of Beauty and Majesty",
         "verseRange": "Q. 2:60–105"
       }
     ],
@@ -399,6 +454,7 @@
       3,
       4,
       6,
+      7,
       9,
       12,
       13,
@@ -411,9 +467,11 @@
     "related": [
       "Qalb",
       "Sirr",
-      "Fanāʾ",
-      "Maʿrifa"
-    ]
+      "Maʿrifa",
+      "Fanāʾ"
+    ],
+    "mishri_quote": "Until either the nafs dies or the ruh dies, they will remain companions and no human will be free of their contesting with each other. For the ruh to be alive and the nafs to be dead — that is the real life after which there is no death.",
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018)"
   },
   {
     "term": "Ḥaqīqa Muḥammadiyya",
@@ -528,25 +586,25 @@
     "term": "Sulūk",
     "arabic": "السلوك",
     "plural": "",
-    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
-    "definition_pending": true,
+    "definition": "Spiritual wayfaring — the active traversal of the maqāmāt (spiritual stations) through the ḥaḍarāt (divine presences) that constitutes the Sufi path of realisation. Mishri describes sulūk as the mode of engagement that follows the initial state of attraction (jadhb): 'when jadhb is complete and they travel the path of sulūk, they see the verse (āya) in front of them indicating sulūk, the multiplicity of ḥaqāʾiq, the distinction of nisbahs.' Critically, Mishri links sulūk to an expanding understanding of the Qurʾān: 'for each maqām the sālik reaches in any ḥaḍra, they find the verse ahead of them translating for them what they are currently experiencing — neither the understanding of God nor the understanding of the verse has an end.' Niasse states the minimum requirement explicitly: 'Whoever claims to have reached God without sulūk — those are the wrongdoers (ẓālimūn)' (Lesson 9); and distinguishes the sulūk of prophets from that of others: 'the sulūk of non-prophets proceeds from the commanding soul (nafs ammāra) upward, while the sulūk of prophets begins from the tranquil soul (nafs muṭmaʾinna)' (Lesson 27).",
+    "definition_pending": false,
     "niasse_evidence": [
       {
         "type": "niasse-direct",
         "lesson": 9,
         "volume": 2,
-        "page": null,
-        "arabic_quote": "بدعوى الوصول إلى اللّٰه تبارك وتعالى بدون السلوك",
-        "translation_note": "Claiming to reach God without sulūk [Niasse dismisses such claims as ẓulm]",
-        "verseRange": "Q. 3:169–175"
+        "page": 46,
+        "arabic_quote": "بدعوى الوصول إلى اللّٰه تبارك وتعالى بدون السلوك فَأَوْلَيِكَ هُمْ ألظَلِمُونَ",
+        "translation_note": "Claiming to reach God without sulūk — those are the wrongdoers",
+        "verseRange": "Q. 3:92–175"
       },
       {
         "type": "niasse-direct",
         "lesson": 27,
-        "volume": 7,
-        "page": 18,
+        "volume": 5,
+        "page": 39,
         "arabic_quote": "سلوك غير الأنبياء من النفس الأمارة بالسوء إلى أن تصل إلى الكمال، وسلوك الأنبياء من النفس المطمئنة",
-        "translation_note": "The sulūk of non-prophets proceeds from the commanding soul (nafs ammāra) toward perfection; the sulūk of prophets begins from the tranquil soul (nafs muṭmaʾinna)",
+        "translation_note": "The sulūk of non-prophets proceeds from the commanding soul; the sulūk of prophets begins from the tranquil soul",
         "verseRange": "Q. 12:53–13:18"
       }
     ],
@@ -565,11 +623,14 @@
       27
     ],
     "related": [
-      "Tarbiya",
-      "Maʿrifa",
       "Maqām",
-      "Fanāʾ"
-    ]
+      "Ḥaḍra",
+      "Maʿrifa",
+      "Fanāʾ",
+      "Murāqaba"
+    ],
+    "mishri_quote": "When jadhb is complete and they travel the path of suluk, they see the ayah in front of them indicating suluk, the multiplicity of haqa'iq, the distinction of nisbahs, and dispersion. For each new maqam the saliks reach in any hadrah, they find the ayah ahead of them translating for them what they are currently experiencing — neither the understanding of God nor the understanding of the verse has an end.",
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018)"
   },
   {
     "term": "Fayḍ",
@@ -737,6 +798,66 @@
       "Fanāʾ",
       "Maqām",
       "Sulūk"
+    ],
+    "definition_pending": false
+  },
+  {
+    "term": "Qalb",
+    "arabic": "القلب",
+    "plural": "Qulūb",
+    "definition": "The heart — the spiritual faculty that serves as the locus of discernment, located in Niasse's hierarchy between the rūḥ (spirit) and the nafs (ego-self). Mishri identifies the qalb as the seat of reconciliation between rūḥ and nafs: 'the nafs and the rūḥ only come into agreement in the heart of the perfect wali, to whom they become submissive.' In Niasse's own mapping of the spiritual faculties, the qalb is the jurist (muftī) in the hierarchy where the rūḥ is the sovereign and the intellect is the vizier (Lesson 27). Its drinking-place (mashrab) is fear and hope: 'the drinking-place of the qalb is fear (khawf) and hope (rajāʾ)' (Lesson 4). The qalb is also the site of spiritual light: 'there must be a light (nūr) in the heart of the exegete' (Lesson 1, Vol. 1, p. 29) — positioning it as the prerequisite of Qurʾānic understanding.",
+    "mishri_quote": "The nafs and the ruh only come into agreement in the heart of the perfect wali, to whom they become submissive; the Iman of the nafs and the ruh will never be complete until the two of them have the wali decide between them whenever they dispute.",
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018)",
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 27,
+        "volume": 5,
+        "page": 39,
+        "arabic_quote": "الروح هو السلطان والعقل هو الوزير والقلب هو المفتي",
+        "translation_note": "The rūḥ is the sovereign, the intellect is the vizier, the qalb is the jurist",
+        "verseRange": "Q. 12:53–13:18"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 4,
+        "volume": 1,
+        "page": 72,
+        "arabic_quote": "مشرب القلب الخوف والرجاء",
+        "translation_note": "The drinking-place of the qalb is fear (khawf) and hope (rajāʾ)",
+        "verseRange": "Q. 2:60–105"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 1,
+        "volume": 1,
+        "page": 29,
+        "arabic_quote": "لابد من نور في قلب المفسر",
+        "translation_note": "There must be a light (nūr) in the heart of the exegete",
+        "verseRange": "Al-Istiʿādha, Basmala, Sūrat al-Fātiḥa"
+      }
+    ],
+    "lessons": [
+      1,
+      2,
+      4,
+      6,
+      8,
+      10,
+      11,
+      12,
+      15,
+      16,
+      17,
+      18,
+      27,
+      28
+    ],
+    "related": [
+      "Rūḥ",
+      "Sirr",
+      "Maʿrifa",
+      "Murāqaba"
     ],
     "definition_pending": false
   }
