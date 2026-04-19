@@ -78,21 +78,21 @@
     "niasse_evidence": [
       {
         "type": "niasse-direct",
-        "lesson": 12,
+        "lesson": 7,
         "volume": 2,
-        "page": null,
-        "arabic_quote": "فيفنى العبد ويفنى الوجود ويحصل التوحيد الحقيقي والحياة الأبدية",
-        "translation_note": "The servant becomes annihilated, existence becomes annihilated, and the real tawḥīd and eternal life are attained",
-        "verseRange": "Q. 4:86–94"
+        "page": 3,
+        "arabic_quote": "ذكر القصص يذكر الأحكام ويذكر التوحيد لأن الصبر على نوع واحد صعب",
+        "translation_note": "The Qurʾān mentions narratives, then rulings, then tawḥīd — because patience with one kind of thing is difficult for the children of Adam",
+        "verseRange": "Q. 2:253–3:14"
       },
       {
         "type": "niasse-direct",
-        "lesson": 7,
+        "lesson": 12,
         "volume": 2,
-        "page": null,
-        "arabic_quote": "تجد فيه المواعظ والتذكير والخبر والتوحيد",
-        "translation_note": "You find in it exhortation, reminder, report, and tawḥīd",
-        "verseRange": "Q. 2:253–285"
+        "page": 161,
+        "arabic_quote": "فيفنى العبد ويفنى الوجود ويحصل التوحيد الحقيقي والحياة الأبدية",
+        "translation_note": "The servant becomes annihilated, existence becomes annihilated, and the real tawḥīd and eternal life are attained",
+        "verseRange": "Q. 4:87–147"
       }
     ],
     "definition_pending": true
@@ -233,12 +233,12 @@
     "niasse_evidence": [
       {
         "type": "niasse-direct",
-        "lesson": 28,
-        "volume": 5,
-        "page": 70,
-        "arabic_quote": "لكل مقام مقال... مقام التذكر",
-        "translation_note": "For every maqām there is a corresponding utterance... the station of recollection (tatadhakkur)",
-        "verseRange": "Q. 13:19–14:52"
+        "lesson": 9,
+        "volume": 2,
+        "page": 46,
+        "arabic_quote": "من حاول الوصول إلى الله تبارك وتعالى وادعى المقامات بغير محبة أولياء الله",
+        "translation_note": "Whoever attempts to reach God and claims the maqāmāt without love of God's awliyāʾ",
+        "verseRange": "Q. 3:92–175"
       },
       {
         "type": "niasse-direct",
@@ -246,7 +246,7 @@
         "volume": 5,
         "page": 39,
         "arabic_quote": "الروح هو السلطان والعقل هو الوزير والقلب هو المفتي. إذا اتفق هؤلاء",
-        "translation_note": "When rūḥ, ʿaql, and qalb agree, they overcome the nafs — that is the maqām of completion",
+        "translation_note": "The rūḥ is the sovereign, the intellect is the vizier, the qalb is the jurist — when these three agree",
         "verseRange": "Q. 12:53–13:18"
       }
     ],
@@ -293,30 +293,21 @@
     "niasse_evidence": [
       {
         "type": "niasse-direct",
+        "lesson": 8,
+        "volume": 2,
+        "page": 34,
+        "arabic_quote": "والجنة المعنوية هي المعرفة بالله تبارك وتعالى ومن دخلها لا يشتاق إلى الجنة المستقبلة",
+        "translation_note": "The inward Garden is maʿrifa of God — whoever enters it does not yearn for the future Garden",
+        "verseRange": "Q. 3:15–91"
+      },
+      {
+        "type": "niasse-direct",
         "lesson": 16,
         "volume": 3,
         "page": 112,
         "arabic_quote": "المعرفة روح روح الروح، المعرفة روح العقل، والعقل روح الجسد",
         "translation_note": "Maʿrifa is the spirit of the spirit of the spirit; maʿrifa is the spirit of the intellect, and the intellect is the spirit of the body",
         "verseRange": "Q. 6:36–110"
-      },
-      {
-        "type": "niasse-direct",
-        "lesson": 8,
-        "volume": 2,
-        "page": null,
-        "arabic_quote": "والجنة المعنوية هي المعرفة بالله تبارك وتعالى",
-        "translation_note": "The inward Garden is maʿrifa of God",
-        "verseRange": "Q. 3:14–19"
-      },
-      {
-        "type": "niasse-direct",
-        "lesson": 13,
-        "volume": 3,
-        "page": 3,
-        "arabic_quote": "الرؤية التي هي معرفة الله، معرفة اللّٰه أولا بالإيمان",
-        "translation_note": "The vision that is maʿrifa of God — maʿrifa of God first through faith",
-        "verseRange": "Q. 4:148–5:22"
       }
     ],
     "apparatus_evidence": [
@@ -781,8 +772,8 @@
         "lesson": 11,
         "volume": 2,
         "page": 124,
-        "arabic_quote": "أراد أن يقبل منا التوبة فنرجع إلى اللّٰه تبارك وتعالى",
-        "translation_note": "He willed to accept our repentance so that we return to God",
+        "arabic_quote": "وأراد أن يقبل منا التوبة فنرجع إلى اللٰه تبارك وتعالى",
+        "translation_note": "He willed to accept our tawba so that we return to God",
         "verseRange": "Q. 4:24–86"
       }
     ],
