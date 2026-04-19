@@ -567,3 +567,16 @@ nav .font-english.text-xs {
   color: #C9A84C;
   text-decoration: underline;
 }
+
+/* Quranic verse citations in lesson body */
+.quranic-verse {
+  color: #34d399;
+  font-style: normal;
+}
+.light .quranic-verse,
+[data-theme="light"] .quranic-verse {
+  color: #0d7a5f;
+}
+@media (prefers-color-scheme: light) {
+  .quranic-verse { color: #0d7a5f; }
+}

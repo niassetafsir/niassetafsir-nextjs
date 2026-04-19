@@ -34,10 +34,28 @@ function stripEnFootnotes(html: string): string {
 
 function injectFootnoteLinks(text: string, lessonId?: number): string {
   if (!lessonId) return text;
-  return text.replace(/\[(\d+)\]/g, (match, num) => {
+
+  // Step 1: strip inline scholar/source citations before footnote numbers
+  // e.g. "تفسير القرطبي ج35/" or "الإتقان 188 - 185/" before [N]
+  // Pattern: bibliographic text (scholar name + vol/page ref) immediately before [N]
+  let result = text.replace(
+    /[؀-ۿ\s\/\d\-–\.،,؛;:()[\]]+(?:ج\d|\/\s*\d|\d+\s*\/\s*\d)[^«»﴾
+]*?(?=\[\d+\])/g,
+    ''
+  );
+
+  // Step 2: convert [N] markers to footnote superscript links
+  result = result.replace(/\[(\d+)\]/g, (match, num) => {
     const id = `fn-${lessonId}-${num}`;
     return `<a href="/footnotes#${id}" class="fn-superscript" title="View footnote ${num}">[${num}]</a>`;
   });
+
+  // Step 3: wrap Quranic citations «...» in coloured span
+  result = result.replace(/«([^»]{3,300})»/g, (match, verse) => {
+    return `<span class="quranic-verse">«${verse}»</span>`;
+  });
+
+  return result;
 }
 
 function isPoem(text: string) {
