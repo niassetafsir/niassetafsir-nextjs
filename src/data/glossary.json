@@ -62,40 +62,66 @@
     "term": "al-Tawḥīd",
     "arabic": "التوحيد",
     "plural": "",
-    "definition": "Divine unity — the foundational Islamic doctrine of God's oneness. In Niasse's tafsīr, tawḥīd operates at multiple registers: the affirmation of God's existence (tawḥīd al-dhāt), His attributes (tawḥīd al-ṣifāt), and His acts (tawḥīd al-afʿāl). The deeper register — realised tawḥīd — is the experiential extinction of the self in the awareness of divine unity.",
+    "definition": "Divine unity — the foundational Islamic doctrine, which Niasse's tafsīr practises in its fullest sense across all thirty lessons. Al-Tijānī distinguishes two modes of tawḥīd that illuminate Niasse's exegetical method: the prophetic tawḥīd (tawḥīd al-rusul), which is lived and experiential — the tawḥīd with which all messengers were sent and which the Companions preserved intact — and the kalām tawḥīd of the theologians, which al-Tijānī identifies as a philosophical deviation that took hold in the third generation. Niasse's tafsīr enacts the former: it does not argue for God's unity rationally but demonstrates it through simultaneous engagement with legal, spiritual, narrative, and linguistic dimensions of the Qurʾānic text. In Niasse's own words, the Qurʾān presents tawḥīd, rulings, and narratives together because 'patience with one kind of thing is difficult for the children of Adam' (Lesson 7). Its most precise theological formulation occurs in Lesson 12: 'the servant becomes annihilated, existence becomes annihilated, and the real tawḥīd (al-tawḥīd al-ḥaqīqī) and eternal life are attained' — placing tawḥīd at the apex of the Sufi path as the experiential realisation of divine unity, not its rational demonstration.",
     "lessons": [
-      1,
       2,
       3,
-      5,
       6,
-      7
+      7,
+      8,
+      11,
+      12,
+      13,
+      15,
+      17,
+      19,
+      20,
+      21,
+      22,
+      26,
+      28,
+      29,
+      30
     ],
     "related": [
+      "Maʿrifa",
       "Fanāʾ",
-      "al-Fayḍa"
+      "Sulūk",
+      "Walāya",
+      "Sirr"
     ],
     "niasse_evidence": [
-      {
-        "type": "niasse-direct",
-        "lesson": 7,
-        "volume": 2,
-        "page": 3,
-        "arabic_quote": "ذكر القصص يذكر الأحكام ويذكر التوحيد لأن الصبر على نوع واحد صعب",
-        "translation_note": "The Qurʾān mentions narratives, then rulings, then tawḥīd — because patience with one kind of thing is difficult for the children of Adam",
-        "verseRange": "Q. 2:253–3:14"
-      },
       {
         "type": "niasse-direct",
         "lesson": 12,
         "volume": 2,
         "page": 161,
         "arabic_quote": "فيفنى العبد ويفنى الوجود ويحصل التوحيد الحقيقي والحياة الأبدية",
-        "translation_note": "The servant becomes annihilated, existence becomes annihilated, and the real tawḥīd and eternal life are attained",
+        "translation_note": "The servant becomes annihilated, existence becomes annihilated, and the real tawḥīd (al-tawḥīd al-ḥaqīqī) and eternal life are attained",
         "verseRange": "Q. 4:87–147"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 7,
+        "volume": 2,
+        "page": 3,
+        "arabic_quote": "ذكر القصص يذكر الأحكام ويذكر التوحيد لأن الصبر على نوع واحد صعب على بني آدم",
+        "translation_note": "The Qurʾān mentions narratives, then rulings, then tawḥīd — because patience with one kind of thing alone is difficult for the children of Adam",
+        "verseRange": "Q. 2:253–3:14"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 20,
+        "volume": 4,
+        "page": 3,
+        "arabic_quote": "والتذكير به على لسان صاحب المعجزة قائم مقام ذكره في النفوس، تذكرة التوحيد",
+        "translation_note": "Reminding of God through the tongue of the one who bears miracles stands in place of that remembrance in souls — a reminder of tawḥīd",
+        "verseRange": "Q. 7:171–8:40"
       }
     ],
-    "definition_pending": true
+    "definition_pending": false,
+    "mishri_quote": "The path to [prophetic tawḥīd] was abandoned and eventually effaced only because the general public turned away from it, inclining instead toward the rhetorical embellishments of kalām theology... Those who continued to walk the path of the messengers' tawḥīd came to be known as Ṣūfīs and ʿārifīn.",
+    "mishri_source": "Shaykh Aḥmad al-Tijānī (d. 1815), as reported in Muḥammad al-Mishri, Kitāb al-Jāmiʿ, pp. 66–67"
   },
   {
     "term": "Fanāʾ",
@@ -275,13 +301,24 @@
     "plural": "",
     "definition": "The disjointed letters — the letter-combinations that open twenty-nine Quranic suras (Alif Lām Mīm, Yā Sīn, etc.). Niasse discusses multiple interpretive traditions — grammatical, mystical, and prophetic — and gives his own reading, which tends toward the Sufi understanding of these letters as keys to divine secrets.",
     "lessons": [
+      1,
       2,
-      3,
-      4
+      18
     ],
     "related": [
       "Iʿjāz",
       "Tawḥīd"
+    ],
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 18,
+        "volume": 3,
+        "page": 159,
+        "arabic_quote": "أسرار ألقاها اللّٰه في كتابه لا يعلم أحد معناها إلا من استحق علمه، يلهمه اللّٰه ولا يكتب في الأوراق ولا ينظر بالأحداق",
+        "translation_note": "Secrets that God has placed in His Book — no one knows their meaning except one who has earned that knowledge; God inspires it in him, and it is not written on pages nor seen with eyes",
+        "verseRange": "Q. 7:1–87"
+      }
     ]
   },
   {
