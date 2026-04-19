@@ -2,6 +2,7 @@ import { getLesson, getAllLessons } from '@/lib/lessons';
 import { getReadingNotes } from '@/lib/readingNotes';
 import { notFound } from 'next/navigation';
 import Panel from '@/components/Panel';
+import JalalaynVerseView from '@/components/JalalaynVerseView';
 import AudioPanel from '@/components/AudioPanel';
 import BilingualText from '@/components/BilingualText';
 import InlineCompare from '@/components/InlineCompare';
@@ -71,11 +72,17 @@ export default async function LessonPage({ params }: { params: { id: string } })
           englishText={lesson.englishText}
           hasEnglish={lesson.hasEnglish}
         />
-        <div className="border-t border-white/10 p-4 pb-3" dir="ltr">
-          <InlineCompare
-            jalalaynText={lesson.jalalaynText ? lesson.jalalaynText.substring(0, 800) + (lesson.jalalaynText.length > 800 ? '...' : '') : undefined}
-            usulaiUrl={usulBaseUrl}
-          />
+        <div className="p-4" dir="ltr">
+          {lesson.jalalaynText ? (
+            <JalalaynVerseView
+              jalalaynText={lesson.jalalaynText}
+              niasseBody={lesson.arabicBody || lesson.arabicText || ''}
+              verseRange={lesson.verseRange || ''}
+              lessonTitleEn={lesson.englishTitle || ''}
+            />
+          ) : (
+            <p className="font-english text-xs text-white/30 italic">Jalālayn text forthcoming.</p>
+          )}
         </div>
       </Panel>
 
