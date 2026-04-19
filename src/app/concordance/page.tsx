@@ -146,7 +146,7 @@ export default function ConcordancePage() {
         </h1>
         <p className="font-english text-sm text-center mb-5"
           style={{color:'rgba(255,255,255,0.4)'}}>
-          Verse Concordance — verses Niasse directly comments on, with cross-references
+          Verse Concordance — search any verse · Jalālayn commentary · Niasse's reflection
         </p>
 
         <input

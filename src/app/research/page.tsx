@@ -24,7 +24,7 @@ const PRIMARY_TOOLS = [
     href: '/concordance',
     titleAr: 'فهرس الآيات',
     titleEn: 'Verse Concordance',
-    desc: '1,079 Quranic references mapped to the lessons where Niasse comments on them. Click any verse to reach his commentary directly.',
+    desc: 'Search any verse · Jalālayn commentary · Niasse's reflection',
   },
   {
     href: '/footnotes',
