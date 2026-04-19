@@ -40,11 +40,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <footer className="border-t border-black/10 py-5 px-6 bg-transparent">
           <div className="flex items-center justify-between max-w-5xl mx-auto flex-wrap gap-3">
-            <div className="font-english" style={{color:"#555555", fontSize:"11px"}}>
+            <div className="font-english" style={{color:"#777777", fontSize:"9px"}}>
               © Amadu Kunateh · niassetafsir.org · niassetafsir.com
             </div>
             <a href="mailto:niassetafsirproject@gmail.com"
-              className="font-english hover:opacity-70 transition-all" style={{color:"#555555", fontSize:"11px"}}>
+              className="font-english hover:opacity-70 transition-all" style={{color:"#777777", fontSize:"9px"}}>
               niassetafsirproject@gmail.com
             </a>
             <div className="flex items-center gap-3">

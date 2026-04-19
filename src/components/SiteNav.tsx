@@ -129,7 +129,12 @@ export default function SiteNav() {
     localStorage.setItem('site-lang', code);
   };
 
-  const RESEARCH_ITEMS: DropdownItem[] = [
+  const PUBLICATIONS_ITEMS: DropdownItem[] = [
+  { label: "Order Arabic Edition", sub: "10-volume compiled Arabic edition", href: "/order" },
+  { label: "Pre-Order Bilingual Edition", sub: "Register interest · forthcoming", href: "/preorder" },
+];
+
+const RESEARCH_ITEMS: DropdownItem[] = [
   { label: "Research Hub", sub: "All research tools in one place", href: "/research" },
   { label: "Audio Library", sub: "Arabic tafsīr recordings", href: "/audio" },
   { label: "Tafsīr Sciences Index", sub: "Browse by theology, law, Sufism…", href: "/themes" },
@@ -172,6 +177,7 @@ const ABOUT_ITEMS: DropdownItem[] = [
       <div className="flex items-center gap-1">
 <NavDropdown label="About" items={ABOUT_ITEMS} />
 <NavDropdown label="Get Involved" items={CONTRIBUTE_ITEMS} />
+        <NavDropdown label="Publications" items={PUBLICATIONS_ITEMS} />
         <NavDropdown label="Research" items={RESEARCH_ITEMS} />
         <Link href="/search" className="font-english text-xs text-white/45 hover:text-white/75 px-2.5 py-1.5 rounded-md hover:bg-white/5 transition-all" title="Search">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
