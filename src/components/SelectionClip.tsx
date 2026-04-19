@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { saveClip, buildCitation } from '@/lib/clips';
 import { addBookmark } from '@/lib/bookmarks';
 
@@ -17,33 +17,40 @@ export default function SelectionClip({ lessonId, lessonTitleAr, lessonTitleEn, 
   const [clipDone, setClipDone] = useState(false);
   const [bmDone, setBmDone] = useState(false);
 
-  const checkSelection = () => {
+  const checkSelection = useCallback(() => {
     const sel = window.getSelection();
     const text = sel?.toString().trim() || '';
-    if (text.length < 8) return;
+    if (text.length < 8) {
+      setVisible(false);
+      return;
+    }
     const ar = (text.match(/[\u0600-\u06FF]/g) || []).length;
     setLang(ar / text.length > 0.35 ? 'ar' : 'en');
     setSelectedText(text);
     setClipDone(false);
     setBmDone(false);
     setVisible(true);
-  };
+  }, []);
 
   useEffect(() => {
+    const onMouseUp = () => setTimeout(checkSelection, 50);
+    const onTouchEnd = () => setTimeout(checkSelection, 300);
+    document.addEventListener('mouseup', onMouseUp);
+    document.addEventListener('touchend', onTouchEnd);
     document.addEventListener('selectionchange', checkSelection);
-    document.addEventListener('mouseup', () => setTimeout(checkSelection, 50));
-    document.addEventListener('touchend', () => setTimeout(checkSelection, 300));
     return () => {
+      document.removeEventListener('mouseup', onMouseUp);
+      document.removeEventListener('touchend', onTouchEnd);
       document.removeEventListener('selectionchange', checkSelection);
     };
-  }, []);
+  }, [checkSelection]);
 
   const clip = () => {
     if (!selectedText) return;
     const citation = buildCitation(lessonId, lessonTitleEn, verseRange, lang);
     saveClip({ text: selectedText, language: lang, lessonId, lessonTitleAr, lessonTitleEn, verseRange, citation });
     setClipDone(true);
-    setTimeout(() => setVisible(false), 1500);
+    setTimeout(() => { setVisible(false); setSelectedText(''); }, 1500);
   };
 
   const bookmark = () => {
@@ -57,7 +64,7 @@ export default function SelectionClip({ lessonId, lessonTitleAr, lessonTitleEn, 
       englishText: lang === 'en' ? selectedText : undefined,
     });
     setBmDone(true);
-    setTimeout(() => setVisible(false), 1500);
+    setTimeout(() => { setVisible(false); setSelectedText(''); }, 1500);
   };
 
   if (!visible) return null;
@@ -127,7 +134,7 @@ export default function SelectionClip({ lessonId, lessonTitleAr, lessonTitleEn, 
       </button>
 
       <button
-        onPointerDown={() => setVisible(false)}
+        onPointerDown={() => { setVisible(false); setSelectedText(''); }}
         style={{
           color: '#999999',
           fontSize: '12px',
