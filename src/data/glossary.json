@@ -353,14 +353,14 @@
     "term": "Sirr",
     "arabic": "السر",
     "plural": "Asrār",
-    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
-    "definition_pending": true,
+    "definition": "The innermost secret — the highest of the spiritual faculties, corresponding in Mishri's framework to the divine Name al-Awwal (the First). Mishri articulates the full correspondence: 'if the quṭb were to say, I have a firstness, which is my sirr; a lastness, which is my rūḥ; a manifestness, which is my jism; and a hiddenness, which is my qalb — we would say to him, nothing of existence remains yours.' This is the complete absorption of the self into the divine Names: the sirr as al-Awwal, the rūḥ as al-Ākhir, the jism as al-Ẓāhir, the qalb as al-Bāṭin. The conclusion — nothing of existence remains yours — names the state of total annihilation (fanāʾ) that the sirr makes possible. In Niasse's own tafsīr, the sirr occupies the apex of the spiritual faculty hierarchy: 'the drinking-place of the sirr is intimacy (uns) and awe (hayba)' (Lesson 4, Vol. 1, p. 72), and 'the sirr becomes annihilated in the divine Essence (dhāt Allāh)' (Lesson 6, Vol. 1, p. 120). In Lesson 21, the full ascending sequence is given: 'dhikr must proceed — tongue, then qalb, then rūḥ, then sirr — until it reaches the sought.'",
+    "definition_pending": false,
     "niasse_evidence": [
       {
         "type": "niasse-direct",
         "lesson": 4,
         "volume": 1,
-        "page": 96,
+        "page": 72,
         "arabic_quote": "مشرب السر الأنس والهيبة",
         "translation_note": "The drinking-place of the sirr is intimacy (uns) and awe (hayba)",
         "verseRange": "Q. 2:60–105"
@@ -369,19 +369,19 @@
         "type": "niasse-direct",
         "lesson": 6,
         "volume": 1,
-        "page": 167,
+        "page": 120,
         "arabic_quote": "والسر يفنى في ذات اللّٰه تبارك وتعالى",
-        "translation_note": "The sirr becomes annihilated in the Essence of God",
+        "translation_note": "The sirr becomes annihilated in the divine Essence",
         "verseRange": "Q. 2:203–252"
       },
       {
         "type": "niasse-direct",
         "lesson": 21,
         "volume": 4,
-        "page": null,
+        "page": 44,
         "arabic_quote": "ولابد من الذكر باللسان أولا ثم بالقلب ثم بالروح والسر حتى يصل إلى المطلوب",
-        "translation_note": "Dhikr must proceed: tongue, then heart (qalb), then spirit (rūḥ), then sirr — until the sought arrives",
-        "verseRange": "Q. 8:1–74"
+        "translation_note": "Dhikr must proceed — tongue, then qalb, then rūḥ, then sirr — until it reaches the sought",
+        "verseRange": "Q. 8:41–9:33"
       }
     ],
     "apparatus_evidence": [
@@ -394,18 +394,21 @@
     ],
     "lessons": [
       4,
+      5,
       6,
-      18,
       21,
       27,
       28
     ],
     "related": [
-      "Qalb",
       "Rūḥ",
+      "Qalb",
       "Fanāʾ",
-      "Maqām"
-    ]
+      "Maʿrifa",
+      "Ḥaḍra"
+    ],
+    "mishri_quote": "If the qutb were to say to us, 'I have a firstness, which is my sirr; a lastness, which is my ruh; a manifestness, which is my jism; and a hiddenness, which is my heart,' we would say to him, 'Nothing of existence remains yours.'",
+    "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018)"
   },
   {
     "term": "Rūḥ",
