@@ -180,7 +180,27 @@
     ],
     "definition_pending": false,
     "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018)",
-    "mishri_quote": "The lowest degree of true Iman is fanāʾ of the nafs and baqāʾ in Allah in the ḥaḍarāt of His Names and His Attributes."
+    "mishri_quote": "The lowest degree of true Iman is fanāʾ of the nafs and baqāʾ in Allah in the ḥaḍarāt of His Names and His Attributes.",
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 7,
+        "volume": 2,
+        "page": 3,
+        "arabic_quote": "ألْحَىُّ الدائم البقاء ألْفَيُّومٌ المبالغ في القيومية",
+        "translation_note": "Al-Ḥayy — the Eternally Subsistent (al-Baqāʾ); al-Qayyūm — the Self-Sustaining in the extreme",
+        "verseRange": "Q. 2:253–3:14"
+      },
+      {
+        "type": "niasse-direct",
+        "lesson": 18,
+        "volume": 3,
+        "page": 159,
+        "arabic_quote": "لم يعط هذا ولكن أعطي البقاء إلى آخر الدهر",
+        "translation_note": "He was not given that, but was given subsistence (baqāʾ) unto the end of time",
+        "verseRange": "Q. 7:1–87"
+      }
+    ]
   },
   {
     "term": "Wilāya",
@@ -293,6 +313,17 @@
     "related": [
       "Bayān",
       "ʿUlūm al-Qurʾān"
+    ],
+    "niasse_evidence": [
+      {
+        "type": "niasse-direct",
+        "lesson": 25,
+        "volume": 4,
+        "page": 196,
+        "arabic_quote": "كل هذا إعجاز. ولكن تحداهم بالإعجاز حيث أنهم لم يأتوا بعشر سور مثله في الفصاحة",
+        "translation_note": "All of this is inimitability (iʿjāz). He challenged them with it — they could not produce ten suras like it in eloquence",
+        "verseRange": "Q. 11:6–83"
+      }
     ]
   },
   {
