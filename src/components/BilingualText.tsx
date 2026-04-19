@@ -37,11 +37,9 @@ function injectFootnoteLinks(text: string, lessonId?: number): string {
 
   // Strip inline bibliographic refs like "تفسير القرطبي ج35/" before [N]
   // Uses Unicode code points to avoid regex literal issues in TSX
-  const arabicRange = '\\u0600-\\u06FF';
-  const bibPattern = new RegExp(
-    '[' + arabicRange + '\\s,/\\d\\-.();:]+(?:\\u062C\\d|\\d+\\s*[-\\u2013]\\s*\\d+\\s*\\/)[^\\n\\u00ab\\u00bb]*?(?=\\[\\d+\\])',
-    'g'
-  );
+  // Strip inline bibliographic citations: "scholartitle ج35/" or "188-185/" before [N]
+  // Only matches short citation refs (1-5 Arabic words + vol/page), not Quranic verses
+  const bibPattern = /(?:[؀-ۿ]+\s+){0,4}[؀-ۿ]*\s*(?:ج\s*\d[\d\s/]*|\d+\s*[-–]\s*\d+\s*\/\s*\d*)\s*(?=\[\d+\])/g;
   let result = text.replace(bibPattern, '');
 
   // Convert [N] to footnote superscript links
