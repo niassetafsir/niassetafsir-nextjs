@@ -24,7 +24,7 @@ const PRIMARY_TOOLS = [
     href: '/concordance',
     titleAr: 'فهرس الآيات',
     titleEn: 'Verse Concordance',
-    desc: 'Search any verse · Jalālayn commentary · Niasse's reflection',
+    desc: "Search any verse · Jalālayn commentary · Niasse's reflection",
   },
   {
     href: '/footnotes',
