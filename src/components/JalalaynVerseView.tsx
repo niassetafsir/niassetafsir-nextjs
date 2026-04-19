@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 interface JalalaynVerseViewProps {
   jalalaynText: string;
   niasseBody: string;
+  niasseEnglish?: string | null;
   verseRange: string;
   lessonTitleEn: string;
 }
@@ -25,11 +26,12 @@ function parseJalalayn(text: string): Array<{key: string; surah: number; verse: 
   return result;
 }
 
-export default function JalalaynVerseView({ jalalaynText, niasseBody, verseRange, lessonTitleEn }: JalalaynVerseViewProps) {
+export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEnglish, verseRange, lessonTitleEn }: JalalaynVerseViewProps) {
   const [openNiasse, setOpenNiasse] = useState<string | null>(null);
   const [highlightKey, setHighlightKey] = useState<string | null>(null);
 
   const verses = parseJalalayn(jalalaynText);
+  const hasEnglish = !!niasseEnglish;
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -47,16 +49,17 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, verseRange
     }
   }, []);
 
-  // Skip opening prayer lines — start commentary at first substantive paragraph
+  // Extract Niasse Arabic commentary (skip opening prayer)
   const niasseClean = niasseBody.replace(/<[^>]+>/g, '');
-  // Find where actual commentary begins (after the opening invocation poem)
   const commentaryStart = Math.max(
     niasseClean.indexOf('ينبغي'),
     niasseClean.indexOf('قال'),
-    niasseClean.indexOf('وقال'),
     300
   );
-  const niasseExcerpt = niasseClean.slice(commentaryStart, commentaryStart + 1200).trim();
+  const niasseArExcerpt = niasseClean.slice(commentaryStart, commentaryStart + 1000).trim();
+
+  // Extract English excerpt if available
+  const niasseEnClean = niasseEnglish ? niasseEnglish.replace(/<[^>]+>/g, '').slice(0, 1000).trim() : '';
 
   if (verses.length === 0) return (
     <div className="font-english text-xs leading-6 whitespace-pre-wrap" style={{color:'rgba(255,255,255,0.7)'}} dir="ltr">
@@ -78,7 +81,7 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, verseRange
             {/* Verse marker */}
             <div className="flex items-center gap-2 px-3 py-1.5" style={{background:'rgba(30,58,100,0.3)'}}>
               <span className="font-english text-[11px] font-bold" style={{color:'rgba(147,197,253,0.8)'}}>{v.key}</span>
-              <span className="font-english text-[10px]" style={{color:'rgba(147,197,253,0.4)'}}>Jalālayn commentary</span>
+              <span className="font-english text-[10px]" style={{color:'rgba(147,197,253,0.4)'}}>Jalālayn</span>
             </div>
 
             {/* Jalalayn text */}
@@ -86,7 +89,7 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, verseRange
               {v.content}
             </div>
 
-            {/* Niasse button — styled as primary */}
+            {/* Niasse trigger button */}
             <button
               onClick={() => setOpenNiasse(niasseOpen ? null : v.key)}
               className="w-full text-left transition-all"
@@ -96,47 +99,74 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, verseRange
               }}
             >
               <div className="flex items-center gap-3 px-4 py-2.5">
-                {/* Gold indicator bar */}
                 <div style={{width:3, height:28, background:'#C9A84C', borderRadius:2, flexShrink:0}} />
                 <div className="flex-1 min-w-0">
-                  {/* Arabic name */}
-                  <div className="font-arabic text-base font-bold" dir="rtl"
-                    style={{color:'#C9A84C', lineHeight:1.4}}>
+                  <div className="font-arabic text-base font-bold" dir="rtl" style={{color:'#C9A84C', lineHeight:1.4}}>
                     الشيخ إبراهيم نياس
                   </div>
-                  {/* Transliteration + scope */}
                   <div className="font-english text-[11px] mt-0.5" style={{color:'rgba(201,168,76,0.7)'}}>
-                    Shaykh Ibrāhīm Niasse · <em>Fī Riyāḍ al-Tafsīr</em> · {verseRange}
+                    Shaykh Ibrāhīm Niasse · <em>Fī Riyāḍ al-Tafsīr</em>
+                    {hasEnglish && <span style={{color:'rgba(201,168,76,0.5)'}}> · AR + EN</span>}
                   </div>
                 </div>
                 <div className="font-english text-xs flex-shrink-0" style={{color:'rgba(201,168,76,0.6)'}}>
-                  {niasseOpen ? 'Close ▲' : 'Read ▼'}
+                  {niasseOpen ? '✕ Close' : 'Read ▼'}
                 </div>
               </div>
             </button>
 
-            {/* Niasse commentary — expanded */}
+            {/* Expanded Niasse commentary — bilingual if available */}
             {niasseOpen && (
-              <div style={{
-                background: 'rgba(201,168,76,0.08)',
-                borderTop: '1px solid rgba(201,168,76,0.2)',
-              }}>
-                {/* Header */}
-                <div className="px-4 pt-3 pb-1">
+              <div style={{background:'rgba(201,168,76,0.07)', borderTop:'1px solid rgba(201,168,76,0.2)'}}>
+                {/* Header with close */}
+                <div className="flex items-center justify-between px-4 pt-3 pb-2">
                   <div className="font-english text-[11px] italic" style={{color:'rgba(201,168,76,0.5)'}}>
-                    Shaykh Ibrāhīm&apos;s commentary covers the lesson range ({verseRange})
+                    Commentary covering {verseRange}
                   </div>
+                  <button
+                    onClick={() => setOpenNiasse(null)}
+                    className="font-english text-[11px] hover:text-gold transition-colors"
+                    style={{color:'rgba(201,168,76,0.5)'}}
+                  >
+                    ✕ Close
+                  </button>
                 </div>
-                {/* Arabic text */}
-                <div className="px-4 pb-4 font-arabic text-base leading-8" dir="rtl"
-                  style={{color:'rgba(255,255,255,0.88)'}}>
-                  {niasseExcerpt}
-                  {niasseClean.length > commentaryStart + 1200 && (
-                    <span className="font-english text-[10px] italic ml-2" style={{color:'rgba(201,168,76,0.5)'}}>
-                      [continued in the Tafsīr panel]
-                    </span>
-                  )}
-                </div>
+
+                {/* Bilingual columns (if English available) or Arabic only */}
+                {hasEnglish ? (
+                  <div className="grid grid-cols-2 gap-0 pb-4" style={{borderTop:'1px solid rgba(201,168,76,0.1)'}}>
+                    {/* Arabic column */}
+                    <div className="px-4 pt-3 font-arabic text-sm leading-8" dir="rtl"
+                      style={{color:'rgba(255,255,255,0.88)', borderRight:'1px solid rgba(201,168,76,0.15)'}}>
+                      {niasseArExcerpt}
+                      {niasseClean.length > commentaryStart + 1000 && (
+                        <span className="font-english text-[10px] italic" style={{color:'rgba(201,168,76,0.4)'}}>
+                          {' '}[continues…]
+                        </span>
+                      )}
+                    </div>
+                    {/* English column */}
+                    <div className="px-4 pt-3 font-english text-sm leading-7" dir="ltr"
+                      style={{color:'rgba(255,255,255,0.75)'}}>
+                      {niasseEnClean}
+                      {(niasseEnglish || '').replace(/<[^>]+>/g, '').length > 1000 && (
+                        <span className="italic text-[10px]" style={{color:'rgba(201,168,76,0.4)'}}>
+                          {' '}[continues…]
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="px-4 pb-4 font-arabic text-sm leading-8" dir="rtl"
+                    style={{color:'rgba(255,255,255,0.88)'}}>
+                    {niasseArExcerpt}
+                    {niasseClean.length > commentaryStart + 1000 && (
+                      <span className="font-english text-[10px] italic" style={{color:'rgba(201,168,76,0.4)'}}>
+                        {' '}[continues in Tafsīr panel]
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
             )}
           </div>

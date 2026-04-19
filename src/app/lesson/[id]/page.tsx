@@ -77,6 +77,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
             <JalalaynVerseView
               jalalaynText={lesson.jalalaynText}
               niasseBody={lesson.arabicBody || lesson.arabicText || ''}
+              niasseEnglish={lesson.englishText || null}
               verseRange={lesson.verseRange || ''}
               lessonTitleEn={lesson.englishTitle || ''}
             />
@@ -136,6 +137,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
             <JalalaynVerseView
               jalalaynText={lesson.jalalaynText}
               niasseBody={lesson.arabicBody || lesson.arabicText || ''}
+              niasseEnglish={lesson.englishText || null}
               verseRange={lesson.verseRange || ''}
               lessonTitleEn={lesson.englishTitle || ''}
             />
