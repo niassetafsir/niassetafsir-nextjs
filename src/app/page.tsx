@@ -180,7 +180,7 @@ export default function HomePage() {
                 <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
                   <li>Click any manzil on this page → then any lesson</li>
                   <li>Inside the lesson: toggle between <strong style={{color:'rgba(255,255,255,0.85)'}}>Arabic</strong>, <strong style={{color:'rgba(255,255,255,0.85)'}}>English</strong>, or <strong style={{color:'rgba(255,255,255,0.85)'}}>Bilingual</strong> view</li>
-                  <li>Footnote numbers <code style={{color:'rgba(201,168,76,0.9)', fontSize:'11px'}}>[n]</code> in the text link directly to the full critical apparatus</li>
+                  <li>Footnote numbers <code style={{color:'rgba(201,168,76,0.9)', fontSize:'11px'}}>[n]</code> in the text link directly to the full footnotes and citations</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio</strong> — Wolof oral tafsīr (122 sessions) and Arabic delivery by Shaykh Ibrāhīm, available for all 30 lessons</li>
                 </ul>
               </div>

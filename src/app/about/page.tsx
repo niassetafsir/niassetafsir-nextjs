@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About This Edition & Platform",
-  description: "About the digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Translator, editorial contributions, and critical apparatus.",
+  description: "About the digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Translator, editorial contributions, and footnotes and citations.",
   openGraph: {
     title: "About This Edition & Platform | niassetafsir.org",
-    description: "About the digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Translator, editorial contributions, and critical apparatus.",
+    description: "About the digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Translator, editorial contributions, and footnotes and citations.",
   },
 };
 
@@ -38,7 +38,7 @@ export default function AboutPage() {
           </p>
           <p className="leading-6 mt-3">
             Research tools include: full-text search; a verse concordance (314 verses linked to 
-            Niasse&apos;s commentary); a critical apparatus of 798 footnotes compiled by 
+            Niasse&apos;s commentary); a footnotes and citations of 798 footnotes compiled by 
             Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, browsable by scholar, genre, 
             and lesson with inline <sup>[n]</sup> links in the text; a scholar and source index 
             (19 figures sorted by citation frequency); a glossary of key theological and Sufi terms; 
@@ -118,7 +118,7 @@ export default function AboutPage() {
             <strong className="text-white/85">Amadu Kunateh</strong>, Founder, Translator &amp; Digital Editor. 
             and builder of this scholarly platform. Kunateh conceived and developed this resource 
             to make Shaykh Ibrāhīm Niasse&apos;s tafsīr accessible and searchable for scholarly 
-            research, building a digital scholarly edition and critical apparatus for the text.
+            research, building a digital scholarly edition and footnotes and citations for the text.
           </p>
           <p className="leading-6 mt-3">
             <strong className="text-white/70">Ally Mahmoud</strong>, Web development review.<br />

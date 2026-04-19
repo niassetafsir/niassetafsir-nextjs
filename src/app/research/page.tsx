@@ -29,7 +29,7 @@ const PRIMARY_TOOLS = [
   {
     href: '/footnotes',
     titleAr: 'فهرس الحواشي والمصادر',
-    titleEn: 'Critical Apparatus',
+    titleEn: 'Footnotes & Citations',
     desc: '798 footnotes compiled by Muḥammad ibn al-Shaykh, classified by genre (Hadith, Tafsīr, Theology, Sufism, Fiqh, Linguistics). Inline [n] links in the text.',
   },
   {

@@ -79,9 +79,9 @@ export default function FootnotesPage() {
     <main className="max-w-5xl mx-auto px-4 pb-20 pt-6" dir="ltr">
       {/* Header */}
       <div className="mb-6 text-center">
-        <h1 className="font-arabic text-gold text-2xl font-bold mb-1" dir="rtl">فهرس الحواشي والمصادر</h1>
+        <h1 className="font-arabic text-gold text-2xl font-bold mb-1" dir="rtl">الحواشي والمصادر</h1>
         <p className="font-english text-sm mb-1" style={{color:'rgba(255,255,255,0.5)'}}>
-          Critical Apparatus — Footnotes & Citations
+          Footnotes & Citations
         </p>
         <p className="font-english text-xs mb-5" style={{color:'rgba(255,255,255,0.25)'}}>
           {footnotes.length} footnotes compiled by Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī
