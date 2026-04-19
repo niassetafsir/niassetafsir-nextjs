@@ -76,7 +76,7 @@ function ManzilCard({ manzil, isOpen, onToggle }: {
         <div className="flex-1">
           {!hasLessons ? (
             <div className="px-4 py-3 font-english text-white/25 italic text-sm" dir="ltr">
-              Coming soon — further volumes in preparation.
+              Further volumes in preparation.
             </div>
           ) : (
             <div className="divide-y divide-white/5">
