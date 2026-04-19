@@ -667,16 +667,16 @@
     "term": "Fayḍ",
     "arabic": "الفيض",
     "plural": "Fuyūḍ",
-    "definition": "[PENDING — awaiting AK's definition drawing on Mishri]",
-    "definition_pending": true,
+    "definition": "Outpouring — the metaphysical and historical effusion of divine mercy through which God's support reaches creation. Al-Tijānī uses the term in two registers that are present simultaneously in Niasse's tafsīr. In the cosmological register, al-Tijānī states: 'God decreed, in His pre-eternal will, that the support that reaches His creation from the outpouring (fayḍ) of His mercy — in every era — should circulate among the elect exalted people among His creation, from among the Prophets and the Ṣiddīqūn.' The fayḍ is thus the channel of divine mercy that flows through the hierarchy of saints and prophets to reach creation in every age. In the historical register, al-Tijānī prophesied the coming of the Fayḍa: 'an effulgence (fayḍa) will come to my Companions, until people will come to our path in waves' — the single occurrence of flooding that would define Niasse's movement. In Niasse's own tafsīr, the term appears in Lesson 27 in its grammatical sense: 'when another outpouring (fayḍa) of divine mercy floods over the soul, it becomes inspired' (Q. 12:53) — using the root فاض to describe the divine mercy overflowing onto the receptive soul, the metaphysical dynamic that underlies both the cosmological and historical senses of al-fayḍa.",
+    "definition_pending": false,
     "niasse_evidence": [
       {
         "type": "niasse-direct",
         "lesson": 27,
-        "volume": 7,
-        "page": 18,
-        "arabic_quote": "فاضت عليها فيضة أخرى من رحمة اللّٰه تبارك وتعالى",
-        "translation_note": "Another outpouring (fayḍa) of divine mercy flooded over it [the soul]",
+        "volume": 5,
+        "page": 39,
+        "arabic_quote": "فإذا فاضت عليها فيضة أخرى من رحمة اللّٰه تبارك وتعالى تكون ملهمة",
+        "translation_note": "When another outpouring (fayḍa) of divine mercy floods over the soul, it becomes inspired — the metaphysical dynamic of fayḍ in Niasse's commentary",
         "verseRange": "Q. 12:53–13:18"
       }
     ],
@@ -689,16 +689,17 @@
       }
     ],
     "lessons": [
-      8,
-      13,
-      21,
       27
     ],
     "related": [
       "al-Fayḍa",
-      "Tajallī",
-      "Ḥaqīqa Muḥammadiyya"
-    ]
+      "Tarbiya",
+      "Walāya",
+      "Maʿrifa",
+      "Ḥaḍra"
+    ],
+    "mishri_quote": "God decreed, in His pre-eternal will, that the support that reaches His creation from the outpouring of His mercy — in every era — should circulate among the Elect Exalted people among His creation, from among the Prophets and the Ṣiddīqūn. Whoever takes refuge with the living Elect Exalted people of his era, keeps their company, follows them, and seeks assistance from them, will succeed at attaining the support that outpours from God.",
+    "mishri_source": "Shaykh Aḥmad al-Tijānī (d. 1815), as reported in Muḥammad al-Mishri, Kitāb al-Jāmiʿ"
   },
   {
     "term": "Murāqaba",
