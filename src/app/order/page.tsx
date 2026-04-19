@@ -49,7 +49,7 @@ export default function OrderPage() {
       </div>
 
       <form
-        action="https://formspree.io/f/xvgakgpl"
+        action="https://formspree.io/f/mqewbolo"
         method="POST"
         className="space-y-4"
       >
