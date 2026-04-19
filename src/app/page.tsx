@@ -126,7 +126,7 @@ export default function HomePage() {
           Shaykh Ibrāhīm Niasse (d. 1975)
         </div>
         <div className="font-english text-white/40 text-sm italic mb-3" dir="ltr">
-          10-Volume Revised Arabic Edition · Bilingual Translation · Critical Apparatus
+          10-Volume Revised Arabic Edition · Bilingual Translation · Footnotes & Citations
         </div>
         <div className="font-english text-white/55 text-base" dir="ltr">
           <span style={{color:'rgba(255,255,255,0.7)'}}>Digital Bilingual Edition</span>
@@ -190,7 +190,7 @@ export default function HomePage() {
                 <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Search</strong> — full-text across 30 Arabic lessons and English translation</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Verse Concordance</strong> — find every passage where Niasse comments on a specific verse</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Critical Apparatus</strong> — 798 footnotes classified by scholar, genre, and lesson</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Footnotes & Citations</strong> — 798 footnotes classified by scholar, genre, and lesson</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Scholar Index</strong> — every figure Niasse cites, distinguished from compiler citations</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Tafsīr Sciences Index</strong> — browse by Sufism, Fiqh, Quranic Sciences, Prophethood</li>
                   <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Glossary</strong> — 19 key terms with Niasse's exact usage and apparatus citations</li>

@@ -9,7 +9,7 @@
     ],
     "related": [
       "Tarbiya",
-      "Walāya",
+      "Wilāya",
       "Maʿrifa",
       "Ḥaqīqa Muḥammadiyya"
     ],
@@ -38,7 +38,7 @@
     ],
     "related": [
       "Maʿrifa",
-      "Walāya",
+      "Wilāya",
       "Sulūk",
       "al-Fayḍa",
       "Maqām"
@@ -87,7 +87,7 @@
       "Maʿrifa",
       "Fanāʾ",
       "Sulūk",
-      "Walāya",
+      "Wilāya",
       "Sirr"
     ],
     "niasse_evidence": [
@@ -183,10 +183,10 @@
     "mishri_quote": "The lowest degree of true Iman is fanāʾ of the nafs and baqāʾ in Allah in the ḥaḍarāt of His Names and His Attributes."
   },
   {
-    "term": "Walāya",
+    "term": "Wilāya",
     "arabic": "الولاية",
     "plural": "",
-    "definition": "Sainthood — the station of proximity to God and spiritual authority that follows from the full realisation of tawḥīd. Mishri specifies the inaugural act of walāya: 'the first step a wali takes in walāya is the killing of the nafs' — meaning that walāya is not a passive state but an active, ongoing combat against the ego-self. In Niasse's tafsīr, walāya is graduated: he distinguishes between walāya ṣughrā (the minor walāya — anyone characterised by a single Qurʾānically praised quality) and walāya kubrā (the major walāya — maʿrifa of God exceeding faith and certainty, the walāya of direct vision) (Lesson 24, apparatus). His most explicit use in the body text appears in Lesson 13, where he describes ʿĪsā (Jesus) as 'sealing the Muhammadan walāya (khātim al-walāya al-muḥammadiyya) as an honour to this community, so that no walāya remains after the descent of Jesus' — positioning the sealing of walāya within the eschatological framework of the tafsīr.",
+    "definition": "Sainthood — the station of proximity to God and spiritual authority that follows from the full realisation of tawḥīd. Mishri specifies the inaugural act of wilāya: 'the first step a wali takes in wilāya is the killing of the nafs' — meaning that wilāya is not a passive state but an active, ongoing combat against the ego-self. In Niasse's tafsīr, wilāya is graduated: he distinguishes between wilāya ṣughrā (the minor wilāya — anyone characterised by a single Qurʾānically praised quality) and wilāya kubrā (the major wilāya — maʿrifa of God exceeding faith and certainty, the wilāya of direct vision) (Lesson 24, apparatus). His most explicit use in the body text appears in Lesson 13, where he describes ʿĪsā (Jesus) as 'sealing the Muhammadan wilāya (khātim al-wilāya al-muḥammadiyya) as an honour to this community, so that no wilāya remains after the descent of Jesus' — positioning the sealing of wilāya within the eschatological framework of the tafsīr.",
     "lessons": [
       8,
       9,
@@ -208,7 +208,7 @@
         "volume": 3,
         "page": 3,
         "arabic_quote": "خاتما للولاية المحمدية تشريفا لهذه الأمة، فلا ولاية بعد نزول عيسى",
-        "translation_note": "Sealing the Muhammadan walāya as an honour to this community — no walāya remains after the descent of Jesus",
+        "translation_note": "Sealing the Muhammadan wilāya as an honour to this community — no wilāya remains after the descent of Jesus",
         "verseRange": "Q. 4:148–5:22"
       },
       {
@@ -217,7 +217,7 @@
         "volume": 2,
         "page": 34,
         "arabic_quote": "ن اتصف بصفة من الصفات التي مدحها القرآن فهو من الأولياء هذه الولاية الصغرى",
-        "translation_note": "Whoever is characterised by a quality the Qurʾān praises — he is among the awliyāʾ. This is the minor walāya (walāya ṣughrā)",
+        "translation_note": "Whoever is characterised by a quality the Qurʾān praises — he is among the awliyāʾ. This is the minor wilāya (wilāya ṣughrā)",
         "verseRange": "Q. 3:15–91"
       }
     ],
@@ -226,7 +226,7 @@
         "fn_id": "fn-24-1",
         "lesson": 24,
         "arabic_quote": "أولياء اللّٰه بالولاية الصغرى... وأولياء اللّٰه بالولاية الكبرى",
-        "note": "Compiler distinguishing walāya ṣughrā (minor sainthood) from walāya kubrā (major sainthood)"
+        "note": "Compiler distinguishing wilāya ṣughrā (minor sainthood) from wilāya kubrā (major sainthood)"
       }
     ],
     "definition_pending": false,
@@ -254,7 +254,7 @@
       "Ḥaḍra",
       "Fanāʾ",
       "Maʿrifa",
-      "Walāya"
+      "Wilāya"
     ],
     "niasse_evidence": [
       {
@@ -555,7 +555,7 @@
       "Tajallī",
       "Al-Insān al-Kāmil",
       "Rūḥ",
-      "Walāya"
+      "Wilāya"
     ],
     "mishri_source": "Muḥammad al-Mishri, Qanābil Yadawiyya fī al-Dhabb ʿan Ṭarīq al-Ṣūfiyya, trans. Saʿeed Simone Nardella & Adnan Wood-Smith (n.p., 2018), Q. 15.",
     "mishri_quote": "To bring these ḥaqāʾiq into existence, Allah brought the Ḥaqīqa Muḥammadiyya into existence, for were it not for that, Allah's relation to creation would not have appeared or been known."
@@ -694,7 +694,7 @@
     "related": [
       "al-Fayḍa",
       "Tarbiya",
-      "Walāya",
+      "Wilāya",
       "Maʿrifa",
       "Ḥaḍra"
     ],
@@ -781,7 +781,7 @@
       30
     ],
     "related": [
-      "Walāya",
+      "Wilāya",
       "Maʿrifa",
       "Tarbiya",
       "Sulūk"

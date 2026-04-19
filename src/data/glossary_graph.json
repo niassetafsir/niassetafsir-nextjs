@@ -49,7 +49,7 @@
       "category": "metaphysics"
     },
     {
-      "id": "walāya",
+      "id": "wilāya",
       "arabic": "الولاية",
       "tier": 1,
       "category": "doctrine"
@@ -217,10 +217,10 @@
       "confirmed": false
     },
     {
-      "from": "walāya",
+      "from": "wilāya",
       "to": "maʿrifa",
       "relation": "PENDING",
-      "note": "[AK to confirm: is walāya the station of maʿrifa, or its precondition?]",
+      "note": "[AK to confirm: is wilāya the station of maʿrifa, or its precondition?]",
       "confirmed": false
     },
     {
