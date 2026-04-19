@@ -551,3 +551,19 @@ nav .font-english.text-xs {
   font-size: 16px;
   line-height: 2;
 }
+
+/* Footnote superscript links in lesson text */
+.fn-superscript {
+  font-size: 0.65em;
+  vertical-align: super;
+  color: rgba(201, 168, 76, 0.7);
+  font-family: var(--font-english);
+  text-decoration: none;
+  margin-inline: 1px;
+  transition: color 0.15s;
+  cursor: pointer;
+}
+.fn-superscript:hover {
+  color: #C9A84C;
+  text-decoration: underline;
+}

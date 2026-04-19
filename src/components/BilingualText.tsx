@@ -8,6 +8,7 @@ interface BilingualTextProps {
   arabicText: string;
   englishText: string | null;
   hasEnglish: boolean;
+  lessonId?: number;
 }
 
 const LANG_TABS: { id: View; label: string }[] = [
@@ -21,6 +22,15 @@ const LANG_TABS: { id: View; label: string }[] = [
 // Poem pattern — the opening invocation present in every lesson
 const POEM_PATTERN = /^(يا ?همة الشيخ|ياهمة الشيخ|لنا بهذا المحضر|ولتعطفي بنظرة|تأتي لنا بالظفر|يا همة)/;
 const BASMALA_PATTERN = /^(أعوذ بالله|بسم الله|اللهم صل)/;
+
+
+function injectFootnoteLinks(text: string, lessonId?: number): string {
+  if (!lessonId) return text;
+  return text.replace(/\[(\d+)\]/g, (match, num) => {
+    const id = `fn-${lessonId}-${num}`;
+    return `<a href="/footnotes#${id}" class="fn-superscript" title="View footnote ${num}">[${num}]</a>`;
+  });
+}
 
 function isPoem(text: string) {
   return POEM_PATTERN.test(text.trim()) || BASMALA_PATTERN.test(text.trim());
@@ -74,7 +84,7 @@ function ComingSoonNote({ lang }: { lang: string }) {
   );
 }
 
-export default function BilingualText({ arabicText, englishText, hasEnglish }: BilingualTextProps) {
+export default function BilingualText({ arabicText, englishText, hasEnglish, lessonId }: BilingualTextProps) {
   const [view, setView] = useState<View>('bilingual');
   const [highlightQuery, setHighlightQuery] = useState<string>('');
   const [highlightedPara, setHighlightedPara] = useState<number>(-1);
@@ -159,7 +169,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
           <div className="hidden md:grid md:grid-cols-2 gap-0">
             <div dir="rtl" className="p-5 font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify border-l border-gold/15">
               {commentaryParagraphs.map((p, i) => (
-                <p key={i} id={`ar-para-${i}`} className={`mb-3 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`} dangerouslySetInnerHTML={{ __html: p }} />
+                <p key={i} id={`ar-para-${i}`} className={`mb-3 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`} dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId) }} />
               ))}
             </div>
             <div dir="ltr" className="p-5">
@@ -176,7 +186,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish }: B
             {commentaryParagraphs.map((p, i) => (
               <div key={i} className="px-4 py-3">
                 <div dir="rtl" className="font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2"
-                  dangerouslySetInnerHTML={{ __html: p }} />
+                  dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId) }} />
                 {hasEnglish && enParagraphs[i] ? (
                   <div
                     dir="ltr"
