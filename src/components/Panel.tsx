@@ -93,26 +93,42 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
 
   return (
     <div ref={ref} className="border border-white/10 rounded-lg mb-3 overflow-hidden">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-3 px-4 py-3 bg-white/5 hover:bg-white/10 transition-colors text-left"
-      >
-        <span className="text-lg flex-shrink-0">{icon}</span>
-        <span className="flex-1 font-english text-sm text-white/80">
-          <span className="font-arabic text-gold" dir="rtl">{titleAr}</span>
-          <span className="text-white/40 mx-2">·</span>
-          <span>{titleEn}</span>
-        </span>
-        {verse && open && (
-          <span className="font-english text-[10px] text-gold/60 border border-gold/25 px-1.5 py-0.5 rounded mr-1">
-            Q.{verse}
+      <div className="w-full flex items-center gap-3 px-4 py-3 bg-white/5 hover:bg-white/10 transition-colors">
+        <button
+          onClick={() => setOpen(!open)}
+          className="flex items-center gap-3 flex-1 text-left min-w-0"
+        >
+          <span className="text-lg flex-shrink-0">{icon}</span>
+          <span className="flex-1 font-english text-sm text-white/80 min-w-0">
+            <span className="font-arabic text-gold" dir="rtl">{titleAr}</span>
+            <span className="text-white/40 mx-2">·</span>
+            <span>{titleEn}</span>
           </span>
+          {verse && open && (
+            <span className="font-english text-[10px] text-gold/60 border border-gold/25 px-1.5 py-0.5 rounded mr-1 flex-shrink-0">
+              Q.{verse}
+            </span>
+          )}
+        </button>
+        {open ? (
+          <button
+            onClick={() => setOpen(false)}
+            className="flex-shrink-0 flex items-center gap-1 font-english text-[11px] text-white/35 hover:text-white/70 border border-white/15 hover:border-white/35 px-2 py-1 rounded transition-all ml-1"
+            title="Close panel"
+          >
+            <ChevronDown size={11} className="rotate-180" />
+            <span>Close</span>
+          </button>
+        ) : (
+          <button
+            onClick={() => setOpen(true)}
+            className="flex-shrink-0 ml-1"
+            aria-label="Open panel"
+          >
+            <ChevronDown size={16} className="text-gold/50 flex-shrink-0" />
+          </button>
         )}
-        <ChevronDown
-          size={16}
-          className={`text-gold/50 transition-transform flex-shrink-0 ${open ? 'rotate-180' : ''}`}
-        />
-      </button>
+      </div>
 
       {/* Verse context bar — shown when arriving from concordance */}
       {open && verse && (
@@ -131,20 +147,6 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
 
       {open && (
         <div className="border-t border-white/10 relative">
-          {/* Sticky close bar — stays at top of viewport while panel is open */}
-          <div className="sticky top-0 z-20 flex justify-end px-3 py-1.5 border-b border-white/8"
-            style={{background:'rgba(13,31,10,0.92)', backdropFilter:'blur(6px)'}}>
-            <button
-              onClick={() => {
-                setOpen(false);
-                ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
-              className="flex items-center gap-1 font-english text-[11px] text-white/30 hover:text-white/65 transition-colors px-2 py-0.5 rounded hover:bg-white/8"
-            >
-              <ChevronDown size={11} className="rotate-180" />
-              Close
-            </button>
-          </div>
           {children}
         </div>
       )}
