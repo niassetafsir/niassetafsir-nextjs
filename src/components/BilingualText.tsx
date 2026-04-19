@@ -35,24 +35,24 @@ function stripEnFootnotes(html: string): string {
 function injectFootnoteLinks(text: string, lessonId?: number): string {
   if (!lessonId) return text;
 
-  // Step 1: strip inline scholar/source citations before footnote numbers
-  // e.g. "تفسير القرطبي ج35/" or "الإتقان 188 - 185/" before [N]
-  // Pattern: bibliographic text (scholar name + vol/page ref) immediately before [N]
-  let result = text.replace(
-    /[؀-ۿ\s\/\d\-–\.،,؛;:()[\]]+(?:ج\d|\/\s*\d|\d+\s*\/\s*\d)[^«»﴾
-]*?(?=\[\d+\])/g,
-    ''
+  // Strip inline bibliographic refs like "تفسير القرطبي ج35/" before [N]
+  // Uses Unicode code points to avoid regex literal issues in TSX
+  const arabicRange = '\\u0600-\\u06FF';
+  const bibPattern = new RegExp(
+    '[' + arabicRange + '\\s,/\\d\\-.();:]+(?:\\u062C\\d|\\d+\\s*[-\\u2013]\\s*\\d+\\s*\\/)[^\\n\\u00ab\\u00bb]*?(?=\\[\\d+\\])',
+    'g'
   );
+  let result = text.replace(bibPattern, '');
 
-  // Step 2: convert [N] markers to footnote superscript links
-  result = result.replace(/\[(\d+)\]/g, (match, num) => {
+  // Convert [N] to footnote superscript links
+  result = result.replace(/\[(\d+)\]/g, (_match, num) => {
     const id = `fn-${lessonId}-${num}`;
     return `<a href="/footnotes#${id}" class="fn-superscript" title="View footnote ${num}">[${num}]</a>`;
   });
 
-  // Step 3: wrap Quranic citations «...» in coloured span
-  result = result.replace(/«([^»]{3,300})»/g, (match, verse) => {
-    return `<span class="quranic-verse">«${verse}»</span>`;
+  // Wrap Quranic verse citations «...» in colour span
+  result = result.replace(/\u00ab([^\u00bb]{3,300})\u00bb/g, (_match, verse) => {
+    return `<span class="quranic-verse">\u00ab${verse}\u00bb</span>`;
   });
 
   return result;
