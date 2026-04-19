@@ -92,8 +92,8 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
   };
 
   return (
-    <div ref={ref} className="border border-white/10 rounded-lg mb-3 overflow-hidden">
-      <div className="w-full flex items-center gap-3 px-4 py-3 bg-white/5 hover:bg-white/10 transition-colors sticky top-0 z-10 bg-white/5 backdrop-blur-sm border-b border-white/10">
+    <div ref={ref} className="border border-white/10 rounded-lg mb-3">
+      <div className="w-full flex items-center gap-3 px-4 py-3 bg-white/5 hover:bg-white/10 transition-colors sticky top-0 z-10 backdrop-blur-sm border-b border-white/10 rounded-t-lg">
         <button
           onClick={() => setOpen(!open)}
           className="flex items-center gap-3 flex-1 text-left min-w-0"
