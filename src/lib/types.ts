@@ -13,6 +13,7 @@ export interface Lesson {
   hasEnglish: boolean;
   volume?: number;
   pageInVolume?: number | null;
+  lessonSummary?: string;
   wolofPlaylistId: string;
   arabicPlaylistId: string;
   arabicAudioUrl: string | null;

@@ -92,8 +92,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         <div className="p-5" dir="ltr">
           <div className="mb-3 pb-3 border-b border-gold/15">
             <div className="font-english text-white/40 text-xs italic">
-              Scholarly notes comparing Niasse to Tafsīr al-Jalālayn and Rūḥ al-Bayān ·
-              Amadu Kunateh, Harvard University
+              Scholarly summary · Amadu Kunateh, Founder, Translator & Digital Editor
             </div>
           </div>
           {readingNotes ? (
@@ -101,6 +100,12 @@ export default async function LessonPage({ params }: { params: { id: string } })
               className="font-english text-white/85 text-sm leading-7 space-y-3"
               dangerouslySetInnerHTML={{ __html: readingNotes }}
             />
+          ) : lesson.lessonSummary ? (
+            <div>
+              <p className="font-english text-sm leading-7" style={{color:'rgba(255,255,255,0.75)'}}>
+                {lesson.lessonSummary}
+              </p>
+            </div>
           ) : (
             <div className="text-center py-6">
               <p className="font-english text-white/20 italic text-sm">
