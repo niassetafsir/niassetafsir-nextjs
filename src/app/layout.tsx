@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ar" dir="rtl">
-      <body className="bg-bg min-h-screen pb-16 md:pb-0">
+      <body className="bg-bg min-h-screen pb-16">
         <SiteNav />
         <PersistentNav />
         {children}
