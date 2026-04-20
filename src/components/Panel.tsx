@@ -177,21 +177,20 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
             bottom: '80px',
             right: '20px',
             zIndex: 9999,
-            background: 'rgba(13,20,10,0.92)',
-            border: '1px solid rgba(201,168,76,0.4)',
+            background: '#C9A84C',
+            border: 'none',
             borderRadius: '999px',
-            padding: '8px 16px',
+            padding: '10px 20px',
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
-            backdropFilter: 'blur(8px)',
+            gap: '8px',
             cursor: 'pointer',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+            boxShadow: '0 4px 24px rgba(0,0,0,0.5)',
           }}
         >
-          <ChevronDown size={12} className="text-gold/70 rotate-180" />
-          <span style={{ fontFamily: 'Times New Roman, serif', fontSize: '12px', color: 'rgba(201,168,76,0.8)' }}>
-            Close
+          <ChevronDown size={14} style={{ color: '#0D1F0A', transform: 'rotate(180deg)' }} />
+          <span style={{ fontFamily: 'EB Garamond, Times New Roman, serif', fontSize: '13px', fontWeight: '600', color: '#0D1F0A', letterSpacing: '0.02em' }}>
+            Close Panel
           </span>
         </button>
       )}
