@@ -165,42 +165,54 @@ export default function HomePage() {
 
               <p style={{color:'rgba(255,255,255,0.55)'}}>
                 <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by Shaykh Ibrāhīm Niasse is organised here into{' '}
-                <strong style={{color:'rgba(255,255,255,0.9)'}}>30 lessons</strong> across{' '}
+                <strong style={{color:'rgba(255,255,255,0.9)'}}>35 lessons</strong> across{' '}
                 <strong style={{color:'rgba(255,255,255,0.9)'}}>7 manzils</strong> — the weekly Quranic recitation
-                cycle he practised. Each lesson covers a passage with his Arabic commentary and English translation.
+                cycle he practised. Volumes 1–5 (Lessons 1–30) and Volume 6 (Lessons 31–35) are available.
+                Each lesson covers a Quranic passage with Shaykh Ibrāhīm's Arabic commentary, English translation, and audio.
               </p>
 
               <div className="border-t border-gold/15 pt-3">
                 <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>Reading the Text</p>
                 <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
-                  <li>Click any manzil → then any lesson</li>
-                  <li>Toggle <strong style={{color:'rgba(255,255,255,0.85)'}}>Arabic</strong>, <strong style={{color:'rgba(255,255,255,0.85)'}}>English</strong>, or <strong style={{color:'rgba(255,255,255,0.85)'}}>Bilingual</strong> view inside the lesson</li>
-                  <li>Footnote numbers <code style={{color:'rgba(201,168,76,0.9)', fontSize:'11px'}}>[n]</code> link directly to the Footnotes & Citations page</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio</strong> — Wolof oral tafsīr (122 sessions) and Arabic delivery by Shaykh Ibrāhīm for all 30 lessons</li>
+                  <li>Select a manzil from the grid, then choose a lesson</li>
+                  <li>Inside each lesson, toggle <strong style={{color:'rgba(255,255,255,0.85)'}}>Arabic</strong>, <strong style={{color:'rgba(255,255,255,0.85)'}}>English</strong>, or <strong style={{color:'rgba(255,255,255,0.85)'}}>Bilingual</strong> view</li>
+                  <li>Quranic verses appear in <span style={{color:'#34d399'}}>green</span> — click the panel title bar to open or close any section at any time</li>
+                  <li>Footnote superscripts <code style={{color:'rgba(201,168,76,0.9)', fontSize:'11px'}}>[n]</code> link directly to the Footnotes &amp; Citations page with the entry highlighted</li>
+                  <li>The <strong style={{color:'rgba(255,255,255,0.85)'}}>Lesson Overview</strong> panel gives a scholarly summary of each lesson's themes and content</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio</strong> — Wolof oral recordings (122 sessions) and Arabic delivery by Shaykh Ibrāhīm for all 30 lessons</li>
                 </ul>
               </div>
 
               <div className="border-t border-gold/15 pt-3">
                 <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>Research Tools</p>
                 <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Search</strong> — full-text across 30 Arabic lessons and English translation</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Verse Concordance</strong> — search any verse to access Jalālayn&apos;s commentary and Shaykh Ibrāhīm&apos;s reflection</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Footnotes & Citations</strong> — 798 footnotes by the compiler, classified by scholar and subject; click [n] to go directly to the source</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Hadith Index</strong> — 384 hadith citations indexed by collection</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Scholar & Source Index</strong> — every figure Niasse cites in his own words, distinguished from compiler citations</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Tafsīr Sciences Index</strong> — 12 disciplinary categories drawn from classical ʿulūm al-tafsīr</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Concordance of Terms</strong> — textual index of 20 key terms across all 30 lessons, grounded in Shaykh Aḥmad al-Tijānī and Muḥammad al-Mishri</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Theological Vocabulary Map</strong> — a knowledge graph of how terms connect within Niasse&apos;s system</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio Library</strong> — stream or download the Arabic oral tafsīr recordings by sura</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Search</strong> — full-text across all Arabic lessons and English translation</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Verse Concordance</strong> — browse all 114 suras, select a sura to see every verse Shaykh Ibrāhīm discusses, or search by verse reference (e.g. 2:255)</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Footnotes &amp; Citations</strong> — 798 classified footnotes by the compiler; searchable by scholar, genre, and lesson</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Ḥadīth Index</strong> — 384 ḥadīth citations indexed by collection</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Scholar &amp; Source Index</strong> — authorities Shaykh Ibrāhīm cites in his own voice, distinguished from compiler citations</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Tafsīr Sciences Index</strong> — twelve disciplinary categories drawn from the classical tafsīr sciences</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Concordance of Terms</strong> — textual index of 20 key theological and Sufi terms with every occurrence across the corpus</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Theological Vocabulary Map</strong> — knowledge graph showing how terms connect in Shaykh Ibrāhīm's thought</li>
+                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio Library</strong> — stream or download the Arabic oral recordings</li>
                 </ul>
               </div>
 
               <div className="border-t border-gold/15 pt-3">
-                <p className="font-semibold mb-1" style={{color:'rgba(255,255,255,0.9)'}}>Citing the Text</p>
-                <p style={{color:'rgba(255,255,255,0.55)'}}>
-                  Select any passage → <strong style={{color:'rgba(201,168,76,0.8)'}}>Clip &amp; Cite</strong> → Chicago citation with volume and page reference generated automatically.
-                  Export all saved clips from <code style={{color:'rgba(255,255,255,0.5)', fontSize:'11px'}}>/clips</code>.
-                </p>
+                <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>Saving Your Research</p>
+                <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
+                  <li>Select any Arabic or English text in a lesson to bring up the <strong style={{color:'rgba(255,255,255,0.85)'}}>Clip &amp; Cite</strong> bar — saves the passage with an auto-generated Chicago citation</li>
+                  <li>Use <strong style={{color:'rgba(255,255,255,0.85)'}}>Bookmark</strong> to save passages for later; access all saved passages via the Research Hub</li>
+                  <li>Clipped and bookmarked passages are stored locally in your browser</li>
+                </ul>
+              </div>
+
+              <div className="border-t border-gold/15 pt-3">
+                <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>The Physical Edition</p>
+                <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
+                  <li>The ten-volume revised Arabic edition is available to order — visit the <a href="/order" className="text-gold/70 hover:text-gold underline">Order page</a></li>
+                  <li>A bilingual Arabic-English print edition is in preparation — register your interest on the <a href="/preorder" className="text-gold/70 hover:text-gold underline">Pre-order page</a></li>
+                </ul>
               </div>
 
             </div>
