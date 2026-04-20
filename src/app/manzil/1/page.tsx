@@ -18,6 +18,7 @@ export default function Page() {
       <a href="/lesson/1" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">1</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson One</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس الأول</div>
           <div className="font-arabic text-white/35 text-sm">Al-Fātiḥa</div>
         </div>
@@ -29,6 +30,7 @@ export default function Page() {
       <a href="/lesson/2" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">2</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Two</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس الثاني</div>
           <div className="font-arabic text-white/35 text-sm">Al-Baqara</div>
         </div>
@@ -40,6 +42,7 @@ export default function Page() {
       <a href="/lesson/3" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">3</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Three</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس الثالث</div>
           <div className="font-arabic text-white/35 text-sm">Al-Baqara</div>
         </div>
@@ -51,6 +54,7 @@ export default function Page() {
       <a href="/lesson/4" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">4</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Four</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس الرابع</div>
           <div className="font-arabic text-white/35 text-sm">Al-Baqara</div>
         </div>
@@ -62,6 +66,7 @@ export default function Page() {
       <a href="/lesson/5" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">5</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Five</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس الخامس</div>
           <div className="font-arabic text-white/35 text-sm">Al-Baqara</div>
         </div>
@@ -73,6 +78,7 @@ export default function Page() {
       <a href="/lesson/6" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">6</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Six</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس السادس</div>
           <div className="font-arabic text-white/35 text-sm">Al-Baqara</div>
         </div>
@@ -84,6 +90,7 @@ export default function Page() {
       <a href="/lesson/7" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">7</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Seven</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس السابع</div>
           <div className="font-arabic text-white/35 text-sm">Al-Baqara</div>
         </div>
@@ -95,6 +102,7 @@ export default function Page() {
       <a href="/lesson/8" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">8</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Eight</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس الثامن</div>
           <div className="font-arabic text-white/35 text-sm">Āl ʿImrān</div>
         </div>
@@ -106,6 +114,7 @@ export default function Page() {
       <a href="/lesson/9" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">9</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Nine</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس التاسع</div>
           <div className="font-arabic text-white/35 text-sm">Āl ʿImrān</div>
         </div>
@@ -117,6 +126,7 @@ export default function Page() {
       <a href="/lesson/10" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">10</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Ten</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس العاشر</div>
           <div className="font-arabic text-white/35 text-sm">Āl ʿImrān</div>
         </div>
@@ -128,6 +138,7 @@ export default function Page() {
       <a href="/lesson/11" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">11</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Eleven</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس الحادي عشر</div>
           <div className="font-arabic text-white/35 text-sm">Al-Nisāʾ</div>
         </div>
@@ -139,6 +150,7 @@ export default function Page() {
       <a href="/lesson/12" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">12</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Twelve</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس الثاني عشر</div>
           <div className="font-arabic text-white/35 text-sm">Al-Nisāʾ</div>
         </div>
@@ -150,6 +162,7 @@ export default function Page() {
       <a href="/lesson/13" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">13</div>
         <div dir="rtl" className="flex-1">
+          <div className="font-english text-white/40 text-[10px] uppercase tracking-wide mb-0.5" dir="ltr">Lesson Thirteen</div>
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس الثالث عشر</div>
           <div className="font-arabic text-white/35 text-sm">Al-Nisāʾ</div>
         </div>
