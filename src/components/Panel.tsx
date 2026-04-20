@@ -70,15 +70,17 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
   const headerRef = useRef<HTMLDivElement>(null);
   const scrolled = useRef(false);
 
-  // Track whether the panel header is visible in the viewport
+  // Track whether the panel header is visible in the viewport using scroll events
   useEffect(() => {
-    if (!open || !headerRef.current) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setHeaderVisible(entry.isIntersecting),
-      { threshold: 0, rootMargin: '-56px 0px 0px 0px' }
-    );
-    observer.observe(headerRef.current);
-    return () => observer.disconnect();
+    if (!open) { setHeaderVisible(true); return; }
+    const checkVisibility = () => {
+      if (!headerRef.current) return;
+      const rect = headerRef.current.getBoundingClientRect();
+      setHeaderVisible(rect.top >= 56 && rect.bottom > 0);
+    };
+    checkVisibility();
+    window.addEventListener('scroll', checkVisibility, { passive: true });
+    return () => window.removeEventListener('scroll', checkVisibility);
   }, [open]);
 
   useEffect(() => {
