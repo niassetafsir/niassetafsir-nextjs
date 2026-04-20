@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 
 interface VerseRef {
@@ -13,171 +13,260 @@ interface VerseRef {
   panel?: string | null;
 }
 
-interface VerseText {
-  ar: string;
-  en: string;
-}
-
-const SURA_NAMES: Record<number, string> = {
-  1:'Al-Fātiḥa',2:'Al-Baqara',3:'Āl ʿImrān',4:'Al-Nisāʾ',5:'Al-Māʾida',
-  6:'Al-Anʿām',7:'Al-Aʿrāf',8:'Al-Anfāl',9:'Al-Tawba',10:'Yūnus',
-  11:'Hūd',12:'Yūsuf',13:'Al-Raʿd',14:'Ibrāhīm',15:'Al-Ḥijr',16:'Al-Naḥl',
-  17:'Al-Isrāʾ',18:'Al-Kahf',19:'Maryam',20:'Ṭāhā',21:'Al-Anbiyāʾ',
-  23:'Al-Muʾminūn',24:'Al-Nūr',26:'Al-Shuʿarāʾ',29:'Al-ʿAnkabūt',
-  33:'Al-Aḥzāb',36:'Yā Sīn',40:'Ghāfir',43:'Al-Zukhruf',44:'Al-Dukhān',
-  52:'Al-Ṭūr',56:'Al-Wāqiʿa',57:'Al-Ḥadīd',74:'Al-Muddaththir',75:'Al-Qiyāma',
-  96:'Al-ʿAlaq',
-};
-
-function VerseEntry({ entryKey, refs, vt }: { entryKey: string; refs: VerseRef[]; vt?: VerseText }) {
-  const [open, setOpen] = useState(false);
-  const [sura, verse] = entryKey.split(':').map(Number);
-  const suraName = SURA_NAMES[sura] || `Sūra ${sura}`;
-
-  return (
-    <div className="border border-gold/15 rounded-lg overflow-hidden">
-      {/* Collapsed header — always visible */}
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="w-full text-left px-4 py-2.5 hover:bg-gold/5 transition-colors"
-        style={{ background: open ? 'rgba(201,168,76,0.07)' : 'transparent' }}
-      >
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex-1 min-w-0">
-            {/* Reference line */}
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-english text-gold font-semibold text-sm">Q.{entryKey}</span>
-              <span className="font-english text-xs" style={{color:'rgba(255,255,255,0.4)'}}>
-                {suraName}
-              </span>
-              <span className="font-english text-[10px] px-1.5 py-0.5 rounded border border-white/10"
-                style={{color:'rgba(255,255,255,0.25)'}}>
-                {refs.length} ref{refs.length !== 1 ? 's' : ''}
-              </span>
-            </div>
-            {/* Verse text — small, single line when collapsed */}
-            {vt && (
-              <div className="mt-1 flex items-baseline gap-2 flex-wrap">
-                <span className="font-arabic leading-5" dir="rtl"
-                  style={{fontSize:'11px', color:'rgba(255,255,255,0.5)'}}>
-                  ﴿{vt.ar.slice(0, 60)}{vt.ar.length > 60 ? '…' : ''}﴾
-                </span>
-                {!open && (
-                  <span className="font-english italic"
-                    style={{fontSize:'10px', color:'rgba(255,255,255,0.3)'}}>
-                    {vt.en.slice(0, 55)}{vt.en.length > 55 ? '…' : ''}
-                  </span>
-                )}
-              </div>
-            )}
-            {/* Full English when open */}
-            {vt && open && (
-              <p className="font-english italic mt-0.5"
-                style={{fontSize:'11px', color:'rgba(255,255,255,0.4)', lineHeight:'1.5'}}>
-                {vt.en}
-              </p>
-            )}
-          </div>
-          <span className="text-gold/40 text-xs mt-0.5 flex-shrink-0">
-            {open ? '▲' : '▼'}
-          </span>
-        </div>
-      </button>
-
-      {/* Expanded: lesson references */}
-      {open && (
-        <div className="divide-y divide-white/5 border-t border-white/8">
-          {refs.map((ref, i) => (
-            <Link key={i} 
-              href={`/lesson/${ref.lessonId}?panel=${ref.panel || 'tafsir'}${ref.anchor ? '&q=' + encodeURIComponent(ref.anchor) : ''}`}
-              className="flex items-center gap-3 px-4 py-2.5 hover:bg-gold/5 transition-colors group">
-              <div className="w-5 h-5 rounded-full bg-gold/20 flex items-center justify-center text-gold text-[10px] font-bold flex-shrink-0">
-                {ref.lessonId}
-              </div>
-              <div className="flex-1 min-w-0">
-                <span className="font-english text-xs group-hover:text-gold transition-colors"
-                  style={{color:'rgba(255,255,255,0.6)'}}>
-                  {ref.lessonTitleEn}
-                </span>
-                <span className="ml-2 font-english text-[10px] px-1 py-0.5 rounded border border-white/10"
-                  style={{color:'rgba(255,255,255,0.25)'}}>
-                  {ref.source === 'primary' ? 'Commentary' : 'Cross-reference'}
-                </span>
-              </div>
-              <span className="text-gold/30 text-xs">→</span>
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
+const ALL_SURAS: [number, string, string][] = [
+  [1,'Al-Fātiḥa','الفاتحة'],[2,'Al-Baqara','البقرة'],[3,'Āl ʿImrān','آل عمران'],
+  [4,'Al-Nisāʾ','النساء'],[5,'Al-Māʾida','المائدة'],[6,'Al-Anʿām','الأنعام'],
+  [7,'Al-Aʿrāf','الأعراف'],[8,'Al-Anfāl','الأنفال'],[9,'Al-Tawba','التوبة'],
+  [10,'Yūnus','يونس'],[11,'Hūd','هود'],[12,'Yūsuf','يوسف'],[13,'Al-Raʿd','الرعد'],
+  [14,'Ibrāhīm','إبراهيم'],[15,'Al-Ḥijr','الحجر'],[16,'Al-Naḥl','النحل'],
+  [17,'Al-Isrāʾ','الإسراء'],[18,'Al-Kahf','الكهف'],[19,'Maryam','مريم'],
+  [20,'Ṭāhā','طه'],[21,'Al-Anbiyāʾ','الأنبياء'],[22,'Al-Ḥajj','الحج'],
+  [23,'Al-Muʾminūn','المؤمنون'],[24,'Al-Nūr','النور'],[25,'Al-Furqān','الفرقان'],
+  [26,'Al-Shuʿarāʾ','الشعراء'],[27,'Al-Naml','النمل'],[28,'Al-Qaṣaṣ','القصص'],
+  [29,'Al-ʿAnkabūt','العنكبوت'],[30,'Al-Rūm','الروم'],[31,'Luqmān','لقمان'],
+  [32,'Al-Sajda','السجدة'],[33,'Al-Aḥzāb','الأحزاب'],[34,'Sabaʾ','سبأ'],
+  [35,'Fāṭir','فاطر'],[36,'Yā Sīn','يس'],[37,'Al-Ṣāffāt','الصافات'],
+  [38,'Ṣād','ص'],[39,'Al-Zumar','الزمر'],[40,'Ghāfir','غافر'],
+  [41,'Fuṣṣilat','فصلت'],[42,'Al-Shūrā','الشورى'],[43,'Al-Zukhruf','الزخرف'],
+  [44,'Al-Dukhān','الدخان'],[45,'Al-Jāthiya','الجاثية'],[46,'Al-Aḥqāf','الأحقاف'],
+  [47,'Muḥammad','محمد'],[48,'Al-Fatḥ','الفتح'],[49,'Al-Ḥujurāt','الحجرات'],
+  [50,'Qāf','ق'],[51,'Al-Dhāriyāt','الذاريات'],[52,'Al-Ṭūr','الطور'],
+  [53,'Al-Najm','النجم'],[54,'Al-Qamar','القمر'],[55,'Al-Raḥmān','الرحمن'],
+  [56,'Al-Wāqiʿa','الواقعة'],[57,'Al-Ḥadīd','الحديد'],[58,'Al-Mujādala','المجادلة'],
+  [59,'Al-Ḥashr','الحشر'],[60,'Al-Mumtaḥana','الممتحنة'],[61,'Al-Ṣaff','الصف'],
+  [62,'Al-Jumuʿa','الجمعة'],[63,'Al-Munāfiqūn','المنافقون'],[64,'Al-Taghābun','التغابن'],
+  [65,'Al-Ṭalāq','الطلاق'],[66,'Al-Taḥrīm','التحريم'],[67,'Al-Mulk','الملك'],
+  [68,'Al-Qalam','القلم'],[69,'Al-Ḥāqqa','الحاقة'],[70,'Al-Maʿārij','المعارج'],
+  [71,'Nūḥ','نوح'],[72,'Al-Jinn','الجن'],[73,'Al-Muzzammil','المزمل'],
+  [74,'Al-Muddaththir','المدثر'],[75,'Al-Qiyāma','القيامة'],[76,'Al-Insān','الإنسان'],
+  [77,'Al-Mursalāt','المرسلات'],[78,'Al-Nabaʾ','النبأ'],[79,'Al-Nāziʿāt','النازعات'],
+  [80,'ʿAbasa','عبس'],[81,'Al-Takwīr','التكوير'],[82,'Al-Infiṭār','الانفطار'],
+  [83,'Al-Muṭaffifīn','المطففين'],[84,'Al-Inshiqāq','الانشقاق'],[85,'Al-Burūj','البروج'],
+  [86,'Al-Ṭāriq','الطارق'],[87,'Al-Aʿlā','الأعلى'],[88,'Al-Ghāshiya','الغاشية'],
+  [89,'Al-Fajr','الفجر'],[90,'Al-Balad','البلد'],[91,'Al-Shams','الشمس'],
+  [92,'Al-Layl','الليل'],[93,'Al-Ḍuḥā','الضحى'],[94,'Al-Sharḥ','الشرح'],
+  [95,'Al-Tīn','التين'],[96,'Al-ʿAlaq','العلق'],[97,'Al-Qadr','القدر'],
+  [98,'Al-Bayyina','البينة'],[99,'Al-Zalzala','الزلزلة'],[100,'Al-ʿĀdiyāt','العاديات'],
+  [101,'Al-Qāriʿa','القارعة'],[102,'Al-Takāthur','التكاثر'],[103,'Al-ʿAṣr','العصر'],
+  [104,'Al-Humaza','الهمزة'],[105,'Al-Fīl','الفيل'],[106,'Quraysh','قريش'],
+  [107,'Al-Māʿūn','الماعون'],[108,'Al-Kawthar','الكوثر'],[109,'Al-Kāfirūn','الكافرون'],
+  [110,'Al-Naṣr','النصر'],[111,'Al-Masad','المسد'],[112,'Al-Ikhlāṣ','الإخلاص'],
+  [113,'Al-Falaq','الفلق'],[114,'Al-Nās','الناس'],
+];
 
 export default function ConcordancePage() {
   const [concordance, setConcordance] = useState<Record<string, VerseRef[]>>({});
-  const [verseText, setVerseText] = useState<Record<string, VerseText>>({});
   const [search, setSearch] = useState('');
+  const [activeSura, setActiveSura] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+  const searchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    Promise.all([
-      fetch('/data/concordance.json').then(r => r.json()),
-      fetch('/data/verse_text.json').then(r => r.json()),
-    ]).then(([conc, vt]) => {
-      setConcordance(conc);
-      setVerseText(vt);
+    fetch('/data/concordance.json').then(r => r.json()).then(d => {
+      setConcordance(d);
       setLoading(false);
     });
   }, []);
 
-  const entries = Object.entries(concordance)
-    .filter(([key]) => !search || key.includes(search))
-    .sort(([a], [b]) => {
-      const [as, av] = a.split(':').map(Number);
-      const [bs, bv] = b.split(':').map(Number);
-      return as !== bs ? as - bs : av - bv;
+  // Build surah → verses map
+  const suraVerses: Record<number, string[]> = {};
+  Object.keys(concordance).forEach(key => {
+    const [s] = key.split(':').map(Number);
+    if (!suraVerses[s]) suraVerses[s] = [];
+    suraVerses[s].push(key);
+  });
+
+  // Sort verses within each sura
+  Object.keys(suraVerses).forEach(s => {
+    suraVerses[Number(s)].sort((a, b) => {
+      const [, av] = a.split(':').map(Number);
+      const [, bv] = b.split(':').map(Number);
+      return av - bv;
     });
+  });
+
+  // Search: filter verses matching input
+  const searchResults: Array<{key: string; refs: VerseRef[]; sura: number; verse: number}> = [];
+  if (search.trim().length >= 2) {
+    const q = search.trim().toLowerCase();
+    Object.entries(concordance).forEach(([key, refs]) => {
+      const [s, v] = key.split(':').map(Number);
+      const suraName = ALL_SURAS[s-1]?.[1] || '';
+      const matchKey = `Q. ${key}`.toLowerCase().includes(q) ||
+                       `${s}:${v}`.includes(q) ||
+                       suraName.toLowerCase().includes(q) ||
+                       refs.some(r => r.excerpt?.toLowerCase().includes(q));
+      if (matchKey) searchResults.push({ key, refs, sura: s, verse: v });
+    });
+    searchResults.sort((a, b) => a.sura !== b.sura ? a.sura - b.sura : a.verse - b.verse);
+  }
+
+  const showSearch = search.trim().length >= 2;
+  const activeSuraVerses = activeSura ? (suraVerses[activeSura] || []) : [];
 
   return (
-    <main className="max-w-4xl mx-auto px-4 pb-20 pt-6" dir="ltr">
+    <main className="max-w-5xl mx-auto px-4 pb-20 pt-6" dir="ltr">
+      {/* Header */}
       <div className="mb-6">
-        <h1 className="font-arabic text-gold text-2xl font-bold mb-1 text-center" dir="rtl">
-          فهرس الآيات
-        </h1>
-        <p className="font-english text-sm text-center mb-5"
-          style={{color:'rgba(255,255,255,0.4)'}}>
-          Verse Concordance — search any verse · Jalālayn commentary · Niasse's reflection
+        <div className="font-arabic text-gold text-xl mb-1" dir="rtl">فهرس الآيات</div>
+        <h1 className="font-english text-white text-2xl font-semibold">Verse Concordance</h1>
+        <p className="font-english text-sm mt-1" style={{color:'rgba(255,255,255,0.4)'}}>
+          1,079 Quranic verses across the commentary · Select a sura or search by verse
         </p>
-
-        <input
-          type="text"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          placeholder="Search verse, e.g. 2:255 or 1:"
-          className="w-full border border-gold/25 rounded-xl px-4 py-2.5 font-english text-sm outline-none focus:border-gold/50 bg-white/5 placeholder-white/20"
-          style={{ color: 'inherit' }}
-        />
-        {!loading && (
-          <p className="font-english text-[11px] mt-1.5 text-center"
-            style={{color:'rgba(255,255,255,0.2)'}}>
-            {entries.length} verses · tap any row to expand lesson references
-          </p>
-        )}
       </div>
 
-      {loading ? (
-        <p className="font-english text-center py-12 animate-pulse"
-          style={{color:'rgba(255,255,255,0.3)'}}>Loading concordance…</p>
-      ) : (
-        <div className="space-y-1.5">
-          {entries.map(([key, refs]) => (
-            <VerseEntry
-              key={key}
-              entryKey={key}
-              refs={refs}
-              vt={verseText[key]}
-            />
-          ))}
+      {/* Search bar */}
+      <div className="mb-6">
+        <input
+          ref={searchRef}
+          type="text"
+          value={search}
+          onChange={e => { setSearch(e.target.value); setActiveSura(null); }}
+          placeholder="Search by sura name, verse ref (e.g. 2:255), or keyword…"
+          className="w-full border border-gold/30 rounded-xl px-4 py-3 font-english text-sm bg-white/5 outline-none focus:border-gold/60"
+          style={{color:'inherit'}}
+        />
+      </div>
+
+      {/* Search results */}
+      {showSearch && (
+        <div>
+          <p className="font-english text-xs mb-3" style={{color:'rgba(255,255,255,0.3)'}}>
+            {searchResults.length} verse{searchResults.length !== 1 ? 's' : ''} found
+          </p>
+          <div className="space-y-2">
+            {searchResults.map(({key, refs, sura, verse}) => {
+              const suraData = ALL_SURAS[sura-1];
+              const suraName = suraData?.[1] || `Sura ${sura}`;
+              const ref = refs[0];
+              const link = `/lesson/${ref.lessonId}?panel=${ref.panel || 'tafsir'}${ref.anchor ? '&q=' + encodeURIComponent(ref.anchor) : ''}`;
+              return (
+                <div key={key} className="border border-white/10 rounded-xl p-4 hover:border-gold/30 transition-all">
+                  <div className="flex items-start justify-between gap-3 mb-2">
+                    <div>
+                      <span className="font-english text-gold font-semibold text-sm">Q. {key}</span>
+                      <span className="font-english text-xs ml-2" style={{color:'rgba(255,255,255,0.4)'}}>{suraName}</span>
+                    </div>
+                    <span className="font-english text-[10px] border border-white/10 px-2 py-0.5 rounded" style={{color:'rgba(255,255,255,0.3)'}}>
+                      {refs.length} lesson{refs.length !== 1 ? 's' : ''}
+                    </span>
+                  </div>
+                  <div className="space-y-1.5">
+                    {refs.map((r, i) => (
+                      <Link key={i}
+                        href={`/lesson/${r.lessonId}?panel=${r.panel || 'tafsir'}${r.anchor ? '&q=' + encodeURIComponent(r.anchor) : ''}`}
+                        className="flex items-center gap-2 group">
+                        <div className="w-5 h-5 rounded-full bg-gold/20 flex items-center justify-center text-gold text-[10px] font-bold flex-shrink-0">{r.lessonId}</div>
+                        <span className="font-english text-xs group-hover:text-gold transition-colors" style={{color:'rgba(255,255,255,0.55)'}}>
+                          {r.lessonTitleEn} · {r.volRef}
+                        </span>
+                        <span className="font-english text-[10px] text-gold/60 ml-auto flex-shrink-0">→ Open</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Sura grid + verse list */}
+      {!showSearch && (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Left: Sura list */}
+          <div className="md:col-span-1">
+            <p className="font-english text-[10px] uppercase tracking-wide mb-2" style={{color:'rgba(255,255,255,0.25)'}}>
+              Select a sura
+            </p>
+            <div className="space-y-0.5 max-h-[70vh] overflow-y-auto pr-1">
+              {ALL_SURAS.map(([num, nameEn, nameAr]) => {
+                const covered = !!suraVerses[num];
+                const count = suraVerses[num]?.length || 0;
+                const isActive = activeSura === num;
+                return (
+                  <button
+                    key={num}
+                    onClick={() => covered ? setActiveSura(isActive ? null : num) : null}
+                    disabled={!covered}
+                    className={`w-full text-left px-3 py-2 rounded-lg transition-all flex items-center gap-2 ${
+                      isActive ? 'bg-gold/12 border border-gold/30' :
+                      covered ? 'hover:bg-white/5 border border-transparent' :
+                      'opacity-30 cursor-default border border-transparent'
+                    }`}
+                  >
+                    <span className="font-english text-[10px] w-5 text-right flex-shrink-0" style={{color:'rgba(255,255,255,0.3)'}}>{num}</span>
+                    <span className="font-english text-xs flex-1 min-w-0 truncate" style={{color: isActive ? '#C9A84C' : covered ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.3)'}}>{nameEn}</span>
+                    <span className="font-arabic text-xs flex-shrink-0" dir="rtl" style={{color:'rgba(255,255,255,0.3)', fontSize:'10px'}}>{nameAr}</span>
+                    {covered && (
+                      <span className="font-english text-[9px] flex-shrink-0" style={{color:'rgba(201,168,76,0.5)'}}>{count}</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right: Verse list */}
+          <div className="md:col-span-2">
+            {!activeSura ? (
+              <div className="border border-white/8 rounded-xl p-8 text-center h-full flex flex-col items-center justify-center">
+                <div className="font-arabic text-gold/30 text-3xl mb-3" dir="rtl">فهرس الآيات</div>
+                <p className="font-english text-white/25 text-sm">Select a sura from the list to view its verses</p>
+                <p className="font-english text-white/15 text-xs mt-1">or search above by verse reference or keyword</p>
+              </div>
+            ) : (
+              <div>
+                <div className="mb-3 flex items-center justify-between">
+                  <div>
+                    <span className="font-english text-gold font-semibold">{ALL_SURAS[activeSura-1]?.[1]}</span>
+                    <span className="font-arabic text-gold/60 ml-2 text-sm" dir="rtl">{ALL_SURAS[activeSura-1]?.[2]}</span>
+                  </div>
+                  <span className="font-english text-xs" style={{color:'rgba(255,255,255,0.3)'}}>
+                    {activeSuraVerses.length} verse{activeSuraVerses.length !== 1 ? 's' : ''} cited
+                  </span>
+                </div>
+                <div className="space-y-2 max-h-[70vh] overflow-y-auto pr-1">
+                  {activeSuraVerses.map(key => {
+                    const refs = concordance[key];
+                    const [, v] = key.split(':').map(Number);
+                    return (
+                      <div key={key} className="border border-white/10 rounded-xl p-3 hover:border-gold/25 transition-all">
+                        <div className="flex items-center justify-between gap-2 mb-2">
+                          <span className="font-english text-gold text-sm font-semibold">Q. {key}</span>
+                          <span className="font-english text-[10px]" style={{color:'rgba(255,255,255,0.25)'}}>
+                            {refs.length} reference{refs.length !== 1 ? 's' : ''} in commentary
+                          </span>
+                        </div>
+                        <div className="space-y-1.5">
+                          {refs.map((ref, i) => (
+                            <Link key={i}
+                              href={`/lesson/${ref.lessonId}?panel=${ref.panel || 'tafsir'}${ref.anchor ? '&q=' + encodeURIComponent(ref.anchor) : ''}`}
+                              className="flex items-center gap-2.5 group py-1">
+                              <div className="w-6 h-6 rounded-full bg-gold/15 flex items-center justify-center text-gold text-[10px] font-bold flex-shrink-0">{ref.lessonId}</div>
+                              <div className="flex-1 min-w-0">
+                                <span className="font-english text-xs group-hover:text-gold transition-colors truncate block" style={{color:'rgba(255,255,255,0.6)'}}>
+                                  {ref.lessonTitleEn}
+                                </span>
+                                <span className="font-english text-[10px]" style={{color:'rgba(255,255,255,0.25)'}}>{ref.volRef}</span>
+                              </div>
+                              <span className="font-english text-[10px] text-gold/50 flex-shrink-0 group-hover:text-gold transition-colors">→ View commentary</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {loading && (
+        <div className="text-center py-16">
+          <p className="font-english text-white/30 animate-pulse text-sm">Loading concordance…</p>
         </div>
       )}
     </main>
