@@ -88,9 +88,10 @@ function ManzilCard({ manzil, isOpen, onToggle }: {
                     <div className="w-6 h-6 rounded-full bg-gold flex items-center justify-center text-bg text-xs font-bold flex-shrink-0">
                       {n}
                     </div>
-                    <div dir="rtl" className="flex-1 min-w-0">
-                      <div className="font-arabic text-gold-light text-sm font-bold group-hover:text-gold transition-colors truncate">{m.ar}</div>
-                      <div className="font-english text-white/65 text-xs truncate">{m.sura}</div>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-english text-white/60 text-[10px] uppercase tracking-wide mb-0.5">{m.en}</div>
+                      <div dir="rtl" className="font-arabic text-gold-light text-sm font-bold group-hover:text-gold transition-colors truncate">{m.ar}</div>
+                      <div className="font-english text-white/45 text-xs truncate">{m.sura}</div>
                     </div>
                     {m.hasEn && (
                       <span className="font-english text-xs text-gold/50 border border-gold/20 px-1.5 py-0.5 rounded-full flex-shrink-0">EN</span>
