@@ -116,115 +116,39 @@ export default function HomePage() {
     <main className="max-w-5xl mx-auto px-4 pb-20">
 
       {/* Header */}
-      <div className="text-center py-12 border-b border-gold/20 mb-8">
-        <div className="font-arabic text-gold text-4xl font-bold mb-3" dir="rtl">
+      <div className="text-center py-16 mb-10">
+        <div className="font-arabic text-gold text-4xl font-bold mb-3 leading-snug" dir="rtl">
           فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
         </div>
-        <div className="font-arabic text-gold-light text-xl mb-1 mt-1 font-bold" dir="rtl">
+        <div className="font-arabic text-gold-light text-lg mb-1 font-bold" dir="rtl">
           الشيخ إبراهيم نياس
         </div>
-        <div className="font-english text-gold/45 text-xs mb-2" dir="ltr">
+        <div className="font-english text-white/35 text-xs mb-4" dir="ltr">
           Shaykh Ibrāhīm Niasse (d. 1975)
         </div>
-        <div className="font-english text-white/55 text-sm mb-3" dir="ltr">
-          The complete Quranic commentary of Shaykh Ibrāhīm Niasse
+        <div className="font-english text-white/45 text-sm mb-8" dir="ltr">
+          The complete Quranic commentary — bilingual, searchable, and fully annotated
         </div>
-        <div className="flex gap-3 justify-center mt-6 flex-wrap items-center">
-          <Link href="/lesson/1" className="font-english text-base text-bg bg-gold hover:bg-gold-light px-5 py-2 rounded-lg font-semibold transition-all">
-            Start Reading →
+        <div className="flex gap-3 justify-center flex-wrap">
+          <Link href="/lesson/1" className="font-english text-sm text-bg bg-gold hover:bg-gold-light px-7 py-2.5 rounded-full transition-all font-semibold">
+            Read
           </Link>
-          <Link href="/research" className="font-english text-base text-white/75 hover:text-gold border border-gold/30 hover:border-gold/70 px-5 py-2 rounded-lg transition-all">
-            Research →
+          <Link href="/audio" className="font-english text-sm text-white/70 hover:text-gold border border-white/15 hover:border-gold/50 px-7 py-2.5 rounded-full transition-all">
+            Listen
           </Link>
-          <button
-            onClick={() => setShowGuide(!showGuide)}
-            className="font-english text-sm text-white/55 border border-white/20 hover:border-gold/40 hover:text-white/80 px-4 py-2 rounded-lg transition-all"
-          >
-            {showGuide ? "Close" : "How to Use This Platform"}
-          </button>
+          <Link href="/research" className="font-english text-sm text-white/70 hover:text-gold border border-white/15 hover:border-gold/50 px-7 py-2.5 rounded-full transition-all">
+            Research
+          </Link>
         </div>
-
-        {/* Inline search bar */}
-        <div className="mt-5 max-w-2xl mx-auto" dir="ltr">
-          <a href="/search" className="flex items-center gap-3 bg-white/5 hover:bg-white/8 border border-gold/20 hover:border-gold/40 rounded-full px-4 py-2.5 transition-all group">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-gold/50 flex-shrink-0">
+        <div className="mt-5 max-w-xl mx-auto" dir="ltr">
+          <a href="/search" className="flex items-center gap-3 bg-white/4 hover:bg-white/7 border border-white/10 hover:border-gold/25 rounded-full px-4 py-2 transition-all group">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-white/25 flex-shrink-0">
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
             </svg>
-            <span className="font-english text-sm text-white/35 group-hover:text-white/55 transition-colors flex-1 text-left">
-              Search the tafsīr — Arabic or English...
+            <span className="font-english text-sm text-white/25 group-hover:text-white/45 transition-colors flex-1 text-left">
+              Search Arabic or English...
             </span>
-            <span className="font-english text-xs text-gold/35 border border-gold/20 px-2 py-0.5 rounded-full">⌘K</span>
           </a>
-        </div>
-
-        {/* How to Use guide */}
-        {showGuide && (
-          <div className="mt-6 p-6 border border-gold/20 rounded-xl bg-gold/4 text-left max-w-2xl mx-auto" dir="ltr">
-            <h3 className="font-english text-gold font-semibold text-base mb-4">How to Use This Platform</h3>
-            <div className="font-english text-sm leading-7 space-y-4" style={{color:'rgba(255,255,255,0.75)'}}>
-
-              <p style={{color:'rgba(255,255,255,0.55)'}}>
-                <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by Shaykh Ibrāhīm Niasse is organised here into{' '}
-                <strong style={{color:'rgba(255,255,255,0.9)'}}>35 lessons</strong> across{' '}
-                <strong style={{color:'rgba(255,255,255,0.9)'}}>7 manzils</strong> — the weekly Quranic recitation
-                cycle he practised. Volumes 1–5 (Lessons 1–30) and Volume 6 (Lessons 31–35) are available.
-                Each lesson covers a Quranic passage with Shaykh Ibrāhīm's Arabic commentary, English translation, and audio.
-              </p>
-
-              <div className="border-t border-gold/15 pt-3">
-                <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>Reading the Text</p>
-                <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
-                  <li>Select a manzil from the grid, then choose a lesson</li>
-                  <li>Inside each lesson, toggle <strong style={{color:'rgba(255,255,255,0.85)'}}>Arabic</strong>, <strong style={{color:'rgba(255,255,255,0.85)'}}>English</strong>, or <strong style={{color:'rgba(255,255,255,0.85)'}}>Bilingual</strong> view</li>
-                  <li>Quranic verses appear in <span style={{color:'#34d399'}}>green</span> — click the panel title bar to open or close any section at any time</li>
-                  <li>Footnote superscripts <code style={{color:'rgba(201,168,76,0.9)', fontSize:'11px'}}>[n]</code> link directly to the Footnotes &amp; Citations page with the entry highlighted</li>
-                  <li>The <strong style={{color:'rgba(255,255,255,0.85)'}}>Lesson Overview</strong> panel gives a scholarly summary of each lesson's themes and content</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio</strong> — Wolof oral recordings (122 sessions) and Arabic delivery by Shaykh Ibrāhīm for all 30 lessons</li>
-                </ul>
-              </div>
-
-              <div className="border-t border-gold/15 pt-3">
-                <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>Research Tools</p>
-                <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Search</strong> — full-text across all Arabic lessons and English translation</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Verse Concordance</strong> — browse all 114 suras, select a sura to see every verse Shaykh Ibrāhīm discusses, or search by verse reference (e.g. 2:255)</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Footnotes &amp; Citations</strong> — 798 classified footnotes by the compiler; searchable by scholar, genre, and lesson</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Ḥadīth Index</strong> — 384 ḥadīth citations indexed by collection</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Scholar &amp; Source Index</strong> — authorities Shaykh Ibrāhīm cites in his own voice, distinguished from compiler citations</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Tafsīr Sciences Index</strong> — twelve disciplinary categories drawn from the classical tafsīr sciences</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Concordance of Terms</strong> — textual index of 20 key theological and Sufi terms with every occurrence across the corpus</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Theological Vocabulary Map</strong> — knowledge graph showing how terms connect in Shaykh Ibrāhīm's thought</li>
-                  <li><strong style={{color:'rgba(255,255,255,0.85)'}}>Audio Library</strong> — stream or download the Arabic oral recordings</li>
-                </ul>
-              </div>
-
-              <div className="border-t border-gold/15 pt-3">
-                <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>Saving Your Research</p>
-                <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
-                  <li>Select any Arabic or English text in a lesson to bring up the <strong style={{color:'rgba(255,255,255,0.85)'}}>Clip &amp; Cite</strong> bar — saves the passage with an auto-generated Chicago citation</li>
-                  <li>Use <strong style={{color:'rgba(255,255,255,0.85)'}}>Bookmark</strong> to save passages for later; access all saved passages via the Research Hub</li>
-                  <li>Clipped and bookmarked passages are stored locally in your browser</li>
-                </ul>
-              </div>
-
-              <div className="border-t border-gold/15 pt-3">
-                <p className="font-semibold mb-2" style={{color:'rgba(255,255,255,0.9)'}}>The Physical Edition</p>
-                <ul className="space-y-1.5" style={{color:'rgba(255,255,255,0.65)'}}>
-                  <li>The ten-volume revised Arabic edition is available to order — visit the <a href="/order" className="text-gold/70 hover:text-gold underline">Order page</a></li>
-                  <li>A bilingual Arabic-English print edition is in preparation — register your interest on the <a href="/preorder" className="text-gold/70 hover:text-gold underline">Pre-order page</a></li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Manzil verse — English only */}
-      <div className="mb-8 p-4 border border-gold/15 rounded-xl bg-gold/3 text-center">
-        <div className="font-english text-white dark:text-white text-sm italic [data-theme=light_&]:text-[#2C1810]" dir="ltr">
-          &quot;Al-Fātiḥah, al-Māʾida, Yūnus, al-Isrāʾ, al-Shuʿarāʾ, al-Ṣāffāt, Qāf — thus it is clarified.
-          He who joins the Criterion with the Joining completes a full recitation of the Criterion.&quot;
         </div>
       </div>
 
@@ -241,7 +165,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      <div className="mt-12 mb-8">
+      <div className="mt-16 mb-6 opacity-70">
         <SubscribeBar />
       </div>
     </main>
