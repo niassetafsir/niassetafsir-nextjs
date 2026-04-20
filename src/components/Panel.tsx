@@ -108,14 +108,14 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
 
   return (
     <div ref={ref} className="border border-white/10 rounded-lg mb-3">
-      <div ref={headerRef} className="w-full flex items-center gap-3 px-4 py-3 bg-white/5 hover:bg-white/10 transition-colors sticky top-14 z-40 backdrop-blur-sm border-b border-white/10 rounded-t-lg">
+      <div ref={headerRef} className="w-full flex items-center gap-3 px-4 py-3 sticky top-14 z-40 border-b border-white/10 rounded-t-lg" style={{background: "rgba(13,20,10,0.95)"}}>
         <button
           onClick={() => setOpen(!open)}
           className="flex items-center gap-3 flex-1 text-left min-w-0"
         >
           <span className="text-lg flex-shrink-0">{icon}</span>
-          <span className="flex-1 font-english text-sm text-white/80 min-w-0">
-            <span className="font-arabic text-gold" dir="rtl">{titleAr}</span>
+          <span className="flex-1 font-english text-sm min-w-0" style={{color:"rgba(255,255,255,0.8)"}}>
+            <span className="font-arabic" dir="rtl" style={{color:"#C9A84C"}}>{titleAr}</span>
             <span className="text-white/40 mx-2">·</span>
             <span>{titleEn}</span>
           </span>
