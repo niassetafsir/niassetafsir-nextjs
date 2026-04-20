@@ -61,6 +61,7 @@ body {
 
 /* ── Light Mode (al-Attas cream + DOCX palette) ──────────── */
 [data-theme="light"] {
+  --panel-title-en: rgba(44,24,16,0.8);
   --bg: #E8D5B0;
   --gold: #8b6914;
   --gold-light: #5c3d0e;
@@ -576,4 +577,15 @@ nav .font-english.text-xs {
 .light .quranic-verse,
 [data-theme="light"] .quranic-verse {
   color: #0d7a5f !important;
+}
+
+/* Persistent nav — light/dark mode */
+:root {
+  --persistent-nav-bg: rgba(10,18,8,0.97);
+  --persistent-nav-text: rgba(255,255,255,0.35);
+}
+[data-theme="light"] {
+  --panel-title-en: rgba(44,24,16,0.8);
+  --persistent-nav-bg: rgba(250,246,239,0.97);
+  --persistent-nav-text: rgba(44,24,16,0.45);
 }

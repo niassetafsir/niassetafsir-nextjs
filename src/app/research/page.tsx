@@ -24,7 +24,7 @@ const PRIMARY_TOOLS = [
     href: '/concordance',
     titleAr: 'فهرس الآيات',
     titleEn: 'Verse Concordance',
-    desc: "Search any verse · Jalālayn commentary · Niasse's reflection",
+    desc: "Search any verse · Jalālayn commentary · Shaykh Ibrāhīm's reflection",
   },
   {
     href: '/footnotes',
@@ -60,7 +60,7 @@ const PRIMARY_TOOLS = [
     href: '/glossary-map',
     titleAr: 'خريطة المصطلحات',
     titleEn: 'Theological Vocabulary Map',
-    desc: "A structured map of how key terms connect within Niasse's theological system — hierarchies, conditions, and conceptual relationships confirmed from his text.",
+    desc: "A structured map of how key terms connect within Shaykh Ibrāhīm's theological system — hierarchies, conditions, and conceptual relationships confirmed from his text.",
   },
   {
     href: '/audio',

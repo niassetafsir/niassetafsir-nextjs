@@ -117,17 +117,26 @@ export default function HomePage() {
 
       {/* Header */}
       <div className="text-center py-16 mb-10">
-        <div className="font-arabic text-gold text-4xl font-bold mb-3 leading-snug" dir="rtl">
-          فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
+        {/* Arabic title — large, with contrast backing */}
+        <div className="inline-block px-6 py-4 rounded-2xl mb-4" style={{background:'rgba(201,168,76,0.06)', border:'1px solid rgba(201,168,76,0.15)'}}>
+          <div className="font-arabic text-gold text-5xl font-bold leading-snug mb-2" dir="rtl">
+            فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
+          </div>
+          <div className="font-arabic text-gold-light text-xl font-bold" dir="rtl">
+            الشيخ إبراهيم نياس
+          </div>
         </div>
-        <div className="font-arabic text-gold-light text-lg mb-1 font-bold" dir="rtl">
-          الشيخ إبراهيم نياس
-        </div>
-        <div className="font-english text-white/35 text-xs mb-4" dir="ltr">
-          Shaykh Ibrāhīm Niasse (d. 1975)
-        </div>
-        <div className="font-english text-white/45 text-sm mb-8" dir="ltr">
-          The complete Quranic commentary — bilingual, searchable, and fully annotated
+        {/* English mirror */}
+        <div className="mb-6">
+          <div className="font-english text-white/80 text-xl italic font-semibold mb-1">
+            Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
+          </div>
+          <div className="font-english text-white/45 text-sm mb-1">
+            10-Volume Revised Arabic Edition · Bilingual Translation · Scholarly Research Platform
+          </div>
+          <div className="font-english text-white/30 text-xs">
+            Shaykh Ibrāhīm Niasse (d. 1975)
+          </div>
         </div>
         <div className="flex gap-3 justify-center flex-wrap">
           <Link href="/lesson/1" className="font-english text-sm text-bg bg-gold hover:bg-gold-light px-7 py-2.5 rounded-full transition-all font-semibold">

@@ -47,7 +47,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </div>
 
       {/* 1. Audio */}
-      <Panel icon="" titleAr="تسجيل صوتي للشيخ" titleEn="Sheikh Ibrāhīm Niasse — Audio">
+      <Panel icon="" titleAr="تسجيل صوتي للشيخ" titleEn="Shaykh Ibrāhīm Niasse — Audio">
         <AudioPanel
           wolofPlaylistId={lesson.wolofPlaylistId}
           arabicPlaylistId={lesson.arabicPlaylistId}
@@ -66,7 +66,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       />
 
       {/* 2. Sheikh's Tafsir */}
-      <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Sheikh's Tafsīr Text" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
+      <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <BilingualText
           arabicText={lesson.arabicBody || lesson.arabicText}
           englishText={lesson.englishText}
@@ -101,7 +101,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
                 Lesson overview forthcoming.
               </p>
               <p className="font-english text-white/12 text-xs mt-2">
-                Comparative analysis of Niasse&apos;s tafsīr alongside Jalālayn and Rūḥ al-Bayān, with theological and philological commentary by Amadu Kunateh (Harvard University).
+                Comparative analysis of Shaykh Ibrāhīm&apos;s tafsīr alongside Jalālayn and Rūḥ al-Bayān, with theological and philological commentary by Amadu Kunateh (Harvard University).
               </p>
             </div>
           )}

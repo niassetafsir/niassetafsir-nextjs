@@ -153,7 +153,7 @@ const ABOUT_ITEMS: DropdownItem[] = [
   ];
 
   return (
-    <nav className="flex items-center justify-between px-5 py-2.5 bg-black/30 border-b border-gold/15 sticky top-0 z-50 backdrop-blur">
+    <nav className="flex items-center justify-between px-5 py-2.5 sticky top-0 z-50 backdrop-blur border-b-0" style={{background:"rgba(13,20,10,0.95)", borderTop:"3px solid #C9A84C", borderBottom:"1px solid rgba(201,168,76,0.2)"}}>
       {/* Logo */}
       <Link href="/" className="flex flex-col flex-shrink-0 hover:opacity-80 transition-opacity group">
         <span className="font-arabic text-gold font-bold text-sm leading-tight" dir="rtl">في رياض التفسير</span>
