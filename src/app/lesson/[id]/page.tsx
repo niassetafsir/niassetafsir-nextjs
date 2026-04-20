@@ -111,7 +111,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       {/* Compare prompt between tafsir and jalalayn */}
       <div className="flex justify-end px-1 -mt-2 mb-1">
         <a href={`/lesson/${lesson.id}?panel=jalalayn`}
-          className="font-english text-xs text-white/30 hover:text-gold transition-colors">
+          className="font-english text-xs text-white/20 hover:text-white/40 transition-colors">
           See Jalālayn commentary on this passage ↓
         </a>
       </div>

@@ -135,28 +135,15 @@ export default function SiteNav() {
 ];
 
 const RESEARCH_ITEMS: DropdownItem[] = [
-  { label: "Research Hub", sub: "All research tools in one place", href: "/research" },
-  { label: "Audio Library", sub: "Arabic tafsīr recordings", href: "/audio" },
-  { label: "Tafsīr Sciences Index", sub: "Browse by theology, law, Sufism…", href: "/themes" },
-  { label: "Verse Concordance", sub: "Verse navigation · Jalālayn + Niasse", href: "/concordance" },
-  { label: "Scholar Index", sub: "Every figure Niasse cites", href: "/scholars" },
-  { label: "Concordance of Terms", sub: "Textual index of 20 key terms", href: "/glossary" },
-  { label: "Theological Vocabulary Map", sub: "Knowledge graph of Niasse's theological terms", href: "/glossary-map" },
-  { label: "Footnotes & Citations", sub: "798 compiled footnotes", href: "/footnotes" },
-  { label: "Hadith Index", sub: "384 hadith citations indexed", href: "/hadith" },
-  { label: "Research Clips", sub: "Saved citations & excerpts", href: "/clips" },
-  { label: "Bookmarks", sub: "Saved passages", href: "/bookmarks" },
+  { label: "Search", sub: "Full-text across all lessons", href: "/search" },
+  { label: "Browse Tools", sub: "Concordance, footnotes, hadith, scholars", href: "/research" },
+  { label: "Cite a Passage", sub: "Select text to clip and cite", href: "/clips" },
 ];
 
 const ABOUT_ITEMS: DropdownItem[] = [
-    { label: "This Platform", sub: "Digital scholarly edition & research tools", href: "/about" },
-    { label: "Shaykh Ibrāhīm Niasse", sub: "Tafsīr tradition in West Africa", href: "/about/shaykh" },
-    { label: "The Arabic Text", sub: "Compiler & ten-volume edition", href: "/about/arabic-edition" },
-    { label: "Companion Texts", sub: "Jalālayn & Rūḥ al-Bayān", href: "/about/companion-texts" },
-    { label: "Founder, Translator & Digital Editor", sub: "Amadu Kunateh", href: "/about/translator" },
-    { label: "Translator's Note", sub: "Methodology & conventions", href: "/translators-note" },
-    { label: "Editorial Note", sub: "Digital edition methodology · v1.0", href: "/editorial-note" },
-  ];
+  { label: "The Tafsīr", sub: "Shaykh Ibrāhīm Niasse & the commentary", href: "/about/shaykh" },
+  { label: "The Project", sub: "Digital edition, translator, editorial note", href: "/about" },
+];
 
   const CONTRIBUTE_ITEMS: DropdownItem[] = [
     { label: "Feedback", sub: "Share your experience", href: "/get-involved/feedback" },

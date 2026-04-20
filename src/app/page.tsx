@@ -127,7 +127,7 @@ export default function HomePage() {
           Shaykh Ibrāhīm Niasse (d. 1975)
         </div>
         <div className="font-english text-white/55 text-sm mb-3" dir="ltr">
-          10-Volume Revised Arabic Edition · Bilingual Translation · Scholarly Research Platform
+          The complete Quranic commentary of Shaykh Ibrāhīm Niasse
         </div>
         <div className="flex gap-3 justify-center mt-6 flex-wrap items-center">
           <Link href="/lesson/1" className="font-english text-base text-bg bg-gold hover:bg-gold-light px-5 py-2 rounded-lg font-semibold transition-all">
