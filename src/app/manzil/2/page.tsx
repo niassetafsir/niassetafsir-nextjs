@@ -17,7 +17,7 @@ export default function Page() {
       <div className="border border-gold/15 rounded-xl overflow-hidden">
       <a href="/lesson/14" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">14</div>
-        <div className="flex-1"><div className="font-english" style={{fontSize:"10px",color:"rgba(255,255,255,0.4)",textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:"2px",direction:"ltr"}}>Lesson Fourteen</div><div dir="rtl">
+        <div dir="rtl" className="flex-1">
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس الرابع عشر</div>
           <div className="font-arabic text-white/35 text-sm">Al-Māʾida</div>
         </div>
@@ -28,7 +28,7 @@ export default function Page() {
       </a>
       <a href="/lesson/15" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">15</div>
-        <div className="flex-1"><div className="font-english" style={{fontSize:"10px",color:"rgba(255,255,255,0.4)",textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:"2px",direction:"ltr"}}>Lesson Fifteen</div><div dir="rtl">
+        <div dir="rtl" className="flex-1">
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس الخامس عشر</div>
           <div className="font-arabic text-white/35 text-sm">Al-Māʾida</div>
         </div>
@@ -39,7 +39,7 @@ export default function Page() {
       </a>
       <a href="/lesson/16" className="flex items-center gap-4 px-5 py-4 hover:bg-gold/5 transition-colors group border-b border-white/5 last:border-0 no-underline">
         <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-bg text-sm font-bold flex-shrink-0">16</div>
-        <div className="flex-1"><div className="font-english" style={{fontSize:"10px",color:"rgba(255,255,255,0.4)",textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:"2px",direction:"ltr"}}>Lesson Sixteen</div><div dir="rtl">
+        <div dir="rtl" className="flex-1">
           <div className="font-arabic text-gold-light text-base font-bold group-hover:text-gold transition-colors">الدرس السادس عشر</div>
           <div className="font-arabic text-white/35 text-sm">Al-Māʾida</div>
         </div>
