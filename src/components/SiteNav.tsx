@@ -140,7 +140,7 @@ const RESEARCH_ITEMS: DropdownItem[] = [
   { label: "Tafsīr Sciences Index", sub: "Browse by theology, law, Sufism…", href: "/themes" },
   { label: "Verse Concordance", sub: "Verse navigation · Jalālayn + Niasse", href: "/concordance" },
   { label: "Scholar Index", sub: "Every figure Niasse cites", href: "/scholars" },
-  { label: "Glossary", sub: "Key terms in Niasse's vocabulary", href: "/glossary" },
+  { label: "Concordance of Terms", sub: "Textual index of 20 key terms", href: "/glossary" },
   { label: "Theological Vocabulary Map", sub: "Knowledge graph of Niasse's theological terms", href: "/glossary-map" },
   { label: "Footnotes & Citations", sub: "798 compiled footnotes", href: "/footnotes" },
   { label: "Hadith Index", sub: "384 hadith citations indexed", href: "/hadith" },
