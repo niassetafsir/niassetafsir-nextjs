@@ -156,7 +156,7 @@ const ABOUT_ITEMS: DropdownItem[] = [
     <nav className="flex items-center justify-between px-5 py-2.5 sticky top-0 z-50 backdrop-blur border-b-0" style={{background:"rgba(13,20,10,0.95)", borderTop:"3px solid #C9A84C", borderBottom:"1px solid rgba(201,168,76,0.2)"}}>
       {/* Logo */}
       <Link href="/" className="flex flex-col flex-shrink-0 hover:opacity-80 transition-opacity group">
-        <span className="font-arabic text-gold font-bold text-sm leading-tight" dir="rtl">في رياض التفسير</span>
+        <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl" style={{letterSpacing:"-0.01em", textShadow:"0 0 20px rgba(201,168,76,0.3)"}}>في رياض التفسير</span>
         <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors" dir="ltr">Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</span>
       </Link>
 

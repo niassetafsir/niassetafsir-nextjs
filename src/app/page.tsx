@@ -117,12 +117,12 @@ export default function HomePage() {
 
       {/* Header */}
       <div className="text-center py-16 mb-10">
-        {/* Arabic title — large, with contrast backing */}
-        <div className="inline-block px-6 py-4 rounded-2xl mb-4" style={{background:'rgba(201,168,76,0.06)', border:'1px solid rgba(201,168,76,0.15)'}}>
-          <div className="font-arabic text-gold text-5xl font-bold leading-snug mb-2" dir="rtl">
+        {/* Arabic title — clean, no box */}
+        <div className="mb-4">
+          <div className="font-arabic text-gold text-4xl font-bold leading-snug mb-1" dir="rtl">
             فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
           </div>
-          <div className="font-arabic text-gold-light text-xl font-bold" dir="rtl">
+          <div className="font-arabic text-gold-light text-lg font-bold" dir="rtl">
             الشيخ إبراهيم نياس
           </div>
         </div>
