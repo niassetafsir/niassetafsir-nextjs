@@ -1,5 +1,5 @@
 'use client';
-import { useState, ReactNode, useEffect, useRef } from 'react';
+import { useState, ReactNode, useEffect, useRef, useCallback } from 'react';
 import { ChevronDown } from 'lucide-react';
 // Inline citation helpers (avoids server-component import issues)
 const LESSON_VOLUME: Record<number, {vol:number;page:number|null}> = {
@@ -65,8 +65,21 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
   const [open, setOpen] = useState(defaultOpen);
   const [verse, setVerse] = useState<string | null>(null);
   const [cited, setCited] = useState(false);
+  const [headerVisible, setHeaderVisible] = useState(true);
   const ref = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const scrolled = useRef(false);
+
+  // Track whether the panel header is visible in the viewport
+  useEffect(() => {
+    if (!open || !headerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeaderVisible(entry.isIntersecting),
+      { threshold: 0, rootMargin: '-56px 0px 0px 0px' }
+    );
+    observer.observe(headerRef.current);
+    return () => observer.disconnect();
+  }, [open]);
 
   useEffect(() => {
     if (!panelId || scrolled.current) return;
@@ -93,7 +106,7 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
 
   return (
     <div ref={ref} className="border border-white/10 rounded-lg mb-3">
-      <div className="w-full flex items-center gap-3 px-4 py-3 bg-white/5 hover:bg-white/10 transition-colors sticky top-14 z-40 backdrop-blur-sm border-b border-white/10 rounded-t-lg">
+      <div ref={headerRef} className="w-full flex items-center gap-3 px-4 py-3 bg-white/5 hover:bg-white/10 transition-colors sticky top-14 z-40 backdrop-blur-sm border-b border-white/10 rounded-t-lg">
         <button
           onClick={() => setOpen(!open)}
           className="flex items-center gap-3 flex-1 text-left min-w-0"
@@ -149,6 +162,36 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
         <div className="border-t border-white/10 relative">
           {children}
         </div>
+      )}
+      {/* Floating close button — appears when panel header scrolls out of view */}
+      {open && !headerVisible && (
+        <button
+          onClick={() => {
+            setOpen(false);
+            ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }}
+          style={{
+            position: 'fixed',
+            bottom: '80px',
+            right: '20px',
+            zIndex: 9999,
+            background: 'rgba(13,20,10,0.92)',
+            border: '1px solid rgba(201,168,76,0.4)',
+            borderRadius: '999px',
+            padding: '8px 16px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            backdropFilter: 'blur(8px)',
+            cursor: 'pointer',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+          }}
+        >
+          <ChevronDown size={12} className="text-gold/70 rotate-180" />
+          <span style={{ fontFamily: 'Times New Roman, serif', fontSize: '12px', color: 'rgba(201,168,76,0.8)' }}>
+            Close
+          </span>
+        </button>
       )}
     </div>
   );
