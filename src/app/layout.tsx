@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SiteNav from "@/components/SiteNav";
+import PersistentNav from "@/components/PersistentNav";
 import MobileNav from "@/components/MobileNav";
 
 export const metadata: Metadata = {
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ar" dir="rtl">
       <body className="bg-bg min-h-screen pb-16 md:pb-0">
         <SiteNav />
+        <PersistentNav />
         {children}
         <footer className="border-t border-black/10 py-5 px-6 bg-transparent">
           <div className="flex items-center justify-between max-w-5xl mx-auto flex-wrap gap-3">
