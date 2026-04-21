@@ -131,9 +131,6 @@ export default function HomePage() {
           <div className="font-english text-white/80 text-xl italic font-semibold mb-1">
             Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
           </div>
-          <div className="font-english text-white/45 text-sm mb-1">
-            10-Volume Revised Arabic Edition · Bilingual Translation · Scholarly Research Platform
-          </div>
           <div className="font-english text-white/30 text-xs">
             Shaykh Ibrāhīm Niasse (d. 1975)
           </div>

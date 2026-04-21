@@ -115,7 +115,7 @@ function MobileNav() {
       </button>
 
       {open && (
-        <div style={{position:'fixed', inset:0, zIndex:99999, display:'flex', flexDirection:'column', background:'var(--overlay-bg, #1a1008)', minHeight:'100vh', minWidth:'100vw'}}>
+        <div style={{position:'fixed', top:0, left:0, right:0, bottom:0, zIndex:99999, display:'flex', flexDirection:'column', background:'var(--overlay-bg, #1a1008)', minHeight:'100vh', minWidth:'100vw'}}>
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-3 border-b"
             style={{borderColor:'rgba(201,168,76,0.2)'}}>
