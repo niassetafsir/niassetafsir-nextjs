@@ -108,7 +108,7 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
 
   return (
     <div ref={ref} className="border border-white/10 rounded-lg mb-3">
-      <div ref={headerRef} className="w-full flex items-center gap-3 px-4 py-3 sticky top-14 z-40 border-b border-white/10 rounded-t-lg" style={{background: "rgba(13,20,10,0.95)"}}>
+      <div ref={headerRef} className="w-full flex items-center gap-3 px-4 py-3 sticky top-14 z-40 border-b border-white/10 rounded-t-lg" style={{background: "var(--panel-header-bg, rgba(13,20,10,0.95))"}}>
         <button
           onClick={() => setOpen(!open)}
           className="flex items-center gap-3 flex-1 text-left min-w-0"

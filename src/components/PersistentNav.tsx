@@ -26,7 +26,7 @@ export default function PersistentNav() {
       style={{
         background: 'var(--persistent-nav-bg, rgba(10,18,8,0.97))',
         backdropFilter: 'blur(12px)',
-        borderColor: 'rgba(201,168,76,0.12)'
+        borderColor: 'var(--persistent-nav-border, rgba(201,168,76,0.12))'
       }}>
       {items.map(item => (
         <Link key={item.label} href={item.href}

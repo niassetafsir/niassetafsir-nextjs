@@ -7,6 +7,7 @@ import AudioPanel from '@/components/AudioPanel';
 import BilingualText from '@/components/BilingualText';
 import InlineCompare from '@/components/InlineCompare';
 import PanelJumpTabs from '@/components/PanelJumpTabs';
+import LessonNav from '@/components/LessonNav';
 import SelectionClip from '@/components/SelectionClip';
 import Link from 'next/link';
 
@@ -185,6 +186,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
           </Link>
         ) : <span />}
       </div>
-    </main>
+    
+      <LessonNav lessonId={lesson.id} manzil={lesson.manzil} />
+      </main>
   );
 }
