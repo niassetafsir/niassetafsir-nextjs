@@ -7,27 +7,27 @@ const IA_BASE = `https://archive.org/download/${IA_ITEM}`;
 
 // Arabic recordings from UploadThing
 const ARABIC_AUDIO = [
-  { num: 1,  sura: 'Al-Fātiḥa', suraAr: 'الفاتحة', url: 'https://utfs.io/f/THPX9CeGNWHPACdXBreV93UpyHCMSiXGWm2Re56A7EPDQaYq' },
-  { num: 2,  sura: 'Al-Baqara', suraAr: 'البقرة', url: 'https://utfs.io/f/THPX9CeGNWHP8XTnZi1DwNtXcWkpMe1QlGT5bv4SIjuLdP0J' },
-  { num: 3,  sura: 'Āl ʿImrān', suraAr: 'آل عمران', url: 'https://utfs.io/f/THPX9CeGNWHPrXb9dfIQxpZ8KhVH5LnENzy2ObW1lfseMI0J' },
-  { num: 4,  sura: 'Al-Nisāʾ', suraAr: 'النساء', url: 'https://utfs.io/f/THPX9CeGNWHP9aJxlAfu0eHjkMoaC4hwRrJZEbPq257Im1Fi' },
-  { num: 5,  sura: 'Al-Māʾida', suraAr: 'المائدة', url: 'https://utfs.io/f/THPX9CeGNWHPKDQy3a7PCISGTWrmXiwpyEQtRnuAPY5lcBdb' },
-  { num: 6,  sura: 'Al-Anʿām', suraAr: 'الأنعام', url: 'https://utfs.io/f/THPX9CeGNWHPuOttgKN7bwk98PrHLdeUhZXnAvyqof0c63BC' },
-  { num: 7,  sura: 'Al-Aʿrāf', suraAr: 'الأعراف', url: 'https://utfs.io/f/THPX9CeGNWHPqHd0JyDeBWwAQPZRqHtG2SaJ0XOckK8gbf39' },
-  { num: 8,  sura: 'Al-Anfāl', suraAr: 'الأنفال', url: 'https://utfs.io/f/THPX9CeGNWHPiOmi9d5ahkVHD4egKRxSC1rQdyFuwfXiYAjN' },
-  { num: 9,  sura: 'Al-Tawba', suraAr: 'التوبة', url: 'https://utfs.io/f/THPX9CeGNWHPkcCunnvbF3V6zmOWPjqeixGRvKXYpcLS5gf9' },
+  { num: 1, sura: 'Al-Fātiḥa', suraAr: 'الفاتحة', url: 'https://utfs.io/f/THPX9CeGNWHPACdXBreV93UpyHCMSiXGWm2Re56A7EPDQaYq' },
+  { num: 2, sura: 'Al-Baqara', suraAr: 'البقرة', url: 'https://utfs.io/f/THPX9CeGNWHP8XTnZi1DwNtXcWkpMe1QlGT5bv4SIjuLdP0J' },
+  { num: 3, sura: 'Āl ʿImrān', suraAr: 'آل عمران', url: 'https://utfs.io/f/THPX9CeGNWHPrXb9dfIQxpZ8KhVH5LnENzy2ObW1lfseMI0J' },
+  { num: 4, sura: 'Al-Nisāʾ', suraAr: 'النساء', url: 'https://utfs.io/f/THPX9CeGNWHP9aJxlAfu0eHjkMoaC4hwRrJZEbPq257Im1Fi' },
+  { num: 5, sura: 'Al-Māʾida', suraAr: 'المائدة', url: 'https://utfs.io/f/THPX9CeGNWHPKDQy3a7PCISGTWrmXiwpyEQtRnuAPY5lcBdb' },
+  { num: 6, sura: 'Al-Anʿām', suraAr: 'الأنعام', url: 'https://utfs.io/f/THPX9CeGNWHPuOttgKN7bwk98PrHLdeUhZXnAvyqof0c63BC' },
+  { num: 7, sura: 'Al-Aʿrāf', suraAr: 'الأعراف', url: 'https://utfs.io/f/THPX9CeGNWHPqHd0JyDeBWwAQPZRqHtG2SaJ0XOckK8gbf39' },
+  { num: 8, sura: 'Al-Anfāl', suraAr: 'الأنفال', url: 'https://utfs.io/f/THPX9CeGNWHPiOmi9d5ahkVHD4egKRxSC1rQdyFuwfXiYAjN' },
+  { num: 9, sura: 'Al-Tawba', suraAr: 'التوبة', url: 'https://utfs.io/f/THPX9CeGNWHPkcCunnvbF3V6zmOWPjqeixGRvKXYpcLS5gf9' },
   { num: 10, sura: 'Yūnus', suraAr: 'يونس', url: 'https://utfs.io/f/THPX9CeGNWHPGnKtoYm36D9dWMzsUBoFtCqSnOp1RTAYbfV0' },
-  { num: 11, sura: 'Hūd', suraAr: 'هود', url: 'https://utfs.io/f/THPX9CeGNWHPGnKtoYm36D9dWMzsUBoFtCqSnOp1RTAYbfV0' },
-  { num: 12, sura: 'Yūsuf', suraAr: 'يوسف', url: 'https://utfs.io/f/THPX9CeGNWHP8XTnZi1DwNtXcWkpMe1QlGT5bv4SIjuLdP0J' },
-  { num: 13, sura: 'Al-Raʿd', suraAr: 'الرعد', url: 'https://utfs.io/f/THPX9CeGNWHPACdXBreV93UpyHCMSiXGWm2Re56A7EPDQaYq' },
-  { num: 14, sura: 'Ibrāhīm', suraAr: 'إبراهيم', url: 'https://utfs.io/f/THPX9CeGNWHPACdXBreV93UpyHCMSiXGWm2Re56A7EPDQaYq' },
-  { num: 15, sura: 'Al-Ḥijr', suraAr: 'الحجر', url: 'https://utfs.io/f/THPX9CeGNWHPACdXBreV93UpyHCMSiXGWm2Re56A7EPDQaYq' },
-  { num: 16, sura: 'Al-Naḥl', suraAr: 'النحل', url: 'https://utfs.io/f/THPX9CeGNWHPACdXBreV93UpyHCMSiXGWm2Re56A7EPDQaYq' },
-  { num: 17, sura: 'Al-Isrāʾ', suraAr: 'الإسراء', url: 'https://utfs.io/f/THPX9CeGNWHPACdXBreV93UpyHCMSiXGWm2Re56A7EPDQaYq' },
-  { num: 18, sura: 'Al-Kahf', suraAr: 'الكهف', url: 'https://utfs.io/f/THPX9CeGNWHPACdXBreV93UpyHCMSiXGWm2Re56A7EPDQaYq' },
+  { num: 11, sura: 'Hūd', suraAr: 'هود', url: 'https://utfs.io/f/THPX9CeGNWHPtbbWoLQZad9F6SCrcz8BnOWVZ4DiU5IMNsvj' },
+  { num: 12, sura: 'Yūsuf', suraAr: 'يوسف', url: 'https://utfs.io/f/THPX9CeGNWHPcBeuRHLhTriY8VXNf1OJD2LvmKC0qxHsQ96j' },
+  { num: 13, sura: 'Al-Raʿd', suraAr: 'الرعد', url: 'https://utfs.io/f/THPX9CeGNWHPAe4nKbV93UpyHCMSiXGWm2Re56A7EPDQaYql' },
+  { num: 14, sura: 'Ibrāhīm', suraAr: 'إبراهيم', url: 'https://utfs.io/f/THPX9CeGNWHPMLjQtT3vMIg7Ta2DO0P8jlkWoxJs4RVQzfeb' },
+  { num: 15, sura: 'Al-Ḥijr', suraAr: 'الحجر', url: 'https://utfs.io/f/THPX9CeGNWHPlbVYS9X65sEDXxTQyridmz7KS8p1ONkUVYRv' },
+  { num: 16, sura: 'Al-Naḥl', suraAr: 'النحل', url: 'https://utfs.io/f/THPX9CeGNWHPZDZ66oJu6BrCvZKh4UxkqDIlo8nJbfiR2Qaz' },
+  { num: 17, sura: 'Al-Isrāʾ', suraAr: 'الإسراء', url: 'https://utfs.io/f/THPX9CeGNWHPqaQUlzDeBWwAQPZRqHtG2SaJ0XOckK8gbf39' },
+  { num: 18, sura: 'Al-Kahf', suraAr: 'الكهف', url: 'https://utfs.io/f/THPX9CeGNWHPaU0ngjllkbgIHAdeWKjZNOi1rscqXhGwx6BE' },
 ];
 
-const KHATM_URL = 'https://utfs.io/f/THPX9CeGNWHPACdXBreV93UpyHCMSiXGWm2Re56A7EPDQaYq';
+const KHATM_URL = 'https://utfs.io/f/THPX9CeGNWHP3m1j6FH3ODvN1ErmqXxKoUcMVw0ufZBApQCW';
 
 type Tab = 'arabic' | 'wolof';
 
