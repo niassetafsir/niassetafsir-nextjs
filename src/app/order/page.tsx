@@ -11,6 +11,21 @@ export default function OrderPage() {
         </p>
       </div>
 
+      {/* Book cover photo */}
+      <div className="flex justify-center mb-8">
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{maxWidth:'320px',border:'1px solid rgba(201,168,76,0.25)'}}>
+          <img
+            src="/images/book_cover_clean.jpg"
+            alt="Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — 10-volume Arabic edition"
+            className="w-full object-cover"
+            style={{display:'block'}}
+          />
+          <div className="absolute bottom-0 left-0 right-0 px-4 py-3" style={{background:'linear-gradient(to top, rgba(0,0,0,0.75), transparent)'}}>
+            <p className="font-arabic text-gold text-sm text-center" dir="rtl">الطبعة الثانية · مجمع اليمامة</p>
+          </div>
+        </div>
+      </div>
+
       <div className="border border-gold/20 rounded-2xl p-6 mb-6" style={{background:'rgba(201,168,76,0.04)'}}>
         <h2 className="font-english text-white font-semibold text-base mb-3">About This Edition</h2>
         <p className="font-english text-sm leading-7" style={{color:'rgba(255,255,255,0.65)'}}>
