@@ -100,9 +100,14 @@ function NavDropdown({ label, items }: { label: string; items: DropdownItem[] })
 // ── Mobile full-screen overlay ────────────────────────────────────
 function MobileNav() {
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const pathname = usePathname();
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => { setOpen(false); setExpanded({}); }, [pathname]);
+
+  const toggleSection = (heading: string) => {
+    setExpanded(prev => ({ ...prev, [heading]: !prev[heading] }));
+  };
 
   return (
     <>
@@ -142,32 +147,43 @@ function MobileNav() {
           {/* Scrollable nav content */}
           <div className="flex-1 overflow-y-auto py-4 px-5">
             {ALL_SECTIONS.map((section) => (
-              <div key={section.heading} className="mb-6">
-                <p className="font-english text-[10px] font-semibold uppercase tracking-widest mb-2 text-left"
-                  style={{color: section.color, borderLeft: `3px solid ${section.color}`, paddingLeft: '8px'}}>
-                  {section.heading}
-                </p>
-                <div className="space-y-0.5">
-                  {section.items.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className="flex flex-col px-3 py-2.5 rounded-xl hover:bg-gold/8 transition-all border border-transparent hover:border-gold/20 text-left"
-                    >
-                      <span className="font-english text-sm font-semibold"
-                        style={{color: 'rgba(255,255,255,0.85)'}}>
-                        {item.label}
-                      </span>
-                      {item.sub && (
-                        <span className="font-english text-xs mt-0.5"
-                          style={{color: 'rgba(255,255,255,0.6)'}}>
-                          {item.sub}
+              <div key={section.heading} className="mb-2">
+                <button
+                  onClick={() => toggleSection(section.heading)}
+                  className="w-full flex items-center justify-between py-2.5 text-left"
+                  style={{borderLeft: '3px solid ' + section.color, paddingLeft: '8px'}}
+                >
+                  <span className="font-english text-[11px] font-bold uppercase tracking-widest"
+                    style={{color: section.color}}>
+                    {section.heading}
+                  </span>
+                  <span style={{color: section.color, fontSize: '12px', marginRight: '4px'}}>
+                    {expanded[section.heading] ? '▾' : '▸'}
+                  </span>
+                </button>
+                {expanded[section.heading] && (
+                  <div className="space-y-0.5 mt-1 mb-3">
+                    {section.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className="flex flex-col px-3 py-2.5 rounded-xl hover:bg-gold/8 transition-all border border-transparent hover:border-gold/20 text-left"
+                      >
+                        <span className="font-english text-sm font-semibold"
+                          style={{color: 'rgba(255,255,255,0.85)'}}>
+                          {item.label}
                         </span>
-                      )}
-                    </Link>
-                  ))}
-                </div>
+                        {item.sub && (
+                          <span className="font-english text-xs mt-0.5"
+                            style={{color: 'rgba(255,255,255,0.6)'}}>
+                            {item.sub}
+                          </span>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>

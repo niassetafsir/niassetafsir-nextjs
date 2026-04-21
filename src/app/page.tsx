@@ -140,18 +140,18 @@ export default function HomePage() {
         </div>
         <div className="flex gap-3 justify-center flex-wrap">
           <Link href="/read"
-            className="font-english font-semibold text-sm px-8 py-3 rounded-full transition-all"
-            style={{background:'#6B2424', color:'#F5EDD6', letterSpacing:'0.03em'}}>
+            className="font-english font-bold text-sm px-8 py-3 rounded-full transition-all"
+            style={{border:'2.5px solid #6B2424', color:'#6B2424', background:'transparent', letterSpacing:'0.04em'}}>
             Read
           </Link>
           <Link href="/audio"
-            className="font-english font-semibold text-sm px-8 py-3 rounded-full transition-all"
-            style={{background:'#1E5A4A', color:'#E8F5F0', letterSpacing:'0.03em'}}>
+            className="font-english font-bold text-sm px-8 py-3 rounded-full transition-all"
+            style={{border:'2.5px solid #1E5A4A', color:'#1E5A4A', background:'transparent', letterSpacing:'0.04em'}}>
             Listen
           </Link>
           <Link href="/research"
-            className="font-english font-semibold text-sm px-8 py-3 rounded-full transition-all"
-            style={{background:'#1A3A5C', color:'#E8F0F5', letterSpacing:'0.03em'}}>
+            className="font-english font-bold text-sm px-8 py-3 rounded-full transition-all"
+            style={{border:'2.5px solid #1A3A5C', color:'#1A3A5C', background:'transparent', letterSpacing:'0.04em'}}>
             Research
           </Link>
         </div>
