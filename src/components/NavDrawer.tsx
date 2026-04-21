@@ -42,8 +42,8 @@ export default function NavDrawer() {
           background: 'rgba(201,168,76,0.15)',
           border: '1px solid rgba(201,168,76,0.35)',
           borderRadius: '999px',
-          width: '36px',
-          height: '36px',
+          width: '30px',
+          height: '30px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -51,7 +51,7 @@ export default function NavDrawer() {
           backdropFilter: 'blur(4px)',
         }}
       >
-        <span style={{fontSize:'18px', color:'#C9A84C'}}>☰</span>
+        <span style={{fontSize:'14px', color:'#C9A84C'}}>☰</span>
       </button>
 
       {/* Backdrop */}
@@ -70,7 +70,7 @@ export default function NavDrawer() {
         position: 'fixed',
         left: open ? 0 : '-320px',
         top: 0, bottom: 0,
-        width: '300px',
+        width: '260px',
         zIndex: 9999,
         transition: 'left 0.25s ease',
         background: 'var(--bg, #1a1008)',
