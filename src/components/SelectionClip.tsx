@@ -33,15 +33,14 @@ export default function SelectionClip({ lessonId, lessonTitleAr, lessonTitleEn, 
   }, []);
 
   useEffect(() => {
-    const onMouseUp = () => setTimeout(checkSelection, 50);
-    const onTouchEnd = () => setTimeout(checkSelection, 300);
+    const onMouseUp = () => setTimeout(checkSelection, 100);
+    const onTouchEnd = () => setTimeout(checkSelection, 500);
     document.addEventListener('mouseup', onMouseUp);
     document.addEventListener('touchend', onTouchEnd);
-    document.addEventListener('selectionchange', checkSelection);
+    // selectionchange fires too eagerly on mobile — removed to prevent toolbar flicker
     return () => {
       document.removeEventListener('mouseup', onMouseUp);
       document.removeEventListener('touchend', onTouchEnd);
-      document.removeEventListener('selectionchange', checkSelection);
     };
   }, [checkSelection]);
 
