@@ -174,13 +174,13 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
           }}
           style={{
             position: 'fixed',
-            bottom: '80px',
+            bottom: '70px',
             right: '20px',
             zIndex: 9999,
             background: '#C9A84C',
             border: 'none',
             borderRadius: '999px',
-            padding: '10px 20px',
+            padding: '12px 22px',
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
