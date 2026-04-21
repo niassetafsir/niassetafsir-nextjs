@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 export default function PersistentNav() {
   const pathname = usePathname();
 
-  const isRead = pathname.startsWith('/lesson') || pathname.startsWith('/manzil');
+  const isRead = pathname.startsWith('/lesson') || pathname.startsWith('/manzil') || pathname === '/read';
   const isListen = pathname.startsWith('/audio');
   const isResearch = pathname.startsWith('/research') || pathname.startsWith('/concordance') ||
     pathname.startsWith('/footnotes') || pathname.startsWith('/hadith') ||
@@ -16,7 +16,7 @@ export default function PersistentNav() {
   const isHome = pathname === '/';
   const items = [
     { label: 'Home', href: '/', icon: '⌂', active: isHome },
-    { label: 'Read', href: '/lesson/1', icon: '◎', active: isRead },
+    { label: 'Read', href: '/read', icon: '◎', active: isRead },
     { label: 'Listen', href: '/audio', icon: '♪', active: isListen },
     { label: 'Research', href: '/research', icon: '⊞', active: isResearch },
   ];

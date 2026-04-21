@@ -139,7 +139,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="flex gap-3 justify-center flex-wrap">
-          <Link href="/lesson/1" className="font-english text-sm text-bg bg-gold hover:bg-gold-light px-7 py-2.5 rounded-full transition-all font-semibold">
+          <Link href="/read" className="font-english text-sm text-bg bg-gold hover:bg-gold-light px-7 py-2.5 rounded-full transition-all font-semibold">
             Read
           </Link>
           <Link href="/audio" className="font-english text-sm text-white/70 hover:text-gold border border-white/15 hover:border-gold/50 px-7 py-2.5 rounded-full transition-all">
@@ -161,19 +161,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Manzils — compact grid: 3 cols desktop, 2 cols tablet, 1 col mobile */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-5xl mx-auto">
-        {MANZILS.map((manzil, idx) => (
-          <div key={manzil.id} className={idx === MANZILS.length - 1 && MANZILS.length % 3 !== 0 ? "sm:col-span-2 lg:col-start-2 lg:col-span-1" : ""}>
-            <ManzilCard
-              manzil={manzil}
-              isOpen={openManzils[manzil.id] ?? false}
-              onToggle={() => toggle(manzil.id)}
-            />
-          </div>
-        ))}
-      </div>
-
+      
       <div className="mt-16 mb-6 opacity-70">
         <SubscribeBar />
       </div>
