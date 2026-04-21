@@ -132,7 +132,7 @@ function MobileNav() {
       {/* Full-screen overlay */}
       {open && (
         <div
-          style={{position:'fixed', inset:0, zIndex:99999, display:'flex', flexDirection:'column', background:'var(--bg, #1a1008)', minHeight:'100vh', minWidth:'100vw'}}
+          style={{position:'fixed', inset:0, zIndex:99999, display:'flex', flexDirection:'column', background:'var(--overlay-bg, #1a1008)', minHeight:'100vh', minWidth:'100vw'}}
         >
           {/* Overlay header */}
           <div className="flex items-center justify-between px-5 py-3 border-b"
@@ -155,7 +155,7 @@ function MobileNav() {
           <div className="flex-1 overflow-y-auto py-4 px-5">
             {ALL_SECTIONS.map((section) => (
               <div key={section.heading} className="mb-6">
-                <p className="font-english text-[10px] font-semibold uppercase tracking-widest mb-2"
+                <p className="font-english text-[10px] font-semibold uppercase tracking-widest mb-2 text-left"
                   style={{color: 'rgba(201,168,76,0.6)'}}>
                   {section.heading}
                 </p>
@@ -165,7 +165,7 @@ function MobileNav() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="flex flex-col px-3 py-2.5 rounded-xl hover:bg-gold/8 transition-all border border-transparent hover:border-gold/20"
+                      className="flex flex-col px-3 py-2.5 rounded-xl hover:bg-gold/8 transition-all border border-transparent hover:border-gold/20 text-left"
                     >
                       <span className="font-english text-sm font-semibold"
                         style={{color: 'rgba(255,255,255,0.85)'}}>
@@ -173,7 +173,7 @@ function MobileNav() {
                       </span>
                       {item.sub && (
                         <span className="font-english text-xs mt-0.5"
-                          style={{color: 'rgba(255,255,255,0.4)'}}>
+                          style={{color: 'rgba(255,255,255,0.6)'}}>
                           {item.sub}
                         </span>
                       )}

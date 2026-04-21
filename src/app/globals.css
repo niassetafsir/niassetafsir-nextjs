@@ -78,6 +78,7 @@ body {
   --body-sub: rgba(44,24,16,0.6);
   --body-faint: rgba(44,24,16,0.4);
   --persistent-nav-bg: #EDE0C0;
+  --overlay-bg: #F0E4C4;
   --persistent-nav-text: rgba(44,24,16,0.5);
   --lesson-header-sub: rgba(44,24,16,0.6);
   --lesson-header-faint: rgba(44,24,16,0.4);
