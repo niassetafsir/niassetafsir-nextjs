@@ -209,7 +209,7 @@ function MobileNav() {
 // ── Main SiteNav ──────────────────────────────────────────────────
 export default function SiteNav() {
   return (
-    <nav className="flex items-center justify-between px-5 py-2.5 sticky top-0 z-50 backdrop-blur border-b-0"
+    <nav className="grid grid-cols-3 items-center px-4 py-2.5 sticky top-0 z-50 backdrop-blur border-b-0 md:flex md:justify-between md:px-5"
       style={{background:"rgba(13,20,10,0.95)", borderTop:"3px solid #C9A84C", borderBottom:"1px solid rgba(201,168,76,0.2)"}}>
 
       {/* Mobile hamburger — LEFT, mobile only */}
@@ -217,8 +217,8 @@ export default function SiteNav() {
         <MobileNav />
       </div>
 
-      {/* Logo */}
-      <Link href="/" className="flex flex-col flex-shrink-0 hover:opacity-80 transition-opacity group">
+      {/* Logo — centre column on mobile */}
+      <Link href="/" className="flex flex-col items-center flex-shrink-0 hover:opacity-80 transition-opacity group col-start-2 md:col-auto">
         <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl"
           style={{letterSpacing:"-0.01em", textShadow:"0 0 20px rgba(201,168,76,0.3)"}}>
           في رياض التفسير
@@ -229,7 +229,7 @@ export default function SiteNav() {
       </Link>
 
       {/* Desktop nav — hidden on mobile */}
-      <div className="hidden md:flex items-center gap-1">
+      <div className="hidden md:flex items-center gap-1 col-span-1 md:col-auto">
         <NavDropdown label="Read" items={READ_ITEMS} />
         <NavDropdown label="Research" items={RESEARCH_ITEMS} />
         <NavDropdown label="About" items={ABOUT_ITEMS} />
@@ -257,8 +257,8 @@ export default function SiteNav() {
         </Link>
       </div>
 
-      {/* Right side — theme toggle + mobile hamburger */}
-      <div className="flex items-center gap-2">
+      {/* Right side */}
+      <div className="flex items-center gap-2 justify-end col-start-3 md:col-auto">
         <div className="hidden sm:flex items-center gap-2 border-l border-white/10 pl-3">
           <span className="font-english text-white/25 text-[10px]">EN · FR · AR</span>
         </div>
