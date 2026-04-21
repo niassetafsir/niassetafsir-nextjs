@@ -62,7 +62,7 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEngl
   const niasseEnClean = niasseEnglish ? niasseEnglish.replace(/<[^>]+>/g, '').slice(0, 1000).trim() : '';
 
   if (verses.length === 0) return (
-    <div className="font-english text-xs leading-6 whitespace-pre-wrap" style={{color:'rgba(255,255,255,0.7)'}} dir="ltr">
+    <div className="font-english text-xs leading-6 whitespace-pre-wrap" style={{color:'var(--body-text, rgba(255,255,255,0.75))'}} style={{color:'var(--body-text, rgba(255,255,255,0.7))'}} dir="ltr">
       {jalalaynText}
     </div>
   );
@@ -79,7 +79,7 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEngl
             className={'rounded-xl border-2 overflow-hidden transition-all ' + (isHighlighted ? 'border-gold/60' : 'border-blue-900/30')}>
 
             {/* Verse marker */}
-            <div className="flex items-center gap-2 px-3 py-1.5" style={{background:'rgba(30,58,100,0.3)'}}>
+            <div className="flex items-center gap-2 px-3 py-1.5" style={{background:'rgba(30,58,100,0.15)'}}>
               <span className="font-english text-[11px] font-bold" style={{color:'rgba(147,197,253,0.8)'}}>{v.key}</span>
               <span className="font-english text-[10px]" style={{color:'rgba(147,197,253,0.4)'}}>Jalālayn</span>
             </div>
