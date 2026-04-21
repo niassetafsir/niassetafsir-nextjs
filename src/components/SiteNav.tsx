@@ -130,7 +130,7 @@ function MobileNav() {
           </div>
 
           {/* Scrollable nav */}
-          <div className="flex-1 overflow-y-auto py-4 px-5">
+          <div className="flex-1 overflow-y-auto py-4 px-5" style={{textAlign:'left'}}>
             {ALL_SECTIONS.map((section) => (
               <div key={section.heading} className="mb-2">
                 <button onClick={() => toggleSection(section.heading)}
@@ -187,16 +187,16 @@ function MobileNav() {
 // ── Main SiteNav ──────────────────────────────────────────────────
 export default function SiteNav() {
   return (
-    <nav className="flex items-center px-4 py-2.5 sticky top-0 z-50 backdrop-blur border-b-0"
+    <nav className="flex items-center justify-center px-4 py-2.5 sticky top-0 z-50 backdrop-blur border-b-0 relative"
       style={{background:"rgba(13,20,10,0.95)", borderTop:"3px solid #C9A84C", borderBottom:"1px solid rgba(201,168,76,0.2)"}}>
 
-      {/* Mobile hamburger — LEFT */}
-      <div className="md:hidden flex-shrink-0 mr-3">
+      {/* Mobile hamburger — absolute LEFT */}
+      <div className="md:hidden absolute left-4 top-1/2 -translate-y-1/2">
         <MobileNav />
       </div>
 
-      {/* Logo */}
-      <Link href="/" className="flex flex-col flex-shrink-0 hover:opacity-80 transition-opacity group">
+      {/* Logo — centred on mobile */}
+      <Link href="/" className="flex flex-col items-center flex-shrink-0 hover:opacity-80 transition-opacity group">
         <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl"
           style={{letterSpacing:"-0.01em", textShadow:"0 0 20px rgba(201,168,76,0.3)"}}>
           في رياض التفسير

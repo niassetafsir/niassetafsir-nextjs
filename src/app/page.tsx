@@ -138,7 +138,7 @@ export default function HomePage() {
             Shaykh Ibrāhīm Niasse (d. 1975)
           </div>
         </div>
-        <div className="flex gap-3 justify-center flex-wrap">
+        <div className="flex gap-2 justify-center flex-wrap">
           <Link href="/read"
             className="font-english font-bold text-sm px-8 py-3 rounded-full transition-all"
             style={{border:'2.5px solid #6B2424', color:'#6B2424', background:'transparent', letterSpacing:'0.04em'}}>
