@@ -4,7 +4,6 @@ export default function PanelJumpTabs() {
   const tabs = [
     { label: 'Tafsīr', id: 'panel-tafsir' },
     { label: 'Overview', id: 'panel-overview' },
-    { label: 'Audio', id: 'panel-audio' },
     { label: 'Jalālayn', id: 'panel-jalalayn' },
     { label: 'Rūḥ al-Bayān', id: 'panel-ruh' },
   ];

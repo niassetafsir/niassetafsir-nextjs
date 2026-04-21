@@ -3,7 +3,6 @@ import { getReadingNotes } from '@/lib/readingNotes';
 import { notFound } from 'next/navigation';
 import Panel from '@/components/Panel';
 import JalalaynVerseView from '@/components/JalalaynVerseView';
-import AudioPanel from '@/components/AudioPanel';
 import BilingualText from '@/components/BilingualText';
 import InlineCompare from '@/components/InlineCompare';
 import PanelJumpTabs from '@/components/PanelJumpTabs';
@@ -106,58 +105,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </Panel>
 
       {/* 3. Audio */}
-      <Panel icon="" titleAr="تسجيل صوتي للشيخ" titleEn="Shaykh Ibrāhīm Niasse — Audio">
-        <AudioPanel
-          wolofPlaylistId={lesson.wolofPlaylistId}
-          arabicPlaylistId={lesson.arabicPlaylistId}
-          arabicAudioUrl={lesson.arabicAudioUrl}
-          wolofAudioUrl={lesson.wolofAudioUrl}
-          sura={lesson.sura}
-        />
-      </Panel>
-
-      {/* Selection popup - always mounted regardless of which panel is open */}
-      <SelectionClip
-        lessonId={lesson.id}
-        lessonTitleAr={lesson.arabicTitle}
-        lessonTitleEn={lesson.englishTitle}
-        verseRange={lesson.verseRange}
-      />
-
-      {/* Compare prompt between tafsir and jalalayn */}
-      <div className="flex justify-end px-1 -mt-2 mb-1">
-        <a href={`/lesson/${lesson.id}?panel=jalalayn`}
-          className="font-english text-xs text-white/20 hover:text-white/40 transition-colors">
-          See Jalālayn commentary on this passage ↓
-        </a>
-      </div>
-
-      {/* 4. Jalālayn */}
-      <div id="jalalayn-panel"><Panel icon="" titleAr="تفسير الجلالين" titleEn="Tafsīr al-Jalālayn — Full Text" panelId="jalalayn">
-        <div className="p-5" dir="ltr">
-          <div className="flex justify-between items-center mb-3 pb-3 border-b border-blue-900/30">
-            <div>
-              <div className="font-arabic text-blue-300 text-sm" dir="rtl">تفسير الجلالين</div>
-              <div className="font-english text-white/40 text-xs italic">
-                Jalāl al-Dīn al-Maḥallī & Jalāl al-Dīn al-Suyūṭī · English trans. Feras Hamza (2007)
-              </div>
-            </div>
-          </div>
-          {lesson.jalalaynText ? (
-            <JalalaynVerseView
-              jalalaynText={lesson.jalalaynText}
-              niasseBody={lesson.arabicBody || lesson.arabicText || ''}
-              niasseEnglish={lesson.englishText || null}
-              verseRange={lesson.verseRange || ''}
-              lessonTitleEn={lesson.englishTitle || ''}
-            />
-          ) : (
-            <p className="font-english text-white/20 italic text-sm">Text forthcoming.</p>
-          )}
-        </div>
-      </Panel>
-
-      </div>
+      
       {/* 5. Rūḥ al-Bayān */}
       <Panel icon="" titleAr="رُوحُ الْبَيَانِ" titleEn="Rūḥ al-Bayān">
         <div className="p-5" dir="ltr">
