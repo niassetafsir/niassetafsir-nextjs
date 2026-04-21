@@ -132,8 +132,7 @@ function MobileNav() {
       {/* Full-screen overlay */}
       {open && (
         <div
-          className="fixed inset-0 flex flex-col" style={{zIndex:99999, position:"fixed", top:0, left:0, right:0, bottom:0}}
-          style={{background:'var(--bg, #1a1008)', minHeight:'100vh', minWidth:'100vw'}}
+          style={{position:'fixed', inset:0, zIndex:99999, display:'flex', flexDirection:'column', background:'var(--bg, #1a1008)', minHeight:'100vh', minWidth:'100vw'}}
         >
           {/* Overlay header */}
           <div className="flex items-center justify-between px-5 py-3 border-b"
