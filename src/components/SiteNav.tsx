@@ -140,6 +140,14 @@ const RESEARCH_ITEMS: DropdownItem[] = [
   { label: "Cite a Passage", sub: "Select text to clip and cite", href: "/clips" },
 ];
 
+
+const MORE_ITEMS: DropdownItem[] = [
+  { label: "Publications", sub: "Order & pre-order editions", href: "/order" },
+  { label: "Get Involved", sub: "Feedback, suggestions, errors", href: "/get-involved" },
+  { label: "Bookmarks", sub: "Saved passages", href: "/bookmarks" },
+  { label: "Research Clips", sub: "Cited passages", href: "/clips" },
+  { label: "About the Project", sub: "Edition, translator, editorial note", href: "/about" },
+];
 const ABOUT_ITEMS: DropdownItem[] = [
   { label: "The Tafsīr", sub: "Shaykh Ibrāhīm & the commentary", href: "/about/shaykh" },
   { label: "The Project", sub: "Digital edition, translator, editorial note", href: "/about" },
@@ -160,25 +168,16 @@ const ABOUT_ITEMS: DropdownItem[] = [
         <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors" dir="ltr">Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</span>
       </Link>
 
-      {/* Nav items */}
-      <div className="flex items-center gap-1">
-<NavDropdown label="About" items={ABOUT_ITEMS} />
-<NavDropdown label="Get Involved" items={CONTRIBUTE_ITEMS} />
-        <NavDropdown label="Publications" items={PUBLICATIONS_ITEMS} />
+      {/* Nav items — collapsed: Research · About · ··· · Search */}
+      <div className="flex items-center gap-0.5">
         <NavDropdown label="Research" items={RESEARCH_ITEMS} />
-        <Link href="/search" className="font-english text-xs text-white/45 hover:text-white/75 px-2.5 py-1.5 rounded-md hover:bg-white/5 transition-all" title="Search">
+        <NavDropdown label="About" items={ABOUT_ITEMS} />
+        <NavDropdown label="···" items={MORE_ITEMS} />
+        <Link href="/search"
+          className="font-english text-xs text-white/45 hover:text-white/75 px-2.5 py-1.5 rounded-md hover:bg-white/5 transition-all"
+          title="Search">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-          </svg>
-        </Link>
-        <Link href="/clips" className="font-english text-xs text-white/45 hover:text-white/75 px-2.5 py-1.5 rounded-md hover:bg-white/5 transition-all" title="Research Clips">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
-          </svg>
-        </Link>
-        <Link href="/bookmarks" className="font-english text-xs text-white/45 hover:text-white/75 px-2.5 py-1.5 rounded-md hover:bg-white/5 transition-all" title="Bookmarks">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
           </svg>
         </Link>
       </div>

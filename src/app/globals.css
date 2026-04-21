@@ -593,3 +593,81 @@ nav .font-english.text-xs {
   --persistent-nav-bg: rgba(250,246,239,0.97);
   --persistent-nav-text: rgba(44,24,16,0.45);
 }
+
+/* ── Comprehensive light mode text fixes ─────────────────────── */
+
+/* All white opacity text classes → dark brown */
+[data-theme="light"] .text-white\/70,
+[data-theme="light"] .text-white\/65,
+[data-theme="light"] .text-white\/60,
+[data-theme="light"] .text-white\/55,
+[data-theme="light"] .text-white\/50,
+[data-theme="light"] .text-white\/45,
+[data-theme="light"] .text-white\/40,
+[data-theme="light"] .text-white\/35,
+[data-theme="light"] .text-white\/30,
+[data-theme="light"] .text-white\/25,
+[data-theme="light"] .text-white\/20,
+[data-theme="light"] .text-white\/15,
+[data-theme="light"] .text-white\/10 {
+  color: rgba(44, 24, 16, 0.65) !important;
+}
+
+[data-theme="light"] .text-white\/75,
+[data-theme="light"] .text-white {
+  color: rgba(26, 10, 0, 0.9) !important;
+}
+
+/* CSS variable overrides for light mode */
+[data-theme="light"] {
+  --body-text: rgba(44, 24, 16, 0.85);
+  --body-sub: rgba(44, 24, 16, 0.6);
+  --body-faint: rgba(44, 24, 16, 0.45);
+  --lesson-header-sub: rgba(44,24,16,0.6);
+  --lesson-header-faint: rgba(44,24,16,0.4);
+}
+
+/* Panel backgrounds in light mode */
+[data-theme="light"] [style*="background:'#1a"] ,
+[data-theme="light"] [style*="background: #1a"] {
+  background: #EDE0C0 !important;
+}
+
+/* Input/search boxes in light mode */
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  background: #F0E4C4 !important;
+  color: #1a0a00 !important;
+  border-color: rgba(139,105,20,0.3) !important;
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: rgba(44,24,16,0.4) !important;
+}
+
+/* Borders in light mode */
+[data-theme="light"] .border-white\/10,
+[data-theme="light"] .border-white\/15,
+[data-theme="light"] .border-white\/8,
+[data-theme="light"] .border-white\/5 {
+  border-color: rgba(139,105,20,0.2) !important;
+}
+
+/* Card/panel backgrounds */
+[data-theme="light"] .bg-white\/5,
+[data-theme="light"] .bg-white\/8,
+[data-theme="light"] .bg-white\/10 {
+  background: rgba(139,105,20,0.06) !important;
+}
+
+/* Italic text */
+[data-theme="light"] em,
+[data-theme="light"] .italic {
+  color: rgba(44,24,16,0.7) !important;
+}
+
+/* Drawer in light mode */
+[data-theme="light"] #nav-drawer-panel {
+  background: #F0E4C4 !important;
+}
