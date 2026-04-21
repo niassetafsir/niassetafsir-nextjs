@@ -166,7 +166,7 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
         </div>
       )}
       {/* Floating close button — appears when panel header scrolls out of view */}
-      {open && !headerVisible && (
+      {open && (!headerVisible || window.innerWidth < 768) && (
         <button
           onClick={() => {
             setOpen(false);

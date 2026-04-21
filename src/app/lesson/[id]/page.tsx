@@ -6,6 +6,7 @@ import JalalaynVerseView from '@/components/JalalaynVerseView';
 import AudioPanel from '@/components/AudioPanel';
 import BilingualText from '@/components/BilingualText';
 import InlineCompare from '@/components/InlineCompare';
+import PanelJumpTabs from '@/components/PanelJumpTabs';
 import SelectionClip from '@/components/SelectionClip';
 import Link from 'next/link';
 
@@ -47,7 +48,9 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </div>
 
       {/* 1. Shaykh Ibrāhīm's Tafsīr */}
-      <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
+      
+      <PanelJumpTabs />
+<Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <BilingualText
           arabicText={lesson.arabicBody || lesson.arabicText}
           englishText={lesson.englishText}
@@ -72,7 +75,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
             />
           ) : lesson.lessonSummary ? (
             <div>
-              <p className="font-english text-sm leading-7" style={{color:'rgba(255,255,255,0.75)'}}>
+              <p className="font-english text-sm leading-7" style={{color:'var(--body-text, rgba(255,255,255,0.75))'}}>
                 {lesson.lessonSummary}
               </p>
             </div>
