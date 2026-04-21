@@ -42,7 +42,7 @@ const PRIMARY_TOOLS = [
     href: '/scholars',
     titleAr: 'فهرس العلماء والمصادر',
     titleEn: 'Scholar & Source Index',
-    desc: "Every figure cited across the tafsīr, with a key distinction: scholars Niasse invokes in his own words versus sources documented by the compiler.",
+    desc: "Every figure cited across the tafsīr, with a key distinction: scholars Shaykh Ibrāhīm invokes in his own words versus sources documented by the compiler.",
   },
   {
     href: '/themes',
@@ -54,19 +54,7 @@ const PRIMARY_TOOLS = [
     href: '/glossary',
     titleAr: 'مصطلحات التفسير',
     titleEn: 'Concordance of Terms',
-    desc: 'Nineteen theological and Sufi terms as Niasse employs them, with his exact Arabic usage, apparatus citations, and conceptual connections.',
-  },
-  {
-    href: '/glossary-map',
-    titleAr: 'خريطة المصطلحات',
-    titleEn: 'Theological Vocabulary Map',
-    desc: "A structured map of how key terms connect within Shaykh Ibrāhīm's theological system — hierarchies, conditions, and conceptual relationships confirmed from his text.",
-  },
-  {
-    href: '/audio',
-    titleAr: 'تسجيلات التفسير',
-    titleEn: 'Audio Archive',
-    desc: "Stream or download Shaykh Ibrāhīm's Arabic oral tafsīr — one recording per sura, from the 1383 AH / 1964 sessions. Wolof tafsīr (122 sessions) also available.",
+    desc: 'Twenty theological and Sufi terms as Shaykh Ibrāhīm employs them, with his exact Arabic usage, apparatus citations, and conceptual connections.',
   },
 ];
 
