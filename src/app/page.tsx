@@ -139,14 +139,20 @@ export default function HomePage() {
           </div>
         </div>
         <div className="flex gap-3 justify-center flex-wrap">
-          <Link href="/read" className="font-english text-sm text-bg bg-gold hover:bg-gold-light px-7 py-2.5 rounded-full transition-all font-semibold">
-            Read
+          <Link href="/read"
+            className="font-english font-semibold text-sm px-8 py-3 rounded-full transition-all"
+            style={{background:'#C9A84C', color:'#1a100a'}}>
+            📖 Read
           </Link>
-          <Link href="/audio" className="font-english text-sm text-white/70 hover:text-gold border border-white/15 hover:border-gold/50 px-7 py-2.5 rounded-full transition-all">
-            Listen
+          <Link href="/audio"
+            className="font-english font-semibold text-sm px-8 py-3 rounded-full transition-all border"
+            style={{borderColor:'rgba(80,160,140,0.5)', color:'rgba(80,200,170,0.9)', background:'rgba(80,160,140,0.08)'}}>
+            🎧 Listen
           </Link>
-          <Link href="/research" className="font-english text-sm text-white/70 hover:text-gold border border-white/15 hover:border-gold/50 px-7 py-2.5 rounded-full transition-all">
-            Research
+          <Link href="/research"
+            className="font-english font-semibold text-sm px-8 py-3 rounded-full transition-all border"
+            style={{borderColor:'rgba(107,36,36,0.6)', color:'rgba(200,120,120,0.9)', background:'rgba(107,36,36,0.12)'}}>
+            🔍 Research
           </Link>
         </div>
         <div className="mt-5 max-w-xl mx-auto" dir="ltr">
