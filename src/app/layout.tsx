@@ -3,7 +3,6 @@ import "./globals.css";
 import SiteNav from "@/components/SiteNav";
 import PersistentNav from "@/components/PersistentNav";
 import MobileNav from "@/components/MobileNav";
-import NavDrawer from "@/components/NavDrawer";
 
 export const metadata: Metadata = {
   title: {
@@ -39,7 +38,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ar" dir="rtl">
       <body className="bg-bg min-h-screen pb-16">
         <SiteNav />
-        <NavDrawer />
         <PersistentNav />
         {children}
         <footer className="border-t border-black/10 py-5 px-6 bg-transparent">
