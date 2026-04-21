@@ -3,6 +3,7 @@ import "./globals.css";
 import SiteNav from "@/components/SiteNav";
 import PersistentNav from "@/components/PersistentNav";
 import MobileNav from "@/components/MobileNav";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: {
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ar" dir="rtl">
       <body className="bg-bg min-h-screen pb-16">
+        <ScrollToTop />
         <SiteNav />
         <PersistentNav />
         {children}
