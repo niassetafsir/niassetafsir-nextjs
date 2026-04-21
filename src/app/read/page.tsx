@@ -120,23 +120,7 @@ export default function ReadPage() {
               </span>
             </Link>
 
-            <div className="mt-4 pt-4 border-t border-white/8">
-              <p className="font-english text-white/25 text-xs font-medium mb-2">Also available</p>
-              <div className="space-y-1.5">
-                {[
-                  { label: 'Footnotes & Citations', href: '/footnotes' },
-                  { label: 'Ḥadīth Index', href: '/hadith' },
-                  { label: 'Concordance of Terms', href: '/glossary' },
-                  { label: 'Audio Library', href: '/audio' },
-                ].map(item => (
-                  <Link key={item.href} href={item.href}
-                    className="flex items-center justify-between font-english text-xs text-white/30 hover:text-white/55 transition-colors py-0.5">
-                    <span>{item.label}</span>
-                    <span className="text-white/15">→</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
+
           </div>
         </div>
 
