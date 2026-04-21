@@ -22,7 +22,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const usulBaseUrl = 'https://usul.ai/t/ruh-bayan';
 
   return (
-    <main className="w-full px-8 xl:px-16 pb-20 pt-6">
+    <main className="w-full px-8 xl:px-16 pb-20 pt-3">
       {/* Work title */}
       <div className="text-center pb-5 mb-5 border-b border-gold/20">
         <div className="font-arabic text-gold font-bold text-xl" dir="rtl">
@@ -34,7 +34,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </div>
 
       {/* Lesson heading */}
-      <div className="text-center mb-6">
+      <div className="text-center mb-4">
         <div className="font-arabic text-gold font-bold text-2xl" dir="rtl">{lesson.arabicTitle}</div>
         <div className="font-english text-white/60 text-sm mt-1" dir="ltr">
           {lesson.englishTitle} · {lesson.verseRange}

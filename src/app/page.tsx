@@ -116,9 +116,9 @@ export default function HomePage() {
     <main className="max-w-5xl mx-auto px-4 pb-20">
 
       {/* Header */}
-      <div className="text-center py-16 mb-10">
+      <div className="text-center py-8 mb-6">
         {/* Arabic title — clean, no box */}
-        <div className="mb-4">
+        <div className="mb-3">
           <div className="font-arabic text-gold text-4xl font-bold leading-snug mb-1" dir="rtl">
             فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
           </div>
@@ -127,7 +127,7 @@ export default function HomePage() {
           </div>
         </div>
         {/* English mirror */}
-        <div className="mb-6">
+        <div className="mb-5">
           <div className="font-english text-white/80 text-xl italic font-semibold mb-1">
             Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
           </div>
