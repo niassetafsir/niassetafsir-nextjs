@@ -65,13 +65,26 @@ body {
 
 /* ── Light Mode (al-Attas cream + DOCX palette) ──────────── */
 [data-theme="light"] {
-  --panel-title-en: rgba(44,24,16,0.8);
+  --panel-title-en: rgba(44,24,16,0.85);
+  --panel-header-text: rgba(44,24,16,0.85);
+  --panel-header-bg: rgba(232,213,176,0.97);
   --bg: #E8D5B0;
   --gold: #8b6914;
   --gold-light: #5c3d0e;
   --text: #1a1a1a;
   --text-en: #444444;
   --border-color: rgba(139,105,20,0.2);
+  --body-text: rgba(44,24,16,0.85);
+  --body-sub: rgba(44,24,16,0.6);
+  --body-faint: rgba(44,24,16,0.4);
+  --persistent-nav-bg: #EDE0C0;
+  --persistent-nav-text: rgba(44,24,16,0.5);
+  --lesson-header-sub: rgba(44,24,16,0.6);
+  --lesson-header-faint: rgba(44,24,16,0.4);
+  --nav-home: #6B2424;
+  --nav-read: #6B2424;
+  --nav-listen: #2D6B5A;
+  --nav-research: #1A4A6B;
 }
 
 [data-theme="light"] body {
@@ -670,4 +683,10 @@ nav .font-english.text-xs {
 /* Drawer in light mode */
 [data-theme="light"] #nav-drawer-panel {
   background: #F0E4C4 !important;
+}
+
+/* Panel header in light mode */
+[data-theme="light"] [style*="background: \"rgba(13,20,10"],
+[data-theme="light"] [style*="background:\"rgba(13,20,10"] {
+  background: rgba(232,213,176,0.97) !important;
 }

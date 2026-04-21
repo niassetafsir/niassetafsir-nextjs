@@ -114,9 +114,9 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
           className="flex items-center gap-3 flex-1 text-left min-w-0"
         >
           <span className="text-lg flex-shrink-0">{icon}</span>
-          <span className="flex-1 font-english text-sm min-w-0" style={{color:"rgba(255,255,255,0.8)"}}>
+          <span className="flex-1 font-english text-sm min-w-0" style={{color:"var(--panel-header-text, rgba(255,255,255,0.8))"}}>
             <span className="font-arabic" dir="rtl" style={{color:"#C9A84C"}}>{titleAr}</span>
-            <span className="text-white/40 mx-2">·</span>
+            <span className="mx-2" style={{color:"var(--panel-header-text, rgba(255,255,255,0.4))"}}>·</span>
             <span style={{color:"var(--panel-title-en, rgba(255,255,255,0.75))"}}>{titleEn}</span>
           </span>
           {verse && open && (

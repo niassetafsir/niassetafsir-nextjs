@@ -207,6 +207,11 @@ export default function SiteNav() {
     <nav className="flex items-center justify-between px-5 py-2.5 sticky top-0 z-50 backdrop-blur border-b-0"
       style={{background:"rgba(13,20,10,0.95)", borderTop:"3px solid #C9A84C", borderBottom:"1px solid rgba(201,168,76,0.2)"}}>
 
+      {/* Mobile hamburger — LEFT, mobile only */}
+      <div className="md:hidden">
+        <MobileNav />
+      </div>
+
       {/* Logo */}
       <Link href="/" className="flex flex-col flex-shrink-0 hover:opacity-80 transition-opacity group">
         <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl"
@@ -256,8 +261,7 @@ export default function SiteNav() {
         <div className="border-l border-white/10 pl-2 md:pl-3">
           <ThemeToggle />
         </div>
-        {/* Mobile hamburger */}
-        <MobileNav />
+        {/* Mobile hamburger moved to left */}
       </div>
     </nav>
   );
