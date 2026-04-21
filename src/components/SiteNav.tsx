@@ -45,22 +45,10 @@ const MORE_ITEMS: DropdownItem[] = [
 
 // All nav items for mobile overlay
 const ALL_SECTIONS = [
-  {
-    heading: 'Read',
-    items: READ_ITEMS,
-  },
-  {
-    heading: 'Research',
-    items: RESEARCH_ITEMS,
-  },
-  {
-    heading: 'About',
-    items: ABOUT_ITEMS,
-  },
-  {
-    heading: 'More',
-    items: MORE_ITEMS,
-  },
+  { heading: 'Read', color: '#6B2424', items: READ_ITEMS },
+  { heading: 'Research', color: '#1A3A5C', items: RESEARCH_ITEMS },
+  { heading: 'About', color: '#1E5A4A', items: ABOUT_ITEMS },
+  { heading: 'More', color: '#C9A84C', items: MORE_ITEMS },
 ];
 
 // ── NavDropdown (desktop only) ────────────────────────────────────
@@ -156,7 +144,7 @@ function MobileNav() {
             {ALL_SECTIONS.map((section) => (
               <div key={section.heading} className="mb-6">
                 <p className="font-english text-[10px] font-semibold uppercase tracking-widest mb-2 text-left"
-                  style={{color: 'rgba(201,168,76,0.6)'}}>
+                  style={{color: section.color, borderLeft: `3px solid ${section.color}`, paddingLeft: '8px'}}>
                   {section.heading}
                 </p>
                 <div className="space-y-0.5">

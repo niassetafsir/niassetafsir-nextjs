@@ -694,3 +694,9 @@ nav .font-english.text-xs {
 [data-theme="light"] [style*="background:\"rgba(13,20,10"] {
   background: rgba(232,213,176,0.97) !important;
 }
+
+/* Force PersistentNav bg in light mode */
+[data-theme="light"] nav[style*="persistent-nav-bg"],
+[data-theme="light"] div[style*="persistent-nav-bg"] {
+  background: #EDE0C0 !important;
+}
