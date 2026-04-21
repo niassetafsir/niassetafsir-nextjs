@@ -12,9 +12,9 @@ const MANZILS = [
   { id: 2, ar: "المنزل الثاني", en: "Second Manzil", day: "Day Two", suras: "Al-Māʾida — Al-Tawba", range: "Suras 5–9", lessons: "Lessons 14–23", href: "/manzil/2" },
   { id: 3, ar: "المنزل الثالث", en: "Third Manzil", day: "Day Three", suras: "Yūnus — Al-Naḥl", range: "Suras 10–16", lessons: "Lessons 24–30", href: "/manzil/3" },
   { id: 4, ar: "المنزل الرابع", en: "Fourth Manzil", day: "Day Four", suras: "Al-Isrāʾ — Al-Furqān", range: "Suras 17–25", lessons: "Lessons 31–35", href: "/manzil/4" },
-  { id: 5, ar: "المنزل الخامس", en: "Fifth Manzil", day: "Day Five", suras: "Al-Shuʿarāʾ — Yā Sīn", range: "Suras 26–36", lessons: "In preparation", href: "#" },
-  { id: 6, ar: "المنزل السادس", en: "Sixth Manzil", day: "Day Six", suras: "Al-Ṣāffāt — Al-Ḥujurāt", range: "Suras 37–49", lessons: "In preparation", href: "#" },
-  { id: 7, ar: "المنزل السابع", en: "Seventh Manzil", day: "Day Seven", suras: "Qāf — Al-Nās", range: "Suras 50–114", lessons: "In preparation", href: "#" },
+  { id: 5, ar: "المنزل الخامس", en: "Fifth Manzil", day: "Day Five", suras: "Al-Shuʿarāʾ — Al-Aḥzāb", range: "Suras 26–33", lessons: "Lessons 36–40", href: "/manzil/5" },
+  { id: 6, ar: "المنزل السادس", en: "Sixth Manzil", day: "Day Six", suras: "Sabaʾ — Al-Ṣaff", range: "Suras 34–61", lessons: "Lessons 41–50", href: "/manzil/6" },
+  { id: 7, ar: "المنزل السابع", en: "Seventh Manzil", day: "Day Seven", suras: "Al-Jumʿa — Al-Nās", range: "Suras 62–114", lessons: "Lessons 51–57", href: "/manzil/7" },
 ];
 
 export default function ReadPage() {

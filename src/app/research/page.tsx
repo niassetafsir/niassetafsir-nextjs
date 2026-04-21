@@ -48,7 +48,7 @@ const PRIMARY_TOOLS = [
     href: '/themes',
     titleAr: 'فهرس علوم التفسير',
     titleEn: 'Tafsīr Sciences Index',
-    desc: 'Classified by tafsīr discipline — 12 categories drawn from classical ʿulūm al-tafsīr: Quranic Sciences, Prophethood, Fiqh & Law, Sufism, Spiritual Ethics, History & Narrative.',
+    desc: 'Classified by tafsīr discipline — 11 categories drawn from classical ʿulūm al-tafsīr: Quranic Sciences, Prophethood, Fiqh & Law, Sufism, Spiritual Ethics, History & Narrative.',
   },
   {
     href: '/glossary',

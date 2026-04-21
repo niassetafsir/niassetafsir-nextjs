@@ -141,7 +141,7 @@ const RESEARCH_ITEMS: DropdownItem[] = [
 ];
 
 const ABOUT_ITEMS: DropdownItem[] = [
-  { label: "The Tafsīr", sub: "Shaykh Ibrāhīm Niasse & the commentary", href: "/about/shaykh" },
+  { label: "The Tafsīr", sub: "Shaykh Ibrāhīm & the commentary", href: "/about/shaykh" },
   { label: "The Project", sub: "Digital edition, translator, editorial note", href: "/about" },
 ];
 
