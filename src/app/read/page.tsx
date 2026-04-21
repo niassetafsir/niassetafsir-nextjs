@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SubscribeBar from '@/components/SubscribeBar';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -97,6 +98,9 @@ export default function ReadPage() {
         The seven manzils divide the Qurʾān for weekly recitation — a practice central to the Fayḍah Tijāniyya community.
         Shaykh Ibrāhīm Niasse organised his commentary by this structure.
       </p>
+      <div className="mt-10 opacity-60">
+        <SubscribeBar />
+      </div>
     </main>
   );
 }

@@ -162,9 +162,7 @@ export default function HomePage() {
       </div>
 
       
-      <div className="mt-16 mb-6 opacity-70">
-        <SubscribeBar />
-      </div>
+
     </main>
   );
 }
