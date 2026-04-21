@@ -78,7 +78,7 @@ const TOOLS = [...PRIMARY_TOOLS, ...PERSONAL_TOOLS];
 
 export default function ResearchPage() {
   return (
-    <main className="max-w-5xl mx-auto px-4 pb-20 pt-8" dir="ltr">
+    <main className="max-w-5xl mx-auto px-4 pb-20 pt-5" dir="ltr">
       {/* Header */}
       <div className="text-center mb-10">
         <div className="font-arabic text-gold text-2xl font-bold mb-1" dir="rtl">
@@ -91,7 +91,7 @@ export default function ResearchPage() {
           Tools for scholarly work on <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>, 
           from text to meaning, passage to citation.
         </p>
-        <div className="flex justify-center gap-4 mt-4">
+        <div className="flex justify-center gap-2.5 mt-4">
           <Link href="/lesson/1"
             className="font-english text-sm text-white/50 hover:text-gold border border-white/15 hover:border-gold/40 px-4 py-1.5 rounded-lg transition-all">
             ← Return to Reading
@@ -100,10 +100,10 @@ export default function ResearchPage() {
       </div>
 
       {/* Tool grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
         {TOOLS.map(tool => (
           <Link key={tool.href} href={tool.href}
-            className="group border border-white/10 hover:border-gold/40 rounded-xl p-5 transition-all hover:bg-gold/5">
+            className="group border border-white/10 hover:border-gold/40 rounded-xl p-3 transition-all hover:bg-gold/5">
             <div className="mb-3">
               <div>
                 <div className="font-arabic text-sm" dir="rtl"
