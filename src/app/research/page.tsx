@@ -78,25 +78,17 @@ const TOOLS = [...PRIMARY_TOOLS, ...PERSONAL_TOOLS];
 
 export default function ResearchPage() {
   return (
-    <main className="max-w-5xl mx-auto px-4 pb-20 pt-5" dir="ltr">
+    <main className="max-w-5xl mx-auto px-4 pb-6 pt-4" dir="ltr">
       {/* Header */}
-      <div className="text-center mb-10">
-        <div className="font-arabic text-gold text-2xl font-bold mb-1" dir="rtl">
-          أدوات البحث العلمي
+      <div className="flex items-center justify-between mb-4">
+        <div>
+          <h1 className="font-english text-white font-semibold text-base">Research Platform</h1>
+          <div className="font-arabic text-gold text-sm mt-0.5" dir="rtl">أدوات البحث العلمي</div>
         </div>
-        <h1 className="font-english text-white text-2xl font-semibold mt-1 mb-2">
-          Research Platform
-        </h1>
-        <p className="font-english text-sm max-w-xl mx-auto" style={{color:'rgba(255,255,255,0.45)'}}>
-          Tools for scholarly work on <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>, 
-          from text to meaning, passage to citation.
-        </p>
-        <div className="flex justify-center gap-2.5 mt-4">
-          <Link href="/lesson/1"
-            className="font-english text-sm text-white/50 hover:text-gold border border-white/15 hover:border-gold/40 px-4 py-1.5 rounded-lg transition-all">
-            ← Return to Reading
-          </Link>
-        </div>
+        <Link href="/lesson/1"
+          className="font-english text-xs text-white/40 hover:text-gold transition-colors">
+          ← Reading
+        </Link>
       </div>
 
       {/* Tool grid */}
@@ -104,7 +96,7 @@ export default function ResearchPage() {
         {TOOLS.map(tool => (
           <Link key={tool.href} href={tool.href}
             className="group border border-white/10 hover:border-gold/40 rounded-xl p-3 transition-all hover:bg-gold/5">
-            <div className="mb-3">
+            <div className="mb-1">
               <div>
                 <div className="font-arabic text-sm" dir="rtl"
                   style={{color:'rgba(255,255,255,0.5)'}}>{tool.titleAr}</div>
@@ -112,21 +104,13 @@ export default function ResearchPage() {
                   style={{color:'rgba(255,255,255,0.9)'}}>{tool.titleEn}</div>
               </div>
             </div>
-            <p className="font-english text-xs leading-6"
+            <p className="font-english text-xs leading-5"
               style={{color:'rgba(255,255,255,0.45)'}}>{tool.desc}</p>
           </Link>
         ))}
       </div>
 
-      {/* Citation note */}
-      <div className="mt-10 p-5 border border-gold/15 rounded-xl text-center">
-        <p className="font-english text-xs" style={{color:'rgba(255,255,255,0.4)'}}>
-          <strong style={{color:'rgba(255,255,255,0.65)'}}>Citing this platform:</strong>{' '}
-          Ibrāhīm Niasse, <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>, comp. Muḥammad ibn Shaykh ʿAbd Allāh 
-          al-Tijānī al-Ibrāhīmī, rev. 10-vol. ed. (n.p., n.d.). Digital ed., ed. Amadu Kunateh. 
-          niassetafsir.org, 2025.
-        </p>
-      </div>
+
     </main>
   );
 }
