@@ -34,7 +34,7 @@ export default function PersistentNav() {
           style={{
             color: item.active
               ? item.colorVar
-              : 'var(--persistent-nav-text, rgba(255,255,255,0.5))',
+              : 'var(--persistent-nav-text, rgba(255,255,255,0.6))',
             fontWeight: item.active ? '700' : '600',
           }}>
           <span className="text-base leading-none">{item.icon}</span>

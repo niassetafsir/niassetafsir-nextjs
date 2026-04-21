@@ -230,16 +230,16 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
 
       {/* Arabic only */}
       {view === 'arabic' && (
-        <div className="p-5">
-          <ArabicWordTool text={commentaryParagraphs.map(p => `<p class="mb-3">${p}</p>`).join('')} />
+        <div className="p-5 text-center" dir="rtl">
+          <ArabicWordTool text={commentaryParagraphs.map(p => `<p class="mb-4 text-center leading-loose">${p}</p>`).join('')} />
         </div>
       )}
 
       {/* English only */}
       {view === 'english' && (
-        <div dir="ltr" className="p-5">
+        <div dir="ltr" className="p-5 max-w-2xl mx-auto">
           {hasEnglish && englishText ? (
-            <div className="font-english text-[16px] leading-[1.9] text-white" dangerouslySetInnerHTML={{ __html: stripEnFootnotes(englishText || '') }} />
+            <div className="font-english text-[16px] leading-[2.0]" style={{color:'var(--body-text, rgba(255,255,255,0.88))', textAlign:'left'}} dangerouslySetInnerHTML={{ __html: stripEnFootnotes(englishText || '') }} />
           ) : (
             <ComingSoonNote lang="english" />
           )}

@@ -189,7 +189,7 @@ function MobileNav() {
           </div>
 
           {/* Overlay footer */}
-          <div className="px-5 py-4 border-t" style={{borderColor:'rgba(201,168,76,0.15)'}}>
+          <div className="px-5 py-4 border-t flex items-center justify-between" style={{borderColor:'rgba(201,168,76,0.15)'}}>
             <Link href="/search" onClick={() => setOpen(false)}
               className="flex items-center gap-2 font-english text-sm"
               style={{color:'rgba(255,255,255,0.45)'}}>
@@ -198,6 +198,7 @@ function MobileNav() {
               </svg>
               Search
             </Link>
+            <ThemeToggle />
           </div>
         </div>
       )}
@@ -261,8 +262,8 @@ export default function SiteNav() {
         <div className="hidden sm:flex items-center gap-2 border-l border-white/10 pl-3">
           <span className="font-english text-white/25 text-[10px]">EN · FR · AR</span>
         </div>
-        {/* Theme toggle — always visible */}
-        <div className="border-l border-white/10 pl-2 md:pl-3">
+        {/* Theme toggle — desktop only; mobile accesses via overlay */}
+        <div className="hidden md:flex border-l border-white/10 pl-3">
           <ThemeToggle />
         </div>
       </div>
