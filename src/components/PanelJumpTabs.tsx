@@ -16,7 +16,7 @@ export default function PanelJumpTabs() {
 
   return (
     <div
-      className="sticky top-0 z-40 flex gap-2 overflow-x-auto py-2 px-1 mb-2"
+      className="sticky top-0 z-40 flex gap-1.5 overflow-x-auto py-2 px-1 mb-2"
       style={{
         background: 'var(--bg, #1a1008)',
         borderBottom: '1px solid rgba(201,168,76,0.15)',
@@ -28,7 +28,7 @@ export default function PanelJumpTabs() {
         <button
           key={tab.id}
           onClick={() => scrollTo(tab.id)}
-          className="font-english text-xs whitespace-nowrap px-3 py-1.5 rounded-full border transition-all flex-shrink-0"
+          className="font-english text-[10px] whitespace-nowrap px-2.5 py-1 rounded-full border transition-all flex-shrink-0"
           style={{
             borderColor: 'rgba(201,168,76,0.3)',
             color: 'rgba(201,168,76,0.85)',

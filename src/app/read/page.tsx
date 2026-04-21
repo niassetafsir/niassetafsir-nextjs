@@ -69,7 +69,7 @@ const MANZILS = [
   { id:7, en:'Seventh Manzil', ar:'المنزل السابع', sub:'Al-Jumʿa — Al-Nās', color:'#1A3A5C' },
 ];
 
-type Mode = null | 'surah' | 'manzil';
+type Mode = null | 'sūrah' | 'manzil';
 
 export default function ReadPage() {
   const [query, setQuery] = useState('');
@@ -156,17 +156,17 @@ export default function ReadPage() {
       {!query && (
         <>
           <div className="grid grid-cols-2 gap-3 mb-4">
-            {/* Read by Sūra */}
+            {/* Read by Sūrah */}
             <button
-              onClick={() => setMode(mode === 'surah' ? null : 'surah')}
+              onClick={() => setMode(mode === 'sūrah' ? null : 'sūrah')}
               className="flex flex-col items-center justify-center py-6 px-4 rounded-2xl border-2 transition-all"
               style={{
-                borderColor: mode === 'surah' ? '#6B2424' : 'rgba(107,36,36,0.35)',
-                background: mode === 'surah' ? 'rgba(107,36,36,0.12)' : 'transparent',
+                borderColor: mode === 'sūrah' ? '#6B2424' : 'rgba(107,36,36,0.35)',
+                background: mode === 'sūrah' ? 'rgba(107,36,36,0.12)' : 'transparent',
               }}>
               <span className="font-arabic text-2xl mb-2" style={{color:'#6B2424'}}>ﵚ</span>
               <span className="font-english text-sm font-bold" style={{color:'#6B2424'}}>
-                Read by Sūra
+                Read by Sūrah
               </span>
               <span className="font-english text-[10px] mt-1 text-center"
                 style={{color:'rgba(107,36,36,0.6)'}}>
@@ -194,7 +194,7 @@ export default function ReadPage() {
           </div>
 
           {/* ── Sūra grid (expanded inline) ────────────────────── */}
-          {mode === 'surah' && (
+          {mode === 'sūrah' && (
             <div className="grid grid-cols-3 gap-1.5 mb-4">
               {SURAS.map(([num, en, ar]) => (
                 <Link key={num} href={`/lesson/${SURA_TO_LESSON[num as number]}`}

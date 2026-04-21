@@ -51,6 +51,18 @@ export default async function LessonPage({ params }: { params: { id: string } })
       {/* 1. Shaykh Ibrāhīm's Tafsīr */}
       
       <PanelJumpTabs />
+      {/* Back breadcrumb */}
+      <div className="flex items-center gap-2 px-4 py-1.5 text-xs"
+        style={{borderBottom:'1px solid rgba(201,168,76,0.1)'}}>
+        <a href="/read"
+          className="font-english hover:text-gold transition-colors flex items-center gap-1"
+          style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          All Sūrahs
+        </a>
+      </div>
 <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <BilingualText
           arabicText={lesson.arabicBody || lesson.arabicText}
