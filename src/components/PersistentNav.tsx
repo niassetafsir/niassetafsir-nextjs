@@ -38,7 +38,7 @@ export default function PersistentNav() {
             fontWeight: item.active ? '700' : '600',
           }}>
           <span className="text-base leading-none">{item.icon}</span>
-          <span className="font-english text-[10px] leading-none tracking-wide">{item.label}</span>
+          <span className="font-english text-[10px] leading-none tracking-wide font-semibold">{item.label}</span>
         </Link>
       ))}
     </div>
