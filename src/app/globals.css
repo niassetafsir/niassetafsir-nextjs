@@ -5,6 +5,10 @@
 
 :root {
   --bg: #0D1F0A;
+  --nav-read: #C9A84C;
+  --nav-listen: #5eead4;
+  --nav-research: #93c5fd;
+  --nav-home: rgba(255,255,255,0.7);
   --gold: #C9A84C;
   --gold-light: #E8D4A0;
   --text: #E8E8E0;
