@@ -173,6 +173,18 @@ export default function ConcordancePage() {
                           )
                         }}
                       />
+                      {/* English translation below Arabic */}
+                      {(occ as any).englishExcerpt ? (
+                        <p className="font-english text-xs leading-5 mt-1.5 italic border-t border-white/8 pt-1.5"
+                          style={{color:'rgba(255,255,255,0.45)'}}>
+                          {(occ as any).englishExcerpt}
+                        </p>
+                      ) : (
+                        <p className="font-english text-[10px] mt-1.5 border-t border-white/5 pt-1"
+                          style={{color:'rgba(255,255,255,0.2)'}}>
+                          English translation forthcoming
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
