@@ -261,7 +261,6 @@ export default function SiteNav() {
         <div className="border-l border-white/10 pl-2 md:pl-3">
           <ThemeToggle />
         </div>
-        {/* Mobile hamburger moved to left */}
       </div>
     </nav>
   );

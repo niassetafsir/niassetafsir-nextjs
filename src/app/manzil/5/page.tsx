@@ -14,7 +14,7 @@ export default function Manzil5Page() {
       <div className="mb-8 text-center">
         <div className="font-arabic text-gold text-2xl mb-1" dir="rtl">المنزل الخامس</div>
         <h1 className="font-english text-white text-xl font-semibold mb-1">Manzil Five</h1>
-        <p className="font-english text-sm" style={{color:'rgba(255,255,255,0.4)'}}>
+        <p className="font-english text-sm" style={{color:'var(--body-text, rgba(255,255,255,0.4))'}}>
           Sūrat al-Furqān — Sūrat al-Aḥzāb · Volume 7 · Lessons 36–40
         </p>
       </div>
@@ -25,13 +25,13 @@ export default function Manzil5Page() {
             <div className="flex items-start justify-between gap-3">
               <div className="flex-1">
                 <div className="font-arabic text-base leading-7 mb-1" dir="rtl"
-                  style={{color:'rgba(255,255,255,0.85)'}}>{lesson.ar}</div>
-                <div className="font-english text-sm" style={{color:'rgba(255,255,255,0.5)'}}>{lesson.en}</div>
+                  style={{color:'var(--body-text, rgba(255,255,255,0.85))'}}>{lesson.ar}</div>
+                <div className="font-english text-sm" style={{color:'var(--body-text, rgba(255,255,255,0.5))'}}>{lesson.en}</div>
               </div>
               <div className="text-right shrink-0">
                 <div className="font-english text-xs text-gold/60">{lesson.range}</div>
                 <div className="font-english text-xs mt-1 group-hover:text-gold transition-colors"
-                  style={{color:'rgba(255,255,255,0.3)'}}>Lesson {lesson.id}</div>
+                  style={{color:'var(--body-text, rgba(255,255,255,0.3))'}}>Lesson {lesson.id}</div>
               </div>
             </div>
           </Link>
@@ -39,7 +39,7 @@ export default function Manzil5Page() {
       </div>
       <div className="mt-8 text-center">
         <Link href="/read" className="font-english text-sm hover:text-gold transition-colors"
-          style={{color:'rgba(255,255,255,0.3)'}}>← All Manzils</Link>
+          style={{color:'var(--body-text, rgba(255,255,255,0.3))'}}>← All Manzils</Link>
       </div>
     </main>
   );

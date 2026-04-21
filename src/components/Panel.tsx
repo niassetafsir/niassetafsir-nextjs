@@ -174,7 +174,7 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
           }}
           style={{
             position: 'fixed',
-            bottom: '70px',
+            bottom: '120px',
             right: '20px',
             zIndex: 9999,
             background: '#C9A84C',
