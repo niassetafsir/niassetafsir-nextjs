@@ -62,7 +62,7 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEngl
   const niasseEnClean = niasseEnglish ? niasseEnglish.replace(/<[^>]+>/g, '').slice(0, 1000).trim() : '';
 
   if (verses.length === 0) return (
-    <div className="font-english text-xs leading-6 whitespace-pre-wrap" style={{color:'var(--body-text, rgba(255,255,255,0.75))'}} style={{color:'var(--body-text, rgba(255,255,255,0.7))'}} dir="ltr">
+    <div className="font-english text-xs leading-6 whitespace-pre-wrap" style={{color:'var(--body-text, rgba(255,255,255,0.75))'}} dir="ltr">
       {jalalaynText}
     </div>
   );
