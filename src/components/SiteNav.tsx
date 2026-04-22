@@ -187,52 +187,56 @@ function MobileNav() {
 // ── Main SiteNav ──────────────────────────────────────────────────
 export default function SiteNav() {
   return (
-    <nav className="flex items-center justify-center px-4 py-2.5 sticky top-0 z-50 backdrop-blur border-b-0 relative"
+    <nav className="sticky top-0 z-50 backdrop-blur border-b-0"
       style={{background:"rgba(13,20,10,0.95)", borderTop:"3px solid #C9A84C", borderBottom:"1px solid rgba(201,168,76,0.2)"}}>
 
-      {/* Mobile hamburger — absolute LEFT */}
-      <div className="md:hidden absolute left-4 top-1/2 -translate-y-1/2">
-        <MobileNav />
+      {/* ── Desktop nav: 3-column grid ─────────────────────── */}
+      <div className="hidden md:grid grid-cols-3 items-center px-5 py-2.5">
+
+        {/* LEFT: language + theme toggle */}
+        <div className="flex items-center gap-2">
+          <span className="font-english text-white/25 text-[10px]">EN · FR · AR</span>
+          <div className="border-l border-white/10 pl-2">
+            <ThemeToggle />
+          </div>
+        </div>
+
+        {/* CENTRE: nav dropdowns */}
+        <div className="flex items-center justify-center gap-1">
+          <NavDropdown label="About" items={ABOUT_ITEMS} />
+          <NavDropdown label="Get Involved" items={CONTRIBUTE_ITEMS} />
+          <NavDropdown label="Publications" items={PUBLICATIONS_ITEMS} />
+          <NavDropdown label="Research" items={RESEARCH_ITEMS} />
+        </div>
+
+        {/* RIGHT: logo */}
+        <div className="flex justify-end">
+          <Link href="/" className="flex flex-col items-end hover:opacity-80 transition-opacity group">
+            <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl"
+              style={{letterSpacing:"-0.01em", textShadow:"0 0 20px rgba(201,168,76,0.3)"}}>
+              في رياض التفسير
+            </span>
+            <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors" dir="ltr">
+              Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
+            </span>
+          </Link>
+        </div>
       </div>
 
-      {/* Logo — right side on desktop, centre on mobile */}
-      <Link href="/" className="flex flex-col flex-shrink-0 hover:opacity-80 transition-opacity group md:ml-auto">
-        <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl"
-          style={{letterSpacing:"-0.01em", textShadow:"0 0 20px rgba(201,168,76,0.3)"}}>
-          في رياض التفسير
-        </span>
-        <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors hidden sm:block" dir="ltr">
-          Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
-        </span>
-      </Link>
-
-      {/* Desktop nav — hidden on mobile */}
-      <div className="hidden md:flex items-center gap-1 ml-4">
-        <NavDropdown label="About" items={ABOUT_ITEMS} />
-        <NavDropdown label="Get Involved" items={CONTRIBUTE_ITEMS} />
-        <NavDropdown label="Publications" items={PUBLICATIONS_ITEMS} />
-        <NavDropdown label="Research" items={RESEARCH_ITEMS} />
-        <Link href="/search"
-          className="font-english text-xs text-white/45 hover:text-white/75 px-2.5 py-1.5 rounded-md hover:bg-white/5 transition-all" title="Search">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-          </svg>
-        </Link>
-        <Link href="/clips"
-          className="font-english text-xs text-white/45 hover:text-white/75 px-2.5 py-1.5 rounded-md hover:bg-white/5 transition-all" title="Research Clips">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
-          </svg>
-        </Link>
-        <Link href="/bookmarks"
-          className="font-english text-xs text-white/45 hover:text-white/75 px-2.5 py-1.5 rounded-md hover:bg-white/5 transition-all" title="Bookmarks">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-          </svg>
+      {/* ── Mobile nav: hamburger left, logo centre ─────────── */}
+      <div className="flex md:hidden items-center px-4 py-2.5 relative">
+        {/* Hamburger absolute left */}
+        <div className="absolute left-4 top-1/2 -translate-y-1/2">
+          <MobileNav />
+        </div>
+        {/* Logo centred */}
+        <Link href="/" className="flex flex-col items-center mx-auto hover:opacity-80 transition-opacity group">
+          <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl"
+            style={{letterSpacing:"-0.01em", textShadow:"0 0 20px rgba(201,168,76,0.3)"}}>
+            في رياض التفسير
+          </span>
         </Link>
       </div>
-
-
     </nav>
   );
 }
