@@ -44,11 +44,7 @@ export default function LessonNav({ lessonId, totalLessons = 57, lessonTitle, ma
           style={{ color: 'rgba(201,168,76,0.5)' }}>
           Lesson {lessonId} of {totalLessons}
         </p>
-        {manzil && (
-          <p className="font-english text-[9px]" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            Manzil {manzil}
-          </p>
-        )}
+
       </div>
 
       {/* Next */}

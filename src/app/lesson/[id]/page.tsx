@@ -7,6 +7,7 @@ import BilingualText from '@/components/BilingualText';
 import InlineCompare from '@/components/InlineCompare';
 import PanelJumpTabs from '@/components/PanelJumpTabs';
 import LessonAudioBar from '@/components/LessonAudioBar';
+import OpeningInvocation from '@/components/OpeningInvocation';
 import LessonNav from '@/components/LessonNav';
 import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
@@ -67,7 +68,10 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </a>
       </div>
 <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
-        <BilingualText
+        {lesson.openingInvocation && (
+              <OpeningInvocation html={(lesson as any).openingInvocation} />
+            )}
+              <BilingualText
           arabicText={lesson.arabicBody || lesson.arabicText}
           englishText={lesson.englishText}
           hasEnglish={lesson.hasEnglish}
