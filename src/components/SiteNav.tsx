@@ -195,13 +195,13 @@ export default function SiteNav() {
         <MobileNav />
       </div>
 
-      {/* Logo — centred on mobile */}
-      <Link href="/" className="flex flex-col items-center flex-shrink-0 hover:opacity-80 transition-opacity group">
-        <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl"
+      {/* Logo — centred always via mx-auto */}
+      <Link href="/" className="flex flex-col items-center flex-shrink-0 hover:opacity-80 transition-opacity group mx-auto">
+        <span className="font-arabic text-gold font-bold text-base leading-tight text-center" dir="rtl"
           style={{letterSpacing:"-0.01em", textShadow:"0 0 20px rgba(201,168,76,0.3)"}}>
           في رياض التفسير
         </span>
-        <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors hidden sm:block" dir="ltr">
+        <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors hidden sm:block text-center" dir="ltr">
           Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
         </span>
       </Link>
@@ -233,7 +233,7 @@ export default function SiteNav() {
       </div>
 
       {/* Right: language + theme (desktop) */}
-      <div className="hidden md:flex items-center gap-2 border-l border-white/10 pl-3 ml-auto">
+      <div className="hidden md:flex items-center gap-2 border-l border-white/10 pl-3 ml-auto flex-shrink-0">
         <span className="font-english text-white/25 text-[10px]">EN · FR · AR</span>
         <ThemeToggle />
       </div>
