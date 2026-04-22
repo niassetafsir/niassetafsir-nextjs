@@ -42,7 +42,7 @@ export default function AboutPage() {
             Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, browsable by scholar, genre, 
             and lesson with inline <sup>[n]</sup> links in the text; a scholar and source index 
             (19 figures sorted by citation frequency); a glossary of key theological and Sufi terms; 
-            text clipping with Chicago auto-citation; and bookmarks. These tools are designed to 
+            text clipping with Chicago auto-citation; bookmarks; and a full annotation system — select any passage, assign a category (key passage, question, confirmed), add a note, flag for return, and export your working file with auto-generated citations. These tools are designed to 
             support scholarly work going from text to meaning.
           </p>
           <p className="leading-6 mt-3">
