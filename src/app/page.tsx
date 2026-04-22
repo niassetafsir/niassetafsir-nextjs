@@ -117,22 +117,19 @@ export default function HomePage() {
 
       {/* Header */}
       <div className="text-center py-8 mb-6">
-        {/* Arabic title — clean, no box */}
-        <div className="mb-3">
-          <div className="font-arabic text-gold text-4xl font-bold leading-snug mb-1" dir="rtl">
-            فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
-          </div>
-          <div className="font-arabic text-gold-light text-lg font-bold" dir="rtl">
-            الشيخ إبراهيم نياس
-          </div>
-        </div>
-        {/* English mirror */}
-        <div className="mb-5">
-          <div className="font-english text-white/80 text-xl italic font-semibold mb-1">
+        {/* English title — primary */}
+        <div className="mb-2">
+          <div className="font-english text-white/90 text-3xl font-semibold italic mb-1">
             Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
           </div>
-          <div className="font-english text-white/30 text-xs">
+          <div className="font-english text-white/45 text-sm">
             Shaykh Ibrāhīm Niasse (d. 1975)
+          </div>
+        </div>
+        {/* Arabic subtitle — smaller, contextual */}
+        <div className="mb-5">
+          <div className="font-arabic text-gold/60 text-lg leading-snug" dir="rtl">
+            فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
           </div>
         </div>
         <div className="flex gap-2 justify-center flex-wrap">

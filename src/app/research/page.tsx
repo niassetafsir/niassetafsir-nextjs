@@ -136,13 +136,13 @@ export default function ResearchPage() {
                     borderColor:'rgba(255,255,255,0.08)',
                     background:'transparent',
                   }}>
-                  <p className="font-arabic text-xs mb-1" dir="rtl"
-                    style={{color:'rgba(201,168,76,0.55)'}}>
-                    {tool.titleAr}
-                  </p>
-                  <p className="font-english text-sm font-semibold mb-1 group-hover:text-gold transition-colors"
+                  <p className="font-english text-sm font-semibold mb-0.5 group-hover:text-gold transition-colors"
                     style={{color:'var(--body-text, rgba(255,255,255,0.9))'}}>
                     {tool.titleEn}
+                  </p>
+                  <p className="font-arabic text-[10px]" dir="rtl"
+                    style={{color:'rgba(201,168,76,0.35)'}}>
+                    {tool.titleAr}
                   </p>
                   <p className="font-english text-[11px] leading-4"
                     style={{color:'var(--body-faint, rgba(255,255,255,0.38))'}}>
