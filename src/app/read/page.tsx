@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-// All 114 sūrahs → lesson mapping
 const SURA_TO_LESSON: Record<number, number> = {
   1:1, 2:2, 3:8, 4:11, 5:14, 6:16, 7:18, 8:21, 9:22, 10:24,
   11:25, 12:26, 13:28, 14:28, 15:29, 16:30, 17:30, 18:31, 19:32, 20:32,
@@ -95,8 +94,8 @@ const LESSONS = [
   {id:48, suras:'Al-Ṭūr / Al-Najm / Al-Qamar', range:'Q. 52:1–54:55', hasText:false},
   {id:49, suras:'Al-Raḥmān / Al-Wāqiʿa / Al-Ḥadīd', range:'Q. 55:1–57:29', hasText:false},
   {id:50, suras:'Al-Mujādala / Al-Ḥashr / Al-Mumtaḥana / Al-Ṣaff', range:'Q. 58:1–61:14', hasText:false},
-  {id:51, suras:'Al-Jumʿa / Al-Munāfiqūn / Al-Taghābun / Al-Ṭalāq / Al-Taḥrīm', range:'Q. 62:1–66:12', hasText:false},
-  {id:52, suras:'Al-Mulk / Al-Qalam / Al-Ḥāqqa / Al-Maʿārij / Nūḥ', range:'Q. 67:1–71:28', hasText:false},
+  {id:51, suras:'Al-Jumʿa · Al-Munāfiqūn · Al-Taghābun · Al-Ṭalāq · Al-Taḥrīm', range:'Q. 62:1–66:12', hasText:false},
+  {id:52, suras:'Al-Mulk through Nūḥ', range:'Q. 67:1–71:28', hasText:false},
   {id:53, suras:'Al-Jinn through Al-Mursalāt', range:'Q. 72:1–77:50', hasText:false},
   {id:54, suras:'Al-Nabaʾ through Al-Ṭāriq', range:'Q. 78:1–86:17', hasText:false},
   {id:55, suras:'Al-Aʿlā through Al-Zalzala', range:'Q. 87:1–99:8', hasText:false},
@@ -107,7 +106,6 @@ const LESSONS = [
 export default function ReadPage() {
   const [query, setQuery] = useState('');
   const [showSuras, setShowSuras] = useState(false);
-  const [showLessons, setShowLessons] = useState(false);
 
   const suraResults = query.trim()
     ? SURAS.filter(([_, name]) => (name as string).toLowerCase().includes(query.toLowerCase()))
@@ -118,7 +116,7 @@ export default function ReadPage() {
   const hasResults = suraResults.length > 0 || lessonResults.length > 0;
 
   return (
-    <main className="max-w-2xl mx-auto px-4 pb-32 pt-6" dir="ltr">
+    <main className="max-w-5xl mx-auto px-4 pb-32 pt-6" dir="ltr">
 
       {/* Header */}
       <div className="mb-5">
@@ -161,18 +159,14 @@ export default function ReadPage() {
         <div className="mb-6 space-y-1">
           {!hasResults && (
             <p className="font-english text-sm text-center italic"
-              style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
-              No results found
-            </p>
+              style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>No results found</p>
           )}
           {suraResults.map(([num, name]) => (
             <Link key={num} href={`/lesson/${SURA_TO_LESSON[num as number]}`}
               className="flex items-center justify-between px-3 py-2 rounded-lg border transition-all group"
               style={{borderColor:'rgba(201,168,76,0.2)', background:'rgba(201,168,76,0.04)'}}>
               <span className="font-english text-sm group-hover:text-gold transition-colors"
-                style={{color:'var(--body-text, rgba(255,255,255,0.85))'}}>
-                {name as string}
-              </span>
+                style={{color:'var(--body-text, rgba(255,255,255,0.85))'}}>{name as string}</span>
               <span className="font-english text-[10px]"
                 style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
                 → Lesson {SURA_TO_LESSON[num as number]}
@@ -188,87 +182,107 @@ export default function ReadPage() {
                 Lesson {l.id} · {l.suras.split(' / ')[0]}
               </span>
               <span className="font-english text-[10px]"
-                style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
-                {l.range}
-              </span>
+                style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>{l.range}</span>
             </Link>
           ))}
         </div>
       )}
 
-      {/* Browse toggles — only when not searching */}
+      {/* Main content — hidden when searching */}
       {!query && (
-        <div className="space-y-2">
-
-          {/* Browse by Sūrah */}
-          <div className="border rounded-xl overflow-hidden"
-            style={{borderColor:'rgba(201,168,76,0.2)'}}>
-            <button onClick={() => setShowSuras(!showSuras)}
-              className="w-full flex items-center justify-between px-4 py-3 font-english text-sm font-semibold transition-all"
-              style={{
-                background:'var(--panel-header-bg, rgba(13,20,10,0.95))',
-                color:'rgba(201,168,76,0.85)',
-              }}>
-              <span>Browse by Sūrah</span>
-              <span className="text-xs">{showSuras ? '▲' : '▸'}</span>
-            </button>
-            {showSuras && (
-              <div className="p-3" style={{background:'var(--panel-body-bg, rgba(13,20,10,0.5))'}}>
-                <p className="font-english text-[10px] mb-2 italic"
-                  style={{color:'var(--body-faint, rgba(255,255,255,0.3))'}}>
-                  Each sūrah links to the lesson that covers it
-                </p>
-                <div className="grid grid-cols-3 gap-1">
-                  {SURAS.map(([num, name]) => {
-                    const lessonId = SURA_TO_LESSON[num as number];
-                    const hasText = lessonId <= 30;
-                    return (
-                      <Link key={num} href={`/lesson/${lessonId}`}
-                        className="flex flex-col px-2 py-1.5 rounded-lg border transition-all text-left"
-                        style={{
-                          borderColor: hasText ? 'rgba(201,168,76,0.2)' : 'rgba(255,255,255,0.06)',
-                          background: 'transparent',
-                        }}>
-                        <span className="font-english text-[9px]"
-                          style={{color:'rgba(201,168,76,0.5)'}}>{num}</span>
-                        <span className="font-english text-[10px] leading-tight"
-                          style={{color: hasText ? 'var(--body-text, rgba(255,255,255,0.85))' : 'var(--body-faint, rgba(255,255,255,0.3))'}}>
-                          {(name as string).length > 12 ? (name as string).slice(0,11)+'…' : name}
-                        </span>
-                        <span className="font-english text-[9px]"
-                          style={{color:'rgba(201,168,76,0.4)'}}>L{lessonId}</span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+        <>
+          {/* ── Desktop: 3-column lesson grid ── */}
+          <div className="hidden md:block mb-6">
+            <p className="font-english text-[10px] uppercase tracking-widest mb-3"
+              style={{color:'rgba(201,168,76,0.5)', letterSpacing:'0.1em'}}>
+              All Lessons — {LESSONS.filter(l => l.hasText).length} with Arabic text · {LESSONS.length} total
+            </p>
+            <div className="grid grid-cols-3 gap-2">
+              {LESSONS.map(l => (
+                <Link key={l.id} href={`/lesson/${l.id}`}
+                  className="flex flex-col px-3 py-2.5 rounded-xl border transition-all group hover:border-gold/40"
+                  style={{
+                    borderColor: l.hasText ? 'rgba(201,168,76,0.18)' : 'rgba(255,255,255,0.06)',
+                    background: 'transparent',
+                  }}>
+                  <div className="flex items-baseline justify-between gap-1">
+                    <span className="font-english text-[10px]"
+                      style={{color:'rgba(201,168,76,0.45)'}}>
+                      {l.id}
+                    </span>
+                    {!l.hasText && (
+                      <span className="font-english text-[8px] italic"
+                        style={{color:'rgba(255,255,255,0.2)'}}>forthcoming</span>
+                    )}
+                  </div>
+                  <span className="font-english text-xs font-semibold leading-tight mt-0.5 group-hover:text-gold transition-colors"
+                    style={{color: l.hasText ? 'var(--body-text, rgba(255,255,255,0.88))' : 'var(--body-faint, rgba(255,255,255,0.3))'}}>
+                    {l.suras.split(' / ')[0]}{l.suras.includes(' / ') ? ' ···' : ''}
+                  </span>
+                  <span className="font-english text-[10px] mt-0.5"
+                    style={{color:'var(--body-faint, rgba(255,255,255,0.28))'}}>
+                    {l.range.split('–')[0]}
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
 
-          {/* Browse by Lesson */}
-          <div className="border rounded-xl overflow-hidden"
-            style={{borderColor:'rgba(201,168,76,0.2)'}}>
-            <button onClick={() => setShowLessons(!showLessons)}
-              className="w-full flex items-center justify-between px-4 py-3 font-english text-sm font-semibold transition-all"
-              style={{
-                background:'var(--panel-header-bg, rgba(13,20,10,0.95))',
-                color:'rgba(201,168,76,0.85)',
-              }}>
-              <span>Browse by Lesson</span>
-              <span className="text-xs">{showLessons ? '▲' : '▸'}</span>
-            </button>
-            {showLessons && (
-              <div className="p-3 space-y-1" style={{background:'var(--panel-body-bg, rgba(13,20,10,0.5))'}}>
+          {/* ── Mobile: collapsed toggles ── */}
+          <div className="md:hidden space-y-2">
+            {/* Browse by Sūrah */}
+            <div className="border rounded-xl overflow-hidden"
+              style={{borderColor:'rgba(201,168,76,0.2)'}}>
+              <button onClick={() => setShowSuras(!showSuras)}
+                className="w-full flex items-center justify-between px-4 py-3 font-english text-sm font-semibold"
+                style={{background:'var(--panel-header-bg, rgba(13,20,10,0.95))', color:'rgba(201,168,76,0.85)'}}>
+                <span>Browse by Sūrah</span>
+                <span className="text-xs">{showSuras ? '▲' : '▸'}</span>
+              </button>
+              {showSuras && (
+                <div className="p-3" style={{background:'var(--panel-body-bg, rgba(13,20,10,0.5))'}}>
+                  <p className="font-english text-[10px] mb-2 italic"
+                    style={{color:'var(--body-faint, rgba(255,255,255,0.3))'}}>
+                    Each sūrah links to the lesson that covers it
+                  </p>
+                  <div className="grid grid-cols-3 gap-1">
+                    {SURAS.map(([num, name]) => {
+                      const lessonId = SURA_TO_LESSON[num as number];
+                      const hasText = lessonId <= 30;
+                      return (
+                        <Link key={num} href={`/lesson/${lessonId}`}
+                          className="flex flex-col px-2 py-1.5 rounded-lg border text-left"
+                          style={{borderColor: hasText ? 'rgba(201,168,76,0.2)' : 'rgba(255,255,255,0.06)', background:'transparent'}}>
+                          <span className="font-english text-[9px]" style={{color:'rgba(201,168,76,0.5)'}}>{num}</span>
+                          <span className="font-english text-[10px] leading-tight"
+                            style={{color: hasText ? 'var(--body-text, rgba(255,255,255,0.85))' : 'var(--body-faint, rgba(255,255,255,0.3))'}}>
+                            {(name as string).length > 12 ? (name as string).slice(0,11)+'…' : name}
+                          </span>
+                          <span className="font-english text-[9px]" style={{color:'rgba(201,168,76,0.4)'}}>L{lessonId}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Browse by Lesson — mobile compact list */}
+            <div className="border rounded-xl overflow-hidden"
+              style={{borderColor:'rgba(201,168,76,0.2)'}}>
+              <button onClick={() => {}}
+                className="w-full flex items-center justify-between px-4 py-3 font-english text-sm font-semibold"
+                style={{background:'var(--panel-header-bg, rgba(13,20,10,0.95))', color:'rgba(201,168,76,0.85)'}}>
+                <span>All Lessons</span>
+                <span className="font-english text-[10px]" style={{color:'rgba(255,255,255,0.3)'}}>57 total</span>
+              </button>
+              <div className="p-2 space-y-1" style={{background:'var(--panel-body-bg, rgba(13,20,10,0.5))'}}>
                 {LESSONS.map(l => (
                   <Link key={l.id} href={`/lesson/${l.id}`}
                     className="flex items-center justify-between px-3 py-2 rounded-lg border transition-all group"
-                    style={{
-                      borderColor: l.hasText ? 'rgba(201,168,76,0.15)' : 'rgba(255,255,255,0.05)',
-                      background:'transparent',
-                    }}>
+                    style={{borderColor: l.hasText ? 'rgba(201,168,76,0.12)' : 'rgba(255,255,255,0.04)', background:'transparent'}}>
                     <div className="flex items-center gap-2 min-w-0">
-                      <span className="font-english text-[10px] shrink-0"
-                        style={{color:'rgba(201,168,76,0.5)'}}>
+                      <span className="font-english text-[10px] shrink-0" style={{color:'rgba(201,168,76,0.45)'}}>
                         {l.id}
                       </span>
                       <span className="font-english text-xs truncate group-hover:text-gold transition-colors"
@@ -277,15 +291,47 @@ export default function ReadPage() {
                       </span>
                     </div>
                     <span className="font-english text-[9px] shrink-0 ml-2"
-                      style={{color:'var(--body-faint, rgba(255,255,255,0.3))'}}>
-                      {l.hasText ? l.range.split('–')[0] : 'forthcoming'}
+                      style={{color:'var(--body-faint, rgba(255,255,255,0.25))'}}>
+                      {l.hasText ? l.range.split('–')[0] : ''}
                     </span>
                   </Link>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Browse by Sūrah — desktop (below grid) */}
+          <div className="hidden md:block border rounded-xl overflow-hidden mt-4"
+            style={{borderColor:'rgba(201,168,76,0.15)'}}>
+            <button onClick={() => setShowSuras(!showSuras)}
+              className="w-full flex items-center justify-between px-4 py-2.5 font-english text-xs font-semibold"
+              style={{background:'var(--panel-header-bg, rgba(13,20,10,0.95))', color:'rgba(201,168,76,0.6)'}}>
+              <span>Browse by Sūrah — all 114 sūrahs</span>
+              <span>{showSuras ? '▲' : '▸'}</span>
+            </button>
+            {showSuras && (
+              <div className="p-3" style={{background:'var(--panel-body-bg, rgba(13,20,10,0.5))'}}>
+                <div className="grid grid-cols-6 gap-1">
+                  {SURAS.map(([num, name]) => {
+                    const lessonId = SURA_TO_LESSON[num as number];
+                    const hasText = lessonId <= 30;
+                    return (
+                      <Link key={num} href={`/lesson/${lessonId}`}
+                        className="flex flex-col px-2 py-1.5 rounded-lg border text-left hover:border-gold/40 transition-all"
+                        style={{borderColor: hasText ? 'rgba(201,168,76,0.15)' : 'rgba(255,255,255,0.05)', background:'transparent'}}>
+                        <span className="font-english text-[9px]" style={{color:'rgba(201,168,76,0.4)'}}>{num}</span>
+                        <span className="font-english text-[10px] leading-tight"
+                          style={{color: hasText ? 'var(--body-text, rgba(255,255,255,0.8))' : 'var(--body-faint, rgba(255,255,255,0.25))'}}>
+                          {(name as string).length > 10 ? (name as string).slice(0,9)+'…' : name}
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
             )}
           </div>
-        </div>
+        </>
       )}
     </main>
   );
