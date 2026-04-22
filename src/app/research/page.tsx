@@ -74,7 +74,20 @@ const PERSONAL_TOOLS = [
   },
 ];
 
-const TOOLS = [...PRIMARY_TOOLS, ...PERSONAL_TOOLS];
+const TOOLS = [...PRIMARY_TOOLS, ...PERSONAL_TOOLS,
+  {
+    href: '/network',
+    titleAr: 'شبكة العلماء',
+    titleEn: 'Scholar Network',
+    desc: '19 scholars cited across the tafsīr — their traditions, citation counts, and roles in the body text vs. apparatus. Filter by discipline.',
+  },
+  {
+    href: '/notes',
+    titleAr: 'ملاحظات البحث',
+    titleEn: 'Research Notes',
+    desc: 'Editorial observations on specific passages — methodology, doctrine, and textual questions noted during the preparation of this edition.',
+  }
+];
 
 export default function ResearchPage() {
   return (

@@ -1,0 +1,132 @@
+{
+  "center": {
+    "id": "niasse",
+    "name": "Shaykh Ibrāhīm Niasse",
+    "nameAr": "الشيخ إبراهيم نياس",
+    "dates": "1900–1975",
+    "tradition": "Tijānī Sufism",
+    "bio": "West African Muslim scholar, Sufi shaykh, and Quranic commentator. Born in Kaolack (Senegal), he became the foremost figure of the Fayḍah Tijāniyya movement. His tafsīr, delivered orally and transcribed from recordings, draws on the full range of Islamic scholarly tradition — hadith, tafsīr, kalam, and Sufi philosophy."
+  },
+  "nodes": [
+    {
+      "id": "ghazali", "name": "Al-Ghazālī", "nameAr": "الغزالي",
+      "dates": "1058–1111", "tradition": "Theology / Sufism",
+      "role": "body", "citations": 17,
+      "bio": "Abū Ḥāmid al-Ghazālī, theologian and Sufi philosopher. Author of Iḥyāʾ ʿUlūm al-Dīn. Shaykh Ibrāhīm cites him in the body of the tafsīr — a primary intellectual interlocutor."
+    },
+    {
+      "id": "suyuti", "name": "Al-Suyūṭī", "nameAr": "السيوطي",
+      "dates": "1445–1505", "tradition": "Tafsīr / Hadith",
+      "role": "both", "citations": 27,
+      "bio": "Jalāl al-Dīn al-Suyūṭī, prolific Egyptian scholar. Co-author of Tafsīr al-Jalālayn. Extensively cited in both the body and apparatus — a primary reference for Quranic sciences."
+    },
+    {
+      "id": "qurtubi", "name": "Al-Qurṭubī", "nameAr": "القرطبي",
+      "dates": "1214–1273", "tradition": "Tafsīr / Fiqh",
+      "role": "footnotes", "citations": 29,
+      "bio": "Muḥammad ibn Aḥmad al-Qurṭubī, Andalusian Mālikī scholar. His al-Jāmiʿ li-Aḥkām al-Qurʾān is the most-cited tafsīr in the apparatus."
+    },
+    {
+      "id": "tabari", "name": "Al-Ṭabarī", "nameAr": "الطبري",
+      "dates": "838–923", "tradition": "Tafsīr / History",
+      "role": "footnotes", "citations": 11,
+      "bio": "Muḥammad ibn Jarīr al-Ṭabarī, foundational figure of classical tafsīr. His Jāmiʿ al-Bayān is the earliest comprehensive Arabic tafsīr."
+    },
+    {
+      "id": "ibn-kathir", "name": "Ibn Kathīr", "nameAr": "ابن كثير",
+      "dates": "1300–1373", "tradition": "Tafsīr / Hadith",
+      "role": "footnotes", "citations": 29,
+      "bio": "Ismāʿīl ibn Kathīr, Syrian Shāfiʿī scholar. His Tafsīr al-Qurʾān al-ʿAẓīm is among the most cited works in the apparatus."
+    },
+    {
+      "id": "bukhari", "name": "Al-Bukhārī", "nameAr": "البخاري",
+      "dates": "810–870", "tradition": "Hadith",
+      "role": "footnotes", "citations": 30,
+      "bio": "Muḥammad ibn Ismāʿīl al-Bukhārī, compiler of the Ṣaḥīḥ. The most-cited hadith collection in the apparatus."
+    },
+    {
+      "id": "muslim", "name": "Muslim", "nameAr": "مسلم",
+      "dates": "815–875", "tradition": "Hadith",
+      "role": "footnotes", "citations": 30,
+      "bio": "Muslim ibn al-Ḥajjāj al-Nīsābūrī, compiler of the Ṣaḥīḥ. Equal with Bukhārī as the most-cited hadith source."
+    },
+    {
+      "id": "tirmidhi", "name": "Al-Tirmidhī", "nameAr": "الترمذي",
+      "dates": "824–892", "tradition": "Hadith",
+      "role": "footnotes", "citations": 27,
+      "bio": "Muḥammad ibn ʿĪsā al-Tirmidhī, compiler of the Jāmiʿ (Sunan al-Tirmidhī). Third most cited hadith collection."
+    },
+    {
+      "id": "abu-dawud", "name": "Abū Dāwūd", "nameAr": "أبو داود",
+      "dates": "817–889", "tradition": "Hadith",
+      "role": "footnotes", "citations": 20,
+      "bio": "Abū Dāwūd al-Sijistānī, compiler of the Sunan. Among the six canonical hadith collections."
+    },
+    {
+      "id": "ibn-majah", "name": "Ibn Mājah", "nameAr": "ابن ماجه",
+      "dates": "824–887", "tradition": "Hadith",
+      "role": "footnotes", "citations": 22,
+      "bio": "Ibn Mājah al-Qazwīnī, compiler of the Sunan. Sixth of the six canonical hadith collections."
+    },
+    {
+      "id": "nasai", "name": "Al-Nasāʾī", "nameAr": "النسائي",
+      "dates": "829–915", "tradition": "Hadith",
+      "role": "footnotes", "citations": 13,
+      "bio": "Aḥmad ibn Shuʿayb al-Nasāʾī, compiler of the Sunan al-Kubrā. Among the six canonical hadith collections."
+    },
+    {
+      "id": "razi", "name": "Al-Rāzī", "nameAr": "الرازي",
+      "dates": "1149–1209", "tradition": "Theology / Philosophy",
+      "role": "both", "citations": 3,
+      "bio": "Fakhr al-Dīn al-Rāzī, theologian and philosopher. His Mafātīḥ al-Ghayb represents post-Avicennan rational theology in tafsīr."
+    },
+    {
+      "id": "bursawi", "name": "Al-Bursawī", "nameAr": "البرسوي",
+      "dates": "1653–1725", "tradition": "Sufi Tafsīr",
+      "role": "both", "citations": 14,
+      "bio": "Ismāʿīl Ḥaqqī al-Bursawī, Ottoman Sufi scholar and author of Rūḥ al-Bayān — the primary comparative text alongside Shaykh Ibrāhīm's tafsīr."
+    },
+    {
+      "id": "mahalli", "name": "Al-Maḥallī", "nameAr": "المحلي",
+      "dates": "1389–1459", "tradition": "Tafsīr",
+      "role": "footnotes", "citations": 5,
+      "bio": "Jalāl al-Dīn al-Maḥallī, Egyptian scholar. Co-author (with Al-Suyūṭī) of Tafsīr al-Jalālayn."
+    },
+    {
+      "id": "junayd", "name": "Al-Junayd", "nameAr": "الجنيد",
+      "dates": "830–910", "tradition": "Sufism",
+      "role": "body", "citations": 3,
+      "bio": "Abū al-Qāsim al-Junayd, foundational Sufi master of Baghdad. Cited in the body text — his presence signals the Sufi intellectual lineage Shaykh Ibrāhīm inhabits."
+    },
+    {
+      "id": "ibn-arabi", "name": "Ibn ʿArabī", "nameAr": "ابن عربي",
+      "dates": "1165–1240", "tradition": "Philosophical Sufism",
+      "role": "body", "citations": 2,
+      "bio": "Muḥyī al-Dīn Ibn ʿArabī, Andalusian Sufi philosopher. Author of al-Futūḥāt al-Makkiyya. His presence in the body text signals Shaykh Ibrāhīm's engagement with speculative Sufism."
+    },
+    {
+      "id": "ibn-farid", "name": "Ibn al-Fāriḍ", "nameAr": "ابن الفارض",
+      "dates": "1181–1235", "tradition": "Sufi Poetry",
+      "role": "body", "citations": 1,
+      "bio": "ʿUmar ibn al-Fāriḍ, Egyptian Sufi poet. His appearance in the body text reflects the literary-mystical dimension of Shaykh Ibrāhīm's exegetical register."
+    },
+    {
+      "id": "tijani", "name": "Aḥmad al-Tijānī", "nameAr": "أحمد التجاني",
+      "dates": "1737–1815", "tradition": "Tijānī Sufism",
+      "role": "body", "citations": 6,
+      "bio": "Founder of the Tijāniyya order. Shaykh Ibrāhīm cites him in the body of the tafsīr — situating the commentary firmly within Tijānī spiritual authority."
+    },
+    {
+      "id": "harazim", "name": "Sīdī ʿAlī Ḥarāzim", "nameAr": "سيدي علي حرازم",
+      "dates": "d. 1799", "tradition": "Tijānī Sufism",
+      "role": "body", "citations": 1,
+      "bio": "Companion of Aḥmad al-Tijānī and compiler of Jawāhir al-Maʿānī. His citation signals Shaykh Ibrāhīm's rootedness in Tijānī textual tradition."
+    }
+  ],
+  "categories": {
+    "hadith": { "label": "Hadith Sciences", "color": "#1A3A5C" },
+    "tafsir": { "label": "Tafsīr", "color": "#6B2424" },
+    "theology": { "label": "Theology / Kalām", "color": "#4A5A1A" },
+    "sufism": { "label": "Sufism", "color": "#3A1A5A" }
+  }
+}
