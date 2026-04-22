@@ -6,6 +6,7 @@ import JalalaynVerseView from '@/components/JalalaynVerseView';
 import BilingualText from '@/components/BilingualText';
 import InlineCompare from '@/components/InlineCompare';
 import PanelJumpTabs from '@/components/PanelJumpTabs';
+import LessonAudioBar from '@/components/LessonAudioBar';
 import LessonNav from '@/components/LessonNav';
 import SelectionClip from '@/components/SelectionClip';
 import Link from 'next/link';
@@ -50,6 +51,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       {/* 1. Shaykh Ibrāhīm's Tafsīr */}
       
       <PanelJumpTabs />
+      <LessonAudioBar lessonId={lesson.id} />
       {/* Back breadcrumb */}
       <div className="flex items-center gap-2 px-4 py-1.5 text-xs"
         style={{borderBottom:'1px solid rgba(201,168,76,0.1)'}}>
