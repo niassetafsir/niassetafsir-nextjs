@@ -204,7 +204,7 @@ export default function SiteNav() {
         {/* CENTRE: nav dropdowns */}
         <div className="flex items-center justify-center gap-1">
           <NavDropdown label="About" items={ABOUT_ITEMS} />
-          <NavDropdown label="Get Involved" items={CONTRIBUTE_ITEMS} />
+          <NavDropdown label="Contribute" items={CONTRIBUTE_ITEMS} />
           <NavDropdown label="Publications" items={PUBLICATIONS_ITEMS} />
           <NavDropdown label="Research" items={RESEARCH_ITEMS} />
         </div>
