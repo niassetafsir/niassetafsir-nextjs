@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-// ── Sūra → Lesson mapping (all 114 sūras) ────────────────────────
+// All 114 sūrahs → lesson mapping
 const SURA_TO_LESSON: Record<number, number> = {
   1:1, 2:2, 3:8, 4:11, 5:14, 6:16, 7:18, 8:21, 9:22, 10:24,
   11:25, 12:26, 13:28, 14:28, 15:29, 16:30, 17:30, 18:31, 19:32, 20:32,
@@ -19,94 +19,132 @@ const SURA_TO_LESSON: Record<number, number> = {
 };
 
 const SURAS = [
-  [1,'Al-Fātiḥa','الفاتحة'],[2,'Al-Baqara','البقرة'],[3,'Āl ʿImrān','آل عمران'],
-  [4,'Al-Nisāʾ','النساء'],[5,'Al-Māʾida','المائدة'],[6,'Al-Anʿām','الأنعام'],
-  [7,'Al-Aʿrāf','الأعراف'],[8,'Al-Anfāl','الأنفال'],[9,'Al-Tawba','التوبة'],
-  [10,'Yūnus','يونس'],[11,'Hūd','هود'],[12,'Yūsuf','يوسف'],
-  [13,'Al-Raʿd','الرعد'],[14,'Ibrāhīm','إبراهيم'],[15,'Al-Ḥijr','الحجر'],
-  [16,'Al-Naḥl','النحل'],[17,'Al-Isrāʾ','الإسراء'],[18,'Al-Kahf','الكهف'],
-  [19,'Maryam','مريم'],[20,'Ṭāhā','طه'],[21,'Al-Anbiyāʾ','الأنبياء'],
-  [22,'Al-Ḥajj','الحج'],[23,'Al-Muʾminūn','المؤمنون'],[24,'Al-Nūr','النور'],
-  [25,'Al-Furqān','الفرقان'],[26,'Al-Shuʿarāʾ','الشعراء'],[27,'Al-Naml','النمل'],
-  [28,'Al-Qaṣaṣ','القصص'],[29,'Al-ʿAnkabūt','العنكبوت'],[30,'Al-Rūm','الروم'],
-  [31,'Luqmān','لقمان'],[32,'Al-Sajda','السجدة'],[33,'Al-Aḥzāb','الأحزاب'],
-  [34,'Sabaʾ','سبأ'],[35,'Fāṭir','فاطر'],[36,'Yā Sīn','يس'],
-  [37,'Al-Ṣāffāt','الصافات'],[38,'Ṣād','ص'],[39,'Al-Zumar','الزمر'],
-  [40,'Ghāfir','غافر'],[41,'Fuṣṣilat','فصلت'],[42,'Al-Shūrā','الشورى'],
-  [43,'Al-Zukhruf','الزخرف'],[44,'Al-Dukhān','الدخان'],[45,'Al-Jāthiya','الجاثية'],
-  [46,'Al-Aḥqāf','الأحقاف'],[47,'Muḥammad','محمد'],[48,'Al-Fatḥ','الفتح'],
-  [49,'Al-Ḥujurāt','الحجرات'],[50,'Qāf','ق'],[51,'Al-Dhāriyāt','الذاريات'],
-  [52,'Al-Ṭūr','الطور'],[53,'Al-Najm','النجم'],[54,'Al-Qamar','القمر'],
-  [55,'Al-Raḥmān','الرحمن'],[56,'Al-Wāqiʿa','الواقعة'],[57,'Al-Ḥadīd','الحديد'],
-  [58,'Al-Mujādala','المجادلة'],[59,'Al-Ḥashr','الحشر'],[60,'Al-Mumtaḥana','الممتحنة'],
-  [61,'Al-Ṣaff','الصف'],[62,'Al-Jumʿa','الجمعة'],[63,'Al-Munāfiqūn','المنافقون'],
-  [64,'Al-Taghābun','التغابن'],[65,'Al-Ṭalāq','الطلاق'],[66,'Al-Taḥrīm','التحريم'],
-  [67,'Al-Mulk','الملك'],[68,'Al-Qalam','القلم'],[69,'Al-Ḥāqqa','الحاقة'],
-  [70,'Al-Maʿārij','المعارج'],[71,'Nūḥ','نوح'],[72,'Al-Jinn','الجن'],
-  [73,'Al-Muzzammil','المزمل'],[74,'Al-Muddaththir','المدثر'],[75,'Al-Qiyāma','القيامة'],
-  [76,'Al-Insān','الإنسان'],[77,'Al-Mursalāt','المرسلات'],[78,'Al-Nabaʾ','النبأ'],
-  [79,'Al-Nāziʿāt','النازعات'],[80,'ʿAbasa','عبس'],[81,'Al-Takwīr','التكوير'],
-  [82,'Al-Infiṭār','الانفطار'],[83,'Al-Muṭaffifīn','المطففين'],[84,'Al-Inshiqāq','الانشقاق'],
-  [85,'Al-Burūj','البروج'],[86,'Al-Ṭāriq','الطارق'],[87,'Al-Aʿlā','الأعلى'],
-  [88,'Al-Ghāshiya','الغاشية'],[89,'Al-Fajr','الفجر'],[90,'Al-Balad','البلد'],
-  [91,'Al-Shams','الشمس'],[92,'Al-Layl','الليل'],[93,'Al-Ḍuḥā','الضحى'],
-  [94,'Al-Sharḥ','الشرح'],[95,'Al-Tīn','التين'],[96,'Al-ʿAlaq','العلق'],
-  [97,'Al-Qadr','القدر'],[98,'Al-Bayyina','البينة'],[99,'Al-Zalzala','الزلزلة'],
-  [100,'Al-ʿĀdiyāt','العاديات'],[101,'Al-Qāriʿa','القارعة'],[102,'Al-Takāthur','التكاثر'],
-  [103,'Al-ʿAṣr','العصر'],[104,'Al-Humaza','الهمزة'],[105,'Al-Fīl','الفيل'],
-  [106,'Quraysh','قريش'],[107,'Al-Māʿūn','الماعون'],[108,'Al-Kawthar','الكوثر'],
-  [109,'Al-Kāfirūn','الكافرون'],[110,'Al-Naṣr','النصر'],[111,'Al-Masad','المسد'],
-  [112,'Al-Ikhlāṣ','الإخلاص'],[113,'Al-Falaq','الفلق'],[114,'Al-Nās','الناس'],
+  [1,'Al-Fātiḥa'],[2,'Al-Baqara'],[3,'Āl ʿImrān'],[4,'Al-Nisāʾ'],[5,'Al-Māʾida'],
+  [6,'Al-Anʿām'],[7,'Al-Aʿrāf'],[8,'Al-Anfāl'],[9,'Al-Tawba'],[10,'Yūnus'],
+  [11,'Hūd'],[12,'Yūsuf'],[13,'Al-Raʿd'],[14,'Ibrāhīm'],[15,'Al-Ḥijr'],
+  [16,'Al-Naḥl'],[17,'Al-Isrāʾ'],[18,'Al-Kahf'],[19,'Maryam'],[20,'Ṭāhā'],
+  [21,'Al-Anbiyāʾ'],[22,'Al-Ḥajj'],[23,'Al-Muʾminūn'],[24,'Al-Nūr'],[25,'Al-Furqān'],
+  [26,'Al-Shuʿarāʾ'],[27,'Al-Naml'],[28,'Al-Qaṣaṣ'],[29,'Al-ʿAnkabūt'],[30,'Al-Rūm'],
+  [31,'Luqmān'],[32,'Al-Sajda'],[33,'Al-Aḥzāb'],[34,'Sabaʾ'],[35,'Fāṭir'],
+  [36,'Yā Sīn'],[37,'Al-Ṣāffāt'],[38,'Ṣād'],[39,'Al-Zumar'],[40,'Ghāfir'],
+  [41,'Fuṣṣilat'],[42,'Al-Shūrā'],[43,'Al-Zukhruf'],[44,'Al-Dukhān'],[45,'Al-Jāthiya'],
+  [46,'Al-Aḥqāf'],[47,'Muḥammad'],[48,'Al-Fatḥ'],[49,'Al-Ḥujurāt'],[50,'Qāf'],
+  [51,'Al-Dhāriyāt'],[52,'Al-Ṭūr'],[53,'Al-Najm'],[54,'Al-Qamar'],[55,'Al-Raḥmān'],
+  [56,'Al-Wāqiʿa'],[57,'Al-Ḥadīd'],[58,'Al-Mujādala'],[59,'Al-Ḥashr'],[60,'Al-Mumtaḥana'],
+  [61,'Al-Ṣaff'],[62,'Al-Jumʿa'],[63,'Al-Munāfiqūn'],[64,'Al-Taghābun'],[65,'Al-Ṭalāq'],
+  [66,'Al-Taḥrīm'],[67,'Al-Mulk'],[68,'Al-Qalam'],[69,'Al-Ḥāqqa'],[70,'Al-Maʿārij'],
+  [71,'Nūḥ'],[72,'Al-Jinn'],[73,'Al-Muzzammil'],[74,'Al-Muddaththir'],[75,'Al-Qiyāma'],
+  [76,'Al-Insān'],[77,'Al-Mursalāt'],[78,'Al-Nabaʾ'],[79,'Al-Nāziʿāt'],[80,'ʿAbasa'],
+  [81,'Al-Takwīr'],[82,'Al-Infiṭār'],[83,'Al-Muṭaffifīn'],[84,'Al-Inshiqāq'],[85,'Al-Burūj'],
+  [86,'Al-Ṭāriq'],[87,'Al-Aʿlā'],[88,'Al-Ghāshiya'],[89,'Al-Fajr'],[90,'Al-Balad'],
+  [91,'Al-Shams'],[92,'Al-Layl'],[93,'Al-Ḍuḥā'],[94,'Al-Sharḥ'],[95,'Al-Tīn'],
+  [96,'Al-ʿAlaq'],[97,'Al-Qadr'],[98,'Al-Bayyina'],[99,'Al-Zalzala'],[100,'Al-ʿĀdiyāt'],
+  [101,'Al-Qāriʿa'],[102,'Al-Takāthur'],[103,'Al-ʿAṣr'],[104,'Al-Humaza'],[105,'Al-Fīl'],
+  [106,'Quraysh'],[107,'Al-Māʿūn'],[108,'Al-Kawthar'],[109,'Al-Kāfirūn'],[110,'Al-Naṣr'],
+  [111,'Al-Masad'],[112,'Al-Ikhlāṣ'],[113,'Al-Falaq'],[114,'Al-Nās'],
 ];
 
-const MANZILS = [
-  { id:1, en:'First Manzil', ar:'المنزل الأول', sub:'Al-Fātiḥa — Al-Nisāʾ', color:'#6B2424' },
-  { id:2, en:'Second Manzil', ar:'المنزل الثاني', sub:'Al-Māʾida — Al-Tawba', color:'#6B2424' },
-  { id:3, en:'Third Manzil', ar:'المنزل الثالث', sub:'Yūnus — Al-Naḥl', color:'#6B2424' },
-  { id:4, en:'Fourth Manzil', ar:'المنزل الرابع', sub:'Al-Isrāʾ — Al-Furqān', color:'#1E5A4A' },
-  { id:5, en:'Fifth Manzil', ar:'المنزل الخامس', sub:'Al-Furqān — Al-Aḥzāb', color:'#1E5A4A' },
-  { id:6, en:'Sixth Manzil', ar:'المنزل السادس', sub:'Sabaʾ — Al-Ṣaff', color:'#1A3A5C' },
-  { id:7, en:'Seventh Manzil', ar:'المنزل السابع', sub:'Al-Jumʿa — Al-Nās', color:'#1A3A5C' },
+const LESSONS = [
+  {id:1, suras:'Al-Istiʿādha, Basmala & Al-Fātiḥa', range:'Q. 1:1–2:5', hasText:true},
+  {id:2, suras:'Al-Baqara', range:'Q. 2:6–25', hasText:true},
+  {id:3, suras:'Al-Baqara', range:'Q. 2:26–59', hasText:true},
+  {id:4, suras:'Al-Baqara', range:'Q. 2:60–105', hasText:true},
+  {id:5, suras:'Al-Baqara', range:'Q. 2:106–202', hasText:true},
+  {id:6, suras:'Al-Baqara', range:'Q. 2:203–252', hasText:true},
+  {id:7, suras:'Al-Baqara / Āl ʿImrān', range:'Q. 2:253–3:14', hasText:true},
+  {id:8, suras:'Āl ʿImrān', range:'Q. 3:15–91', hasText:true},
+  {id:9, suras:'Āl ʿImrān', range:'Q. 3:92–175', hasText:true},
+  {id:10, suras:'Āl ʿImrān / Al-Nisāʾ', range:'Q. 3:176–4:23', hasText:true},
+  {id:11, suras:'Al-Nisāʾ', range:'Q. 4:24–86', hasText:true},
+  {id:12, suras:'Al-Nisāʾ', range:'Q. 4:87–147', hasText:true},
+  {id:13, suras:'Al-Nisāʾ / Al-Māʾida', range:'Q. 4:148–5:22', hasText:true},
+  {id:14, suras:'Al-Māʾida', range:'Q. 5:23–81', hasText:true},
+  {id:15, suras:'Al-Māʾida / Al-Anʿām', range:'Q. 5:82–6:35', hasText:true},
+  {id:16, suras:'Al-Anʿām', range:'Q. 6:36–110', hasText:true},
+  {id:17, suras:'Al-Anʿām', range:'Q. 6:111–165', hasText:true},
+  {id:18, suras:'Al-Aʿrāf', range:'Q. 7:1–87', hasText:true},
+  {id:19, suras:'Al-Aʿrāf', range:'Q. 7:88–170', hasText:true},
+  {id:20, suras:'Al-Aʿrāf / Al-Anfāl', range:'Q. 7:171–8:40', hasText:true},
+  {id:21, suras:'Al-Anfāl / Al-Tawba', range:'Q. 8:41–9:33', hasText:true},
+  {id:22, suras:'Al-Tawba', range:'Q. 9:34–92', hasText:true},
+  {id:23, suras:'Al-Tawba / Yūnus', range:'Q. 9:93–10:25', hasText:true},
+  {id:24, suras:'Yūnus / Hūd', range:'Q. 10:26–11:5', hasText:true},
+  {id:25, suras:'Hūd', range:'Q. 11:6–83', hasText:true},
+  {id:26, suras:'Hūd / Yūsuf', range:'Q. 11:84–12:52', hasText:true},
+  {id:27, suras:'Yūsuf / Al-Raʿd', range:'Q. 12:53–13:18', hasText:true},
+  {id:28, suras:'Al-Raʿd / Ibrāhīm', range:'Q. 13:19–14:52', hasText:true},
+  {id:29, suras:'Al-Ḥijr / Al-Naḥl', range:'Q. 15:1–16:89', hasText:true},
+  {id:30, suras:'Al-Naḥl / Al-Isrāʾ', range:'Q. 16:90–17:111', hasText:true},
+  {id:31, suras:'Al-Kahf', range:'Q. 18:1–110', hasText:false},
+  {id:32, suras:'Maryam / Ṭāhā', range:'Q. 19:1–20:54', hasText:false},
+  {id:33, suras:'Ṭāhā / Al-Anbiyāʾ', range:'Q. 20:55–21:63', hasText:false},
+  {id:34, suras:'Al-Anbiyāʾ / Al-Ḥajj', range:'Q. 21:64–22:78', hasText:false},
+  {id:35, suras:'Al-Muʾminūn / Al-Nūr', range:'Q. 23:1–24:52', hasText:false},
+  {id:36, suras:'Al-Furqān', range:'Q. 25:1–77', hasText:false},
+  {id:37, suras:'Al-Shuʿarāʾ / Al-Naml', range:'Q. 26:1–27:93', hasText:false},
+  {id:38, suras:'Al-Qaṣaṣ', range:'Q. 28:1–88', hasText:false},
+  {id:39, suras:'Al-ʿAnkabūt / Al-Rūm / Luqmān', range:'Q. 29:1–31:34', hasText:false},
+  {id:40, suras:'Al-Sajda / Al-Aḥzāb', range:'Q. 32:1–33:73', hasText:false},
+  {id:41, suras:'Sabaʾ / Fāṭir', range:'Q. 34:1–35:45', hasText:false},
+  {id:42, suras:'Yā Sīn / Al-Ṣāffāt', range:'Q. 36:1–37:182', hasText:false},
+  {id:43, suras:'Ṣād / Al-Zumar', range:'Q. 38:1–39:75', hasText:false},
+  {id:44, suras:'Ghāfir / Fuṣṣilat', range:'Q. 40:1–41:54', hasText:false},
+  {id:45, suras:'Al-Shūrā / Al-Zukhruf / Al-Dukhān', range:'Q. 42:1–44:59', hasText:false},
+  {id:46, suras:'Al-Jāthiya / Al-Aḥqāf / Muḥammad / Al-Fatḥ', range:'Q. 45:1–48:29', hasText:false},
+  {id:47, suras:'Al-Ḥujurāt / Qāf / Al-Dhāriyāt', range:'Q. 49:1–51:60', hasText:false},
+  {id:48, suras:'Al-Ṭūr / Al-Najm / Al-Qamar', range:'Q. 52:1–54:55', hasText:false},
+  {id:49, suras:'Al-Raḥmān / Al-Wāqiʿa / Al-Ḥadīd', range:'Q. 55:1–57:29', hasText:false},
+  {id:50, suras:'Al-Mujādala / Al-Ḥashr / Al-Mumtaḥana / Al-Ṣaff', range:'Q. 58:1–61:14', hasText:false},
+  {id:51, suras:'Al-Jumʿa / Al-Munāfiqūn / Al-Taghābun / Al-Ṭalāq / Al-Taḥrīm', range:'Q. 62:1–66:12', hasText:false},
+  {id:52, suras:'Al-Mulk / Al-Qalam / Al-Ḥāqqa / Al-Maʿārij / Nūḥ', range:'Q. 67:1–71:28', hasText:false},
+  {id:53, suras:'Al-Jinn through Al-Mursalāt', range:'Q. 72:1–77:50', hasText:false},
+  {id:54, suras:'Al-Nabaʾ through Al-Ṭāriq', range:'Q. 78:1–86:17', hasText:false},
+  {id:55, suras:'Al-Aʿlā through Al-Zalzala', range:'Q. 87:1–99:8', hasText:false},
+  {id:56, suras:'Al-ʿĀdiyāt through Al-Masad', range:'Q. 100:1–111:5', hasText:false},
+  {id:57, suras:'Al-Ikhlāṣ / Al-Falaq / Al-Nās', range:'Q. 112:1–114:6', hasText:false},
 ];
-
-type Mode = null | 'sūrah' | 'manzil';
 
 export default function ReadPage() {
   const [query, setQuery] = useState('');
-  const [mode, setMode] = useState<Mode>(null);
+  const [showSuras, setShowSuras] = useState(false);
+  const [showLessons, setShowLessons] = useState(false);
 
-  const searchResults = query.trim()
-    ? SURAS.filter(([_, en, ar]) =>
-        (en as string).toLowerCase().includes(query.toLowerCase()) ||
-        (ar as string).includes(query)
-      )
+  const suraResults = query.trim()
+    ? SURAS.filter(([_, name]) => (name as string).toLowerCase().includes(query.toLowerCase()))
     : [];
+  const lessonResults = query.trim()
+    ? LESSONS.filter(l => l.suras.toLowerCase().includes(query.toLowerCase()) || l.range.includes(query))
+    : [];
+  const hasResults = suraResults.length > 0 || lessonResults.length > 0;
 
   return (
     <main className="max-w-2xl mx-auto px-4 pb-32 pt-6" dir="ltr">
 
       {/* Header */}
-      <div className="mb-5 text-center">
-        <div className="font-arabic text-gold text-xl font-bold mb-1" dir="rtl">في رياض التفسير</div>
-        <h1 className="font-english font-semibold text-base"
+      <div className="mb-5">
+        <h1 className="font-english font-semibold text-base mb-0.5"
           style={{color:'var(--body-text, rgba(255,255,255,0.9))'}}>
           Read the Commentary
         </h1>
+        <p className="font-english text-xs italic"
+          style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
+          Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm · 57 lessons · Shaykh Ibrāhīm Niasse
+        </p>
       </div>
 
-      {/* Search bar — always first */}
+      {/* Search */}
       <div className="relative mb-5">
         <input
           type="text"
           value={query}
-          onChange={e => { setQuery(e.target.value); if (e.target.value) setMode(null); }}
-          placeholder="Search by sūra name..."
+          onChange={e => setQuery(e.target.value)}
+          placeholder="Search by sūrah name, verse, or keyword…"
           className="w-full rounded-xl px-4 py-3 text-sm font-english"
           style={{
-            background: 'var(--panel-body-bg, rgba(13,20,10,0.97))',
-            border: '1px solid rgba(201,168,76,0.25)',
-            color: 'var(--body-text, rgba(255,255,255,0.85))',
-            outline: 'none',
+            background:'var(--panel-body-bg, rgba(13,20,10,0.97))',
+            border:'1px solid rgba(201,168,76,0.25)',
+            color:'var(--body-text, rgba(255,255,255,0.85))',
+            outline:'none',
           }}
         />
         {query && (
@@ -120,137 +158,134 @@ export default function ReadPage() {
 
       {/* Search results */}
       {query && (
-        <div className="mb-6">
-          {searchResults.length === 0 ? (
+        <div className="mb-6 space-y-1">
+          {!hasResults && (
             <p className="font-english text-sm text-center italic"
               style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
-              No sūras found
+              No results found
             </p>
-          ) : (
-            <div className="grid grid-cols-2 gap-2">
-              {searchResults.map(([num, en, ar]) => (
-                <Link key={num} href={`/lesson/${SURA_TO_LESSON[num as number]}`}
-                  className="flex items-center justify-between px-3 py-2.5 rounded-xl border transition-all group"
-                  style={{borderColor:'rgba(201,168,76,0.2)', background:'var(--panel-body-bg, rgba(13,20,10,0.5))'}}>
-                  <div>
-                    <p className="font-english text-xs font-semibold group-hover:text-gold transition-colors"
-                      style={{color:'var(--body-text, rgba(255,255,255,0.9))'}}>
-                      {en as string}
-                    </p>
-                    <p className="font-english text-[9px]" style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
-                      Sūra {num as number}
-                    </p>
-                  </div>
-                  <span className="font-arabic text-sm" dir="rtl"
-                    style={{color:'var(--body-sub, rgba(255,255,255,0.55))'}}>
-                    {ar as string}
-                  </span>
-                </Link>
-              ))}
-            </div>
           )}
+          {suraResults.map(([num, name]) => (
+            <Link key={num} href={`/lesson/${SURA_TO_LESSON[num as number]}`}
+              className="flex items-center justify-between px-3 py-2 rounded-lg border transition-all group"
+              style={{borderColor:'rgba(201,168,76,0.2)', background:'rgba(201,168,76,0.04)'}}>
+              <span className="font-english text-sm group-hover:text-gold transition-colors"
+                style={{color:'var(--body-text, rgba(255,255,255,0.85))'}}>
+                {name as string}
+              </span>
+              <span className="font-english text-[10px]"
+                style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
+                → Lesson {SURA_TO_LESSON[num as number]}
+              </span>
+            </Link>
+          ))}
+          {lessonResults.map(l => (
+            <Link key={l.id} href={`/lesson/${l.id}`}
+              className="flex items-center justify-between px-3 py-2 rounded-lg border transition-all group"
+              style={{borderColor:'rgba(201,168,76,0.15)', background:'transparent'}}>
+              <span className="font-english text-sm group-hover:text-gold transition-colors"
+                style={{color:'var(--body-text, rgba(255,255,255,0.85))'}}>
+                Lesson {l.id} · {l.suras.split(' / ')[0]}
+              </span>
+              <span className="font-english text-[10px]"
+                style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
+                {l.range}
+              </span>
+            </Link>
+          ))}
         </div>
       )}
 
-      {/* Two mode cards — shown when not searching */}
+      {/* Browse toggles — only when not searching */}
       {!query && (
-        <>
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            {/* Read by Sūrah */}
-            <button
-              onClick={() => setMode(mode === 'sūrah' ? null : 'sūrah')}
-              className="flex flex-col items-center justify-center py-6 px-4 rounded-2xl border-2 transition-all"
-              style={{
-                borderColor: mode === 'sūrah' ? '#6B2424' : 'rgba(107,36,36,0.35)',
-                background: mode === 'sūrah' ? 'rgba(107,36,36,0.12)' : 'transparent',
-              }}>
-              <span className="font-arabic text-2xl mb-2" style={{color:'#6B2424'}}>ﵚ</span>
-              <span className="font-english text-sm font-bold" style={{color:'#6B2424'}}>
-                Read by Sūrah
-              </span>
-              <span className="font-english text-[10px] mt-1 text-center"
-                style={{color:'rgba(107,36,36,0.6)'}}>
-                All 114 sūras
-              </span>
-            </button>
+        <div className="space-y-2">
 
-            {/* Read by Manzil */}
-            <button
-              onClick={() => setMode(mode === 'manzil' ? null : 'manzil')}
-              className="flex flex-col items-center justify-center py-6 px-4 rounded-2xl border-2 transition-all"
+          {/* Browse by Sūrah */}
+          <div className="border rounded-xl overflow-hidden"
+            style={{borderColor:'rgba(201,168,76,0.2)'}}>
+            <button onClick={() => setShowSuras(!showSuras)}
+              className="w-full flex items-center justify-between px-4 py-3 font-english text-sm font-semibold transition-all"
               style={{
-                borderColor: mode === 'manzil' ? '#1A3A5C' : 'rgba(26,58,92,0.35)',
-                background: mode === 'manzil' ? 'rgba(26,58,92,0.12)' : 'transparent',
+                background:'var(--panel-header-bg, rgba(13,20,10,0.95))',
+                color:'rgba(201,168,76,0.85)',
               }}>
-              <span className="font-arabic text-2xl mb-2" style={{color:'#1A3A5C'}}>٧</span>
-              <span className="font-english text-sm font-bold" style={{color:'#1A3A5C'}}>
-                Read by Manzil
-              </span>
-              <span className="font-english text-[10px] mt-1 text-center"
-                style={{color:'rgba(26,58,92,0.6)'}}>
-                7 weekly sections
-              </span>
+              <span>Browse by Sūrah</span>
+              <span className="text-xs">{showSuras ? '▲' : '▸'}</span>
             </button>
+            {showSuras && (
+              <div className="p-3" style={{background:'var(--panel-body-bg, rgba(13,20,10,0.5))'}}>
+                <p className="font-english text-[10px] mb-2 italic"
+                  style={{color:'var(--body-faint, rgba(255,255,255,0.3))'}}>
+                  Each sūrah links to the lesson that covers it
+                </p>
+                <div className="grid grid-cols-3 gap-1">
+                  {SURAS.map(([num, name]) => {
+                    const lessonId = SURA_TO_LESSON[num as number];
+                    const hasText = lessonId <= 30;
+                    return (
+                      <Link key={num} href={`/lesson/${lessonId}`}
+                        className="flex flex-col px-2 py-1.5 rounded-lg border transition-all text-left"
+                        style={{
+                          borderColor: hasText ? 'rgba(201,168,76,0.2)' : 'rgba(255,255,255,0.06)',
+                          background: 'transparent',
+                        }}>
+                        <span className="font-english text-[9px]"
+                          style={{color:'rgba(201,168,76,0.5)'}}>{num}</span>
+                        <span className="font-english text-[10px] leading-tight"
+                          style={{color: hasText ? 'var(--body-text, rgba(255,255,255,0.85))' : 'var(--body-faint, rgba(255,255,255,0.3))'}}>
+                          {(name as string).length > 12 ? (name as string).slice(0,11)+'…' : name}
+                        </span>
+                        <span className="font-english text-[9px]"
+                          style={{color:'rgba(201,168,76,0.4)'}}>L{lessonId}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* ── Sūra grid (expanded inline) ────────────────────── */}
-          {mode === 'sūrah' && (
-            <div className="grid grid-cols-3 gap-1.5 mb-4">
-              {SURAS.map(([num, en, ar]) => (
-                <Link key={num} href={`/lesson/${SURA_TO_LESSON[num as number]}`}
-                  className="flex flex-col items-center justify-center py-2 px-1 rounded-xl border transition-all group text-center"
-                  style={{borderColor:'rgba(107,36,36,0.2)', background:'rgba(107,36,36,0.05)'}}>
-                  <span className="font-english text-[9px] font-bold group-hover:text-gold transition-colors"
-                    style={{color:'rgba(107,36,36,0.7)'}}>
-                    {num}
-                  </span>
-                  <span className="font-arabic text-xs leading-5"
-                    style={{color:'var(--body-text, rgba(255,255,255,0.85))'}}>
-                    {ar as string}
-                  </span>
-                  <span className="font-english text-[8px] leading-tight"
-                    style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
-                    {(en as string).length > 12 ? (en as string).slice(0,11)+'…' : en as string}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {/* ── Manzil list (expanded inline) ──────────────────── */}
-          {mode === 'manzil' && (
-            <div className="space-y-2 mb-4">
-              {MANZILS.map(m => (
-                <Link key={m.id} href={`/manzil/${m.id}`}
-                  className="flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all group"
-                  style={{borderColor: m.color + '40', background: m.color + '0d'}}>
-                  <div>
-                    <p className="font-english text-sm font-bold group-hover:opacity-80 transition-opacity"
-                      style={{color: m.color}}>
-                      {m.en}
-                    </p>
-                    <p className="font-english text-xs mt-0.5"
-                      style={{color:'var(--body-faint, rgba(255,255,255,0.4))'}}>
-                      {m.sub}
-                    </p>
-                  </div>
-                  <span className="font-arabic text-base" dir="rtl"
-                    style={{color:'var(--body-sub, rgba(255,255,255,0.5))'}}>
-                    {m.ar}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {/* Descriptive note — shown when neither mode is open */}
-          {!mode && (
-            <p className="font-english text-xs text-center italic mt-2"
-              style={{color:'var(--body-faint, rgba(255,255,255,0.3))'}}>
-              Search above, or choose how you'd like to navigate the tafsīr
-            </p>
-          )}
-        </>
+          {/* Browse by Lesson */}
+          <div className="border rounded-xl overflow-hidden"
+            style={{borderColor:'rgba(201,168,76,0.2)'}}>
+            <button onClick={() => setShowLessons(!showLessons)}
+              className="w-full flex items-center justify-between px-4 py-3 font-english text-sm font-semibold transition-all"
+              style={{
+                background:'var(--panel-header-bg, rgba(13,20,10,0.95))',
+                color:'rgba(201,168,76,0.85)',
+              }}>
+              <span>Browse by Lesson</span>
+              <span className="text-xs">{showLessons ? '▲' : '▸'}</span>
+            </button>
+            {showLessons && (
+              <div className="p-3 space-y-1" style={{background:'var(--panel-body-bg, rgba(13,20,10,0.5))'}}>
+                {LESSONS.map(l => (
+                  <Link key={l.id} href={`/lesson/${l.id}`}
+                    className="flex items-center justify-between px-3 py-2 rounded-lg border transition-all group"
+                    style={{
+                      borderColor: l.hasText ? 'rgba(201,168,76,0.15)' : 'rgba(255,255,255,0.05)',
+                      background:'transparent',
+                    }}>
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="font-english text-[10px] shrink-0"
+                        style={{color:'rgba(201,168,76,0.5)'}}>
+                        {l.id}
+                      </span>
+                      <span className="font-english text-xs truncate group-hover:text-gold transition-colors"
+                        style={{color: l.hasText ? 'var(--body-text, rgba(255,255,255,0.85))' : 'var(--body-faint, rgba(255,255,255,0.3))'}}>
+                        {l.suras.split(' / ')[0]}{l.suras.includes(' / ') ? ' ···' : ''}
+                      </span>
+                    </div>
+                    <span className="font-english text-[9px] shrink-0 ml-2"
+                      style={{color:'var(--body-faint, rgba(255,255,255,0.3))'}}>
+                      {l.hasText ? l.range.split('–')[0] : 'forthcoming'}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
       )}
     </main>
   );
