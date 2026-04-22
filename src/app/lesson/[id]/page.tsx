@@ -8,6 +8,7 @@ import InlineCompare from '@/components/InlineCompare';
 import PanelJumpTabs from '@/components/PanelJumpTabs';
 import LessonAudioBar from '@/components/LessonAudioBar';
 import LessonNav from '@/components/LessonNav';
+import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
 import Link from 'next/link';
 
@@ -24,7 +25,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const usulBaseUrl = 'https://usul.ai/t/ruh-bayan';
 
   return (
-    <main className="w-full px-8 xl:px-16 pb-20 pt-3">
+    <div className="flex" style={{minHeight:"calc(100vh - 56px)"}}>
+    <main className="flex-1 min-w-0 w-full px-4 xl:px-12 pb-20 pt-3">
       {/* Work title */}
       <div className="text-center pb-5 mb-5 border-b border-gold/20">
         <div className="font-arabic text-gold font-bold text-xl" dir="rtl">
@@ -151,5 +153,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
     
       <LessonNav lessonId={lesson.id} manzil={lesson.manzil} />
       </main>
+    <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
+    </div>
   );
 }
