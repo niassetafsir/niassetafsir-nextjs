@@ -14,6 +14,7 @@ export interface Lesson {
   volume?: number;
   pageInVolume?: number | null;
   lessonSummary?: string;
+  openingInvocation?: string;
   wolofPlaylistId: string;
   arabicPlaylistId: string;
   arabicAudioUrl: string | null;
