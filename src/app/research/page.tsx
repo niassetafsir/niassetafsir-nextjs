@@ -1,128 +1,159 @@
 import Link from 'next/link';
-
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Research Platform",
-  description: "Research tools for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm: full-text search, verse concordance, critical apparatus, scholar index, tafsīr sciences index, glossary, and citation tools.",
-  openGraph: {
-    title: "Research Platform | niassetafsir.org",
-    description: "Research tools for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm: full-text search, verse concordance, critical apparatus, scholar index, tafsīr sciences index, glossary, and citation tools.",
-  },
+  title: 'Research Platform',
+  description: 'Scholarly research tools for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm',
 };
 
-
-// Research tools — primary scholarly infrastructure
-const PRIMARY_TOOLS = [
-  {
-    href: '/search',
-    titleAr: 'البحث الشامل',
-    titleEn: 'Full-Text Search',
-    desc: 'Search across all 30 lessons in Arabic and English. Covers the commentary text, English translation, and Jalālayn companion text.',
-  },
-  {
-    href: '/concordance',
-    titleAr: 'فهرس الآيات',
-    titleEn: 'Verse Concordance',
-    desc: "Search any verse · Jalālayn commentary · Shaykh Ibrāhīm's reflection",
-  },
-  {
-    href: '/footnotes',
-    titleAr: 'فهرس الحواشي والمصادر',
-    titleEn: 'Footnotes & Citations',
-    desc: '798 footnotes compiled by Muḥammad ibn al-Shaykh, classified by genre (Hadith, Tafsīr, Theology, Sufism, Fiqh, Linguistics). Inline [n] links in the text.',
-  },
-  {
-    href: '/hadith',
-    titleAr: 'فهرس الأحاديث',
-    titleEn: 'Hadith Index',
-    desc: '384 hadith citations indexed by collection — Bukhārī, Muslim, Tirmidhī, Abū Dāwūd, and eight others. Each entry links to its lesson and footnote.',
-  },
-  {
-    href: '/scholars',
-    titleAr: 'فهرس العلماء والمصادر',
-    titleEn: 'Scholar & Source Index',
-    desc: "Every figure cited across the tafsīr, with a key distinction: scholars Shaykh Ibrāhīm invokes in his own words versus sources documented by the compiler.",
-  },
-  {
-    href: '/themes',
-    titleAr: 'فهرس علوم التفسير',
-    titleEn: 'Tafsīr Sciences Index',
-    desc: 'Classified by tafsīr discipline — 11 categories drawn from classical ʿulūm al-tafsīr: Quranic Sciences, Prophethood, Fiqh & Law, Sufism, Spiritual Ethics, History & Narrative.',
-  },
-  {
-    href: '/glossary',
-    titleAr: 'مصطلحات التفسير',
-    titleEn: 'Concordance of Terms',
-    desc: 'Twenty theological and Sufi terms as Shaykh Ibrāhīm employs them, with his exact Arabic usage, apparatus citations, and conceptual connections.',
-  },
-];
-
-// Personal research tools
-const PERSONAL_TOOLS = [
-  {
-    href: '/clips',
-    titleAr: 'المقتطفات البحثية',
-    titleEn: 'Research Clips',
-    desc: 'Select any passage → Clip & Cite → Chicago citation generated automatically with volume and page reference. Export for academic writing.',
-  },
-  {
-    href: '/bookmarks',
-    titleAr: 'الإشارات المرجعية',
-    titleEn: 'Bookmarks',
-    desc: 'Save passages for return visits. Export your reading list at any time.',
-  },
-];
-
-const TOOLS = [...PRIMARY_TOOLS, ...PERSONAL_TOOLS,
+const TOOLS = [
+  // ── Advanced scholarly tools ──────────────────────────────────
   {
     href: '/network',
     titleAr: 'شبكة العلماء',
     titleEn: 'Scholar Network',
-    desc: '19 scholars cited across the tafsīr — their traditions, citation counts, and roles in the body text vs. apparatus. Filter by discipline.',
+    desc: 'Intellectual genealogy — 19 scholars, their traditions, citation counts, body vs. apparatus.',
+    tier: 'scholar',
   },
   {
     href: '/notes',
     titleAr: 'ملاحظات البحث',
     titleEn: 'Research Notes',
-    desc: 'Editorial observations on specific passages — methodology, doctrine, and textual questions noted during the preparation of this edition.',
-  }
+    desc: 'Editorial observations on the text — methodology, doctrine, and open questions.',
+    tier: 'scholar',
+  },
+  {
+    href: '/footnotes',
+    titleAr: 'الحواشي والمصادر',
+    titleEn: 'Footnotes & Citations',
+    desc: '798 footnotes by the compiler, genre-classified: Hadith, Tafsīr, Theology, Sufism, Fiqh.',
+    tier: 'scholar',
+  },
+  {
+    href: '/hadith',
+    titleAr: 'فهرس الأحاديث',
+    titleEn: 'Ḥadīth Index',
+    desc: '384 hadith citations indexed by collection — Bukhārī, Muslim, Tirmidhī, and others.',
+    tier: 'scholar',
+  },
+  {
+    href: '/glossary',
+    titleAr: 'فهرس المصطلحات',
+    titleEn: 'Concordance of Terms',
+    desc: '20 theological and Sufi terms — every occurrence across the corpus, in context.',
+    tier: 'scholar',
+  },
+  {
+    href: '/themes',
+    titleAr: 'فهرس علوم التفسير',
+    titleEn: 'Tafsīr Sciences Index',
+    desc: '11 categories drawn from classical ʿulūm al-tafsīr — passages classified by discipline.',
+    tier: 'scholar',
+  },
+  // ── Research tools ─────────────────────────────────────────────
+  {
+    href: '/scholars',
+    titleAr: 'فهرس العلماء والمصادر',
+    titleEn: 'Scholar & Source Index',
+    desc: 'Every figure cited — with distinction between body text citations and apparatus citations.',
+    tier: 'research',
+  },
+  {
+    href: '/concordance',
+    titleAr: 'فهرس الآيات',
+    titleEn: 'Verse Concordance',
+    desc: 'Find any verse — Shaykh Ibrāhīm\'s commentary alongside Jalālayn on the same passage.',
+    tier: 'research',
+  },
+  {
+    href: '/search',
+    titleAr: 'البحث في النص',
+    titleEn: 'Full-Text Search',
+    desc: 'Search across all lessons in Arabic and English.',
+    tier: 'research',
+  },
+  // ── Personal tools ─────────────────────────────────────────────
+  {
+    href: '/clips',
+    titleAr: 'اقتباسات البحث',
+    titleEn: 'Research Clips',
+    desc: 'Select any passage — Chicago citation generated automatically.',
+    tier: 'personal',
+  },
+  {
+    href: '/bookmarks',
+    titleAr: 'المحفوظات',
+    titleEn: 'Bookmarks',
+    desc: 'Save passages for later study.',
+    tier: 'personal',
+  },
 ];
 
+const TIER_LABELS: Record<string, string> = {
+  scholar: 'Advanced Research',
+  research: 'Research Tools',
+  personal: 'Personal',
+};
+
 export default function ResearchPage() {
+  const tiers = ['scholar', 'research', 'personal'] as const;
+
   return (
-    <main className="max-w-5xl mx-auto px-4 pb-6 pt-4" dir="ltr">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-4">
+    <main className="max-w-4xl mx-auto px-4 pb-20 pt-5" dir="ltr">
+
+      {/* Header — compact */}
+      <div className="flex items-baseline justify-between mb-5">
         <div>
-          <h1 className="font-english text-white font-semibold text-base">Research Platform</h1>
-          <div className="font-arabic text-gold text-sm mt-0.5" dir="rtl">أدوات البحث العلمي</div>
+          <h1 className="font-english font-semibold text-base"
+            style={{color:'var(--body-text, rgba(255,255,255,0.9))'}}>
+            Research Platform
+          </h1>
+          <p className="font-arabic text-sm" dir="rtl" style={{color:'rgba(201,168,76,0.6)'}}>
+            أدوات البحث العلمي
+          </p>
         </div>
         <Link href="/lesson/1"
-          className="font-english text-xs text-white/40 hover:text-gold transition-colors">
+          className="font-english text-xs hover:text-gold transition-colors"
+          style={{color:'rgba(255,255,255,0.3)'}}>
           ← Reading
         </Link>
       </div>
 
-      {/* Tool grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-        {TOOLS.map(tool => (
-          <Link key={tool.href} href={tool.href}
-            className="group border border-white/10 hover:border-gold/40 rounded-xl p-3 transition-all hover:bg-gold/5">
-            <div className="mb-1">
-              <div>
-                <div className="font-arabic text-sm" dir="rtl"
-                  style={{color:'rgba(255,255,255,0.5)'}}>{tool.titleAr}</div>
-                <div className="font-english font-semibold text-sm group-hover:text-gold transition-colors"
-                  style={{color:'rgba(255,255,255,0.9)'}}>{tool.titleEn}</div>
-              </div>
+      {/* Tool sections */}
+      {tiers.map(tier => {
+        const tools = TOOLS.filter(t => t.tier === tier);
+        return (
+          <div key={tier} className="mb-6">
+            <p className="font-english text-[10px] uppercase tracking-widest mb-2"
+              style={{color:'rgba(201,168,76,0.5)', letterSpacing:'0.1em'}}>
+              {TIER_LABELS[tier]}
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {tools.map(tool => (
+                <Link key={tool.href} href={tool.href}
+                  className="block rounded-xl border p-3 transition-all group hover:border-gold/40"
+                  style={{
+                    borderColor:'rgba(255,255,255,0.08)',
+                    background:'transparent',
+                  }}>
+                  <p className="font-arabic text-xs mb-1" dir="rtl"
+                    style={{color:'rgba(201,168,76,0.55)'}}>
+                    {tool.titleAr}
+                  </p>
+                  <p className="font-english text-sm font-semibold mb-1 group-hover:text-gold transition-colors"
+                    style={{color:'var(--body-text, rgba(255,255,255,0.9))'}}>
+                    {tool.titleEn}
+                  </p>
+                  <p className="font-english text-[11px] leading-4"
+                    style={{color:'var(--body-faint, rgba(255,255,255,0.38))'}}>
+                    {tool.desc}
+                  </p>
+                </Link>
+              ))}
             </div>
-            <p className="font-english text-xs leading-5"
-              style={{color:'rgba(255,255,255,0.45)'}}>{tool.desc}</p>
-          </Link>
-        ))}
-      </div>
-
+          </div>
+        );
+      })}
 
     </main>
   );
