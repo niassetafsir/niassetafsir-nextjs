@@ -29,7 +29,39 @@ export default function Page() {
         <p>The revised ten-volume edition represents a substantially expanded recension of the earlier six-volume compilation. It incorporates a more extensive footnotes and citations with a greater number of annotated footnotes, and draws on a broader consultation of the original audio recordings to achieve a more accurate transcription of Niasse&apos;s oral delivery.</p>
         <p>The compiler acknowledges the challenges of transcribing oral speech: the density of pronominal reference, the rapid movement of inflection, and the gap between spoken expression and written text. He undertook the work out of concern that the recordings, scattered among the khalīfas and companions of the Shaykh, might be lost.</p>
         <p>The footnotes and citations is one of the defining achievements of the compiled edition. The hadith apparatus alone records more than six thousand citations traced to their canonical sources across the ṣaḥīḥayn, the Sunan collections, and the wider hadith literature. Beyond hadith, the footnotes engage the major tafsīr works (Ibn Kathīr, al-Qurṭubī, al-Ṭabarī, the Jalālayn, Rūḥ al-Bayān), theological and Sufi sources (al-Ghazālī, Ibn ʿArabī), and linguistic and rhetorical literature. This platform presents 798 of these footnotes in a searchable, classified index, browsable by scholar, genre, and lesson, making the full intellectual architecture of the edition accessible for the first time in a research environment.</p>
-        
+      </div>
+
+      {/* Volume catalogue */}
+      <div className="mt-12 pt-8 border-t border-gold/15">
+        <h2 className="font-english text-white text-xl font-semibold mb-1">Volume Catalogue</h2>
+        <p className="font-english text-white/45 text-sm mb-6">Ten-volume Arabic edition — lessons and sūra coverage</p>
+        <div className="space-y-3">
+          {[
+            { vol: "I",   ar: "الجزء الأول",   lessons: "1–5",   range: "Al-Istiʿādha · al-Fātiḥa – al-Baqara (Q. 1:1–2:202)" },
+            { vol: "II",  ar: "الجزء الثاني",  lessons: "6–10",  range: "Al-Baqara – Āl ʿImrān (Q. 2:203–4:23)" },
+            { vol: "III", ar: "الجزء الثالث",  lessons: "11–15", range: "Al-Nisāʾ – Al-Māʾida (Q. 4:24–6:35)" },
+            { vol: "IV",  ar: "الجزء الرابع",  lessons: "16–20", range: "Al-Anʿām – Al-Aʿrāf (Q. 6:36–8:40)" },
+            { vol: "V",   ar: "الجزء الخامس",  lessons: "21–25", range: "Al-Anfāl – Hūd (Q. 8:41–11:83)" },
+            { vol: "VI",  ar: "الجزء السادس",  lessons: "26–30", range: "Hūd – Al-Naḥl (Q. 11:84–17:111)" },
+            { vol: "VII", ar: "الجزء السابع",  lessons: "31–35", range: "Al-Kahf – Al-Nūr (Q. 18:1–24:52)" },
+            { vol: "VIII",ar: "الجزء الثامن",  lessons: "36–40", range: "Al-Furqān – Al-Aḥzāb (Q. 25:1–33:73)" },
+            { vol: "IX",  ar: "الجزء التاسع",  lessons: "41–45", range: "Sabaʾ – Al-Dukhān (Q. 34:1–44:59)" },
+            { vol: "X",   ar: "الجزء العاشر",  lessons: "46–56", range: "Al-Jāthiya – Al-Nās (Q. 45:1–114:6)" },
+          ].map(({ vol, ar, lessons, range }) => (
+            <div key={vol} className="flex items-start gap-4 py-3 border-b border-white/5">
+              <div className="w-12 shrink-0 text-right">
+                <span className="font-english text-gold/70 text-sm font-semibold">Vol. {vol}</span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-3 mb-0.5">
+                  <span className="font-arabic text-white/80 text-base" dir="rtl">{ar}</span>
+                  <span className="font-english text-white/30 text-xs">Lessons {lessons}</span>
+                </div>
+                <p className="font-english text-white/45 text-xs leading-relaxed">{range}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="mt-12 pt-6 border-t border-gold/15 text-center">
