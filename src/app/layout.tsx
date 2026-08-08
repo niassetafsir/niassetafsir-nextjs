@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SiteNav from "@/components/SiteNav";
 import PersistentNav from "@/components/PersistentNav";
-import MobileNav from "@/components/MobileNav";
 import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
@@ -52,7 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </p>
           </div>
         </footer>
-      <MobileNav />
       </body>
     </html>
   );
