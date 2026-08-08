@@ -50,10 +50,12 @@ export default function SearchPage() {
     fetch('/data/search-main.json')
       .then(r => r.json())
       .then(data => {
-        const normalizedEntries = data.entries.map((e: SearchEntry) => ({
-          ...e,
-          textNorm: stripDiacritics(e.text)
-        }));
+        const normalizedEntries = data.entries
+          .filter((e: SearchEntry) => typeof e.text === 'string' && e.text.length > 0)
+          .map((e: SearchEntry) => ({
+            ...e,
+            textNorm: stripDiacritics(e.text)
+          }));
         const f = new Fuse<SearchEntry & {textNorm: string}>(normalizedEntries as (SearchEntry & {textNorm: string})[], {
           keys: ['textNorm'],
           threshold: 0.3,
@@ -79,7 +81,7 @@ export default function SearchPage() {
   const filteredResults = results.filter(r => {
     if (filter === 'all') return true;
     if (filter === 'arabic') return r.item.language === 'ar';
-    if (filter === 'english') return r.item.language === 'en' && r.item.type === 'niasse';
+    if (filter === 'english') return r.item.type === 'niasse-en';
     if (filter === 'jalalayn') return r.item.type === 'jalalayn';
     return true;
   });
@@ -184,7 +186,7 @@ export default function SearchPage() {
       {!query && (
         <div className="text-center py-12 space-y-3">
           <p className="font-english text-white/25 text-sm">
-            Search across 30 lessons · {'>'}13,000 indexed passages
+            Search across 30 lessons · 1,547 indexed passages
           </p>
           <p className="font-english text-white/20 text-xs">
             Try: الرحمن · mercy · Q.1:2 · ayat al-kursi · استعاذة
