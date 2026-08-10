@@ -186,7 +186,7 @@ export default function SearchPage() {
       {!query && (
         <div className="text-center py-12 space-y-3">
           <p className="font-english text-white/25 text-sm">
-            Search across 30 lessons · 1,547 indexed passages
+            Search across 56 lessons · 2,182 indexed passages
           </p>
           <p className="font-english text-white/20 text-xs">
             Try: الرحمن · mercy · Q.1:2 · ayat al-kursi · استعاذة
