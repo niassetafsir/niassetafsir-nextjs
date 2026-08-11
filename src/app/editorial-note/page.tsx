@@ -72,21 +72,22 @@ export default function EditorialNotePage() {
             not present in the printed Arabic text and constituting an original editorial contribution 
             of this digital edition.
           </p>
+          <p className="leading-7 mt-3">
+            The apparatus currently covers Lessons 1–25 (798 footnotes); classification for the 
+            remaining lessons is in progress and will be added in a subsequent version of the edition.
+          </p>
         </div>
 
         <div>
           <h2 className="font-english text-white text-lg font-semibold mb-3">4. Verse Ranges and Volume References</h2>
           <p className="leading-7">
             The verse ranges for each lesson (e.g. Q. 2:6–25) have been verified against the 
-            ten-volume structural document prepared for this edition. Lessons 1–6, 13–19, and 
-            26–30 have been verified precisely from the document. Lessons 7–12 (Volume 2) and 
-            20–25 (Volumes 4–5) carry approximate verse ranges pending verification against the 
-            physical printed volumes; these are clearly indicated in the lesson headers.
+            ten-volume structural document prepared for this edition and, for Volumes 1–5 
+            (Lessons 1–30), against the physical printed volumes.
           </p>
           <p className="leading-7 mt-3">
             Volume and page references for lessons cite the ten-volume compiled edition. 
-            Confirmed page numbers are provided for Volumes 1, 3, and 7; page numbers for 
-            Volumes 2, 4, and 5 are pending and will be added in a subsequent version of the edition.
+            Page numbers are provided for all ten volumes (Lessons 1–56).
           </p>
         </div>
 
@@ -94,7 +95,7 @@ export default function EditorialNotePage() {
           <h2 className="font-english text-white text-lg font-semibold mb-3">5. The English Translation</h2>
           <p className="leading-7">
             The English translation is by Amadu Kunateh and currently covers Lessons 1–2. 
-            The complete bilingual translation is in preparation for academic publication. 
+            The complete bilingual translation is currently under review for publication with an academic publisher. 
             Three translation choices warrant explicit notice: the Basmala is rendered 
             &ldquo;By Allāh&apos;s Name, The Entirely Merciful, The Especially Merciful&rdquo;; 
             <em>ʿabd</em> is translated &ldquo;slave&rdquo; (following the established convention 
@@ -140,8 +141,7 @@ export default function EditorialNotePage() {
               <span className="font-english text-white/30 text-sm w-16">v 2.0</span>
               <span className="font-english text-white/30 text-xs">Forthcoming</span>
               <span className="font-english text-white/30 text-sm flex-1">
-                Complete bilingual translation; lesson summaries; footnote translations; 
-                DOI; Vol. 2 & 4 page numbers.
+                Complete bilingual translation; lesson summaries; footnote translations; DOI.
               </span>
             </div>
           </div>

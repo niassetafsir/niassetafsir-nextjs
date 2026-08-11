@@ -37,16 +37,16 @@ export default function Page() {
         <p className="font-english text-white/45 text-sm mb-6">Ten-volume Arabic edition — lessons and sūra coverage</p>
         <div className="space-y-3">
           {[
-            { vol: "I",   ar: "الجزء الأول",   lessons: "1–5",   range: "Al-Istiʿādha · al-Fātiḥa – al-Baqara (Q. 1:1–2:202)" },
-            { vol: "II",  ar: "الجزء الثاني",  lessons: "6–10",  range: "Al-Baqara – Āl ʿImrān (Q. 2:203–4:23)" },
-            { vol: "III", ar: "الجزء الثالث",  lessons: "11–15", range: "Al-Nisāʾ – Al-Māʾida (Q. 4:24–6:35)" },
-            { vol: "IV",  ar: "الجزء الرابع",  lessons: "16–20", range: "Al-Anʿām – Al-Aʿrāf (Q. 6:36–8:40)" },
-            { vol: "V",   ar: "الجزء الخامس",  lessons: "21–25", range: "Al-Anfāl – Hūd (Q. 8:41–11:83)" },
-            { vol: "VI",  ar: "الجزء السادس",  lessons: "26–30", range: "Hūd – Al-Naḥl (Q. 11:84–17:111)" },
-            { vol: "VII", ar: "الجزء السابع",  lessons: "31–35", range: "Al-Kahf – Al-Nūr (Q. 18:1–24:52)" },
-            { vol: "VIII",ar: "الجزء الثامن",  lessons: "36–40", range: "Al-Furqān – Al-Aḥzāb (Q. 25:1–33:73)" },
-            { vol: "IX",  ar: "الجزء التاسع",  lessons: "41–45", range: "Sabaʾ – Al-Dukhān (Q. 34:1–44:59)" },
-            { vol: "X",   ar: "الجزء العاشر",  lessons: "46–56", range: "Al-Jāthiya – Al-Nās (Q. 45:1–114:6)" },
+            { vol: "I",   ar: "الجزء الأول",   lessons: "1–6",   range: "Al-Istiʿādha · al-Fātiḥa – al-Baqara (Q. 1:1–2:252)" },
+            { vol: "II",  ar: "الجزء الثاني",  lessons: "7–12",  range: "Al-Baqara – Al-Nisāʾ (Q. 2:253–4:147)" },
+            { vol: "III", ar: "الجزء الثالث",  lessons: "13–19", range: "Al-Nisāʾ – Al-Aʿrāf (Q. 4:148–7:170)" },
+            { vol: "IV",  ar: "الجزء الرابع",  lessons: "20–25", range: "Al-Aʿrāf – Hūd (Q. 7:171–11:83)" },
+            { vol: "V",   ar: "الجزء الخامس",  lessons: "26–30", range: "Hūd – Al-Naḥl (Q. 11:84–17:111)" },
+            { vol: "VI",  ar: "الجزء السادس",  lessons: "31–35", range: "Al-Kahf – Al-Nūr" },
+            { vol: "VII", ar: "الجزء السابع",  lessons: "36–40", range: "Al-Nūr – Al-Aḥzāb" },
+            { vol: "VIII",ar: "الجزء الثامن",  lessons: "41–45", range: "Al-Aḥzāb – Al-Dukhān" },
+            { vol: "IX",  ar: "الجزء التاسع",  lessons: "46–50", range: "Al-Dukhān – Al-Ṣaff" },
+            { vol: "X",   ar: "الجزء العاشر",  lessons: "51–56", range: "Al-Jumuʿa – Al-Nās" },
           ].map(({ vol, ar, lessons, range }) => (
             <div key={vol} className="flex items-start gap-4 py-3 border-b border-white/5">
               <div className="w-12 shrink-0 text-right">

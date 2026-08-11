@@ -33,8 +33,9 @@ export default function AboutPage() {
             This site presents two interconnected resources in one: a digital bilingual edition and a research platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> 
             by Shaykh Ibrāhīm Niasse (d. 1975), designed to make this 
             tafsīr accessible, searchable, and analytically usable for academic research. It presents 
-            the complete Arabic text alongside a growing English translation, with comparative passages 
-            from Tafsīr al-Jalālayn and <em>Rūḥ al-Bayān</em>.
+            a substantial portion of the Arabic text of each lesson, capped at 50% of the transcribed 
+            source per the compiler&apos;s permission terms, alongside a growing English translation, 
+            with comparative passages from Tafsīr al-Jalālayn and <em>Rūḥ al-Bayān</em>.
           </p>
           <p className="leading-6 mt-3">
             Research tools include: full-text search; a verse concordance (1,079 verses linked to 
@@ -81,8 +82,9 @@ export default function AboutPage() {
           <p className="leading-6">
             The Qurʾānic text follows the <strong className="text-white/85">Warsh ʿan Nāfiʿ rasm</strong>, 
             the orthographic standard of North and West Africa in which the tafsīr was delivered. 
-            Audio recitation is by <strong className="text-white/85">Maḥmūd Khalīl al-Ḥuṣarī</strong> (1917–1980) 
-            in the Warsh riwāya.
+            Audio recordings of Shaykh Ibrāhīm&apos;s oral delivery are available for the Arabic tafsīr 
+            (currently Sūras 1–18, with further sessions forthcoming) and for the complete Wolof tafsīr 
+            (122 sessions, via the Internet Archive); see the <Link href="/audio" className="text-gold/70 hover:text-gold transition-colors">Listen</Link> page.
           </p>
         </div>
 
