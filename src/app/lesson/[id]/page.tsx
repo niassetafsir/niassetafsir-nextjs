@@ -37,21 +37,21 @@ export default async function LessonPage({ params }: { params: { id: string } })
     <main className="flex-1 min-w-0 w-full px-4 xl:px-12 pb-20 pt-3">
       {/* Bibliographic header — work title, lesson heading, vol./page metadata */}
       <div className="text-center pb-4 mb-4 border-b" style={{borderColor:'rgba(13,31,10,0.12)'}}>
-        <div className="font-arabic-sans font-bold text-lg" dir="rtl" style={{color:'#8a6d1f'}}>
+        <div className="font-arabic-sans font-bold text-base" dir="rtl" style={{color:'#8a6d1f'}}>
           فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
         </div>
-        <div className="font-english text-xs italic mt-0.5" dir="ltr" style={{color:'rgba(13,31,10,0.5)'}}>
+        <div className="font-english text-[11px] italic mt-0.5" dir="ltr" style={{color:'rgba(13,31,10,0.5)'}}>
           Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
         </div>
       </div>
 
       {/* Lesson heading */}
       <div className="text-center mb-3">
-        <div className="font-arabic-sans font-bold text-2xl" dir="rtl" style={{color:'#8a6d1f'}}>{lesson.arabicTitle}</div>
-        <div className="font-english text-sm mt-1" dir="ltr" style={{color:'rgba(13,31,10,0.65)'}}>
+        <div className="font-arabic-sans font-bold text-xl" dir="rtl" style={{color:'#8a6d1f'}}>{lesson.arabicTitle}</div>
+        <div className="font-english text-xs mt-1" dir="ltr" style={{color:'rgba(13,31,10,0.65)'}}>
           {lesson.englishTitle} · {lesson.verseRange}
         </div>
-        <div className="font-english text-xs mt-1 uppercase tracking-wide" dir="ltr" style={{color:'#8a6d1f'}}>
+        <div className="font-english text-[10px] mt-1 uppercase tracking-wide" dir="ltr" style={{color:'#8a6d1f'}}>
           Revised 10-vol. Arabic edition · Vol. {lesson.volume ?? '—'}
           {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ''}
           {!lesson.pageInVolume && lesson.volume ? ' · page to be confirmed' : ''}

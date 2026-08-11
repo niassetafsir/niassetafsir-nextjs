@@ -76,7 +76,7 @@ export default function MobileLessonDrawer({ lessonId }: { lessonId: number }) {
             <div className="flex items-center justify-between px-4 py-3 border-b"
               style={{ borderColor: 'rgba(13,31,10,0.12)' }}>
               <div>
-                <p className="font-arabic-sans font-bold text-sm" dir="rtl" style={{ color: '#8a6d1f' }}>الدروس</p>
+                <p className="font-arabic-sans font-bold text-xs" dir="rtl" style={{ color: '#8a6d1f' }}>الدروس</p>
                 <p className="font-english text-[10px]" style={{ color: 'rgba(13,31,10,0.45)' }}>Lessons</p>
               </div>
               <button
@@ -125,7 +125,7 @@ export default function MobileLessonDrawer({ lessonId }: { lessonId: number }) {
                         borderLeft: containsCurrent ? '3px solid #8a6d1f' : '3px solid transparent',
                       }}
                     >
-                      <span className="font-english text-[13px] font-semibold">
+                      <span className="font-english text-xs font-semibold">
                         Volume {v.vol} <span className="font-normal" style={{ color: 'rgba(13,31,10,0.4)' }}>· Lessons {v.start}–{v.end}</span>
                       </span>
                       {isOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
@@ -137,7 +137,7 @@ export default function MobileLessonDrawer({ lessonId }: { lessonId: number }) {
                             key={n}
                             href={`/lesson/${n}`}
                             onClick={() => setOpen(false)}
-                            className="flex items-center gap-3 pl-8 pr-4 py-2 font-english text-[13px]"
+                            className="flex items-center gap-3 pl-8 pr-4 py-2 font-english text-xs"
                             style={{
                               background: n === lessonId ? '#8a6d1f' : 'transparent',
                               color: n === lessonId ? '#F5EDD6' : 'rgba(13,31,10,0.7)',
