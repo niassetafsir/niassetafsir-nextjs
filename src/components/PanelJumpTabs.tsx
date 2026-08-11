@@ -17,8 +17,10 @@ export default function PanelJumpTabs() {
     <div
       className="sticky top-0 z-40 flex gap-1.5 overflow-x-auto py-2 px-1 mb-2"
       style={{
-        background: 'var(--bg, #1a1008)',
-        borderBottom: '1px solid rgba(201,168,76,0.15)',
+        background: 'rgba(245,237,214,0.97)',
+        backdropFilter: 'blur(6px)',
+        WebkitBackdropFilter: 'blur(6px)',
+        borderBottom: '1px solid rgba(13,31,10,0.12)',
         WebkitOverflowScrolling: 'touch',
         scrollbarWidth: 'none',
       }}
@@ -29,8 +31,8 @@ export default function PanelJumpTabs() {
           onClick={() => scrollTo(tab.id)}
           className="font-english text-[10px] whitespace-nowrap px-2.5 py-1 rounded-full border transition-all flex-shrink-0"
           style={{
-            borderColor: 'rgba(201,168,76,0.3)',
-            color: 'rgba(201,168,76,0.85)',
+            borderColor: 'rgba(138,109,31,0.35)',
+            color: '#8a6d1f',
             background: 'transparent',
           }}
         >

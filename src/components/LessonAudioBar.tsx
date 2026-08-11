@@ -46,8 +46,8 @@ export default function LessonAudioBar({ lessonId }: LessonAudioBarProps) {
     return (
       <div className="flex items-center justify-between px-4 py-2 text-xs font-english"
         style={{
-          borderBottom: '1px solid rgba(201,168,76,0.12)',
-          color: 'var(--body-faint, rgba(255,255,255,0.25))',
+          borderBottom: '1px solid rgba(13,31,10,0.1)',
+          color: 'rgba(13,31,10,0.4)',
         }}>
         <span>Audio for this lesson forthcoming</span>
       </div>
@@ -55,14 +55,14 @@ export default function LessonAudioBar({ lessonId }: LessonAudioBarProps) {
   }
 
   return (
-    <div style={{borderBottom: '1px solid rgba(201,168,76,0.12)'}}>
+    <div style={{borderBottom: '1px solid rgba(13,31,10,0.1)'}}>
       {/* Toggle row */}
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full flex items-center justify-between px-4 py-2 transition-all font-english text-xs"
         style={{
-          color: expanded ? 'rgba(201,168,76,0.9)' : 'var(--body-faint, rgba(255,255,255,0.35))',
-          background: expanded ? 'rgba(201,168,76,0.05)' : 'transparent',
+          color: expanded ? '#8a6d1f' : 'rgba(13,31,10,0.5)',
+          background: expanded ? 'rgba(138,109,31,0.06)' : 'transparent',
           textAlign: 'left',
         }}
       >
@@ -81,7 +81,7 @@ export default function LessonAudioBar({ lessonId }: LessonAudioBarProps) {
       {expanded && (
         <div className="px-4 pb-3 pt-1">
           <p className="font-english text-[10px] mb-1.5"
-            style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
+            style={{color:'rgba(13,31,10,0.5)'}}>
             Shaykh Ibrāhīm Niasse · Arabic Tafsīr · Sūrat {audio.sura}
           </p>
           <audio
@@ -89,7 +89,7 @@ export default function LessonAudioBar({ lessonId }: LessonAudioBarProps) {
             controls
             preload="none"
             className="w-full"
-            style={{accentColor:'#C9A84C', height:'36px'}}
+            style={{accentColor:'#8a6d1f', height:'36px'}}
           >
             <source src={audio.url} type="audio/mpeg" />
           </audio>

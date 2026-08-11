@@ -9,6 +9,7 @@ import PanelJumpTabs from '@/components/PanelJumpTabs';
 import LessonAudioBar from '@/components/LessonAudioBar';
 import OpeningInvocation from '@/components/OpeningInvocation';
 import LessonNav from '@/components/LessonNav';
+import LessonPageNavigator from '@/components/LessonPageNavigator';
 import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
 import Link from 'next/link';
@@ -31,41 +32,44 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const usulBaseUrl = 'https://usul.ai/t/ruh-bayan';
 
   return (
-    <div className="flex" style={{minHeight:"calc(100vh - 56px)"}}>
+    <div className="lesson-reading-page flex bg-cream text-ink" style={{minHeight:"calc(100vh - 56px)"}}>
     <main className="flex-1 min-w-0 w-full px-4 xl:px-12 pb-20 pt-3">
-      {/* Work title */}
-      <div className="text-center pb-5 mb-5 border-b border-gold/20">
-        <div className="font-arabic text-gold font-bold text-xl" dir="rtl">
+      {/* Bibliographic header — work title, lesson heading, vol./page metadata */}
+      <div className="text-center pb-4 mb-4 border-b" style={{borderColor:'rgba(13,31,10,0.12)'}}>
+        <div className="font-arabic font-arabic-sans font-bold text-lg" dir="rtl" style={{color:'#8a6d1f'}}>
           فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
         </div>
-        <div className="font-english text-white/50 text-sm italic mt-1" dir="ltr">
+        <div className="font-english text-xs italic mt-0.5" dir="ltr" style={{color:'rgba(13,31,10,0.5)'}}>
           Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
         </div>
       </div>
 
       {/* Lesson heading */}
-      <div className="text-center mb-4">
-        <div className="font-arabic text-gold font-bold text-2xl" dir="rtl">{lesson.arabicTitle}</div>
-        <div className="font-english text-sm mt-1" dir="ltr" style={{color:"var(--lesson-header-sub, rgba(255,255,255,0.6))"}}>
+      <div className="text-center mb-3">
+        <div className="font-arabic font-arabic-sans font-bold text-2xl" dir="rtl" style={{color:'#8a6d1f'}}>{lesson.arabicTitle}</div>
+        <div className="font-english text-sm mt-1" dir="ltr" style={{color:'rgba(13,31,10,0.65)'}}>
           {lesson.englishTitle} · {lesson.verseRange}
         </div>
-        <div className="font-english text-xs mt-1" dir="ltr" style={{color:"var(--lesson-header-faint, rgba(255,255,255,0.3))"}}>
+        <div className="font-english text-xs mt-1 uppercase tracking-wide" dir="ltr" style={{color:'#8a6d1f'}}>
           Revised 10-vol. Arabic edition · Vol. {lesson.volume ?? '—'}
           {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ''}
           {!lesson.pageInVolume && lesson.volume ? ' · page to be confirmed' : ''}
         </div>
+        <div className="font-english text-[11px] mt-1" dir="ltr" style={{color:'rgba(13,31,10,0.4)'}}>
+          Lesson {lesson.id} of 56
+        </div>
       </div>
 
       {/* 1. Shaykh Ibrāhīm's Tafsīr */}
-      
+
       <PanelJumpTabs />
       <LessonAudioBar lessonId={lesson.id} />
       {/* Back breadcrumb */}
       <div className="flex items-center gap-2 px-4 py-1.5 text-xs"
-        style={{borderBottom:'1px solid rgba(201,168,76,0.1)'}}>
+        style={{borderBottom:'1px solid rgba(13,31,10,0.1)'}}>
         <a href="/read"
           className="font-english hover:text-gold transition-colors flex items-center gap-1"
-          style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
+          style={{color:'rgba(13,31,10,0.5)'}}>
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="m15 18-6-6 6-6"/>
           </svg>
@@ -154,7 +158,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </Link>
         {lesson.nextId ? (
           <Link href={"/lesson/" + lesson.nextId}
-            className="font-english text-sm text-white border border-gold/40 bg-gold/10 hover:bg-gold/20 px-4 py-2 rounded-lg transition-all">
+            className="font-english text-sm font-semibold text-gold-deep border border-gold-deep/40 bg-gold/15 hover:bg-gold/25 px-4 py-2 rounded-lg transition-all">
             Lesson {lesson.nextId} →
           </Link>
         ) : <span />}
@@ -162,6 +166,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
     
       <LessonNav lessonId={lesson.id} manzil={lesson.manzil} />
       </main>
+    <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} />
     <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
     </div>
   );

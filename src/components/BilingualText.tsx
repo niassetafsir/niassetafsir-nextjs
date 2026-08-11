@@ -162,8 +162,18 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
 
   return (
     <div>
-      {/* Controls */}
-      <div className="p-3 border-b border-white/10 space-y-2" dir="ltr">
+      {/* Controls — sticky just below PanelJumpTabs so it stays reachable while reading */}
+      <div
+        className="p-3 border-b space-y-2 sticky z-30"
+        dir="ltr"
+        style={{
+          top: '46px',
+          background: 'rgba(245,237,214,0.97)',
+          backdropFilter: 'blur(6px)',
+          WebkitBackdropFilter: 'blur(6px)',
+          borderColor: 'rgba(13,31,10,0.1)',
+        }}
+      >
         <div className="flex gap-2 flex-wrap items-center">
           <span className="font-english text-xs text-white/30">Layout:</span>
           <TabBtn label="⇌ Bilingual" active={showBilingual} onClick={() => setView('bilingual')} />
@@ -180,57 +190,41 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
       {poemLines.length > 0 && (showBilingual || view === 'arabic') && (
         <div className="px-6 py-4 border-b border-gold/10 text-center bg-gold/3">
           {poemLines.map((line, i) => (
-            <div key={i} className="font-arabic text-gold/80 text-base leading-9" dir="rtl"
+            <div key={i} className="font-arabic font-arabic-sans text-gold/80 text-base leading-9" dir="rtl"
               dangerouslySetInnerHTML={{ __html: line }} />
           ))}
         </div>
       )}
 
-      {/* Bilingual view */}
+      {/* Bilingual view — stacked at all breakpoints: Arabic paragraph, then its
+          English translation directly beneath it, repeated (site owner's explicit
+          preference over the old desktop two-column split) */}
       {showBilingual && (
-        <>
-          {/* Desktop: two columns */}
-          <div className="hidden md:grid md:grid-cols-2 gap-0">
-            <div dir="rtl" className="p-5 font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify border-l border-gold/15">
-              {commentaryParagraphs.map((p, i) => (
-                <p key={i} id={`ar-para-${i}`} className={`mb-3 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`} dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId) }} />
-              ))}
+        <div className="divide-y" style={{borderColor:'rgba(13,31,10,0.08)'}}>
+          {commentaryParagraphs.map((p, i) => (
+            <div key={i} className="px-4 md:px-6 py-4">
+              <div id={`ar-para-${i}`} dir="rtl"
+                className={`font-arabic font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
+                dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId) }} />
+              {hasEnglish && enParagraphs[i] ? (
+                <div
+                  dir="ltr"
+                  className="font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 pl-3"
+                  dangerouslySetInnerHTML={{ __html: stripEnFootnotes(enParagraphs[i]) }}
+                />
+              ) : i === 0 && !hasEnglish ? (
+                <p className="font-english text-white/20 text-xs italic pl-3" dir="ltr">
+                  English translation forthcoming.
+                </p>
+              ) : null}
             </div>
-            <div dir="ltr" className="p-5">
-              {hasEnglish && englishText ? (
-                <div className="font-english text-[16px] leading-[1.9] text-white" dangerouslySetInnerHTML={{ __html: stripEnFootnotes(englishText || '') }} />
-              ) : (
-                <ComingSoonNote lang="english" />
-              )}
-            </div>
-          </div>
-
-          {/* Mobile: paragraph-by-paragraph interleaved (poem already extracted above) */}
-          <div className="md:hidden divide-y divide-white/5">
-            {commentaryParagraphs.map((p, i) => (
-              <div key={i} className="px-4 py-3">
-                <div dir="rtl" className="font-arabic text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2"
-                  dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId) }} />
-                {hasEnglish && enParagraphs[i] ? (
-                  <div
-                    dir="ltr"
-                    className="font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 pl-3"
-                    dangerouslySetInnerHTML={{ __html: stripEnFootnotes(enParagraphs[i]) }}
-                  />
-                ) : i === 0 && !hasEnglish ? (
-                  <p className="font-english text-white/20 text-xs italic pl-3" dir="ltr">
-                    English translation forthcoming.
-                  </p>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </>
+          ))}
+        </div>
       )}
 
       {/* Arabic only */}
       {view === 'arabic' && (
-        <div className="p-5 text-center" dir="rtl">
+        <div className="p-5 text-center font-arabic-sans" dir="rtl">
           <ArabicWordTool text={commentaryParagraphs.map(p => `<p class="mb-4 text-center leading-loose">${p}</p>`).join('')} />
         </div>
       )}

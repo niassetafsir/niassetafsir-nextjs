@@ -108,16 +108,16 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
 
   return (
     <div ref={ref} className="border border-white/10 rounded-lg mb-3">
-      <div ref={headerRef} className="w-full flex items-center gap-3 px-4 py-3 sticky top-14 z-40 border-b border-white/10 rounded-t-lg" style={{background: "var(--panel-header-bg, rgba(13,20,10,0.95))"}}>
+      <div ref={headerRef} className="w-full flex items-center gap-3 px-4 py-3 sticky top-14 z-40 border-b border-white/10 rounded-t-lg" style={{background: "rgba(245,237,214,0.97)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)"}}>
         <button
           onClick={() => setOpen(!open)}
           className="flex items-center gap-3 flex-1 text-left min-w-0"
         >
           <span className="text-lg flex-shrink-0">{icon}</span>
-          <span className="flex-1 font-english text-sm min-w-0" style={{color:"var(--panel-header-text, rgba(255,255,255,0.8))"}}>
-            <span className="font-arabic" dir="rtl" style={{color:"#C9A84C"}}>{titleAr}</span>
-            <span className="mx-2" style={{color:"var(--panel-header-text, rgba(255,255,255,0.4))"}}>·</span>
-            <span style={{color:"var(--panel-title-en, rgba(255,255,255,0.75))"}}>{titleEn}</span>
+          <span className="flex-1 font-english text-sm min-w-0" style={{color:"rgba(13,31,10,0.85)"}}>
+            <span className="font-arabic font-arabic-sans" dir="rtl" style={{color:"#8a6d1f"}}>{titleAr}</span>
+            <span className="mx-2" style={{color:"rgba(13,31,10,0.35)"}}>·</span>
+            <span style={{color:"rgba(13,31,10,0.85)"}}>{titleEn}</span>
           </span>
           {verse && open && (
             <span className="font-english text-[10px] text-gold/60 border border-gold/25 px-1.5 py-0.5 rounded mr-1 flex-shrink-0">

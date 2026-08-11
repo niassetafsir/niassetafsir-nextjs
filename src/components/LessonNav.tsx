@@ -16,10 +16,11 @@ export default function LessonNav({ lessonId, totalLessons = 56, lessonTitle, ma
     <div
       className="sticky bottom-14 z-40 mx-4 mb-2 rounded-2xl flex items-center justify-between px-4 py-2.5 gap-3"
       style={{
-        background: 'var(--panel-header-bg, rgba(18,12,6,0.96))',
-        border: '1px solid rgba(201,168,76,0.2)',
+        background: 'rgba(245,237,214,0.97)',
+        border: '1px solid rgba(13,31,10,0.15)',
         backdropFilter: 'blur(8px)',
-        boxShadow: '0 2px 16px rgba(0,0,0,0.2)',
+        WebkitBackdropFilter: 'blur(8px)',
+        boxShadow: '0 2px 16px rgba(13,31,10,0.1)',
       }}
     >
       {/* Prev */}
@@ -27,7 +28,7 @@ export default function LessonNav({ lessonId, totalLessons = 56, lessonTitle, ma
         <Link
           href={`/lesson/${lessonId - 1}`}
           className="flex items-center gap-1.5 font-english text-xs font-semibold transition-all hover:text-gold"
-          style={{ color: 'rgba(201,168,76,0.8)' }}
+          style={{ color: '#8a6d1f' }}
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="m15 18-6-6 6-6"/>
@@ -41,7 +42,7 @@ export default function LessonNav({ lessonId, totalLessons = 56, lessonTitle, ma
       {/* Centre — lesson indicator */}
       <div className="text-center flex-1">
         <p className="font-english text-[10px] font-semibold uppercase tracking-widest"
-          style={{ color: 'rgba(201,168,76,0.5)' }}>
+          style={{ color: 'rgba(13,31,10,0.5)' }}>
           Lesson {lessonId} of {totalLessons}
         </p>
 
@@ -52,7 +53,7 @@ export default function LessonNav({ lessonId, totalLessons = 56, lessonTitle, ma
         <Link
           href={`/lesson/${lessonId + 1}`}
           className="flex items-center gap-1.5 font-english text-xs font-semibold transition-all hover:text-gold"
-          style={{ color: 'rgba(201,168,76,0.8)' }}
+          style={{ color: '#8a6d1f' }}
         >
           Lesson {lessonId + 1}
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
