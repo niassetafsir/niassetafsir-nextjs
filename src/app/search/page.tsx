@@ -59,6 +59,7 @@ export default function SearchPage() {
         const f = new Fuse<SearchEntry & {textNorm: string}>(normalizedEntries as (SearchEntry & {textNorm: string})[], {
           keys: ['textNorm'],
           threshold: 0.3,
+          ignoreLocation: true,
           includeScore: true,
         });
         setFuse(f);
@@ -186,7 +187,7 @@ export default function SearchPage() {
       {!query && (
         <div className="text-center py-12 space-y-3">
           <p className="font-english text-white/25 text-sm">
-            Search across 56 lessons · 2,182 indexed passages
+            Search across 56 lessons · 2,176 indexed passages
           </p>
           <p className="font-english text-white/20 text-xs">
             Try: الرحمن · mercy · Q.1:2 · ayat al-kursi · استعاذة
