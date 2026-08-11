@@ -19,14 +19,14 @@
       "bio": "Abū Ḥāmid al-Ghazālī, theologian and Sufi philosopher. Author of Iḥyāʾ ʿUlūm al-Dīn. Shaykh Ibrāhīm cites him in the body of the tafsīr — a primary intellectual interlocutor."
     },
     {
-      "id": "suyuti",
-      "name": "Al-Suyūṭī",
-      "nameAr": "السيوطي",
-      "dates": "1445–1505",
-      "tradition": "Tafsīr / Hadith",
+      "id": "jalalayn",
+      "name": "Al-Suyūṭī & Al-Maḥallī",
+      "nameAr": "الجلالين",
+      "dates": "d. 1505",
+      "tradition": "Tafsīr",
       "role": "both",
-      "citations": 27,
-      "bio": "Jalāl al-Dīn al-Suyūṭī, prolific Egyptian scholar. Co-author of Tafsīr al-Jalālayn. Extensively cited in both the body and apparatus — a primary reference for Quranic sciences."
+      "citations": 113,
+      "bio": "Jalāl al-Dīn al-Maḥallī (d. 864/1459) began, and his student Jalāl al-Dīn al-Suyūṭī (d. 911/1505) completed, the joint Qurʾān commentary Tafsīr al-Jalālayn. Cited throughout — overwhelmingly via al-Ṣāwī's marginal commentary (Ḥāshiyat al-Ṣāwī ʿalā al-Jalālayn) — as a single unit, hence the combined entry."
     },
     {
       "id": "qurtubi",
@@ -70,12 +70,12 @@
     },
     {
       "id": "muslim",
-      "name": "Muslim",
+      "name": "Muslim ibn al-Ḥajjāj",
       "nameAr": "مسلم",
       "dates": "815–875",
       "tradition": "Hadith",
-      "role": "footnotes",
-      "citations": 30,
+      "role": "both",
+      "citations": 110,
       "bio": "Muslim ibn al-Ḥajjāj al-Nīsābūrī, compiler of the Ṣaḥīḥ. Equal with Bukhārī as the most-cited hadith source."
     },
     {
@@ -130,23 +130,13 @@
     },
     {
       "id": "bursawi",
-      "name": "Al-Bursawī",
-      "nameAr": "البرسوي",
+      "name": "Ismāʿīl Ḥaqqī al-Bursawī",
+      "nameAr": "إسماعيل حقي البروسوي",
       "dates": "1653–1725",
       "tradition": "Sufi Tafsīr",
-      "role": "body",
-      "citations": 51,
-      "bio": "Ismāʿīl Ḥaqqī al-Bursawī, Ottoman Sufi scholar and author of Rūḥ al-Bayān — the primary comparative text alongside Shaykh Ibrāhīm's tafsīr."
-    },
-    {
-      "id": "mahalli",
-      "name": "Al-Maḥallī",
-      "nameAr": "المحلي",
-      "dates": "1389–1459",
-      "tradition": "Tafsīr",
-      "role": "footnotes",
-      "citations": 5,
-      "bio": "Jalāl al-Dīn al-Maḥallī, Egyptian scholar. Co-author (with Al-Suyūṭī) of Tafsīr al-Jalālayn."
+      "role": "both",
+      "citations": 110,
+      "bio": "Ismāʿīl Ḥaqqī al-Bursawī (1653–1725), Ottoman Jelvetī Sufi scholar and author of Rūḥ al-Bayān — the primary comparative tafsīr text alongside Shaykh Ibrāhīm's own, cited both in the body of the tafsīr and in the compiler's apparatus."
     },
     {
       "id": "junayd",
@@ -252,11 +242,11 @@
       "id": "al-nisaburi",
       "name": "Al-Nīsābūrī",
       "nameAr": "النيسابوري",
-      "dates": "d. 1016",
+      "dates": "dates uncertain",
       "tradition": "History",
       "role": "both",
-      "citations": 4,
-      "bio": "Author associated with Qiṣaṣ al-Anbiyāʾ (Stories of the Prophets) cited in the tafsīr; distinct from other Naysābūr-nisba scholars in this corpus."
+      "citations": 2,
+      "bio": "Identity uncertain / possibly composite: cited once (Lesson 3) for a Qiṣaṣ al-Anbiyāʾ attributed here to “al-Nīsābūrī,” and once (Lesson 38) for a Sufi saying attributed to “Shaykh Abū Muḥammad al-Nīsābūrī.” The Lesson 3 citation names the book ‘ʿArāʾis al-Majālis,’ which is standardly identified as al-Thaʿlabī's work — yet a separate footnote (Lesson 27) cites ‘al-Nīsābūrī’ and ‘al-Thaʿlabī’ side by side as distinct authorities. Kept separate from al-Thaʿlabī and al-Ḥākim al-Naysābūrī pending further verification; flagged for review."
     },
     {
       "id": "ibn-hajar-al-asqalani",
@@ -275,7 +265,7 @@
       "dates": "933–1014",
       "tradition": "Hadith",
       "role": "body",
-      "citations": 26,
+      "citations": 28,
       "bio": "Abū ʿAbdillāh Muḥammad ibn ʿAbdillāh al-Ḥākim al-Naysābūrī, compiler of al-Mustadrak ʿalā al-Ṣaḥīḥayn. Frequently cited for hadith authentication (\"صححه الحاكم في مستدركه\")."
     },
     {
@@ -577,6 +567,16 @@
       "role": "body",
       "citations": 4,
       "bio": "Aḥmad ibn Muḥammad al-Thaʿlabī, author of al-Kashf wa'l-Bayān and ʿArāʾis al-Majālis (Qiṣaṣ al-Anbiyāʾ), cited for tafsīr and prophetic narratives."
+    },
+    {
+      "id": "al-ashari",
+      "name": "Al-Ashʿarī",
+      "nameAr": "الأشعري",
+      "dates": "874–936",
+      "tradition": "Theology (Kalām)",
+      "role": "body",
+      "citations": 1,
+      "bio": "Abū al-Ḥasan al-Ashʿarī, eponymous founder of Ashʿarī theology (kalām). Cited once in the body text regarding the theological debate over whether the Prophet ﷺ saw God with his physical eyes during the Isrāʾ (Sūrat al-Najm)."
     }
   ],
   "categories": {

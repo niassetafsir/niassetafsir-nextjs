@@ -1127,7 +1127,7 @@
       "verseRange": "Sūrat Al-Nabaʾ – Sūrat Al-Ṭāriq"
     }
   ],
-  "Al-Bursawī": [
+  "Ismāʿīl Ḥaqqī al-Bursawī": [
     {
       "lessonId": 1,
       "lessonTitleEn": "Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa",
@@ -2836,20 +2836,6 @@
       "snippet": "اهب عن الذريعة لابن العماد أنه قال فيها: وعن الشيخ أبي محمد النيسابوري أن أبا بكر الصديق رضي اللّٰه عنه، لما قال النبي صلى اللّٰه عليه وسلم ذلك، قال:\nوأنا حبب إلي من الدنيا ثلاث: القعود بين يديك، والص",
       "type": "body-text",
       "verseRange": "Sūrat Al-Naml – Sūrat Al-Qaṣaṣ"
-    },
-    {
-      "lessonId": 45,
-      "lessonTitleEn": "Lesson Forty-Five · Sūrat Fuṣṣilat / Sūrat Al-Shūrā / Sūrat Al-Zukhruf / Sūrat Al-Dukhān",
-      "snippet": "ي من خدمني وأتعبي يا دنيا من خدمك\" معرفة علوم الحديث للحاكم النيسابوري/ باب ذكر النوع الخامس والعشرين من علم الحديث. وتقدم في الدروس 39 ،30 ،29.\n2 - أخرج البخاري في صحيحه عن عبد الملك بن ميسرة قال سمع",
-      "type": "body-text",
-      "verseRange": "Sūrat Fuṣṣilat – Sūrat Al-Dukhān"
-    },
-    {
-      "lessonId": 48,
-      "lessonTitleEn": "Lesson Forty-Eight · Sūrat Al-Dhāriyāt / Sūrat Al-Ṭūr / Sūrat Al-Najm / Sūrat Al-Qamar",
-      "snippet": "من خدمني وأتعبي يا دنيا من خدمك\". معرفة علوم الحديث للحاكم النيسابوري/ باب ذكر النوع الخامس والعشرين من علم الحديث. وتقدم في الدروس 39 ،30 ،29 و45.\n2- أخرج البخاري في صحيحه عن عطاء قال: سمعت ابن عباس",
-      "type": "body-text",
-      "verseRange": "Sūrat Al-Dhāriyāt – Sūrat Al-Qamar"
     }
   ],
   "Ibn Ḥajar al-ʿAsqalānī": [
@@ -3239,6 +3225,20 @@
       "snippet": "يوما وقال مقاتل أربعين يوما. تفسير القرطبي ج92/20.\n3 - أخرج الحاكم في المستدرك عن زيد بن أرقم رضي اللّه عنه قال: لما نزلت: \"تَبَّثْ يَدَآ أَيِ لَهَبِ وَتَبَّ إلى \"وَامْرَأَنَّةٌ حَمَّالَةُ الْحَطَبِ ف",
       "type": "body-text",
       "verseRange": "Sūrat Al-Aʿlā – Sūrat Al-Masad"
+    },
+    {
+      "lessonId": 45,
+      "lessonTitleEn": "Lesson Forty-Five · Sūrat Fuṣṣilat / Sūrat Al-Shūrā / Sūrat Al-Zukhruf / Sūrat Al-Dukhān",
+      "snippet": "ي من خدمني وأتعبي يا دنيا من خدمك\" معرفة علوم الحديث للحاكم النيسابوري/ باب ذكر النوع الخامس والعشرين من علم الحديث. وتقدم في الدروس 39 ،30 ،29.\n2 - أخرج البخاري في صحيحه عن عبد الملك بن ميسرة قال سمع",
+      "type": "body-text",
+      "verseRange": "Sūrat Fuṣṣilat – Sūrat Al-Dukhān"
+    },
+    {
+      "lessonId": 48,
+      "lessonTitleEn": "Lesson Forty-Eight · Sūrat Al-Dhāriyāt / Sūrat Al-Ṭūr / Sūrat Al-Najm / Sūrat Al-Qamar",
+      "snippet": "من خدمني وأتعبي يا دنيا من خدمك\". معرفة علوم الحديث للحاكم النيسابوري/ باب ذكر النوع الخامس والعشرين من علم الحديث. وتقدم في الدروس 39 ،30 ،29 و45.\n2- أخرج البخاري في صحيحه عن عطاء قال: سمعت ابن عباس",
+      "type": "body-text",
+      "verseRange": "Sūrat Al-Dhāriyāt – Sūrat Al-Qamar"
     }
   ],
   "Al-Ṣāwī": [
@@ -5007,6 +5007,24 @@
       "snippet": "ف الناس ثمانون وحد قاذف الأنبياء ستون ومائة. ذكره الماوردي والثعلبي أيضا، قال الثعلبي وقال الحرث الأعور عن علي من حدث بحديث داود على ما ترويه القصاص معتقدا جلدته حدين لعظم ما ارتكب برمي من قد رفع اللّ",
       "type": "body-text",
       "verseRange": "Sūrat Al-Ṣāffāt – Sūrat Al-Zumar"
+    }
+  ],
+  "Al-Rāzī": [
+    {
+      "lessonId": 56,
+      "lessonTitleEn": "Lesson Fifty-Six · Sūrat Al-Ikhlāṣ / Sūrat Al-Falaq / Sūrat Al-Nās",
+      "snippet": "وقد ذكر معظم هذه الاسماء الإمام الرازي وبين وجه التسمية بها. روح المعاني ج266-265/30. وللسيوطي في الدر المنثور روايةً عن أنس رضي اللّٰه عنه أن ال",
+      "type": "body-text",
+      "verseRange": "Sūrat Al-Ikhlāṣ – Sūrat Al-Nās"
+    }
+  ],
+  "Al-Ashʿarī": [
+    {
+      "lessonId": 48,
+      "lessonTitleEn": "Lesson Forty-Eight · Sūrat Al-Dhāriyāt / Sūrat Al-Ṭūr / Sūrat Al-Najm / Sūrat Al-Qamar",
+      "snippet": "وبه قال سائر أصحاب ابن عباس، وجزم به كعب الأحبار والزهري وصاحبه معمر وآخرون، وهو قول الأشعري وغالب أتباعه... (إلى أن قال) وممن أثبت الرؤية لنبينا صلى اللّٰه عليه",
+      "type": "body-text",
+      "verseRange": "Sūrat Al-Dhāriyāt – Sūrat Al-Qamar"
     }
   ]
 }

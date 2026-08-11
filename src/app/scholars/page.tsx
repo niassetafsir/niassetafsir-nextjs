@@ -36,8 +36,7 @@ const SCHOLAR_BIO: Record<string, { ar: string; d: string; tradition: string }> 
   'Al-Qurṭubī': { ar: 'القرطبي', d: 'd. 671/1273', tradition: 'Tafsīr' },
   'Ibn Kathīr': { ar: 'ابن كثير', d: 'd. 774/1373', tradition: 'Tafsīr' },
   'Al-Suyūṭī & Al-Maḥallī': { ar: 'الجلالين', d: 'd. 911/1505', tradition: 'Tafsīr' },
-  'Ismāʿīl Ḥaqqī al-Bursawī': { ar: 'البروسوي', d: 'd. 1127/1715', tradition: 'Tafsīr / Sufism' },
-  'Al-Bursawī': { ar: 'البروسوي', d: 'd. 1127/1715', tradition: 'Tafsīr / Sufism' },
+  'Ismāʿīl Ḥaqqī al-Bursawī': { ar: 'إسماعيل حقي البروسوي', d: 'd. 1137/1725', tradition: 'Tafsīr / Sufism' },
   'Al-Ghazālī': { ar: 'الغزالي', d: 'd. 505/1111', tradition: 'Theology / Sufism' },
   'Ibn ʿArabī': { ar: 'ابن عربي', d: 'd. 638/1240', tradition: 'Sufism / Metaphysics' },
   'Al-Junayd': { ar: 'الجنيد', d: 'd. 298/910', tradition: 'Sufism' },
@@ -47,7 +46,7 @@ const SCHOLAR_BIO: Record<string, { ar: string; d: string; tradition: string }> 
   'Ibn ʿAṭāʾ Allāh': { ar: 'ابن عطاء الله', d: 'd. 709/1309', tradition: 'Sufism' },
   'Ibn Hishām': { ar: 'ابن هشام', d: 'd. 761/1360', tradition: 'Linguistics' },
   'Ibn Saʿd': { ar: 'ابن سعد', d: 'd. 230/845', tradition: 'History' },
-  'Al-Nīsābūrī': { ar: 'النيسابوري', d: 'd. 406/1016', tradition: 'History' },
+  'Al-Nīsābūrī': { ar: 'النيسابوري', d: 'dates uncertain', tradition: 'History (identity uncertain)' },
   'Ibn Ḥajar al-ʿAsqalānī': { ar: 'ابن حجر العسقلاني', d: 'd. 852/1449', tradition: 'Hadith' },
   'Al-Ḥākim al-Naysābūrī': { ar: 'الحاكم', d: 'd. 405/1014', tradition: 'Hadith' },
   'Al-Ṣāwī': { ar: 'الصاوي', d: 'd. 1241/1825', tradition: 'Tafsīr' },
@@ -65,6 +64,8 @@ const SCHOLAR_BIO: Record<string, { ar: string; d: string; tradition: string }> 
   'Al-Daylamī': { ar: 'الديلمي', d: 'd. 509/1115', tradition: 'Hadith' },
   'Abū Dāwūd al-Ṭayālisī': { ar: 'أبو داود الطيالسي', d: 'd. 204/819', tradition: 'Hadith' },
   'Al-Ḥasan al-Baṣrī': { ar: 'الحسن البصري', d: 'd. 110/728', tradition: 'Tafsīr / Zuhd' },
+  'Al-Rāzī': { ar: 'الرازي', d: 'd. 606/1210', tradition: 'Theology / Philosophy' },
+  'Al-Ashʿarī': { ar: 'الأشعري', d: 'd. 324/936', tradition: 'Theology (Kalām)' },
   'Al-Bayḍāwī': { ar: 'البيضاوي', d: 'd. c. 685/1286 (disputed)', tradition: 'Tafsīr' },
   'Al-Nawawī': { ar: 'النووي', d: 'd. 676/1277', tradition: 'Hadith / Fiqh' },
   'Ibn Qutayba': { ar: 'ابن قتيبة', d: 'd. 276/889', tradition: 'Linguistics / Ḥadīth' },
@@ -102,6 +103,8 @@ const TRADITION_COLOR: Record<string, string> = {
   'Linguistics / Ḥadīth': 'border-cyan-500/30 text-cyan-300/70',
   'Sufism / Tafsīr': 'border-purple-500/30 text-purple-300/70',
   'Sufism (contested figure)': 'border-purple-500/30 text-purple-300/70',
+  'Theology / Philosophy': 'border-amber-500/30 text-amber-300/70',
+  'Theology (Kalām)': 'border-amber-500/30 text-amber-300/70',
 };
 
 export default function ScholarsPage() {
