@@ -21,6 +21,7 @@ export interface Lesson {
   wolofAudioUrl?: string | null;
   prevId: number | null;
   nextId: number | null;
+  footnoteOrder?: string[];
 }
 
 export interface Manzil {

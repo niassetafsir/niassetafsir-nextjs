@@ -6,6 +6,7 @@ interface Footnote {
   id: string;
   lessonId: number;
   num: number;
+  displayNum?: number;
   arabic: string;
   scholar: string | null;
   work: string | null;
@@ -44,16 +45,29 @@ export default function FootnotesPage() {
       setFootnotes(d);
       setLoading(false);
     });
-    // Check URL hash for direct footnote link
+    const params = new URLSearchParams(window.location.search);
+    const lessonParam = params.get('lesson');
+    // Check URL hash for direct footnote link — pre-filter to that footnote's
+    // lesson (parsed out of the id itself, fn-{lessonId}-...) so the reader
+    // lands on a manageable, relevant list rather than all ~2000 entries.
     if (window.location.hash) {
-      highlightRef.current = window.location.hash.slice(1);
-      // Show all so the target is visible
-      setMode('all');
-      setActive('all');
+      const hashId = window.location.hash.slice(1);
+      highlightRef.current = hashId;
+      const m = hashId.match(/^fn-(\d+)-/);
+      if (m) {
+        setMode('lesson');
+        setActive(m[1]);
+      } else {
+        setMode('all');
+        setActive('all');
+      }
       setTimeout(() => {
-        const el = document.getElementById(window.location.hash.slice(1));
+        const el = document.getElementById(hashId);
         el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 800);
+    } else if (lessonParam) {
+      setMode('lesson');
+      setActive(lessonParam);
     }
   }, []);
 
@@ -181,7 +195,7 @@ export default function FootnotesPage() {
                       <div className="flex items-center gap-2 flex-wrap">
                         <Link href={`/lesson/${fn.lessonId}?panel=tafsir`}
                           className="font-english text-[10px] text-gold/60 hover:text-gold border border-gold/20 px-1.5 py-0.5 rounded transition-colors">
-                          Lesson {fn.lessonId} · fn. {fn.num}{fn.id.split('-').length > 3 ? ` (occ. ${fn.id.split('-').pop()})` : ''}
+                          Lesson {fn.lessonId} · fn. {fn.displayNum ?? fn.num}{fn.id.split('-').length > 3 && !fn.id.includes('-b') ? ` (occ. ${fn.id.split('-').pop()})` : ''}
                         </Link>
                         {fn.volRef && (
                           <span className="font-english text-[10px]" style={{color:'rgba(255,255,255,0.3)'}}>

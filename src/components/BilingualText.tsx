@@ -9,6 +9,7 @@ interface BilingualTextProps {
   englishText: string | null;
   hasEnglish: boolean;
   lessonId?: number;
+  footnoteOrder?: string[];
 }
 
 const LANG_TABS: { id: View; label: string }[] = [
@@ -32,7 +33,7 @@ function stripEnFootnotes(html: string): string {
              .replace(/<div class="en-footnotes"[\s\S]*/g, '');
 }
 
-function injectFootnoteLinks(text: string, lessonId?: number): string {
+function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrder?: string[], cursor?: { i: number }): string {
   if (!lessonId) return text;
 
   // Strip inline bibliographic refs like "تفسير القرطبي ج35/" before [N]
@@ -44,7 +45,11 @@ function injectFootnoteLinks(text: string, lessonId?: number): string {
 
   // Convert [N] to footnote superscript links
   result = result.replace(/\[(\d+)\]/g, (_match, num) => {
-    const id = `fn-${lessonId}-${num}`;
+    let id = `fn-${lessonId}-${num}`;
+    if (footnoteOrder && cursor && cursor.i < footnoteOrder.length) {
+      id = footnoteOrder[cursor.i];
+      cursor.i += 1;
+    }
     return `<a href="/footnotes#${id}" class="fn-superscript" title="View footnote ${num}">[${num}]</a>`;
   });
 
@@ -108,12 +113,13 @@ function ComingSoonNote({ lang }: { lang: string }) {
   );
 }
 
-export default function BilingualText({ arabicText, englishText, hasEnglish, lessonId }: BilingualTextProps) {
+export default function BilingualText({ arabicText, englishText, hasEnglish, lessonId, footnoteOrder }: BilingualTextProps) {
   const [view, setView] = useState<View>('bilingual');
   const [highlightQuery, setHighlightQuery] = useState<string>('');
   const [highlightedPara, setHighlightedPara] = useState<number>(-1);
 
   const allArParagraphs = arabicText.split('\n').filter(p => p.trim());
+  const fnCursor = { i: 0 };
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -201,11 +207,12 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
           preference over the old desktop two-column split) */}
       {showBilingual && (
         <div className="divide-y" style={{borderColor:'rgba(13,31,10,0.08)'}}>
+          {(() => { fnCursor.i = 0; return null; })()}
           {commentaryParagraphs.map((p, i) => (
             <div key={i} className="px-4 md:px-6 py-4">
               <div id={`ar-para-${i}`} dir="rtl"
                 className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
-                dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId) }} />
+                dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId, footnoteOrder, fnCursor) }} />
               {hasEnglish && enParagraphs[i] ? (
                 <div
                   dir="ltr"

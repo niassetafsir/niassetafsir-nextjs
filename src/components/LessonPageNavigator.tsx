@@ -47,13 +47,13 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
       className="hidden lg:block flex-shrink-0 sticky self-start overflow-y-auto"
       style={{
         top: '56px',
-        width: '148px',
+        width: '126px',
         maxHeight: 'calc(100vh - 56px)',
         borderLeft: '1px solid rgba(13,31,10,0.1)',
         background: '#F5EDD6',
       }}
     >
-      <div className="px-3 py-3 space-y-4">
+      <div className="px-2.5 py-2.5 space-y-3">
         {/* Icon row */}
         <div className="flex items-center gap-2 pb-3" style={{borderBottom: '1px solid rgba(13,31,10,0.1)'}}>
           <span
@@ -76,7 +76,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
 
         {/* Jump to lesson */}
         <form onSubmit={handleJump} className="space-y-1.5">
-          <label className="font-english text-[9px] uppercase tracking-wider block" style={{color:'#8a6d1f'}}>
+          <label className="font-english text-[8px] uppercase tracking-wide block font-normal" style={{color:'#8a6d1f'}}>
             Jump to lesson
           </label>
           <div className="flex items-center gap-1.5">
@@ -130,7 +130,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
 
         {/* Volumes */}
         <div>
-          <p className="font-english text-[9px] uppercase tracking-wider mb-2" style={{color:'#8a6d1f'}}>
+          <p className="font-english text-[8px] uppercase tracking-wide mb-1.5 font-normal" style={{color:'#8a6d1f'}}>
             Volumes
           </p>
           <div className="space-y-1">
@@ -147,7 +147,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
                       background: containsCurrent ? 'rgba(138,109,31,0.08)' : 'transparent',
                     }}
                   >
-                    <span className="font-english text-[11px] font-semibold">
+                    <span className="font-english text-[11px] font-normal">
                       Vol. {v.vol}
                     </span>
                     <span className="flex items-center gap-1">

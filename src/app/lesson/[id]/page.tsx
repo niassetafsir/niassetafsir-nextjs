@@ -12,6 +12,7 @@ import LessonNav from '@/components/LessonNav';
 import LessonPageNavigator from '@/components/LessonPageNavigator';
 import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
+import LessonCitations from '@/components/LessonCitations';
 import Link from 'next/link';
 
 export async function generateStaticParams() {
@@ -82,8 +83,14 @@ export default async function LessonPage({ params }: { params: { id: string } })
           englishText={lesson.englishText}
           hasEnglish={lesson.hasEnglish}
           lessonId={lesson.id}
+          footnoteOrder={(lesson as any).footnoteOrder}
         />
 
+      </Panel>
+
+      {/* 1b. Citations — full apparatus for this lesson */}
+      <Panel icon="" titleAr="الحواشي والمصادر" titleEn="Citations" panelId="citations" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
+        <LessonCitations lessonId={lesson.id} />
       </Panel>
 
       {/* 2. Lesson Overview */}
