@@ -14,7 +14,7 @@ export default function LessonNav({ lessonId, totalLessons = 56, lessonTitle, ma
 
   return (
     <div
-      className="sticky bottom-14 z-40 mx-4 mb-2 rounded-2xl flex items-center justify-between px-4 py-2.5 gap-3"
+      className="sticky bottom-14 z-40 mx-4 mb-2 rounded-2xl flex items-center justify-between px-4 py-2.5 gap-3 lg:hidden"
       style={{
         background: 'rgba(245,237,214,0.97)',
         border: '1px solid rgba(13,31,10,0.15)',
