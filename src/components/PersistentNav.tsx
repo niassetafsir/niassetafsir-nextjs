@@ -22,7 +22,7 @@ export default function PersistentNav() {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 flex border-t"
+    <div dir="ltr" className="fixed bottom-0 left-0 right-0 z-50 flex border-t"
       style={{
         background: 'var(--persistent-nav-bg, rgba(10,18,8,0.97))',
         backdropFilter: 'blur(12px)',

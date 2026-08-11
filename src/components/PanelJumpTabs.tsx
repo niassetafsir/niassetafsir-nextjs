@@ -15,6 +15,7 @@ export default function PanelJumpTabs() {
 
   return (
     <div
+      dir="ltr"
       className="sticky top-0 z-40 flex gap-1.5 overflow-x-auto py-2 px-1 mb-2"
       style={{
         background: 'rgba(245,237,214,0.97)',
