@@ -726,6 +726,10 @@ nav .font-english.text-xs {
   font-family: 'IBM Plex Sans Arabic', sans-serif !important;
 }
 
+body:has(.lesson-reading-page) {
+  padding-bottom: 0 !important;
+}
+
 .lesson-reading-page {
   background: #F5EDD6;
   color: #0D1F0A;

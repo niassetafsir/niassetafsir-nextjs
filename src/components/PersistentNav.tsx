@@ -5,6 +5,10 @@ import { usePathname } from 'next/navigation';
 export default function PersistentNav() {
   const pathname = usePathname();
 
+  // Lesson reading pages have their own nav (mobile drawer + prev/next card);
+  // the global bar would just eat screen space during reading.
+  if (pathname.startsWith('/lesson/')) return null;
+
   const isHome = pathname === '/';
   const isRead = pathname.startsWith('/lesson') || pathname.startsWith('/manzil') || pathname === '/read';
   const isListen = pathname.startsWith('/audio');
