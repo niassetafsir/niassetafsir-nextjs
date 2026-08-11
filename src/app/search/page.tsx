@@ -38,11 +38,14 @@ function highlight(text: string, query: string) {
   );
 }
 
+type IndexedEntry = SearchEntry & { textNorm: string };
+
 export default function SearchPage() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState(false);
-  const [fuse, setFuse] = useState<Fuse<SearchEntry & {textNorm: string}> | null>(null);
+  const [fuse, setFuse] = useState<Fuse<IndexedEntry> | null>(null);
+  const [entries, setEntries] = useState<IndexedEntry[]>([]);
   const [filter, setFilter] = useState<'all' | 'arabic' | 'english' | 'jalalayn'>('all');
 
   // Load index
@@ -50,16 +53,20 @@ export default function SearchPage() {
     fetch('/data/search-main.json')
       .then(r => r.json())
       .then(data => {
-        const normalizedEntries = data.entries
+        const normalizedEntries: IndexedEntry[] = data.entries
           .filter((e: SearchEntry) => typeof e.text === 'string' && e.text.length > 0)
           .map((e: SearchEntry) => ({
             ...e,
             textNorm: stripDiacritics(e.text)
           }));
-        const f = new Fuse<SearchEntry & {textNorm: string}>(normalizedEntries as (SearchEntry & {textNorm: string})[], {
+        setEntries(normalizedEntries);
+        // Fuzzy index is a fallback only, for typo tolerance -- kept tight
+        // (low threshold, location-aware) so it doesn't drown out real
+        // matches with noise the way a loose 0.3/ignoreLocation config did.
+        const f = new Fuse<IndexedEntry>(normalizedEntries, {
           keys: ['textNorm'],
-          threshold: 0.3,
-          ignoreLocation: true,
+          threshold: 0.2,
+          ignoreLocation: false,
           includeScore: true,
         });
         setFuse(f);
@@ -67,12 +74,27 @@ export default function SearchPage() {
   }, []);
 
   const search = useCallback((q: string) => {
-    if (!fuse || !q.trim()) { setResults([]); return; }
+    if (!q.trim()) { setResults([]); return; }
     setLoading(true);
-    const raw = fuse.search(q, { limit: 50 });
-    setResults(raw);
+    const qNorm = stripDiacritics(q.trim()).toLowerCase();
+
+    // Literal substring match first -- this is what "search for this word
+    // or phrase" actually means, and guarantees real hits (e.g. "mercy",
+    // which has 118 genuine occurrences) surface instead of being buried
+    // under unrelated fuzzy noise.
+    const exact = entries.filter(e => e.textNorm.toLowerCase().includes(qNorm));
+
+    if (exact.length > 0) {
+      setResults(exact.slice(0, 50).map(item => ({ item })));
+    } else if (fuse) {
+      // Fall back to fuzzy only when there's no literal match, so typos
+      // and near-misses still return something.
+      setResults(fuse.search(qNorm, { limit: 50 }));
+    } else {
+      setResults([]);
+    }
     setLoading(false);
-  }, [fuse]);
+  }, [fuse, entries]);
 
   useEffect(() => {
     const timer = setTimeout(() => search(query), 300);

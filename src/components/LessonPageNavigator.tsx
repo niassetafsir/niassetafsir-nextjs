@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { List, Search, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
+import { List, Search, ChevronLeft, ChevronRight, ChevronDown, Hash } from 'lucide-react';
 
 // Volume → lesson-range table, verified against the `volume` field in
 // src/data/lessons/*.json (2026-08-11). Lesson 57 in the data is a duplicate
@@ -30,6 +30,7 @@ interface LessonPageNavigatorProps {
 export default function LessonPageNavigator({ lessonId, prevId, nextId }: LessonPageNavigatorProps) {
   const router = useRouter();
   const [jumpValue, setJumpValue] = useState('');
+  const [showJump, setShowJump] = useState(false);
   const currentVolume = VOLUMES.find(v => lessonId >= v.start && lessonId <= v.end)?.vol;
   const [openVolume, setOpenVolume] = useState<number | null>(currentVolume ?? null);
 
@@ -44,6 +45,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
 
   return (
     <aside
+      dir="ltr"
       className="hidden lg:block flex-shrink-0 sticky self-start overflow-y-auto"
       style={{
         top: '56px',
@@ -72,37 +74,49 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
           >
             <Search size={13} />
           </Link>
+          <button
+            type="button"
+            onClick={() => setShowJump(v => !v)}
+            className="flex items-center justify-center w-5 h-5 rounded-md transition-colors hover:bg-black/5"
+            style={{ color: showJump ? '#8a6d1f' : 'rgba(13,31,10,0.55)', background: showJump ? 'rgba(138,109,31,0.12)' : 'transparent' }}
+            title="Jump to lesson"
+          >
+            <Hash size={13} />
+          </button>
         </div>
 
-        {/* Jump to lesson */}
-        <form onSubmit={handleJump} className="space-y-1.5">
-          <label className="font-english text-[8px] uppercase tracking-wide block font-normal" style={{color:'#8a6d1f'}}>
-            Jump to lesson
-          </label>
-          <div className="flex items-center gap-1.5">
-            <input
-              type="number"
-              min={1}
-              max={56}
-              value={jumpValue}
-              onChange={e => setJumpValue(e.target.value)}
-              placeholder={String(lessonId)}
-              className="font-english text-[10px] w-10 px-1 py-1 rounded-md"
-              style={{
-                background: '#fff',
-                border: '1px solid rgba(13,31,10,0.2)',
-                color: '#0D1F0A',
-              }}
-            />
-            <button
-              type="submit"
-              className="font-english text-[10px] px-1 py-1 rounded-md transition-colors"
-              style={{ background: '#8a6d1f', color: '#F5EDD6' }}
-            >
-              Go
-            </button>
-          </div>
-        </form>
+        {/* Jump to lesson (toggle) */}
+        {showJump && (
+          <form onSubmit={handleJump} className="space-y-1.5">
+            <label className="font-english text-[8px] uppercase tracking-wide block font-normal" style={{color:'#8a6d1f'}}>
+              Jump to lesson
+            </label>
+            <div className="flex items-center gap-1.5">
+              <input
+                type="number"
+                min={1}
+                max={56}
+                value={jumpValue}
+                onChange={e => setJumpValue(e.target.value)}
+                placeholder={String(lessonId)}
+                className="font-english text-[10px] w-10 px-1 py-1 rounded-md"
+                style={{
+                  background: '#fff',
+                  border: '1px solid rgba(13,31,10,0.2)',
+                  color: '#0D1F0A',
+                }}
+                autoFocus
+              />
+              <button
+                type="submit"
+                className="font-english text-[10px] px-1 py-1 rounded-md transition-colors"
+                style={{ background: '#8a6d1f', color: '#F5EDD6' }}
+              >
+                Go
+              </button>
+            </div>
+          </form>
+        )}
 
         {/* Prev / next */}
         <div className="flex items-center justify-between gap-2">

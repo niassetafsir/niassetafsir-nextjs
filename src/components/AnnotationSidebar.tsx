@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { getAnnotationsForLesson, deleteAnnotation, toggleFlag, exportAnnotationsText, type Annotation } from '@/lib/annotations';
+import { PenLine, X } from 'lucide-react';
 
 interface AnnotationSidebarProps {
   lessonId: number;
@@ -22,6 +23,7 @@ const COLOR_LABEL: Record<string, string> = {
 export default function AnnotationSidebar({ lessonId, lessonTitle, verseRange, refreshTrigger }: AnnotationSidebarProps) {
   const [annotations, setAnnotations] = useState<Annotation[]>([]);
   const [exportMsg, setExportMsg] = useState('');
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setAnnotations(getAnnotationsForLesson(lessonId));
@@ -54,8 +56,34 @@ export default function AnnotationSidebar({ lessonId, lessonTitle, verseRange, r
     a.click(); URL.revokeObjectURL(url);
   };
 
+  if (!open) {
+    return (
+      <button
+        onClick={() => setOpen(true)}
+        dir="ltr"
+        className="hidden md:flex flex-col items-center"
+        title="Open annotations"
+        style={{
+          width:'32px', flexShrink:0, borderLeft:'1px solid rgba(201,168,76,0.15)',
+          height:'calc(100vh - 56px)', position:'sticky', top:'56px',
+          background:'var(--bg, #1a1008)', paddingTop:'14px', cursor:'pointer',
+        }}
+      >
+        <PenLine size={14} color="rgba(201,168,76,0.6)" />
+        {annotations.length > 0 && (
+          <span className="font-english" style={{
+            marginTop:'6px', fontSize:'9px', color:'#C9A84C', background:'rgba(201,168,76,0.15)',
+            borderRadius:'999px', width:'16px', height:'16px', display:'flex',
+            alignItems:'center', justifyContent:'center',
+          }}>{annotations.length}</span>
+        )}
+      </button>
+    );
+  }
+
   return (
     <div
+      dir="ltr"
       className="hidden md:flex flex-col"
       style={{
         width:'260px', flexShrink:0, borderLeft:'1px solid rgba(201,168,76,0.15)',
@@ -64,14 +92,19 @@ export default function AnnotationSidebar({ lessonId, lessonTitle, verseRange, r
       }}
     >
       {/* Header */}
-      <div style={{padding:'14px 14px 10px', borderBottom:'1px solid rgba(201,168,76,0.12)'}}>
-        <p className="font-english" style={{fontSize:'10px', textTransform:'uppercase',
-          letterSpacing:'0.1em', color:'rgba(201,168,76,0.6)', marginBottom:'2px'}}>
-          Annotations
-        </p>
-        <p className="font-english" style={{fontSize:'11px', color:'rgba(255,255,255,0.35)'}}>
-          {annotations.length} note{annotations.length !== 1 ? 's' : ''} on this lesson
-        </p>
+      <div style={{padding:'14px 14px 10px', borderBottom:'1px solid rgba(201,168,76,0.12)', display:'flex', alignItems:'flex-start', justifyContent:'space-between'}}>
+        <div>
+          <p className="font-english" style={{fontSize:'10px', textTransform:'uppercase',
+            letterSpacing:'0.1em', color:'rgba(201,168,76,0.6)', marginBottom:'2px'}}>
+            Annotations
+          </p>
+          <p className="font-english" style={{fontSize:'11px', color:'rgba(255,255,255,0.35)'}}>
+            {annotations.length} note{annotations.length !== 1 ? 's' : ''} on this lesson
+          </p>
+        </div>
+        <button onClick={() => setOpen(false)} title="Close" style={{background:'none', border:'none', cursor:'pointer', padding:'2px'}}>
+          <X size={13} color="rgba(255,255,255,0.35)" />
+        </button>
       </div>
 
       {/* Annotation list */}
