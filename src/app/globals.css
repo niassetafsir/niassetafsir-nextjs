@@ -370,54 +370,15 @@ input[type="email"]::placeholder {
   max-width: 1100px !important;
 }
 
-/* Arabic tafsir text — larger, more readable */
-.font-arabic {
-  font-size: 19px !important;
-  line-height: 2.2 !important;
-}
+/* NOTE: earlier iterations of this file had blanket !important
+   font-size overrides on .font-arabic / .font-english / body here.
+   Those hit EVERY element using those utility classes site-wide
+   (nav labels, sidebar headings, buttons -- not just lesson body
+   text), which is why UI chrome kept rendering oversized. Actual
+   reading-size typography for lesson body text is now set inline
+   via Tailwind (see BilingualText.tsx: font-arabic-sans text-[1.05rem]
+   and font-english text-[16px]) so no blanket override is needed. */
 
-/* English body text — larger */
-.font-english {
-  font-size: 17px !important;
-  line-height: 1.9 !important;
-}
-
-/* ── Usul.ai style: no max-width cap, large text ── */
-.font-arabic {
-  font-size: 22px !important;
-  line-height: 2.4 !important;
-}
-.font-english {
-  font-size: 19px !important;
-  line-height: 2.0 !important;
-}
-body {
-  font-size: 19px;
-  line-height: 2.0;
-}
-
-/* ── Maximum readability: full-width, large, bold Arabic ── */
-.font-arabic {
-  font-size: 26px !important;
-  line-height: 2.7 !important;
-  font-weight: 700 !important;
-}
-.font-english {
-  font-size: 20px !important;
-  line-height: 2.0 !important;
-}
-body {
-  font-size: 20px;
-}
-
-/* ── English column: larger, readable ─────────────── */
-.en-column,
-.en-column p,
-.en-column .en-para,
-[dir="ltr"].font-english {
-  font-size: 20px !important;
-  line-height: 2.0 !important;
-}
 
 /* ── Jalalayn text: centered ───────────────────────── */
 .jalalayn-text {

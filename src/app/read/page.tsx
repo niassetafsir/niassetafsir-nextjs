@@ -12,9 +12,18 @@ const SURA_TO_LESSON: Record<number, number> = {
   61:50, 62:51, 63:51, 64:51, 65:51, 66:51, 67:52, 68:52, 69:52, 70:52,
   71:52, 72:53, 73:53, 74:53, 75:53, 76:53, 77:53, 78:54, 79:54, 80:54,
   81:54, 82:54, 83:54, 84:54, 85:54, 86:54, 87:55, 88:55, 89:55, 90:55,
-  91:55, 92:55, 93:55, 94:55, 95:55, 96:55, 97:55, 98:55, 99:55, 100:56,
-  101:56, 102:56, 103:56, 104:56, 105:56, 106:56, 107:56, 108:56, 109:56, 110:56,
-  111:56, 112:56, 113:56, 114:56,
+  91:55, 92:55, 93:55, 94:55, 95:55, 96:55, 97:55, 98:55, 99:55, 100:55,
+  101:55, 102:55, 103:55, 104:55, 105:55, 106:55, 107:55, 108:55, 109:55, 110:55,
+  111:55, 112:56, 113:56, 114:56,
+};
+
+// Sūrahs spanning more than one lesson (the tafsīr moves in strict
+// Qurʾānic order, so each span is contiguous). Used to show an honest
+// "L2-7" range in Browse-by-Sūrah instead of implying single-lesson
+// coverage. Every sūrah not listed here is contained within one lesson.
+const SURA_LESSON_END: Record<number, number> = {
+  2:7, 3:10, 4:13, 5:16, 7:20, 9:23, 11:26, 12:27, 20:33, 21:34,
+  24:36, 27:38, 31:40, 33:41, 35:42, 37:43, 41:45, 44:46, 48:47, 51:48,
 };
 
 const SURAS = [
@@ -59,7 +68,7 @@ const LESSONS = [
   {id:13, suras:'Al-Nisāʾ', range:'Q. 4:148–5:22', hasText:true},
   {id:14, suras:'Al-Māʾida', range:'Q. 5:23–81', hasText:true},
   {id:15, suras:'Al-Māʾida', range:'Q. 5:82–6:35', hasText:true},
-  {id:16, suras:'Al-Māʾida', range:'Q. 6:36–110', hasText:true},
+  {id:16, suras:'Al-Anʿām', range:'Q. 6:36–110', hasText:true},
   {id:17, suras:'Al-Anʿām', range:'Q. 6:111–165', hasText:true},
   {id:18, suras:'Al-Aʿrāf', range:'Q. 7:1–87', hasText:true},
   {id:19, suras:'Al-Aʿrāf', range:'Q. 7:88–170', hasText:true},
@@ -201,7 +210,7 @@ export default function ReadPage() {
               <div className="p-3" style={{background:'var(--panel-body-bg, rgba(13,20,10,0.5))'}}>
                 <p className="font-english text-[10px] mb-2 italic"
                   style={{color:'var(--body-faint, rgba(255,255,255,0.3))'}}>
-                  Each sūrah links to the lesson that covers it
+                  Each sūrah links to the lesson where its commentary begins; long sūrahs continue across the range shown
                 </p>
                 <div className="grid grid-cols-3 gap-1">
                   {SURAS.map(([num, name]) => {
@@ -215,7 +224,9 @@ export default function ReadPage() {
                           style={{color: 'var(--body-text, rgba(255,255,255,0.85))'}}>
                           {(name as string).length > 12 ? (name as string).slice(0,11)+'…' : name}
                         </span>
-                        <span className="font-english text-[9px]" style={{color:'rgba(201,168,76,0.4)'}}>L{lessonId}</span>
+                        <span className="font-english text-[9px]" style={{color:'rgba(201,168,76,0.4)'}}>
+                          L{lessonId}{SURA_LESSON_END[num as number] ? `–${SURA_LESSON_END[num as number]}` : ''}
+                        </span>
                       </Link>
                     );
                   })}

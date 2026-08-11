@@ -15,7 +15,7 @@ const PUBLICATIONS_ITEMS: DropdownItem[] = [
 
 const RESEARCH_ITEMS: DropdownItem[] = [
   { label: "Search", sub: "Full-text across all lessons", href: "/search" },
-  { label: "Browse Tools", sub: "Concordance, footnotes, hadith, scholars", href: "/research" },
+  { label: "Browse Tools", sub: "Footnotes, hadith, glossary, search", href: "/research" },
   { label: "Cite a Passage", sub: "Select text to clip and cite", href: "/clips" },
 ];
 
