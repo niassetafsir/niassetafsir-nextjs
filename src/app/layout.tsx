@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: "https://niassetafsir.org",
     siteName: "niassetafsir.org",
     title: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Bilingual Edition & Research Platform",
-    description: "The digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse (d. 1975). Complete Arabic text, English translation, 798-footnote critical apparatus, verse concordance, and scholarly research tools.",
+    description: "The digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse (d. 1975). Complete Arabic text, English translation, 1,994-footnote critical apparatus, verse concordance, and scholarly research tools.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Fī Riyāḍ Tafsīr — niassetafsir.org" }],
   },
   twitter: {

@@ -73,7 +73,7 @@ export default function EditorialNotePage() {
             of this digital edition.
           </p>
           <p className="leading-7 mt-3">
-            The apparatus currently covers Lessons 1–25 (798 footnotes); classification for the 
+            The apparatus now covers all 56 lessons (1,994 footnotes); classification for the 
             remaining lessons is in progress and will be added in a subsequent version of the edition.
           </p>
         </div>

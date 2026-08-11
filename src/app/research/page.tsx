@@ -18,7 +18,7 @@ const TOOLS = [
     href: '/footnotes',
     titleAr: 'الحواشي والمصادر',
     titleEn: 'Footnotes & Citations',
-    desc: '798 footnotes by the compiler, genre-classified: Hadith, Tafsīr, Theology, Sufism, Fiqh.',
+    desc: '1,994 footnotes by the compiler, genre-classified: Hadith, Tafsīr, Theology, Sufism, Fiqh.',
     tier: 'scholar',
   },
   {

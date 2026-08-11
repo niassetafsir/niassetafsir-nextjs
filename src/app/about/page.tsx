@@ -39,7 +39,7 @@ export default function AboutPage() {
           </p>
           <p className="leading-6 mt-3">
             Research tools include: full-text search; a verse concordance (1,079 verses linked to 
-            Niasse&apos;s commentary); a footnotes and citations of 798 footnotes compiled by 
+            Niasse&apos;s commentary); a footnotes and citations index of 1,994 footnotes compiled by 
             Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, browsable by scholar, genre, 
             and lesson with inline <sup>[n]</sup> links in the text; a scholar and source index 
             (56 figures sorted by citation frequency); a glossary of key theological and Sufi terms; 

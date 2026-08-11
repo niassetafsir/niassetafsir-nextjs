@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Footnotes & Citations — فهرس الحواشي",
-  description: "798 footnotes compiled by Muḥammad ibn al-Shaykh, classified by scholar, genre, and lesson.",
+  description: "1,994 footnotes compiled by Muḥammad ibn al-Shaykh, classified by scholar, genre, and lesson.",
   openGraph: {
     title: "Footnotes & Citations — فهرس الحواشي | niassetafsir.org",
-    description: "798 footnotes compiled by Muḥammad ibn al-Shaykh, classified by scholar, genre, and lesson.",
+    description: "1,994 footnotes compiled by Muḥammad ibn al-Shaykh, classified by scholar, genre, and lesson.",
   },
 };
 
