@@ -190,7 +190,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
       {poemLines.length > 0 && (showBilingual || view === 'arabic') && (
         <div className="px-6 py-4 border-b border-gold/10 text-center bg-gold/3">
           {poemLines.map((line, i) => (
-            <div key={i} className="font-arabic font-arabic-sans text-gold/80 text-base leading-9" dir="rtl"
+            <div key={i} className="font-arabic-sans text-gold/80 text-base leading-9" dir="rtl"
               dangerouslySetInnerHTML={{ __html: line }} />
           ))}
         </div>
@@ -204,7 +204,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
           {commentaryParagraphs.map((p, i) => (
             <div key={i} className="px-4 md:px-6 py-4">
               <div id={`ar-para-${i}`} dir="rtl"
-                className={`font-arabic font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
+                className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
                 dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId) }} />
               {hasEnglish && enParagraphs[i] ? (
                 <div

@@ -101,7 +101,7 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEngl
               <div className="flex items-center gap-3 px-4 py-2.5">
                 <div style={{width:3, height:28, background:'#8a6d1f', borderRadius:2, flexShrink:0}} />
                 <div className="flex-1 min-w-0">
-                  <div className="font-arabic font-arabic-sans text-base font-bold" dir="rtl" style={{color:'#8a6d1f', lineHeight:1.4}}>
+                  <div className="font-arabic-sans text-base font-bold" dir="rtl" style={{color:'#8a6d1f', lineHeight:1.4}}>
                     الشيخ إبراهيم نياس
                   </div>
                   <div className="font-english text-[11px] mt-0.5" style={{color:'rgba(138,109,31,0.8)'}}>
@@ -136,7 +136,7 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEngl
                 {hasEnglish ? (
                   <div className="grid grid-cols-2 gap-0 pb-4" style={{borderTop:'1px solid rgba(138,109,31,0.15)'}}>
                     {/* Arabic column */}
-                    <div className="px-4 pt-3 font-arabic font-arabic-sans text-sm leading-8" dir="rtl"
+                    <div className="px-4 pt-3 font-arabic-sans text-sm leading-8" dir="rtl"
                       style={{color:'#0D1F0A', borderRight:'1px solid rgba(138,109,31,0.15)'}}>
                       {niasseArExcerpt}
                       {niasseClean.length > commentaryStart + 1000 && (
@@ -157,7 +157,7 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEngl
                     </div>
                   </div>
                 ) : (
-                  <div className="px-4 pb-4 font-arabic font-arabic-sans text-sm leading-8" dir="rtl"
+                  <div className="px-4 pb-4 font-arabic-sans text-sm leading-8" dir="rtl"
                     style={{color:'#0D1F0A'}}>
                     {niasseArExcerpt}
                     {niasseClean.length > commentaryStart + 1000 && (

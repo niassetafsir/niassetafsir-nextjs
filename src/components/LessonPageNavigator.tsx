@@ -8,17 +8,17 @@ import { List, Search, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-rea
 // src/data/lessons/*.json (2026-08-11). Lesson 57 in the data is a duplicate
 // placeholder that redirects to Lesson 56 (see app/lesson/[id]/page.tsx), so
 // Volume X's real range is 51–56, not 51–57.
-const VOLUMES: { vol: number; roman: string; start: number; end: number }[] = [
-  { vol: 1,  roman: 'I',    start: 1,  end: 6 },
-  { vol: 2,  roman: 'II',   start: 7,  end: 12 },
-  { vol: 3,  roman: 'III',  start: 13, end: 19 },
-  { vol: 4,  roman: 'IV',   start: 20, end: 25 },
-  { vol: 5,  roman: 'V',    start: 26, end: 30 },
-  { vol: 6,  roman: 'VI',   start: 31, end: 35 },
-  { vol: 7,  roman: 'VII',  start: 36, end: 40 },
-  { vol: 8,  roman: 'VIII', start: 41, end: 45 },
-  { vol: 9,  roman: 'IX',   start: 46, end: 50 },
-  { vol: 10, roman: 'X',    start: 51, end: 56 },
+const VOLUMES: { vol: number; start: number; end: number }[] = [
+  { vol: 1,  start: 1,  end: 6 },
+  { vol: 2,  start: 7,  end: 12 },
+  { vol: 3,  start: 13, end: 19 },
+  { vol: 4,  start: 20, end: 25 },
+  { vol: 5,  start: 26, end: 30 },
+  { vol: 6,  start: 31, end: 35 },
+  { vol: 7,  start: 36, end: 40 },
+  { vol: 8,  start: 41, end: 45 },
+  { vol: 9,  start: 46, end: 50 },
+  { vol: 10, start: 51, end: 56 },
 ];
 
 interface LessonPageNavigatorProps {
@@ -47,7 +47,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
       className="hidden lg:block flex-shrink-0 sticky self-start overflow-y-auto"
       style={{
         top: '56px',
-        width: '176px',
+        width: '148px',
         maxHeight: 'calc(100vh - 56px)',
         borderLeft: '1px solid rgba(13,31,10,0.1)',
         background: '#F5EDD6',
@@ -76,7 +76,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
 
         {/* Jump to lesson */}
         <form onSubmit={handleJump} className="space-y-1.5">
-          <label className="font-english text-[10px] uppercase tracking-wider block" style={{color:'#8a6d1f'}}>
+          <label className="font-english text-[9px] uppercase tracking-wider block" style={{color:'#8a6d1f'}}>
             Jump to lesson
           </label>
           <div className="flex items-center gap-1.5">
@@ -87,7 +87,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
               value={jumpValue}
               onChange={e => setJumpValue(e.target.value)}
               placeholder={String(lessonId)}
-              className="font-english text-xs w-14 px-1.5 py-1 rounded-md"
+              className="font-english text-[11px] w-12 px-1.5 py-1 rounded-md"
               style={{
                 background: '#fff',
                 border: '1px solid rgba(13,31,10,0.2)',
@@ -96,7 +96,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
             />
             <button
               type="submit"
-              className="font-english text-xs px-2 py-1 rounded-md transition-colors"
+              className="font-english text-[11px] px-1.5 py-1 rounded-md transition-colors"
               style={{ background: '#8a6d1f', color: '#F5EDD6' }}
             >
               Go
@@ -109,7 +109,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
           {prevId ? (
             <Link
               href={`/lesson/${prevId}`}
-              className="flex-1 flex items-center justify-center gap-1 font-english text-xs py-1.5 rounded-md transition-colors"
+              className="flex-1 flex items-center justify-center gap-1 font-english text-[11px] py-1.5 rounded-md transition-colors"
               style={{ border: '1px solid rgba(13,31,10,0.15)', color: 'rgba(13,31,10,0.7)' }}
               title={`Lesson ${prevId}`}
             >
@@ -119,7 +119,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
           {nextId ? (
             <Link
               href={`/lesson/${nextId}`}
-              className="flex-1 flex items-center justify-center gap-1 font-english text-xs py-1.5 rounded-md transition-colors"
+              className="flex-1 flex items-center justify-center gap-1 font-english text-[11px] py-1.5 rounded-md transition-colors"
               style={{ border: '1px solid rgba(13,31,10,0.15)', color: 'rgba(13,31,10,0.7)' }}
               title={`Lesson ${nextId}`}
             >
@@ -130,7 +130,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
 
         {/* Volumes */}
         <div>
-          <p className="font-english text-[10px] uppercase tracking-wider mb-2" style={{color:'#8a6d1f'}}>
+          <p className="font-english text-[9px] uppercase tracking-wider mb-2" style={{color:'#8a6d1f'}}>
             Volumes
           </p>
           <div className="space-y-1">
@@ -147,11 +147,11 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
                       background: containsCurrent ? 'rgba(138,109,31,0.08)' : 'transparent',
                     }}
                   >
-                    <span className="font-english text-xs font-semibold">
-                      Vol. {v.roman}
+                    <span className="font-english text-[11px] font-semibold">
+                      Vol. {v.vol}
                     </span>
                     <span className="flex items-center gap-1">
-                      <span className="font-english text-[10px]" style={{color:'rgba(13,31,10,0.45)'}}>
+                      <span className="font-english text-[9px]" style={{color:'rgba(13,31,10,0.45)'}}>
                         {v.start}–{v.end}
                       </span>
                       <ChevronDown size={11} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />

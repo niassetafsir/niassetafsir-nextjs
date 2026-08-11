@@ -122,7 +122,7 @@ export default function ArabicWordTool({ text }: ArabicWordToolProps) {
     <div className="relative">
       <div
         dir="rtl"
-        className="font-arabic font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify cursor-text select-text"
+        className="font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify cursor-text select-text"
         onMouseUp={handleWordClick}
         dangerouslySetInnerHTML={{ __html: text }}
       />
@@ -133,7 +133,7 @@ export default function ArabicWordTool({ text }: ArabicWordToolProps) {
           className="fixed z-50 bg-bg border border-gold/30 rounded-xl shadow-2xl p-4 max-w-xs"
           style={{ top: Math.min(popup.y, window.innerHeight - 200), left: Math.max(8, Math.min(popup.x, window.innerWidth - 320)) }}
         >
-          <div className="font-arabic font-arabic-sans text-gold text-lg font-bold mb-2 text-right" dir="rtl">
+          <div className="font-arabic-sans text-gold text-lg font-bold mb-2 text-right" dir="rtl">
             {wordData.word}
           </div>
 
@@ -146,7 +146,7 @@ export default function ArabicWordTool({ text }: ArabicWordToolProps) {
               {wordData.root && (
                 <div className="flex gap-2">
                   <span className="font-english text-white/40 text-xs w-16 flex-shrink-0">Root:</span>
-                  <span className="font-arabic font-arabic-sans text-gold/80 text-sm" dir="rtl">{wordData.root}</span>
+                  <span className="font-arabic-sans text-gold/80 text-sm" dir="rtl">{wordData.root}</span>
                 </div>
               )}
               {wordData.pos && (

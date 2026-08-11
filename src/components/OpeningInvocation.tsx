@@ -24,7 +24,7 @@ export default function OpeningInvocation({ html }: OpeningInvocationProps) {
 
       {open && (
         <div
-          className="pb-4 font-arabic font-arabic-sans text-sm leading-8"
+          className="pb-4 font-arabic-sans text-sm leading-8"
           dir="rtl"
           style={{color:'#8a6d1f'}}
           dangerouslySetInnerHTML={{ __html: html }}

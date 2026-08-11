@@ -115,7 +115,7 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
         >
           <span className="text-lg flex-shrink-0">{icon}</span>
           <span className="flex-1 font-english text-sm min-w-0" style={{color:"rgba(13,31,10,0.85)"}}>
-            <span className="font-arabic font-arabic-sans" dir="rtl" style={{color:"#8a6d1f"}}>{titleAr}</span>
+            <span className="font-arabic-sans" dir="rtl" style={{color:"#8a6d1f"}}>{titleAr}</span>
             <span className="mx-2" style={{color:"rgba(13,31,10,0.35)"}}>·</span>
             <span style={{color:"rgba(13,31,10,0.85)"}}>{titleEn}</span>
           </span>
