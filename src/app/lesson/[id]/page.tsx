@@ -60,7 +60,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
 
       {/* 1. Shaykh Ibrāhīm's Tafsīr */}
 
-      <PanelJumpTabs />
+      <PanelJumpTabs lessonId={lesson.id} />
       <LessonAudioBar lessonId={lesson.id} />
       {/* Back breadcrumb */}
       <div className="flex items-center gap-2 px-4 py-1.5 text-xs"
