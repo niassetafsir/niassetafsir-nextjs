@@ -47,7 +47,7 @@ export default function LessonCitations({ lessonId }: { lessonId: number }) {
   }
 
   return (
-    <div className="p-5" dir="ltr">
+    <div className="p-3" dir="ltr">
       <p className="font-english text-xs mb-4" style={{color:'rgba(255,255,255,0.35)'}}>
         {footnotes.length} footnote{footnotes.length !== 1 ? 's' : ''} compiled by Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī for this lesson —
         numbered as in the physical edition (numbers restart on each printed page).{' '}
@@ -55,18 +55,18 @@ export default function LessonCitations({ lessonId }: { lessonId: number }) {
           Open full Critical Apparatus view ↗
         </Link>
       </p>
-      <div className="space-y-3">
+      <div className="space-y-2">
         {footnotes.map(fn => (
-          <div key={fn.id} id={`citepanel-${fn.id}`} className="border border-white/10 rounded-lg p-3">
-            <div className="flex items-center gap-2 flex-wrap mb-1.5">
+          <div key={fn.id} id={`citepanel-${fn.id}`} className="border border-white/10 rounded-lg p-2.5">
+            <div className="flex items-center gap-1.5 flex-wrap mb-1">
               <span className="font-english text-[10px] text-gold/60 border border-gold/20 px-1.5 py-0.5 rounded">
                 fn. {fn.displayNum ?? fn.num}
               </span>
               {fn.scholar && (
-                <span className="font-english text-xs font-semibold" style={{color:'rgba(255,255,255,0.8)'}}>{fn.scholar}</span>
+                <span className="font-english text-[11px] font-semibold" style={{color:'rgba(255,255,255,0.8)'}}>{fn.scholar}</span>
               )}
               {fn.work && (
-                <span className="font-english text-xs italic" style={{color:'rgba(255,255,255,0.4)'}}>{fn.work}</span>
+                <span className="font-english text-[11px] italic" style={{color:'rgba(255,255,255,0.4)'}}>{fn.work}</span>
               )}
               {fn.volRef && (
                 <span className="font-english text-[10px]" style={{color:'rgba(255,255,255,0.3)'}}>{fn.volRef}</span>
@@ -75,7 +75,7 @@ export default function LessonCitations({ lessonId }: { lessonId: number }) {
                 View in apparatus →
               </a>
             </div>
-            <p className="font-arabic text-sm leading-7" dir="rtl" style={{color:'rgba(255,255,255,0.78)'}}>
+            <p className="font-arabic text-[13px] leading-6" dir="rtl" style={{color:'rgba(255,255,255,0.78)'}}>
               {fn.arabic}
             </p>
           </div>

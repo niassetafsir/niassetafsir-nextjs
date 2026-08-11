@@ -47,30 +47,30 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
       className="hidden lg:block flex-shrink-0 sticky self-start overflow-y-auto"
       style={{
         top: '56px',
-        width: '126px',
+        width: '104px',
         maxHeight: 'calc(100vh - 56px)',
         borderLeft: '1px solid rgba(13,31,10,0.1)',
         background: '#F5EDD6',
       }}
     >
-      <div className="px-2.5 py-2.5 space-y-3">
+      <div className="px-2 py-2 space-y-2.5">
         {/* Icon row */}
         <div className="flex items-center gap-2 pb-3" style={{borderBottom: '1px solid rgba(13,31,10,0.1)'}}>
           <span
-            className="flex items-center justify-center w-6 h-6 rounded-md"
+            className="flex items-center justify-center w-5 h-5 rounded-md"
             style={{ background: 'rgba(138,109,31,0.12)', color: '#8a6d1f' }}
             title="Reading view"
             aria-current="true"
           >
-            <List size={15} />
+            <List size={13} />
           </span>
           <Link
             href="/search"
-            className="flex items-center justify-center w-6 h-6 rounded-md transition-colors hover:bg-black/5"
+            className="flex items-center justify-center w-5 h-5 rounded-md transition-colors hover:bg-black/5"
             style={{ color: 'rgba(13,31,10,0.55)' }}
             title="Search"
           >
-            <Search size={15} />
+            <Search size={13} />
           </Link>
         </div>
 
@@ -87,7 +87,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
               value={jumpValue}
               onChange={e => setJumpValue(e.target.value)}
               placeholder={String(lessonId)}
-              className="font-english text-[11px] w-12 px-1.5 py-1 rounded-md"
+              className="font-english text-[10px] w-10 px-1 py-1 rounded-md"
               style={{
                 background: '#fff',
                 border: '1px solid rgba(13,31,10,0.2)',
@@ -96,7 +96,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
             />
             <button
               type="submit"
-              className="font-english text-[11px] px-1.5 py-1 rounded-md transition-colors"
+              className="font-english text-[10px] px-1 py-1 rounded-md transition-colors"
               style={{ background: '#8a6d1f', color: '#F5EDD6' }}
             >
               Go
@@ -109,21 +109,21 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
           {prevId ? (
             <Link
               href={`/lesson/${prevId}`}
-              className="flex-1 flex items-center justify-center gap-1 font-english text-[11px] py-1.5 rounded-md transition-colors"
+              className="flex-1 flex items-center justify-center gap-1 font-english text-[10px] py-1 rounded-md transition-colors"
               style={{ border: '1px solid rgba(13,31,10,0.15)', color: 'rgba(13,31,10,0.7)' }}
               title={`Lesson ${prevId}`}
             >
-              <ChevronLeft size={13} /> Prev
+              <ChevronLeft size={11} /> Prev
             </Link>
           ) : <span className="flex-1" />}
           {nextId ? (
             <Link
               href={`/lesson/${nextId}`}
-              className="flex-1 flex items-center justify-center gap-1 font-english text-[11px] py-1.5 rounded-md transition-colors"
+              className="flex-1 flex items-center justify-center gap-1 font-english text-[10px] py-1 rounded-md transition-colors"
               style={{ border: '1px solid rgba(13,31,10,0.15)', color: 'rgba(13,31,10,0.7)' }}
               title={`Lesson ${nextId}`}
             >
-              Next <ChevronRight size={13} />
+              Next <ChevronRight size={11} />
             </Link>
           ) : <span className="flex-1" />}
         </div>
@@ -141,13 +141,13 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
                 <div key={v.vol}>
                   <button
                     onClick={() => setOpenVolume(isOpen ? null : v.vol)}
-                    className="w-full flex items-center justify-between gap-1 px-1.5 py-1 rounded transition-colors"
+                    className="w-full flex items-center justify-between gap-1 px-1 py-1 rounded transition-colors"
                     style={{
                       color: containsCurrent ? '#8a6d1f' : 'rgba(13,31,10,0.7)',
                       background: containsCurrent ? 'rgba(138,109,31,0.08)' : 'transparent',
                     }}
                   >
-                    <span className="font-english text-[11px] font-normal">
+                    <span className="font-english text-[10px] font-normal">
                       Vol. {v.vol}
                     </span>
                     <span className="flex items-center gap-1">
@@ -158,12 +158,12 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
                     </span>
                   </button>
                   {isOpen && (
-                    <div className="flex flex-wrap gap-1 px-1.5 py-1.5">
+                    <div className="flex flex-wrap gap-1 px-1 py-1">
                       {Array.from({ length: v.end - v.start + 1 }, (_, i) => v.start + i).map(n => (
                         <Link
                           key={n}
                           href={`/lesson/${n}`}
-                          className="font-english text-[10px] w-6 h-6 flex items-center justify-center rounded transition-colors"
+                          className="font-english text-[9px] w-5 h-5 flex items-center justify-center rounded transition-colors"
                           style={{
                             background: n === lessonId ? '#8a6d1f' : 'rgba(13,31,10,0.05)',
                             color: n === lessonId ? '#F5EDD6' : 'rgba(13,31,10,0.75)',
