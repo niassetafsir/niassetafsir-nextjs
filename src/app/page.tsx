@@ -68,9 +68,9 @@ const MANZILS = [
   {id:2, titleAr:"المنزل الثاني — اليوم الثاني", titleEn:"Second Manzil · Day Two", sūrahs:"Al-Māʾida → Al-Tawba", lessons:[14,15,16,17,18,19,20,21,22,23]},
   {id:3, titleAr:"المنزل الثالث — اليوم الثالث", titleEn:"Third Manzil · Day Three", sūrahs:"Yūnus → Al-Naḥl", lessons:[24,25,26,27,28,29,30]},
   {id:4, titleAr:"المنزل الرابع — اليوم الرابع", titleEn:"Fourth Manzil · Day Four", sūrahs:"Al-Isrāʾ → Al-Furqān", lessons:[31,32,33,34,35]},
-  {id:5, titleAr:"المنزل الخامس — اليوم الخامس", titleEn:"Fifth Manzil · Day Five", sūrahs:"Al-Shuʿarāʾ → Yā Sīn", lessons:[36,37,38,39,40]},
-  {id:6, titleAr:"المنزل السادس — اليوم السادس", titleEn:"Sixth Manzil · Day Six", sūrahs:"Al-Ṣāffāt → Al-Ḥujurāt", lessons:[41,42,43,44,45,46,47,48,49,50]},
-  {id:7, titleAr:"المنزل السابع — اليوم السابع", titleEn:"Seventh Manzil · Day Seven", sūrahs:"Qāf → Al-Nās", lessons:[51,52,53,54,55,56]},
+  {id:5, titleAr:"المنزل الخامس — اليوم الخامس", titleEn:"Fifth Manzil · Day Five", sūrahs:"Al-Furqān → Al-Aḥzāb", lessons:[36,37,38,39,40]},
+  {id:6, titleAr:"المنزل السادس — اليوم السادس", titleEn:"Sixth Manzil · Day Six", sūrahs:"Sabaʾ → Al-Ṣaff", lessons:[41,42,43,44,45,46,47,48,49,50]},
+  {id:7, titleAr:"المنزل السابع — اليوم السابع", titleEn:"Seventh Manzil · Day Seven", sūrahs:"Al-Jumʿa → Al-Nās", lessons:[51,52,53,54,55,56]},
 ];
 
 function ManzilCard({ manzil, isOpen, onToggle }: {
@@ -135,7 +135,6 @@ function ManzilCard({ manzil, isOpen, onToggle }: {
 
 export default function HomePage() {
   const [openManzils, setOpenManzils] = useState<Record<number, boolean>>({});
-  const [showGuide, setShowGuide] = useState(false);
   const toggle = (id: number) => setOpenManzils(prev => ({...prev, [id]: !prev[id]}));
 
   return (

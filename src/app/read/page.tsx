@@ -206,14 +206,13 @@ export default function ReadPage() {
                 <div className="grid grid-cols-3 gap-1">
                   {SURAS.map(([num, name]) => {
                     const lessonId = SURA_TO_LESSON[num as number];
-                    const hasText = lessonId <= 30;
                     return (
                       <Link key={num} href={`/lesson/${lessonId}`}
                         className="flex flex-col px-2 py-1.5 rounded-lg border transition-all text-left"
-                        style={{borderColor: hasText ? 'rgba(201,168,76,0.2)' : 'rgba(255,255,255,0.06)', background:'transparent'}}>
+                        style={{borderColor: 'rgba(201,168,76,0.2)', background:'transparent'}}>
                         <span className="font-english text-[9px]" style={{color:'rgba(201,168,76,0.5)'}}>{num}</span>
                         <span className="font-english text-[10px] leading-tight"
-                          style={{color: hasText ? 'var(--body-text, rgba(255,255,255,0.85))' : 'var(--body-faint, rgba(255,255,255,0.3))'}}>
+                          style={{color: 'var(--body-text, rgba(255,255,255,0.85))'}}>
                           {(name as string).length > 12 ? (name as string).slice(0,11)+'…' : name}
                         </span>
                         <span className="font-english text-[9px]" style={{color:'rgba(201,168,76,0.4)'}}>L{lessonId}</span>
