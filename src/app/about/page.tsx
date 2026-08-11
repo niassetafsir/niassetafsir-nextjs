@@ -37,11 +37,11 @@ export default function AboutPage() {
             from Tafsīr al-Jalālayn and <em>Rūḥ al-Bayān</em>.
           </p>
           <p className="leading-6 mt-3">
-            Research tools include: full-text search; a verse concordance (314 verses linked to 
+            Research tools include: full-text search; a verse concordance (1,079 verses linked to 
             Niasse&apos;s commentary); a footnotes and citations of 798 footnotes compiled by 
             Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, browsable by scholar, genre, 
             and lesson with inline <sup>[n]</sup> links in the text; a scholar and source index 
-            (19 figures sorted by citation frequency); a glossary of key theological and Sufi terms; 
+            (56 figures sorted by citation frequency); a glossary of key theological and Sufi terms; 
             text clipping with Chicago auto-citation; bookmarks; and a full annotation system — select any passage, assign a category (key passage, question, confirmed), add a note, flag for return, and export your working file with auto-generated citations. These tools are designed to 
             support scholarly work going from text to meaning.
           </p>

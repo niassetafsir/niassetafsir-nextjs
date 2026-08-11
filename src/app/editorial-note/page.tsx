@@ -50,9 +50,9 @@ export default function EditorialNotePage() {
           </p>
           <p className="leading-7 mt-3">
             The lesson structure follows the compiler&apos;s ten-volume organisation: each lesson 
-            corresponds to a session of oral delivery. The site presents the first cycle of thirty 
-            lessons, covering Suras 1–17 (Al-Fātiḥa through Al-Isrāʾ). Further volumes will be 
-            added as digitisation proceeds.
+            corresponds to a session of oral delivery. The site presents all fifty-six lessons of 
+            the ten-volume compiled edition, covering the complete Qurʾān from Al-Fātiḥa through 
+            Al-Nās (Q. 1:1–114:6).
           </p>
         </div>
 
@@ -131,7 +131,7 @@ export default function EditorialNotePage() {
               <span className="font-english text-gold text-sm font-semibold w-16">v 1.0</span>
               <span className="font-english text-white/50 text-xs">April 2025</span>
               <span className="font-english text-white/60 text-sm flex-1">
-                Initial release. 30 lessons Arabic text; Lessons 1–2 bilingual; 
+                Initial release. 56 lessons Arabic text; Lessons 1–2 bilingual; 
                 critical apparatus; concordance; scholar index; glossary; thematic index; 
                 hadith index; research platform.
               </span>

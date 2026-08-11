@@ -12,7 +12,7 @@ const TOOLS = [
     href: '/network',
     titleAr: 'شبكة العلماء',
     titleEn: 'Scholar Network',
-    desc: 'Intellectual genealogy — 19 scholars, their traditions, citation counts, body vs. apparatus.',
+    desc: 'Intellectual genealogy — 57 scholars, their traditions, citation counts, body vs. apparatus.',
     tier: 'scholar',
   },
   {
@@ -47,7 +47,7 @@ const TOOLS = [
     href: '/themes',
     titleAr: 'فهرس علوم التفسير',
     titleEn: 'Tafsīr Sciences Index',
-    desc: '11 categories drawn from classical ʿulūm al-tafsīr — passages classified by discipline.',
+    desc: '12 categories drawn from classical ʿulūm al-tafsīr — passages classified by discipline.',
     tier: 'scholar',
   },
   // ── Research tools ─────────────────────────────────────────────

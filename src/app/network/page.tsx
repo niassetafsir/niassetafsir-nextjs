@@ -171,10 +171,7 @@ export default function NetworkPage() {
       <div className="mt-8 border-t pt-6" style={{borderColor:'rgba(201,168,76,0.12)'}}>
         <p className="font-english text-xs text-center" style={{color:'rgba(255,255,255,0.3)'}}>
           {data.nodes.length} scholars identified · {data.nodes.reduce((a,n) => a + n.citations, 0)} total citations ·
-          Lessons 1–30 · Volumes 1–5
-        </p>
-        <p className="font-english text-xs text-center italic mt-1" style={{color:'rgba(255,255,255,0.2)'}}>
-          Network expands as Volumes 6–10 are digitised
+          Lessons 1–56 · Volumes I–X
         </p>
       </div>
     </main>
