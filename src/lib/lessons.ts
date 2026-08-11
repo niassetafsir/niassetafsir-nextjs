@@ -11,7 +11,7 @@ export async function getLesson(id: number): Promise<Lesson | null> {
 
 export async function getAllLessons(): Promise<Lesson[]> {
   const lessons: Lesson[] = [];
-  for (let i = 1; i <= 30; i++) {
+  for (let i = 1; i <= 56; i++) {
     const lesson = await getLesson(i);
     if (lesson) lessons.push(lesson);
   }

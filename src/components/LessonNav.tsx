@@ -8,7 +8,7 @@ interface LessonNavProps {
   manzil?: number;
 }
 
-export default function LessonNav({ lessonId, totalLessons = 57, lessonTitle, manzil }: LessonNavProps) {
+export default function LessonNav({ lessonId, totalLessons = 56, lessonTitle, manzil }: LessonNavProps) {
   const hasPrev = lessonId > 1;
   const hasNext = lessonId < totalLessons;
 

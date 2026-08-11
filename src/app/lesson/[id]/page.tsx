@@ -1,6 +1,6 @@
 import { getLesson, getAllLessons } from '@/lib/lessons';
 import { getReadingNotes } from '@/lib/readingNotes';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import Panel from '@/components/Panel';
 import JalalaynVerseView from '@/components/JalalaynVerseView';
 import BilingualText from '@/components/BilingualText';
@@ -19,6 +19,11 @@ export async function generateStaticParams() {
 }
 
 export default async function LessonPage({ params }: { params: { id: string } }) {
+  // Lesson 57 was a duplicate placeholder for the same suras covered by Lesson 56
+  // (Al-Ikhlas / Al-Falaq / Al-Nas) per the Drive table of contents; the tafsir's
+  // final lesson is 56, not 57. Redirect any old links.
+  if (Number(params.id) === 57) redirect('/lesson/56');
+
   const lesson = await getLesson(Number(params.id));
   if (!lesson) notFound();
 
