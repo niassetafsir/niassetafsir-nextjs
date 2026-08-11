@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Menu, X, ChevronRight, ChevronDown } from 'lucide-react';
@@ -23,6 +24,8 @@ export default function MobileLessonDrawer({ lessonId }: { lessonId: number }) {
   const [jumpValue, setJumpValue] = useState('');
   const currentVolume = VOLUMES.find(v => lessonId >= v.start && lessonId <= v.end)?.vol;
   const [openVolume, setOpenVolume] = useState<number | null>(currentVolume ?? null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
   // Re-sync the auto-expanded volume whenever the drawer is opened or the lesson changes
   useEffect(() => {
@@ -52,7 +55,7 @@ export default function MobileLessonDrawer({ lessonId }: { lessonId: number }) {
         Lessons
       </button>
 
-      {open && (
+      {mounted && open && createPortal(
         <div dir="ltr" className="lg:hidden" style={{ position: 'fixed', inset: 0, zIndex: 99999 }}>
           {/* Backdrop */}
           <div
@@ -151,7 +154,8 @@ export default function MobileLessonDrawer({ lessonId }: { lessonId: number }) {
               })}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
