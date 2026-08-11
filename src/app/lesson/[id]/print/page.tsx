@@ -26,7 +26,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
         <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
         <style>{`
           * { margin: 0; padding: 0; box-sizing: border-box; }
-          body { font-family: 'EB Garamond', Georgia, serif; font-size: 12pt; line-height: 1.8; color: #111; background: white; padding: 2.5cm; max-width: 21cm; margin: 0 auto; }
+          body { font-family: 'IBM Plex Sans Arabic', sans-serif; font-size: 12pt; line-height: 1.8; color: #111; background: white; padding: 2.5cm; max-width: 21cm; margin: 0 auto; }
           .work-title { text-align: center; font-size: 10pt; color: #666; margin-bottom: 0.3cm; letter-spacing: 0.03em; }
           .lesson-title-ar { text-align: center; font-family: 'Amiri', serif; font-size: 18pt; color: #7B5C14; direction: rtl; margin-bottom: 0.2cm; }
           .lesson-title-en { text-align: center; font-size: 11pt; color: #444; margin-bottom: 0.1cm; }
@@ -39,7 +39,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
           .no-en { color: #aaa; font-style: italic; font-size: 10pt; }
           .citation-block { margin-top: 1cm; padding-top: 0.5cm; border-top: 1px solid #ddd; font-size: 9pt; color: #555; }
           .citation-label { font-weight: bold; margin-bottom: 0.2cm; color: #7B5C14; }
-          .print-btn { position: fixed; bottom: 20px; right: 20px; background: #7B5C14; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-family: 'EB Garamond', serif; font-size: 13px; cursor: pointer; z-index: 100; }
+          .print-btn { position: fixed; bottom: 20px; right: 20px; background: #7B5C14; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-family: 'IBM Plex Sans Arabic', sans-serif; font-size: 13px; cursor: pointer; z-index: 100; }
           @media print { .print-btn { display: none; } body { padding: 2cm; } }
         `}</style>
       </head>

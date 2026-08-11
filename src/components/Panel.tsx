@@ -189,7 +189,7 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
           }}
         >
           <ChevronDown size={14} style={{ color: '#0D1F0A', transform: 'rotate(180deg)' }} />
-          <span style={{ fontFamily: 'EB Garamond, Times New Roman, serif', fontSize: '13px', fontWeight: '600', color: '#0D1F0A', letterSpacing: '0.02em' }}>
+          <span style={{ fontFamily: 'IBM Plex Sans Arabic, sans-serif', fontSize: '13px', fontWeight: '600', color: '#0D1F0A', letterSpacing: '0.02em' }}>
             Close Panel
           </span>
         </button>

@@ -35,7 +35,7 @@ body {
 /* Arabic text -- site-wide, matches the lesson reading page */
 .font-arabic { font-family: 'IBM Plex Sans Arabic', 'Amiri', 'Traditional Arabic', sans-serif; }
 .font-arabic-sans { font-family: 'IBM Plex Sans Arabic', sans-serif; }
-.font-english { font-family: 'EB Garamond', Georgia, serif; }
+.font-english { font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
@@ -535,7 +535,7 @@ input[type="text"].search-input::placeholder {
 .fn-link {
   color: var(--color-gold, #C9A84C);
   font-size: 0.7em;
-  font-family: 'EB Garamond', serif;
+  font-family: 'IBM Plex Sans Arabic', sans-serif;
   text-decoration: none;
   opacity: 0.75;
   padding: 0 1px;

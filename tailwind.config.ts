@@ -15,7 +15,7 @@ const config: Config = {
       },
       fontFamily: {
         arabic: ["IBM Plex Sans Arabic", "Amiri", "Traditional Arabic", "sans-serif"],
-        english: ["EB Garamond", "Georgia", "serif"],
+        english: ["IBM Plex Sans Arabic", "system-ui", "sans-serif"],
         "arabic-sans": ["IBM Plex Sans Arabic", "sans-serif"],
       },
     },
