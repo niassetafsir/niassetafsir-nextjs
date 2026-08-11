@@ -94,7 +94,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       </Panel>
 
       {/* 2. Lesson Overview */}
-      <Panel icon="" titleAr="نظرة عامة على الدرس" titleEn="Lesson Overview">
+      <Panel icon="" titleAr="نظرة عامة على الدرس" titleEn="Lesson Overview" panelId="overview" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <div className="p-5" dir="ltr">
           <div className="mb-3 pb-3 border-b border-gold/15">
             <div className="font-english text-white/40 text-xs italic">
@@ -127,8 +127,29 @@ export default async function LessonPage({ params }: { params: { id: string } })
 
       {/* 3. Audio */}
       
+      {/* 4. Jalālayn */}
+      <Panel icon="" titleAr="تَفْسِيرُ الْجَلَالَيْنِ" titleEn="Jalālayn" panelId="jalalayn" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
+        <div className="p-5" dir="ltr">
+          <div className="flex justify-between items-center mb-3 pb-3 border-b border-green-900/30">
+            <div>
+              <div className="font-arabic text-green-300 text-sm" dir="rtl">تَفْسِيرُ الْجَلَالَيْنِ</div>
+              <div className="font-english text-white/40 text-xs italic">
+                Jalāl al-Dīn al-Maḥallī &amp; Jalāl al-Dīn al-Suyūṭī
+              </div>
+            </div>
+            <a href="https://usul.ai/t/tafsir-jalalayn" target="_blank" rel="noopener"
+              className="font-english text-xs text-green-400/70 border border-green-500/30 px-3 py-1 rounded-full hover:border-green-400/50 transition-all">
+              Open on Usul.ai ↗
+            </a>
+          </div>
+          <p className="font-english text-white/25 italic text-sm">
+            {lesson.verseRange} — full Arabic text available at Usul.ai.
+          </p>
+        </div>
+      </Panel>
+
       {/* 5. Rūḥ al-Bayān */}
-      <Panel icon="" titleAr="رُوحُ الْبَيَانِ" titleEn="Rūḥ al-Bayān">
+      <Panel icon="" titleAr="رُوحُ الْبَيَانِ" titleEn="Rūḥ al-Bayān" panelId="ruh" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <div className="p-5" dir="ltr">
           <div className="flex justify-between items-center mb-3 pb-3 border-b border-green-900/30">
             <div>

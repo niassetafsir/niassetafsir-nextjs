@@ -107,7 +107,7 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
   };
 
   return (
-    <div ref={ref} className="border border-white/10 rounded-lg mb-3">
+    <div ref={ref} id={panelId ? `panel-${panelId}` : undefined} className="border border-white/10 rounded-lg mb-3">
       <div ref={headerRef} className="w-full flex items-center gap-3 px-4 py-3 sticky top-14 z-40 border-b border-white/10 rounded-t-lg" style={{background: "rgba(245,237,214,0.97)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)"}}>
         <button
           onClick={() => setOpen(!open)}
