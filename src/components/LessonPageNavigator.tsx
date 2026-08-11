@@ -47,17 +47,17 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
       className="hidden lg:block flex-shrink-0 sticky self-start overflow-y-auto"
       style={{
         top: '56px',
-        width: '220px',
+        width: '176px',
         maxHeight: 'calc(100vh - 56px)',
         borderLeft: '1px solid rgba(13,31,10,0.1)',
         background: '#F5EDD6',
       }}
     >
-      <div className="px-4 py-4 space-y-5">
+      <div className="px-3 py-3 space-y-4">
         {/* Icon row */}
         <div className="flex items-center gap-2 pb-3" style={{borderBottom: '1px solid rgba(13,31,10,0.1)'}}>
           <span
-            className="flex items-center justify-center w-7 h-7 rounded-md"
+            className="flex items-center justify-center w-6 h-6 rounded-md"
             style={{ background: 'rgba(138,109,31,0.12)', color: '#8a6d1f' }}
             title="Reading view"
             aria-current="true"
@@ -66,7 +66,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
           </span>
           <Link
             href="/search"
-            className="flex items-center justify-center w-7 h-7 rounded-md transition-colors hover:bg-black/5"
+            className="flex items-center justify-center w-6 h-6 rounded-md transition-colors hover:bg-black/5"
             style={{ color: 'rgba(13,31,10,0.55)' }}
             title="Search"
           >
@@ -87,7 +87,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
               value={jumpValue}
               onChange={e => setJumpValue(e.target.value)}
               placeholder={String(lessonId)}
-              className="font-english text-xs w-16 px-2 py-1.5 rounded-md"
+              className="font-english text-xs w-14 px-1.5 py-1 rounded-md"
               style={{
                 background: '#fff',
                 border: '1px solid rgba(13,31,10,0.2)',
@@ -96,7 +96,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
             />
             <button
               type="submit"
-              className="font-english text-xs px-2.5 py-1.5 rounded-md transition-colors"
+              className="font-english text-xs px-2 py-1 rounded-md transition-colors"
               style={{ background: '#8a6d1f', color: '#F5EDD6' }}
             >
               Go
@@ -163,7 +163,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
                         <Link
                           key={n}
                           href={`/lesson/${n}`}
-                          className="font-english text-[11px] w-7 h-7 flex items-center justify-center rounded transition-colors"
+                          className="font-english text-[10px] w-6 h-6 flex items-center justify-center rounded transition-colors"
                           style={{
                             background: n === lessonId ? '#8a6d1f' : 'rgba(13,31,10,0.05)',
                             color: n === lessonId ? '#F5EDD6' : 'rgba(13,31,10,0.75)',
