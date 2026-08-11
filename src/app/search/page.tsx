@@ -88,8 +88,14 @@ export default function SearchPage() {
       setResults(exact.slice(0, 50).map(item => ({ item })));
     } else if (fuse) {
       // Fall back to fuzzy only when there's no literal match, so typos
-      // and near-misses still return something.
-      setResults(fuse.search(qNorm, { limit: 50 }));
+      // and near-misses still return something -- but enforce a real
+      // score cutoff (lower = better in Fuse). Without this, Fuse always
+      // returns *something* up to the limit even for gibberish queries,
+      // because long paragraph fields give it enough surface area to find
+      // weak partial overlaps. A query with no genuine textual match
+      // should show "no results", not 50 unrelated passages.
+      const fuzzy = fuse.search(qNorm, { limit: 50 }).filter(r => (r.score ?? 1) < 0.12);
+      setResults(fuzzy);
     } else {
       setResults([]);
     }
