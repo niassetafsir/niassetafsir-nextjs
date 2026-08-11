@@ -34,7 +34,6 @@ const CONTRIBUTE_ITEMS: DropdownItem[] = [
 const READ_ITEMS: DropdownItem[] = [
   { label: "Read the Commentary", sub: "Browse by sūrah or manzil", href: "/read" },
   { label: "Listen", sub: "Audio recordings of the tafsīr", href: "/audio" },
-  { label: "Verse Concordance", sub: "Find any verse", href: "/concordance" },
 ];
 
 const MORE_ITEMS: DropdownItem[] = [

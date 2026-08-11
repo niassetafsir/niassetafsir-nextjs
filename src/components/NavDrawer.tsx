@@ -17,7 +17,6 @@ const PAGES = [
   { label: 'Research', href: '/research' },
   { label: 'Footnotes & Citations', href: '/footnotes' },
   { label: 'Ḥadīth Index', href: '/hadith' },
-  { label: 'Scholar Index', href: '/scholars' },
   { label: 'Concordance of Terms', href: '/glossary' },
   { label: 'Order Arabic Edition', href: '/order' },
   { label: 'About', href: '/about' },

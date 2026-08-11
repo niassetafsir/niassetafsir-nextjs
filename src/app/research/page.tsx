@@ -7,14 +7,6 @@ export const metadata: Metadata = {
 };
 
 const TOOLS = [
-  // ── Advanced scholarly tools ──────────────────────────────────
-  {
-    href: '/network',
-    titleAr: 'شبكة العلماء',
-    titleEn: 'Scholar Network',
-    desc: 'Intellectual genealogy — 57 scholars, their traditions, citation counts, body vs. apparatus.',
-    tier: 'scholar',
-  },
   {
     href: '/notes',
     titleAr: 'ملاحظات البحث',
@@ -44,35 +36,12 @@ const TOOLS = [
     tier: 'scholar',
   },
   {
-    href: '/themes',
-    titleAr: 'فهرس علوم التفسير',
-    titleEn: 'Tafsīr Sciences Index',
-    desc: '12 categories drawn from classical ʿulūm al-tafsīr — passages classified by discipline.',
-    tier: 'scholar',
-  },
-  // ── Research tools ─────────────────────────────────────────────
-  {
-    href: '/scholars',
-    titleAr: 'فهرس العلماء والمصادر',
-    titleEn: 'Scholar & Source Index',
-    desc: 'Every figure cited — with distinction between body text citations and apparatus citations.',
-    tier: 'research',
-  },
-  {
-    href: '/concordance',
-    titleAr: 'فهرس الآيات',
-    titleEn: 'Verse Concordance',
-    desc: 'Find any verse — Shaykh Ibrāhīm\'s commentary alongside Jalālayn on the same passage.',
-    tier: 'research',
-  },
-  {
     href: '/search',
     titleAr: 'البحث في النص',
     titleEn: 'Full-Text Search',
     desc: 'Search across all lessons in Arabic and English.',
     tier: 'research',
   },
-  // ── Personal tools ─────────────────────────────────────────────
   {
     href: '/clips',
     titleAr: 'اقتباسات البحث',
@@ -154,6 +123,11 @@ export default function ResearchPage() {
           </div>
         );
       })}
+
+      <p className="font-english text-[11px] leading-5 mt-2" style={{color:'rgba(255,255,255,0.28)'}}>
+        A few advanced analytical tools (scholar network, verse concordance) are being held back while a companion
+        article is under preparation for <em>Islamic Africa</em> (Brill).
+      </p>
 
     </main>
   );
