@@ -157,24 +157,10 @@ export default function HomePage() {
             فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
           </div>
         </div>
-        <div className="flex gap-2 justify-center flex-wrap">
-          <Link href="/read"
-            className="font-english font-bold text-sm px-8 py-3 rounded-full transition-all"
-            style={{border:'2.5px solid #6B2424', color:'#6B2424', background:'transparent', letterSpacing:'0.04em'}}>
-            Read
-          </Link>
-          <Link href="/audio"
-            className="font-english font-bold text-sm px-8 py-3 rounded-full transition-all"
-            style={{border:'2.5px solid #1E5A4A', color:'#1E5A4A', background:'transparent', letterSpacing:'0.04em'}}>
-            Listen
-          </Link>
-          <Link href="/research"
-            className="font-english font-bold text-sm px-8 py-3 rounded-full transition-all"
-            style={{border:'2.5px solid #1A3A5C', color:'#1A3A5C', background:'transparent', letterSpacing:'0.04em'}}>
-            Research
-          </Link>
-        </div>
-        <div className="mt-5 max-w-xl mx-auto" dir="ltr">
+        {/* Read/Listen/Research buttons removed -- redundant with the persistent
+            bottom nav (Home/Read/Listen/Research), which is visible on every page
+            including this one without scrolling. */}
+        <div className="mt-2 max-w-xl mx-auto" dir="ltr">
           <a href="/search" className="flex items-center gap-3 bg-white/4 hover:bg-white/7 border border-white/10 hover:border-gold/25 rounded-full px-4 py-2 transition-all group">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-white/25 flex-shrink-0">
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
