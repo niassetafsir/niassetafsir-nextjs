@@ -172,7 +172,17 @@ export default function HomePage() {
         </div>
       </div>
 
-      
+      {/* Direct lesson access, grouped by manzil (7-part weekly reading division) */}
+      <div className="space-y-3">
+        {MANZILS.map(m => (
+          <ManzilCard
+            key={m.id}
+            manzil={m}
+            isOpen={!!openManzils[m.id]}
+            onToggle={() => toggle(m.id)}
+          />
+        ))}
+      </div>
 
     </main>
   );
