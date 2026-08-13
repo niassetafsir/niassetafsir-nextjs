@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import ArabicWordTool from '@/components/ArabicWordTool';
+import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
 
 type View = 'bilingual' | 'arabic' | 'english' | 'french' | 'wolof' | 'hausa';
 
@@ -154,15 +155,23 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
   const poemLines = allArParagraphs.filter(p => isPoem(p));
   const commentaryParagraphs = allArParagraphs.filter(p => !isPoem(p));
 
-  // Parse English paragraphs for mobile paragraph interleaving
+  // Parse English paragraphs for mobile paragraph interleaving.
+  // Only <p class="en-para"> blocks count as body prose here -- <p class="en-fn">
+  // footnote paragraphs (inside <div class="en-footnotes">) must NOT be captured,
+  // since stripEnFootnotes() can't strip them once they're pulled out of their
+  // wrapping div, and they were otherwise leaking into the bilingual view as if
+  // they were translation paragraphs.
   const enParagraphs: string[] = [];
   if (englishText) {
     const matches = englishText.split(/(?=<p[^>]*>)/).filter(s => s.startsWith('<p'));
     matches.forEach(m => {
+      if (!/<p[^>]*\bclass="[^"]*\ben-para\b[^"]*"/.test(m)) return;
       const text = m.replace(/<[^>]+>/g, '').trim();
       if (text) enParagraphs.push(m);
     });
   }
+
+  const alignment = lessonId ? BILINGUAL_ALIGNMENT[lessonId] : undefined;
 
   const showBilingual = view === 'bilingual';
 
@@ -208,24 +217,63 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
       {showBilingual && (
         <div className="divide-y" style={{borderColor:'rgba(13,31,10,0.08)'}}>
           {(() => { fnCursor.i = 0; return null; })()}
-          {commentaryParagraphs.map((p, i) => (
-            <div key={i} className="px-4 md:px-6 py-4">
-              <div id={`ar-para-${i}`} dir="rtl"
-                className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
-                dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId, footnoteOrder, fnCursor) }} />
-              {hasEnglish && enParagraphs[i] ? (
-                <div
-                  dir="ltr"
-                  className="font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 pl-3"
-                  dangerouslySetInnerHTML={{ __html: stripEnFootnotes(enParagraphs[i]) }}
-                />
-              ) : i === 0 && !hasEnglish ? (
-                <p className="font-english text-white/20 text-xs italic pl-3" dir="ltr">
-                  English translation forthcoming.
-                </p>
-              ) : null}
-            </div>
-          ))}
+          {alignment ? (
+            <>
+              {alignment.blocks.map((block, bi) => (
+                <div key={`block-${bi}`} className="px-4 md:px-6 py-4">
+                  {block.arabicIndices.map(ai => (
+                    <div key={ai} id={`ar-para-${ai}`} dir="rtl"
+                      className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === ai ? 'bg-gold/15 px-2 -mx-2' : ''}`}
+                      dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(commentaryParagraphs[ai], lessonId, footnoteOrder, fnCursor) }} />
+                  ))}
+                  {block.englishIndices.length > 0 ? (
+                    <div dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 pl-3">
+                      {block.englishIndices.map(ei => (
+                        <div key={ei} dangerouslySetInnerHTML={{ __html: stripEnFootnotes(enParagraphs[ei] || '') }} />
+                      ))}
+                    </div>
+                  ) : block.arabicIndices.length > 0 ? (
+                    <p className="font-english text-white/20 text-xs italic pl-3" dir="ltr">
+                      English translation forthcoming.
+                    </p>
+                  ) : null}
+                </div>
+              ))}
+              {alignment.englishOnly.length > 0 && (
+                <div className="px-4 md:px-6 py-4 bg-gold/3">
+                  <p className="font-english text-gold/50 text-[10px] uppercase tracking-wide mb-2" dir="ltr">
+                    Additional translated content — Arabic source not yet digitized
+                  </p>
+                  {alignment.englishOnly.map((group, gi) => (
+                    <div key={gi} dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 italic mb-3">
+                      {group.indices.map(ei => (
+                        <div key={ei} dangerouslySetInnerHTML={{ __html: stripEnFootnotes(enParagraphs[ei] || '') }} />
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          ) : (
+            commentaryParagraphs.map((p, i) => (
+              <div key={i} className="px-4 md:px-6 py-4">
+                <div id={`ar-para-${i}`} dir="rtl"
+                  className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
+                  dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId, footnoteOrder, fnCursor) }} />
+                {hasEnglish && enParagraphs[i] ? (
+                  <div
+                    dir="ltr"
+                    className="font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 pl-3"
+                    dangerouslySetInnerHTML={{ __html: stripEnFootnotes(enParagraphs[i]) }}
+                  />
+                ) : i === 0 && !hasEnglish ? (
+                  <p className="font-english text-white/20 text-xs italic pl-3" dir="ltr">
+                    English translation forthcoming.
+                  </p>
+                ) : null}
+              </div>
+            ))
+          )}
         </div>
       )}
 

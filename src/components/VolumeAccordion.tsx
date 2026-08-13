@@ -51,7 +51,7 @@ function VolumeCard({ volume, isOpen, onToggle }: {
           ) : (
             <div className="divide-y divide-white/5">
               {volume.lessons.map(lesson => (
-                <Link key={lesson.id} href={`/lesson/${lesson.id}`} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gold/5 transition-colors group">
+                <Link key={lesson.id} href={`/lesson/${lesson.id}?panel=tafsir`} className="flex items-center gap-3 px-4 py-2.5 hover:bg-gold/5 transition-colors group">
                   <div className="w-6 h-6 rounded-full bg-gold flex items-center justify-center text-bg text-xs font-bold flex-shrink-0">
                     {lesson.id}
                   </div>
@@ -78,7 +78,7 @@ export default function VolumeAccordion({ volumes }: { volumes: VolumeAccordionV
   const toggle = (vol: number) => setOpenVolumes(prev => ({ ...prev, [vol]: !prev[vol] }));
 
   return (
-    <div className="space-y-3">
+    <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
       {volumes.map(v => (
         <VolumeCard
           key={v.vol}

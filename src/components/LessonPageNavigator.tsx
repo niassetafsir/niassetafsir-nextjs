@@ -148,7 +148,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
                       background: containsCurrent ? 'rgba(138,109,31,0.08)' : 'transparent',
                     }}
                   >
-                    <span className="font-english text-[10px] font-normal">
+                    <span className="font-english text-[9px] font-normal">
                       Vol. {v.vol}
                     </span>
                     <span className="flex items-center gap-1">

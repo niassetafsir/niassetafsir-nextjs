@@ -59,7 +59,7 @@ export default async function VolumePage({ params }: { params: { id: string } })
           const suraLabel = (lesson.sura || '').split('/')[0].trim();
           const summary = truncateSummary(lesson.lessonSummary);
           return (
-            <Link key={lesson.id} href={`/lesson/${lesson.id}`}
+            <Link key={lesson.id} href={`/lesson/${lesson.id}?panel=tafsir`}
               className="block px-4 py-3 rounded-xl border transition-all group"
               style={{
                 borderColor: `${accent}35`,

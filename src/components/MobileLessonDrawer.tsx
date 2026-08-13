@@ -116,8 +116,8 @@ export default function MobileLessonDrawer({ lessonId }: { lessonId: number }) {
                         borderLeft: containsCurrent ? '3px solid #8a6d1f' : '3px solid transparent',
                       }}
                     >
-                      <span className="font-english text-xs font-semibold">
-                        Volume {v.vol} <span className="font-normal" style={{ color: 'rgba(13,31,10,0.4)' }}>· Lessons {v.start}–{v.end}</span>
+                      <span className="font-english text-[10px] font-semibold">
+                        Volume {v.vol} <span className="font-normal text-[10px]" style={{ color: 'rgba(13,31,10,0.4)' }}>· Lessons {v.start}–{v.end}</span>
                       </span>
                       {isOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
                     </button>
