@@ -45,7 +45,19 @@ export interface LessonAlignment {
   englishOnly: EnglishOnlyGroup[];
 }
 
-export const BILINGUAL_ALIGNMENT: Record<number, LessonAlignment> = {
+// NOTE (Aug 2026): the entries below were built by indexing against the
+// `arabicText` field, but `src/app/lesson/[id]/page.tsx` actually passes
+// `lesson.arabicBody || lesson.arabicText` into BilingualText -- and for
+// Lessons 1-2, `arabicBody` is a DIFFERENT, trimmed version of the prose
+// (no title lines, no durud invocation, no Ibn-Abbas-transmission aside)
+// with its own paragraph indexing. The map below is therefore keyed to the
+// wrong field and is disabled (commented out of BILINGUAL_ALIGNMENT) until
+// it's rebuilt against `arabicBody`. Partial verification against the real
+// arabicBody text (first ~15 paragraphs of Lesson 1) confirmed the pairing
+// approach is sound and surfaced real corrections -- see git history / PR
+// discussion for details -- but a full rebuild needs to be finished before
+// this ships. Left the drafted work in place below for reference.
+const _DRAFT_BILINGUAL_ALIGNMENT: Record<number, LessonAlignment> = {
   1: {
     blocks: [
       { arabicIndices: [0, 1, 2], englishIndices: [], note: 'Section title / lesson header / orphaned durūd continuation -- editorial, not commentary prose.' },
@@ -93,3 +105,9 @@ export const BILINGUAL_ALIGNMENT: Record<number, LessonAlignment> = {
     ],
   },
 };
+void _DRAFT_BILINGUAL_ALIGNMENT; // keep the draft referenced so it isn't flagged as dead code
+
+// Disabled until rebuilt against `arabicBody` (see note above). Empty means
+// BilingualText.tsx falls back to its original raw-index pairing for every
+// lesson, exactly as it did before this file was introduced.
+export const BILINGUAL_ALIGNMENT: Record<number, LessonAlignment> = {};
