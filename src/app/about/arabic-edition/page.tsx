@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { VOLUME_META } from '@/lib/volumes';
 
 import type { Metadata } from "next";
 
@@ -36,30 +37,19 @@ export default function Page() {
         <h2 className="font-english text-white text-xl font-semibold mb-1">Volume Catalogue</h2>
         <p className="font-english text-white/45 text-sm mb-6">Ten-volume Arabic edition — lessons and sūra coverage</p>
         <div className="space-y-3">
-          {[
-            { vol: "I",   ar: "الجزء الأول",   lessons: "1–6",   range: "Al-Istiʿādha · al-Fātiḥa – al-Baqara (Q. 1:1–2:252)" },
-            { vol: "II",  ar: "الجزء الثاني",  lessons: "7–12",  range: "Al-Baqara – Al-Nisāʾ (Q. 2:253–4:147)" },
-            { vol: "III", ar: "الجزء الثالث",  lessons: "13–19", range: "Al-Nisāʾ – Al-Aʿrāf (Q. 4:148–7:170)" },
-            { vol: "IV",  ar: "الجزء الرابع",  lessons: "20–25", range: "Al-Aʿrāf – Hūd (Q. 7:171–11:83)" },
-            { vol: "V",   ar: "الجزء الخامس",  lessons: "26–30", range: "Hūd – Al-Naḥl (Q. 11:84–17:111)" },
-            { vol: "VI",  ar: "الجزء السادس",  lessons: "31–35", range: "Al-Kahf – Al-Nūr" },
-            { vol: "VII", ar: "الجزء السابع",  lessons: "36–40", range: "Al-Nūr – Al-Aḥzāb" },
-            { vol: "VIII",ar: "الجزء الثامن",  lessons: "41–45", range: "Al-Aḥzāb – Al-Dukhān" },
-            { vol: "IX",  ar: "الجزء التاسع",  lessons: "46–50", range: "Al-Dukhān – Al-Ṣaff" },
-            { vol: "X",   ar: "الجزء العاشر",  lessons: "51–56", range: "Al-Jumuʿa – Al-Nās" },
-          ].map(({ vol, ar, lessons, range }) => (
-            <div key={vol} className="flex items-start gap-4 py-3 border-b border-white/5">
+          {VOLUME_META.map((v) => (
+            <Link key={v.vol} href={`/volume/${v.vol}`} className="flex items-start gap-4 py-3 border-b border-white/5 hover:bg-gold/5 transition-colors -mx-2 px-2 rounded-lg">
               <div className="w-12 shrink-0 text-right">
-                <span className="font-english text-gold/70 text-sm font-semibold">Vol. {vol}</span>
+                <span className="font-english text-gold/70 text-sm font-semibold">Vol. {v.roman}</span>
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 mb-0.5">
-                  <span className="font-arabic text-white/80 text-base" dir="rtl">{ar}</span>
-                  <span className="font-english text-white/30 text-xs">Lessons {lessons}</span>
+                  <span className="font-arabic text-white/80 text-base" dir="rtl">{v.arabicOrdinal}</span>
+                  <span className="font-english text-white/30 text-xs">Lessons {v.start}–{v.end}</span>
                 </div>
-                <p className="font-english text-white/45 text-xs leading-relaxed">{range}</p>
+                <p className="font-english text-white/45 text-xs leading-relaxed">{v.rangeLabel}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

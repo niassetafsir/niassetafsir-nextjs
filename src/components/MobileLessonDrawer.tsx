@@ -4,19 +4,10 @@ import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Menu, X, ChevronRight, ChevronDown } from 'lucide-react';
+import { VOLUME_META } from '@/lib/volumes';
 
-const VOLUMES: { vol: number; start: number; end: number }[] = [
-  { vol: 1,  start: 1,  end: 6 },
-  { vol: 2,  start: 7,  end: 12 },
-  { vol: 3,  start: 13, end: 19 },
-  { vol: 4,  start: 20, end: 25 },
-  { vol: 5,  start: 26, end: 30 },
-  { vol: 6,  start: 31, end: 35 },
-  { vol: 7,  start: 36, end: 40 },
-  { vol: 8,  start: 41, end: 45 },
-  { vol: 9,  start: 46, end: 50 },
-  { vol: 10, start: 51, end: 56 },
-];
+// Volume boundaries -- single source of truth in src/lib/volumes.ts
+const VOLUMES = VOLUME_META;
 
 export default function MobileLessonDrawer({ lessonId }: { lessonId: number }) {
   const router = useRouter();

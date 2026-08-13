@@ -32,7 +32,7 @@ const CONTRIBUTE_ITEMS: DropdownItem[] = [
 ];
 
 const READ_ITEMS: DropdownItem[] = [
-  { label: "Read the Commentary", sub: "Browse by sūrah or manzil", href: "/read" },
+  { label: "Read the Commentary", sub: "Browse by sūrah or volume", href: "/read" },
   { label: "Listen", sub: "Audio recordings of the tafsīr", href: "/audio" },
 ];
 

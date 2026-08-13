@@ -3,23 +3,10 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { List, Search, ChevronLeft, ChevronRight, ChevronDown, Hash } from 'lucide-react';
+import { VOLUME_META } from '@/lib/volumes';
 
-// Volume → lesson-range table, verified against the `volume` field in
-// src/data/lessons/*.json (2026-08-11). Lesson 57 in the data is a duplicate
-// placeholder that redirects to Lesson 56 (see app/lesson/[id]/page.tsx), so
-// Volume X's real range is 51–56, not 51–57.
-const VOLUMES: { vol: number; start: number; end: number }[] = [
-  { vol: 1,  start: 1,  end: 6 },
-  { vol: 2,  start: 7,  end: 12 },
-  { vol: 3,  start: 13, end: 19 },
-  { vol: 4,  start: 20, end: 25 },
-  { vol: 5,  start: 26, end: 30 },
-  { vol: 6,  start: 31, end: 35 },
-  { vol: 7,  start: 36, end: 40 },
-  { vol: 8,  start: 41, end: 45 },
-  { vol: 9,  start: 46, end: 50 },
-  { vol: 10, start: 51, end: 56 },
-];
+// Volume boundaries -- single source of truth in src/lib/volumes.ts
+const VOLUMES = VOLUME_META;
 
 interface LessonPageNavigatorProps {
   lessonId: number;
