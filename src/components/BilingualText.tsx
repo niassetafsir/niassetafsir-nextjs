@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import ArabicWordTool from '@/components/ArabicWordTool';
 import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
 import { isDraftTranslation } from '@/lib/draftTranslations';
+import { VERSE_INDEX } from '@/lib/verseIndex';
 
 type View = 'bilingual' | 'arabic' | 'english' | 'french' | 'wolof' | 'hausa';
 
@@ -199,6 +200,15 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
 
   const alignment = lessonId ? BILINGUAL_ALIGNMENT[lessonId] : undefined;
   const isDraft = lessonId ? isDraftTranslation(lessonId) : false;
+  const verseEntries = lessonId ? (VERSE_INDEX[lessonId] || []) : [];
+
+  const jumpToVerse = (paraIndex: number) => {
+    if (view !== 'bilingual' && view !== 'arabic') setView('bilingual');
+    setHighlightedPara(paraIndex);
+    setTimeout(() => {
+      document.getElementById(`ar-para-${paraIndex}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, view === 'bilingual' || view === 'arabic' ? 0 : 100);
+  };
 
   const showBilingual = view === 'bilingual';
 
@@ -227,6 +237,33 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
           ))}
         </div>
       </div>
+
+      {/* Verse jump bar — Jalālayn-style per-ayah navigation, only shown once
+          this lesson has a built verse index (see src/lib/verseIndex.ts) */}
+      {verseEntries.length > 0 && (
+        <div
+          dir="ltr"
+          className="flex gap-1 overflow-x-auto px-3 py-2 border-b"
+          style={{ borderColor: 'rgba(13,31,10,0.1)', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}
+        >
+          <span className="font-english text-[10px] text-white/30 flex-shrink-0 self-center pr-1">Verse:</span>
+          {verseEntries.map(entry => (
+            <button
+              key={entry.verse}
+              onClick={() => jumpToVerse(entry.paraIndex)}
+              className="font-english text-[10px] flex-shrink-0 px-1.5 py-0.5 rounded border transition-colors"
+              style={{
+                borderColor: 'rgba(138,109,31,0.3)',
+                color: '#8a6d1f',
+                opacity: entry.uncertain ? 0.55 : 1,
+              }}
+              title={entry.uncertain ? `Q.${entry.verse} — approximate match` : `Jump to Q.${entry.verse}`}
+            >
+              {entry.verse.split(':')[1]}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Opening poem / invocation — displayed full-width, centered, before columns */}
       {poemLines.length > 0 && (showBilingual || view === 'arabic') && (
