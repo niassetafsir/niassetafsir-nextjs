@@ -51,17 +51,17 @@ export default function AyahJumpBar() {
       <p className="font-english text-[10px] uppercase tracking-widest text-gold/50 text-center mb-1.5" style={{letterSpacing:'0.12em'}}>
         Jump to a verse
       </p>
-      <div className="flex items-center gap-2 bg-[#0a1f08]/90 border border-gold/25 focus-within:border-gold/60 rounded-full px-3 py-2 sm:py-1.5 shadow-lg shadow-black/30 transition-all">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-gold/40 flex-shrink-0">
+      <div className="flex items-center gap-2 bg-white border-2 border-gold/50 focus-within:border-gold rounded-full px-3 py-2 sm:py-1.5 shadow-lg shadow-black/30 transition-all">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-ink/50 flex-shrink-0">
           <path d="M12 2 3 7l9 5 9-5-9-5Z" /><path d="m3 12 9 5 9-5" /><path d="m3 17 9 5 9-5" />
         </svg>
         <select
           value={surah}
           onChange={e => { setSurah(Number(e.target.value)); setNotice(null); }}
-          className="font-english text-sm bg-transparent text-white/85 flex-1 min-w-0 truncate max-w-[45%] outline-none"
+          className="font-english text-sm bg-transparent text-ink font-medium flex-1 min-w-0 truncate max-w-[45%] outline-none"
         >
           {SURAH_LIST.map(s => (
-            <option key={s.id} value={s.id} className="bg-[#0D1F0A]" disabled={!surahAvailable(s.id)}>
+            <option key={s.id} value={s.id} className="bg-white text-ink" disabled={!surahAvailable(s.id)}>
               {s.id}. {s.nameEn}{!surahAvailable(s.id) ? ' — soon' : ''}
             </option>
           ))}
@@ -73,11 +73,11 @@ export default function AyahJumpBar() {
           onChange={e => { setAyah(e.target.value); setNotice(null); }}
           onKeyDown={e => { if (e.key === 'Enter') handleGo(); }}
           placeholder="verse #"
-          className="font-english text-sm bg-transparent text-white/85 placeholder:text-white/30 w-14 sm:w-16 outline-none flex-shrink-0"
+          className="font-english text-sm bg-transparent text-ink font-medium placeholder:text-ink/40 w-14 sm:w-16 outline-none flex-shrink-0"
         />
         <button
           onClick={handleGo}
-          className="font-english text-xs font-medium text-gold hover:text-white bg-gold/10 hover:bg-gold/25 border border-gold/40 hover:border-gold/60 rounded-full px-3 py-1 flex-shrink-0 transition-all"
+          className="font-english text-xs font-semibold text-ink hover:text-white bg-gold/20 hover:bg-gold border border-gold/60 hover:border-gold rounded-full px-3 py-1 flex-shrink-0 transition-all"
         >
           Go
         </button>
