@@ -1,6 +1,7 @@
 import { getAllLessons } from '@/lib/lessons';
 import { VOLUME_META } from '@/lib/volumes';
 import VolumeAccordion, { VolumeAccordionVolume } from '@/components/VolumeAccordion';
+import AyahJumpBar from '@/components/AyahJumpBar';
 
 export default async function HomePage() {
   const allLessons = await getAllLessons();
@@ -45,20 +46,12 @@ export default async function HomePage() {
         {/* Read/Listen/Research buttons removed -- redundant with the persistent
             bottom nav (Home/Read/Listen/Research), which is visible on every page
             including this one without scrolling. */}
-        <div className="mt-2 max-w-xl mx-auto" dir="ltr">
-          <a href="/search" className="flex items-center gap-3 bg-white/4 hover:bg-white/7 border border-white/10 hover:border-gold/25 rounded-full px-4 py-2 transition-all group">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-white/25 flex-shrink-0">
-              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-            </svg>
-            <span className="font-english text-sm text-white/25 group-hover:text-white/45 transition-colors flex-1 text-left">
-              Search Arabic or English...
-            </span>
-          </a>
-        </div>
+        <AyahJumpBar />
       </div>
 
       {/* Direct lesson access, grouped by volume (the revised ten-volume
-          compiled Arabic edition, Majmaʿ al-Yamāma, Tunis 2010) */}
+          compiled Arabic edition, Majmaʿ al-Yamāma, Tunis 2010) -- kept as-is,
+          the āyah-jump widget above only replaces the old search-link pill. */}
       <VolumeAccordion volumes={volumes} />
 
     </main>

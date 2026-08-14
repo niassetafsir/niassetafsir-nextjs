@@ -1,0 +1,12 @@
+[
+  { "verse": "2:26", "paraIndex": 0 },
+  { "verse": "2:27", "paraIndex": 5, "uncertain": true },
+  { "verse": "2:28", "paraIndex": 5, "uncertain": true },
+  { "verse": "2:29", "paraIndex": 8, "uncertain": true },
+  { "verse": "2:30", "paraIndex": 8, "uncertain": true },
+  { "verse": "2:31", "paraIndex": 10, "uncertain": true },
+  { "verse": "2:32", "paraIndex": 10, "uncertain": true },
+  { "verse": "2:33", "paraIndex": 12, "uncertain": true },
+  { "verse": "2:34", "paraIndex": 29, "uncertain": true },
+  { "verse": "2:35", "paraIndex": 34, "uncertain": true }
+]

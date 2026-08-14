@@ -26,4 +26,12 @@ export interface VerseIndexEntry {
   uncertain?: boolean;
 }
 
-export const VERSE_INDEX: Record<number, VerseIndexEntry[]> = {};
+export const VERSE_INDEX: Record<number, VerseIndexEntry[]> = {
+  2: [
+    { verse: '2:10', paraIndex: 12 },
+    { verse: '2:12', paraIndex: 13 },
+    { verse: '2:21', paraIndex: 26 },
+    { verse: '2:22', paraIndex: 27 },
+    { verse: '2:23', paraIndex: 36 },
+  ],
+};

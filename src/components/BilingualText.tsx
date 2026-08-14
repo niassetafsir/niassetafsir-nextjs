@@ -174,6 +174,20 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
           el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 600);
       }
+      return; // ?q= and ?verse= are mutually exclusive entry points
+    }
+    // Arrived from the homepage āyah-jump widget (or any /lesson/N?verse=S:A
+    // link) -- scroll to the paragraph if this lesson's verse index has it.
+    const verseParam = params.get('verse');
+    if (verseParam && lessonId) {
+      const entry = (VERSE_INDEX[lessonId] || []).find(v => v.verse === verseParam);
+      if (entry) {
+        setHighlightedPara(entry.paraIndex);
+        setTimeout(() => {
+          const el = document.getElementById(`ar-para-${entry.paraIndex}`);
+          el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 700); // slightly later than ?q= -- Panel's own verse-badge effect also runs on mount
+      }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
