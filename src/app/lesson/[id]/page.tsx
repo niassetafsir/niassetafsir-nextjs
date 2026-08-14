@@ -72,7 +72,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
           All Sūrahs
         </a>
       </div>
-<Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
+<Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange} defaultOpen={true}>
         {lesson.openingInvocation && (
               <OpeningInvocation html={(lesson as any).openingInvocation} />
             )}

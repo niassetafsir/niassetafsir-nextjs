@@ -36,6 +36,23 @@ const BASMALA_PATTERN = /^(أعوذ بالله|بسم الله|اللهم صل)/
 
 
 
+function highlightEnVerses(html: string): string {
+  // Mirror the Arabic «...» quranic-verse treatment (see injectFootnoteLinks
+  // below) on the English side: the translator renders quoted Qur'anic
+  // clauses in parentheses. Skip short parenthetical glosses that are just a
+  // single italicized transliterated term, e.g. "(<em>wujūb</em>)" -- those
+  // are technical-term glosses, not verse quotations, and shouldn't be
+  // colored as one. This is a heuristic, not a perfect classifier -- a few
+  // longer glosses may still get colored; nothing is removed or altered,
+  // only wrapped for styling.
+  return html.replace(/\(([^()]{1,700})\)/g, (match, inner) => {
+    const isBareItalicGloss = /^<em>[^<]*<\/em>$/.test(inner.trim());
+    const plainWords = inner.replace(/<[^>]+>/g, '').trim().split(/\s+/).filter(Boolean);
+    if (isBareItalicGloss || plainWords.length < 3) return match;
+    return `<span class="quranic-verse">(${inner})</span>`;
+  });
+}
+
 function stripEnFootnotes(html: string): string {
   // Remove the compiled footnote block (en-footnotes div) from display
   // Keep only the inline superscript links in body text
@@ -221,9 +238,9 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
         </div>
       )}
 
-      {/* Bilingual view — stacked at all breakpoints: Arabic paragraph, then its
-          English translation directly beneath it, repeated (site owner's explicit
-          preference over the old desktop two-column split) */}
+      {/* Arabic + English view. If a verified alignment exists for this lesson,
+          render matched blocks; otherwise (the common case) two side-by-side
+          boxes, see below. */}
       {showBilingual && (
         <div className="divide-y" style={{borderColor:'rgba(13,31,10,0.08)'}}>
           {(() => { fnCursor.i = 0; return null; })()}
@@ -239,7 +256,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
                   {block.englishIndices.length > 0 ? (
                     <div dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 pl-3">
                       {block.englishIndices.map(ei => (
-                        <div key={ei} dangerouslySetInnerHTML={{ __html: stripEnFootnotes(enParagraphs[ei] || '') }} />
+                        <div key={ei} dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(enParagraphs[ei] || '')) }} />
                       ))}
                     </div>
                   ) : block.arabicIndices.length > 0 ? (
@@ -257,7 +274,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
                   {alignment.englishOnly.map((group, gi) => (
                     <div key={gi} dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 italic mb-3">
                       {group.indices.map(ei => (
-                        <div key={ei} dangerouslySetInnerHTML={{ __html: stripEnFootnotes(enParagraphs[ei] || '') }} />
+                        <div key={ei} dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(enParagraphs[ei] || '')) }} />
                       ))}
                     </div>
                   ))}
@@ -268,31 +285,35 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
             // No verified paragraph-level alignment yet for this lesson. Rather
             // than pair Arabic[i] with English[i] by raw array index (wrong
             // whenever the two texts diverge in paragraph count or order --
-            // true for most lessons), show the full Arabic text as one block
-            // followed by the full English translation as a separate block.
-            <div className="px-4 md:px-6 py-4">
-              <div dir="rtl">
+            // true for most lessons), show the full Arabic text and the full
+            // English translation as two separate boxes, side by side on
+            // desktop (stacked on narrow screens) -- no false pairing implied.
+            <div className="px-4 md:px-6 py-4 grid grid-cols-1 md:grid-cols-2 gap-4" dir="ltr">
+              {/* English box */}
+              <div className="border rounded-lg p-4" style={{ borderColor: 'rgba(13,31,10,0.12)' }}>
+                <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2">English translation</p>
+                {isDraft && <DraftTranslationNotice />}
+                {hasEnglish && enParagraphs.length > 0 ? (
+                  <div className="font-english text-[15px] leading-[1.85] text-white/80">
+                    {enParagraphs.map((p, i) => (
+                      <div key={i} className="mb-3" dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(p)) }} />
+                    ))}
+                  </div>
+                ) : (
+                  <p className="font-english text-white/20 text-xs italic">
+                    English translation forthcoming.
+                  </p>
+                )}
+              </div>
+              {/* Arabic box */}
+              <div className="border rounded-lg p-4" style={{ borderColor: 'rgba(13,31,10,0.12)' }} dir="rtl">
+                <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2" dir="ltr">Arabic text</p>
                 {commentaryParagraphs.map((p, i) => (
                   <div key={i} id={`ar-para-${i}`}
                     className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
                     dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId, footnoteOrder, fnCursor) }} />
                 ))}
               </div>
-              {hasEnglish && enParagraphs.length > 0 ? (
-                <div dir="ltr" className="mt-6 pt-5 border-t" style={{ borderColor: 'rgba(13,31,10,0.12)' }}>
-                  <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2">English translation</p>
-                  {isDraft && <DraftTranslationNotice />}
-                  <div className="font-english text-[15px] leading-[1.85] text-white/80">
-                    {enParagraphs.map((p, i) => (
-                      <div key={i} className="mb-3" dangerouslySetInnerHTML={{ __html: stripEnFootnotes(p) }} />
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <p className="font-english text-white/20 text-xs italic mt-4 pt-4 border-t" dir="ltr" style={{ borderColor: 'rgba(13,31,10,0.12)' }}>
-                  English translation forthcoming.
-                </p>
-              )}
             </div>
           )}
         </div>
@@ -311,7 +332,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
           {hasEnglish && englishText ? (
             <>
               {isDraft && <DraftTranslationNotice />}
-              <div className="font-english text-[16px] leading-[2.0]" style={{color:'var(--body-text, rgba(255,255,255,0.88))', textAlign:'left'}} dangerouslySetInnerHTML={{ __html: stripEnFootnotes(englishText || '') }} />
+              <div className="font-english text-[16px] leading-[2.0]" style={{color:'var(--body-text, rgba(255,255,255,0.88))', textAlign:'left'}} dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(englishText || '')) }} />
             </>
           ) : (
             <ComingSoonNote lang="english" />
