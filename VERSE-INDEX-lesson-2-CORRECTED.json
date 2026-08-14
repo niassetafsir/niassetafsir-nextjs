@@ -1,0 +1,22 @@
+[
+  { "verse": "2:6", "paraIndex": 0 },
+  { "verse": "2:7", "paraIndex": 9, "uncertain": true },
+  { "verse": "2:8", "paraIndex": 9, "uncertain": true },
+  { "verse": "2:9", "paraIndex": 9, "uncertain": true },
+  { "verse": "2:10", "paraIndex": 9, "uncertain": true },
+  { "verse": "2:11", "paraIndex": 10, "uncertain": true },
+  { "verse": "2:12", "paraIndex": 10, "uncertain": true },
+  { "verse": "2:13", "paraIndex": 10, "uncertain": true },
+  { "verse": "2:14", "paraIndex": 10, "uncertain": true },
+  { "verse": "2:15", "paraIndex": 10, "uncertain": true },
+  { "verse": "2:16", "paraIndex": 12, "uncertain": true },
+  { "verse": "2:17", "paraIndex": 12, "uncertain": true },
+  { "verse": "2:18", "paraIndex": 12, "uncertain": true },
+  { "verse": "2:19", "paraIndex": 12, "uncertain": true },
+  { "verse": "2:20", "paraIndex": 14 },
+  { "verse": "2:21", "paraIndex": 23 },
+  { "verse": "2:22", "paraIndex": 24 },
+  { "verse": "2:23", "paraIndex": 33 },
+  { "verse": "2:24", "paraIndex": 35 },
+  { "verse": "2:25", "paraIndex": 37 }
+]

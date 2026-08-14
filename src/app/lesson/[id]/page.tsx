@@ -12,6 +12,7 @@ import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
 import LessonCitations from '@/components/LessonCitations';
 import Link from 'next/link';
+import { SURAH_LIST } from '@/lib/verseRanges';
 
 export async function generateStaticParams() {
   const lessons = await getAllLessons();
@@ -29,6 +30,17 @@ export default async function LessonPage({ params }: { params: { id: string } })
 
   const readingNotes = getReadingNotes(Number(params.id));
   const usulBaseUrl = 'https://usul.ai/t/ruh-bayan';
+
+  // Jalālayn -- Royal Aal al-Bayt Institute's altafsir.com (tTafsirNo=74 is
+  // their internal id for Tafsīr al-Jalālayn), which hosts a full English
+  // translation, unlike Usul.ai's Arabic-only text. Deep-link to this
+  // lesson's sūra when we can resolve lesson.sura against SURAH_LIST;
+  // otherwise fall back to the tafsīr's general landing page.
+  const JALALAYN_TAFSIR_NO = 74;
+  const jalalaynSuraId = SURAH_LIST.find(s => s.nameEn === lesson.sura)?.id;
+  const jalalaynUrl = jalalaynSuraId
+    ? `https://www.altafsir.com/Tafasir.asp?tMadhNo=1&tTafsirNo=${JALALAYN_TAFSIR_NO}&tSoraNo=${jalalaynSuraId}&tAyahNo=1&tDisplay=yes&LanguageId=2`
+    : `https://www.altafsir.com/Tafasir.asp?tTafsirNo=${JALALAYN_TAFSIR_NO}&tDisplay=yes&LanguageId=2`;
 
   return (
     <div className="lesson-reading-page flex bg-cream text-ink" style={{minHeight:"calc(100vh - 56px)"}}>
@@ -135,13 +147,13 @@ export default async function LessonPage({ params }: { params: { id: string } })
                 Jalāl al-Dīn al-Maḥallī &amp; Jalāl al-Dīn al-Suyūṭī
               </div>
             </div>
-            <a href="https://usul.ai/t/tafsir-jalalayn" target="_blank" rel="noopener"
+            <a href={jalalaynUrl} target="_blank" rel="noopener"
               className="font-english text-xs text-green-400/70 border border-green-500/30 px-3 py-1 rounded-full hover:border-green-400/50 transition-all">
-              Open on Usul.ai ↗
+              Open on Altafsir.com ↗
             </a>
           </div>
           <p className="font-english text-white/25 italic text-sm">
-            {lesson.verseRange} — full Arabic text available at Usul.ai.
+            {lesson.verseRange} — Arabic &amp; English translation available at Altafsir.com (Royal Aal al-Bayt Institute).
           </p>
         </div>
       </Panel>
