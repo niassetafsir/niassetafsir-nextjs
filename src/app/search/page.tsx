@@ -167,7 +167,11 @@ export default function SearchPage() {
       {/* Results */}
       {query && filteredResults.length === 0 && !loading && (
         <div className="text-center py-12">
-          <p className="font-english text-white/30 italic">No results found for &quot;{query}&quot;</p>
+          <p className="font-english text-white/30 italic">
+            {entries.length === 0
+              ? 'Search is temporarily rebuilding its index — back shortly.'
+              : `No results found for "${query}"`}
+          </p>
         </div>
       )}
 
@@ -214,11 +218,11 @@ export default function SearchPage() {
 
       {!query && (
         <div className="text-center py-12 space-y-3">
-          <p className="font-english text-white/25 text-sm">
-            Search across 56 lessons · 2,176 indexed passages
+          <p className="font-english text-gold/50 text-sm">
+            Search is temporarily rebuilding its index — back shortly.
           </p>
           <p className="font-english text-white/20 text-xs">
-            Try: الرحمن · mercy · Q.1:2 · ayat al-kursi · استعاذة
+            In the meantime, browse by lesson from the homepage or the Read page.
           </p>
         </div>
       )}
