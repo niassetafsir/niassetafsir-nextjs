@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import ArabicWordTool from '@/components/ArabicWordTool';
 import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
+import { isDraftTranslation } from '@/lib/draftTranslations';
 
 type View = 'bilingual' | 'arabic' | 'english' | 'french' | 'wolof' | 'hausa';
 
@@ -11,6 +12,14 @@ interface BilingualTextProps {
   hasEnglish: boolean;
   lessonId?: number;
   footnoteOrder?: string[];
+}
+
+function DraftTranslationNotice() {
+  return (
+    <p className="font-english text-[11px] italic mb-3" dir="ltr" style={{ color: 'rgba(180,140,40,0.85)' }}>
+      Draft Under Review — Feedback Welcomed
+    </p>
+  );
 }
 
 const LANG_TABS: { id: View; label: string }[] = [
@@ -172,6 +181,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
   }
 
   const alignment = lessonId ? BILINGUAL_ALIGNMENT[lessonId] : undefined;
+  const isDraft = lessonId ? isDraftTranslation(lessonId) : false;
 
   const showBilingual = view === 'bilingual';
 
@@ -191,7 +201,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
       >
         <div className="flex gap-2 flex-wrap items-center">
           <span className="font-english text-xs text-white/30">Layout:</span>
-          <TabBtn label="⇌ Bilingual" active={showBilingual} onClick={() => setView('bilingual')} />
+          <TabBtn label="Arabic + English" active={showBilingual} onClick={() => setView('bilingual')} />
         </div>
         <div className="flex gap-1.5 flex-wrap items-center">
           <span className="font-english text-xs text-white/30">Language:</span>
@@ -255,24 +265,35 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
               )}
             </>
           ) : (
-            commentaryParagraphs.map((p, i) => (
-              <div key={i} className="px-4 md:px-6 py-4">
-                <div id={`ar-para-${i}`} dir="rtl"
-                  className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
-                  dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId, footnoteOrder, fnCursor) }} />
-                {hasEnglish && enParagraphs[i] ? (
-                  <div
-                    dir="ltr"
-                    className="font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 pl-3"
-                    dangerouslySetInnerHTML={{ __html: stripEnFootnotes(enParagraphs[i]) }}
-                  />
-                ) : i === 0 && !hasEnglish ? (
-                  <p className="font-english text-white/20 text-xs italic pl-3" dir="ltr">
-                    English translation forthcoming.
-                  </p>
-                ) : null}
+            // No verified paragraph-level alignment yet for this lesson. Rather
+            // than pair Arabic[i] with English[i] by raw array index (wrong
+            // whenever the two texts diverge in paragraph count or order --
+            // true for most lessons), show the full Arabic text as one block
+            // followed by the full English translation as a separate block.
+            <div className="px-4 md:px-6 py-4">
+              <div dir="rtl">
+                {commentaryParagraphs.map((p, i) => (
+                  <div key={i} id={`ar-para-${i}`}
+                    className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
+                    dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId, footnoteOrder, fnCursor) }} />
+                ))}
               </div>
-            ))
+              {hasEnglish && enParagraphs.length > 0 ? (
+                <div dir="ltr" className="mt-6 pt-5 border-t" style={{ borderColor: 'rgba(13,31,10,0.12)' }}>
+                  <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2">English translation</p>
+                  {isDraft && <DraftTranslationNotice />}
+                  <div className="font-english text-[15px] leading-[1.85] text-white/80">
+                    {enParagraphs.map((p, i) => (
+                      <div key={i} className="mb-3" dangerouslySetInnerHTML={{ __html: stripEnFootnotes(p) }} />
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <p className="font-english text-white/20 text-xs italic mt-4 pt-4 border-t" dir="ltr" style={{ borderColor: 'rgba(13,31,10,0.12)' }}>
+                  English translation forthcoming.
+                </p>
+              )}
+            </div>
           )}
         </div>
       )}
@@ -288,7 +309,10 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
       {view === 'english' && (
         <div dir="ltr" className="p-5 max-w-2xl mx-auto">
           {hasEnglish && englishText ? (
-            <div className="font-english text-[16px] leading-[2.0]" style={{color:'var(--body-text, rgba(255,255,255,0.88))', textAlign:'left'}} dangerouslySetInnerHTML={{ __html: stripEnFootnotes(englishText || '') }} />
+            <>
+              {isDraft && <DraftTranslationNotice />}
+              <div className="font-english text-[16px] leading-[2.0]" style={{color:'var(--body-text, rgba(255,255,255,0.88))', textAlign:'left'}} dangerouslySetInnerHTML={{ __html: stripEnFootnotes(englishText || '') }} />
+            </>
           ) : (
             <ComingSoonNote lang="english" />
           )}

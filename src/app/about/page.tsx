@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About This Edition & Platform",
-  description: "About the digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Translator, editorial contributions, and footnotes and citations.",
+  description: "About the digital edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Translator, editorial contributions, and footnotes and citations.",
   openGraph: {
     title: "About This Edition & Platform | niassetafsir.org",
-    description: "About the digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Translator, editorial contributions, and footnotes and citations.",
+    description: "About the digital edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Translator, editorial contributions, and footnotes and citations.",
   },
 };
 
@@ -27,10 +27,10 @@ export default function AboutPage() {
 
         <div>
           <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
-            Bilingual Edition &amp; Research Platform
+            Digital Edition &amp; Research Platform
           </h2>
           <p className="leading-6">
-            This site presents two interconnected resources in one: a digital bilingual edition and a research platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> 
+            This site presents two interconnected resources in one: a digital edition and a research platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>
             by Shaykh Ibrāhīm Niasse (d. 1975), designed to make this 
             tafsīr accessible, searchable, and analytically usable for academic research. It presents 
             a substantial portion of the Arabic text of each lesson, capped at 50% of the transcribed 

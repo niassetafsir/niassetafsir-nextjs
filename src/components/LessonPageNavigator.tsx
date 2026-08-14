@@ -148,11 +148,11 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
                       background: containsCurrent ? 'rgba(138,109,31,0.08)' : 'transparent',
                     }}
                   >
-                    <span className="font-english text-[9px] font-normal">
+                    <span className="font-english text-[7px] font-normal">
                       Vol. {v.vol}
                     </span>
                     <span className="flex items-center gap-1">
-                      <span className="font-english text-[9px]" style={{color:'rgba(13,31,10,0.45)'}}>
+                      <span className="font-english text-[7px]" style={{color:'rgba(13,31,10,0.45)'}}>
                         {v.start}–{v.end}
                       </span>
                       <ChevronDown size={11} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
@@ -164,7 +164,7 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
                         <Link
                           key={n}
                           href={`/lesson/${n}`}
-                          className="font-english text-[9px] w-5 h-5 flex items-center justify-center rounded transition-colors"
+                          className="font-english text-[7px] w-5 h-5 flex items-center justify-center rounded transition-colors"
                           style={{
                             background: n === lessonId ? '#8a6d1f' : 'rgba(13,31,10,0.05)',
                             color: n === lessonId ? '#F5EDD6' : 'rgba(13,31,10,0.75)',

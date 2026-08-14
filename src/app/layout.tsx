@@ -6,11 +6,11 @@ import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: {
-    default: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Bilingual Edition | niassetafsir.org",
+    default: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Edition & Research Platform | niassetafsir.org",
     template: "%s | niassetafsir.org",
   },
-  description: "The digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Complete Arabic text, English translation, critical apparatus, and scholarly research tools.",
-  keywords: ["Niasse", "tafsir", "tafsīr", "Quran", "West African Islam", "Tijaniyya", "Ibrahim Niasse", "Islamic studies", "Fī Riyāḍ", "bilingual edition"],
+  description: "A digital edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Arabic text, growing English translation, critical apparatus, and scholarly research tools.",
+  keywords: ["Niasse", "tafsir", "tafsīr", "Quran", "West African Islam", "Tijaniyya", "Ibrahim Niasse", "Islamic studies", "Fī Riyāḍ"],
   authors: [{ name: "Amadu Kunateh", url: "https://orcid.org/0009-0002-7839-6474" }],
   creator: "Amadu Kunateh",
   metadataBase: new URL("https://niassetafsir.org"),
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://niassetafsir.org",
     siteName: "niassetafsir.org",
-    title: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Bilingual Edition & Research Platform",
-    description: "The digital bilingual edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse (d. 1975). Complete Arabic text, English translation, 1,994-footnote critical apparatus, and scholarly research tools.",
+    title: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Edition & Research Platform",
+    description: "A digital edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse (d. 1975). Arabic text, growing English translation, 1,994-footnote critical apparatus, and scholarly research tools.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Fī Riyāḍ Tafsīr — niassetafsir.org" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Bilingual Edition",
-    description: "The digital bilingual edition and research platform for Niasse's tafsīr. Arabic text, English translation, critical apparatus.",
+    title: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Edition & Research Platform",
+    description: "A digital edition and research platform for Niasse's tafsīr. Arabic text, growing English translation, critical apparatus.",
     images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },

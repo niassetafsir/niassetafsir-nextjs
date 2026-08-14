@@ -33,7 +33,7 @@ function VolumeCard({ volume, isOpen, onToggle }: {
         <Link href={`/volume/${volume.vol}`} className="flex-1 text-center">
           <div className="font-arabic text-gold font-bold text-base leading-snug" dir="rtl">{volume.arabicOrdinal}</div>
           <div className="font-english text-white font-bold text-sm mt-1">
-            Volume {volume.roman} <span className="font-normal text-white/60">· Lessons {volume.start}–{volume.end}</span>
+            Volume {volume.vol} <span className="font-normal text-white/60">· Lessons {volume.start}–{volume.end}</span>
           </div>
           <div className="font-english text-white/70 text-xs mt-0.5">{volume.rangeLabel}</div>
         </Link>
@@ -78,7 +78,7 @@ export default function VolumeAccordion({ volumes }: { volumes: VolumeAccordionV
   const toggle = (vol: number) => setOpenVolumes(prev => ({ ...prev, [vol]: !prev[vol] }));
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+    <div dir="ltr" className="grid grid-cols-2 sm:grid-cols-5 gap-3">
       {volumes.map(v => (
         <VolumeCard
           key={v.vol}
