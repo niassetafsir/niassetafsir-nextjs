@@ -13,6 +13,7 @@ import SelectionClip from '@/components/SelectionClip';
 import LessonCitations from '@/components/LessonCitations';
 import Link from 'next/link';
 import { SURAH_LIST } from '@/lib/verseRanges';
+import { redactToQuranicFragments } from '@/lib/quranicFragments';
 
 export async function generateStaticParams() {
   const lessons = await getAllLessons();
@@ -41,6 +42,12 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const jalalaynUrl = jalalaynSuraId
     ? `https://www.altafsir.com/Tafasir.asp?tMadhNo=1&tTafsirNo=${JALALAYN_TAFSIR_NO}&tSoraNo=${jalalaynSuraId}&tAyahNo=1&tDisplay=yes&LanguageId=2`
     : `https://www.altafsir.com/Tafasir.asp?tTafsirNo=${JALALAYN_TAFSIR_NO}&tDisplay=yes&LanguageId=2`;
+
+  // Reduce the full Arabic commentary down to just its Qur'anic citation
+  // fragments *here*, server-side, before any of it reaches the 'use client'
+  // BilingualText component -- see src/lib/quranicFragments.ts for why this
+  // can't happen inside that component instead.
+  const arabicRedacted = redactToQuranicFragments(lesson.arabicBody || lesson.arabicText);
 
   return (
     <div className="lesson-reading-page flex bg-cream text-ink" style={{minHeight:"calc(100vh - 56px)"}}>
@@ -89,7 +96,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
               <OpeningInvocation html={(lesson as any).openingInvocation} />
             )}
               <BilingualText
-          arabicText={lesson.arabicBody || lesson.arabicText}
+          poemLines={arabicRedacted.poemLines}
+          arabicFragments={arabicRedacted.fragments}
           englishText={lesson.englishText}
           hasEnglish={lesson.hasEnglish}
           lessonId={lesson.id}

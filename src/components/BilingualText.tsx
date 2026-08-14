@@ -8,7 +8,15 @@ import { VERSE_INDEX } from '@/lib/verseIndex';
 type View = 'bilingual' | 'arabic' | 'english' | 'french' | 'wolof' | 'hausa';
 
 interface BilingualTextProps {
-  arabicText: string;
+  /** Opening istiʿādha/basmala/poem lines, shown in full (liturgical
+   *  formulas, not part of Niasse's original commentary). */
+  poemLines: string[];
+  /** Already redacted server-side to Qur'anic citation fragments only --
+   *  see src/lib/quranicFragments.ts. Never the full commentary text: this
+   *  component must not receive that, since anything passed as a prop to a
+   *  'use client' component ships to the browser regardless of what's
+   *  actually rendered. */
+  arabicFragments: string[];
   englishText: string | null;
   hasEnglish: boolean;
   lessonId?: number;
@@ -141,12 +149,10 @@ function ComingSoonNote({ lang }: { lang: string }) {
   );
 }
 
-export default function BilingualText({ arabicText, englishText, hasEnglish, lessonId, footnoteOrder }: BilingualTextProps) {
+export default function BilingualText({ poemLines, arabicFragments, englishText, hasEnglish, lessonId, footnoteOrder }: BilingualTextProps) {
   const [view, setView] = useState<View>('bilingual');
-  const [highlightQuery, setHighlightQuery] = useState<string>('');
   const [highlightedPara, setHighlightedPara] = useState<number>(-1);
 
-  const allArParagraphs = arabicText.split('\n').filter(p => p.trim());
   const fnCursor = { i: 0 };
 
   useEffect(() => {
@@ -154,7 +160,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
     const q = params.get('q');
     if (q) {
       const decodedQ = decodeURIComponent(q);
-      setHighlightQuery(decodedQ);
+      /* setHighlightQuery removed */
       // Normalize Arabic text for matching (strip HTML, diacritics, special chars)
       const normalizeAr = (text: string) => text
         .replace(/<[^>]+>/g, '')
@@ -165,7 +171,7 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
         .trim();
       const normQ = normalizeAr(decodedQ).slice(0, 20);
       // Find matching paragraph index
-      const commentaryParagraphsList = allArParagraphs.filter(p => !POEM_PATTERN.test(p.trim()) && !BASMALA_PATTERN.test(p.trim()));
+      const commentaryParagraphsList: string[] = []; // full text no longer available client-side; ?q= deep link is unused dead code
       const idx = commentaryParagraphsList.findIndex(p => normalizeAr(p).includes(normQ));
       if (idx >= 0) {
         setHighlightedPara(idx);
@@ -192,9 +198,12 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
-  // Separate poem/invocation lines from commentary paragraphs
-  const poemLines = allArParagraphs.filter(p => isPoem(p));
-  const commentaryParagraphs = allArParagraphs.filter(p => !isPoem(p));
+  // poemLines comes straight from props now (full liturgical text, shown as
+  // before). commentaryParagraphs is arabicFragments -- already reduced
+  // server-side to Qur'anic citation fragments only, index-parallel to what
+  // the old full-paragraph array was, so VERSE_INDEX paraIndex still lines
+  // up; most entries are '' and simply aren't rendered.
+  const commentaryParagraphs = arabicFragments;
 
   // Parse English paragraphs for mobile paragraph interleaving.
   // Only <p class="en-para"> blocks count as body prose here -- <p class="en-fn">
@@ -356,24 +365,32 @@ export default function BilingualText({ arabicText, englishText, hasEnglish, les
                   </p>
                 )}
               </div>
-              {/* Arabic box */}
+              {/* Arabic box -- shows only the literal Qur'anic verses quoted
+                  within Niasse's commentary, not the surrounding commentary
+                  prose itself (see src/lib/quranicFragments.ts). */}
               <div className="border rounded-lg p-4" style={{ borderColor: 'rgba(13,31,10,0.12)' }} dir="rtl">
-                <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2" dir="ltr">Arabic text</p>
-                {commentaryParagraphs.map((p, i) => (
+                <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-1" dir="ltr">Qur'anic citations</p>
+                <p className="font-english text-white/25 text-[10px] italic mb-2" dir="ltr">
+                  Verses quoted in this lesson's commentary — full Arabic commentary text not published here.
+                </p>
+                {commentaryParagraphs.map((p, i) => p ? (
                   <div key={i} id={`ar-para-${i}`}
-                    className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
+                    className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-gold/90 text-justify mb-3 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
                     dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId, footnoteOrder, fnCursor) }} />
-                ))}
+                ) : null)}
               </div>
             </div>
           )}
         </div>
       )}
 
-      {/* Arabic only */}
+      {/* Arabic only -- Qur'anic citation fragments only, see note above */}
       {view === 'arabic' && (
         <div className="p-5 text-center font-arabic-sans" dir="rtl">
-          <ArabicWordTool text={commentaryParagraphs.map(p => `<p class="mb-4 text-center leading-loose">${p}</p>`).join('')} />
+          <p className="font-english text-white/25 text-[10px] italic mb-3" dir="ltr">
+            Verses quoted in this lesson's commentary — full Arabic commentary text not published here.
+          </p>
+          <ArabicWordTool text={commentaryParagraphs.filter(Boolean).map(p => `<p class="mb-4 text-center leading-loose">${p}</p>`).join('')} />
         </div>
       )}
 
