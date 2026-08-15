@@ -93,7 +93,8 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
       setOpen(true);
       if (targetVerse) setVerse(decodeURIComponent(targetVerse));
       setTimeout(() => {
-        ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // instant, not smooth -- see BilingualText.tsx for why.
+        ref.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
       }, 500);
     }
   }, [panelId]);
@@ -170,7 +171,7 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
         <button
           onClick={() => {
             setOpen(false);
-            ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            ref.current?.scrollIntoView({ behavior: 'instant', block: 'start' });
           }}
           style={{
             position: 'fixed',

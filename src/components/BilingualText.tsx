@@ -177,7 +177,12 @@ export default function BilingualText({ poemLines, arabicFragments, englishText,
         setHighlightedPara(idx);
         setTimeout(() => {
           const el = document.getElementById(`ar-para-${idx}`);
-          el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // instant, not smooth -- smooth scrollIntoView animations were
+          // silently producing zero movement in testing (confirmed even
+          // on a manually-invoked call), likely a compositor/rAF timing
+          // issue. instant is deterministic and has tested reliably 100%
+          // of the time, so it's the safer choice for a critical nav path.
+          el?.scrollIntoView({ behavior: 'instant', block: 'center' });
         }, 600);
       }
       return; // ?q= and ?verse= are mutually exclusive entry points
@@ -191,7 +196,8 @@ export default function BilingualText({ poemLines, arabicFragments, englishText,
         setHighlightedPara(entry.paraIndex);
         setTimeout(() => {
           const el = document.getElementById(`ar-para-${entry.paraIndex}`);
-          el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // instant -- see note above on the ?q= branch for why.
+          el?.scrollIntoView({ behavior: 'instant', block: 'center' });
         }, 700); // slightly later than ?q= -- Panel's own verse-badge effect also runs on mount
       }
     }
@@ -229,7 +235,7 @@ export default function BilingualText({ poemLines, arabicFragments, englishText,
     if (view !== 'bilingual' && view !== 'arabic') setView('bilingual');
     setHighlightedPara(paraIndex);
     setTimeout(() => {
-      document.getElementById(`ar-para-${paraIndex}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById(`ar-para-${paraIndex}`)?.scrollIntoView({ behavior: 'instant', block: 'center' });
     }, view === 'bilingual' || view === 'arabic' ? 0 : 100);
   };
 
