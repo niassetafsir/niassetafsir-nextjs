@@ -169,13 +169,13 @@ export default function ReadPage() {
               style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>No results found</p>
           )}
           {suraResults.map(([num, name]) => (
-            <Link key={num} href={`/lesson/${SURA_TO_LESSON[num as number]}`}
+            <Link key={num} href={`/surah/${num}`}
               className="flex items-center justify-between px-3 py-2 rounded-lg border transition-all group"
               style={{borderColor:'rgba(201,168,76,0.2)', background:'rgba(201,168,76,0.04)'}}>
               <span className="font-english text-sm group-hover:text-gold transition-colors"
                 style={{color:'var(--body-text, rgba(255,255,255,0.85))'}}>{name as string}</span>
               <span className="font-english text-[10px]"
-                style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>→ Lesson {SURA_TO_LESSON[num as number]}</span>
+                style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>Read sūrah →</span>
             </Link>
           ))}
           {lessonResults.map(l => (
@@ -210,13 +210,13 @@ export default function ReadPage() {
               <div className="p-3" style={{background:'var(--panel-body-bg, rgba(13,20,10,0.5))'}}>
                 <p className="font-english text-[10px] mb-2 italic"
                   style={{color:'var(--body-faint, rgba(255,255,255,0.3))'}}>
-                  Each sūrah links to the lesson where its commentary begins; long sūrahs continue across the range shown
+                  Each sūrah opens a continuous reading view across every lesson touching it
                 </p>
                 <div className="grid grid-cols-3 gap-1">
                   {SURAS.map(([num, name]) => {
                     const lessonId = SURA_TO_LESSON[num as number];
                     return (
-                      <Link key={num} href={`/lesson/${lessonId}`}
+                      <Link key={num} href={`/surah/${num}`}
                         className="flex flex-col px-2 py-1.5 rounded-lg border transition-all text-left"
                         style={{borderColor: 'rgba(201,168,76,0.2)', background:'transparent'}}>
                         <span className="font-english text-[9px]" style={{color:'rgba(201,168,76,0.5)'}}>{num}</span>

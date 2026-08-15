@@ -10,7 +10,7 @@ export default function PersistentNav() {
   if (pathname.startsWith('/lesson/')) return null;
 
   const isHome = pathname === '/';
-  const isRead = pathname.startsWith('/lesson') || pathname.startsWith('/volume') || pathname === '/read';
+  const isRead = pathname.startsWith('/lesson') || pathname.startsWith('/volume') || pathname.startsWith('/surah') || pathname === '/read';
   const isListen = pathname.startsWith('/audio');
   const isResearch = pathname.startsWith('/research') || pathname.startsWith('/concordance') ||
     pathname.startsWith('/footnotes') || pathname.startsWith('/hadith') ||

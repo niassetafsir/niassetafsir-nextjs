@@ -45,7 +45,7 @@ const BASMALA_PATTERN = /^(أعوذ بالله|بسم الله|اللهم صل)/
 
 
 
-function highlightEnVerses(html: string): string {
+export function highlightEnVerses(html: string): string {
   // Mirror the Arabic «...» quranic-verse treatment (see injectFootnoteLinks
   // below) on the English side: the translator renders quoted Qur'anic
   // clauses in parentheses. Skip short parenthetical glosses that are just a
@@ -62,14 +62,14 @@ function highlightEnVerses(html: string): string {
   });
 }
 
-function stripEnFootnotes(html: string): string {
+export function stripEnFootnotes(html: string): string {
   // Remove the compiled footnote block (en-footnotes div) from display
   // Keep only the inline superscript links in body text
   return html.replace(/<div class="en-footnotes"[\s\S]*?<\/div>\s*(?=<|$)/g, '')
              .replace(/<div class="en-footnotes"[\s\S]*/g, '');
 }
 
-function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrder?: string[], cursor?: { i: number }): string {
+export function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrder?: string[], cursor?: { i: number }): string {
   if (!lessonId) return text;
 
   // Strip inline bibliographic refs like "تفسير القرطبي ج35/" before [N]
@@ -97,7 +97,7 @@ function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrder?: st
   return result;
 }
 
-function isPoem(text: string) {
+export function isPoem(text: string) {
   return POEM_PATTERN.test(text.trim()) || BASMALA_PATTERN.test(text.trim());
 }
 
