@@ -377,7 +377,14 @@ export default function BilingualText({ poemLines, arabicFragments, englishText,
                   <div key={i} id={`ar-para-${i}`}
                     className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-gold/90 text-justify mb-3 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
                     dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId, footnoteOrder, fnCursor) }} />
-                ) : null)}
+                ) : (
+                  // Empty fragment (no Qur'anic citation in this paragraph) --
+                  // still needs the anchor element, or VERSE_INDEX paraIndex
+                  // lookups (verse-jump bar, homepage āyah-jump widget) find
+                  // nothing to scroll to and silently fail. Zero-height, not
+                  // rendered visibly.
+                  <div key={i} id={`ar-para-${i}`} className="h-0 overflow-hidden" aria-hidden="true" />
+                ))}
               </div>
             </div>
           )}
