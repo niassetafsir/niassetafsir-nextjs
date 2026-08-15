@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { isPoem, injectFootnoteLinks, stripEnFootnotes, highlightEnVerses } from './BilingualText';
 
@@ -51,27 +51,43 @@ function LessonBlock({ lesson }: { lesson: SurahLessonData }) {
         </span>
       </div>
 
-      <div className="space-y-3 mb-5">
-        {arPars.map((p, i) => (
-          <p key={i}
-            className="font-arabic-sans text-[1.05rem] leading-[2.1] text-gold/90 text-justify"
-            dir="rtl"
-            dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lesson.id, lesson.footnoteOrder, cursor) }}
-          />
-        ))}
-      </div>
-
-      {enPars.length > 0 && (
-        <div className="space-y-3 border-t pt-4" style={{ borderColor: 'rgba(255,255,255,0.06)' }} dir="ltr">
-          {enPars.map((p, i) => (
-            <p key={i}
-              className="font-english text-sm leading-6"
-              style={{ color: 'var(--body-sub, rgba(255,255,255,0.75))' }}
-              dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(p)) }}
-            />
-          ))}
+      {/* Side by side, not stacked -- there's no verified paragraph-level
+          Arabic<->English alignment for any lesson yet (BILINGUAL_ALIGNMENT
+          is empty), so pairing by raw paragraph index would misrepresent
+          the correspondence. This mirrors the same "two boxes" fallback
+          BilingualText.tsx already uses on the lesson pages for the same
+          reason -- full texts side by side, no false pairing implied. */}
+      <div className={enPars.length > 0 ? 'grid grid-cols-1 md:grid-cols-2 gap-4' : ''}>
+        {enPars.length > 0 && (
+          <div className="border rounded-lg p-4 order-2 md:order-1" style={{ borderColor: 'rgba(255,255,255,0.08)' }} dir="ltr">
+            <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2">English translation</p>
+            <div className="space-y-3">
+              {enPars.map((p, i) => (
+                <p key={i}
+                  className="font-english text-sm leading-6"
+                  style={{ color: 'var(--body-sub, rgba(255,255,255,0.75))' }}
+                  dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(p)) }}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+        <div className={enPars.length > 0 ? 'border rounded-lg p-4 order-1 md:order-2' : ''}
+          style={enPars.length > 0 ? { borderColor: 'rgba(255,255,255,0.08)' } : undefined}
+          dir="rtl">
+          {enPars.length > 0 && (
+            <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2" dir="ltr">Arabic commentary</p>
+          )}
+          <div className="space-y-3">
+            {arPars.map((p, i) => (
+              <p key={i}
+                className="font-arabic-sans text-[1.05rem] leading-[2.1] text-gold/90 text-justify"
+                dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lesson.id, lesson.footnoteOrder, cursor) }}
+              />
+            ))}
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }
@@ -79,6 +95,13 @@ function LessonBlock({ lesson }: { lesson: SurahLessonData }) {
 export default function SurahReader({ surahId, nameAr, nameEn, ayahCount, lessons, prevSurah, nextSurah }: SurahReaderProps) {
   const [mode, setMode] = useState<'continuous' | 'paginated'>('continuous');
   const [pageIdx, setPageIdx] = useState(0);
+
+  // Previous/Next lesson only swaps content in place -- nothing else
+  // scrolls the page, so without this a reader who's scrolled down into
+  // one lesson lands mid-page in the next one instead of at its start.
+  useEffect(() => {
+    if (mode === 'paginated') window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pageIdx, mode]);
 
   const multiLesson = lessons.length > 1;
 
