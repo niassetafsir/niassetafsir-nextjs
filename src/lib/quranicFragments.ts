@@ -31,7 +31,13 @@ function isPoem(text: string) {
 // them recomputed.
 function extractSpans(paragraph: string): string[] {
   const spans: string[] = [];
-  const patterns = [/\(([^()]{2,400})\)/g, /«([^»]{2,400})»/g, /\{([^{}]{2,400})\}/g];
+  // Deliberately no brace {} pattern: spot-checking the live output showed
+  // a stray unmatched paren from an OCR artifact pairing with an unrelated
+  // later '}' and capturing a large real chunk of Niasse's commentary prose
+  // in between -- exactly what this whole redaction exists to prevent.
+  // Parens and guillemets are the two genuine citation markers in this
+  // corpus; braces were only ever a secondary/unreliable OCR-noise signal.
+  const patterns = [/\(([^()]{2,400})\)/g, /«([^»]{2,400})»/g];
   for (const re of patterns) {
     let m: RegExpExecArray | null;
     while ((m = re.exec(paragraph))) spans.push(m[1].trim());
