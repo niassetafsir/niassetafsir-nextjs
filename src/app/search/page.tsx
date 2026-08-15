@@ -169,7 +169,7 @@ export default function SearchPage() {
         <div className="text-center py-12">
           <p className="font-english text-white/30 italic">
             {entries.length === 0
-              ? 'Search is temporarily rebuilding its index — back shortly.'
+              ? 'Loading search index…'
               : `No results found for "${query}"`}
           </p>
         </div>
@@ -219,10 +219,12 @@ export default function SearchPage() {
       {!query && (
         <div className="text-center py-12 space-y-3">
           <p className="font-english text-gold/50 text-sm">
-            Search is temporarily rebuilding its index — back shortly.
+            {entries.length > 0
+              ? `Search across 56 lessons · ${entries.length} indexed passages`
+              : 'Loading search index…'}
           </p>
           <p className="font-english text-white/20 text-xs">
-            In the meantime, browse by lesson from the homepage or the Read page.
+            Arabic results are Qur'anic citation fragments; English results are full translated passages where available.
           </p>
         </div>
       )}

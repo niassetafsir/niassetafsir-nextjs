@@ -40,7 +40,21 @@ function extractSpans(paragraph: string): string[] {
   const patterns = [/\(([^()]{2,400})\)/g, /«([^»]{2,400})»/g];
   for (const re of patterns) {
     let m: RegExpExecArray | null;
-    while ((m = re.exec(paragraph))) spans.push(m[1].trim());
+    while ((m = re.exec(paragraph))) {
+      const span = m[1].trim();
+      // Second line of defense: even without the brace pattern, a genuine
+      // '(' can still end up pairing with the wrong ')' when the source's
+      // real closing bracket was mangled by OCR (or a citation legitimately
+      // exceeds the length cap) -- the regex then keeps scanning forward
+      // and matches an unrelated, much later bracket, sweeping up real
+      // commentary prose in between. Confirmed live on Lesson 2 (a chunk
+      // about Musaylama leaked this way). Bare citations in this corpus
+      // never contain a full stop or a stray brace character; commentary
+      // prose reliably does -- so this is a cheap, safe filter for the
+      // failure mode rather than a guess.
+      if (/[.{}]/.test(span)) continue;
+      spans.push(span);
+    }
   }
   return spans;
 }

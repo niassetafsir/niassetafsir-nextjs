@@ -44,7 +44,14 @@ function extractSpans(paragraph) {
   const patterns = [/\(([^()]{2,400})\)/g, /«([^»]{2,400})»/g];
   for (const re of patterns) {
     let m;
-    while ((m = re.exec(paragraph))) spans.push(m[1].trim());
+    while ((m = re.exec(paragraph))) {
+      const span = m[1].trim();
+      // Keep in sync with src/lib/quranicFragments.ts -- rejects spans that
+      // are actually leaked commentary prose from a mismatched bracket pair
+      // (confirmed live on Lesson 2). See that file for the full rationale.
+      if (/[.{}]/.test(span)) continue;
+      spans.push(span);
+    }
   }
   return spans;
 }
