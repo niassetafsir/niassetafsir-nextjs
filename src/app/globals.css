@@ -562,6 +562,26 @@ nav .font-english.text-xs {
   color: #0d7a5f !important;
 }
 
+/* Inline verse-number badge appended after a matched Qur'anic citation --
+   same colour family as .quranic-verse (both mean "this is Qur'an"), but
+   small/superscript like .fn-superscript so it reads as a reference, not
+   body text, and is visually distinct from footnote [N] superscripts. */
+.verse-ref {
+  font-size: 0.65em;
+  vertical-align: super;
+  color: #34d399;
+  opacity: 0.85;
+  font-family: var(--font-english);
+  margin-inline-start: 0.2em;
+  font-style: normal;
+  unicode-bidi: isolate;
+}
+.light .verse-ref,
+[data-theme="light"] .verse-ref {
+  color: #0d7a5f;
+}
+.lesson-reading-page .verse-ref { color: #0d7a5f !important; }
+
 /* Persistent nav — light/dark mode */
 :root {
   --persistent-nav-bg: rgba(10,18,8,0.97);

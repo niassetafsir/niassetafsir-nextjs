@@ -14,6 +14,7 @@ import LessonCitations from '@/components/LessonCitations';
 import Link from 'next/link';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { redactToQuranicFragments } from '@/lib/quranicFragments';
+import verseCitations from '@/data/verseCitations.json';
 
 export async function generateStaticParams() {
   const lessons = await getAllLessons();
@@ -47,7 +48,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
   // fragments *here*, server-side, before any of it reaches the 'use client'
   // BilingualText component -- see src/lib/quranicFragments.ts for why this
   // can't happen inside that component instead.
-  const arabicRedacted = redactToQuranicFragments(lesson.arabicBody || lesson.arabicText);
+  const lessonCitations = (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
+  const arabicRedacted = redactToQuranicFragments(lesson.arabicBody || lesson.arabicText, lessonCitations);
 
   return (
     <div className="lesson-reading-page flex bg-cream text-ink" style={{minHeight:"calc(100vh - 56px)"}}>

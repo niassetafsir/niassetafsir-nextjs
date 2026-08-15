@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { isPoem, injectFootnoteLinks, stripEnFootnotes, highlightEnVerses } from './BilingualText';
+import { isPoem, injectFootnoteLinks, injectVerseNumbers, stripEnFootnotes, highlightEnVerses } from './BilingualText';
 
 export interface SurahLessonData {
   id: number;
@@ -13,6 +13,9 @@ export interface SurahLessonData {
   englishText: string | null;
   hasEnglish: boolean;
   footnoteOrder?: string[];
+  /** paraIndex -> spanIndex -> "surah:ayah", high-confidence matches only --
+   *  see src/data/verseCitations.json / scripts/build-verse-citations.js. */
+  citations?: Record<string, Record<string, string>>;
 }
 
 interface SurahReaderProps {
@@ -79,12 +82,15 @@ function LessonBlock({ lesson }: { lesson: SurahLessonData }) {
             <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2" dir="ltr">Arabic commentary</p>
           )}
           <div className="space-y-3">
-            {arPars.map((p, i) => (
-              <p key={i}
-                className="font-arabic-sans text-[1.05rem] leading-[2.1] text-gold/90 text-justify"
-                dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lesson.id, lesson.footnoteOrder, cursor) }}
-              />
-            ))}
+            {arPars.map((p, i) => {
+              const withVerseNums = injectVerseNumbers(p, lesson.citations?.[String(i)]);
+              return (
+                <p key={i}
+                  className="font-arabic-sans text-[1.05rem] leading-[2.1] text-gold/90 text-justify"
+                  dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(withVerseNums, lesson.id, lesson.footnoteOrder, cursor) }}
+                />
+              );
+            })}
           </div>
         </div>
       </div>

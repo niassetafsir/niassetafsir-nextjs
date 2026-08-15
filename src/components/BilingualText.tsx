@@ -97,6 +97,39 @@ export function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrd
   return result;
 }
 
+// Appends a small verse-number badge right after a matched Qur'anic
+// citation, for views that render the FULL Arabic paragraph text (e.g.
+// SurahReader.tsx) rather than pre-extracted fragments (lesson pages use
+// quranicFragments.ts's own copy of this instead, since by the time that
+// view runs the citation brackets have already been stripped out).
+//
+// paraCitations is spanIndex(as string) -> "surah:ayah", high-confidence
+// matches only -- see src/data/verseCitations.json. The regex bounds and
+// leak-guard below MUST mirror src/lib/quranicFragments.ts's extractSpans()
+// exactly, since that's what scripts/match-verses.js indexed spanIndex
+// against -- paren matches first (left to right), then guillemet matches
+// (left to right), sharing one running counter; anything the leak-guard
+// rejects (a stray '.', '{', or '}' inside -- an OCR-mangled bracket
+// pairing with real commentary prose swept up in between) is skipped
+// without incrementing the counter, same as extractSpans() dropping it
+// from its output entirely.
+export function injectVerseNumbers(text: string, paraCitations?: Record<string, string>): string {
+  if (!paraCitations || Object.keys(paraCitations).length === 0) return text;
+
+  let spanIndex = 0;
+  const withVerse = (full: string, inner: string) => {
+    const span = inner.trim();
+    if (/[.{}]/.test(span)) return full;
+    const verse = paraCitations[String(spanIndex)];
+    spanIndex += 1;
+    return verse ? `${full}<sup class="verse-ref">${verse}</sup>` : full;
+  };
+
+  let result = text.replace(/\(([^()]{2,400})\)/g, withVerse);
+  result = result.replace(/«([^»]{2,400})»/g, withVerse);
+  return result;
+}
+
 export function isPoem(text: string) {
   return POEM_PATTERN.test(text.trim()) || BASMALA_PATTERN.test(text.trim());
 }

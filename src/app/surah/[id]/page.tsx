@@ -3,6 +3,7 @@ import { getLesson } from '@/lib/lessons';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { getLessonIdsForSurah, getAdjacentSurahIds } from '@/lib/surahLessons';
 import SurahReader, { SurahLessonData } from '@/components/SurahReader';
+import verseCitations from '@/data/verseCitations.json';
 
 export async function generateStaticParams() {
   return SURAH_LIST.map(s => ({ id: String(s.id) }));
@@ -41,6 +42,9 @@ export default async function SurahPage({ params }: { params: { id: string } }) 
       englishText: l.englishText,
       hasEnglish: !!l.hasEnglish,
       footnoteOrder: l.footnoteOrder,
+      // High-confidence (substring/pair) verse matches for this lesson --
+      // see scripts/build-verse-citations.js. paraIndex -> spanIndex -> verse.
+      citations: (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(l.id)],
     }));
 
   if (lessons.length === 0) notFound();

@@ -17,6 +17,8 @@
 // paraIndex is 0-based, matching the index BilingualText.tsx assigns after
 // filtering poem/basmala lines out of arabicBody||arabicText.split('\n').
 
+import autoIndexRaw from '@/data/verseIndexAuto.json';
+
 export interface VerseIndexEntry {
   /** e.g. "2:26" */
   verse: string;
@@ -26,7 +28,14 @@ export interface VerseIndexEntry {
   uncertain?: boolean;
 }
 
-export const VERSE_INDEX: Record<number, VerseIndexEntry[]> = {
+// Lessons 1-3 below were hand-curated/spot-checked (see the comments on
+// each). Lessons 4-56 are filled in from the automated citation matcher
+// (scripts/match-verses.js + scripts/build-verse-citations.js), using only
+// its high-confidence (substring/pair) matches -- see the 2026-08-16 review
+// notes in match-verses.js for what that excludes and why. Always marked
+// uncertain: true, since these haven't been individually spot-checked the
+// way 1-3 were, and a paragraph can plausibly cover more than one verse.
+const HAND_CURATED_VERSE_INDEX: Record<number, VerseIndexEntry[]> = {
   1: [
     { verse: '1:1', paraIndex: 29, uncertain: true },
     { verse: '1:2', paraIndex: 58, uncertain: true },
@@ -84,3 +93,15 @@ export const VERSE_INDEX: Record<number, VerseIndexEntry[]> = {
     // 2:36-2:59 not yet extracted -- falls back to lesson-top landing.
   ],
 };
+
+const AUTO_VERSE_INDEX = autoIndexRaw as unknown as Record<string, VerseIndexEntry[]>;
+
+// Merge: hand-curated lessons win outright (their entries are never mixed
+// with or overridden by the automated ones, even partially) -- everything
+// else falls back to the automated index when available.
+export const VERSE_INDEX: Record<number, VerseIndexEntry[]> = { ...HAND_CURATED_VERSE_INDEX };
+for (const key of Object.keys(AUTO_VERSE_INDEX)) {
+  const lessonId = Number(key);
+  if (HAND_CURATED_VERSE_INDEX[lessonId]) continue;
+  VERSE_INDEX[lessonId] = AUTO_VERSE_INDEX[key];
+}

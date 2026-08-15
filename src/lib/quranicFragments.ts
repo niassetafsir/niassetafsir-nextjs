@@ -70,10 +70,27 @@ export interface RedactedLessonText {
   fragments: string[];
 }
 
-export function redactToQuranicFragments(raw: string): RedactedLessonText {
+/** paraIndex -> spanIndex -> "surah:ayah", high-confidence matches only, for
+ *  ONE lesson (already indexed by lesson id at the call site) -- see
+ *  src/data/verseCitations.json and scripts/build-verse-citations.js.
+ *  spanIndex here MUST correspond to extractSpans()'s own output order
+ *  (all paren-matches first, then all guillemet-matches -- see the loop
+ *  below), since that's the order scripts/match-verses.js indexed against. */
+type LessonCitations = Record<string, Record<string, string>>;
+
+export function redactToQuranicFragments(raw: string, citations?: LessonCitations): RedactedLessonText {
   const allParagraphs = raw.split('\n').filter(p => p.trim());
   const poemLines = allParagraphs.filter(isPoem);
   const commentaryParagraphs = allParagraphs.filter(p => !isPoem(p));
-  const fragments = commentaryParagraphs.map(p => extractSpans(p).join('  ·  '));
+  const fragments = commentaryParagraphs.map((p, paraIndex) => {
+    const spans = extractSpans(p);
+    const paraCitations = citations?.[String(paraIndex)];
+    return spans
+      .map((span, spanIndex) => {
+        const verse = paraCitations?.[String(spanIndex)];
+        return verse ? `${span} <sup class="verse-ref">${verse}</sup>` : span;
+      })
+      .join('  ·  ');
+  });
   return { poemLines, fragments };
 }

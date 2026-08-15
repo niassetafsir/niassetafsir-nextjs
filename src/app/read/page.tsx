@@ -22,7 +22,7 @@ const SURA_TO_LESSON: Record<number, number> = {
 // "L2-7" range in Browse-by-Sūrah instead of implying single-lesson
 // coverage. Every sūrah not listed here is contained within one lesson.
 const SURA_LESSON_END: Record<number, number> = {
-  2:7, 3:10, 4:13, 5:16, 7:20, 9:23, 11:26, 12:27, 20:33, 21:34,
+  2:7, 3:10, 4:13, 5:16, 6:17, 7:20, 9:23, 11:26, 12:27, 20:33, 21:34,
   24:36, 27:38, 31:40, 33:41, 35:42, 37:43, 41:45, 44:46, 48:47, 51:48,
 };
 
