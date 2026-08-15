@@ -43,7 +43,11 @@ export default function AyahJumpBar() {
       );
       return;
     }
-    router.push(`/lesson/${lessonId}?panel=tafsir&verse=${surah}:${ayahNum}`);
+    // scroll:false -- Next's own default post-navigation scroll-to-top was
+    // racing the verse-specific scrollIntoView in BilingualText/Panel and
+    // usually winning, which is why every jump landed on verse 1 instead
+    // of the requested verse. The lesson page owns scroll position here.
+    router.push(`/lesson/${lessonId}?panel=tafsir&verse=${surah}:${ayahNum}`, { scroll: false });
   };
 
   return (
