@@ -194,11 +194,21 @@ export default function BilingualText({ poemLines, arabicFragments, englishText,
       const entry = (VERSE_INDEX[lessonId] || []).find(v => v.verse === verseParam);
       if (entry) {
         setHighlightedPara(entry.paraIndex);
-        setTimeout(() => {
-          const el = document.getElementById(`ar-para-${entry.paraIndex}`);
-          // instant -- see note above on the ?q= branch for why.
-          el?.scrollIntoView({ behavior: 'instant', block: 'center' });
-        }, 700); // slightly later than ?q= -- Panel's own verse-badge effect also runs on mount
+        // Re-assert the scroll a few times over ~1.5s rather than firing once.
+        // A single call at a fixed delay was landing on the right element
+        // (confirmed via getElementById + highlight state) but the actual
+        // viewport position kept ending up back at the top -- something
+        // downstream (layout settling, a font/image load reflow, or another
+        // effect) appears to intermittently undo a single scroll attempt.
+        // Repeating the same instant scrollIntoView call a few times is a
+        // blunt but reliable way to win that race regardless of the exact
+        // cause, since each attempt independently re-lands on the target.
+        [700, 1100, 1600].forEach(delay => {
+          setTimeout(() => {
+            document.getElementById(`ar-para-${entry.paraIndex}`)
+              ?.scrollIntoView({ behavior: 'instant', block: 'center' });
+          }, delay);
+        });
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
