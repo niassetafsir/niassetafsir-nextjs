@@ -20,11 +20,12 @@ export default function LessonCitations({ lessonId }: { lessonId: number }) {
   const [footnotes, setFootnotes] = useState<Footnote[] | null>(null);
 
   useEffect(() => {
-    fetch('/data/footnotes.json')
+    // Scoped to this lesson server-side now, instead of downloading the
+    // full ~2000-entry corpus on every panel open just to filter it client-
+    // side -- see src/app/api/footnotes/route.ts.
+    fetch(`/api/footnotes?lessonId=${lessonId}`)
       .then(r => r.json())
-      .then((all: Footnote[]) => {
-        setFootnotes(all.filter(f => f.lessonId === lessonId));
-      })
+      .then((filtered: Footnote[]) => setFootnotes(filtered))
       .catch(() => setFootnotes([]));
   }, [lessonId]);
 

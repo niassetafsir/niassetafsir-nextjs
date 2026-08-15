@@ -41,7 +41,7 @@ export default function FootnotesPage() {
   const highlightRef = useRef<string | null>(null);
 
   useEffect(() => {
-    fetch('/data/footnotes.json').then(r => r.json()).then(d => {
+    fetch('/api/footnotes').then(r => r.json()).then(d => {
       setFootnotes(d);
       setLoading(false);
     });

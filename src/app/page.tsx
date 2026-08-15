@@ -2,6 +2,7 @@ import { getAllLessons } from '@/lib/lessons';
 import { VOLUME_META } from '@/lib/volumes';
 import VolumeAccordion, { VolumeAccordionVolume } from '@/components/VolumeAccordion';
 import AyahJumpBar from '@/components/AyahJumpBar';
+import SurahPickerBar from '@/components/SurahPickerBar';
 
 export default async function HomePage() {
   const allLessons = await getAllLessons();
@@ -47,6 +48,7 @@ export default async function HomePage() {
             bottom nav (Home/Read/Listen/Research), which is visible on every page
             including this one without scrolling. */}
         <AyahJumpBar />
+        <SurahPickerBar />
       </div>
 
       {/* Direct lesson access, grouped by volume (the revised ten-volume
