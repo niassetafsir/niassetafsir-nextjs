@@ -77,7 +77,13 @@ export default function JalalaynVerseView({ jalalaynText, jalalaynLang = 'en', s
         const isHighlighted = highlightKey === v.key;
         const niasseOpen = openNiasse === v.key;
         const elemId = 'jal-' + v.key.replace(/[\[\]:]/g, '-');
-        const excerpt = niasseByVerse?.[v.key];
+        // niasseByVerse is keyed "1:1" (see lesson1FatihaVerseMap.ts); v.key
+        // is "[1:1]" with brackets (see parseJalalayn above) -- strip them
+        // before lookup. Caught live on niassetafsir.org 2026-08-16: every
+        // verse was silently falling through to the "not yet curated"
+        // message because of this exact mismatch.
+        const plainKey = v.key.replace(/[\[\]]/g, '');
+        const excerpt = niasseByVerse?.[plainKey];
         const hasNiasse = !!(excerpt && (excerpt.ar || excerpt.en));
 
         return (

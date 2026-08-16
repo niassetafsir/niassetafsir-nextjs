@@ -24,6 +24,24 @@ export interface NiasseVerseExcerpt {
 // "beginning of the lesson" excerpt -- showing no verse-specific excerpt is
 // more honest than showing the wrong one, which is the bug this replaces
 // (AK, live-site report, 2026-08-16).
+// Both arabicBody and englishText are normally injected via
+// dangerouslySetInnerHTML elsewhere (BilingualText.tsx, the print page),
+// which decodes HTML entities for free. Here the extracted paragraph text
+// is rendered as a plain JSX text child ({excerpt.ar} / {excerpt.en}),
+// which does NOT decode entities -- so &#x27; etc. would otherwise leak
+// into the page verbatim (caught live 2026-08-16: "Allāh&#x27;s Name"
+// instead of "Allāh's Name"). Decode numeric (decimal AND hex) entities
+// plus the common named ones actually seen in the data.
+function decodeEntities(s: string): string {
+  return s
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)))
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+}
+
 export function getNiasseVerseExcerpts(
   lessonId: number,
   arabicBody: string | null | undefined,
@@ -35,16 +53,12 @@ export function getNiasseVerseExcerpts(
     .replace(/<[^>]+>/g, '')
     .split('\n')
     .filter(p => p.trim())
-    .filter(p => !isPoem(p));
+    .filter(p => !isPoem(p))
+    .map(decodeEntities);
 
   const enParas = englishText
     ? Array.from(englishText.matchAll(/<p class="en-para">([\s\S]*?)<\/p>/g)).map(m =>
-        m[1]
-          .replace(/<[^>]+>/g, '')
-          .replace(/&quot;/g, '"')
-          .replace(/&#39;/g, '’')
-          .replace(/&amp;/g, '&')
-          .trim()
+        decodeEntities(m[1].replace(/<[^>]+>/g, '')).trim()
       )
     : [];
 

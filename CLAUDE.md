@@ -197,6 +197,49 @@ paragraph 29 ("You alone we worship"), verse 2 to verse 5 with nothing in
 between. Represented honestly (`en: null` for those two verses, with an
 explicit UI note) rather than papered over.
 
+### Follow-up: two more real bugs caught during live verification — fixed same day
+
+The fix above shipped, but checking it live on niassetafsir.org (rather than
+trusting the RSC flight payload alone) turned up two more genuine bugs before
+the "not yet curated" fallback actually went away:
+
+1. **Bracket-key mismatch, `JalalaynVerseView.tsx`.** `parseJalalayn()`
+   produces verse keys WITH brackets (`"[1:1]"`, via the regex split), but
+   `niasseByVerse` — and `lesson1FatihaVerseMap.ts`'s `ARABIC_PARAS`/
+   `ENGLISH_PARAS` it's built from — is keyed WITHOUT brackets (`"1:1"`).
+   Every lookup was `undefined`, so every verse silently fell through to the
+   "not yet curated" message — i.e. the verse-correspondence fix above had
+   not actually reached users despite passing local review. Fixed by
+   stripping brackets before lookup: `v.key.replace(/[\[\]]/g, '')`. This is
+   exactly the kind of bug that a check of the SSR-serialized data (which
+   was correct) will not catch — only checking what the client code that
+   *consumes* that data actually renders will.
+
+2. **Un-decoded HTML entities, `niasseVerseExcerpt.ts`.** Once (1) was
+   fixed, the English excerpt text rendered literal `&#x27;` in place of
+   apostrophes (e.g. "Allāh&#x27;s Name"). `lesson.englishText` is normally
+   consumed via `dangerouslySetInnerHTML` elsewhere (`BilingualText.tsx`,
+   the print page), which decodes entities for free; here the extracted
+   paragraph text is rendered as a plain JSX text child
+   (`{excerpt.en}`/`{excerpt.ar}`), which does not decode anything. Fixed by
+   adding a `decodeEntities()` helper (handles hex `&#x27;`, decimal `&#39;`,
+   and the named entities actually present in the data) applied to both the
+   Arabic and English paragraph arrays before they're joined into excerpts.
+
+Both confirmed fixed via a local production build (`next build && next
+start`), not just `next dev` — screenshots showed genuinely distinct,
+correctly-decoded Arabic+English Niasse commentary for verses 1:1, 1:2, 1:5,
+and 1:7 under the Jalālayn panel.
+
+**Unrelated environment note, not an app bug:** while debugging why a fresh
+`next start` wasn't picking up code changes, found that stale `next-server`
+processes left running across a `rm -rf .next && npm run build` cycle can
+keep serving old client HTML referencing chunk hashes that no longer exist
+in the new build (404s on click, breaking ALL client interactivity on the
+affected page — not just this feature). Always fully kill old
+`next start`/`next-server` processes (`pkill -9 -f`, then verify with
+`ps`/`lsof`) before starting a server against a freshly rebuilt `.next`.
+
 ## Two hydration bugs found in a full-site QA sweep — fixed 2026-08-16
 
 Crawled all 268 generated pages with Playwright (production build, headless
