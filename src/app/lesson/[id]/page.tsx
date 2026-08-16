@@ -13,7 +13,7 @@ import SelectionClip from '@/components/SelectionClip';
 import LessonCitations from '@/components/LessonCitations';
 import Link from 'next/link';
 import { SURAH_LIST } from '@/lib/verseRanges';
-import { redactToQuranicFragments } from '@/lib/quranicFragments';
+import { splitArabicCommentary } from '@/lib/arabicCommentary';
 import verseCitations from '@/data/verseCitations.json';
 import fs from 'fs';
 import path from 'path';
@@ -89,12 +89,12 @@ export default async function LessonPage({ params }: { params: { id: string } })
     lesson.hasEnglish ? lesson.englishText : null
   );
 
-  // Reduce the full Arabic commentary down to just its Qur'anic citation
-  // fragments *here*, server-side, before any of it reaches the 'use client'
-  // BilingualText component -- see src/lib/quranicFragments.ts for why this
-  // can't happen inside that component instead.
+  // Split the full Arabic commentary into paragraphs *here*, server-side --
+  // see src/lib/arabicCommentary.ts. Full text is published site-wide (AK
+  // confirmed 2026-08-16; see CLAUDE.md), so nothing is redacted before this
+  // reaches the 'use client' BilingualText component.
   const lessonCitations = (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
-  const arabicRedacted = redactToQuranicFragments(lesson.arabicBody || lesson.arabicText, lessonCitations);
+  const arabicFull = splitArabicCommentary(lesson.arabicBody || lesson.arabicText);
 
   return (
     <div className="lesson-reading-page flex bg-cream text-ink" style={{minHeight:"calc(100vh - 56px)"}}>
@@ -143,8 +143,9 @@ export default async function LessonPage({ params }: { params: { id: string } })
               <OpeningInvocation html={(lesson as any).openingInvocation} />
             )}
               <BilingualText
-          poemLines={arabicRedacted.poemLines}
-          arabicFragments={arabicRedacted.fragments}
+          poemLines={arabicFull.poemLines}
+          arabicParagraphs={arabicFull.paragraphs}
+          citations={lessonCitations}
           englishText={lesson.englishText}
           hasEnglish={lesson.hasEnglish}
           lessonId={lesson.id}

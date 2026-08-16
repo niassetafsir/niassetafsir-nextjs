@@ -44,7 +44,7 @@
 //
 // Paragraph indices below are 0-based into arabicBody.split('\n') after
 // filtering poem/basmala lines -- the same "commentaryParagraphs" indexing
-// verseIndex.ts and quranicFragments.ts use (see src/lib/niasseVerseExcerpt.ts,
+// verseIndex.ts and arabicCommentary.ts (formerly quranicFragments.ts) use (see src/lib/niasseVerseExcerpt.ts,
 // which re-derives that same filtered array from arabicBody so these
 // indices stay meaningful). English indices are 0-based into the
 // <p class="en-para"> blocks of englishText, in document order.

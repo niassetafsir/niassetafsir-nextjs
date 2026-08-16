@@ -276,9 +276,179 @@ pages):
   handles the identical situation correctly by wrapping in a `<div>` instead
   of a `<p>`; `SurahReader.tsx`'s `LessonBlock` now does the same.
 
+## Lessons 1–6 Arabic rebuilt verbatim from Google Drive — 2026-08-16
+
+AK's Google Drive has a folder "FIR — Consolidated Digitized Lessons (2022
+10-vol. edition)" (parentId `1sKaOuyOODK4ouWtB588VFSbt5MRSwUgt`) containing
+one Google Doc per lesson ("Copy of volume N Lesson M"), which AK actively
+edits and treats as the verified source of truth — "my pilot ... I have
+verified them on the google drive docs." Lessons 1–6 were checked against
+these docs word-for-word (download as .docx via the Drive connector, extract
+paragraphs with `python-docx`, normalize to NFC, diff word lists with
+`difflib`) and real discrepancies were found and fixed directly in
+`src/data/lessons/0{1..6}.json`:
+
+- **Lessons 2, 4, 5, 6 had NO `openingInvocation` field at all** (not empty —
+  entirely absent from the JSON), so the istiʿādha/ṣalawāt/poem preamble
+  Panel never rendered for these four lessons. The text still existed,
+  unused, in the legacy `arabicText` field. Restored from the Drive docs.
+- **Stray print-transcription artifacts leaked into `arabicBody`**: literal
+  page numbers (bare `59`, `61`, `65`, `70`, etc.) and horizontal-rule
+  divider strings (`——————————`) sitting mid-sentence, from the Drive doc's
+  own page-by-page transcription. Removed, rejoining the sentence on both
+  sides.
+- **Lesson 1 was missing its closing duʿāʾ** (the final paragraph beginning
+  "اللهم صل على سيدنا محمد الفاتح لما أغلق...") — present in Drive, absent
+  from the site. Appended.
+- **A one-letter typo**, "العلي العظير" → should be "العلي العظير" →
+  "العلي العظيم" (the invocation formula; "العظير" isn't a word), fixed
+  where found.
+- **Lessons 5 and 6 were substantially behind the Drive docs** — not a
+  typo-level gap but real missing content: site's lesson 5 was ~43% shorter
+  than Drive (5588 vs 9905 words), lesson 6 ~54% shorter (4171 vs 8963
+  words). AK had evidently expanded both significantly on Drive after the
+  site was last synced. Both `arabicBody` fields were fully rebuilt from the
+  Drive docx's own paragraph structure (used as-is, unmerged — see note
+  below on why), then verified to match Drive 100% word-for-word (9905/9905
+  and 8963/8963).
+  - Lesson 6's docx has a Volume-1 table-of-contents block ("المحتويات...")
+    appended after the real content ends (at the paragraph ending "…وَإِنَّكَ
+    لَمِنَ الْمُرْسَلِينَ)."،  Q. 2:252) — this is back-matter from the print
+    volume, not part of the lesson; it's excluded from `arabicBody`.
+
+**Two important process notes for next time:**
+
+1. **The word-diff tool has false positives on repeated formulaic phrases.**
+   Niasse's prose repeats short Qur'anic/liturgical phrases (e.g. the
+   istiʿādha, or "يَسْتَحْيِ" appearing twice near each other in lesson 3's
+   mosquito-parable passage) — `difflib.SequenceMatcher`'s LCS alignment can
+   get confused by these and flag a `replace`/`insert` block that, on direct
+   inspection, is byte-identical to the correct Drive text just aligned to
+   the wrong occurrence. **Always read the full surrounding context in both
+   sides before editing** — a first pass at "fixing" lesson 3's one flagged
+   diff would have deleted a passage that was actually already correct and
+   verbatim. Caught only by re-reading raw `arabicBody` context before
+   writing, not by trusting the diff tool's opcode labels.
+2. **Docx paragraph granularity is inconsistent across these Drive files,
+   not just across lessons.** Lesson 1's docx paragraphs are short
+   line-wrap fragments (one Google Docs paragraph ≈ one printed line, ~15–30
+   words, mid-sentence breaks are normal) — the site's existing
+   well-formed 86-paragraph `arabicBody` for lesson 1 was already a prior
+   hand-merge of these fragments and was left untouched. Lessons 5 and 6's
+   docx paragraphs, by contrast, are already genuine multi-sentence editorial
+   paragraphs (avg. ~450 chars, up to 1700). For the lesson 5/6 rebuild this
+   session, Drive's own paragraph breaks were used as-is with **no merge
+   heuristic applied** — deliberately, to avoid the risk of a heuristic
+   mis-joining or mis-splitting real content when rebuilding ~10,000 words
+   of dense classical Arabic from scratch. If a future editorial pass wants
+   lesson 5/6 paragraph granularity to visually match lessons 1–4's, that's
+   a separate, lower-stakes styling task — content-wise both are already
+   100% verified against Drive.
+
+**Not done in this pass:** verifying that the English translations (task 2
+of AK's original ask) correspond paragraph-for-paragraph to the
+now-corrected Arabic, for lessons 1–6. Lesson 6 currently has no English
+translation on the site at all (`hasEnglish: false`). Also not touched:
+`arabicFootnotes`/`footnoteOrder` for any lesson — those are a separate,
+already-built apparatus (bracket-marker system for 1–4, inline "N - ..."
+text within `arabicBody` itself for 5–6, matching how Drive's own
+transcription handles footnotes per lesson) and weren't re-derived from
+Drive this session.
+
 ## Long-term vision (not scoped, not started)
 
 AK's *Majmaʿ al-Tafsīr* concept — a longer-term shape for this project
 beyond the current single-edition reader — has been discussed but is
 explicitly not a current build target. Don't start on it without AK
 re-raising it as an actual request.
+
+## Full Arabic commentary text published site-wide — 2026-08-16
+
+While starting task 2 of AK's Arabic/English matching request (see the
+section above), found that **the Tafsir panel and the print page did not
+display the full Arabic commentary text at all** — only bare Qur'anic
+verse-citation fragments extracted out of it. This was `src/lib/quranicFragments.ts`
+(deliberate redaction, comment cited unconfirmed reproduction rights for
+the Majmaʿ al-Yamāma 2010 revised print edition's specific Arabic
+commentary text). The print page additionally computed the full Arabic
+body into a `body` variable and then never rendered it at all — dead code,
+apparently orphaned when the Arabic side of the print edition was pulled.
+
+Told AK directly rather than assuming either way, since this is a rights
+question about a specific print edition, not a call to make unilaterally.
+**AK confirmed (2026-08-16): he holds reproduction rights across the whole
+revised edition and wants the fragment-only redaction lifted site-wide**,
+not just for Lessons 1–6.
+
+Worth noting: the redaction was already inconsistently applied before this
+change — `SurahReader.tsx` (the `/surah/[id]` continuous-reading view) was
+already receiving and rendering `lesson.arabicBody` in full, unredacted,
+via its `SurahLessonData.arabicBody: string` prop. That's what confirmed
+the old restriction was leaky in practice, not evidence it was safe to
+leave the Tafsir panel as-is.
+
+**What changed:**
+
+- `src/lib/quranicFragments.ts` deleted. Replaced by
+  `src/lib/arabicCommentary.ts`'s `splitArabicCommentary()`, which returns
+  full paragraphs (poem lines separated out) instead of redacting to
+  citation fragments. Same paragraph indexing as before (index-parallel to
+  `VERSE_INDEX` paraIndex / `verseCitations.json`), so nothing downstream
+  that depends on paragraph index broke.
+- `BilingualText.tsx`: `arabicFragments` prop renamed `arabicParagraphs`,
+  now full text. Added a `citations` prop so `injectVerseNumbers()` can
+  still badge quoted verses with their `surah:ayah` reference, matching
+  `SurahReader.tsx`'s existing treatment. The "no alignment yet" two-box
+  fallback (still the common case — `BILINGUAL_ALIGNMENT` is empty) now
+  shows full Arabic commentary next to the full English translation,
+  relabeled "Arabic commentary" (was "Qur'anic citations", with a caveat
+  that's no longer true). The Arabic-only tab and the alignment-block
+  rendering path both got the same treatment, plus footnote-link injection
+  the Arabic-only tab was previously missing.
+- Extracted `isPoem`, `injectFootnoteLinks`, `injectVerseNumbers`,
+  `highlightEnVerses`, `stripEnFootnotes` out of `BilingualText.tsx` (a
+  `'use client'` file) into a new plain module, `src/lib/textInject.ts`, so
+  the print page (a Server Component) can call them directly rather than
+  importing from a client-boundary module. `BilingualText.tsx` re-exports
+  them from there, so `SurahReader.tsx`'s existing `import ... from
+  './BilingualText'` didn't need to change.
+- `src/app/lesson/[id]/print/page.tsx`: the orphaned `body` variable is now
+  actually rendered — a new "Arabic Commentary" section (RTL, Amiri serif,
+  footnote links, verse-number badges, opening poem/invocation lines)
+  before the existing "English Translation" section. Previously this page
+  silently showed English only.
+
+**Deliberately left alone:** `public/data/search-main.json` and the script
+that builds it, `scripts/build-search-index.js`. That file was emptied
+specifically as an "emergency stopgap" after being caught as a single
+unauthenticated fetchable URL exposing the full corpus in bulk — a
+different, narrower risk (one-request full-book scraping) than the
+per-lesson-page display question AK just answered. Its own header comment
+still describes it as reduced to Qur'anic-citation fragments, matching the
+old (now-removed) per-page redaction — it's now inconsistent with what the
+lesson pages themselves show, but re-exposing a single bulk-fetchable
+full-text endpoint is a distinct decision from "show the full text when
+someone reads a lesson page," and wasn't part of what AK confirmed. Flag
+this to him explicitly before touching it.
+
+## Task 2 (English/Arabic correspondence) — in progress
+
+AK's original ask, part 2: verify the English translations correspond
+exactly to the (now Drive-verified) Arabic, lessons 1–6. Two things found
+so far, both already in the codebase before this session:
+
+- `src/lib/draftTranslations.ts`: lessons 3, 4, 5 are already flagged
+  `DRAFT_TRANSLATION_LESSONS` — first-draft English, not yet reviewed
+  word-for-word against the Arabic. This is presumably exactly the gap AK
+  is asking about.
+- `src/lib/bilingualAlignment.ts`: a disabled (`BILINGUAL_ALIGNMENT = {}`)
+  paragraph-level Arabic↔English alignment map, hand-drafted for lessons
+  1–2 against the OLD `arabicText`/pre-rebuild `arabicBody` indexing —
+  needs a full rebuild against the current `arabicBody` (which changed
+  substantially for 1, 2, 4, 5, 6 this session) before it can ship. Its own
+  comments document real content gaps found in that draft pass (e.g.
+  lesson 1: Arabic paragraphs 9–18 and 24–30 have no confirmed English
+  match; lesson 2: paragraphs 11–12, 17–18 unmatched) — worth reading
+  before redoing the work from scratch.
+- Lesson 6 has no English translation at all (`hasEnglish: false`) — needs
+  AK's input on whether/how to source one before this can be closed out.

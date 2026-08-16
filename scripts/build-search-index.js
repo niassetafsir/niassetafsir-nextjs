@@ -14,7 +14,7 @@
  *               exposure.)
  *   - Arabic:   reduced to Qur'anic citation fragments only -- the exact
  *               same parens/guillemets extraction used server-side in
- *               src/lib/quranicFragments.ts for the lesson pages. This
+ *               src/lib/arabicCommentary.ts (formerly quranicFragments.ts) for the lesson pages. This
  *               MUST stay in sync with that file. If you change the
  *               extraction logic there, change it here too.
  *
@@ -29,7 +29,7 @@ const path = require('path');
 const LESSONS_DIR = path.join(__dirname, '..', 'src', 'data', 'lessons');
 const OUT_FILE = path.join(__dirname, '..', 'public', 'data', 'search-main.json');
 
-// --- Mirrors src/lib/quranicFragments.ts -- keep in sync ------------------
+// --- Mirrors src/lib/arabicCommentary.ts (formerly quranicFragments.ts) -- keep in sync ------------------
 
 const POEM_PATTERN = /^(يا ?همة الشيخ|ياهمة الشيخ|لنا بهذا المحضر|ولتعطفي بنظرة|تأتي لنا بالظفر|يا همة)/;
 const BASMALA_PATTERN = /^(أعوذ بالله|بسم الله|اللهم صل)/;
@@ -40,13 +40,13 @@ function isPoem(text) {
 
 function extractSpans(paragraph) {
   const spans = [];
-  // Deliberately no brace {} pattern -- see src/lib/quranicFragments.ts for why.
+  // Deliberately no brace {} pattern -- see src/lib/arabicCommentary.ts (formerly quranicFragments.ts) for why.
   const patterns = [/\(([^()]{2,400})\)/g, /«([^»]{2,400})»/g];
   for (const re of patterns) {
     let m;
     while ((m = re.exec(paragraph))) {
       const span = m[1].trim();
-      // Keep in sync with src/lib/quranicFragments.ts -- rejects spans that
+      // Keep in sync with src/lib/arabicCommentary.ts (formerly quranicFragments.ts) -- rejects spans that
       // are actually leaked commentary prose from a mismatched bracket pair
       // (confirmed live on Lesson 2). See that file for the full rationale.
       if (/[.{}]/.test(span)) continue;

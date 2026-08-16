@@ -1,7 +1,7 @@
 import { ARABIC_PARAS, ENGLISH_PARAS } from './lesson1FatihaVerseMap';
 
 // Must stay identical to the poem/basmala filter in verseIndex.ts's
-// commentary-paragraph indexing and quranicFragments.ts / BilingualText.tsx
+// commentary-paragraph indexing and arabicCommentary.ts (formerly quranicFragments.ts) / BilingualText.tsx
 // -- see CLAUDE.md's "Verse-citation system" section. Only used here to
 // recover the SAME paragraph numbering src/lib/lesson1FatihaVerseMap.ts was
 // hand-curated against.

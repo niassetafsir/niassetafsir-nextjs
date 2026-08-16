@@ -1,6 +1,9 @@
 import { getLesson, getAllLessons } from '@/lib/lessons';
 import { notFound } from 'next/navigation';
 import PrintButton from '@/components/PrintButton';
+import { splitArabicCommentary } from '@/lib/arabicCommentary';
+import { injectFootnoteLinks, injectVerseNumbers } from '@/lib/textInject';
+import verseCitations from '@/data/verseCitations.json';
 
 export async function generateStaticParams() {
   const lessons = await getAllLessons();
@@ -21,7 +24,15 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
     ? `Vol. ${lesson.volume}${lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ''}`
     : '';
 
-  const body = (lesson as any).arabicBody || lesson.arabicText;
+  // Full Arabic commentary text, published in full site-wide (AK confirmed
+  // 2026-08-16 -- see CLAUDE.md, "Full Arabic commentary text published
+  // site-wide"). This page previously computed `body` but never rendered
+  // it -- an orphaned leftover from when the Arabic side of the print
+  // edition was pulled for a since-resolved rights question.
+  const arabicFull = splitArabicCommentary((lesson as any).arabicBody || lesson.arabicText);
+  const lessonCitations = (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
+  const footnoteOrder = (lesson as any).footnoteOrder as string[] | undefined;
+  const fnCursor = { i: 0 };
   const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
   const citationAr = `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, rev. 10-vol. ed. (n.p., n.d.)${volStr ? ', ' + volStr : ''}, ${lesson.englishTitle} (${lesson.verseRange}). Digital ed., ed. Amadu Kunateh. niassetafsir.org. Accessed ${today}.`;
@@ -54,8 +65,12 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
         .lesson-print-page .lesson-title-en { text-align: center; font-size: 11pt; color: #444; margin-bottom: 0.1cm; }
         .lesson-print-page .vol-ref { text-align: center; font-size: 9pt; color: #888; margin-bottom: 0.6cm; }
         .lesson-print-page hr { border: none; border-top: 1px solid #C9A84C; margin: 0.5cm 0; opacity: 0.4; }
-        .lesson-print-page .body-en { font-size: 12pt; line-height: 1.9; margin-top: 0.5cm; }
+        .lesson-print-page .poem-block { text-align: center; font-family: 'Amiri', serif; direction: rtl; font-size: 13pt; color: #7B5C14; line-height: 2.0; margin-bottom: 0.6cm; }
+        .lesson-print-page .body-ar { font-family: 'Amiri', serif; direction: rtl; text-align: justify; font-size: 13pt; line-height: 2.1; margin-top: 0.3cm; }
+        .lesson-print-page .body-ar p { margin-bottom: 0.5cm; }
+        .lesson-print-page .body-en { font-size: 12pt; line-height: 1.9; margin-top: 0.8cm; padding-top: 0.6cm; border-top: 1px solid #ddd; }
         .lesson-print-page .body-en p { margin-bottom: 0.5cm; }
+        .lesson-print-page .section-label { font-size: 9pt; text-transform: uppercase; letter-spacing: 0.05em; color: #7B5C14; margin-bottom: 0.2cm; }
         .lesson-print-page .fn-link { color: #7B5C14; text-decoration: none; font-size: 8pt; vertical-align: super; }
         .lesson-print-page sup { font-size: 8pt; vertical-align: super; }
         .lesson-print-page .no-en { color: #aaa; font-style: italic; font-size: 10pt; }
@@ -73,6 +88,24 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
       <div className="vol-ref">{lesson.verseRange}{volStr ? ` · Arabic compiled edition, ${volStr}` : ''}</div>
       <hr />
 
+      {arabicFull.poemLines.length > 0 && (
+        <div className="poem-block">
+          {arabicFull.poemLines.map((line, i) => (
+            <div key={i} dangerouslySetInnerHTML={{ __html: line }} />
+          ))}
+        </div>
+      )}
+
+      <div className="section-label">Arabic Commentary — Shaykh Ibrāhīm Niasse</div>
+      <div className="body-ar">
+        {arabicFull.paragraphs.map((p, i) => (
+          <p key={i} dangerouslySetInnerHTML={{
+            __html: injectFootnoteLinks(injectVerseNumbers(p, lessonCitations?.[String(i)]), lesson.id, footnoteOrder, fnCursor)
+          }} />
+        ))}
+      </div>
+
+      <div className="section-label">English Translation</div>
       <div className="body-en">
         {lesson.hasEnglish && lesson.englishText ? (
           <div dangerouslySetInnerHTML={{ __html: lesson.englishText }} />
