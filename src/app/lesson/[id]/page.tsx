@@ -33,6 +33,14 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const lesson = await getLesson(Number(params.id));
   if (!lesson) notFound();
 
+  // All 56 lessons' metadata (titles, sūrah, verse range) -- needed by the
+  // desktop sidebar and mobile drawer to render the full volume/lesson
+  // table of contents (see VolumeLessonTree) instead of bare lesson
+  // numbers. Cheap: same data generateStaticParams() already reads per
+  // build, and each lesson JSON is imported once and cached by Node either
+  // way.
+  const lessons = await getAllLessons();
+
   const readingNotes = getReadingNotes(Number(params.id));
   const usulBaseUrl = 'https://usul.ai/t/ruh-bayan';
 
@@ -104,7 +112,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
 
       {/* 1. Shaykh Ibrāhīm's Tafsīr */}
 
-      <PanelJumpTabs lessonId={lesson.id} />
+      <PanelJumpTabs lessonId={lesson.id} lessons={lessons} />
       <LessonAudioBar lessonId={lesson.id} />
       {/* Back breadcrumb */}
       <div className="flex items-center gap-2 px-4 py-1.5 text-xs"
@@ -259,7 +267,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
     
       <LessonNav lessonId={lesson.id} manzil={lesson.manzil} />
       </main>
-    <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} />
+    <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} lessons={lessons} />
     <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
     </div>
   );

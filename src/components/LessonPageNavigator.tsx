@@ -2,24 +2,23 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { List, Search, ChevronLeft, ChevronRight, ChevronDown, Hash } from 'lucide-react';
-import { VOLUME_META } from '@/lib/volumes';
-
-// Volume boundaries -- single source of truth in src/lib/volumes.ts
-const VOLUMES = VOLUME_META;
+import { List, Search, ChevronLeft, ChevronRight, Hash } from 'lucide-react';
+import { volumesFromLessons } from '@/lib/volumes';
+import { Lesson } from '@/lib/types';
+import VolumeLessonTree from '@/components/VolumeLessonTree';
 
 interface LessonPageNavigatorProps {
   lessonId: number;
   prevId?: number | null;
   nextId?: number | null;
+  lessons: Lesson[];
 }
 
-export default function LessonPageNavigator({ lessonId, prevId, nextId }: LessonPageNavigatorProps) {
+export default function LessonPageNavigator({ lessonId, prevId, nextId, lessons }: LessonPageNavigatorProps) {
   const router = useRouter();
   const [jumpValue, setJumpValue] = useState('');
   const [showJump, setShowJump] = useState(false);
-  const currentVolume = VOLUMES.find(v => lessonId >= v.start && lessonId <= v.end)?.vol;
-  const [openVolume, setOpenVolume] = useState<number | null>(currentVolume ?? null);
+  const volumes = volumesFromLessons(lessons);
 
   const handleJump = (e: React.FormEvent) => {
     e.preventDefault();
@@ -129,56 +128,17 @@ export default function LessonPageNavigator({ lessonId, prevId, nextId }: Lesson
           ) : <span className="flex-1" />}
         </div>
 
-        {/* Volumes */}
+        {/* Volumes -- shared tree, same data as /read and the mobile drawer */}
         <div>
-          <p className="font-english text-[8px] uppercase tracking-wide mb-1.5 font-normal" style={{color:'#8a6d1f'}}>
-            Volumes
-          </p>
-          <div className="space-y-1">
-            {VOLUMES.map(v => {
-              const isOpen = openVolume === v.vol;
-              const containsCurrent = lessonId >= v.start && lessonId <= v.end;
-              return (
-                <div key={v.vol}>
-                  <button
-                    onClick={() => setOpenVolume(isOpen ? null : v.vol)}
-                    className="w-full flex items-center justify-between gap-1 px-1 py-1 rounded transition-colors"
-                    style={{
-                      color: containsCurrent ? '#8a6d1f' : 'rgba(13,31,10,0.7)',
-                      background: containsCurrent ? 'rgba(138,109,31,0.08)' : 'transparent',
-                    }}
-                  >
-                    <span className="font-english text-[7px] font-normal">
-                      Vol. {v.vol}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <span className="font-english text-[7px]" style={{color:'rgba(13,31,10,0.45)'}}>
-                        {v.start}–{v.end}
-                      </span>
-                      <ChevronDown size={11} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-                    </span>
-                  </button>
-                  {isOpen && (
-                    <div className="flex flex-wrap gap-1 px-1 py-1">
-                      {Array.from({ length: v.end - v.start + 1 }, (_, i) => v.start + i).map(n => (
-                        <Link
-                          key={n}
-                          href={`/lesson/${n}`}
-                          className="font-english text-[7px] w-5 h-5 flex items-center justify-center rounded transition-colors"
-                          style={{
-                            background: n === lessonId ? '#8a6d1f' : 'rgba(13,31,10,0.05)',
-                            color: n === lessonId ? '#F5EDD6' : 'rgba(13,31,10,0.75)',
-                          }}
-                        >
-                          {n}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+          <div className="flex items-center justify-between mb-1.5">
+            <p className="font-english text-[8px] uppercase tracking-wide font-normal" style={{color:'#8a6d1f'}}>
+              Volumes
+            </p>
+            <Link href="/read" className="font-english text-[7px] underline" style={{color:'rgba(138,109,31,0.7)'}}>
+              Full contents
+            </Link>
           </div>
+          <VolumeLessonTree volumes={volumes} currentLessonId={lessonId} density="compact" />
         </div>
       </div>
     </aside>

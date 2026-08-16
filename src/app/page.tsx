@@ -1,29 +1,8 @@
-import { getAllLessons } from '@/lib/lessons';
-import { VOLUME_META } from '@/lib/volumes';
-import VolumeAccordion, { VolumeAccordionVolume } from '@/components/VolumeAccordion';
+import Link from 'next/link';
 import AyahJumpBar from '@/components/AyahJumpBar';
 import SurahPickerBar from '@/components/SurahPickerBar';
 
 export default async function HomePage() {
-  const allLessons = await getAllLessons();
-  const volumes: VolumeAccordionVolume[] = VOLUME_META.map(v => ({
-    vol: v.vol,
-    roman: v.roman,
-    arabicOrdinal: v.arabicOrdinal,
-    start: v.start,
-    end: v.end,
-    rangeLabel: v.rangeLabel,
-    lessons: allLessons
-      .filter(l => l.id >= v.start && l.id <= v.end)
-      .map(l => ({
-        id: l.id,
-        arabicTitle: l.arabicTitle,
-        englishTitle: l.englishTitle,
-        sura: l.sura,
-        hasEnglish: !!l.hasEnglish,
-      })),
-  }));
-
   return (
     <main className="max-w-5xl mx-auto px-4 pb-20">
 
@@ -51,10 +30,16 @@ export default async function HomePage() {
         <SurahPickerBar />
       </div>
 
-      {/* Direct lesson access, grouped by volume (the revised ten-volume
-          compiled Arabic edition, Majmaʿ al-Yamāma, Tunis 2010) -- kept as-is,
-          the āyah-jump widget above only replaces the old search-link pill. */}
-      <VolumeAccordion volumes={volumes} />
+      {/* Full table of contents lives at /read (volume -> lesson tree,
+          searchable, plus jump-by-sūrah) -- kept as one link here rather
+          than duplicating that tree on the homepage too. */}
+      <Link
+        href="/read"
+        className="flex items-center justify-center gap-2 border rounded-xl px-4 py-3 font-english text-sm transition-colors hover:bg-gold/5"
+        style={{ borderColor: 'rgba(201,168,76,0.25)', color: 'rgba(201,168,76,0.9)' }}
+      >
+        Browse the full table of contents →
+      </Link>
 
     </main>
   );

@@ -3,25 +3,18 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Menu, X, ChevronRight, ChevronDown } from 'lucide-react';
-import { VOLUME_META } from '@/lib/volumes';
+import { Menu, X } from 'lucide-react';
+import { volumesFromLessons } from '@/lib/volumes';
+import { Lesson } from '@/lib/types';
+import VolumeLessonTree from '@/components/VolumeLessonTree';
 
-// Volume boundaries -- single source of truth in src/lib/volumes.ts
-const VOLUMES = VOLUME_META;
-
-export default function MobileLessonDrawer({ lessonId }: { lessonId: number }) {
+export default function MobileLessonDrawer({ lessonId, lessons }: { lessonId: number; lessons: Lesson[] }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [jumpValue, setJumpValue] = useState('');
-  const currentVolume = VOLUMES.find(v => lessonId >= v.start && lessonId <= v.end)?.vol;
-  const [openVolume, setOpenVolume] = useState<number | null>(currentVolume ?? null);
+  const volumes = volumesFromLessons(lessons);
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
-
-  // Re-sync the auto-expanded volume whenever the drawer is opened or the lesson changes
-  useEffect(() => {
-    if (open) setOpenVolume(currentVolume ?? null);
-  }, [open, currentVolume]);
 
   const handleJump = (e: React.FormEvent) => {
     e.preventDefault();
@@ -100,49 +93,24 @@ export default function MobileLessonDrawer({ lessonId }: { lessonId: number }) {
               </button>
             </form>
 
-            {/* Scrollable volume/lesson list */}
-            <div className="flex-1 overflow-y-auto py-2">
-              {VOLUMES.map(v => {
-                const isOpen = openVolume === v.vol;
-                const containsCurrent = lessonId >= v.start && lessonId <= v.end;
-                return (
-                  <div key={v.vol}>
-                    <button
-                      onClick={() => setOpenVolume(isOpen ? null : v.vol)}
-                      className="w-full flex items-center justify-between gap-2 px-4 py-2.5"
-                      style={{
-                        color: containsCurrent ? '#8a6d1f' : 'rgba(13,31,10,0.75)',
-                        background: containsCurrent ? 'rgba(138,109,31,0.08)' : 'transparent',
-                        borderLeft: containsCurrent ? '3px solid #8a6d1f' : '3px solid transparent',
-                      }}
-                    >
-                      <span className="font-english text-[7px] font-semibold">
-                        Volume {v.vol} <span className="font-normal text-[7px]" style={{ color: 'rgba(13,31,10,0.4)' }}>· Lessons {v.start}–{v.end}</span>
-                      </span>
-                      {isOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
-                    </button>
-                    {isOpen && (
-                      <div className="pb-1">
-                        {Array.from({ length: v.end - v.start + 1 }, (_, i) => v.start + i).map(n => (
-                          <Link
-                            key={n}
-                            href={`/lesson/${n}`}
-                            onClick={() => setOpen(false)}
-                            className="flex items-center gap-3 pl-8 pr-4 py-2 font-english text-xs"
-                            style={{
-                              background: n === lessonId ? '#8a6d1f' : 'transparent',
-                              color: n === lessonId ? '#F5EDD6' : 'rgba(13,31,10,0.7)',
-                              fontWeight: n === lessonId ? 600 : 400,
-                            }}
-                          >
-                            Lesson {n}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+            {/* Scrollable volume/lesson tree -- same shared component as the
+                desktop sidebar and the full /read table of contents */}
+            <div className="flex-1 overflow-y-auto py-2 px-2">
+              <VolumeLessonTree
+                volumes={volumes}
+                currentLessonId={lessonId}
+                density="comfortable"
+                search
+                onNavigate={() => setOpen(false)}
+              />
+              <Link
+                href="/read"
+                onClick={() => setOpen(false)}
+                className="block text-center font-english text-xs underline mt-3 mb-1"
+                style={{ color: 'rgba(138,109,31,0.8)' }}
+              >
+                Full table of contents →
+              </Link>
             </div>
           </div>
         </div>,

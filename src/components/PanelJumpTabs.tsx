@@ -1,7 +1,8 @@
 'use client';
 import MobileLessonDrawer from './MobileLessonDrawer';
+import { Lesson } from '@/lib/types';
 
-export default function PanelJumpTabs({ lessonId }: { lessonId?: number }) {
+export default function PanelJumpTabs({ lessonId, lessons }: { lessonId?: number; lessons?: Lesson[] }) {
   const tabs = [
     { label: 'Tafsīr', id: 'panel-tafsir' },
     { label: 'Overview', id: 'panel-overview' },
@@ -27,7 +28,7 @@ export default function PanelJumpTabs({ lessonId }: { lessonId?: number }) {
         scrollbarWidth: 'none',
       }}
     >
-      {lessonId !== undefined && <MobileLessonDrawer lessonId={lessonId} />}
+      {lessonId !== undefined && lessons && <MobileLessonDrawer lessonId={lessonId} lessons={lessons} />}
       {tabs.map((tab) => (
         <button
           key={tab.id}
