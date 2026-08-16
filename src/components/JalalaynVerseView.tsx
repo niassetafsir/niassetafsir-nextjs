@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 
 interface JalalaynVerseViewProps {
   jalalaynText: string;
+  jalalaynLang?: 'ar' | 'en';
+  sourceLabel?: string;
+  sourceLabelAr?: string;
   niasseBody: string;
   niasseEnglish?: string | null;
   verseRange: string;
@@ -26,7 +29,8 @@ function parseJalalayn(text: string): Array<{key: string; surah: number; verse: 
   return result;
 }
 
-export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEnglish, verseRange, lessonTitleEn }: JalalaynVerseViewProps) {
+export default function JalalaynVerseView({ jalalaynText, jalalaynLang = 'en', sourceLabel = 'Jalālayn', sourceLabelAr, niasseBody, niasseEnglish, verseRange, lessonTitleEn }: JalalaynVerseViewProps) {
+  const jalIsArabic = jalalaynLang === 'ar';
   const [openNiasse, setOpenNiasse] = useState<string | null>(null);
   const [highlightKey, setHighlightKey] = useState<string | null>(null);
 
@@ -62,7 +66,8 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEngl
   const niasseEnClean = niasseEnglish ? niasseEnglish.replace(/<[^>]+>/g, '').slice(0, 1000).trim() : '';
 
   if (verses.length === 0) return (
-    <div className="font-english text-xs leading-6 whitespace-pre-wrap" style={{color:'rgba(13,31,10,0.85)'}} dir="ltr">
+    <div className={(jalIsArabic ? 'font-arabic-sans text-sm leading-8' : 'font-english text-xs leading-6') + ' whitespace-pre-wrap'}
+      style={{color:'rgba(13,31,10,0.85)'}} dir={jalIsArabic ? 'rtl' : 'ltr'}>
       {jalalaynText}
     </div>
   );
@@ -81,11 +86,14 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEngl
             {/* Verse marker */}
             <div className="flex items-center gap-2 px-3 py-1.5" style={{background:'rgba(29,78,216,0.08)'}}>
               <span className="font-english text-[11px] font-bold" style={{color:'#1d4ed8'}}>{v.key}</span>
-              <span className="font-english text-[10px]" style={{color:'rgba(29,78,216,0.5)'}}>Jalālayn</span>
+              <span className="font-english text-[10px]" style={{color:'rgba(29,78,216,0.5)'}}>
+                {sourceLabelAr ? <span className="font-arabic-sans" dir="rtl">{sourceLabelAr}</span> : sourceLabel}
+              </span>
             </div>
 
-            {/* Jalalayn text */}
-            <div className="px-4 py-3 font-english text-xs leading-6" style={{color:'rgba(13,31,10,0.8)', background:'rgba(29,78,216,0.06)'}} dir="ltr">
+            {/* Source commentary text */}
+            <div className={(jalIsArabic ? 'font-arabic-sans text-sm leading-8' : 'font-english text-xs leading-6') + ' px-4 py-3'}
+              style={{color:'rgba(13,31,10,0.8)', background:'rgba(29,78,216,0.06)'}} dir={jalIsArabic ? 'rtl' : 'ltr'}>
               {v.content}
             </div>
 
