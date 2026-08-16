@@ -59,6 +59,16 @@ export default async function LessonPage({ params }: { params: { id: string } })
     ? fs.readFileSync(jalalaynArPath, 'utf-8')
     : null;
 
+  // Real Arabic Rūḥ al-Bayān text, transcribed from Usul.ai (see
+  // src/data/ruhAlBayanArabic/SOURCE.md for provenance and known gaps).
+  // Same proof-of-concept scoping as Jalālayn above: only sūrah 1 so far.
+  const ruhArPath = jalalaynSuraId
+    ? path.join(process.cwd(), 'src/data/ruhAlBayanArabic', String(jalalaynSuraId).padStart(2, '0') + '.txt')
+    : null;
+  const ruhArabicText = ruhArPath && fs.existsSync(ruhArPath)
+    ? fs.readFileSync(ruhArPath, 'utf-8')
+    : null;
+
   // Reduce the full Arabic commentary down to just its Qur'anic citation
   // fragments *here*, server-side, before any of it reaches the 'use client'
   // BilingualText component -- see src/lib/quranicFragments.ts for why this
@@ -209,9 +219,21 @@ export default async function LessonPage({ params }: { params: { id: string } })
               Open on Usul.ai ↗
             </a>
           </div>
-          <p className="font-english text-white/25 italic text-sm">
-            {lesson.verseRange} — full Arabic text available at Usul.ai.
-          </p>
+          {ruhArabicText ? (
+            <JalalaynVerseView
+              jalalaynText={ruhArabicText}
+              jalalaynLang="ar"
+              sourceLabelAr="رُوحُ الْبَيَانِ"
+              niasseBody={lesson.arabicBody || lesson.arabicText}
+              niasseEnglish={lesson.hasEnglish ? lesson.englishText : null}
+              verseRange={lesson.verseRange}
+              lessonTitleEn={lesson.englishTitle}
+            />
+          ) : (
+            <p className="font-english text-white/25 italic text-sm">
+              {lesson.verseRange} — full Arabic text available at Usul.ai. Verse-by-verse Arabic text on this page is being added sūrah by sūrah; not yet reached this one.
+            </p>
+          )}
         </div>
       </Panel>
 
