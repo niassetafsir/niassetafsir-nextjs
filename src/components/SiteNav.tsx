@@ -185,6 +185,13 @@ function MobileNav() {
 
 // ── Main SiteNav ──────────────────────────────────────────────────
 export default function SiteNav() {
+  const pathname = usePathname();
+  // Print/PDF-export pages render their own clean, distraction-free
+  // document look (see src/app/lesson/[id]/print/page.tsx) -- the site nav
+  // has no place there, same as PersistentNav already opts out of
+  // /lesson/* entirely.
+  if (pathname.startsWith('/lesson/') && pathname.endsWith('/print')) return null;
+
   return (
     <nav className="sticky top-0 z-50 backdrop-blur border-b-0"
       style={{background:"rgba(13,20,10,0.95)", borderTop:"3px solid #C9A84C", borderBottom:"1px solid rgba(201,168,76,0.2)"}}>

@@ -3,6 +3,7 @@ import "./globals.css";
 import SiteNav from "@/components/SiteNav";
 import PersistentNav from "@/components/PersistentNav";
 import ScrollToTop from "@/components/ScrollToTop";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: {
@@ -41,16 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteNav />
         <PersistentNav />
         {children}
-        <footer style={{borderTop:'1px solid rgba(255,255,255,0.06)', paddingTop:'12px', paddingBottom:'12px', paddingLeft:'24px', paddingRight:'24px', background:'transparent'}}>
-          <div style={{maxWidth:'1100px', margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:'8px'}}>
-            <p className="font-english" style={{fontSize:'10px', color:'rgba(255,255,255,0.2)', letterSpacing:'0.02em'}}>
-              © niassetafsir.org
-            </p>
-            <p className="font-english" style={{fontSize:'10px', color:'rgba(255,255,255,0.15)'}}>
-              niassetafsir.com · niassetafsirproject@gmail.com
-            </p>
-          </div>
-        </footer>
+        <SiteFooter />
       </body>
     </html>
   );

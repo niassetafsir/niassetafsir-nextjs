@@ -165,6 +165,74 @@ widget. `LessonPageNavigator` and `MobileLessonDrawer` both gained a
 in `generateStaticParams()`, but that's a separate function scope) and
 passes it down through `PanelJumpTabs` to `MobileLessonDrawer`.
 
+## Jalālayn/Rūḥ al-Bayān verse-correspondence bug — fixed 2026-08-16
+
+AK reported on the live site (lesson 1): the Shaykh Ibrāhīm excerpt shown
+alongside each individual Jalālayn/Rūḥ al-Bayān verse was the same static
+blob repeated under every verse; the English excerpt was likewise static and
+repeated; and the Arabic/English halves of that static excerpt didn't even
+correspond to the same content as each other. Root cause:
+`JalalaynVerseView.tsx` computed ONE Niasse excerpt for the whole lesson
+(Arabic via a crude `indexOf('ينبغي'/'قال')` heuristic, English via the
+first 1000 characters of the translation) and rendered it identically inside
+every per-verse card.
+
+Fixed by hand-curating a real per-verse mapping for Lesson 1 / al-Fātiḥa
+(the only lesson with real comparison-panel data so far): see
+`src/lib/lesson1FatihaVerseMap.ts` for the paragraph-index maps (built by an
+actual verse-by-verse reading of Niasse's Arabic and English commentary, not
+an algorithm — his lecture bundles some verses together and covers others in
+two separate, non-adjacent passes, which no generic "next verse starts here"
+rule handles correctly; that file's header explains the reasoning in detail)
+and `src/lib/niasseVerseExcerpt.ts` for the extraction function. `page.tsx`
+computes this once server-side and passes it to `JalalaynVerseView` as
+`niasseByVerse`, which now looks up the correct excerpt per verse instead of
+computing its own. A verse with no curated data (or a lesson other than 1)
+shows a plain "not yet curated" note instead of a wrong/reused excerpt.
+
+**Known, disclosed gap:** the English translation appears to skip a
+substantive discussion of verses 1:3 and 1:4 that IS present in the Arabic —
+English paragraph 26 ("...Lord of all the worlds") jumps straight to
+paragraph 29 ("You alone we worship"), verse 2 to verse 5 with nothing in
+between. Represented honestly (`en: null` for those two verses, with an
+explicit UI note) rather than papered over.
+
+## Two hydration bugs found in a full-site QA sweep — fixed 2026-08-16
+
+Crawled all 268 generated pages with Playwright (production build, headless
+Chromium) checking for console/page errors, not just HTTP status. Found and
+fixed two real, pre-existing bugs (both now confirmed clean across all 268
+pages):
+
+- **All 56 `/lesson/[id]/print` pages** threw a React hydration error
+  (#418/#423) on every load. Cause: the page rendered its own
+  `<html>/<head>/<body>`, but Next.js App Router only allows the ROOT layout
+  to do that — the browser silently restructured the invalid nested markup,
+  which didn't match what React expected. Fixed by making it a normal page
+  inside the root layout: `SiteNav`, the new `SiteFooter` (extracted from
+  `layout.tsx` for this reason), and `PersistentNav` (already did this) now
+  all opt out of `/lesson/*/print` by pathname check, and a
+  `body:has(> .lesson-print-page)` rule in `globals.css` resets the body's
+  background/padding so the page still looks like a clean, independent
+  document. The `window.print()` trigger moved from a `dangerouslySetInnerHTML`
+  script injection to a real client component, `PrintButton.tsx`. Also hit a
+  second-order issue on the same page while fixing the first: a raw
+  `<style>{`...`}</style>` JSX text child gets HTML-entity-encoded by React's
+  SSR (`'` → `&#x27;`) but not by the browser's own `<style>` parsing on the
+  client, causing a text-content hydration mismatch — fixed by using
+  `<style dangerouslySetInnerHTML={{__html: ...}} />` instead, which is
+  inserted as raw HTML on both passes.
+
+- **`/surah/1` and `/surah/2`** (only these two — the only sūrahs whose
+  lessons currently have English translations) threw the same class of
+  error. Cause: `SurahReader.tsx`'s English-paragraph rendering wrapped a
+  complete `<p class="en-para">...</p>` HTML string (from `englishParagraphs()`)
+  inside ANOTHER real `<p>` element via `dangerouslySetInnerHTML` — a `<p>`
+  can't legally contain another `<p>`, so the browser closed the outer one
+  early, again mismatching React's expectations. `BilingualText.tsx` already
+  handles the identical situation correctly by wrapping in a `<div>` instead
+  of a `<p>`; `SurahReader.tsx`'s `LessonBlock` now does the same.
+
 ## Long-term vision (not scoped, not started)
 
 AK's *Majmaʿ al-Tafsīr* concept — a longer-term shape for this project

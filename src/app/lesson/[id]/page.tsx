@@ -18,6 +18,7 @@ import verseCitations from '@/data/verseCitations.json';
 import fs from 'fs';
 import path from 'path';
 import JalalaynVerseView from '@/components/JalalaynVerseView';
+import { getNiasseVerseExcerpts } from '@/lib/niasseVerseExcerpt';
 
 export async function generateStaticParams() {
   const lessons = await getAllLessons();
@@ -76,6 +77,17 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const ruhArabicText = ruhArPath && fs.existsSync(ruhArPath)
     ? fs.readFileSync(ruhArPath, 'utf-8')
     : null;
+
+  // Per-verse Niasse (Arabic + English) excerpts for the Jalālayn/Rūḥ
+  // al-Bayān comparison panels -- hand-curated for Lesson 1 / al-Fātiḥa only
+  // (see src/lib/lesson1FatihaVerseMap.ts). Replaces the old single
+  // lesson-wide excerpt that JalalaynVerseView used to compute itself and
+  // show identically under every verse (AK, live-site report, 2026-08-16).
+  const niasseByVerse = getNiasseVerseExcerpts(
+    lesson.id,
+    lesson.arabicBody || lesson.arabicText,
+    lesson.hasEnglish ? lesson.englishText : null
+  );
 
   // Reduce the full Arabic commentary down to just its Qur'anic citation
   // fragments *here*, server-side, before any of it reaches the 'use client'
@@ -199,8 +211,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
             <JalalaynVerseView
               jalalaynText={jalalaynArabicText}
               jalalaynLang="ar"
-              niasseBody={lesson.arabicBody || lesson.arabicText}
-              niasseEnglish={lesson.hasEnglish ? lesson.englishText : null}
+              niasseByVerse={niasseByVerse}
               verseRange={lesson.verseRange}
               lessonTitleEn={lesson.englishTitle}
             />
@@ -232,8 +243,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
               jalalaynText={ruhArabicText}
               jalalaynLang="ar"
               sourceLabelAr="رُوحُ الْبَيَانِ"
-              niasseBody={lesson.arabicBody || lesson.arabicText}
-              niasseEnglish={lesson.hasEnglish ? lesson.englishText : null}
+              niasseByVerse={niasseByVerse}
               verseRange={lesson.verseRange}
               lessonTitleEn={lesson.englishTitle}
             />
