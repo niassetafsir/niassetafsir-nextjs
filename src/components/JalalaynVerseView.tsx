@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 interface JalalaynVerseViewProps {
   jalalaynText: string;
+  jalalaynLang?: 'ar' | 'en';
   niasseBody: string;
   niasseEnglish?: string | null;
   verseRange: string;
@@ -26,7 +27,8 @@ function parseJalalayn(text: string): Array<{key: string; surah: number; verse: 
   return result;
 }
 
-export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEnglish, verseRange, lessonTitleEn }: JalalaynVerseViewProps) {
+export default function JalalaynVerseView({ jalalaynText, jalalaynLang = 'en', niasseBody, niasseEnglish, verseRange, lessonTitleEn }: JalalaynVerseViewProps) {
+  const jalIsArabic = jalalaynLang === 'ar';
   const [openNiasse, setOpenNiasse] = useState<string | null>(null);
   const [highlightKey, setHighlightKey] = useState<string | null>(null);
 
@@ -62,7 +64,8 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEngl
   const niasseEnClean = niasseEnglish ? niasseEnglish.replace(/<[^>]+>/g, '').slice(0, 1000).trim() : '';
 
   if (verses.length === 0) return (
-    <div className="font-english text-xs leading-6 whitespace-pre-wrap" style={{color:'rgba(13,31,10,0.85)'}} dir="ltr">
+    <div className={(jalIsArabic ? 'font-arabic-sans text-sm leading-8' : 'font-english text-xs leading-6') + ' whitespace-pre-wrap'}
+      style={{color:'rgba(13,31,10,0.85)'}} dir={jalIsArabic ? 'rtl' : 'ltr'}>
       {jalalaynText}
     </div>
   );
@@ -85,7 +88,8 @@ export default function JalalaynVerseView({ jalalaynText, niasseBody, niasseEngl
             </div>
 
             {/* Jalalayn text */}
-            <div className="px-4 py-3 font-english text-xs leading-6" style={{color:'rgba(13,31,10,0.8)', background:'rgba(29,78,216,0.06)'}} dir="ltr">
+            <div className={(jalIsArabic ? 'font-arabic-sans text-sm leading-8' : 'font-english text-xs leading-6') + ' px-4 py-3'}
+              style={{color:'rgba(13,31,10,0.8)', background:'rgba(29,78,216,0.06)'}} dir={jalIsArabic ? 'rtl' : 'ltr'}>
               {v.content}
             </div>
 

@@ -15,6 +15,9 @@ import Link from 'next/link';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { redactToQuranicFragments } from '@/lib/quranicFragments';
 import verseCitations from '@/data/verseCitations.json';
+import fs from 'fs';
+import path from 'path';
+import JalalaynVerseView from '@/components/JalalaynVerseView';
 
 export async function generateStaticParams() {
   const lessons = await getAllLessons();
@@ -43,6 +46,18 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const jalalaynUrl = jalalaynSuraId
     ? `https://www.altafsir.com/Tafasir.asp?tMadhNo=1&tTafsirNo=${JALALAYN_TAFSIR_NO}&tSoraNo=${jalalaynSuraId}&tAyahNo=1&tDisplay=yes&LanguageId=2`
     : `https://www.altafsir.com/Tafasir.asp?tTafsirNo=${JALALAYN_TAFSIR_NO}&tDisplay=yes&LanguageId=2`;
+
+  // Real Arabic Jalālayn text, transcribed from al-Maktaba al-Shāmila (see
+  // src/data/jalalaynArabic/SOURCE.md). Only sūrah 1 is populated so far --
+  // this is an intentional proof of concept, not a partial bug. Falls back
+  // to the Altafsir.com outbound link below for every other lesson until
+  // more sūrahs are transcribed.
+  const jalalaynArPath = jalalaynSuraId
+    ? path.join(process.cwd(), 'src/data/jalalaynArabic', String(jalalaynSuraId).padStart(2, '0') + '.txt')
+    : null;
+  const jalalaynArabicText = jalalaynArPath && fs.existsSync(jalalaynArPath)
+    ? fs.readFileSync(jalalaynArPath, 'utf-8')
+    : null;
 
   // Reduce the full Arabic commentary down to just its Qur'anic citation
   // fragments *here*, server-side, before any of it reaches the 'use client'
@@ -162,9 +177,20 @@ export default async function LessonPage({ params }: { params: { id: string } })
               Open on Altafsir.com ↗
             </a>
           </div>
-          <p className="font-english text-white/25 italic text-sm">
-            {lesson.verseRange} — Arabic &amp; English translation available at Altafsir.com (Royal Aal al-Bayt Institute).
-          </p>
+          {jalalaynArabicText ? (
+            <JalalaynVerseView
+              jalalaynText={jalalaynArabicText}
+              jalalaynLang="ar"
+              niasseBody={lesson.arabicBody || lesson.arabicText}
+              niasseEnglish={lesson.hasEnglish ? lesson.englishText : null}
+              verseRange={lesson.verseRange}
+              lessonTitleEn={lesson.englishTitle}
+            />
+          ) : (
+            <p className="font-english text-white/25 italic text-sm">
+              {lesson.verseRange} — Arabic &amp; English translation available at Altafsir.com (Royal Aal al-Bayt Institute). Verse-by-verse Arabic text on this page is being added sūrah by sūrah; not yet reached this one.
+            </p>
+          )}
         </div>
       </Panel>
 
