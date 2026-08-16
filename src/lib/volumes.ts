@@ -47,15 +47,23 @@ export interface VolumeWithLessons extends VolumeMeta {
   lessons: Lesson[];
 }
 
+// Pure, sync version of the grouping below -- for call sites (e.g.
+// app/lesson/[id]/page.tsx) that have already called getAllLessons() once
+// and shouldn't re-import all 56 lesson JSON files a second time just to
+// get the same lessons grouped by volume.
+export function volumesFromLessons(allLessons: Lesson[]): VolumeWithLessons[] {
+  return VOLUME_META.map(v => ({
+    ...v,
+    lessons: allLessons.filter(l => l.id >= v.start && l.id <= v.end),
+  }));
+}
+
 // Groups the live lesson data (title, summary, etc. -- read directly from
 // src/data/lessons/*.json) by volume, so volume pages never fall out of
 // sync with lesson content the way the old manzil pages did.
 export async function getVolumesWithLessons(): Promise<VolumeWithLessons[]> {
   const allLessons = await getAllLessons();
-  return VOLUME_META.map(v => ({
-    ...v,
-    lessons: allLessons.filter(l => l.id >= v.start && l.id <= v.end),
-  }));
+  return volumesFromLessons(allLessons);
 }
 
 export function truncateSummary(text: string | undefined | null, maxLen = 128): string {

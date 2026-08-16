@@ -128,6 +128,43 @@ Encountered and worked around this session, may recur:
   errors) for an entire session — if that happens again, write scripts for
   AK to run locally via Terminal and read the output files back afterward.
 
+## Table of contents — consolidated 2026-08-16
+
+The site used to have four independent, partially-duplicate implementations
+of "browse the lessons": `LessonPageNavigator.tsx` (desktop sidebar, bare
+lesson-number chips), `MobileLessonDrawer.tsx` (mobile drawer, same but
+worse), the homepage's `VolumeAccordion` (volume → lesson with title/sūrah,
+no verse range), and `/read`'s hand-hardcoded `SURAS`/`LESSONS`/
+`SURA_TO_LESSON`/`SURA_LESSON_END` arrays (verse ranges, but no volume
+grouping, and a second copy of the sūrah→lesson map that already existed in
+`src/lib/surahLessons.ts` for `/surah/[id]`). None of this was flagged
+anywhere; it was found by directly reading each component.
+
+Now: one shared tree component, `src/components/VolumeLessonTree.tsx`,
+renders volume → lesson (title, sūrah, verse range, EN badge) in either a
+`density="compact"` bare-number form (desktop sidebar) or a
+`density="comfortable" search` form (mobile drawer, and the full `/read`
+page via `src/components/ReadTableOfContents.tsx`). It's fed by
+`volumesFromLessons()` (new sync helper in `src/lib/volumes.ts`, factored
+out of `getVolumesWithLessons()`) so no file re-hardcodes lesson titles,
+sūrah names, or verse ranges — those all come from `src/data/lessons/*.json`
+via `getAllLessons()`, same as everywhere else on the site.
+
+`/read`'s "Jump to Sūrah" section is kept as a *separate* section (not
+folded into the tree) because it's a genuinely different index — by sūrah
+number across lesson boundaries, matching `/surah/[id]` — not a second copy
+of the volume/lesson browse. It now reads `SURAH_LIST` +
+`getLessonIdsForSurah()` (the real data `/surah/[id]` already used) instead
+of its own hardcoded 114-sūrah array.
+
+`VolumeAccordion.tsx` (homepage) is deleted — the homepage now just links to
+`/read` instead of embedding a second, slightly different lesson-browse
+widget. `LessonPageNavigator` and `MobileLessonDrawer` both gained a
+`lessons: Lesson[]` prop; `src/app/lesson/[id]/page.tsx` now calls
+`getAllLessons()` once in the page component itself (it already called it
+in `generateStaticParams()`, but that's a separate function scope) and
+passes it down through `PanelJumpTabs` to `MobileLessonDrawer`.
+
 ## Long-term vision (not scoped, not started)
 
 AK's *Majmaʿ al-Tafsīr* concept — a longer-term shape for this project
