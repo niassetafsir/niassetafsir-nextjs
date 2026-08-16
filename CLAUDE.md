@@ -111,8 +111,8 @@ through `/api/footnotes?lessonId=N`. This removes the one-click bulk
 download but does not prevent scraping of content that's meant to be
 publicly readable — nothing short of a login wall does that, and adding one
 is a product decision, not made here. `src/data/footnotes.json` (no
-"Data" suffix) is a leftover, unreferenced file from before this move —
-safe to delete, not yet done.
+"Data" suffix) was a leftover, unreferenced file from before this move —
+confirmed unreferenced (grepped the whole repo) and deleted 2026-08-16.
 
 ## Environment quirks (this agent's tooling, not the app)
 
