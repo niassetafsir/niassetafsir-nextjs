@@ -275,32 +275,4 @@ export default function LessonReaderLayout({
       )}
     </div>
   );
-}'use client';
-
-import { useEffect } from 'react';
-
-export default function DisablePrintWrapper({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
-        e.preventDefault();
-        return false;
-      }
-    };
-
-    const originalPrint = window.print;
-    window.print = function() {
-      console.warn('Print functionality is disabled on this page.');
-      return;
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.print = originalPrint;
-    };
-  }, []);
-
-  return <>{children}</>;
 }
