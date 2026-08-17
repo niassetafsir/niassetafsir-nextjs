@@ -11,6 +11,7 @@ import LessonPageNavigator from '@/components/LessonPageNavigator';
 import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
 import LessonCitations from '@/components/LessonCitations';
+import LessonReaderLayout from '@/components/LessonReaderLayout';
 import Link from 'next/link';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { splitArabicCommentary } from '@/lib/arabicCommentary';
@@ -96,6 +97,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const lessonCitations = (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
   const arabicFull = splitArabicCommentary(lesson.arabicBody || lesson.arabicText);
 
+<<<<<<< HEAD
   return (
     <div className="lesson-reading-page flex bg-cream text-ink" style={{minHeight:"calc(100vh - 56px)"}}>
     <main className="flex-1 min-w-0 w-full px-4 xl:px-12 pb-20 pt-3">
@@ -124,11 +126,14 @@ export default async function LessonPage({ params }: { params: { id: string } })
 
       {/* 1. Shaykh Ibrāhīm's Tafsīr */}
 
+=======
+  // Top content: breadcrumb and jump tabs
+  const topContent = (
+    <>
+>>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
       <PanelJumpTabs lessonId={lesson.id} lessons={lessons} />
       <LessonAudioBar lessonId={lesson.id} />
-      {/* Back breadcrumb */}
-      <div className="flex items-center gap-2 px-4 py-1.5 text-xs"
-        style={{borderBottom:'1px solid rgba(13,31,10,0.1)'}}>
+      <div className="flex items-center gap-2 px-4 py-1.5 text-xs" style={{borderBottom:'1px solid rgba(13,31,10,0.1)'}}>
         <a href="/read"
           className="font-english hover:text-gold transition-colors flex items-center gap-1"
           style={{color:'rgba(13,31,10,0.5)'}}>
@@ -138,11 +143,23 @@ export default async function LessonPage({ params }: { params: { id: string } })
           All Sūrahs
         </a>
       </div>
-<Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange} defaultOpen={true}>
+    </>
+  );
+
+  // Main content: panels
+  const mainContent = (
+    <>
+      <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange} defaultOpen={true}>
         {lesson.openingInvocation && (
+<<<<<<< HEAD
               <OpeningInvocation html={(lesson as any).openingInvocation} />
             )}
               <BilingualText
+=======
+          <OpeningInvocation html={(lesson as any).openingInvocation} />
+        )}
+        <BilingualText
+>>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
           poemLines={arabicFull.poemLines}
           arabicParagraphs={arabicFull.paragraphs}
           citations={lessonCitations}
@@ -151,15 +168,12 @@ export default async function LessonPage({ params }: { params: { id: string } })
           lessonId={lesson.id}
           footnoteOrder={(lesson as any).footnoteOrder}
         />
-
       </Panel>
 
-      {/* 1b. Citations — full apparatus for this lesson */}
       <Panel icon="" titleAr="الحواشي والمصادر" titleEn="Citations" panelId="citations" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <LessonCitations lessonId={lesson.id} />
       </Panel>
 
-      {/* 2. Lesson Overview */}
       <Panel icon="" titleAr="نظرة عامة على الدرس" titleEn="Lesson Overview" panelId="overview" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <div className="p-5" dir="ltr">
           <div className="mb-3 pb-3 border-b border-gold/15">
@@ -191,9 +205,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </Panel>
 
-      {/* 3. Audio */}
-      
-      {/* 4. Jalālayn */}
       <Panel icon="" titleAr="تَفْسِيرُ الْجَلَالَيْنِ" titleEn="Jalālayn" panelId="jalalayn" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <div className="p-5" dir="ltr">
           <div className="flex justify-between items-center mb-3 pb-3 border-b border-green-900/30">
@@ -224,7 +235,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </Panel>
 
-      {/* 5. Rūḥ al-Bayān */}
       <Panel icon="" titleAr="رُوحُ الْبَيَانِ" titleEn="Rūḥ al-Bayān" panelId="ruh" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <div className="p-5" dir="ltr">
           <div className="flex justify-between items-center mb-3 pb-3 border-b border-green-900/30">
@@ -255,8 +265,12 @@ export default async function LessonPage({ params }: { params: { id: string } })
           )}
         </div>
       </Panel>
+    </>
+  );
 
-      {/* Bottom navigation */}
+  // Bottom content: navigation
+  const bottomContent = (
+    <>
       <div className="flex justify-between items-center mt-10 pt-6 border-t border-gold/15" dir="ltr">
         {lesson.prevId ? (
           <Link href={"/lesson/" + lesson.prevId}
@@ -275,11 +289,28 @@ export default async function LessonPage({ params }: { params: { id: string } })
           </Link>
         ) : <span />}
       </div>
-    
       <LessonNav lessonId={lesson.id} manzil={lesson.manzil} />
+<<<<<<< HEAD
       </main>
     <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} lessons={lessons} />
     <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
     </div>
+=======
+    </>
+  );
+
+  return (
+    <>
+      <LessonReaderLayout
+        lesson={lesson}
+        topContent={topContent}
+        bottomContent={bottomContent}
+      >
+        {mainContent}
+      </LessonReaderLayout>
+      <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} lessons={lessons} />
+      <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
+    </>
+>>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
   );
 }
