@@ -4,6 +4,14 @@ import ArabicWordTool from '@/components/ArabicWordTool';
 import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
 import { isDraftTranslation } from '@/lib/draftTranslations';
 import { VERSE_INDEX } from '@/lib/verseIndex';
+import { isPoem, highlightEnVerses, stripEnFootnotes, injectFootnoteLinks, injectVerseNumbers } from '@/lib/textInject';
+
+// Re-exported for existing consumers (e.g. SurahReader.tsx imports these
+// from this module) -- the actual implementations live in
+// src/lib/textInject.ts, a plain (non-'use client') module, so server
+// components (the print page) can use them too without going through a
+// client-component boundary.
+export { isPoem, highlightEnVerses, stripEnFootnotes, injectFootnoteLinks, injectVerseNumbers };
 
 type View = 'bilingual' | 'arabic' | 'english' | 'french' | 'wolof' | 'hausa';
 
@@ -11,12 +19,14 @@ interface BilingualTextProps {
   /** Opening istiʿādha/basmala/poem lines, shown in full (liturgical
    *  formulas, not part of Niasse's original commentary). */
   poemLines: string[];
-  /** Already redacted server-side to Qur'anic citation fragments only --
-   *  see src/lib/quranicFragments.ts. Never the full commentary text: this
-   *  component must not receive that, since anything passed as a prop to a
-   *  'use client' component ships to the browser regardless of what's
-   *  actually rendered. */
-  arabicFragments: string[];
+  /** Full Arabic commentary paragraphs, split server-side (poem lines
+   *  removed) -- see src/lib/arabicCommentary.ts. Published in full,
+   *  site-wide (AK confirmed 2026-08-16; see CLAUDE.md). */
+  arabicParagraphs: string[];
+  /** paraIndex -> spanIndex -> "surah:ayah", high-confidence matches only,
+   *  for the small verse-number badge injectVerseNumbers() appends after a
+   *  quoted Qur'anic clause -- see src/data/verseCitations.json. */
+  citations?: Record<string, Record<string, string>>;
   englishText: string | null;
   hasEnglish: boolean;
   lessonId?: number;
@@ -38,101 +48,6 @@ const LANG_TABS: { id: View; label: string }[] = [
   { id: 'wolof',    label: 'Wolof' },
   { id: 'hausa',    label: 'Hausa' },
 ];
-
-// Poem pattern — the opening invocation present in every lesson
-const POEM_PATTERN = /^(يا ?همة الشيخ|ياهمة الشيخ|لنا بهذا المحضر|ولتعطفي بنظرة|تأتي لنا بالظفر|يا همة)/;
-const BASMALA_PATTERN = /^(أعوذ بالله|بسم الله|اللهم صل)/;
-
-
-
-export function highlightEnVerses(html: string): string {
-  // Mirror the Arabic «...» quranic-verse treatment (see injectFootnoteLinks
-  // below) on the English side: the translator renders quoted Qur'anic
-  // clauses in parentheses. Skip short parenthetical glosses that are just a
-  // single italicized transliterated term, e.g. "(<em>wujūb</em>)" -- those
-  // are technical-term glosses, not verse quotations, and shouldn't be
-  // colored as one. This is a heuristic, not a perfect classifier -- a few
-  // longer glosses may still get colored; nothing is removed or altered,
-  // only wrapped for styling.
-  return html.replace(/\(([^()]{1,700})\)/g, (match, inner) => {
-    const isBareItalicGloss = /^<em>[^<]*<\/em>$/.test(inner.trim());
-    const plainWords = inner.replace(/<[^>]+>/g, '').trim().split(/\s+/).filter(Boolean);
-    if (isBareItalicGloss || plainWords.length < 3) return match;
-    return `<span class="quranic-verse">(${inner})</span>`;
-  });
-}
-
-export function stripEnFootnotes(html: string): string {
-  // Remove the compiled footnote block (en-footnotes div) from display
-  // Keep only the inline superscript links in body text
-  return html.replace(/<div class="en-footnotes"[\s\S]*?<\/div>\s*(?=<|$)/g, '')
-             .replace(/<div class="en-footnotes"[\s\S]*/g, '');
-}
-
-export function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrder?: string[], cursor?: { i: number }): string {
-  if (!lessonId) return text;
-
-  // Strip inline bibliographic refs like "تفسير القرطبي ج35/" before [N]
-  // Uses Unicode code points to avoid regex literal issues in TSX
-  // Strip inline bibliographic citations: "scholartitle ج35/" or "188-185/" before [N]
-  // Only matches short citation refs (1-5 Arabic words + vol/page), not Quranic verses
-  const bibPattern = /(?:[؀-ۿ]+\s+){0,4}[؀-ۿ]*\s*(?:ج\s*\d[\d\s/]*|\d+\s*[-–]\s*\d+\s*\/\s*\d*)\s*(?=\[\d+\])/g;
-  let result = text.replace(bibPattern, '');
-
-  // Convert [N] to footnote superscript links
-  result = result.replace(/\[(\d+)\]/g, (_match, num) => {
-    let id = `fn-${lessonId}-${num}`;
-    if (footnoteOrder && cursor && cursor.i < footnoteOrder.length) {
-      id = footnoteOrder[cursor.i];
-      cursor.i += 1;
-    }
-    return `<a href="/footnotes#${id}" class="fn-superscript" title="View footnote ${num}">[${num}]</a>`;
-  });
-
-  // Wrap Quranic verse citations «...» in colour span
-  result = result.replace(/\u00ab([^\u00bb]{3,300})\u00bb/g, (_match, verse) => {
-    return `<span class="quranic-verse">\u00ab${verse}\u00bb</span>`;
-  });
-
-  return result;
-}
-
-// Appends a small verse-number badge right after a matched Qur'anic
-// citation, for views that render the FULL Arabic paragraph text (e.g.
-// SurahReader.tsx) rather than pre-extracted fragments (lesson pages use
-// quranicFragments.ts's own copy of this instead, since by the time that
-// view runs the citation brackets have already been stripped out).
-//
-// paraCitations is spanIndex(as string) -> "surah:ayah", high-confidence
-// matches only -- see src/data/verseCitations.json. The regex bounds and
-// leak-guard below MUST mirror src/lib/quranicFragments.ts's extractSpans()
-// exactly, since that's what scripts/match-verses.js indexed spanIndex
-// against -- paren matches first (left to right), then guillemet matches
-// (left to right), sharing one running counter; anything the leak-guard
-// rejects (a stray '.', '{', or '}' inside -- an OCR-mangled bracket
-// pairing with real commentary prose swept up in between) is skipped
-// without incrementing the counter, same as extractSpans() dropping it
-// from its output entirely.
-export function injectVerseNumbers(text: string, paraCitations?: Record<string, string>): string {
-  if (!paraCitations || Object.keys(paraCitations).length === 0) return text;
-
-  let spanIndex = 0;
-  const withVerse = (full: string, inner: string) => {
-    const span = inner.trim();
-    if (/[.{}]/.test(span)) return full;
-    const verse = paraCitations[String(spanIndex)];
-    spanIndex += 1;
-    return verse ? `${full}<sup class="verse-ref">${verse}</sup>` : full;
-  };
-
-  let result = text.replace(/\(([^()]{2,400})\)/g, withVerse);
-  result = result.replace(/«([^»]{2,400})»/g, withVerse);
-  return result;
-}
-
-export function isPoem(text: string) {
-  return POEM_PATTERN.test(text.trim()) || BASMALA_PATTERN.test(text.trim());
-}
 
 function TabBtn({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
   return (
@@ -182,7 +97,7 @@ function ComingSoonNote({ lang }: { lang: string }) {
   );
 }
 
-export default function BilingualText({ poemLines, arabicFragments, englishText, hasEnglish, lessonId, footnoteOrder }: BilingualTextProps) {
+export default function BilingualText({ poemLines, arabicParagraphs, citations, englishText, hasEnglish, lessonId, footnoteOrder }: BilingualTextProps) {
   const [view, setView] = useState<View>('bilingual');
   const [highlightedPara, setHighlightedPara] = useState<number>(-1);
 
@@ -248,11 +163,10 @@ export default function BilingualText({ poemLines, arabicFragments, englishText,
   }, []);
   
   // poemLines comes straight from props now (full liturgical text, shown as
-  // before). commentaryParagraphs is arabicFragments -- already reduced
-  // server-side to Qur'anic citation fragments only, index-parallel to what
-  // the old full-paragraph array was, so VERSE_INDEX paraIndex still lines
-  // up; most entries are '' and simply aren't rendered.
-  const commentaryParagraphs = arabicFragments;
+  // before). commentaryParagraphs is the full Arabic commentary, split
+  // server-side (poem lines removed) -- see src/lib/arabicCommentary.ts.
+  // Index-parallel to VERSE_INDEX paraIndex.
+  const commentaryParagraphs = arabicParagraphs;
 
   // Parse English paragraphs for mobile paragraph interleaving.
   // Only <p class="en-para"> blocks count as body prose here -- <p class="en-fn">
@@ -360,7 +274,7 @@ export default function BilingualText({ poemLines, arabicFragments, englishText,
                   {block.arabicIndices.map(ai => (
                     <div key={ai} id={`ar-para-${ai}`} dir="rtl"
                       className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === ai ? 'bg-gold/15 px-2 -mx-2' : ''}`}
-                      dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(commentaryParagraphs[ai], lessonId, footnoteOrder, fnCursor) }} />
+                      dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(injectVerseNumbers(commentaryParagraphs[ai], citations?.[String(ai)]), lessonId, footnoteOrder, fnCursor) }} />
                   ))}
                   {block.englishIndices.length > 0 ? (
                     <div dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 pl-3">
@@ -414,25 +328,13 @@ export default function BilingualText({ poemLines, arabicFragments, englishText,
                   </p>
                 )}
               </div>
-              {/* Arabic box -- shows only the literal Qur'anic verses quoted
-                  within Niasse's commentary, not the surrounding commentary
-                  prose itself (see src/lib/quranicFragments.ts). */}
+              {/* Arabic box -- full commentary text, paragraph by paragraph. */}
               <div className="border rounded-lg p-4" style={{ borderColor: 'rgba(13,31,10,0.12)' }} dir="rtl">
-                <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-1" dir="ltr">Qur'anic citations</p>
-                <p className="font-english text-white/25 text-[10px] italic mb-2" dir="ltr">
-                  Verses quoted in this lesson's commentary — full Arabic commentary text not published here.
-                </p>
-                {commentaryParagraphs.map((p, i) => p ? (
+                <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2" dir="ltr">Arabic commentary</p>
+                {commentaryParagraphs.map((p, i) => (
                   <div key={i} id={`ar-para-${i}`}
                     className={`font-arabic-sans text-[1.05rem] leading-[2.1] text-gold/90 text-justify mb-3 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
-                    dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(p, lessonId, footnoteOrder, fnCursor) }} />
-                ) : (
-                  // Empty fragment (no Qur'anic citation in this paragraph) --
-                  // still needs the anchor element, or VERSE_INDEX paraIndex
-                  // lookups (verse-jump bar, homepage āyah-jump widget) find
-                  // nothing to scroll to and silently fail. Zero-height, not
-                  // rendered visibly.
-                  <div key={i} id={`ar-para-${i}`} className="h-0 overflow-hidden" aria-hidden="true" />
+                    dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(injectVerseNumbers(p, citations?.[String(i)]), lessonId, footnoteOrder, fnCursor) }} />
                 ))}
               </div>
             </div>
@@ -440,13 +342,16 @@ export default function BilingualText({ poemLines, arabicFragments, englishText,
         </div>
       )}
 
-      {/* Arabic only -- Qur'anic citation fragments only, see note above */}
+      {/* Arabic only -- full commentary text, word-lookup tool enabled */}
       {view === 'arabic' && (
         <div className="p-5 text-center font-arabic-sans" dir="rtl">
-          <p className="font-english text-white/25 text-[10px] italic mb-3" dir="ltr">
-            Verses quoted in this lesson's commentary — full Arabic commentary text not published here.
-          </p>
-          <ArabicWordTool text={commentaryParagraphs.filter(Boolean).map(p => `<p class="mb-4 text-center leading-loose">${p}</p>`).join('')} />
+          {(() => {
+            const arCursor = { i: 0 };
+            const html = commentaryParagraphs
+              .map((p, i) => `<p class="mb-4 text-center leading-loose">${injectFootnoteLinks(injectVerseNumbers(p, citations?.[String(i)]), lessonId, footnoteOrder, arCursor)}</p>`)
+              .join('');
+            return <ArabicWordTool text={html} />;
+          })()}
         </div>
       )}
 

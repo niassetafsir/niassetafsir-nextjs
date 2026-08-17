@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Matches every Qur'anic citation Niasse quotes in his Arabic commentary
- * (the spans already extracted by src/lib/quranicFragments.ts, inside ()
+ * (the spans already extracted by src/lib/arabicCommentary.ts (formerly quranicFragments.ts), inside ()
  * or guillemets) against the actual verse it comes from, using the full
  * verse-keyed Qur'an text in src/data/verse_text.json (rebuilt by
  * scripts/rebuild-verse-text.js -- run that FIRST if you haven't).
@@ -57,7 +57,7 @@ for (let surah = 1; surah <= 114; surah++) {
 }
 LESSON_SURAHS[1] = [...new Set([...(LESSON_SURAHS[1] || []), 2])];
 
-// --- Mirrors src/lib/quranicFragments.ts -- keep in sync ------------------
+// --- Mirrors src/lib/arabicCommentary.ts (formerly quranicFragments.ts) -- keep in sync ------------------
 
 const POEM_PATTERN = /^(يا ?همة الشيخ|ياهمة الشيخ|لنا بهذا المحضر|ولتعطفي بنظرة|تأتي لنا بالظفر|يا همة)/;
 const BASMALA_PATTERN = /^(أعوذ بالله|بسم الله|اللهم صل)/;

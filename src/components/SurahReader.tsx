@@ -66,7 +66,19 @@ function LessonBlock({ lesson }: { lesson: SurahLessonData }) {
             <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2">English translation</p>
             <div className="space-y-3">
               {enPars.map((p, i) => (
-                <p key={i}
+                // A <div> here, not a <p>: `p` is already a complete
+                // "<p class="en-para">...</p>" string (see englishParagraphs()
+                // above), and nesting a real <p> around dangerouslySetInnerHTML
+                // markup that itself starts with <p> is invalid HTML -- the
+                // browser silently closes the outer <p> early, producing a DOM
+                // that doesn't match what React rendered and throwing a
+                // hydration error on every load. Confirmed via the React dev
+                // warning (2026-08-16): "Prop `dangerouslySetInnerHTML` did
+                // not match. Server: "" Client: "<p class=\"en-para\">...".
+                // Matches the working pattern in BilingualText.tsx, which
+                // wraps the identical kind of string in a <div> for the same
+                // reason.
+                <div key={i}
                   className="font-english text-sm leading-6"
                   style={{ color: 'var(--body-sub, rgba(255,255,255,0.75))' }}
                   dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(p)) }}

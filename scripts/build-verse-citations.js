@@ -14,7 +14,7 @@
  *   { "<lessonId>": { "<paraIndex>": { "<spanIndex>": "<verse>" } } }
  *   Used to print a small inline verse-number badge right after each
  *   matched citation -- see injectVerseNumbers() in BilingualText.tsx and
- *   the citations param on redactToQuranicFragments() in quranicFragments.ts.
+ *   the citations param on redactToQuranicFragments() in arabicCommentary.ts (formerly quranicFragments.ts).
  *
  * Output 2: src/data/verseIndexAuto.json
  *   { "<lessonId>": [ { verse, paraIndex, uncertain: true }, ... ] }
