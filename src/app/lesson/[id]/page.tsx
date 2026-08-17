@@ -97,40 +97,9 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const lessonCitations = (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
   const arabicFull = splitArabicCommentary(lesson.arabicBody || lesson.arabicText);
 
-<<<<<<< HEAD
-  return (
-    <div className="lesson-reading-page flex bg-cream text-ink" style={{minHeight:"calc(100vh - 56px)"}}>
-    <main className="flex-1 min-w-0 w-full px-4 xl:px-12 pb-20 pt-3">
-      {/* Bibliographic header — work title, lesson heading, vol./page metadata */}
-      <div className="text-center pb-4 mb-4 border-b" style={{borderColor:'rgba(13,31,10,0.12)'}}>
-        <div className="font-arabic-sans font-bold text-base" dir="rtl" style={{color:'#8a6d1f'}}>
-          فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
-        </div>
-        <div className="font-english text-[11px] italic mt-0.5" dir="ltr" style={{color:'rgba(13,31,10,0.5)'}}>
-          Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
-        </div>
-      </div>
-
-      {/* Lesson heading */}
-      <div className="text-center mb-3">
-        <div className="font-arabic-sans font-bold text-xl" dir="rtl" style={{color:'#8a6d1f'}}>{lesson.arabicTitle}</div>
-        <div className="font-english text-xs mt-1" dir="ltr" style={{color:'rgba(13,31,10,0.65)'}}>
-          {lesson.englishTitle} · {lesson.verseRange}
-        </div>
-        <div className="font-english text-[10px] mt-1 uppercase tracking-wide" dir="ltr" style={{color:'#8a6d1f'}}>
-          Revised 10-vol. Arabic edition · Vol. {lesson.volume ?? '—'}
-          {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ''}
-          {!lesson.pageInVolume && lesson.volume ? ' · page to be confirmed' : ''}
-        </div>
-      </div>
-
-      {/* 1. Shaykh Ibrāhīm's Tafsīr */}
-
-=======
   // Top content: breadcrumb and jump tabs
   const topContent = (
     <>
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
       <PanelJumpTabs lessonId={lesson.id} lessons={lessons} />
       <LessonAudioBar lessonId={lesson.id} />
       <div className="flex items-center gap-2 px-4 py-1.5 text-xs" style={{borderBottom:'1px solid rgba(13,31,10,0.1)'}}>
@@ -151,15 +120,9 @@ export default async function LessonPage({ params }: { params: { id: string } })
     <>
       <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange} defaultOpen={true}>
         {lesson.openingInvocation && (
-<<<<<<< HEAD
-              <OpeningInvocation html={(lesson as any).openingInvocation} />
-            )}
-              <BilingualText
-=======
           <OpeningInvocation html={(lesson as any).openingInvocation} />
         )}
         <BilingualText
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
           poemLines={arabicFull.poemLines}
           arabicParagraphs={arabicFull.paragraphs}
           citations={lessonCitations}
@@ -290,12 +253,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
         ) : <span />}
       </div>
       <LessonNav lessonId={lesson.id} manzil={lesson.manzil} />
-<<<<<<< HEAD
-      </main>
-    <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} lessons={lessons} />
-    <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
-    </div>
-=======
     </>
   );
 
@@ -311,6 +268,5 @@ export default async function LessonPage({ params }: { params: { id: string } })
       <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} lessons={lessons} />
       <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
     </>
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
   );
 }

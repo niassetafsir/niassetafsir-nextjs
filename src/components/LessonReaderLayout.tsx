@@ -1,7 +1,5 @@
 /**
  * LessonReaderLayout — Two-column reader optimized for scholarly reading
-<<<<<<< HEAD
-=======
  *
  * Layout structure (desktop):
  *   [Sidebar (240px)] [Main content (650px max-width, centered)]
@@ -16,7 +14,6 @@
  * - Comfortable line-height (1.9-2.0)
  * - Constrained content width for optimal reading
  * - Sidebar for metadata and navigation
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
  */
 
 import React from 'react';
@@ -29,15 +26,9 @@ interface LessonReaderLayoutProps {
     volume?: number | null;
     pageInVolume?: number | null;
   };
-<<<<<<< HEAD
-  children: React.ReactNode;
-  topContent?: React.ReactNode;
-  bottomContent?: React.ReactNode;
-=======
   children: React.ReactNode; // Main content (panels, etc.)
   topContent?: React.ReactNode; // Content before sidebar split (e.g., breadcrumbs)
   bottomContent?: React.ReactNode; // Content after main section (e.g., navigation)
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
 }
 
 export default function LessonReaderLayout({
@@ -55,10 +46,7 @@ export default function LessonReaderLayout({
           flex-direction: column;
         }
 
-<<<<<<< HEAD
-=======
         /* Two-column container */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
         .lesson-reader-container {
           display: grid;
           grid-template-columns: 260px 1fr;
@@ -69,10 +57,7 @@ export default function LessonReaderLayout({
           width: 100%;
         }
 
-<<<<<<< HEAD
-=======
         /* Sidebar — metadata and work info */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
         .lesson-reader-sidebar {
           position: sticky;
           top: 100px;
@@ -122,10 +107,7 @@ export default function LessonReaderLayout({
           font-style: italic;
         }
 
-<<<<<<< HEAD
-=======
         /* Main content area */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
         .lesson-reader-main {
           flex: 1;
           min-w-0;
@@ -160,10 +142,7 @@ export default function LessonReaderLayout({
           color: rgba(13, 31, 10, 0.85);
         }
 
-<<<<<<< HEAD
-=======
         /* Typography improvements for body text */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
         .lesson-reader-body p {
           margin-bottom: 1.2rem;
           text-align: justify;
@@ -181,10 +160,7 @@ export default function LessonReaderLayout({
           color: #6b5a1a;
         }
 
-<<<<<<< HEAD
-=======
         /* Responsive: tablet */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
         @media (max-width: 1024px) {
           .lesson-reader-container {
             grid-template-columns: 1fr;
@@ -206,10 +182,7 @@ export default function LessonReaderLayout({
           }
         }
 
-<<<<<<< HEAD
-=======
         /* Responsive: mobile */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
         @media (max-width: 640px) {
           .lesson-reader-container {
             grid-template-columns: 1fr;
@@ -236,10 +209,7 @@ export default function LessonReaderLayout({
           }
         }
 
-<<<<<<< HEAD
-=======
         /* Print media — hide sidebar, optimize for paper */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
         @media print {
           .lesson-reader-container {
             grid-template-columns: 1fr;
@@ -257,26 +227,18 @@ export default function LessonReaderLayout({
         }
       `}</style>
 
-<<<<<<< HEAD
-=======
       {/* Top content section (breadcrumbs, etc.) */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
       {topContent && (
         <div style={{ padding: '0 3rem', paddingBottom: 0 }}>
           {topContent}
         </div>
       )}
 
-<<<<<<< HEAD
-      <div className="lesson-reader-container">
-        <aside className="lesson-reader-sidebar">
-=======
       {/* Two-column reader */}
       <div className="lesson-reader-container">
         {/* Sidebar — Work metadata and lesson info */}
         <aside className="lesson-reader-sidebar">
           {/* Work title */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
           <div className="lesson-reader-sidebar-section">
             <span className="lesson-reader-sidebar-label">Work</span>
             <div className="lesson-reader-sidebar-content arabic">
@@ -287,10 +249,7 @@ export default function LessonReaderLayout({
             </div>
           </div>
 
-<<<<<<< HEAD
-=======
           {/* Lesson title and verse range */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
           <div className="lesson-reader-sidebar-section">
             <span className="lesson-reader-sidebar-label">Lesson</span>
             <div className="lesson-reader-sidebar-content arabic">
@@ -301,10 +260,7 @@ export default function LessonReaderLayout({
             </div>
           </div>
 
-<<<<<<< HEAD
-=======
           {/* Verse range */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
           <div className="lesson-reader-sidebar-section">
             <span className="lesson-reader-sidebar-label">Verses</span>
             <div className="lesson-reader-sidebar-content english">
@@ -312,10 +268,7 @@ export default function LessonReaderLayout({
             </div>
           </div>
 
-<<<<<<< HEAD
-=======
           {/* Volume and page reference */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
           {lesson.volume && (
             <div className="lesson-reader-sidebar-section">
               <span className="lesson-reader-sidebar-label">Reference</span>
@@ -327,13 +280,9 @@ export default function LessonReaderLayout({
           )}
         </aside>
 
-<<<<<<< HEAD
-        <main className="lesson-reader-main">
-=======
         {/* Main content area */}
         <main className="lesson-reader-main">
           {/* Header with work/lesson info */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
           <div className="lesson-reader-header">
             <div className="lesson-reader-header-work-title arabic">
               فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
@@ -343,20 +292,14 @@ export default function LessonReaderLayout({
             </div>
           </div>
 
-<<<<<<< HEAD
-=======
           {/* Body content (panels, etc.) */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
           <div className="lesson-reader-body">
             {children}
           </div>
         </main>
       </div>
 
-<<<<<<< HEAD
-=======
       {/* Bottom content section (navigation, etc.) */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
       {bottomContent && (
         <div style={{ padding: '2rem 3rem', paddingTop: 0 }}>
           {bottomContent}
@@ -364,8 +307,4 @@ export default function LessonReaderLayout({
       )}
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
