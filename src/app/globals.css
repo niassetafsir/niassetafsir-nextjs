@@ -33,7 +33,7 @@ body {
 }
 
 /* Arabic text -- site-wide, matches the lesson reading page */
-.font-arabic { font-family: 'IBM Plex Sans Arabic', 'Amiri', 'Traditional Arabic', sans-serif; }
+.font-arabic { font-family: 'Amiri', 'IBM Plex Sans Arabic', 'Traditional Arabic', serif; }
 .font-arabic-sans { font-family: 'IBM Plex Sans Arabic', sans-serif; }
 .font-english { font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif; }
 

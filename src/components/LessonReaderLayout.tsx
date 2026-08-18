@@ -93,8 +93,8 @@ export default function LessonReaderLayout({
         }
 
         .lesson-reader-sidebar-content.arabic {
-          font-family: 'IBM Plex Sans Arabic', 'Amiri', serif;
-          font-size: 15px;
+          font-family: 'Amiri', 'IBM Plex Sans Arabic', serif;
+          font-size: 16px;
           direction: rtl;
           text-align: right;
           color: #8a6d1f;
@@ -110,8 +110,8 @@ export default function LessonReaderLayout({
         /* Main content area */
         .lesson-reader-main {
           flex: 1;
-          min-w-0;
-          max-width: 700px;
+          min-width: 0;
+          max-width: 960px;
           display: flex;
           flex-direction: column;
         }
@@ -131,7 +131,7 @@ export default function LessonReaderLayout({
         }
 
         .lesson-reader-header-work-title.arabic {
-          font-family: 'IBM Plex Sans Arabic', serif;
+          font-family: 'Amiri', serif;
           direction: rtl;
         }
 
