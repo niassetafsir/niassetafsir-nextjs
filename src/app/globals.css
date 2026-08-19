@@ -11,15 +11,15 @@
   --nav-home: rgba(255,255,255,0.7);
   --gold: #C9A84C;
   --gold-light: #E8D4A0;
-  --text: #E8E8E0;
+  --text: #FFFFFF;
   --border: rgba(201,168,76,0.25);
   /* These three existed only under [data-theme="light"], so in the default
      dark theme any component using var(--body-text, <light fallback>) painted
      dark ink on the dark background and vanished -- which is what happened to
      the rebuilt homepage. Declared here too so the fallback never decides. */
-  --body-text: rgba(232,232,224,0.90);
-  --body-sub: rgba(232,232,224,0.65);
-  --body-faint: rgba(232,232,224,0.45);
+  --body-text: #FFFFFF;
+  --body-sub: rgba(255,255,255,0.78);
+  --body-faint: rgba(255,255,255,0.60);
   --complete: #7bb661;
   --input-bg: rgba(255,255,255,0.06);
   --sticky-bg: rgba(13,31,10,0.97);
@@ -56,7 +56,7 @@ body {
 /* ── Global white text brightness boost ──────────────────── */
 /* All English prose and interface text: brighter, crisper   */
 .font-english {
-  color: rgba(255,255,255,0.90);
+  color: #FFFFFF;
 }
 .font-english.text-white\/70,
 .font-english.text-white\/65,
@@ -67,12 +67,12 @@ body {
 .font-english.text-white\/40,
 .font-english.text-white\/35,
 .font-english.text-white\/30 {
-  color: rgba(255,255,255,0.80) !important;
+  color: rgba(255,255,255,0.88) !important;
 }
 /* Slightly dimmer for secondary labels — still readable */
 .font-english.text-white\/25,
 .font-english.text-white\/20 {
-  color: rgba(255,255,255,0.45) !important;
+  color: rgba(255,255,255,0.62) !important;
 }
 
 /* ── Light Mode (al-Attas cream + DOCX palette) ──────────── */
@@ -83,12 +83,12 @@ body {
   --bg: #E8D5B0;
   --gold: #8b6914;
   --gold-light: #5c3d0e;
-  --text: #1a1a1a;
+  --text: #000000;
   --text-en: #444444;
   --border-color: rgba(139,105,20,0.2);
-  --body-text: rgba(44,24,16,0.85);
-  --body-sub: rgba(44,24,16,0.6);
-  --body-faint: rgba(44,24,16,0.4);
+  --body-text: #000000;
+  --body-sub: rgba(0,0,0,0.74);
+  --body-faint: rgba(0,0,0,0.56);
   --complete: #3f6212;
   --input-bg: rgba(255,255,255,0.55);
   --sticky-bg: rgba(245,237,214,0.97);
@@ -109,7 +109,7 @@ body {
 
 [data-theme="light"] body {
   background: #E8D5B0;
-  color: #1a1a1a;
+  color: #000000;
 }
 
 /* Overrides for light mode */
@@ -129,7 +129,7 @@ body {
 
 [data-theme="light"] .text-text-main,
 [data-theme="light"] .font-arabic {
-  color: #1a1a1a !important;
+  color: #000000 !important;
 }
 
 [data-theme="light"] .font-english {
@@ -140,7 +140,7 @@ body {
 [data-theme="light"] .font-english.text-white\/90,
 [data-theme="light"] .font-english.text-white\/85,
 [data-theme="light"] .font-english.text-white\/80 {
-  color: #1a1a1a !important;
+  color: #000000 !important;
 }
 
 [data-theme="light"] .border-gold\/20,
@@ -244,13 +244,13 @@ body {
 
 /* Light mode: jet black for maximum contrast on cream */
 [data-theme="light"] .font-english {
-  color: #111111 !important;
+  color: #000000 !important;
 }
 [data-theme="light"] .font-arabic {
   color: #0a0a0a !important;
 }
 [data-theme="light"] body {
-  color: #111111;
+  color: #000000;
 }
 /* Secondary text in light mode — still dark, just slightly softer */
 [data-theme="light"] .font-english.text-white\/80,
@@ -314,11 +314,11 @@ body {
 [data-theme="light"] .text-white\/70,
 [data-theme="light"] .text-white\/75,
 [data-theme="light"] .text-white {
-  color: #111111 !important;
+  color: #000000 !important;
 }
 [data-theme="light"] strong.text-white,
 [data-theme="light"] strong.text-gold-light {
-  color: #111111 !important;
+  color: #000000 !important;
 }
 [data-theme="light"] em {
   color: #333333 !important;
@@ -337,11 +337,11 @@ body {
 [data-theme="light"] body {
   font-size: 18px;
   line-height: 1.85;
-  color: #050505;
+  color: #000000;
   background: #E8D5B0;
 }
 [data-theme="light"] .font-english {
-  color: #050505 !important;
+  color: #000000 !important;
   font-size: 17px;
   line-height: 1.9;
 }
@@ -358,7 +358,7 @@ body {
 [data-theme="light"] .font-english.text-white\/55,
 [data-theme="light"] .font-english.text-white\/50,
 [data-theme="light"] .font-english.text-white\/45 {
-  color: #1a1a1a !important;
+  color: #000000 !important;
 }
 [data-theme="light"] .font-english.text-white\/40,
 [data-theme="light"] .font-english.text-white\/35,
@@ -372,7 +372,7 @@ body {
 
 /* ── Email input: always dark text ──────────────── */
 input[type="email"] {
-  color: #111111 !important;
+  color: #000000 !important;
   background: #ffffff !important;
 }
 input[type="email"]::placeholder {
@@ -405,7 +405,7 @@ input[type="email"]::placeholder {
 /* Light mode: dropdown text black */
 [data-theme="light"] nav .w-56 span,
 [data-theme="light"] nav [style*="fontSize"] {
-  color: #111111 !important;
+  color: #000000 !important;
 }
 [data-theme="light"] nav button {
   color: #333333 !important;
@@ -425,7 +425,7 @@ input[type="text"].search-input::placeholder {
   color: rgba(255,255,255,0.30);
 }
 [data-theme="light"] input[type="text"].search-input {
-  color: #111111 !important;
+  color: #000000 !important;
   background: rgba(0,0,0,0.05) !important;
 }
 [data-theme="light"] input[type="text"].search-input::placeholder {
@@ -435,7 +435,7 @@ input[type="text"].search-input::placeholder {
 /* All text inputs in light mode */
 [data-theme="light"] input[type="text"],
 [data-theme="light"] input[type="search"] {
-  color: #111111 !important;
+  color: #000000 !important;
   background: rgba(0,0,0,0.05) !important;
   border-color: rgba(139,105,20,0.35) !important;
 }
@@ -462,7 +462,7 @@ input[type="text"].search-input::placeholder {
 }
 [data-theme="light"] .text-white\/85,
 [data-theme="light"] .text-white\/80 {
-  color: #111111 !important;
+  color: #000000 !important;
 }
 
 /* ── Light mode: EVERYTHING black/near-black ──────────── */
@@ -473,7 +473,7 @@ input[type="text"].search-input::placeholder {
 [data-theme="light"] li,
 [data-theme="light"] a:not(.nav-gold),
 [data-theme="light"] button:not(.bg-gold):not(.bg-gold-light) {
-  color: #111111 !important;
+  color: #000000 !important;
 }
 [data-theme="light"] .text-gold,
 [data-theme="light"] .font-arabic.text-gold,
@@ -629,14 +629,14 @@ nav .font-english.text-xs {
 
 [data-theme="light"] .text-white\/75,
 [data-theme="light"] .text-white {
-  color: rgba(26, 10, 0, 0.9) !important;
+  color: #000000 !important;
 }
 
 /* CSS variable overrides for light mode */
 [data-theme="light"] {
-  --body-text: rgba(44, 24, 16, 0.85);
-  --body-sub: rgba(44, 24, 16, 0.6);
-  --body-faint: rgba(44, 24, 16, 0.45);
+  --body-text: #000000;
+  --body-sub: rgba(0,0,0,0.74);
+  --body-faint: rgba(0,0,0,0.56);
   --lesson-header-sub: rgba(44,24,16,0.6);
   --lesson-header-faint: rgba(44,24,16,0.4);
 }
@@ -732,9 +732,9 @@ body:has(.lesson-reading-page) {
   --bg: #F5EDD6;
   --lesson-header-sub: rgba(13,31,10,0.6);
   --lesson-header-faint: rgba(13,31,10,0.35);
-  --body-text: rgba(13,31,10,0.85);
-  --body-sub: rgba(13,31,10,0.6);
-  --body-faint: rgba(13,31,10,0.35);
+  --body-text: #000000;
+  --body-sub: rgba(0,0,0,0.74);
+  --body-faint: rgba(0,0,0,0.56);
   --panel-header-bg: rgba(245,237,214,0.97);
   --panel-header-text: rgba(13,31,10,0.85);
   --panel-title-en: rgba(13,31,10,0.85);
@@ -1015,7 +1015,7 @@ body:has(> .lesson-print-page) {
 .lesson-reader-layout .font-arabic,
 .lesson-reader-layout .font-arabic-sans,
 .lesson-reader-layout .text-text-main {
-  color: #1a1a1a;
+  color: #000000;
 }
 
 .lesson-reader-layout .text-gold,
@@ -1029,7 +1029,7 @@ body:has(> .lesson-print-page) {
 
 /* Tailwind white-text utilities used throughout the reader's children. */
 .lesson-reader-layout [class*="text-white"] {
-  color: rgba(26, 26, 26, 0.85);
+  color: #000000;
 }
 
 /*
@@ -1065,5 +1065,5 @@ body:has(> .lesson-print-page) {
 /* Same treatment for the Arabic faces, which use the same utilities. */
 .lesson-reader-layout .font-arabic[class*="text-white"],
 .lesson-reader-layout .font-arabic-sans[class*="text-white"] {
-  color: rgba(26, 26, 26, 0.85) !important;
+  color: #000000 !important;
 }
