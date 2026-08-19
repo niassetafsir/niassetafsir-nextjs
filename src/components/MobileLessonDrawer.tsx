@@ -7,6 +7,17 @@ import { Menu, X } from 'lucide-react';
 import { volumesFromLessons, type LessonIndexEntry } from '@/lib/volumes';
 import VolumeLessonTree from '@/components/VolumeLessonTree';
 
+/**
+ * The lesson drawer. No longer phone-only.
+ *
+ * It was lg:hidden because desktop had LessonPageNavigator, a 104px sticky
+ * aside carrying the same volume -> lesson tree. That aside was built for the
+ * two-column reader; once the reader became a single centred column it had
+ * nothing to sit beside and fell to the bottom of the page as a narrow strip.
+ * Rather than reinstate a sidebar the layout no longer wants, the aside is
+ * gone and this drawer covers every width -- one lesson browser instead of
+ * two, reachable from the top bar on any screen.
+ */
 export default function MobileLessonDrawer({ lessonId, lessons }: { lessonId: number; lessons: LessonIndexEntry[] }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -30,7 +41,7 @@ export default function MobileLessonDrawer({ lessonId, lessons }: { lessonId: nu
       <button
         dir="ltr"
         onClick={() => setOpen(true)}
-        className="lg:hidden flex items-center gap-1.5 font-english text-[10px] whitespace-nowrap px-2.5 py-1 rounded-full border transition-all flex-shrink-0"
+        className="flex items-center gap-1.5 font-english text-[10px] whitespace-nowrap px-2.5 py-1 rounded-full border transition-all flex-shrink-0"
         style={{ borderColor: 'rgba(138,109,31,0.35)', color: '#8a6d1f', background: 'transparent' }}
         aria-label="Browse lessons"
       >
@@ -39,7 +50,7 @@ export default function MobileLessonDrawer({ lessonId, lessons }: { lessonId: nu
       </button>
 
       {mounted && open && createPortal(
-        <div dir="ltr" className="lg:hidden" style={{ position: 'fixed', inset: 0, zIndex: 99999 }}>
+        <div dir="ltr" style={{ position: 'fixed', inset: 0, zIndex: 99999 }}>
           {/* Backdrop */}
           <div
             onClick={() => setOpen(false)}

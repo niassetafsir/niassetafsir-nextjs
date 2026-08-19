@@ -7,7 +7,6 @@ import PanelJumpTabs from '@/components/PanelJumpTabs';
 import LessonAudioBar from '@/components/LessonAudioBar';
 import OpeningInvocation from '@/components/OpeningInvocation';
 import LessonNav from '@/components/LessonNav';
-import LessonPageNavigator from '@/components/LessonPageNavigator';
 import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
 import LessonCitations from '@/components/LessonCitations';
@@ -105,8 +104,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
   // see src/lib/arabicCommentary.ts. Full text is published site-wide (AK
   // confirmed 2026-08-16; see CLAUDE.md), so nothing is redacted before this
   // reaches the 'use client' BilingualText component.
-  // Slim view of the lesson list for the two navigation trees below.
-  // PanelJumpTabs and LessonPageNavigator are client components, so whatever
+  // Slim view of the lesson list for the navigation drawer.
+  // PanelJumpTabs (via MobileLessonDrawer) is a client component, so whatever
   // is handed to them is serialised into the RSC flight payload. Passing the
   // full Lesson objects shipped the complete text of all 56 lessons twice on
   // every lesson page -- ~19 MB. The trees render six fields; send six.
@@ -233,7 +232,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
       >
         {mainContent}
       </LessonReaderLayout>
-      <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} lessons={lessonIndex} />
       <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
     </>
   );
