@@ -4,11 +4,10 @@ import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-import { volumesFromLessons } from '@/lib/volumes';
-import { Lesson } from '@/lib/types';
+import { volumesFromLessons, type LessonIndexEntry } from '@/lib/volumes';
 import VolumeLessonTree from '@/components/VolumeLessonTree';
 
-export default function MobileLessonDrawer({ lessonId, lessons }: { lessonId: number; lessons: Lesson[] }) {
+export default function MobileLessonDrawer({ lessonId, lessons }: { lessonId: number; lessons: LessonIndexEntry[] }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [jumpValue, setJumpValue] = useState('');

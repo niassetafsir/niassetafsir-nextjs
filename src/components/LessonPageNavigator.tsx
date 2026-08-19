@@ -3,15 +3,14 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { List, Search, ChevronLeft, ChevronRight, Hash } from 'lucide-react';
-import { volumesFromLessons } from '@/lib/volumes';
-import { Lesson } from '@/lib/types';
+import { volumesFromLessons, type LessonIndexEntry } from '@/lib/volumes';
 import VolumeLessonTree from '@/components/VolumeLessonTree';
 
 interface LessonPageNavigatorProps {
   lessonId: number;
   prevId?: number | null;
   nextId?: number | null;
-  lessons: Lesson[];
+  lessons: LessonIndexEntry[];
 }
 
 export default function LessonPageNavigator({ lessonId, prevId, nextId, lessons }: LessonPageNavigatorProps) {

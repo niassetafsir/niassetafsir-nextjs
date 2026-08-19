@@ -1,4 +1,4 @@
-import { getVolumesWithLessons } from '@/lib/volumes';
+import { getVolumeIndex } from '@/lib/volumes';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { getLessonIdsForSurah } from '@/lib/surahLessons';
 import ReadTableOfContents from '@/components/ReadTableOfContents';
@@ -13,7 +13,7 @@ import ReadTableOfContents from '@/components/ReadTableOfContents';
 // the sūrah index used by /surah/[id]). Those hardcoded copies are gone;
 // this page just reads the real data.
 export default async function ReadPage() {
-  const volumes = await getVolumesWithLessons();
+  const volumes = await getVolumeIndex();
   const suras = SURAH_LIST.map(s => ({
     ...s,
     lessonIds: getLessonIdsForSurah(s.id),

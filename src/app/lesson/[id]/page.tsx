@@ -15,6 +15,7 @@ import LessonReaderLayout from '@/components/LessonReaderLayout';
 import Link from 'next/link';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { splitArabicCommentary } from '@/lib/arabicCommentary';
+import { toLessonIndex } from '@/lib/volumes';
 import verseCitations from '@/data/verseCitations.json';
 import fs from 'fs';
 import path from 'path';
@@ -104,13 +105,20 @@ export default async function LessonPage({ params }: { params: { id: string } })
   // see src/lib/arabicCommentary.ts. Full text is published site-wide (AK
   // confirmed 2026-08-16; see CLAUDE.md), so nothing is redacted before this
   // reaches the 'use client' BilingualText component.
+  // Slim view of the lesson list for the two navigation trees below.
+  // PanelJumpTabs and LessonPageNavigator are client components, so whatever
+  // is handed to them is serialised into the RSC flight payload. Passing the
+  // full Lesson objects shipped the complete text of all 56 lessons twice on
+  // every lesson page -- ~19 MB. The trees render six fields; send six.
+  const lessonIndex = toLessonIndex(lessons);
+
   const lessonCitations = (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
   const arabicFull = splitArabicCommentary(lesson.arabicBody || lesson.arabicText);
 
   // Top content: breadcrumb and jump tabs
   const topContent = (
     <>
-      <PanelJumpTabs lessonId={lesson.id} lessons={lessons} />
+      <PanelJumpTabs lessonId={lesson.id} lessons={lessonIndex} />
       <LessonAudioBar lessonId={lesson.id} />
       <div className="flex items-center gap-2 px-4 py-1.5 text-xs" style={{borderBottom:'1px solid rgba(13,31,10,0.1)'}}>
         <a href="/read"
@@ -235,7 +243,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
       >
         {mainContent}
       </LessonReaderLayout>
-      <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} lessons={lessons} />
+      <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} lessons={lessonIndex} />
       <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
     </>
   );

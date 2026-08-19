@@ -1,8 +1,8 @@
 'use client';
 import MobileLessonDrawer from './MobileLessonDrawer';
-import { Lesson } from '@/lib/types';
+import type { LessonIndexEntry } from '@/lib/volumes';
 
-export default function PanelJumpTabs({ lessonId, lessons }: { lessonId?: number; lessons?: Lesson[] }) {
+export default function PanelJumpTabs({ lessonId, lessons }: { lessonId?: number; lessons?: LessonIndexEntry[] }) {
   const tabs = [
     { label: 'Tafsīr', id: 'panel-tafsir' },
     { label: 'Overview', id: 'panel-overview' },
