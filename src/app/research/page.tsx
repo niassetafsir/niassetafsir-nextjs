@@ -8,6 +8,13 @@ export const metadata: Metadata = {
 
 const TOOLS = [
   {
+    href: '/verse',
+    titleAr: 'فهرس الآيات القرآنية',
+    titleEn: 'Commentary by Verse',
+    desc: 'Look up any āya and see every place Shaykh Ibrāhīm treats it — the tafsīr, the fatwās, the letters, the poetry — each entry typed by what he is doing with the verse, dated, and graded for how well attested it is. Readings by his students are held separate.',
+    tier: 'scholar',
+  },
+  {
     href: '/notes',
     titleAr: 'ملاحظات البحث',
     titleEn: 'Research Notes',
@@ -33,6 +40,13 @@ const TOOLS = [
     titleAr: 'فهرس المصطلحات',
     titleEn: 'Concordance of Terms',
     desc: '20 theological and Sufi terms — every occurrence across the corpus, in context.',
+    tier: 'scholar',
+  },
+  {
+    href: '/glossary-map',
+    titleAr: 'خريطة المصطلحات',
+    titleEn: 'Map of Terms',
+    desc: 'The same terms laid out by how they cluster, rather than alphabetically.',
     tier: 'scholar',
   },
   {

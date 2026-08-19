@@ -9,18 +9,25 @@ export default function PersistentNav() {
   // the global bar would just eat screen space during reading.
   if (pathname.startsWith('/lesson/')) return null;
 
+  // Active-tab matching. Every prefix below must name a route that resolves --
+  // this list had drifted: it still matched /concordance (retired to a
+  // notFound), still matched the /scholars, /themes and /network stubs, and
+  // missed /notes, which IS on the research hub. Keep it in step with
+  // src/app/research/page.tsx's TOOLS.
   const isHome = pathname === '/';
-  const isRead = pathname.startsWith('/lesson') || pathname.startsWith('/volume') || pathname.startsWith('/surah') || pathname === '/read';
+  const isRead = pathname.startsWith('/lesson') || pathname.startsWith('/volume') ||
+    pathname.startsWith('/surah') || pathname === '/read';
   const isListen = pathname.startsWith('/audio');
-  const isResearch = pathname.startsWith('/research') || pathname.startsWith('/concordance') ||
+  const isVerses = pathname.startsWith('/verse');
+  const isResearch = pathname.startsWith('/research') || pathname.startsWith('/notes') ||
     pathname.startsWith('/footnotes') || pathname.startsWith('/hadith') ||
-    pathname.startsWith('/scholars') || pathname.startsWith('/themes') ||
     pathname.startsWith('/glossary') || pathname.startsWith('/search') ||
     pathname.startsWith('/clips') || pathname.startsWith('/bookmarks');
 
   const items = [
     { label: 'Home', href: '/', icon: '⌂', active: isHome, colorVar: 'var(--nav-home)' },
     { label: 'Read', href: '/read', icon: '◎', active: isRead, colorVar: 'var(--nav-read)' },
+    { label: 'Verses', href: '/verse', icon: '✦', active: isVerses, colorVar: 'var(--nav-verses)' },
     { label: 'Listen', href: '/audio', icon: '♪', active: isListen, colorVar: 'var(--nav-listen)' },
     { label: 'Research', href: '/research', icon: '⊞', active: isResearch, colorVar: 'var(--nav-research)' },
   ];

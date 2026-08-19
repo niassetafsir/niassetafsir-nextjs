@@ -65,6 +65,29 @@ export default async function HomePage() {
         </p>
       </section>
 
+      {/* ---- The second way in ----
+          Fī Riyāḍ is one book read in order. This is the other axis: an āya,
+          and everywhere in the corpus he treats it. It was reachable only by
+          typing the URL until now, which is why it earns a place above the
+          fold rather than a line in a tools menu. */}
+      <section className="max-w-3xl mx-auto px-5 pb-9">
+        <Link href="/verse"
+          className="block rounded-xl border px-5 py-4 transition-colors hover:border-gold/45"
+          style={{ borderColor: 'rgba(138,109,31,0.28)', background: 'rgba(138,109,31,0.04)' }}>
+          <p className="font-arabic text-gold text-lg mb-1" dir="rtl">فهرس الآيات القرآنية</p>
+          <p className="font-english text-[15px] font-semibold mb-1.5"
+            style={{ color: 'var(--body-text, rgba(232,232,224,0.9))' }}>
+            Commentary by Verse
+          </p>
+          <p className="font-english text-[13.5px] leading-relaxed"
+            style={{ color: 'var(--body-sub, rgba(232,232,224,0.6))' }}>
+            He commented on the Qurʾān in more than the tafsīr — in fatwās, letters, poetry and
+            the recordings. Look up an āya and see every place it survives, each entry dated and
+            marked for what he is doing with the verse.
+          </p>
+        </Link>
+      </section>
+
       {/* ---- The text itself ---- */}
       {specimen && (
         <section className="max-w-5xl mx-auto px-5">

@@ -14,6 +14,7 @@ const PUBLICATIONS_ITEMS: DropdownItem[] = [
 ];
 
 const RESEARCH_ITEMS: DropdownItem[] = [
+  { label: "Commentary by Verse", sub: "Every place he treats an āya, across the corpus", href: "/verse" },
   { label: "Search", sub: "Full-text across all lessons", href: "/search" },
   { label: "Browse Tools", sub: "Footnotes, hadith, glossary, search", href: "/research" },
   { label: "Cite a Passage", sub: "Select text to clip and cite", href: "/clips" },
@@ -22,6 +23,9 @@ const RESEARCH_ITEMS: DropdownItem[] = [
 const ABOUT_ITEMS: DropdownItem[] = [
   { label: "The Tafsīr", sub: "Shaykh Ibrāhīm & the commentary", href: "/about/shaykh" },
   { label: "The Project", sub: "Digital edition, translator, editorial note", href: "/about" },
+  { label: "The Arabic Edition", sub: "The ten-volume Tunis printing", href: "/about/arabic-edition" },
+  { label: "Companion Texts", sub: "Jalālayn, Rūḥ al-Bayān, and the rest", href: "/about/companion-texts" },
+  { label: "Founder & Translator", sub: "Who made this edition", href: "/about/translator" },
 ];
 
 const CONTRIBUTE_ITEMS: DropdownItem[] = [
@@ -33,6 +37,7 @@ const CONTRIBUTE_ITEMS: DropdownItem[] = [
 
 const READ_ITEMS: DropdownItem[] = [
   { label: "Read the Commentary", sub: "Browse by sūrah or volume", href: "/read" },
+  { label: "Commentary by Verse", sub: "Look up an āya across every work", href: "/verse" },
   { label: "Listen", sub: "Audio recordings of the tafsīr", href: "/audio" },
 ];
 

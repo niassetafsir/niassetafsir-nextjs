@@ -69,6 +69,18 @@ export default async function LessonPage({ params }: { params: { id: string } })
     ? fs.readFileSync(jalalaynArPath, 'utf-8')
     : null;
 
+  // Our own English Jalālayn, translated from the Arabic above for this
+  // project. NOT lesson.jalalaynText, which was verified 2026-08-19 against
+  // altafsir.com to be Feras Hamza's translation, © 2007 Royal Aal al-Bayt
+  // Institute — see src/data/jalalaynEnglish/SOURCE.md, and the independence
+  // check in scripts/jalalayn-en-independence.mjs.
+  const jalalaynEnPath = jalalaynSuraId
+    ? path.join(process.cwd(), 'src/data/jalalaynEnglish', String(jalalaynSuraId).padStart(2, '0') + '.txt')
+    : null;
+  const jalalaynEnglishText = jalalaynEnPath && fs.existsSync(jalalaynEnPath)
+    ? fs.readFileSync(jalalaynEnPath, 'utf-8')
+    : null;
+
   // Real Arabic Rūḥ al-Bayān text, transcribed from Usul.ai (see
   // src/data/ruhAlBayanArabic/SOURCE.md for provenance and known gaps).
   // Same proof-of-concept scoping as Jalālayn above: only sūrah 1 so far.
@@ -153,10 +165,9 @@ export default async function LessonPage({ params }: { params: { id: string } })
         <div className="p-5" dir="ltr">
           <ComparativeCommentary
             jalalaynText={jalalaynArabicText}
-            // The English Jalālayn already in the lesson JSON, same [s:v]
-            // format. Without it the English side of the comparison had only
-            // Niasse to show.
-            jalalaynEnText={lesson.jalalaynText ?? null}
+            // Our own translation from the Arabic. Never lesson.jalalaynText,
+            // which is Feras Hamza's -- see the note above the file read.
+            jalalaynEnText={jalalaynEnglishText}
             ruhText={ruhArabicText}
             niasseByVerse={niasseByVerse}
             units={niasseUnits}
