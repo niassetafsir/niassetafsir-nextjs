@@ -1,0 +1,1616 @@
+{
+ "_generated": "from the corpus census; see the project dossiers for the editorial apparatus",
+ "works": [
+  {
+   "id": "fi-riyad",
+   "titleAr": "في رياض التفسير للقرآن الكريم",
+   "titleTranslit": "Fī riyāḍ al-tafsīr li-l-Qurʾān al-karīm",
+   "titleEn": "In the Meadows of Tafsīr for the Noble Qurʾān",
+   "genre": "tafsir",
+   "attestation": "A",
+   "byNiasse": false,
+   "compiler": null,
+   "alaNumber": null,
+   "composed": {
+    "hijri": "1383",
+    "gregorian": "1964",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "tafsir",
+    "lemma"
+   ],
+   "publish": true,
+   "compilerNote": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī (b. 1942), with Aḥmad b. al-Shaykh ʿAbd Allāh and al-Shaykh Bāy b. Aḥmad"
+  },
+  {
+   "id": "tafsir-maani-wolof",
+   "titleAr": "تفسير معاني القرآن الكريم",
+   "titleTranslit": "Tafsīr maʿānī al-Qurʾān al-karīm",
+   "titleEn": null,
+   "genre": "tafsir",
+   "attestation": "B",
+   "byNiasse": false,
+   "compiler": "Introduction by Ibrāhīm M. Diop, Niasse's personal secretary",
+   "alaNumber": 72,
+   "composed": {
+    "gregorian": "1950-1960",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "tafsir",
+    "lemma"
+   ],
+   "publish": false
+  },
+  {
+   "id": "hikam-qutbiyya",
+   "titleAr": "الحكم القطبية المأخوذة من القلم السيرينبية",
+   "titleTranslit": "al-Ḥikam al-quṭbiyya al-maʾkhūdha min al-qalam al-Sīrīnbiyya",
+   "titleEn": null,
+   "genre": "tafsir",
+   "attestation": "B",
+   "byNiasse": false,
+   "compiler": null,
+   "alaNumber": 13,
+   "composed": {
+    "hijri": "Shaʿbān 1375",
+    "gregorian": "March–April 1956",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "tafsir",
+    "gloss",
+    "prooftext"
+   ],
+   "publish": false,
+   "compilerNote": "UNRESOLVED. ALA #13 says Abū Bakr Niasse (Serigne Mbaye); the printed text names nobody as compiler. Its colophon names Muḥammad Gibrima of Nguru (grantor of the printing ijāza, 1387/1967-68), al-Ḥājj ʿUthmān al-Fallātī of Nguru (patron), and Sulaymān Mūsā (scribe)."
+  },
+  {
+   "id": "risalat-al-quran",
+   "titleAr": "رسالة القرآن",
+   "titleTranslit": "Risālat al-Qurʾān",
+   "titleEn": null,
+   "genre": "unknown",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 58,
+   "composed": {
+    "hijri": "1388",
+    "gregorian": "1968",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [],
+   "publish": false
+  },
+  {
+   "id": "kashif",
+   "titleAr": "كاشف الإلباس عن فيضة الختم أبي العباس",
+   "titleTranslit": "Kāshif al-ilbās ʿan fayḍat al-khatm Abī l-ʿAbbās",
+   "titleEn": "The Removal of Confusion Concerning the Flood of the Saintly Seal Aḥmad al-Tijānī",
+   "genre": "sufi-doctrine",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 24,
+   "composed": {
+    "hijri": "1350",
+    "gregorian": "1931",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "prooftext",
+    "gloss"
+   ],
+   "publish": false
+  },
+  {
+   "id": "sirr-akbar",
+   "titleAr": "السر الأكبر والكبريت الأحمر",
+   "titleTranslit": "al-Sirr al-akbar wa-l-kibrīt al-aḥmar",
+   "titleEn": null,
+   "genre": "esoteric",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 69,
+   "composed": {
+    "hijri": "Rajab 1353",
+    "gregorian": "October–November 1934",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "prooftext",
+    "gloss"
+   ],
+   "publish": false
+  },
+  {
+   "id": "bayan-tabyin",
+   "titleAr": "البيان والتبيين في التجانية والتجانيين",
+   "titleTranslit": "al-Bayān wa-l-tabyīn fī l-Tijāniyya wa-l-Tijāniyyīn",
+   "titleEn": null,
+   "genre": "polemic",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 4,
+   "composed": {
+    "certainty": "unknown"
+   },
+   "exegeticalRegister": [
+    "prooftext"
+   ],
+   "publish": false
+  },
+  {
+   "id": "ruh-al-adab",
+   "titleAr": "روح الأدب",
+   "titleTranslit": "Rūḥ al-adab",
+   "titleEn": "The Spirit of Comportment",
+   "genre": "poetry",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 60,
+   "composed": {
+    "hijri": "1342",
+    "gregorian": "1922-23",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "gloss",
+    "poetic"
+   ],
+   "publish": false
+  },
+  {
+   "id": "jawahir-rasail",
+   "titleAr": "جواهر الرسائل",
+   "titleTranslit": "Jawāhir al-rasāʾil",
+   "titleEn": null,
+   "genre": "letters",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 21,
+   "composed": {},
+   "exegeticalRegister": [
+    "prooftext",
+    "juristic",
+    "gloss"
+   ],
+   "publish": false,
+   "compilerNote": "Aḥmad Abū l-Fatḥ b. ʿAlī al-Yarwāwī, 2 vols.; supplement Ziyādat al-jawāhir (Maiduguri, 1410/1990)"
+  },
+  {
+   "id": "hujja-baligha",
+   "titleAr": "الحجة البالغة في كون إذاعة القرآن في الراديو سائغة",
+   "titleTranslit": "al-Ḥujja al-bāligha fī kawn idhāʿat al-Qurʾān fī l-rādyū sāʾigha",
+   "titleEn": "The Conclusive Proof that Broadcasting the Qurʾān on the Radio is Permissible",
+   "genre": "fatwa",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 14,
+   "composed": {
+    "hijri": "1375",
+    "gregorian": "1956",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "juristic",
+    "prooftext"
+   ],
+   "publish": false
+  },
+  {
+   "id": "bahth-hilal",
+   "titleAr": "بحث في ثبوت رؤية الهلال",
+   "titleTranslit": "Baḥth fī thubūt ruʾyat al-hilāl",
+   "titleEn": null,
+   "genre": "fatwa",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 3,
+   "composed": {
+    "certainty": "unknown"
+   },
+   "exegeticalRegister": [
+    "juristic"
+   ],
+   "publish": false
+  },
+  {
+   "id": "sabil-salam",
+   "titleAr": "سبيل السلام في إبقاء المقام",
+   "titleTranslit": "Sabīl al-salām fī ibqāʾ al-maqām",
+   "titleEn": null,
+   "genre": "fatwa",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 63,
+   "composed": {
+    "gregorian": "1963",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "juristic"
+   ],
+   "publish": false
+  },
+  {
+   "id": "wajh-tahqiq",
+   "titleAr": "وجه التحقيق في كون جامع مدينة هو العتيق",
+   "titleTranslit": "Wajh al-taḥqīq fī kawn jāmiʿ Madīna huwa l-ʿatīq",
+   "titleEn": null,
+   "genre": "fatwa",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 84,
+   "composed": {
+    "gregorian": "1932",
+    "certainty": "inferred"
+   },
+   "exegeticalRegister": [
+    "juristic"
+   ],
+   "publish": false
+  },
+  {
+   "id": "tuhfat-hadira",
+   "titleAr": "تحفة أهل الحاضرة بما ينفع الحاج سيما بالطائرة",
+   "titleTranslit": "Tuḥfat ahl al-ḥāḍira bi-mā yanfaʿ al-ḥajj siyyamā bi-l-ṭāʾira",
+   "titleEn": null,
+   "genre": "fiqh",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 80,
+   "composed": {},
+   "exegeticalRegister": [
+    "juristic"
+   ],
+   "publish": false
+  },
+  {
+   "id": "dawawin-sitt",
+   "titleAr": "الدواوين الست",
+   "titleTranslit": "al-Dawāwīn al-sitt",
+   "titleEn": null,
+   "genre": "poetry",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 7,
+   "composed": {
+    "gregorian": "before 1959",
+    "certainty": "inferred"
+   },
+   "exegeticalRegister": [
+    "poetic",
+    "prooftext"
+   ],
+   "publish": false
+  },
+  {
+   "id": "jami-jawami",
+   "titleAr": "جامع جوامع الدواوين",
+   "titleTranslit": "Jāmiʿ jawāmiʿ al-dawāwīn",
+   "titleEn": null,
+   "genre": "poetry",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 19,
+   "composed": {},
+   "exegeticalRegister": [
+    "poetic",
+    "prooftext"
+   ],
+   "publish": false,
+   "compilerNote": "Ibrahim Balarabe Jega, from the 'Great Diwan' established by Sh. 'Ali Sisay (Cisse) c. 1374/1954"
+  },
+  {
+   "id": "ifriqiya",
+   "titleAr": "إفريقيا للإفريقيين",
+   "titleTranslit": "Ifrīqiyā li-l-Ifrīqiyyīn",
+   "titleEn": "Africa for the Africans",
+   "genre": "polemic",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 16,
+   "composed": {
+    "hijri": "1379",
+    "gregorian": "1960-01-05",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "prooftext"
+   ],
+   "publish": false
+  },
+  {
+   "id": "risalat-tawba",
+   "titleAr": "رسالة التوبة",
+   "titleTranslit": "Risālat al-tawba",
+   "titleEn": null,
+   "genre": "sufi-doctrine",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 59,
+   "composed": {
+    "hijri": "1395",
+    "gregorian": "1975-06-18",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "prooftext",
+    "gloss"
+   ],
+   "publish": false
+  },
+  {
+   "id": "rihla-hijaziyya",
+   "titleAr": "الرحلة الحجازية الأولى",
+   "titleTranslit": "al-Riḥla al-ḥijāziyya al-ūlā",
+   "titleEn": null,
+   "genre": "rihla",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 52,
+   "composed": {
+    "hijri": "1355",
+    "gregorian": "1935",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "prooftext",
+    "poetic"
+   ],
+   "publish": false
+  },
+  {
+   "id": "rihla-ghannariyya",
+   "titleAr": "الرحلة الغنارية والكماشية",
+   "titleTranslit": "al-Riḥla al-Gannāriyya wa-l-Kumāshiyya",
+   "titleEn": null,
+   "genre": "rihla",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 53,
+   "composed": {
+    "hijri": "1371",
+    "gregorian": "1951-52",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "prooftext",
+    "poetic"
+   ],
+   "publish": false
+  },
+  {
+   "id": "rihla-kunakiriyya",
+   "titleAr": "نفحات الملك الغني في السياحة في أرض باماكو وكوناكري",
+   "titleTranslit": "Nafaḥāt al-Malik al-Ghanī fī l-siyāḥa fī arḍ Bamakū wa-Kunākirī",
+   "titleEn": null,
+   "genre": "rihla",
+   "attestation": "B",
+   "byNiasse": true,
+   "compiler": null,
+   "alaNumber": 40,
+   "composed": {
+    "hijri": "1367",
+    "gregorian": "1947",
+    "certainty": "attested"
+   },
+   "exegeticalRegister": [
+    "prooftext",
+    "poetic"
+   ],
+   "publish": false
+  }
+ ],
+ "witnesses": [
+  {
+   "id": "fi-riyad-audio-1964",
+   "workId": "fi-riyad",
+   "medium": "audio",
+   "language": "ar",
+   "year": "1383/1964",
+   "addressScheme": "cassette-timecode",
+   "isBase": false
+  },
+  {
+   "id": "fi-riyad-tunis-2010",
+   "workId": "fi-riyad",
+   "medium": "print",
+   "language": "ar",
+   "publisher": "Majmaʿ al-Yamāma li-l-Ṭibāʿa wa-l-Nashr",
+   "place": "Tūnis",
+   "year": "2010",
+   "editor": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "volumes": 6,
+   "addressScheme": "volume-page",
+   "isBase": false,
+   "derivesFrom": "fi-riyad-audio-1964"
+  },
+  {
+   "id": "fi-riyad-tunis-2022",
+   "workId": "fi-riyad",
+   "medium": "print",
+   "language": "ar",
+   "publisher": "Majmaʿ al-Yamāma li-l-Nashr wa-l-Tawzīʿ",
+   "place": "Tūnis",
+   "year": "December 2022",
+   "editor": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "volumes": 10,
+   "addressScheme": "volume-page",
+   "isBase": true,
+   "derivesFrom": "fi-riyad-audio-1964"
+  },
+  {
+   "id": "fi-riyad-site-transcription",
+   "workId": "fi-riyad",
+   "medium": "digital",
+   "language": "ar",
+   "addressScheme": "lesson-paragraph",
+   "derivesFrom": "fi-riyad-tunis-2022"
+  },
+  {
+   "id": "tafsir-maani-cassettes",
+   "workId": "tafsir-maani-wolof",
+   "medium": "audio",
+   "language": "wo",
+   "year": "1950-1960",
+   "publisher": "Saite Sall Family Inc., New York",
+   "addressScheme": "cassette-timecode"
+  },
+  {
+   "id": "kashif-cairo-2001",
+   "workId": "kashif",
+   "medium": "print",
+   "language": "ar",
+   "place": "Cairo",
+   "year": "2001",
+   "editor": "al-Tijānī b. ʿAlī Cissé",
+   "addressScheme": "page",
+   "isBase": true
+  },
+  {
+   "id": "ala-catalogue",
+   "workId": "dawawin-sitt",
+   "medium": "print",
+   "language": "en",
+   "place": "Leiden",
+   "publisher": "Brill",
+   "year": "2003",
+   "addressScheme": "page"
+  },
+  {
+   "id": "hikam-nguru-1387",
+   "workId": "hikam-qutbiyya",
+   "medium": "print",
+   "language": "ar",
+   "place": "Nguru / Kano region, Nigeria",
+   "year": "1387/1967-68",
+   "addressScheme": "page",
+   "volumes": 1
+  },
+  {
+   "id": "hikam-ak-edition",
+   "workId": "hikam-qutbiyya",
+   "medium": "digital",
+   "language": "ar",
+   "addressScheme": "page",
+   "volumes": 1,
+   "isBase": true,
+   "derivesFrom": "hikam-nguru-1387"
+  },
+  {
+   "id": "kashif-cairo-2001-print",
+   "workId": "kashif",
+   "medium": "print",
+   "language": "ar",
+   "place": "Cairo",
+   "year": "2001",
+   "editor": "al-Tijānī b. ʿAlī Cissé",
+   "addressScheme": "page",
+   "isBase": true
+  }
+ ],
+ "loci": [
+  {
+   "id": "ala-49ii",
+   "witnessId": "ala-catalogue",
+   "address": {
+    "raw": "Q. bāʾiyya: Farartu li-l-Kāfī l-Muhaymin al-Raqīb (ALA #49-ii)"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "ala-74",
+   "witnessId": "ala-catalogue",
+   "address": {
+    "raw": "al-Ṭāqa al-dharriyya al-muwajjaha li-aʿdāʾ khayr al-bariyya (ALA #74)"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "ala-49xxxi",
+   "witnessId": "ala-catalogue",
+   "address": {
+    "raw": "Urjūza: Ḥasbī l-Muhaymin wa-ḥasbī l-Wāqī (ALA #49-xxxi)"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "ala-49xxxii",
+   "witnessId": "ala-catalogue",
+   "address": {
+    "raw": "Urjūza: Rabb al-ʿibādi Ghāfir al-dhunūbī (ALA #49-xxxii)"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "ala-49xxviii",
+   "witnessId": "ala-catalogue",
+   "address": {
+    "raw": "Q. fī l-istighātha: Rabbī tarānī bāʾisan faqīrā (ALA #49-xxviii)"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "ala-49xxiv",
+   "witnessId": "ala-catalogue",
+   "address": {
+    "raw": "Q. qāfiyya: Wajjahtu wajhī li-l-Qadīm al-Bāqī (ALA #49-xxiv)"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "ala-68",
+   "witnessId": "ala-catalogue",
+   "address": {
+    "raw": "Silāḥ al-ṣāliḥīn fī nuḥūr al-aʿdāʾ al-ṭāliḥīn (ALA #68)"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "ala-77",
+   "witnessId": "ala-catalogue",
+   "address": {
+    "raw": "Tawṣiyat al-aḥbāb alladhīna baʿudū ʿannā wa-tabshīr (ALA #77)"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "ala-49xvi",
+   "witnessId": "ala-catalogue",
+   "address": {
+    "raw": "Q. kāfiyya: Yā sāʾilan hal Mālikun qad zakkā * Gerte fa-habbu gerte lam yuzakkā (ALA #49-xvi)"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "hikam-p2-1",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 2,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 2"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p2-2",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 2,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 2"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p2-3",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 2,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 2"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p2-4",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 2,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 2"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p2-5",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 2,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 2"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p2-6",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 2,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 2"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p2-7",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 2,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 2"
+   },
+   "transcriptionStatus": "draft",
+   "textAr": "إِشَارَةٌ بِأَنَّ العَبْدَ يَنْبَغِي أَنْ يُرَاعِيَ الشَّرِيعَةَ وَالحَقِيقَةَ: ﴿إِيَّاكَ نَعْبُدُ﴾ شَرِيعَةٌ وَ﴿إِيَّاكَ نَسْتَعِينُ﴾ حَقِيقَةٌ",
+   "textEn": "An indication that the servant must observe both the Law and the Reality: Thee do we worship is Law, and Thee do we ask for help is Reality."
+  },
+  {
+   "id": "hikam-p2-8",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 2,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 2"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p3-9",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 3,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 3"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p3-10",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 3,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 3"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p3-11",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 3,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 3"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p3-12",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 3,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 3"
+   },
+   "transcriptionStatus": "draft",
+   "textAr": "إِنَّ العَرْشَ مَقْلُوبُ شَرْعٍ… فَالشَّرْعُ مَجْمُوعُ رَحْمَةِ الأَرْضِ وَمَحَطُّهَا",
+   "textEn": "The Throne (ʿarsh) is sharʿ inverted… so the Law is the sum of the earth's mercy and its landing-place."
+  },
+  {
+   "id": "hikam-p3-13",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 3,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 3"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p4-14",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 4,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 4"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p4-15",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 4,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 4"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p4-16",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 4,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 4"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p5-17",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 5,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 5"
+   },
+   "transcriptionStatus": "draft",
+   "textAr": "يَكْفِي المَرْءَ مِنْ عِلْمِ الكَلَامِ هَذِهِ الآيَةُ ﴿لَوْ كَانَ فِيهِمَا آلِهَةٌ إِلَّا اللهُ لَفَسَدَتَا﴾ مِنْ تَوْحِيدِ الأَفْعَالِ وَالصِّفَاتِ وَالذَّاتِ",
+   "textEn": "This one verse suffices a man in place of dialectical theology — on the oneness of acts, of attributes, and of the essence."
+  },
+  {
+   "id": "hikam-p5-18",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 5,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 5"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p5-19",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 5,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 5"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p5-20",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 5,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 5"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p5-21",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 5,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 5"
+   },
+   "transcriptionStatus": "draft",
+   "textAr": "النُّورُ أَقْسَامٌ أَرْبَعَةٌ: نُورٌ يُرِيكَ وَلَا يُرَى، وَنُورٌ يُرِيكَ وَيُرَى كَنُورِ العَيْنِ، وَنُورٌ يُرِيكَ فَقَطْ كَنُورِ العَقْلِ، وَنُورٌ يُرِيكَ المَوْجُودَ وَيُرِيكَ المَعْدُومَ وَهُوَ ﴿اللهُ نُورُ السَّمَاوَاتِ وَالأَرْضِ﴾. مَثَّلَ قَلْبَ المُؤْمِنِ بِالزُّجَاجَةِ تَعْلِيمًا لَكَ… فَالزُّجَاجَةُ سَرِيعَةُ الاِنْكِسَارِ وَهَكَذَا القَلْبُ، فَاحْتَفِظْ عَلَيْهِ جِدًّا",
+   "textEn": "Light is of four kinds: a light that shows you and is not itself seen; a light that shows you and is seen, like the light of the eye; a light that only shows you, like the light of the intellect; and a light that shows you the existent and shows you the non-existent — and that is God is the Light of the heavens and the earth. He likened the believer's heart to the glass as a lesson to you… glass breaks quickly, and so does the heart. Guard it well."
+  },
+  {
+   "id": "hikam-p5-22",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 5,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 5"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p6-23",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 6,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 6"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p6-24",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 6,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 6"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p6-25",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 6,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 6"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p6-26",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 6,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 6"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p6-27",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 6,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 6"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p6-28",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 6,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 6"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p7-29",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 7,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 7"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p7-30",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 7,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 7"
+   },
+   "transcriptionStatus": "draft",
+   "textAr": "لَا يُمْكِنُ لِلنَّفْسِ الاِطْمِئْنَانُ إِلَّا بِالمَعْرِفَةِ. أَمَّا نُفُوسُ أَهْلِ الدُّنْيَا فَلَا تَطْمَئِنُّ، لِأَنَّهَا دَائِمَةٌ حَرِيصَةٌ فِي الطَّلَبِ",
+   "textEn": "The soul cannot come to rest except through gnosis. The souls of worldly people never rest, because they are perpetually avid in pursuit."
+  },
+  {
+   "id": "hikam-p8-31",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 8,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 8"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p8-32",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 8,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 8"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p8-33",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 8,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 8"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p9-34",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 9,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 9"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p9-35",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 9,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 9"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "hikam-p10-36",
+   "witnessId": "hikam-ak-edition",
+   "address": {
+    "page": 10,
+    "raw": "al-Ḥikam al-quṭbiyya (ed. AK), p. 10"
+   },
+   "transcriptionStatus": "verified"
+  },
+  {
+   "id": "kashif-fana",
+   "witnessId": "kashif-cairo-2001-print",
+   "address": {
+    "raw": "ed. Cissé 2001 — page not yet resolved"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "kashif-marifa",
+   "witnessId": "kashif-cairo-2001-print",
+   "address": {
+    "raw": "ed. Cissé 2001 — page not yet resolved"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "kashif-nur",
+   "witnessId": "kashif-cairo-2001-print",
+   "address": {
+    "raw": "ed. Cissé 2001 — page not yet resolved"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "kashif-tadabbur",
+   "witnessId": "kashif-cairo-2001-print",
+   "address": {
+    "raw": "ed. Cissé 2001 — page not yet resolved"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "kashif-hajj",
+   "witnessId": "kashif-cairo-2001-print",
+   "address": {
+    "raw": "ed. Cissé 2001 — page not yet resolved"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "kashif-luqman",
+   "witnessId": "kashif-cairo-2001-print",
+   "address": {
+    "raw": "ed. Cissé 2001 — page not yet resolved"
+   },
+   "transcriptionStatus": "none"
+  },
+  {
+   "id": "wolof-cycle",
+   "witnessId": "tafsir-maani-cassettes",
+   "address": {
+    "raw": "cassette not identified"
+   },
+   "transcriptionStatus": "none"
+  }
+ ],
+ "verseLinks": [
+  {
+   "locusId": "ala-49ii",
+   "surah": 2,
+   "ayahStart": 137,
+   "type": "poetic",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "MS Kaolack 14"
+  },
+  {
+   "locusId": "ala-74",
+   "surah": 3,
+   "ayahStart": 147,
+   "type": "poetic",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "MS NU/Falke 1988; NU/Paden 250, 283"
+  },
+  {
+   "locusId": "ala-49xxxi",
+   "surah": 3,
+   "ayahStart": 173,
+   "type": "poetic",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "MS Kaolack 9; NU/Paden 287. Publ. in Jāmiʿ jawāmiʿ al-dawāwīn Composed 1360/1941-2."
+  },
+  {
+   "locusId": "ala-49xxxii",
+   "surah": 23,
+   "ayahStart": 29,
+   "type": "poetic",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Publ. at the end of ʿUmar b. Saʿīd al-Fūtī, Safīnat al-saʿāda, Dakar 1997"
+  },
+  {
+   "locusId": "ala-49xxviii",
+   "surah": 28,
+   "ayahStart": 24,
+   "type": "poetic",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "MS UBMIA/TIJ 68a; publ. n.p. [Ghana] n.d."
+  },
+  {
+   "locusId": "ala-49xxiv",
+   "surah": 40,
+   "ayahStart": 44,
+   "type": "poetic",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "MS Kaolack 11; NU/Paden 287 Composed 1362/1942-3."
+  },
+  {
+   "locusId": "ala-68",
+   "surah": 40,
+   "ayahStart": 44,
+   "type": "poetic",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "MS Kaolack 16 — ALA gives the same shelfmark for #38; one of the two is an error"
+  },
+  {
+   "locusId": "ala-77",
+   "surah": 40,
+   "ayahStart": 44,
+   "type": "poetic",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Opens Waliyyukum awliyāʾ Allāhi idh makarū * makran huwa llāhu mawlā l-khalqi fa-ṣṭabirū — layers Q 3:54 or 8:30 over the Q 40:44 acrostic Composed 22 Shawwāl 1375 / 2 June 1956."
+  },
+  {
+   "locusId": "ala-49xvi",
+   "surah": 6,
+   "ayahStart": 141,
+   "type": "poetic",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Macaronic: the Wolof 'gerte' (groundnut) set in an Arabic hemistich. On whether zakāt is due on peanut crops; cf. ALA #18 Irshād al-sārīn ilā ʿadam al-hārīn, 1355/1936. Simultaneously poetic and juristic. VERSE IS INFERRED FROM THE SUBJECT, not named by ALA — the only entry here that is not ALA's own attribution."
+  },
+  {
+   "locusId": "hikam-p2-1",
+   "surah": 1,
+   "ayahStart": 1,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "The bāʾ of the basmala: the dot beneath the alif, tawāḍuʿ and rafʿ — man tawāḍaʿa rafaʿahu llāh. Hadith: mā bayna bismillāh al-raḥmān al-raḥīm wa-bayna al-ism al-aʿẓam illā kamā bayna sawād al-ʿayn wa-bayāḍihā."
+  },
+  {
+   "locusId": "hikam-p2-2",
+   "surah": 7,
+   "ayahStart": 172,
+   "type": "prooftext",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "alastu bi-rabbikum qālū balā — cited within the basmala discussion, on primordial speech."
+  },
+  {
+   "locusId": "hikam-p2-3",
+   "surah": 47,
+   "ayahStart": 15,
+   "type": "prooftext",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "[VERSE INFERRED FROM CONTEXT, no explicit lemma — check against source] The rivers of Paradise, named only as 'the verse in Sūrat al-Qitāl'."
+  },
+  {
+   "locusId": "hikam-p2-4",
+   "surah": 1,
+   "ayahStart": 2,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "Aqsām al-ḥamd; rabb al-ʿālamīn — al-ʿālam is everything other than God; the masculine plural by taghlīb. al-Rabb is the one who rears, whether by small favours or by great ones — ʿulūm, maʿārif, laṭāʾif, asrār."
+  },
+  {
+   "locusId": "hikam-p2-5",
+   "surah": 1,
+   "ayahStart": 3,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "al-Raḥīm: raḥma as riqqat al-qalb is impossible of God; its terminus, tafaḍḍul, is not. Hadith of the hundred mercies."
+  },
+  {
+   "locusId": "hikam-p2-6",
+   "surah": 1,
+   "ayahStart": 4,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "mālik yawm al-dīn — kings of this world are contested; He is not."
+  },
+  {
+   "locusId": "hikam-p2-7",
+   "surah": 1,
+   "ayahStart": 5,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "Taqdīm al-mafʿūl li-l-ḥaṣr. THE KEY DIVISION: iyyāka naʿbudu = sharīʿa, wa-iyyāka nastaʿīnu = ḥaqīqa. Then ʿAlī b. Abī Ṭālib on riyāʾ — ṣallaytu al-bāriḥa miʾat rakʿa. Collate against Fī Riyāḍ Lesson 1."
+  },
+  {
+   "locusId": "hikam-p2-8",
+   "surah": 1,
+   "ayahStart": 6,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "God did not say ṣirāṭ alladhīna qutilū wa-dhubiḥū. The objection from the four caliphs, all martyred though all prayed for ʿāfiya. Resolution: al-ʿāfiya huwa al-riḍā bi-l-qadar — not that the Master assist you in all you desire, but that you consent to every decree. al-maghḍūb ʿalayhim = the Jews, al-ḍāllīn = the Christians. NOTE the parallel four-caliphs excursus in Fī Riyāḍ vol. 1, pp. 56-59, on Q 2:3 (Wright 2024)."
+  },
+  {
+   "locusId": "hikam-p2-8",
+   "surah": 1,
+   "ayahStart": 7,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "God did not say ṣirāṭ alladhīna qutilū wa-dhubiḥū. The objection from the four caliphs, all martyred though all prayed for ʿāfiya. Resolution: al-ʿāfiya huwa al-riḍā bi-l-qadar — not that the Master assist you in all you desire, but that you consent to every decree. al-maghḍūb ʿalayhim = the Jews, al-ḍāllīn = the Christians. NOTE the parallel four-caliphs excursus in Fī Riyāḍ vol. 1, pp. 56-59, on Q 2:3 (Wright 2024)."
+  },
+  {
+   "locusId": "hikam-p3-9",
+   "surah": 1,
+   "ayahStart": 2,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "EXCURSUS 1 — five names, five pillars: al-Fātiḥa fīhā khamsat asmāʾ, kull ism yushīr ilā qāʿida min qawāʿid al-sharʿ. al-Ḥamdu lillāh → tawḥīd; rabb al-ʿālamīn → the five prayers; al-Raḥmān al-Raḥīm → zakāt; mālik yawm al-dīn → ḥajj, and the fast."
+  },
+  {
+   "locusId": "hikam-p3-9",
+   "surah": 1,
+   "ayahStart": 3,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "EXCURSUS 1 — five names, five pillars: al-Fātiḥa fīhā khamsat asmāʾ, kull ism yushīr ilā qāʿida min qawāʿid al-sharʿ. al-Ḥamdu lillāh → tawḥīd; rabb al-ʿālamīn → the five prayers; al-Raḥmān al-Raḥīm → zakāt; mālik yawm al-dīn → ḥajj, and the fast."
+  },
+  {
+   "locusId": "hikam-p3-9",
+   "surah": 1,
+   "ayahStart": 4,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "EXCURSUS 1 — five names, five pillars: al-Fātiḥa fīhā khamsat asmāʾ, kull ism yushīr ilā qāʿida min qawāʿid al-sharʿ. al-Ḥamdu lillāh → tawḥīd; rabb al-ʿālamīn → the five prayers; al-Raḥmān al-Raḥīm → zakāt; mālik yawm al-dīn → ḥajj, and the fast."
+  },
+  {
+   "locusId": "hikam-p3-10",
+   "surah": 1,
+   "ayahStart": 1,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "EXCURSUS 2 — nine sciences: al-Qurʾān mā fīhi illā tisʿat ʿulūm, kulluhā fī l-Fātiḥa. al-ḥamd / shukr / tawḥīd / waʿd / waʿīd / sharīʿa / ḥaqīqa / duʿāʾ / qiṣṣa / waʿẓ, each assigned to a clause."
+  },
+  {
+   "locusId": "hikam-p3-10",
+   "surah": 1,
+   "ayahStart": 7,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "EXCURSUS 2 — nine sciences: al-Qurʾān mā fīhi illā tisʿat ʿulūm, kulluhā fī l-Fātiḥa. al-ḥamd / shukr / tawḥīd / waʿd / waʿīd / sharīʿa / ḥaqīqa / duʿāʾ / qiṣṣa / waʿẓ, each assigned to a clause."
+  },
+  {
+   "locusId": "hikam-p3-11",
+   "surah": 20,
+   "ayahStart": 50,
+   "type": "prooftext",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "Three degrees of hidāya: ʿāmma (aʿṭā kulla shayʾin khalqahu thumma hadā), khāṣṣa (yahdīhim rabbuhum bi-īmānihim), khāṣṣat al-khāṣṣa (qul inna hudā llāhi huwa l-hudā; wa-wajadaka ḍāllan fa-hadā)."
+  },
+  {
+   "locusId": "hikam-p3-11",
+   "surah": 10,
+   "ayahStart": 9,
+   "type": "prooftext",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "Three degrees of hidāya: ʿāmma (aʿṭā kulla shayʾin khalqahu thumma hadā), khāṣṣa (yahdīhim rabbuhum bi-īmānihim), khāṣṣat al-khāṣṣa (qul inna hudā llāhi huwa l-hudā; wa-wajadaka ḍāllan fa-hadā)."
+  },
+  {
+   "locusId": "hikam-p3-11",
+   "surah": 2,
+   "ayahStart": 120,
+   "type": "prooftext",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "Three degrees of hidāya: ʿāmma (aʿṭā kulla shayʾin khalqahu thumma hadā), khāṣṣa (yahdīhim rabbuhum bi-īmānihim), khāṣṣat al-khāṣṣa (qul inna hudā llāhi huwa l-hudā; wa-wajadaka ḍāllan fa-hadā)."
+  },
+  {
+   "locusId": "hikam-p3-11",
+   "surah": 93,
+   "ayahStart": 7,
+   "type": "prooftext",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "Three degrees of hidāya: ʿāmma (aʿṭā kulla shayʾin khalqahu thumma hadā), khāṣṣa (yahdīhim rabbuhum bi-īmānihim), khāṣṣat al-khāṣṣa (qul inna hudā llāhi huwa l-hudā; wa-wajadaka ḍāllan fa-hadā)."
+  },
+  {
+   "locusId": "hikam-p3-12",
+   "surah": 20,
+   "ayahStart": 5,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "al-Raḥmān ʿalā l-ʿarsh istawā — inna l-ʿarsh maqlūb sharʿ: the consonants of ʿ-r-sh reversed give sh-r-ʿ. The Throne is where God's mercy descends, so the Law is the sum and landing-place of mercy on earth. NO PARALLEL FOUND in the published scholarship on Niasse."
+  },
+  {
+   "locusId": "hikam-p3-13",
+   "surah": 10,
+   "ayahStart": 26,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "[VERSE INFERRED FROM CONTEXT, no explicit lemma — check against source] Ruʾyat Allāh as the ziyāda of li-lladhīna aḥsanū l-ḥusnā wa-ziyāda; then qul bi-faḍl Allāh wa-bi-raḥmatihi fa-bi-dhālika fa-l-yafraḥū."
+  },
+  {
+   "locusId": "hikam-p3-13",
+   "surah": 10,
+   "ayahStart": 58,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "[VERSE INFERRED FROM CONTEXT, no explicit lemma — check against source] Ruʾyat Allāh as the ziyāda of li-lladhīna aḥsanū l-ḥusnā wa-ziyāda; then qul bi-faḍl Allāh wa-bi-raḥmatihi fa-bi-dhālika fa-l-yafraḥū."
+  },
+  {
+   "locusId": "hikam-p4-14",
+   "surah": 11,
+   "ayahStart": 92,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "a-rahṭī aʿazzu ʿalaykum mina llāh — al-ʿizza ʿinda llāh against al-ʿizza ʿinda ahl al-dunyā (jāh and wealth). The verse covers whoever works for this world at the cost of the next."
+  },
+  {
+   "locusId": "hikam-p4-15",
+   "surah": 12,
+   "ayahStart": 1,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "[VERSE INFERRED FROM CONTEXT, no explicit lemma — check against source] Jacob's letter to the king of Egypt; Joseph freeing the people of Egypt for joy at meeting his father."
+  },
+  {
+   "locusId": "hikam-p4-16",
+   "surah": 20,
+   "ayahStart": 17,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "hiya ʿaṣāya — al-ʿaṣā and al-maʿṣiya are cognate in the lafẓ: what the servant ascribes to himself becomes a living thing against him. Then Moses' tongue, the coal, and why the miracle required the earlier defect.",
+   "ayahEnd": 18
+  },
+  {
+   "locusId": "hikam-p5-17",
+   "surah": 21,
+   "ayahStart": 22,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "law kāna fīhimā ālihatun illā llāhu la-fasadatā — ʿilm al-kalām is blamed and an innovation, and this one verse suffices a man, on tawḥīd al-afʿāl wa-l-ṣifāt wa-l-dhāt."
+  },
+  {
+   "locusId": "hikam-p5-18",
+   "surah": 21,
+   "ayahStart": 30,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "wa-jaʿalnā min al-māʾ kulla shayʾin ḥayy — as water is the cause of every living thing here, lā ilāha illā llāh is the cause of life hereafter; that word is the water of the next world."
+  },
+  {
+   "locusId": "hikam-p5-19",
+   "surah": 21,
+   "ayahStart": 83,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "Taṣrīḥ against taʿrīḍ in supplication: Zachariah asks explicitly (rabbi hab lī min ladunka waliyyan) because he seeks a good; Job alludes (annī massaniya l-ḍurr) because he seeks the lifting of an affliction, and allusion is nearer to adab."
+  },
+  {
+   "locusId": "hikam-p5-19",
+   "surah": 19,
+   "ayahStart": 5,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "Taṣrīḥ against taʿrīḍ in supplication: Zachariah asks explicitly (rabbi hab lī min ladunka waliyyan) because he seeks a good; Job alludes (annī massaniya l-ḍurr) because he seeks the lifting of an affliction, and allusion is nearer to adab."
+  },
+  {
+   "locusId": "hikam-p5-20",
+   "surah": 63,
+   "ayahStart": 9,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "wa-lā tulhikum amwālukum wa-lā awlādukum ʿan dhikri llāh — whoever is not connected to the Presence is, ʿinda ahl al-ḥaqīqa, ibn zinan. Also the four gazes that count as worship: the Kaʿba, a parent's face, the muṣḥaf, a scholar's face."
+  },
+  {
+   "locusId": "hikam-p5-21",
+   "surah": 24,
+   "ayahStart": 35,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "FOUR LIGHTS: that which shows you and is not seen; that which shows you and is seen (the eye's light); that which only shows you (the intellect's light); and that which shows you the existent AND the non-existent — and that is God. Then the zujāja as the believer's heart: glass breaks fast; too much sleep, food and mixing with worldly people clouds it. COLLATION TARGET — Wright 2024 cites Fī Riyāḍ vol. 4, pp. 217-218 on this verse but does not analyse it."
+  },
+  {
+   "locusId": "hikam-p5-22",
+   "surah": 24,
+   "ayahStart": 45,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "man yamshī ʿalā baṭnih = appetite of the belly; on two feet = appetite of sex; on four = those who seek jāh, called four because they are ridden. And some of the ʿārifūn walk by their spirits."
+  },
+  {
+   "locusId": "hikam-p6-23",
+   "surah": 48,
+   "ayahStart": 1,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "li-yaghfira laka llāhu — the agent is not repeated; God assigns the act to Himself. The Prophet being maʿṣūm, the maghfira returns to the umma (cf. li-yudkhila l-muʾminīn). Three things no veil stops: a parent's prayer for a child, the prayer of the wronged, the word of ikhlāṣ.",
+   "ayahEnd": 2
+  },
+  {
+   "locusId": "hikam-p6-24",
+   "surah": 16,
+   "ayahStart": 127,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "wa-mā ṣabruka illā bi-llāh; wa-mā l-naṣru illā min ʿind Allāh; in yanṣurkumu llāhu fa-lā ghāliba lakum. 'Nowhere in the Qurʾān is victory mentioned without God being made its agent.'"
+  },
+  {
+   "locusId": "hikam-p6-24",
+   "surah": 3,
+   "ayahStart": 126,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "wa-mā ṣabruka illā bi-llāh; wa-mā l-naṣru illā min ʿind Allāh; in yanṣurkumu llāhu fa-lā ghāliba lakum. 'Nowhere in the Qurʾān is victory mentioned without God being made its agent.'"
+  },
+  {
+   "locusId": "hikam-p6-24",
+   "surah": 3,
+   "ayahStart": 160,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "wa-mā ṣabruka illā bi-llāh; wa-mā l-naṣru illā min ʿind Allāh; in yanṣurkumu llāhu fa-lā ghāliba lakum. 'Nowhere in the Qurʾān is victory mentioned without God being made its agent.'"
+  },
+  {
+   "locusId": "hikam-p6-25",
+   "surah": 52,
+   "ayahStart": 21,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "alḥaqnā bihim dhurriyyatahum — the murīd of deficient state is joined to his shaykh's station as the child of deficient faith is joined to the parent's. al-marʾ maʿa man aḥabb."
+  },
+  {
+   "locusId": "hikam-p6-26",
+   "surah": 55,
+   "ayahStart": 29,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "kulla yawmin huwa fī shaʾn — the boy who answered from the floor and was raised to the minbar; he was Mālik b. Anas."
+  },
+  {
+   "locusId": "hikam-p6-27",
+   "surah": 57,
+   "ayahStart": 20,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "laʿib / lahw / zīna / tafākhur / takāthur mapped onto the seven-year ages of a life. Whoever has not repented to God by thirty is al-maghbūn."
+  },
+  {
+   "locusId": "hikam-p6-28",
+   "surah": 57,
+   "ayahStart": 25,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "fīhi baʾsun shadīdun wa-manāfiʿu li-l-nās — what is of general benefit God made cheap (iron, fresh water, air); what has no use He made dear (gold, musk). 'Thus God exchanged, out of His mercy.'"
+  },
+  {
+   "locusId": "hikam-p7-29",
+   "surah": 83,
+   "ayahStart": 15,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "kallā innahum ʿan rabbihim yawmaʾidhin la-maḥjūbūn — the veil is the CAUSE of the punishment, as a sultan first screens himself from the man he means to punish."
+  },
+  {
+   "locusId": "hikam-p7-30",
+   "surah": 89,
+   "ayahStart": 27,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "yā ayyatuhā l-nafsu l-muṭmaʾinna — lā yumkin li-l-nafs al-iṭmiʾnān illā bi-l-maʿrifa. The souls of worldly people never rest: desire in pursuit cannot rest, desire in possession fears loss. WRIGHT'S 2024 THESIS (maʿrifa bi-llāh as the telos of Niasse's exegesis) stated flatly in 1956, on a verse he does not treat, in a text he does not know.",
+   "ayahEnd": 28
+  },
+  {
+   "locusId": "hikam-p8-31",
+   "surah": 112,
+   "ayahStart": 1,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "aḥad indefinite because His unicity is hidden from creation save from ahl al-maʿrifa; al-Ṣamad definite because known even to the deniers (Q 29:61). lam yalid wa-lam yūlad negates being begotten BEFORE begetting, since the deniers claimed the latter and none claimed the former (Q 9:30; the Arab pagans on the angels). Then: aḥad is the trustee (amīn) the intellect seeks, al-Ṣamad the rich man (ghanī muthrī) desire seeks.",
+   "ayahEnd": 4
+  },
+  {
+   "locusId": "hikam-p8-32",
+   "surah": 29,
+   "ayahStart": 61,
+   "type": "prooftext",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "Cited within the al-Ikhlāṣ commentary."
+  },
+  {
+   "locusId": "hikam-p8-32",
+   "surah": 9,
+   "ayahStart": 30,
+   "type": "prooftext",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "Cited within the al-Ikhlāṣ commentary."
+  },
+  {
+   "locusId": "hikam-p8-33",
+   "surah": 113,
+   "ayahStart": 1,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "qul aʿūdhu bi-rabb al-falaq — ONE name only (al-Rabb), because refuge is sought from four worldly harms and the need is worldly. ʿālam al-khalq (dense bodies) against ʿālam al-amr (luminous spirits, angels), from which no harm issues at all.",
+   "ayahEnd": 5
+  },
+  {
+   "locusId": "hikam-p9-34",
+   "surah": 114,
+   "ayahStart": 1,
+   "type": "tafsir",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "THREE names — rabb, malik, ilāh — because the need is religious. al-Rabb for the small, who need tarbiya and iṣlāḥ; al-Malik for the young, whose strength must be curbed by a king they cannot resist; al-Ilāh for the old, who have nothing left but return. Fa-l-nās thalāthat aqsām.",
+   "ayahEnd": 6
+  },
+  {
+   "locusId": "hikam-p9-35",
+   "surah": 112,
+   "ayahStart": 1,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "al-Ikhlāṣ is a third of the Qurʾān because the Qurʾān is command and prohibition, outward and inward, and ikhlāṣ is tawḥīd entire; al-Kāfirūn a quarter, negating worship of any other."
+  },
+  {
+   "locusId": "hikam-p9-35",
+   "surah": 109,
+   "ayahStart": 1,
+   "type": "gloss",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "al-Ikhlāṣ is a third of the Qurʾān because the Qurʾān is command and prohibition, outward and inward, and ikhlāṣ is tawḥīd entire; al-Kāfirūn a quarter, negating worship of any other."
+  },
+  {
+   "locusId": "hikam-p10-36",
+   "surah": 53,
+   "ayahStart": 3,
+   "type": "prooftext",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "wa-mā yanṭiqu ʿan al-hawā — authorising the chain of testimony to his maʿrifa in exchange (3) of the sirr dialogue. NOTE exchange (4): asked 'are you among the aqṭāb?', he answers qultu lā adrī. ALA #13's summary — 'justifying his claims to be a walī and a quṭb' — flattens a refusal into a claim."
+  },
+  {
+   "locusId": "kashif-fana",
+   "surah": 2,
+   "ayahStart": 115,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Cited for fanāʾ — 'wheresoever you turn, there is the Face of God.' Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category."
+  },
+  {
+   "locusId": "kashif-marifa",
+   "surah": 2,
+   "ayahStart": 269,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Cited for maʿrifa — 'He gives wisdom to whomsoever He pleases.' Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category."
+  },
+  {
+   "locusId": "kashif-nur",
+   "surah": 24,
+   "ayahStart": 35,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Cited in support of the hierarchy of the saints. Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category."
+  },
+  {
+   "locusId": "kashif-tadabbur",
+   "surah": 47,
+   "ayahStart": 24,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Cited on tadabbur of the Qurʾān. Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category."
+  },
+  {
+   "locusId": "kashif-hajj",
+   "surah": 22,
+   "ayahStart": 38,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Cited in the argument for divine defence of the believers. Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category."
+  },
+  {
+   "locusId": "kashif-luqman",
+   "surah": 31,
+   "ayahStart": 12,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Cited on ḥikma and its transmission. Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category.",
+   "ayahEnd": 13
+  },
+  {
+   "locusId": "wolof-cycle",
+   "surah": 24,
+   "ayahStart": 35,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Sixty-two cassettes of Wolof exegesis covering the whole Qurʾān, recorded 1950–1960 (ALA IV #72). The boxed set has never been located. This locus is listed because the cycle is complete, not because the passage has been found — and because Wolof, not Arabic, was Shaykh Ibrāhīm's normal language of delivery."
+  },
+  {
+   "locusId": "wolof-cycle",
+   "surah": 1,
+   "ayahStart": 5,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Sixty-two cassettes of Wolof exegesis covering the whole Qurʾān, recorded 1950–1960 (ALA IV #72). The boxed set has never been located. This locus is listed because the cycle is complete, not because the passage has been found — and because Wolof, not Arabic, was Shaykh Ibrāhīm's normal language of delivery."
+  },
+  {
+   "locusId": "wolof-cycle",
+   "surah": 1,
+   "ayahStart": 1,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Sixty-two cassettes of Wolof exegesis covering the whole Qurʾān, recorded 1950–1960 (ALA IV #72). The boxed set has never been located. This locus is listed because the cycle is complete, not because the passage has been found — and because Wolof, not Arabic, was Shaykh Ibrāhīm's normal language of delivery."
+  },
+  {
+   "locusId": "wolof-cycle",
+   "surah": 112,
+   "ayahStart": 1,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Sixty-two cassettes of Wolof exegesis covering the whole Qurʾān, recorded 1950–1960 (ALA IV #72). The boxed set has never been located. This locus is listed because the cycle is complete, not because the passage has been found — and because Wolof, not Arabic, was Shaykh Ibrāhīm's normal language of delivery."
+  }
+ ]
+}

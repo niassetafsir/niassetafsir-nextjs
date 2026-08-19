@@ -15,11 +15,12 @@ import LessonReaderLayout from '@/components/LessonReaderLayout';
 import Link from 'next/link';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { splitArabicCommentary } from '@/lib/arabicCommentary';
+import { toLessonIndex } from '@/lib/volumes';
 import verseCitations from '@/data/verseCitations.json';
 import fs from 'fs';
 import path from 'path';
-import JalalaynVerseView from '@/components/JalalaynVerseView';
-import { getNiasseVerseExcerpts } from '@/lib/niasseVerseExcerpt';
+import ComparativeCommentary from '@/components/ComparativeCommentary';
+import { getNiasseVerseExcerpts, getNiasseUnits } from '@/lib/niasseVerseExcerpt';
 
 export async function generateStaticParams() {
   const lessons = await getAllLessons();
@@ -90,48 +91,34 @@ export default async function LessonPage({ params }: { params: { id: string } })
     lesson.hasEnglish ? lesson.englishText : null
   );
 
+  // The unit partition drives the paged presentation in ComparativeCommentary.
+  // Null for every lesson without a hand-curated segmentation -- i.e. all but
+  // the first -- and those fall back to the verse rail, which asserts no
+  // segmentation and needs only the [s:v] markers in the text files.
+  const niasseUnits = getNiasseUnits(
+    lesson.id,
+    lesson.arabicBody || lesson.arabicText,
+    lesson.hasEnglish ? lesson.englishText : null
+  );
+
   // Split the full Arabic commentary into paragraphs *here*, server-side --
   // see src/lib/arabicCommentary.ts. Full text is published site-wide (AK
   // confirmed 2026-08-16; see CLAUDE.md), so nothing is redacted before this
   // reaches the 'use client' BilingualText component.
+  // Slim view of the lesson list for the two navigation trees below.
+  // PanelJumpTabs and LessonPageNavigator are client components, so whatever
+  // is handed to them is serialised into the RSC flight payload. Passing the
+  // full Lesson objects shipped the complete text of all 56 lessons twice on
+  // every lesson page -- ~19 MB. The trees render six fields; send six.
+  const lessonIndex = toLessonIndex(lessons);
+
   const lessonCitations = (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
   const arabicFull = splitArabicCommentary(lesson.arabicBody || lesson.arabicText);
 
-<<<<<<< HEAD
-  return (
-    <div className="lesson-reading-page flex bg-cream text-ink" style={{minHeight:"calc(100vh - 56px)"}}>
-    <main className="flex-1 min-w-0 w-full px-4 xl:px-12 pb-20 pt-3">
-      {/* Bibliographic header — work title, lesson heading, vol./page metadata */}
-      <div className="text-center pb-4 mb-4 border-b" style={{borderColor:'rgba(13,31,10,0.12)'}}>
-        <div className="font-arabic-sans font-bold text-base" dir="rtl" style={{color:'#8a6d1f'}}>
-          فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
-        </div>
-        <div className="font-english text-[11px] italic mt-0.5" dir="ltr" style={{color:'rgba(13,31,10,0.5)'}}>
-          Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
-        </div>
-      </div>
-
-      {/* Lesson heading */}
-      <div className="text-center mb-3">
-        <div className="font-arabic-sans font-bold text-xl" dir="rtl" style={{color:'#8a6d1f'}}>{lesson.arabicTitle}</div>
-        <div className="font-english text-xs mt-1" dir="ltr" style={{color:'rgba(13,31,10,0.65)'}}>
-          {lesson.englishTitle} · {lesson.verseRange}
-        </div>
-        <div className="font-english text-[10px] mt-1 uppercase tracking-wide" dir="ltr" style={{color:'#8a6d1f'}}>
-          Revised 10-vol. Arabic edition · Vol. {lesson.volume ?? '—'}
-          {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ''}
-          {!lesson.pageInVolume && lesson.volume ? ' · page to be confirmed' : ''}
-        </div>
-      </div>
-
-      {/* 1. Shaykh Ibrāhīm's Tafsīr */}
-
-=======
   // Top content: breadcrumb and jump tabs
   const topContent = (
     <>
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
-      <PanelJumpTabs lessonId={lesson.id} lessons={lessons} />
+      <PanelJumpTabs lessonId={lesson.id} lessons={lessonIndex} />
       <LessonAudioBar lessonId={lesson.id} />
       <div className="flex items-center gap-2 px-4 py-1.5 text-xs" style={{borderBottom:'1px solid rgba(13,31,10,0.1)'}}>
         <a href="/read"
@@ -151,15 +138,9 @@ export default async function LessonPage({ params }: { params: { id: string } })
     <>
       <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange} defaultOpen={true}>
         {lesson.openingInvocation && (
-<<<<<<< HEAD
-              <OpeningInvocation html={(lesson as any).openingInvocation} />
-            )}
-              <BilingualText
-=======
           <OpeningInvocation html={(lesson as any).openingInvocation} />
         )}
         <BilingualText
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
           poemLines={arabicFull.poemLines}
           arabicParagraphs={arabicFull.paragraphs}
           citations={lessonCitations}
@@ -205,64 +186,24 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </Panel>
 
-      <Panel icon="" titleAr="تَفْسِيرُ الْجَلَالَيْنِ" titleEn="Jalālayn" panelId="jalalayn" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
+      {/* One comparison panel, not two.
+        *
+        * These were previously two <Panel>s, each rendering JalalaynVerseView
+        * with the SAME niasseByVerse prop -- so Shaykh Ibrāhīm's excerpt was
+        * printed twice on every lesson page, once beneath each comparandum.
+        * ComparativeCommentary renders him once and stacks both comparanda
+        * beneath. See that file's header for the presentation rules. */}
+      <Panel icon="" titleAr="الْمُقَارَنَةُ" titleEn="Compared with Jalālayn &amp; Rūḥ al-Bayān" panelId="compare" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <div className="p-5" dir="ltr">
-          <div className="flex justify-between items-center mb-3 pb-3 border-b border-green-900/30">
-            <div>
-              <div className="font-arabic text-green-300 text-sm" dir="rtl">تَفْسِيرُ الْجَلَالَيْنِ</div>
-              <div className="font-english text-white/40 text-xs italic">
-                Jalāl al-Dīn al-Maḥallī &amp; Jalāl al-Dīn al-Suyūṭī
-              </div>
-            </div>
-            <a href={jalalaynUrl} target="_blank" rel="noopener"
-              className="font-english text-xs text-green-400/70 border border-green-500/30 px-3 py-1 rounded-full hover:border-green-400/50 transition-all">
-              Open on Altafsir.com ↗
-            </a>
-          </div>
-          {jalalaynArabicText ? (
-            <JalalaynVerseView
-              jalalaynText={jalalaynArabicText}
-              jalalaynLang="ar"
-              niasseByVerse={niasseByVerse}
-              verseRange={lesson.verseRange}
-              lessonTitleEn={lesson.englishTitle}
-            />
-          ) : (
-            <p className="font-english text-white/25 italic text-sm">
-              {lesson.verseRange} — Arabic &amp; English translation available at Altafsir.com (Royal Aal al-Bayt Institute). Verse-by-verse Arabic text on this page is being added sūrah by sūrah; not yet reached this one.
-            </p>
-          )}
-        </div>
-      </Panel>
-
-      <Panel icon="" titleAr="رُوحُ الْبَيَانِ" titleEn="Rūḥ al-Bayān" panelId="ruh" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
-        <div className="p-5" dir="ltr">
-          <div className="flex justify-between items-center mb-3 pb-3 border-b border-green-900/30">
-            <div>
-              <div className="font-arabic text-green-300 text-sm" dir="rtl">رُوحُ الْبَيَانِ</div>
-              <div className="font-english text-white/40 text-xs italic">
-                Ismāʿīl Ḥaqqī al-Burūsawī (d. 1127/1715)
-              </div>
-            </div>
-            <a href={usulBaseUrl} target="_blank" rel="noopener"
-              className="font-english text-xs text-green-400/70 border border-green-500/30 px-3 py-1 rounded-full hover:border-green-400/50 transition-all">
-              Open on Usul.ai ↗
-            </a>
-          </div>
-          {ruhArabicText ? (
-            <JalalaynVerseView
-              jalalaynText={ruhArabicText}
-              jalalaynLang="ar"
-              sourceLabelAr="رُوحُ الْبَيَانِ"
-              niasseByVerse={niasseByVerse}
-              verseRange={lesson.verseRange}
-              lessonTitleEn={lesson.englishTitle}
-            />
-          ) : (
-            <p className="font-english text-white/25 italic text-sm">
-              {lesson.verseRange} — full Arabic text available at Usul.ai. Verse-by-verse Arabic text on this page is being added sūrah by sūrah; not yet reached this one.
-            </p>
-          )}
+          <ComparativeCommentary
+            jalalaynText={jalalaynArabicText}
+            ruhText={ruhArabicText}
+            niasseByVerse={niasseByVerse}
+            units={niasseUnits}
+            verseRange={lesson.verseRange}
+            jalalaynUrl={jalalaynUrl}
+            usulUrl={usulBaseUrl}
+          />
         </div>
       </Panel>
     </>
@@ -290,12 +231,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
         ) : <span />}
       </div>
       <LessonNav lessonId={lesson.id} manzil={lesson.manzil} />
-<<<<<<< HEAD
-      </main>
-    <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} lessons={lessons} />
-    <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
-    </div>
-=======
     </>
   );
 
@@ -308,9 +243,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
       >
         {mainContent}
       </LessonReaderLayout>
-      <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} lessons={lessons} />
+      <LessonPageNavigator lessonId={lesson.id} prevId={lesson.prevId} nextId={lesson.nextId} lessons={lessonIndex} />
       <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
     </>
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
   );
 }

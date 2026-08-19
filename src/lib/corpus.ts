@@ -1,0 +1,433 @@
+// The cross-corpus verse index.
+//
+// The reader that /lesson/[id] and /surah/[id] serve is keyed on the LESSON:
+// one work (Fī Riyāḍ al-Tafsīr), one printed edition, one address scheme.
+// That is one projection of a more general relation. Shaykh Ibrāhīm commented
+// on Qurʾānic verses in at least four distinct bodies of material -- the
+// 1383/1964 Arabic Ramaḍān sessions behind Fī Riyāḍ, the 1375/1956 Shaʿbān
+// sessions behind al-Ḥikam al-quṭbiyya, sixty-two cassettes of Wolof exegesis
+// recorded 1950-1960, and the proof-textual use running through Kāshif
+// al-ilbās, the fatāwā and the dawāwīn -- and no printed edition can put them
+// on one page, because they were compiled by different people in different
+// countries and have never been bound together.
+//
+// Four entities, and the middle one is the one the old data lacked:
+//
+//   work     a bibliographic unit
+//   witness  a specific instantiation of it -- a print edition, a cassette
+//            set, a manuscript. Fī Riyāḍ has three (the 1964 recordings, Tunis
+//            2010 in six volumes, Tunis 2022 in ten). Their pagination does
+//            not agree, which is why every published page citation for this
+//            text fails against the edition this site follows.
+//   locus    a passage inside a witness, addressed in that witness's own
+//            scheme (volume-page, lesson-paragraph, cassette-timecode).
+//   link     locus -> āya, carrying WHAT KIND of act it is and HOW WELL
+//            attested the attribution is.
+//
+// The act typing is not decoration. A tawassul acrostic on Q 40:44, a
+// proof-text in Kāshif, and five pages of exegesis in Fī Riyāḍ are three
+// different things, and a page that stacked them under one heading would tell
+// the reader something false.
+//
+// PAYLOAD: corpus.json is ~43 KB and is imported at module scope, so it is
+// bundled wherever this module is imported. Keep it on the server -- pass
+// only the narrow view types below into client components. See
+// src/lib/volumes.ts for why this matters on this site.
+
+import corpusRaw from '@/data/corpus.json';
+import { VERSE_INDEX } from '@/lib/verseIndex';
+
+/** What Niasse is DOING with the verse at this locus. Never optional. */
+export type ExegeticalAct =
+  | 'tafsir'     // sustained interpretation of the verse as a verse
+  | 'gloss'      // a single interpretive equivalence, often inherited
+  | 'prooftext'  // the verse warrants a claim argued from other authorities
+  | 'juristic'   // the verse is the dalīl of a ruling
+  | 'poetic'     // the verse as structure -- acrostic, tawassul, ḥurūf
+  | 'lemma';     // quoted only as a heading or recitation cue
+
+/**
+ * How well attested the attribution is.
+ *  curated  -- a human verified this link against the text
+ *  auto     -- produced by scripts/match-verses.js, never individually checked
+ *  reported -- asserted by a catalogue or a secondary source, not checked
+ *              against the text at all
+ */
+export type Confidence = 'curated' | 'auto' | 'reported';
+
+/**
+ * Verse-boundary numbering diverges between Warsh ʿan Nāfiʿ and Ḥafṣ ʿan
+ * ʿĀṣim. The site's own edition follows Warsh; the reference corpus used to
+ * build the Fī Riyāḍ indices is Ḥafṣ. Corpus-wide this stops being an edge
+ * case, since each witness may number differently.
+ */
+export type Rasm = 'warsh' | 'hafs' | 'unknown';
+
+export interface Work {
+  id: string;
+  titleAr?: string;
+  titleTranslit?: string;
+  titleEn?: string;
+  genre?: string;
+  attestation?: 'A' | 'B' | 'C' | 'D';
+  byNiasse?: boolean;
+  compiler?: string;
+  alaNumber?: number | null;
+  composed?: { hijri?: string; gregorian?: string; certainty?: string };
+  exegeticalRegister?: ExegeticalAct[];
+  publish?: boolean;
+}
+
+export interface Witness {
+  id: string;
+  workId: string;
+  medium: 'print' | 'audio' | 'manuscript' | 'lithograph' | 'digital';
+  language?: string;
+  year?: string;
+  editor?: string;
+  publisher?: string;
+  place?: string;
+  volumes?: number | null;
+  addressScheme: string;
+  isBase?: boolean;
+  derivesFrom?: string | null;
+}
+
+export interface LocusAddress {
+  volume?: number;
+  page?: number;
+  lesson?: number;
+  paragraph?: number;
+  cassette?: number;
+  startMs?: number;
+  endMs?: number;
+  line?: number;
+  raw?: string;
+}
+
+export interface Locus {
+  id: string;
+  witnessId: string;
+  address: LocusAddress;
+  textAr?: string;
+  textEn?: string;
+  transcriptionStatus?: 'none' | 'ocr' | 'draft' | 'verified';
+}
+
+export interface VerseLink {
+  locusId: string;
+  surah: number;
+  ayahStart: number;
+  ayahEnd?: number;
+  type: ExegeticalAct;
+  confidence: Confidence;
+  rasm: Rasm;
+  note?: string;
+}
+
+interface Corpus {
+  works: Work[];
+  witnesses: Witness[];
+  loci: Locus[];
+  verseLinks: VerseLink[];
+}
+
+const corpus = corpusRaw as unknown as Corpus;
+
+const WORKS = new Map(corpus.works.map(w => [w.id, w]));
+const WITNESSES = new Map(corpus.witnesses.map(w => [w.id, w]));
+
+export function getWork(id: string): Work | undefined {
+  return WORKS.get(id);
+}
+export function getWitness(id: string): Witness | undefined {
+  return WITNESSES.get(id);
+}
+
+// ---------------------------------------------------------------------------
+// Fī Riyāḍ loci, derived rather than duplicated
+// ---------------------------------------------------------------------------
+// VERSE_INDEX (src/lib/verseIndex.ts) already resolves verse -> lesson +
+// paragraph for all 56 lessons: hand-curated for lessons 1-3, matcher output
+// for 4-56. Rather than copy those thousands of rows into corpus.json and
+// create a second source of truth that would silently drift from the matcher,
+// they are lifted into loci at module load. Change the matcher and this
+// follows automatically.
+//
+// Confidence follows the tiering documented in verseIndex.ts: lessons 1-3 were
+// spot-checked by hand, 4-56 were not. rasm is 'hafs' throughout, because the
+// reference corpus the matcher ran against is Ḥafṣ even though the printed
+// edition this site follows is Warsh -- that mismatch is a real caveat and the
+// interface says so rather than hiding it.
+
+const HAND_CURATED_LESSONS = new Set([1, 2, 3]);
+
+const DERIVED_LOCI: Locus[] = [];
+const DERIVED_LINKS: VerseLink[] = [];
+const SEEN_LOCUS_IDS = new Set<string>();
+
+for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
+  const lessonId = Number(lessonKey);
+  for (const entry of entries) {
+    const [sRaw, aRaw] = entry.verse.split(':');
+    const surah = Number(sRaw);
+    const ayah = Number(aRaw);
+    if (!Number.isFinite(surah) || !Number.isFinite(ayah)) continue;
+
+    const locusId = `firiyad-L${lessonId}-p${entry.paraIndex}`;
+    if (!SEEN_LOCUS_IDS.has(locusId)) {
+      SEEN_LOCUS_IDS.add(locusId);
+      DERIVED_LOCI.push({
+        id: locusId,
+        witnessId: 'fi-riyad-site-transcription',
+        address: {
+          lesson: lessonId,
+          paragraph: entry.paraIndex,
+          raw: `Lesson ${lessonId}, ¶${entry.paraIndex + 1}`,
+        },
+        transcriptionStatus: 'verified',
+      });
+    }
+    DERIVED_LINKS.push({
+      locusId,
+      surah,
+      ayahStart: ayah,
+      type: 'tafsir',
+      confidence: HAND_CURATED_LESSONS.has(lessonId) ? 'curated' : 'auto',
+      rasm: 'hafs',
+    });
+  }
+}
+
+const ALL_LOCI = new Map<string, Locus>(
+  corpus.loci.concat(DERIVED_LOCI).map(l => [l.id, l] as [string, Locus])
+);
+
+export function getLocus(id: string): Locus | undefined {
+  return ALL_LOCI.get(id);
+}
+
+// ---------------------------------------------------------------------------
+// The reverse index: āya -> links
+// ---------------------------------------------------------------------------
+// A link may span a range (ayahStart..ayahEnd), so every verse in the range is
+// indexed. Built once at module load.
+
+const BY_VERSE = new Map<string, VerseLink[]>();
+
+function keyOf(surah: number, ayah: number) {
+  return `${surah}:${ayah}`;
+}
+
+for (const link of corpus.verseLinks.concat(DERIVED_LINKS)) {
+  const end = link.ayahEnd ?? link.ayahStart;
+  for (let a = link.ayahStart; a <= end; a++) {
+    const k = keyOf(link.surah, a);
+    const bucket = BY_VERSE.get(k);
+    if (bucket) bucket.push(link);
+    else BY_VERSE.set(k, [link]);
+  }
+}
+
+export function getVerseLinks(surah: number, ayah: number): VerseLink[] {
+  return BY_VERSE.get(keyOf(surah, ayah)) ?? [];
+}
+
+/** Every āya that has at least one link, as `${surah}:${ayah}` keys. */
+export function indexedVerses(): string[] {
+  return Array.from(BY_VERSE.keys());
+}
+
+/**
+ * Āyāt with at least one link from a work OTHER than the Fī Riyāḍ
+ * transcription -- i.e. the cross-corpus ones, which are the whole point of
+ * this route and the only ones worth prerendering. Everything else renders on
+ * demand.
+ */
+export function crossCorpusVerses(): { surah: number; ayah: number }[] {
+  const out: { surah: number; ayah: number }[] = [];
+  Array.from(BY_VERSE.entries()).forEach(([k, links]: [string, VerseLink[]]) => {
+    const hasOther = links.some((l: VerseLink) => {
+      const locus = ALL_LOCI.get(l.locusId);
+      return Boolean(locus) && locus!.witnessId !== 'fi-riyad-site-transcription';
+    });
+    if (!hasOther) return;
+    const parts = k.split(':').map(Number);
+    out.push({ surah: parts[0], ayah: parts[1] });
+  });
+  return out.sort((x, y) => x.surah - y.surah || x.ayah - y.ayah);
+}
+
+// ---------------------------------------------------------------------------
+// The view model
+// ---------------------------------------------------------------------------
+
+/** A locus resolved with its witness, work and link, ready to render. */
+export interface VerseEntry {
+  link: VerseLink;
+  locus: Locus;
+  witness: Witness;
+  work: Work;
+  /** Sort key: Gregorian year of composition, or +Infinity if undatable. */
+  year: number;
+  /** Human-readable date for display. */
+  dateLabel: string;
+  /**
+   * Whether there is anything to READ here. False for loci we know exist but
+   * have not ingested, and for material that has never been located at all.
+   * The interface lists these rather than hiding them: a silent gap reads as
+   * "he never said anything here", which would be false.
+   */
+  hasText: boolean;
+}
+
+/**
+ * Display order of the acts. Exegesis first, because a reader arriving at a
+ * verse page wants the commentary on the verse before the uses of it.
+ */
+export const ACT_ORDER: ExegeticalAct[] = [
+  'tafsir',
+  'gloss',
+  'prooftext',
+  'juristic',
+  'poetic',
+  'lemma',
+];
+
+export const ACT_LABEL: Record<ExegeticalAct, string> = {
+  tafsir: 'tafsīr',
+  gloss: 'gloss',
+  prooftext: 'proof-text',
+  juristic: 'juristic',
+  poetic: 'poetic',
+  lemma: 'lemma',
+};
+
+export const ACT_HEADING: Record<ExegeticalAct, string> = {
+  tafsir: 'Exegesis of the verse',
+  gloss: 'Glossed in passing',
+  prooftext: 'The verse used, not interpreted',
+  juristic: 'The verse as legal proof',
+  poetic: 'The verse in verse',
+  lemma: 'Quoted as a heading',
+};
+
+export const ACT_BLURB: Record<ExegeticalAct, string> = {
+  tafsir:
+    'Sustained interpretation of the verse as a verse — lemma, gloss, expansion.',
+  gloss:
+    'A single interpretive equivalence, often a received one, rather than commentary proper.',
+  prooftext:
+    'Here the verse warrants a claim argued from other authorities. It is not the object of commentary.',
+  juristic: 'The verse standing as the dalīl of a legal ruling.',
+  poetic:
+    'The verse as structure — acrostic, tawassul, or the letters themselves — not as an object of interpretation.',
+  lemma: 'Quoted as a heading or a recitation cue, without comment.',
+};
+
+export const CONFIDENCE_LABEL: Record<Confidence, string> = {
+  curated: 'verified',
+  auto: 'matched, unchecked',
+  reported: 'reported',
+};
+
+export const CONFIDENCE_NOTE: Record<Confidence, string> = {
+  curated: 'This attribution was checked against the text by a human.',
+  auto:
+    'Produced by the automated citation matcher and never individually checked. A paragraph can cover more than one verse.',
+  reported:
+    'Asserted by a catalogue or by secondary scholarship, and not verified against the text.',
+};
+
+/** Best-effort Gregorian year for ordering. Undatable sorts last. */
+function yearOf(work: Work): number {
+  const g = work.composed?.gregorian;
+  if (!g) return Number.POSITIVE_INFINITY;
+  const m = g.match(/\d{4}/);
+  return m ? Number(m[0]) : Number.POSITIVE_INFINITY;
+}
+
+function dateLabelOf(work: Work, witness: Witness): string {
+  const c = work.composed;
+  if (c?.hijri && c?.gregorian) return `${c.hijri} / ${c.gregorian}`;
+  if (c?.gregorian) return c.gregorian;
+  if (c?.hijri) return c.hijri;
+  if (witness.year) return witness.year;
+  return 'undated';
+}
+
+/** Resolve every link on a verse into a renderable entry. */
+export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
+  const out: VerseEntry[] = [];
+  for (const link of getVerseLinks(surah, ayah)) {
+    const locus = getLocus(link.locusId);
+    if (!locus) continue;
+    const witness = getWitness(locus.witnessId);
+    if (!witness) continue;
+    const work = getWork(witness.workId);
+    if (!work) continue;
+    out.push({
+      link,
+      locus,
+      witness,
+      work,
+      year: yearOf(work),
+      dateLabel: dateLabelOf(work, witness),
+      hasText: Boolean(locus.textAr || locus.textEn) ||
+        witness.id === 'fi-riyad-site-transcription',
+    });
+  }
+  return out;
+}
+
+/** Entries grouped by act, in ACT_ORDER, each group ordered oldest first. */
+export function groupByAct(
+  entries: VerseEntry[]
+): { act: ExegeticalAct; entries: VerseEntry[] }[] {
+  return ACT_ORDER.map(act => ({
+    act,
+    entries: entries
+      .filter(e => e.link.type === act)
+      .sort((a, b) => a.year - b.year),
+  })).filter(g => g.entries.length > 0);
+}
+
+/** One mark per work on the career timeline, oldest first. */
+export interface TimelineMark {
+  workId: string;
+  label: string;
+  year: number;
+  dateLabel: string;
+  hasText: boolean;
+  detail: string;
+}
+
+export function timelineMarks(entries: VerseEntry[]): TimelineMark[] {
+  const byWork = new Map<string, VerseEntry[]>();
+  for (const e of entries) {
+    const bucket = byWork.get(e.work.id);
+    if (bucket) bucket.push(e);
+    else byWork.set(e.work.id, [e]);
+  }
+  const marks: TimelineMark[] = [];
+  Array.from(byWork.entries()).forEach(([workId, group]: [string, VerseEntry[]]) => {
+    const first = group[0];
+    if (!Number.isFinite(first.year)) return;
+    const shortTitle =
+      first.work.titleTranslit?.split(/\s+/).slice(0, 2).join(' ') ?? workId;
+    const anyText = group.some((g: VerseEntry) => g.hasText);
+    marks.push({
+      workId,
+      label: shortTitle,
+      year: first.year,
+      dateLabel: first.dateLabel,
+      hasText: anyText,
+      detail:
+        `${first.work.titleTranslit ?? workId}, ${first.dateLabel}. ` +
+        `${group.length} ${group.length === 1 ? 'locus' : 'loci'}, ` +
+        `${ACT_LABEL[first.link.type]}.` +
+        (anyText ? '' : ' Text not yet available.'),
+    });
+  });
+  return marks.sort((a, b) => a.year - b.year);
+}

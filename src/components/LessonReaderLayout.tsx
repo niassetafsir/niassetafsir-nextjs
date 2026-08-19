@@ -1,22 +1,20 @@
 /**
- * LessonReaderLayout — Two-column reader optimized for scholarly reading
-<<<<<<< HEAD
-=======
+ * LessonReaderLayout — Full-width reader with horizontal metadata bar
  *
  * Layout structure (desktop):
- *   [Sidebar (240px)] [Main content (650px max-width, centered)]
+ *   [Horizontal metadata bar with work, lesson, verses, reference]
+ *   [Full-width main content area]
  *
- * Sidebar contains: lesson metadata, volume/page, verse range, work title
+ * Metadata bar contains: work title, lesson title, verse range, volume/page
  * Main content: bilingual text, panels, navigation
  *
- * Mobile: Sidebar stacks above main content or becomes a collapsible drawer
+ * Mobile: Metadata bar stacks vertically
  *
  * Design inspired by usul.ai reader experience:
  * - Generous font sizing (16-17px body)
  * - Comfortable line-height (1.9-2.0)
- * - Constrained content width for optimal reading
- * - Sidebar for metadata and navigation
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
+ * - Full-width content for maximum reading space
+ * - Horizontal metadata bar for reference information
  */
 
 import React from 'react';
@@ -29,15 +27,9 @@ interface LessonReaderLayoutProps {
     volume?: number | null;
     pageInVolume?: number | null;
   };
-<<<<<<< HEAD
-  children: React.ReactNode;
-  topContent?: React.ReactNode;
-  bottomContent?: React.ReactNode;
-=======
   children: React.ReactNode; // Main content (panels, etc.)
   topContent?: React.ReactNode; // Content before sidebar split (e.g., breadcrumbs)
   bottomContent?: React.ReactNode; // Content after main section (e.g., navigation)
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
 }
 
 export default function LessonReaderLayout({
@@ -55,60 +47,40 @@ export default function LessonReaderLayout({
           flex-direction: column;
         }
 
-<<<<<<< HEAD
-=======
-        /* Two-column container */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
-        .lesson-reader-container {
-          display: grid;
-          grid-template-columns: 260px 1fr;
-          gap: 2rem;
-          flex: 1;
-          padding: 2rem 3rem;
-          margin: 0 auto;
-          width: 100%;
+        /* Horizontal metadata bar at top */
+        .lesson-reader-meta-bar {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+          padding: 1.5rem 3rem;
+          border-bottom: 1px solid rgba(139, 109, 31, 0.12);
+          background: rgba(139, 109, 31, 0.02);
+          align-items: center;
         }
 
-<<<<<<< HEAD
-=======
-        /* Sidebar — metadata and work info */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
-        .lesson-reader-sidebar {
-          position: sticky;
-          top: 100px;
-          height: fit-content;
-          background: rgba(139, 109, 31, 0.04);
-          border-radius: 8px;
-          padding: 1.5rem;
-          border-left: 3px solid rgba(139, 109, 31, 0.15);
+        .lesson-reader-meta-item {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
         }
 
-        .lesson-reader-sidebar-section {
-          margin-bottom: 1.5rem;
-        }
-
-        .lesson-reader-sidebar-section:last-child {
-          margin-bottom: 0;
-        }
-
-        .lesson-reader-sidebar-label {
+        .lesson-reader-meta-label {
           font-size: 10px;
           text-transform: uppercase;
           letter-spacing: 0.08em;
           color: rgba(13, 31, 10, 0.45);
           font-weight: 600;
-          margin-bottom: 0.5rem;
           display: block;
         }
 
-        .lesson-reader-sidebar-content {
+        .lesson-reader-meta-value {
           font-size: 14px;
           line-height: 1.5;
           color: rgba(13, 31, 10, 0.8);
         }
 
-        .lesson-reader-sidebar-content.arabic {
-          font-family: 'IBM Plex Sans Arabic', 'Amiri', serif;
+        .lesson-reader-meta-value.arabic {
+          font-family: 'Amiri', 'IBM Plex Sans Arabic', serif;
           font-size: 15px;
           direction: rtl;
           text-align: right;
@@ -116,22 +88,26 @@ export default function LessonReaderLayout({
           font-weight: 500;
         }
 
-        .lesson-reader-sidebar-content.english {
+        .lesson-reader-meta-value.english {
           font-size: 13px;
           color: rgba(13, 31, 10, 0.65);
           font-style: italic;
         }
 
-<<<<<<< HEAD
-=======
-        /* Main content area */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
+        .lesson-reader-meta-divider {
+          width: 1px;
+          height: 24px;
+          background: rgba(139, 109, 31, 0.15);
+        }
+
+        /* Main content area — full width */
         .lesson-reader-main {
           flex: 1;
-          min-w-0;
-          max-width: 700px;
+          width: 100%;
           display: flex;
           flex-direction: column;
+          padding: 2rem 3rem;
+          margin: 0 auto;
         }
 
         .lesson-reader-header {
@@ -149,7 +125,7 @@ export default function LessonReaderLayout({
         }
 
         .lesson-reader-header-work-title.arabic {
-          font-family: 'IBM Plex Sans Arabic', serif;
+          font-family: 'Amiri', serif;
           direction: rtl;
         }
 
@@ -160,10 +136,7 @@ export default function LessonReaderLayout({
           color: rgba(13, 31, 10, 0.85);
         }
 
-<<<<<<< HEAD
-=======
         /* Typography improvements for body text */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
         .lesson-reader-body p {
           margin-bottom: 1.2rem;
           text-align: justify;
@@ -181,53 +154,34 @@ export default function LessonReaderLayout({
           color: #6b5a1a;
         }
 
-<<<<<<< HEAD
-=======
         /* Responsive: tablet */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
         @media (max-width: 1024px) {
-          .lesson-reader-container {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            padding: 1.5rem 2rem;
-          }
-
-          .lesson-reader-sidebar {
-            position: static;
-            top: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          .lesson-reader-meta-bar {
             gap: 1rem;
-            padding: 1rem;
-          }
-
-          .lesson-reader-sidebar-section {
-            margin-bottom: 0;
-          }
-        }
-
-<<<<<<< HEAD
-=======
-        /* Responsive: mobile */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
-        @media (max-width: 640px) {
-          .lesson-reader-container {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            padding: 1rem 1rem;
-          }
-
-          .lesson-reader-sidebar {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            padding: 1rem;
-            border-left: none;
-            border-top: 2px solid rgba(139, 109, 31, 0.15);
+            padding: 1rem 2rem;
           }
 
           .lesson-reader-main {
-            max-width: 100%;
+            padding: 1.5rem 2rem;
+          }
+        }
+
+        /* Responsive: mobile */
+        @media (max-width: 640px) {
+          .lesson-reader-meta-bar {
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            align-items: flex-start;
+          }
+
+          .lesson-reader-meta-divider {
+            display: none;
+          }
+
+          .lesson-reader-main {
+            width: 100%;
+            padding: 1rem;
           }
 
           .lesson-reader-body {
@@ -236,127 +190,96 @@ export default function LessonReaderLayout({
           }
         }
 
-<<<<<<< HEAD
-=======
-        /* Print media — hide sidebar, optimize for paper */
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
+        /* Print media */
         @media print {
-          .lesson-reader-container {
-            grid-template-columns: 1fr;
-            gap: 0;
-            padding: 0;
-          }
-
-          .lesson-reader-sidebar {
+          .lesson-reader-meta-bar {
             display: none;
           }
 
           .lesson-reader-main {
-            max-width: 100%;
+            width: 100%;
+            padding: 0;
           }
         }
       `}</style>
 
-<<<<<<< HEAD
-=======
       {/* Top content section (breadcrumbs, etc.) */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
       {topContent && (
         <div style={{ padding: '0 3rem', paddingBottom: 0 }}>
           {topContent}
         </div>
       )}
 
-<<<<<<< HEAD
-      <div className="lesson-reader-container">
-        <aside className="lesson-reader-sidebar">
-=======
-      {/* Two-column reader */}
-      <div className="lesson-reader-container">
-        {/* Sidebar — Work metadata and lesson info */}
-        <aside className="lesson-reader-sidebar">
-          {/* Work title */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
-          <div className="lesson-reader-sidebar-section">
-            <span className="lesson-reader-sidebar-label">Work</span>
-            <div className="lesson-reader-sidebar-content arabic">
-              فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
-            </div>
-            <div className="lesson-reader-sidebar-content english">
-              Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
-            </div>
-          </div>
+      {/* Horizontal metadata bar */}
+      <div className="lesson-reader-meta-bar">
+        {/* Work title */}
+        <div className="lesson-reader-meta-item">
+          <span className="lesson-reader-meta-label">Work</span>
+          <span className="lesson-reader-meta-value arabic">
+            فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
+          </span>
+          <span className="lesson-reader-meta-value english">
+            Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
+          </span>
+        </div>
 
-<<<<<<< HEAD
-=======
-          {/* Lesson title and verse range */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
-          <div className="lesson-reader-sidebar-section">
-            <span className="lesson-reader-sidebar-label">Lesson</span>
-            <div className="lesson-reader-sidebar-content arabic">
-              {lesson.arabicTitle}
-            </div>
-            <div className="lesson-reader-sidebar-content english">
-              {lesson.englishTitle}
-            </div>
-          </div>
+        <div className="lesson-reader-meta-divider" />
 
-<<<<<<< HEAD
-=======
-          {/* Verse range */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
-          <div className="lesson-reader-sidebar-section">
-            <span className="lesson-reader-sidebar-label">Verses</span>
-            <div className="lesson-reader-sidebar-content english">
-              {lesson.verseRange}
-            </div>
-          </div>
+        {/* Lesson title */}
+        <div className="lesson-reader-meta-item">
+          <span className="lesson-reader-meta-label">Lesson</span>
+          <span className="lesson-reader-meta-value arabic">
+            {lesson.arabicTitle}
+          </span>
+          <span className="lesson-reader-meta-value english">
+            {lesson.englishTitle}
+          </span>
+        </div>
 
-<<<<<<< HEAD
-=======
-          {/* Volume and page reference */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
-          {lesson.volume && (
-            <div className="lesson-reader-sidebar-section">
-              <span className="lesson-reader-sidebar-label">Reference</span>
-              <div className="lesson-reader-sidebar-content english">
+        <div className="lesson-reader-meta-divider" />
+
+        {/* Verse range */}
+        <div className="lesson-reader-meta-item">
+          <span className="lesson-reader-meta-label">Verses</span>
+          <span className="lesson-reader-meta-value english">
+            {lesson.verseRange}
+          </span>
+        </div>
+
+        {/* Volume and page reference */}
+        {lesson.volume && (
+          <>
+            <div className="lesson-reader-meta-divider" />
+            <div className="lesson-reader-meta-item">
+              <span className="lesson-reader-meta-label">Reference</span>
+              <span className="lesson-reader-meta-value english">
                 Vol. {lesson.volume}
                 {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ' · page TBC'}
-              </div>
+              </span>
             </div>
-          )}
-        </aside>
-
-<<<<<<< HEAD
-        <main className="lesson-reader-main">
-=======
-        {/* Main content area */}
-        <main className="lesson-reader-main">
-          {/* Header with work/lesson info */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
-          <div className="lesson-reader-header">
-            <div className="lesson-reader-header-work-title arabic">
-              فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
-            </div>
-            <div className="lesson-reader-header-work-title english">
-              Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
-            </div>
-          </div>
-
-<<<<<<< HEAD
-=======
-          {/* Body content (panels, etc.) */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
-          <div className="lesson-reader-body">
-            {children}
-          </div>
-        </main>
+          </>
+        )}
       </div>
 
-<<<<<<< HEAD
-=======
+      {/* Full-width main content area */}
+      <main className="lesson-reader-main">
+        {/* Header with work/lesson info */}
+        <div className="lesson-reader-header">
+          <div className="lesson-reader-header-work-title arabic">
+            فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
+          </div>
+          <div className="lesson-reader-header-work-title english">
+            Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
+          </div>
+        </div>
+
+        {/* Body content (panels, etc.) */}
+        <div className="lesson-reader-body">
+          {children}
+        </div>
+      </main>
+
       {/* Bottom content section (navigation, etc.) */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
       {bottomContent && (
         <div style={{ padding: '2rem 3rem', paddingTop: 0 }}>
           {bottomContent}
@@ -364,8 +287,4 @@ export default function LessonReaderLayout({
       )}
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae

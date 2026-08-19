@@ -1,0 +1,814 @@
+{
+ "_source": "Table of Contents FRT, AK's own transcription of the ten-volume Tunis 2022 printing (Majmaʿ al-Yamāma). Google Drive folder 1sKaOuyOODK4ouWtB588VFSbt5MRSwUgt. Pagination restarts at p. 3 in every volume, so a volume number is required with every page.",
+ "_caveats": [
+  "Volume 3 lists Lesson 18 and Sūrat al-Aʿrāf at the same page (191). AK's own transcription flags this as a possible artifact; unverified against the physical copy.",
+  "Sūra start pages are where the sūra's HEADING appears, not where its commentary begins in the lesson sequence — a lesson can open mid-sūra.",
+  "Volume 10 gives al-Kawthar p. 213 and al-Kāfirūn p. 220, a seven-page gap for a three-verse sūra. Plausible (an excursus) but worth a glance."
+ ],
+ "edition": {
+  "work": "fi-riyad",
+  "witness": "fi-riyad-tunis-2022",
+  "publisher": "Majmaʿ al-Yamāma li-l-Nashr wa-l-Tawzīʿ",
+  "place": "Tūnis",
+  "year": "2022",
+  "volumes": 10
+ },
+ "lessons": {
+  "1": {
+   "volume": 1,
+   "page": 29
+  },
+  "2": {
+   "volume": 1,
+   "page": 59
+  },
+  "3": {
+   "volume": 1,
+   "page": 72
+  },
+  "4": {
+   "volume": 1,
+   "page": 96
+  },
+  "5": {
+   "volume": 1,
+   "page": 120
+  },
+  "6": {
+   "volume": 1,
+   "page": 167
+  },
+  "7": {
+   "volume": 2,
+   "page": 3
+  },
+  "8": {
+   "volume": 2,
+   "page": 46
+  },
+  "9": {
+   "volume": 2,
+   "page": 79
+  },
+  "10": {
+   "volume": 2,
+   "page": 124
+  },
+  "11": {
+   "volume": 2,
+   "page": 161
+  },
+  "12": {
+   "volume": 2,
+   "page": 198
+  },
+  "13": {
+   "volume": 3,
+   "page": 3
+  },
+  "14": {
+   "volume": 3,
+   "page": 49
+  },
+  "15": {
+   "volume": 3,
+   "page": 84
+  },
+  "16": {
+   "volume": 3,
+   "page": 122
+  },
+  "17": {
+   "volume": 3,
+   "page": 159
+  },
+  "18": {
+   "volume": 3,
+   "page": 191
+  },
+  "19": {
+   "volume": 3,
+   "page": 216
+  },
+  "20": {
+   "volume": 4,
+   "page": 3
+  },
+  "21": {
+   "volume": 4,
+   "page": 44
+  },
+  "22": {
+   "volume": 4,
+   "page": 86
+  },
+  "23": {
+   "volume": 4,
+   "page": 129
+  },
+  "24": {
+   "volume": 4,
+   "page": 165
+  },
+  "25": {
+   "volume": 4,
+   "page": 196
+  },
+  "26": {
+   "volume": 5,
+   "page": 3
+  },
+  "27": {
+   "volume": 5,
+   "page": 39
+  },
+  "28": {
+   "volume": 5,
+   "page": 70
+  },
+  "29": {
+   "volume": 5,
+   "page": 100
+  },
+  "30": {
+   "volume": 5,
+   "page": 144
+  },
+  "31": {
+   "volume": 6,
+   "page": 3
+  },
+  "32": {
+   "volume": 6,
+   "page": 40
+  },
+  "33": {
+   "volume": 6,
+   "page": 84
+  },
+  "34": {
+   "volume": 6,
+   "page": 122
+  },
+  "35": {
+   "volume": 6,
+   "page": 167
+  },
+  "36": {
+   "volume": 7,
+   "page": 3
+  },
+  "37": {
+   "volume": 7,
+   "page": 52
+  },
+  "38": {
+   "volume": 7,
+   "page": 96
+  },
+  "39": {
+   "volume": 7,
+   "page": 145
+  },
+  "40": {
+   "volume": 7,
+   "page": 195
+  },
+  "41": {
+   "volume": 8,
+   "page": 3
+  },
+  "42": {
+   "volume": 8,
+   "page": 55
+  },
+  "43": {
+   "volume": 8,
+   "page": 105
+  },
+  "44": {
+   "volume": 8,
+   "page": 159
+  },
+  "45": {
+   "volume": 8,
+   "page": 203
+  },
+  "46": {
+   "volume": 9,
+   "page": 3
+  },
+  "47": {
+   "volume": 9,
+   "page": 56
+  },
+  "48": {
+   "volume": 9,
+   "page": 108
+  },
+  "49": {
+   "volume": 9,
+   "page": 152
+  },
+  "50": {
+   "volume": 9,
+   "page": 189
+  },
+  "51": {
+   "volume": 10,
+   "page": 3
+  },
+  "52": {
+   "volume": 10,
+   "page": 52
+  },
+  "53": {
+   "volume": 10,
+   "page": 94
+  },
+  "54": {
+   "volume": 10,
+   "page": 129
+  },
+  "55": {
+   "volume": 10,
+   "page": 167
+  },
+  "56": {
+   "volume": 10,
+   "page": 223
+  }
+ },
+ "suras": {
+  "1": {
+   "volume": 1,
+   "page": 46,
+   "name": "Fatiha"
+  },
+  "2": {
+   "volume": 1,
+   "page": 54,
+   "name": "Baqara"
+  },
+  "3": {
+   "volume": 2,
+   "page": 34,
+   "name": "Al Imran"
+  },
+  "4": {
+   "volume": 2,
+   "page": 146,
+   "name": "Nisa"
+  },
+  "5": {
+   "volume": 3,
+   "page": 33,
+   "name": "Maida"
+  },
+  "6": {
+   "volume": 3,
+   "page": 112,
+   "name": "Anam"
+  },
+  "7": {
+   "volume": 3,
+   "page": 191,
+   "name": "Araf"
+  },
+  "8": {
+   "volume": 4,
+   "page": 30,
+   "name": "Anfal"
+  },
+  "9": {
+   "volume": 4,
+   "page": 74,
+   "name": "Tawba"
+  },
+  "10": {
+   "volume": 4,
+   "page": 158,
+   "name": "Yunus"
+  },
+  "11": {
+   "volume": 4,
+   "page": 193,
+   "name": "Hud"
+  },
+  "12": {
+   "volume": 5,
+   "page": 18,
+   "name": "Yusuf"
+  },
+  "13": {
+   "volume": 5,
+   "page": 61,
+   "name": "Rad"
+  },
+  "14": {
+   "volume": 5,
+   "page": 85,
+   "name": "Ibrahim"
+  },
+  "15": {
+   "volume": 5,
+   "page": 100,
+   "name": "Hijr"
+  },
+  "16": {
+   "volume": 5,
+   "page": 124,
+   "name": "Nahl"
+  },
+  "17": {
+   "volume": 5,
+   "page": 165,
+   "name": "Isra"
+  },
+  "18": {
+   "volume": 6,
+   "page": 3,
+   "name": "Kahf"
+  },
+  "19": {
+   "volume": 6,
+   "page": 40,
+   "name": "Maryam"
+  },
+  "20": {
+   "volume": 6,
+   "page": 69,
+   "name": "Taha"
+  },
+  "21": {
+   "volume": 6,
+   "page": 107,
+   "name": "Anbiya"
+  },
+  "22": {
+   "volume": 6,
+   "page": 143,
+   "name": "Hajj"
+  },
+  "23": {
+   "volume": 6,
+   "page": 167,
+   "name": "Muminun"
+  },
+  "24": {
+   "volume": 6,
+   "page": 190,
+   "name": "Nur"
+  },
+  "25": {
+   "volume": 7,
+   "page": 18,
+   "name": "Furqan"
+  },
+  "26": {
+   "volume": 7,
+   "page": 52,
+   "name": "Shuara"
+  },
+  "27": {
+   "volume": 7,
+   "page": 85,
+   "name": "Naml"
+  },
+  "28": {
+   "volume": 7,
+   "page": 114,
+   "name": "Qasas"
+  },
+  "29": {
+   "volume": 7,
+   "page": 145,
+   "name": "Ankabut"
+  },
+  "30": {
+   "volume": 7,
+   "page": 178,
+   "name": "Rum"
+  },
+  "31": {
+   "volume": 7,
+   "page": 192,
+   "name": "Luqman"
+  },
+  "32": {
+   "volume": 7,
+   "page": 207,
+   "name": "Sajda"
+  },
+  "33": {
+   "volume": 7,
+   "page": 218,
+   "name": "Ahzab"
+  },
+  "34": {
+   "volume": 8,
+   "page": 43,
+   "name": "Saba"
+  },
+  "35": {
+   "volume": 8,
+   "page": 52,
+   "name": "Fatir"
+  },
+  "36": {
+   "volume": 8,
+   "page": 71,
+   "name": "Yasin"
+  },
+  "37": {
+   "volume": 8,
+   "page": 92,
+   "name": "Saffat"
+  },
+  "38": {
+   "volume": 8,
+   "page": 113,
+   "name": "Sad"
+  },
+  "39": {
+   "volume": 8,
+   "page": 136,
+   "name": "Zumar"
+  },
+  "40": {
+   "volume": 8,
+   "page": 159,
+   "name": "Ghafir"
+  },
+  "41": {
+   "volume": 8,
+   "page": 185,
+   "name": "Fussilat"
+  },
+  "42": {
+   "volume": 8,
+   "page": 207,
+   "name": "Shura"
+  },
+  "43": {
+   "volume": 8,
+   "page": 230,
+   "name": "Zukhruf"
+  },
+  "44": {
+   "volume": 8,
+   "page": 247,
+   "name": "Dukhan"
+  },
+  "45": {
+   "volume": 9,
+   "page": 10,
+   "name": "Jathiya"
+  },
+  "46": {
+   "volume": 9,
+   "page": 20,
+   "name": "Ahqaf"
+  },
+  "47": {
+   "volume": 9,
+   "page": 42,
+   "name": "Muhammad"
+  },
+  "48": {
+   "volume": 9,
+   "page": 50,
+   "name": "Fath"
+  },
+  "49": {
+   "volume": 9,
+   "page": 79,
+   "name": "Hujurat"
+  },
+  "50": {
+   "volume": 9,
+   "page": 92,
+   "name": "Qaf"
+  },
+  "51": {
+   "volume": 9,
+   "page": 103,
+   "name": "Dhariyat"
+  },
+  "52": {
+   "volume": 9,
+   "page": 115,
+   "name": "Tur"
+  },
+  "53": {
+   "volume": 9,
+   "page": 125,
+   "name": "Najm"
+  },
+  "54": {
+   "volume": 9,
+   "page": 146,
+   "name": "Qamar"
+  },
+  "55": {
+   "volume": 9,
+   "page": 152,
+   "name": "Rahman"
+  },
+  "56": {
+   "volume": 9,
+   "page": 167,
+   "name": "Waqia"
+  },
+  "57": {
+   "volume": 9,
+   "page": 174,
+   "name": "Hadid"
+  },
+  "58": {
+   "volume": 9,
+   "page": 189,
+   "name": "Mujadala"
+  },
+  "59": {
+   "volume": 9,
+   "page": 204,
+   "name": "Hashr"
+  },
+  "60": {
+   "volume": 9,
+   "page": 224,
+   "name": "Mumtahana"
+  },
+  "61": {
+   "volume": 9,
+   "page": 239,
+   "name": "Saff"
+  },
+  "62": {
+   "volume": 10,
+   "page": 3,
+   "name": "Jumua"
+  },
+  "63": {
+   "volume": 10,
+   "page": 18,
+   "name": "Munafiqun"
+  },
+  "64": {
+   "volume": 10,
+   "page": 25,
+   "name": "Taghabun"
+  },
+  "65": {
+   "volume": 10,
+   "page": 31,
+   "name": "Talaq"
+  },
+  "66": {
+   "volume": 10,
+   "page": 36,
+   "name": "Tahrim"
+  },
+  "67": {
+   "volume": 10,
+   "page": 52,
+   "name": "Mulk"
+  },
+  "68": {
+   "volume": 10,
+   "page": 62,
+   "name": "Qalam"
+  },
+  "69": {
+   "volume": 10,
+   "page": 76,
+   "name": "Haqqa"
+  },
+  "70": {
+   "volume": 10,
+   "page": 86,
+   "name": "Maarij"
+  },
+  "71": {
+   "volume": 10,
+   "page": 90,
+   "name": "Nuh"
+  },
+  "72": {
+   "volume": 10,
+   "page": 94,
+   "name": "Jinn"
+  },
+  "73": {
+   "volume": 10,
+   "page": 104,
+   "name": "Muzzammil"
+  },
+  "74": {
+   "volume": 10,
+   "page": 114,
+   "name": "Muddaththir"
+  },
+  "75": {
+   "volume": 10,
+   "page": 119,
+   "name": "Qiyama"
+  },
+  "76": {
+   "volume": 10,
+   "page": 124,
+   "name": "Insan"
+  },
+  "77": {
+   "volume": 10,
+   "page": 127,
+   "name": "Mursalat"
+  },
+  "78": {
+   "volume": 10,
+   "page": 129,
+   "name": "Naba"
+  },
+  "79": {
+   "volume": 10,
+   "page": 135,
+   "name": "Naziat"
+  },
+  "80": {
+   "volume": 10,
+   "page": 143,
+   "name": "Abasa"
+  },
+  "81": {
+   "volume": 10,
+   "page": 148,
+   "name": "Takwir"
+  },
+  "82": {
+   "volume": 10,
+   "page": 151,
+   "name": "Infitar"
+  },
+  "83": {
+   "volume": 10,
+   "page": 154,
+   "name": "Mutaffifin"
+  },
+  "84": {
+   "volume": 10,
+   "page": 158,
+   "name": "Inshiqaq"
+  },
+  "85": {
+   "volume": 10,
+   "page": 161,
+   "name": "Buruj"
+  },
+  "86": {
+   "volume": 10,
+   "page": 165,
+   "name": "Tariq"
+  },
+  "87": {
+   "volume": 10,
+   "page": 167,
+   "name": "Aala"
+  },
+  "88": {
+   "volume": 10,
+   "page": 174,
+   "name": "Ghashiya"
+  },
+  "89": {
+   "volume": 10,
+   "page": 177,
+   "name": "Fajr"
+  },
+  "90": {
+   "volume": 10,
+   "page": 184,
+   "name": "Balad"
+  },
+  "91": {
+   "volume": 10,
+   "page": 187,
+   "name": "Shams"
+  },
+  "92": {
+   "volume": 10,
+   "page": 188,
+   "name": "Layl"
+  },
+  "93": {
+   "volume": 10,
+   "page": 191,
+   "name": "Duha"
+  },
+  "94": {
+   "volume": 10,
+   "page": 197,
+   "name": "Sharh"
+  },
+  "95": {
+   "volume": 10,
+   "page": 198,
+   "name": "Tin"
+  },
+  "96": {
+   "volume": 10,
+   "page": 202,
+   "name": "Alaq"
+  },
+  "97": {
+   "volume": 10,
+   "page": 204,
+   "name": "Qadr"
+  },
+  "98": {
+   "volume": 10,
+   "page": 206,
+   "name": "Bayyina"
+  },
+  "99": {
+   "volume": 10,
+   "page": 206,
+   "name": "Zalzala"
+  },
+  "100": {
+   "volume": 10,
+   "page": 207,
+   "name": "Adiyat"
+  },
+  "101": {
+   "volume": 10,
+   "page": 208,
+   "name": "Qaria"
+  },
+  "102": {
+   "volume": 10,
+   "page": 208,
+   "name": "Takathur"
+  },
+  "103": {
+   "volume": 10,
+   "page": 209,
+   "name": "Asr"
+  },
+  "104": {
+   "volume": 10,
+   "page": 209,
+   "name": "Humaza"
+  },
+  "105": {
+   "volume": 10,
+   "page": 210,
+   "name": "Fil"
+  },
+  "106": {
+   "volume": 10,
+   "page": 211,
+   "name": "Quraysh"
+  },
+  "107": {
+   "volume": 10,
+   "page": 212,
+   "name": "Maun"
+  },
+  "108": {
+   "volume": 10,
+   "page": 213,
+   "name": "Kawthar"
+  },
+  "109": {
+   "volume": 10,
+   "page": 220,
+   "name": "Kafirun"
+  },
+  "110": {
+   "volume": 10,
+   "page": 221,
+   "name": "Nasr"
+  },
+  "111": {
+   "volume": 10,
+   "page": 221,
+   "name": "Masad"
+  },
+  "112": {
+   "volume": 10,
+   "page": 223,
+   "name": "Ikhlas"
+  },
+  "113": {
+   "volume": 10,
+   "page": 233,
+   "name": "Falaq"
+  },
+  "114": {
+   "volume": 10,
+   "page": 237,
+   "name": "Nas"
+  }
+ }
+}

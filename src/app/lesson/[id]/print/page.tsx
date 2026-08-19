@@ -1,10 +1,6 @@
 import { getLesson, getAllLessons } from '@/lib/lessons';
 import { notFound } from 'next/navigation';
-<<<<<<< HEAD
-import PrintButton from '@/components/PrintButton';
-=======
 import DisablePrintWrapper from '@/components/DisablePrintWrapper';
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
 import { splitArabicCommentary } from '@/lib/arabicCommentary';
 import { injectFootnoteLinks, injectVerseNumbers } from '@/lib/textInject';
 import verseCitations from '@/data/verseCitations.json';
@@ -52,12 +48,8 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
   // route (see those components + the body:has() rule in globals.css) so
   // the page still looks like a clean, independent document on screen.
   return (
-<<<<<<< HEAD
-    <div className="lesson-print-page">
-=======
     <DisablePrintWrapper>
       <div className="lesson-print-page">
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
       <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
       {/* dangerouslySetInnerHTML, not a JSX text child: React's SSR output
           HTML-entity-encodes apostrophes inside a plain {`...`} text child
@@ -85,19 +77,11 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
         .lesson-print-page .no-en { color: #aaa; font-style: italic; font-size: 10pt; }
         .lesson-print-page .citation-block { margin-top: 1cm; padding-top: 0.5cm; border-top: 1px solid #ddd; font-size: 9pt; color: #555; }
         .lesson-print-page .citation-label { font-weight: bold; margin-bottom: 0.2cm; color: #7B5C14; }
-<<<<<<< HEAD
-        .lesson-print-page .print-btn { position: fixed; bottom: 20px; right: 20px; background: #7B5C14; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-family: 'IBM Plex Sans Arabic', sans-serif; font-size: 13px; cursor: pointer; z-index: 100; }
-        @media print { .lesson-print-page .print-btn { display: none; } .lesson-print-page { padding: 2cm; } }
-      `}} />
-
-      <PrintButton />
-=======
         .lesson-print-page .print-btn { display: none !important; }
         @media print { * { display: none !important; } body::before { content: "Printing disabled. This is a digital companion to the official published translation only."; display: block; font-size: 14pt; text-align: center; padding: 2cm; color: #7B5C14; font-weight: bold; } }
       `}} />
 
       {/* PrintButton removed: PDF/print saving is disabled per user requirement (2026-08-17). This site is a digital companion to the user's published translations only. */}
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
 
       <div className="work-title">Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm · فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ</div>
       <div className="lesson-title-ar">{lesson.arabicTitle}</div>
@@ -136,9 +120,6 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
         <div>{citationAr}</div>
       </div>
     </div>
-<<<<<<< HEAD
-=======
     </DisablePrintWrapper>
->>>>>>> d6af4e4ae241a24792f0f7af44c9abc6899825ae
   );
 }
