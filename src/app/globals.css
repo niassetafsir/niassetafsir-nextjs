@@ -13,6 +13,15 @@
   --gold-light: #E8D4A0;
   --text: #E8E8E0;
   --border: rgba(201,168,76,0.25);
+  /* These three existed only under [data-theme="light"], so in the default
+     dark theme any component using var(--body-text, <light fallback>) painted
+     dark ink on the dark background and vanished -- which is what happened to
+     the rebuilt homepage. Declared here too so the fallback never decides. */
+  --body-text: rgba(232,232,224,0.90);
+  --body-sub: rgba(232,232,224,0.65);
+  --body-faint: rgba(232,232,224,0.45);
+  --complete: #7bb661;
+  --input-bg: rgba(255,255,255,0.06);
 }
 
 html { background: var(--bg); }
@@ -78,6 +87,8 @@ body {
   --body-text: rgba(44,24,16,0.85);
   --body-sub: rgba(44,24,16,0.6);
   --body-faint: rgba(44,24,16,0.4);
+  --complete: #3f6212;
+  --input-bg: rgba(255,255,255,0.55);
   --persistent-nav-bg: #EDE0C0;
   --persistent-nav-border: rgba(139,105,20,0.25);
   --panel-header-bg: rgba(232,213,176,0.97);

@@ -34,21 +34,21 @@ export default function HomeSearchBar() {
   return (
     <form onSubmit={submit} className="mt-7 flex flex-col sm:flex-row gap-2 max-w-2xl mx-auto">
       <div className="flex-1 flex items-center gap-2 rounded-lg px-4 py-3"
-        style={{ background: 'rgba(255,255,255,0.5)', border: '1px solid rgba(138,109,31,0.34)' }}>
+        style={{ background: 'var(--input-bg, rgba(255,255,255,0.06))', border: '1px solid rgba(138,109,31,0.34)' }}>
         <span aria-hidden className="font-english text-sm"
-          style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>⌕</span>
+          style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>⌕</span>
         <input
           value={q}
           onChange={e => setQ(e.target.value)}
           aria-label="Search the tafsīr"
           placeholder="Search the tafsīr — الرحمن, mercy, Q. 2:255"
           className="flex-1 bg-transparent border-none outline-none font-english text-[15px]"
-          style={{ color: 'var(--body-text, rgba(13,31,10,0.88))' }}
+          style={{ color: 'var(--body-text, rgba(232,232,224,0.90))' }}
         />
       </div>
       <button type="submit"
         className="font-english text-[15px] font-semibold px-6 py-3 rounded-lg whitespace-nowrap transition-opacity hover:opacity-90"
-        style={{ background: '#8a6d1f', color: '#fdfaf0', border: '1px solid #8a6d1f' }}>
+        style={{ background: 'var(--gold, #C9A84C)', color: '#0D1F0A', border: '1px solid var(--gold, #C9A84C)' }}>
         Search
       </button>
     </form>

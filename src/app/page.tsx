@@ -34,12 +34,12 @@ export default async function HomePage() {
           فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
         </h1>
         <p className="font-english text-sm italic mb-7"
-          style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+          style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
           Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
         </p>
 
         <p className="font-english text-lg sm:text-xl leading-relaxed mb-4"
-          style={{ color: 'var(--body-text, rgba(13,31,10,0.88))' }}>
+          style={{ color: 'var(--body-text, rgba(232,232,224,0.90))' }}>
           The{' '}
           <strong style={{ fontWeight: 600, boxShadow: 'inset 0 -0.5em 0 rgba(138,109,31,0.16)' }}>
             complete Arabic text
@@ -49,17 +49,17 @@ export default async function HomePage() {
           the first time. English translation in progress.
         </p>
         <p className="font-english text-sm"
-          style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+          style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
           Shaykh Ibrāhīm Niasse (1900–1975) · Kaolack, Senegal · 10 volumes, {coverage.totalLessons} majālis
         </p>
 
         <HomeSearchBar />
 
         <p className="font-english text-xs mt-3"
-          style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+          style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
           or{' '}
           <Link href="/read" className="transition-opacity hover:opacity-75"
-            style={{ color: '#8a6d1f', borderBottom: '1px dotted rgba(138,109,31,0.4)' }}>
+            style={{ color: 'var(--gold, #C9A84C)', borderBottom: '1px dotted rgba(138,109,31,0.4)' }}>
             browse all {coverage.totalLessons} lessons by volume
           </Link>
         </p>
@@ -69,11 +69,11 @@ export default async function HomePage() {
       {specimen && (
         <section className="max-w-5xl mx-auto px-5">
           <p className="font-english text-center text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-1"
-            style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+            style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
             From the opening of the tafsīr
           </p>
           <p className="font-english text-center text-xs mb-5"
-            style={{ color: 'var(--body-faint, rgba(13,31,10,0.42))' }}>
+            style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
             Lesson 1 · Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa · Q. 1:1–2:5
           </p>
 
@@ -82,13 +82,13 @@ export default async function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="px-6 py-6 font-arabic text-lg leading-[2.1]" dir="rtl"
                 style={{
-                  color: 'var(--body-text, rgba(13,31,10,0.9))',
+                  color: 'var(--body-text, rgba(232,232,224,0.90))',
                   borderBottom: '1px solid rgba(138,109,31,0.15)',
                 }}>
                 {specimen.arabic.map((p, i) => <p key={i} className="mb-4 last:mb-0">{p}</p>)}
               </div>
               <div className="px-6 py-6 font-english text-[15px] leading-[1.85]"
-                style={{ color: 'var(--body-text, rgba(13,31,10,0.78))' }}>
+                style={{ color: 'var(--body-text, rgba(232,232,224,0.82))' }}>
                 {specimen.english.map((p, i) => <p key={i} className="mb-4 last:mb-0">{p}</p>)}
               </div>
             </div>
@@ -96,14 +96,14 @@ export default async function HomePage() {
               style={{ borderTop: '1px solid rgba(138,109,31,0.18)', background: 'rgba(138,109,31,0.05)' }}>
               <Link href="/lesson/1"
                 className="font-english text-sm font-medium transition-opacity hover:opacity-75"
-                style={{ color: '#8a6d1f' }}>
+                style={{ color: 'var(--gold, #C9A84C)' }}>
                 Continue reading Lesson 1 →
               </Link>
             </div>
           </div>
 
           <p className="font-english text-center text-xs mt-3"
-            style={{ color: 'var(--body-faint, rgba(13,31,10,0.42))' }}>
+            style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
             Lesson 1 also carries <em>Tafsīr al-Jalālayn</em> and <em>Rūḥ al-Bayān</em> verse by verse.
           </p>
         </section>
@@ -112,11 +112,11 @@ export default async function HomePage() {
       {/* ---- Coverage ---- */}
       <section className="max-w-3xl mx-auto px-5 mt-14">
         <p className="font-english text-center text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-1"
-          style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+          style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
           State of the edition
         </p>
         <p className="font-english text-center text-xs mb-5"
-          style={{ color: 'var(--body-faint, rgba(13,31,10,0.42))' }}>
+          style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
           Counted from the edition files at build time
         </p>
 
@@ -129,23 +129,23 @@ export default async function HomePage() {
                 <tr key={layer.key} style={{ borderBottom: '1px solid rgba(138,109,31,0.18)' }}>
                   <td className="py-3 pr-3 align-middle">
                     <div style={{
-                      color: 'var(--body-text, rgba(13,31,10,0.85))',
+                      color: 'var(--body-text, rgba(232,232,224,0.90))',
                       fontWeight: complete ? 600 : 400,
                     }}>
                       {layer.label}
                     </div>
                     <div className="text-xs mt-0.5"
-                      style={{ color: 'var(--body-faint, rgba(13,31,10,0.42))' }}>
+                      style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
                       {layer.detail}
                     </div>
                   </td>
                   <td className="py-3 px-3 align-middle hidden sm:table-cell" style={{ width: 180 }}>
-                    <div style={{ height: 7, borderRadius: 99, background: 'rgba(13,31,10,0.09)', overflow: 'hidden' }}>
+                    <div style={{ height: 7, borderRadius: 99, background: 'rgba(128,128,128,0.22)', overflow: 'hidden' }}>
                       <div style={{
                         width: `${pct}%`,
                         height: '100%',
                         borderRadius: 99,
-                        background: complete ? '#3f6212' : '#8a6d1f',
+                        background: complete ? 'var(--complete, #7bb661)' : 'var(--gold, #C9A84C)',
                       }} />
                     </div>
                   </td>
@@ -154,7 +154,7 @@ export default async function HomePage() {
                       width: 90,
                       fontVariantNumeric: 'tabular-nums',
                       fontWeight: 600,
-                      color: complete ? '#3f6212' : 'var(--body-text, rgba(13,31,10,0.8))',
+                      color: complete ? 'var(--complete, #7bb661)' : 'var(--body-text, rgba(232,232,224,0.85))',
                     }}>
                     {layer.count} / {layer.total}
                   </td>
@@ -165,7 +165,7 @@ export default async function HomePage() {
         </table>
 
         <p className="font-english text-xs italic mt-4"
-          style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+          style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
           The Arabic edition is complete and citable. Everything below it is in progress,
           and each lesson page marks which layers are present.
         </p>
@@ -173,7 +173,7 @@ export default async function HomePage() {
         {audio && audio.detail.includes('Wolof') && audio.count > 0 && (
           <p className="font-english text-sm mt-5 text-center">
             <Link href="/audio" className="transition-opacity hover:opacity-75"
-              style={{ color: '#8a6d1f', borderBottom: '1px dotted rgba(138,109,31,0.4)' }}>
+              style={{ color: 'var(--gold, #C9A84C)', borderBottom: '1px dotted rgba(138,109,31,0.4)' }}>
               Recorded in Arabic and Wolof for {audio.count} lessons →
             </Link>
           </p>
