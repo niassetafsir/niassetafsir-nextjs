@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import type { CommentaryUnit } from '@/lib/niasseVerseExcerpt';
+import { parseVerseSpan, spanIncludes } from '@/lib/verseRanges';
 
 /**
  * ComparativeCommentary — Niasse, Jalālayn and Rūḥ al-Bayān in one view.
@@ -223,7 +224,16 @@ export default function ComparativeCommentary({
 }: ComparativeCommentaryProps) {
   const jal = parseByVerse(jalalaynText);
   const ruh = parseByVerse(ruhText);
-  const verses = orderedKeys(jal, ruh);
+
+  // A sūra's Jalālayn / Rūḥ al-Bayān file holds the whole sūra, but a lesson
+  // covers only part of it -- al-Baqara alone is split across lessons 2-6 and
+  // beyond. Without this filter lesson 2 ("Q. 2:6-25") would render all 286
+  // verses. If verseRange does not parse we show everything, which is the
+  // behaviour that existed before.
+  const span = parseVerseSpan(verseRange);
+  const verses = orderedKeys(jal, ruh).filter(
+    v => !span || spanIncludes(span, v.surah, v.verse)
+  );
 
   const [unitIdx, setUnitIdx] = useState(0);
   const [activeVerse, setActiveVerse] = useState<string | null>(null);
