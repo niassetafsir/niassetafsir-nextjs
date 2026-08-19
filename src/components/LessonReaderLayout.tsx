@@ -1,19 +1,13 @@
 /**
- * LessonReaderLayout — Two-column reader optimized for scholarly reading
+ * LessonReaderLayout — single-column reader with a horizontal metadata bar
  *
- * Layout structure (desktop):
- *   [Sidebar (240px)] [Main content (650px max-width, centered)]
+ * Layout structure:
+ *   [Horizontal metadata bar — lesson, verses, volume ref]
+ *   [Main content, capped at 1280px and centred]
  *
- * Sidebar contains: lesson metadata, volume/page, verse range, work title
- * Main content: bilingual text, panels, navigation
- *
- * Mobile: Sidebar stacks above main content or becomes a collapsible drawer
- *
- * Design inspired by usul.ai reader experience:
- * - Generous font sizing (16-17px body)
- * - Comfortable line-height (1.9-2.0)
- * - Constrained content width for optimal reading
- * - Sidebar for metadata and navigation
+ * Replaces the earlier 260px sticky sidebar. The metadata that lived in the
+ * sidebar now runs horizontally above the text; the work title is rendered
+ * once, in .lesson-reader-header, not in the bar.
  */
 
 import React from 'react';
@@ -26,9 +20,9 @@ interface LessonReaderLayoutProps {
     volume?: number | null;
     pageInVolume?: number | null;
   };
-  children: React.ReactNode; // Main content (panels, etc.)
-  topContent?: React.ReactNode; // Content before sidebar split (e.g., breadcrumbs)
-  bottomContent?: React.ReactNode; // Content after main section (e.g., navigation)
+  children: React.ReactNode;
+  topContent?: React.ReactNode;
+  bottomContent?: React.ReactNode;
 }
 
 export default function LessonReaderLayout({
@@ -46,74 +40,85 @@ export default function LessonReaderLayout({
           flex-direction: column;
         }
 
-        /* Two-column container */
-        .lesson-reader-container {
-          display: grid;
-          grid-template-columns: 260px 1fr;
+        /* Horizontal metadata bar */
+        .lesson-reader-meta-bar {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           gap: 2rem;
-          flex: 1;
-          padding: 2rem 3rem;
-          margin: 0 auto;
-          width: 100%;
-        }
-
-        /* Sidebar — metadata and work info */
-        .lesson-reader-sidebar {
-          position: sticky;
-          top: 100px;
-          height: fit-content;
+          flex-wrap: wrap;
           background: rgba(139, 109, 31, 0.04);
-          border-radius: 8px;
-          padding: 1.5rem;
-          border-left: 3px solid rgba(139, 109, 31, 0.15);
+          border-bottom: 1px solid rgba(139, 109, 31, 0.15);
+          padding: 0.75rem 2rem;
         }
 
-        .lesson-reader-sidebar-section {
-          margin-bottom: 1.5rem;
+        .lesson-reader-meta-item {
+          display: flex;
+          align-items: baseline;
+          gap: 0.4rem;
         }
 
-        .lesson-reader-sidebar-section:last-child {
-          margin-bottom: 0;
-        }
-
-        .lesson-reader-sidebar-label {
+        .lesson-reader-meta-label {
           font-size: 10px;
           text-transform: uppercase;
           letter-spacing: 0.08em;
-          color: rgba(13, 31, 10, 0.45);
+          color: rgba(13, 31, 10, 0.4);
           font-weight: 600;
-          margin-bottom: 0.5rem;
-          display: block;
         }
 
-        .lesson-reader-sidebar-content {
-          font-size: 14px;
-          line-height: 1.5;
-          color: rgba(13, 31, 10, 0.8);
+        .lesson-reader-meta-value {
+          font-size: 13px;
+          line-height: 1.4;
+          color: rgba(13, 31, 10, 0.75);
         }
 
-        .lesson-reader-sidebar-content.arabic {
+        .lesson-reader-meta-value.arabic {
           font-family: 'Amiri', 'IBM Plex Sans Arabic', serif;
-          font-size: 16px;
+          font-size: 15px;
           direction: rtl;
-          text-align: right;
           color: #8a6d1f;
           font-weight: 500;
         }
 
-        .lesson-reader-sidebar-content.english {
+        .lesson-reader-meta-value.english {
           font-size: 13px;
-          color: rgba(13, 31, 10, 0.65);
+          color: rgba(13, 31, 10, 0.6);
           font-style: italic;
         }
 
-        /* Main content area */
+        .lesson-reader-meta-divider {
+          width: 1px;
+          height: 24px;
+          background: rgba(139, 109, 31, 0.15);
+          flex-shrink: 0;
+        }
+
+        /* Main content area.
+         *
+         * Capped rather than truly full-width. 8df246f widened this from
+         * 700px to 960px deliberately; removing the cap entirely gives the
+         * English column a measure well past 120 characters on a wide
+         * display, which is worse than the sidebar layout it replaces. The
+         * cap is raised to 1280px instead, which is what the bilingual
+         * Arabic/English grid actually needs now that the 260px sidebar is
+         * no longer taking that space. */
         .lesson-reader-main {
           flex: 1;
-          min-width: 0;
-          max-width: 960px;
+          width: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 1.5rem 2rem;
           display: flex;
           flex-direction: column;
+        }
+
+        /* Breadcrumbs and lesson navigation share main's cap so they stay
+         * flush with the text column on wide displays. */
+        .lesson-reader-gutter {
+          width: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 2rem;
         }
 
         .lesson-reader-header {
@@ -142,7 +147,6 @@ export default function LessonReaderLayout({
           color: rgba(13, 31, 10, 0.85);
         }
 
-        /* Typography improvements for body text */
         .lesson-reader-body p {
           margin-bottom: 1.2rem;
           text-align: justify;
@@ -160,47 +164,46 @@ export default function LessonReaderLayout({
           color: #6b5a1a;
         }
 
-        /* Responsive: tablet */
+        /* Responsive: tablet.
+         *
+         * Restored -- the sidebar-era file had a 1024px breakpoint and the
+         * meta-bar rewrite dropped it, leaving a jump straight from desktop
+         * to 640px. Between those widths the bar still wraps acceptably via
+         * flex-wrap, but 2rem of side padding is too tight for the body. */
         @media (max-width: 1024px) {
-          .lesson-reader-container {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            padding: 1.5rem 2rem;
+          .lesson-reader-meta-bar {
+            gap: 1.25rem;
+            padding: 0.75rem 1.5rem;
           }
 
-          .lesson-reader-sidebar {
-            position: static;
-            top: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            padding: 1rem;
+          .lesson-reader-main {
+            padding: 1.25rem 1.5rem;
           }
 
-          .lesson-reader-sidebar-section {
-            margin-bottom: 0;
+          .lesson-reader-gutter {
+            padding: 0 1.5rem;
           }
         }
 
         /* Responsive: mobile */
         @media (max-width: 640px) {
-          .lesson-reader-container {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            padding: 1rem 1rem;
+          .lesson-reader-meta-bar {
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            align-items: flex-start;
           }
 
-          .lesson-reader-sidebar {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            padding: 1rem;
-            border-left: none;
-            border-top: 2px solid rgba(139, 109, 31, 0.15);
+          .lesson-reader-meta-divider {
+            display: none;
           }
 
           .lesson-reader-main {
-            max-width: 100%;
+            padding: 1rem;
+          }
+
+          .lesson-reader-gutter {
+            padding: 0 1rem;
           }
 
           .lesson-reader-body {
@@ -209,19 +212,15 @@ export default function LessonReaderLayout({
           }
         }
 
-        /* Print media — hide sidebar, optimize for paper */
+        /* Print media */
         @media print {
-          .lesson-reader-container {
-            grid-template-columns: 1fr;
-            gap: 0;
-            padding: 0;
-          }
-
-          .lesson-reader-sidebar {
+          .lesson-reader-meta-bar {
             display: none;
           }
 
-          .lesson-reader-main {
+          .lesson-reader-main,
+          .lesson-reader-gutter {
+            padding: 0;
             max-width: 100%;
           }
         }
@@ -229,79 +228,65 @@ export default function LessonReaderLayout({
 
       {/* Top content section (breadcrumbs, etc.) */}
       {topContent && (
-        <div style={{ padding: '0 3rem', paddingBottom: 0 }}>
+        <div className="lesson-reader-gutter">
           {topContent}
         </div>
       )}
 
-      {/* Two-column reader */}
-      <div className="lesson-reader-container">
-        {/* Sidebar — Work metadata and lesson info */}
-        <aside className="lesson-reader-sidebar">
-          {/* Work title */}
-          <div className="lesson-reader-sidebar-section">
-            <span className="lesson-reader-sidebar-label">Work</span>
-            <div className="lesson-reader-sidebar-content arabic">
-              فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
-            </div>
-            <div className="lesson-reader-sidebar-content english">
-              Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
-            </div>
-          </div>
+      {/* Horizontal metadata bar.
+        *
+        * Deliberately carries no "Work" item: the work title is rendered
+        * once, below, in .lesson-reader-header, in both Arabic and
+        * transliteration. The sidebar layout could show it in both places
+        * because they sat in separate columns; stacked vertically they are
+        * ~40px apart and read as a straight repetition. */}
+      <div className="lesson-reader-meta-bar">
+        <div className="lesson-reader-meta-item">
+          <span className="lesson-reader-meta-label">Lesson</span>
+          <span className="lesson-reader-meta-value arabic">{lesson.arabicTitle}</span>
+          <span className="lesson-reader-meta-value english">{lesson.englishTitle}</span>
+        </div>
 
-          {/* Lesson title and verse range */}
-          <div className="lesson-reader-sidebar-section">
-            <span className="lesson-reader-sidebar-label">Lesson</span>
-            <div className="lesson-reader-sidebar-content arabic">
-              {lesson.arabicTitle}
-            </div>
-            <div className="lesson-reader-sidebar-content english">
-              {lesson.englishTitle}
-            </div>
-          </div>
+        <div className="lesson-reader-meta-divider" />
 
-          {/* Verse range */}
-          <div className="lesson-reader-sidebar-section">
-            <span className="lesson-reader-sidebar-label">Verses</span>
-            <div className="lesson-reader-sidebar-content english">
-              {lesson.verseRange}
-            </div>
-          </div>
+        <div className="lesson-reader-meta-item">
+          <span className="lesson-reader-meta-label">Verses</span>
+          <span className="lesson-reader-meta-value english">{lesson.verseRange}</span>
+        </div>
 
-          {/* Volume and page reference */}
-          {lesson.volume && (
-            <div className="lesson-reader-sidebar-section">
-              <span className="lesson-reader-sidebar-label">Reference</span>
-              <div className="lesson-reader-sidebar-content english">
+        {lesson.volume && (
+          <>
+            <div className="lesson-reader-meta-divider" />
+            <div className="lesson-reader-meta-item">
+              <span className="lesson-reader-meta-label">Ref</span>
+              <span className="lesson-reader-meta-value english">
                 Vol. {lesson.volume}
                 {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ' · page TBC'}
-              </div>
+              </span>
             </div>
-          )}
-        </aside>
-
-        {/* Main content area */}
-        <main className="lesson-reader-main">
-          {/* Header with work/lesson info */}
-          <div className="lesson-reader-header">
-            <div className="lesson-reader-header-work-title arabic">
-              فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
-            </div>
-            <div className="lesson-reader-header-work-title english">
-              Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
-            </div>
-          </div>
-
-          {/* Body content (panels, etc.) */}
-          <div className="lesson-reader-body">
-            {children}
-          </div>
-        </main>
+          </>
+        )}
       </div>
+
+      {/* Main content — capped and centred, see .lesson-reader-main */}
+      <main className="lesson-reader-main">
+        <div className="lesson-reader-header">
+          <div className="lesson-reader-header-work-title arabic">
+            فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
+          </div>
+          <div className="lesson-reader-header-work-title english">
+            Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
+          </div>
+        </div>
+
+        <div className="lesson-reader-body">
+          {children}
+        </div>
+      </main>
 
       {/* Bottom content section (navigation, etc.) */}
       {bottomContent && (
-        <div style={{ padding: '2rem 3rem', paddingTop: 0 }}>
+        <div className="lesson-reader-gutter" style={{ paddingBottom: '2rem' }}>
           {bottomContent}
         </div>
       )}
