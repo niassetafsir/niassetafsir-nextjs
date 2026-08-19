@@ -99,3 +99,82 @@ export const ENGLISH_PARAS: Record<string, number[]> = {
   // 34 is verse 7's specific exegesis.
   '1:7': [32, 34],
 };
+
+// ---------------------------------------------------------------------------
+// UNITS
+// ---------------------------------------------------------------------------
+//
+// ARABIC_PARAS / ENGLISH_PARAS above are a *many-to-many* map: they answer
+// "which paragraphs bear on this verse", and the same paragraph deliberately
+// answers for several verses. That is right for annotating a verse, and wrong
+// for paging, because a reader stepping 1:2 -> 1:3 -> 1:4 would be shown the
+// identical block [58, 65, 66, 67] three times over and read it as a caching
+// bug rather than as one passage covering three verses.
+//
+// UNITS is the *partition*: every paragraph belongs to exactly one unit, and
+// the units follow the segmentation Niasse's own prose has. The boundaries are
+// the ones src/lib/verseIndex.ts already discovered independently for lesson 1
+// (its hand-curated entries break at paraIndex 29 / 58 / 59 / 60, i.e. at
+// 1:1 | 1:2-4 | 1:5-6 | 1:7).
+//
+// TWO PARAGRAPHS HAD TO BE ASSIGNED RATHER THAN SHARED, and both calls are
+// arguable -- flagged here rather than buried:
+//
+//   - Arabic 69 straddles the 1:6/1:7 boundary. It opens on "ihdinā l-ṣirāṭ
+//     al-mustaqīm" and then runs on into "ṣirāṭ alladhīna anʿamta ʿalayhim"
+//     within the same paragraph. ARABIC_PARAS gives it to both 1:6 and 1:7.
+//     Here it goes to the 1:7 unit alone, where the bulk of its text sits.
+//     Splitting the paragraph in the source would be the better fix and is
+//     not attempted here.
+//   - English 32 is the combined verse-6/verse-7 quotation. It goes to the
+//     1:5-6 unit alone; 34 is verse 7's own exegesis and goes to the 1:7 unit.
+//
+// SCOPE: lesson 1 / al-Fātiḥa only, for the same reason as the maps above --
+// this segmentation came out of reading the prose, not out of an algorithm,
+// and no other lesson has been read this way yet. Lessons without a UNITS
+// entry fall back to the verse-rail presentation, which asserts no
+// segmentation at all. See src/components/ComparativeCommentary.tsx.
+
+export interface CommentaryUnitMap {
+  /** Display label, e.g. "Q. 1:2–1:4". */
+  label: string;
+  /** Short gloss of what the unit covers, shown under the label. */
+  gloss: string;
+  /** Verse keys ("1:2") whose Jalālayn / Rūḥ al-Bayān glosses belong here. */
+  verses: string[];
+  /** Indices into the filtered Arabic commentary paragraphs. */
+  ar: number[];
+  /** Indices into the <p class="en-para"> blocks of englishText. */
+  en: number[];
+}
+
+export const FATIHA_UNITS: CommentaryUnitMap[] = [
+  {
+    label: 'Q. 1:1',
+    gloss: 'Istiʿādha, basmala, and the faḍāʾil of the sūra',
+    verses: ['1:1'],
+    ar: Array.from({ length: 57 - 29 + 1 }, (_, i) => 29 + i),
+    en: [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+  },
+  {
+    label: 'Q. 1:2–1:4',
+    gloss: 'al-ḥamd · rabb al-ʿālamīn · al-raḥmān al-raḥīm · mālik yawm al-dīn',
+    verses: ['1:2', '1:3', '1:4'],
+    ar: [58, 65, 66, 67],
+    en: [26, 27, 28],
+  },
+  {
+    label: 'Q. 1:5–1:6',
+    gloss: 'iyyāka naʿbudu wa-iyyāka nastaʿīn · ihdinā l-ṣirāṭ al-mustaqīm',
+    verses: ['1:5', '1:6'],
+    ar: [59, 68],
+    en: [29, 30, 31, 32, 33],
+  },
+  {
+    label: 'Q. 1:7',
+    gloss: 'ṣirāṭ alladhīna anʿamta ʿalayhim · the closing note on āmīn',
+    verses: ['1:7'],
+    ar: [60, 61, 69, 70],
+    en: [34],
+  },
+];

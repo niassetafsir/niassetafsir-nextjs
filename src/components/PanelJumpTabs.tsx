@@ -6,8 +6,10 @@ export default function PanelJumpTabs({ lessonId, lessons }: { lessonId?: number
   const tabs = [
     { label: 'Tafsīr', id: 'panel-tafsir' },
     { label: 'Overview', id: 'panel-overview' },
-    { label: 'Jalālayn', id: 'panel-jalalayn' },
-    { label: 'Rūḥ al-Bayān', id: 'panel-ruh' },
+    // One tab, because there is now one comparison panel: Jalālayn and Rūḥ
+    // al-Bayān were merged into ComparativeCommentary (panelId 'compare') so
+    // that Niasse's excerpt is not rendered twice on every lesson page.
+    { label: 'Comparison', id: 'panel-compare' },
   ];
 
   const scrollTo = (id: string) => {

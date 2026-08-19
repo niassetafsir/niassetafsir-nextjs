@@ -1,4 +1,4 @@
-import { ARABIC_PARAS, ENGLISH_PARAS } from './lesson1FatihaVerseMap';
+import { ARABIC_PARAS, ENGLISH_PARAS, FATIHA_UNITS } from './lesson1FatihaVerseMap';
 
 // Must stay identical to the poem/basmala filter in verseIndex.ts's
 // commentary-paragraph indexing and arabicCommentary.ts (formerly quranicFragments.ts) / BilingualText.tsx
@@ -42,6 +42,27 @@ function decodeEntities(s: string): string {
     .replace(/&gt;/g, '>');
 }
 
+/** Recover the same filtered paragraph arrays the hand-curated maps index into. */
+function splitParagraphs(
+  arabicBody: string,
+  englishText: string | null | undefined
+): { ar: string[]; en: string[] } {
+  const ar = arabicBody
+    .replace(/<[^>]+>/g, '')
+    .split('\n')
+    .filter(p => p.trim())
+    .filter(p => !isPoem(p))
+    .map(decodeEntities);
+
+  const en = englishText
+    ? Array.from(englishText.matchAll(/<p class="en-para">([\s\S]*?)<\/p>/g)).map(m =>
+        decodeEntities(m[1].replace(/<[^>]+>/g, '')).trim()
+      )
+    : [];
+
+  return { ar, en };
+}
+
 export function getNiasseVerseExcerpts(
   lessonId: number,
   arabicBody: string | null | undefined,
@@ -49,18 +70,7 @@ export function getNiasseVerseExcerpts(
 ): Record<string, NiasseVerseExcerpt> | null {
   if (lessonId !== 1 || !arabicBody) return null;
 
-  const commentaryParagraphs = arabicBody
-    .replace(/<[^>]+>/g, '')
-    .split('\n')
-    .filter(p => p.trim())
-    .filter(p => !isPoem(p))
-    .map(decodeEntities);
-
-  const enParas = englishText
-    ? Array.from(englishText.matchAll(/<p class="en-para">([\s\S]*?)<\/p>/g)).map(m =>
-        decodeEntities(m[1].replace(/<[^>]+>/g, '')).trim()
-      )
-    : [];
+  const { ar: commentaryParagraphs, en: enParas } = splitParagraphs(arabicBody, englishText);
 
   const result: Record<string, NiasseVerseExcerpt> = {};
   for (const verse of Object.keys(ARABIC_PARAS)) {
@@ -71,4 +81,51 @@ export function getNiasseVerseExcerpts(
     result[verse] = { ar: ar || null, en };
   }
   return result;
+}
+
+/** One page of the unit pager: Niasse's own prose plus the verses it covers. */
+export interface CommentaryUnit {
+  label: string;
+  gloss: string;
+  /** Verse keys ("1:2") whose Jalālayn / Rūḥ al-Bayān glosses sit under this unit. */
+  verses: string[];
+  ar: string | null;
+  en: string | null;
+  /** Paragraph indices, surfaced in the UI so the segmentation stays inspectable. */
+  arParas: number[];
+  enParas: number[];
+}
+
+/**
+ * Resolve the hand-curated unit partition for a lesson into actual text.
+ *
+ * Returns null for any lesson without a curated partition -- which today is
+ * every lesson but the first. Callers must degrade to a presentation that
+ * asserts no segmentation (the verse rail) rather than rendering an empty
+ * pager: see src/components/ComparativeCommentary.tsx.
+ */
+export function getNiasseUnits(
+  lessonId: number,
+  arabicBody: string | null | undefined,
+  englishText: string | null | undefined
+): CommentaryUnit[] | null {
+  if (lessonId !== 1 || !arabicBody) return null;
+
+  const { ar: arParas, en: enParas } = splitParagraphs(arabicBody, englishText);
+
+  const units = FATIHA_UNITS.map(u => ({
+    label: u.label,
+    gloss: u.gloss,
+    verses: u.verses,
+    ar: u.ar.map(i => arParas[i]).filter(Boolean).join('\n\n') || null,
+    en: u.en.map(i => enParas[i]).filter(Boolean).join('\n\n') || null,
+    arParas: u.ar,
+    enParas: u.en,
+  }));
+
+  // If the paragraph indices no longer resolve -- which is what happens when
+  // arabicBody is re-imported and its paragraph count shifts -- the maps are
+  // stale and every excerpt would be wrong rather than merely missing. Fail
+  // over to the unsegmented presentation instead of showing mismatched text.
+  return units.some(u => u.ar) ? units : null;
 }

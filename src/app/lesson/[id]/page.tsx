@@ -18,8 +18,8 @@ import { splitArabicCommentary } from '@/lib/arabicCommentary';
 import verseCitations from '@/data/verseCitations.json';
 import fs from 'fs';
 import path from 'path';
-import JalalaynVerseView from '@/components/JalalaynVerseView';
-import { getNiasseVerseExcerpts } from '@/lib/niasseVerseExcerpt';
+import ComparativeCommentary from '@/components/ComparativeCommentary';
+import { getNiasseVerseExcerpts, getNiasseUnits } from '@/lib/niasseVerseExcerpt';
 
 export async function generateStaticParams() {
   const lessons = await getAllLessons();
@@ -85,6 +85,16 @@ export default async function LessonPage({ params }: { params: { id: string } })
   // lesson-wide excerpt that JalalaynVerseView used to compute itself and
   // show identically under every verse (AK, live-site report, 2026-08-16).
   const niasseByVerse = getNiasseVerseExcerpts(
+    lesson.id,
+    lesson.arabicBody || lesson.arabicText,
+    lesson.hasEnglish ? lesson.englishText : null
+  );
+
+  // The unit partition drives the paged presentation in ComparativeCommentary.
+  // Null for every lesson without a hand-curated segmentation -- i.e. all but
+  // the first -- and those fall back to the verse rail, which asserts no
+  // segmentation and needs only the [s:v] markers in the text files.
+  const niasseUnits = getNiasseUnits(
     lesson.id,
     lesson.arabicBody || lesson.arabicText,
     lesson.hasEnglish ? lesson.englishText : null
@@ -168,64 +178,24 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </Panel>
 
-      <Panel icon="" titleAr="تَفْسِيرُ الْجَلَالَيْنِ" titleEn="Jalālayn" panelId="jalalayn" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
+      {/* One comparison panel, not two.
+        *
+        * These were previously two <Panel>s, each rendering JalalaynVerseView
+        * with the SAME niasseByVerse prop -- so Shaykh Ibrāhīm's excerpt was
+        * printed twice on every lesson page, once beneath each comparandum.
+        * ComparativeCommentary renders him once and stacks both comparanda
+        * beneath. See that file's header for the presentation rules. */}
+      <Panel icon="" titleAr="الْمُقَارَنَةُ" titleEn="Compared with Jalālayn &amp; Rūḥ al-Bayān" panelId="compare" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
         <div className="p-5" dir="ltr">
-          <div className="flex justify-between items-center mb-3 pb-3 border-b border-green-900/30">
-            <div>
-              <div className="font-arabic text-green-300 text-sm" dir="rtl">تَفْسِيرُ الْجَلَالَيْنِ</div>
-              <div className="font-english text-white/40 text-xs italic">
-                Jalāl al-Dīn al-Maḥallī &amp; Jalāl al-Dīn al-Suyūṭī
-              </div>
-            </div>
-            <a href={jalalaynUrl} target="_blank" rel="noopener"
-              className="font-english text-xs text-green-400/70 border border-green-500/30 px-3 py-1 rounded-full hover:border-green-400/50 transition-all">
-              Open on Altafsir.com ↗
-            </a>
-          </div>
-          {jalalaynArabicText ? (
-            <JalalaynVerseView
-              jalalaynText={jalalaynArabicText}
-              jalalaynLang="ar"
-              niasseByVerse={niasseByVerse}
-              verseRange={lesson.verseRange}
-              lessonTitleEn={lesson.englishTitle}
-            />
-          ) : (
-            <p className="font-english text-white/25 italic text-sm">
-              {lesson.verseRange} — Arabic &amp; English translation available at Altafsir.com (Royal Aal al-Bayt Institute). Verse-by-verse Arabic text on this page is being added sūrah by sūrah; not yet reached this one.
-            </p>
-          )}
-        </div>
-      </Panel>
-
-      <Panel icon="" titleAr="رُوحُ الْبَيَانِ" titleEn="Rūḥ al-Bayān" panelId="ruh" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
-        <div className="p-5" dir="ltr">
-          <div className="flex justify-between items-center mb-3 pb-3 border-b border-green-900/30">
-            <div>
-              <div className="font-arabic text-green-300 text-sm" dir="rtl">رُوحُ الْبَيَانِ</div>
-              <div className="font-english text-white/40 text-xs italic">
-                Ismāʿīl Ḥaqqī al-Burūsawī (d. 1127/1715)
-              </div>
-            </div>
-            <a href={usulBaseUrl} target="_blank" rel="noopener"
-              className="font-english text-xs text-green-400/70 border border-green-500/30 px-3 py-1 rounded-full hover:border-green-400/50 transition-all">
-              Open on Usul.ai ↗
-            </a>
-          </div>
-          {ruhArabicText ? (
-            <JalalaynVerseView
-              jalalaynText={ruhArabicText}
-              jalalaynLang="ar"
-              sourceLabelAr="رُوحُ الْبَيَانِ"
-              niasseByVerse={niasseByVerse}
-              verseRange={lesson.verseRange}
-              lessonTitleEn={lesson.englishTitle}
-            />
-          ) : (
-            <p className="font-english text-white/25 italic text-sm">
-              {lesson.verseRange} — full Arabic text available at Usul.ai. Verse-by-verse Arabic text on this page is being added sūrah by sūrah; not yet reached this one.
-            </p>
-          )}
+          <ComparativeCommentary
+            jalalaynText={jalalaynArabicText}
+            ruhText={ruhArabicText}
+            niasseByVerse={niasseByVerse}
+            units={niasseUnits}
+            verseRange={lesson.verseRange}
+            jalalaynUrl={jalalaynUrl}
+            usulUrl={usulBaseUrl}
+          />
         </div>
       </Panel>
     </>
