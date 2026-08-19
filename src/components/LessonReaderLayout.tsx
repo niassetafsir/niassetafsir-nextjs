@@ -1,20 +1,13 @@
 /**
- * LessonReaderLayout — Full-width reader with horizontal metadata bar
+ * LessonReaderLayout — single-column reader with a horizontal metadata bar
  *
- * Layout structure (desktop):
- *   [Horizontal metadata bar with work, lesson, verses, reference]
- *   [Full-width main content area]
+ * Layout structure:
+ *   [Horizontal metadata bar — lesson, verses, volume ref]
+ *   [Main content, capped at 1280px and centred]
  *
- * Metadata bar contains: work title, lesson title, verse range, volume/page
- * Main content: bilingual text, panels, navigation
- *
- * Mobile: Metadata bar stacks vertically
- *
- * Design inspired by usul.ai reader experience:
- * - Generous font sizing (16-17px body)
- * - Comfortable line-height (1.9-2.0)
- * - Full-width content for maximum reading space
- * - Horizontal metadata bar for reference information
+ * Replaces the earlier 260px sticky sidebar. The metadata that lived in the
+ * sidebar now runs horizontally above the text; the work title is rendered
+ * once, in .lesson-reader-header, not in the bar.
  */
 
 import React from 'react';
@@ -27,9 +20,9 @@ interface LessonReaderLayoutProps {
     volume?: number | null;
     pageInVolume?: number | null;
   };
-  children: React.ReactNode; // Main content (panels, etc.)
-  topContent?: React.ReactNode; // Content before sidebar split (e.g., breadcrumbs)
-  bottomContent?: React.ReactNode; // Content after main section (e.g., navigation)
+  children: React.ReactNode;
+  topContent?: React.ReactNode;
+  bottomContent?: React.ReactNode;
 }
 
 export default function LessonReaderLayout({
@@ -40,57 +33,89 @@ export default function LessonReaderLayout({
 }: LessonReaderLayoutProps) {
   return (
     <div className="lesson-reader-layout bg-cream text-ink">
-      <style>{`
+      {/* dangerouslySetInnerHTML, not a JSX text child.
+        *
+        * React HTML-escapes the text content of a <style> element when it
+        * renders on the server -- the apostrophes in font-family: 'Amiri'
+        * come back as &#x27;Amiri&#x27; -- but does not escape them on the
+        * client. The stylesheet text therefore differs between the two, and
+        * React aborts hydration for the whole document: this is the source
+        * of the React #418 / #423 / #425 errors that fired on every lesson
+        * page. Passing the CSS through __html skips escaping entirely.
+        *
+        * If this ever goes back to <style>{`...`}</style>, no apostrophe may
+        * appear anywhere inside it -- including in a comment. */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        /*
+         * The reader is a paper surface: cream in both themes, deliberately,
+         * because a long Arabic text is read here and the site's dark chrome
+         * is navigation rather than reading.
+         *
+         * That means the theme variables must be re-declared locally. The
+         * global :root now carries dark-theme ink (light text), which is right
+         * everywhere except inside this cream slab, where it renders pale text
+         * on pale paper. Scoping them here makes the reader self-consistent
+         * regardless of which theme the rest of the site is in, and any
+         * component dropped inside it inherits the correct ink without knowing
+         * anything about themes.
+         */
         .lesson-reader-layout {
           min-height: calc(100vh - 56px);
           display: flex;
           flex-direction: column;
+          --body-text: rgba(13, 31, 10, 0.88);
+          --body-sub: rgba(13, 31, 10, 0.62);
+          --body-faint: rgba(13, 31, 10, 0.45);
+          --gold: #8a6d1f;
+          --hairline: rgba(13, 31, 10, 0.12);
+          --sticky-bg: rgba(245, 237, 214, 0.97);
+          color: rgba(13, 31, 10, 0.88);
         }
 
-        /* Horizontal metadata bar at top */
+        /* Horizontal metadata bar */
         .lesson-reader-meta-bar {
           display: flex;
-          flex-wrap: wrap;
-          gap: 1.5rem;
-          padding: 1.5rem 3rem;
-          border-bottom: 1px solid rgba(139, 109, 31, 0.12);
-          background: rgba(139, 109, 31, 0.02);
           align-items: center;
+          justify-content: center;
+          gap: 2rem;
+          flex-wrap: wrap;
+          background: rgba(139, 109, 31, 0.04);
+          border-bottom: 1px solid rgba(139, 109, 31, 0.15);
+          padding: 0.75rem 2rem;
         }
 
         .lesson-reader-meta-item {
           display: flex;
-          flex-direction: column;
-          gap: 0.25rem;
+          align-items: baseline;
+          gap: 0.4rem;
         }
 
+        /* Arabic labels: no uppercasing or letter-spacing, both of which
+         * are Latin-script conventions that damage Arabic letterforms. */
         .lesson-reader-meta-label {
-          font-size: 10px;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          color: rgba(13, 31, 10, 0.45);
+          font-family: 'IBM Plex Sans Arabic', 'Amiri', sans-serif;
+          font-size: 12px;
+          color: rgba(13, 31, 10, 0.42);
           font-weight: 600;
-          display: block;
         }
 
         .lesson-reader-meta-value {
-          font-size: 14px;
-          line-height: 1.5;
-          color: rgba(13, 31, 10, 0.8);
+          font-size: 13px;
+          line-height: 1.4;
+          color: rgba(13, 31, 10, 0.75);
         }
 
         .lesson-reader-meta-value.arabic {
           font-family: 'Amiri', 'IBM Plex Sans Arabic', serif;
           font-size: 15px;
           direction: rtl;
-          text-align: right;
           color: #8a6d1f;
           font-weight: 500;
         }
 
         .lesson-reader-meta-value.english {
           font-size: 13px;
-          color: rgba(13, 31, 10, 0.65);
+          color: rgba(13, 31, 10, 0.6);
           font-style: italic;
         }
 
@@ -98,16 +123,35 @@ export default function LessonReaderLayout({
           width: 1px;
           height: 24px;
           background: rgba(139, 109, 31, 0.15);
+          flex-shrink: 0;
         }
 
-        /* Main content area — full width */
+        /* Main content area.
+         *
+         * Capped rather than truly full-width. 8df246f widened this from
+         * 700px to 960px deliberately; removing the cap entirely gives the
+         * English column a measure well past 120 characters on a wide
+         * display, which is worse than the sidebar layout it replaces. The
+         * cap is raised to 1280px instead, which is what the bilingual
+         * Arabic/English grid actually needs now that the 260px sidebar is
+         * no longer taking that space. */
         .lesson-reader-main {
           flex: 1;
           width: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 1.5rem 2rem;
           display: flex;
           flex-direction: column;
-          padding: 2rem 3rem;
+        }
+
+        /* Breadcrumbs and lesson navigation share main's cap so they stay
+         * flush with the text column on wide displays. */
+        .lesson-reader-gutter {
+          width: 100%;
+          max-width: 1280px;
           margin: 0 auto;
+          padding: 0 2rem;
         }
 
         .lesson-reader-header {
@@ -136,7 +180,6 @@ export default function LessonReaderLayout({
           color: rgba(13, 31, 10, 0.85);
         }
 
-        /* Typography improvements for body text */
         .lesson-reader-body p {
           margin-bottom: 1.2rem;
           text-align: justify;
@@ -154,15 +197,24 @@ export default function LessonReaderLayout({
           color: #6b5a1a;
         }
 
-        /* Responsive: tablet */
+        /* Responsive: tablet.
+         *
+         * Restored -- the sidebar-era file had a 1024px breakpoint and the
+         * meta-bar rewrite dropped it, leaving a jump straight from desktop
+         * to 640px. Between those widths the bar still wraps acceptably via
+         * flex-wrap, but 2rem of side padding is too tight for the body. */
         @media (max-width: 1024px) {
           .lesson-reader-meta-bar {
-            gap: 1rem;
-            padding: 1rem 2rem;
+            gap: 1.25rem;
+            padding: 0.75rem 1.5rem;
           }
 
           .lesson-reader-main {
-            padding: 1.5rem 2rem;
+            padding: 1.25rem 1.5rem;
+          }
+
+          .lesson-reader-gutter {
+            padding: 0 1.5rem;
           }
         }
 
@@ -170,8 +222,8 @@ export default function LessonReaderLayout({
         @media (max-width: 640px) {
           .lesson-reader-meta-bar {
             flex-direction: column;
-            gap: 1rem;
-            padding: 1rem;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
             align-items: flex-start;
           }
 
@@ -180,8 +232,11 @@ export default function LessonReaderLayout({
           }
 
           .lesson-reader-main {
-            width: 100%;
             padding: 1rem;
+          }
+
+          .lesson-reader-gutter {
+            padding: 0 1rem;
           }
 
           .lesson-reader-body {
@@ -196,62 +251,48 @@ export default function LessonReaderLayout({
             display: none;
           }
 
-          .lesson-reader-main {
-            width: 100%;
+          .lesson-reader-main,
+          .lesson-reader-gutter {
             padding: 0;
+            max-width: 100%;
           }
         }
-      `}</style>
+      ` }} />
 
       {/* Top content section (breadcrumbs, etc.) */}
       {topContent && (
-        <div style={{ padding: '0 3rem', paddingBottom: 0 }}>
+        <div className="lesson-reader-gutter">
           {topContent}
         </div>
       )}
 
-      {/* Horizontal metadata bar */}
+      {/* Horizontal metadata bar.
+        *
+        * Deliberately carries no "Work" item: the work title is rendered
+        * once, below, in .lesson-reader-header, in both Arabic and
+        * transliteration. The sidebar layout could show it in both places
+        * because they sat in separate columns; stacked vertically they are
+        * ~40px apart and read as a straight repetition. */}
       <div className="lesson-reader-meta-bar">
-        {/* Work title */}
         <div className="lesson-reader-meta-item">
-          <span className="lesson-reader-meta-label">Work</span>
-          <span className="lesson-reader-meta-value arabic">
-            فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
-          </span>
-          <span className="lesson-reader-meta-value english">
-            Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
-          </span>
+          {/* No label here: the value is already "الدرس الأول", so a
+            * "الدرس" label in front of it reads as a stutter. */}
+          <span className="lesson-reader-meta-value arabic">{lesson.arabicTitle}</span>
+          <span className="lesson-reader-meta-value english">{lesson.englishTitle}</span>
         </div>
 
         <div className="lesson-reader-meta-divider" />
 
-        {/* Lesson title */}
         <div className="lesson-reader-meta-item">
-          <span className="lesson-reader-meta-label">Lesson</span>
-          <span className="lesson-reader-meta-value arabic">
-            {lesson.arabicTitle}
-          </span>
-          <span className="lesson-reader-meta-value english">
-            {lesson.englishTitle}
-          </span>
+          <span className="lesson-reader-meta-label" title="Verses">الآيات</span>
+          <span className="lesson-reader-meta-value english">{lesson.verseRange}</span>
         </div>
 
-        <div className="lesson-reader-meta-divider" />
-
-        {/* Verse range */}
-        <div className="lesson-reader-meta-item">
-          <span className="lesson-reader-meta-label">Verses</span>
-          <span className="lesson-reader-meta-value english">
-            {lesson.verseRange}
-          </span>
-        </div>
-
-        {/* Volume and page reference */}
         {lesson.volume && (
           <>
             <div className="lesson-reader-meta-divider" />
             <div className="lesson-reader-meta-item">
-              <span className="lesson-reader-meta-label">Reference</span>
+              <span className="lesson-reader-meta-label" title="Reference">المرجع</span>
               <span className="lesson-reader-meta-value english">
                 Vol. {lesson.volume}
                 {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ' · page TBC'}
@@ -261,9 +302,8 @@ export default function LessonReaderLayout({
         )}
       </div>
 
-      {/* Full-width main content area */}
+      {/* Main content — capped and centred, see .lesson-reader-main */}
       <main className="lesson-reader-main">
-        {/* Header with work/lesson info */}
         <div className="lesson-reader-header">
           <div className="lesson-reader-header-work-title arabic">
             فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
@@ -273,7 +313,6 @@ export default function LessonReaderLayout({
           </div>
         </div>
 
-        {/* Body content (panels, etc.) */}
         <div className="lesson-reader-body">
           {children}
         </div>
@@ -281,7 +320,7 @@ export default function LessonReaderLayout({
 
       {/* Bottom content section (navigation, etc.) */}
       {bottomContent && (
-        <div style={{ padding: '2rem 3rem', paddingTop: 0 }}>
+        <div className="lesson-reader-gutter" style={{ paddingBottom: '2rem' }}>
           {bottomContent}
         </div>
       )}

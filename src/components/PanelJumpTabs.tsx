@@ -1,48 +1,34 @@
 'use client';
 import MobileLessonDrawer from './MobileLessonDrawer';
-import { Lesson } from '@/lib/types';
+import type { LessonIndexEntry } from '@/lib/volumes';
 
-export default function PanelJumpTabs({ lessonId, lessons }: { lessonId?: number; lessons?: Lesson[] }) {
-  const tabs = [
-    { label: 'Tafsīr', id: 'panel-tafsir' },
-    { label: 'Overview', id: 'panel-overview' },
-    { label: 'Jalālayn', id: 'panel-jalalayn' },
-    { label: 'Rūḥ al-Bayān', id: 'panel-ruh' },
-  ];
-
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
+/**
+ * The lesson-page top bar.
+ *
+ * Used to carry scroll-to chips for each panel. Those are gone: the panels are
+ * no longer a stack to scroll through, they are four modes chosen in
+ * LessonExperience, which sits directly below this and shows all four at once.
+ * A chip row pointing at sections that no longer exist as sections would have
+ * been two navigations for one page.
+ *
+ * What remains is the mobile lesson drawer, which is about moving between
+ * lessons rather than within one.
+ */
+export default function PanelJumpTabs({ lessonId, lessons }: { lessonId?: number; lessons?: LessonIndexEntry[] }) {
   return (
     <div
       dir="ltr"
       className="sticky top-0 z-40 flex gap-1.5 overflow-x-auto py-2 px-1 mb-2"
       style={{
-        background: 'rgba(245,237,214,0.97)',
+        background: 'var(--sticky-bg, rgba(13,31,10,0.97))',
         backdropFilter: 'blur(6px)',
         WebkitBackdropFilter: 'blur(6px)',
-        borderBottom: '1px solid rgba(13,31,10,0.12)',
+        borderBottom: '1px solid var(--hairline, rgba(232,232,224,0.12))',
         WebkitOverflowScrolling: 'touch',
         scrollbarWidth: 'none',
       }}
     >
       {lessonId !== undefined && lessons && <MobileLessonDrawer lessonId={lessonId} lessons={lessons} />}
-      {tabs.map((tab) => (
-        <button
-          key={tab.id}
-          onClick={() => scrollTo(tab.id)}
-          className="font-english text-[10px] whitespace-nowrap px-2.5 py-1 rounded-full border transition-all flex-shrink-0"
-          style={{
-            borderColor: 'rgba(138,109,31,0.35)',
-            color: '#8a6d1f',
-            background: 'transparent',
-          }}
-        >
-          {tab.label}
-        </button>
-      ))}
     </div>
   );
 }

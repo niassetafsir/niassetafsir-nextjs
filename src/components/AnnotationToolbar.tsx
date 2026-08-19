@@ -22,6 +22,11 @@ export default function AnnotationToolbar({ lessonId, lessonTitle, verseRange, o
   const [color, setColor] = useState<HighlightColor>('gold');
   const [note, setNote] = useState('');
   const [saved, setSaved] = useState(false);
+  // Desktop-only, decided on the client. Reading window.innerWidth during
+  // render makes the server (always desktop) and a phone-width client
+  // disagree -- a hydration mismatch. Default to hidden so the toolbar never
+  // flashes on a phone before the effect runs.
+  const [isDesktop, setIsDesktop] = useState(false);
 
   const checkSelection = useCallback(() => {
     const sel = window.getSelection();
@@ -33,6 +38,13 @@ export default function AnnotationToolbar({ lessonId, lessonTitle, verseRange, o
     setNote('');
     setSaved(false);
     setVisible(true);
+  }, []);
+
+  useEffect(() => {
+    const onResize = () => setIsDesktop(window.innerWidth >= 768);
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 
   useEffect(() => {
@@ -72,8 +84,8 @@ export default function AnnotationToolbar({ lessonId, lessonTitle, verseRange, o
         boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
         minWidth: '300px',
         maxWidth: '420px',
-        // Desktop only
-        display: typeof window !== 'undefined' && window.innerWidth < 768 ? 'none' : 'block',
+        // Desktop only -- see isDesktop above
+        display: isDesktop ? 'block' : 'none',
       }}
     >
       {/* Selected text preview */}

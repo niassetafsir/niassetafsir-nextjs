@@ -47,15 +47,60 @@ export interface VolumeWithLessons extends VolumeMeta {
   lessons: Lesson[];
 }
 
+// The only fields VolumeLessonTree actually renders (see its TreeLesson
+// interface). Everything else on a Lesson -- arabicBody, englishText,
+// jalalaynText, footnotes -- is dead weight to the tree.
+//
+// This exists because passing full Lesson objects into a client component
+// serialises them into the RSC flight payload. Both lesson-page trees are
+// client components, so /lesson/[id] was shipping the complete text of all
+// 56 lessons twice: 11,808,973 characters of script on /lesson/2, a page
+// with almost nothing on it. /read did the same once, at 9.6 MB. Much of
+// this site's readership is on mobile data in West Africa, where that is
+// not a page-speed statistic but a cost barrier.
+export interface LessonIndexEntry {
+  id: number;
+  arabicTitle: string;
+  englishTitle: string;
+  sura: string;
+  verseRange: string;
+  hasEnglish: boolean;
+}
+
+export function toLessonIndex(lessons: Lesson[]): LessonIndexEntry[] {
+  return lessons.map(l => ({
+    id: l.id,
+    arabicTitle: l.arabicTitle,
+    englishTitle: l.englishTitle,
+    sura: l.sura,
+    verseRange: l.verseRange,
+    hasEnglish: l.hasEnglish,
+  }));
+}
+
+export interface VolumeWithLessonIndex extends VolumeMeta {
+  lessons: LessonIndexEntry[];
+}
+
 // Pure, sync version of the grouping below -- for call sites (e.g.
 // app/lesson/[id]/page.tsx) that have already called getAllLessons() once
 // and shouldn't re-import all 56 lesson JSON files a second time just to
 // get the same lessons grouped by volume.
-export function volumesFromLessons(allLessons: Lesson[]): VolumeWithLessons[] {
+export function volumesFromLessons<T extends { id: number }>(
+  allLessons: T[]
+): (VolumeMeta & { lessons: T[] })[] {
   return VOLUME_META.map(v => ({
     ...v,
     lessons: allLessons.filter(l => l.id >= v.start && l.id <= v.end),
   }));
+}
+
+// Slim counterpart to getVolumesWithLessons, for the three trees that cross
+// a client-component boundary. Use this one unless the caller genuinely
+// needs lesson bodies server-side (e.g. /volume/[id], which reads
+// lessonSummary and never passes lessons to a client component).
+export async function getVolumeIndex(): Promise<VolumeWithLessonIndex[]> {
+  return volumesFromLessons(toLessonIndex(await getAllLessons()));
 }
 
 // Groups the live lesson data (title, summary, etc. -- read directly from

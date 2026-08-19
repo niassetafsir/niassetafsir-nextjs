@@ -42,6 +42,51 @@ export function maxTranslatedAyah(surah: number): number | null {
   return Math.max(...ranges.map(r => r.endAyah));
 }
 
+/** An inclusive (surah, ayah) span, as a lesson actually covers it. */
+export interface VerseSpan {
+  startSurah: number;
+  startAyah: number;
+  endSurah: number;
+  endAyah: number;
+}
+
+/**
+ * Parse a lesson's own `verseRange` string into a span.
+ *
+ * The strings come in two shapes, both present in src/data/lessons:
+ *   "Q. 2:6–25"                  -- within one sūra
+ *   "Al-Istiʿādha · Q. 1:1–2:5"  -- crossing a sūra boundary, with a prefix
+ *
+ * Needed because a sūra's Jalālayn / Rūḥ al-Bayān file holds the WHOLE sūra
+ * while a lesson covers only part of it. Al-Baqara is split across lessons
+ * 2-6 and beyond, so without this filter lesson 2 ("Q. 2:6-25") would render
+ * all 286 verses. Invisible while only al-Fātiḥa is transcribed -- its file
+ * has exactly the 7 verses lesson 1 covers -- and wrong the moment sūra 2
+ * arrives.
+ *
+ * Returns null if the string does not parse, and callers then fall back to
+ * showing everything, which is the pre-existing behaviour.
+ */
+export function parseVerseSpan(verseRange: string | null | undefined): VerseSpan | null {
+  if (!verseRange) return null;
+  // en dash, em dash and hyphen all occur in the data.
+  const m = verseRange.match(/Q\.\s*(\d+):(\d+)\s*[\u2013\u2014-]\s*(?:(\d+):)?(\d+)/);
+  if (!m) return null;
+  const startSurah = parseInt(m[1], 10);
+  const startAyah = parseInt(m[2], 10);
+  const endSurah = m[3] ? parseInt(m[3], 10) : startSurah;
+  const endAyah = parseInt(m[4], 10);
+  if ([startSurah, startAyah, endSurah, endAyah].some(n => !Number.isFinite(n))) return null;
+  return { startSurah, startAyah, endSurah, endAyah };
+}
+
+/** Is (surah, ayah) inside the span, ordering by sūra then āya? */
+export function spanIncludes(span: VerseSpan, surah: number, ayah: number): boolean {
+  const key = surah * 10000 + ayah;
+  return key >= span.startSurah * 10000 + span.startAyah
+      && key <= span.endSurah * 10000 + span.endAyah;
+}
+
 export interface SurahMeta {
   id: number;
   ayahCount: number;
