@@ -35,6 +35,7 @@
 // src/lib/volumes.ts for why this matters on this site.
 
 import corpusRaw from '@/data/corpus.json';
+import lessonRangesRaw from '@/data/lessonRanges.json';
 import { VERSE_INDEX } from '@/lib/verseIndex';
 
 /** What Niasse is DOING with the verse at this locus. Never optional. */
@@ -205,6 +206,12 @@ export interface VerseLink {
   stance?: Stance;
   /** Whom the stance is toward -- 'jalalayn', 'sawi', 'ruh-al-bayan', a name. */
   stanceToward?: string[];
+  /**
+   * Set when the link was not found in the text at all but follows from a
+   * session's span. `auto` alone would read as "the matcher found this here",
+   * which is a stronger claim than the data supports.
+   */
+  derivation?: 'session-range';
 }
 
 interface Corpus {
@@ -298,8 +305,83 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Session coverage: which majlis treats a given āya
+// ---------------------------------------------------------------------------
+// DERIVED_LOCI above resolves a verse to the PARAGRAPH that quotes it, which
+// only exists where the automated matcher found the quotation -- 784 verses.
+// But the fifty-seven sessions run consecutively through the whole muṣḥaf, so
+// for any āya there is a session that treats it, whether or not a quotation
+// was matched inside it. lessonRanges.json records each session's span, chained
+// from the sessions' own verseRange fields; the chain closes with no gaps from
+// 1:1 to 114:6 and sums to 6,236 āyāt, which is the Ḥafṣ total -- so the
+// tiling is complete and self-consistent.
+//
+// This is a COVERAGE claim, not a located citation: it says the session
+// commenting on this stretch is Lesson N, opening at vol. X p. Y. It is not a
+// claim that a discrete comment on this one āya sits at that page. So it is
+// emitted only where nothing located exists, always at `auto`, and always with
+// the distinction written into the note.
+//
+// `exact` marks the thirty-one sessions whose own verseRange gives explicit
+// āya numbers. The remaining twenty-six are titled by sūra only, so their
+// bounds come from chaining and are reliable in the interior of a session and
+// soft at its edges.
+
+interface LessonRange {
+  start: [number, number];
+  end: [number, number];
+  exact: boolean;
+  volume: number | null;
+  page: number | null;
+}
+
+// JSON widens the two-element arrays to number[], so the cast goes through
+// unknown rather than pretending the import already has tuple types.
+const LESSON_RANGES: [number, LessonRange][] = Object.entries(
+  lessonRangesRaw as unknown as Record<string, LessonRange>
+)
+  .map(([k, v]) => [Number(k), v] as [number, LessonRange])
+  .sort((a, b) => a[0] - b[0]);
+
+const RANGE_WITNESS = 'fi-riyad-tunis-2022';
+
+function withinRange(surah: number, ayah: number, r: LessonRange): boolean {
+  const afterStart =
+    surah > r.start[0] || (surah === r.start[0] && ayah >= r.start[1]);
+  const beforeEnd = surah < r.end[0] || (surah === r.end[0] && ayah <= r.end[1]);
+  return afterStart && beforeEnd;
+}
+
+/** The session whose span contains this āya, or undefined. */
+export function sessionForVerse(
+  surah: number,
+  ayah: number
+): { lessonId: number; range: LessonRange } | undefined {
+  const hit = LESSON_RANGES.find(([, r]) => withinRange(surah, ayah, r));
+  return hit ? { lessonId: hit[0], range: hit[1] } : undefined;
+}
+
+const COVERAGE_LOCI: Locus[] = LESSON_RANGES.map(([lessonId, r]) => ({
+  id: `firiyad-session-${lessonId}`,
+  witnessId: RANGE_WITNESS,
+  address: {
+    lesson: lessonId,
+    volume: r.volume ?? undefined,
+    page: r.page ?? undefined,
+    raw:
+      r.volume != null && r.page != null
+        ? `Lesson ${lessonId} — vol. ${r.volume}, p. ${r.page}`
+        : `Lesson ${lessonId}`,
+  },
+  transcriptionStatus: 'none',
+}));
+
 const ALL_LOCI = new Map<string, Locus>(
-  corpus.loci.concat(DERIVED_LOCI).map(l => [l.id, l] as [string, Locus])
+  corpus.loci
+    .concat(DERIVED_LOCI)
+    .concat(COVERAGE_LOCI)
+    .map(l => [l.id, l] as [string, Locus])
 );
 
 export function getLocus(id: string): Locus | undefined {
@@ -433,6 +515,11 @@ export const CONFIDENCE_LABEL: Record<Confidence, string> = {
   reported: 'reported',
 };
 
+export const DERIVATION_LABEL = 'session coverage';
+export const DERIVATION_NOTE =
+  'Not found in the text. The session running through this stretch of the muṣḥaf is ' +
+  'Lesson N, so the commentary on this āya is there; where on the page has not been located.';
+
 export const CONFIDENCE_NOTE: Record<Confidence, string> = {
   curated: 'This attribution was checked against the text by a human.',
   auto:
@@ -481,7 +568,52 @@ export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
         witness.id === 'fi-riyad-site-transcription',
     });
   }
+
+  // Session coverage, only where nothing located in Fī Riyāḍ already stands.
+  // Adding it alongside a matched paragraph would say the same thing twice,
+  // less precisely.
+  const haveFiRiyad = out.some(e => e.work.id === 'fi-riyad');
+  if (!haveFiRiyad) {
+    const session = sessionForVerse(surah, ayah);
+    const locus = session && getLocus(`firiyad-session-${session.lessonId}`);
+    const witness = locus && getWitness(locus.witnessId);
+    const work = witness && getWork(witness.workId);
+    if (session && locus && witness && work) {
+      const { lessonId, range } = session;
+      out.push({
+        link: {
+          locusId: locus.id,
+          surah,
+          ayahStart: ayah,
+          type: 'tafsir',
+          confidence: 'auto',
+          derivation: 'session-range',
+          rasm: 'hafs',
+          note: range.exact
+            ? `Lesson ${lessonId} runs from ${fmt(range.start)} to ${fmt(range.end)}, so it is ` +
+              'the session that treats this āya. The page given is where the lesson opens, ' +
+              'not where this verse is discussed — that has not been located yet.'
+            : `Lesson ${lessonId} is titled by sūra rather than by āya, and its bounds ` +
+              `(${fmt(range.start)}–${fmt(range.end)}) are inferred from where the ` +
+              'neighbouring sessions begin. Reliable in the middle of a session, soft at ' +
+              'its edges. The page given is where the lesson opens.',
+        },
+        locus,
+        witness,
+        work,
+        occasion: getOccasion(locus.occasionId ?? witness.occasionId),
+        isNiasse: true,
+        year: yearOf(work),
+        dateLabel: dateLabelOf(work, witness),
+        hasText: false,
+      });
+    }
+  }
   return out;
+}
+
+function fmt(v: [number, number]): string {
+  return `Q ${v[0]}:${v[1]}`;
 }
 
 /** Split Shaykh Ibrahim's own loci from the school's. */

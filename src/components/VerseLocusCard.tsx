@@ -3,6 +3,8 @@ import {
   ACT_LABEL,
   CONFIDENCE_LABEL,
   CONFIDENCE_NOTE,
+  DERIVATION_LABEL,
+  DERIVATION_NOTE,
   PROMPT_LABEL,
   STANCE_LABEL,
   type VerseEntry,
@@ -87,15 +89,22 @@ export default function VerseLocusCard({
               }}>
               {ACT_LABEL[link.type]}
             </span>
+            {/* "matched, unchecked" would be a lie on a session-coverage
+                entry: the matcher never saw it. Label it for what it is. */}
             <span
-              title={CONFIDENCE_NOTE[link.confidence]}
+              title={
+                link.derivation === 'session-range'
+                  ? DERIVATION_NOTE
+                  : CONFIDENCE_NOTE[link.confidence]
+              }
               className="font-english text-[10px] px-2 py-0.5 rounded-full border cursor-help"
               style={{
                 borderColor: 'rgba(255,255,255,0.2)',
                 color: 'var(--body-faint, rgba(255,255,255,0.5))',
               }}>
-              {link.confidence === 'curated' ? '● ' : link.confidence === 'auto' ? '◐ ' : '○ '}
-              {CONFIDENCE_LABEL[link.confidence]}
+              {link.derivation === 'session-range'
+                ? `◌ ${DERIVATION_LABEL}`
+                : `${link.confidence === 'curated' ? '● ' : link.confidence === 'auto' ? '◐ ' : '○ '}${CONFIDENCE_LABEL[link.confidence]}`}
             </span>
           </span>
         </div>
