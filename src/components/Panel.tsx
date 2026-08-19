@@ -66,9 +66,20 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
   const [verse, setVerse] = useState<string | null>(null);
   const [cited, setCited] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(true);
+  // Read on the client only. Reading window.innerWidth during render makes
+  // the server (always false) and a phone-width client (true) disagree,
+  // which is a hydration mismatch waiting to happen.
+  const [isNarrow, setIsNarrow] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const scrolled = useRef(false);
+
+  useEffect(() => {
+    const onResize = () => setIsNarrow(window.innerWidth < 768);
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   // Track whether the panel header is visible in the viewport using scroll events
   useEffect(() => {
@@ -167,7 +178,7 @@ export default function Panel({ icon, titleAr, titleEn, children, defaultOpen = 
         </div>
       )}
       {/* Floating close button — appears when panel header scrolls out of view */}
-      {open && (!headerVisible || (typeof window !== 'undefined' && window.innerWidth < 768)) && (
+      {open && (!headerVisible || isNarrow) && (
         <button
           onClick={() => {
             setOpen(false);

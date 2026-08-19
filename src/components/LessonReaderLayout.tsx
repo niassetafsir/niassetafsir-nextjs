@@ -33,7 +33,19 @@ export default function LessonReaderLayout({
 }: LessonReaderLayoutProps) {
   return (
     <div className="lesson-reader-layout bg-cream text-ink">
-      <style>{`
+      {/* dangerouslySetInnerHTML, not a JSX text child.
+        *
+        * React HTML-escapes the text content of a <style> element when it
+        * renders on the server -- the apostrophes in font-family: 'Amiri'
+        * come back as &#x27;Amiri&#x27; -- but does not escape them on the
+        * client. The stylesheet text therefore differs between the two, and
+        * React aborts hydration for the whole document: this is the source
+        * of the React #418 / #423 / #425 errors that fired on every lesson
+        * page. Passing the CSS through __html skips escaping entirely.
+        *
+        * If this ever goes back to <style>{`...`}</style>, no apostrophe may
+        * appear anywhere inside it -- including in a comment. */}
+      <style dangerouslySetInnerHTML={{ __html: `
         .lesson-reader-layout {
           min-height: calc(100vh - 56px);
           display: flex;
@@ -58,11 +70,12 @@ export default function LessonReaderLayout({
           gap: 0.4rem;
         }
 
+        /* Arabic labels: no uppercasing or letter-spacing, both of which
+         * are Latin-script conventions that damage Arabic letterforms. */
         .lesson-reader-meta-label {
-          font-size: 10px;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          color: rgba(13, 31, 10, 0.4);
+          font-family: 'IBM Plex Sans Arabic', 'Amiri', sans-serif;
+          font-size: 12px;
+          color: rgba(13, 31, 10, 0.42);
           font-weight: 600;
         }
 
@@ -224,7 +237,7 @@ export default function LessonReaderLayout({
             max-width: 100%;
           }
         }
-      `}</style>
+      ` }} />
 
       {/* Top content section (breadcrumbs, etc.) */}
       {topContent && (
@@ -242,7 +255,8 @@ export default function LessonReaderLayout({
         * ~40px apart and read as a straight repetition. */}
       <div className="lesson-reader-meta-bar">
         <div className="lesson-reader-meta-item">
-          <span className="lesson-reader-meta-label">Lesson</span>
+          {/* No label here: the value is already "الدرس الأول", so a
+            * "الدرس" label in front of it reads as a stutter. */}
           <span className="lesson-reader-meta-value arabic">{lesson.arabicTitle}</span>
           <span className="lesson-reader-meta-value english">{lesson.englishTitle}</span>
         </div>
@@ -250,7 +264,7 @@ export default function LessonReaderLayout({
         <div className="lesson-reader-meta-divider" />
 
         <div className="lesson-reader-meta-item">
-          <span className="lesson-reader-meta-label">Verses</span>
+          <span className="lesson-reader-meta-label" title="Verses">الآيات</span>
           <span className="lesson-reader-meta-value english">{lesson.verseRange}</span>
         </div>
 
@@ -258,7 +272,7 @@ export default function LessonReaderLayout({
           <>
             <div className="lesson-reader-meta-divider" />
             <div className="lesson-reader-meta-item">
-              <span className="lesson-reader-meta-label">Ref</span>
+              <span className="lesson-reader-meta-label" title="Reference">المرجع</span>
               <span className="lesson-reader-meta-value english">
                 Vol. {lesson.volume}
                 {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ' · page TBC'}

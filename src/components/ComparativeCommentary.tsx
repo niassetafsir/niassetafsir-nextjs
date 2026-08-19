@@ -165,7 +165,7 @@ function RuhCard({ vkey, body }: { vkey: string; body: string }) {
         <span className="font-english text-[11px] font-bold" style={{ color: RUH }}>[{vkey}]</span>
         <span className="font-arabic-sans text-[10px]" dir="rtl" style={{ color: 'rgba(124,45,18,0.6)' }}>رُوحُ الْبَيَانِ</span>
         <span className="font-english text-[9.5px] ml-auto" style={{ color: 'rgba(124,45,18,0.55)' }}>
-          {body.length.toLocaleString()} characters
+          {body.length.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} characters
         </span>
       </div>
       <div
