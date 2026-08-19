@@ -22,6 +22,8 @@
   --body-faint: rgba(232,232,224,0.45);
   --complete: #7bb661;
   --input-bg: rgba(255,255,255,0.06);
+  --sticky-bg: rgba(13,31,10,0.97);
+  --hairline: rgba(232,232,224,0.12);
 }
 
 html { background: var(--bg); }
@@ -89,6 +91,8 @@ body {
   --body-faint: rgba(44,24,16,0.4);
   --complete: #3f6212;
   --input-bg: rgba(255,255,255,0.55);
+  --sticky-bg: rgba(245,237,214,0.97);
+  --hairline: rgba(13,31,10,0.12);
   --persistent-nav-bg: #EDE0C0;
   --persistent-nav-border: rgba(139,105,20,0.25);
   --panel-header-bg: rgba(232,213,176,0.97);
@@ -988,4 +992,42 @@ body:has(.lesson-reading-page) {
 body:has(> .lesson-print-page) {
   background: white;
   padding-bottom: 0;
+}
+
+/*
+ * The lesson reader is a cream paper surface in BOTH themes (see
+ * LessonReaderLayout). Its contents were written when the reader was dark --
+ * text-white/85, text-gold-light and so on -- and were only ever made legible
+ * by the [data-theme="light"] overrides below. In dark mode those overrides do
+ * not apply, so the reader rendered near-white text on cream paper: the
+ * English translation, the Arabic commentary and the panel labels were all
+ * washed out to the point of being unreadable.
+ *
+ * These rules re-assert paper ink inside the reader whatever the theme. They
+ * are scoped to .lesson-reader-layout so nothing outside the reading surface
+ * is affected, and they sit at two-class specificity so they beat Tailwind's
+ * single-class colour utilities without needing !important.
+ */
+.lesson-reader-layout .font-english {
+  color: #444444;
+}
+
+.lesson-reader-layout .font-arabic,
+.lesson-reader-layout .font-arabic-sans,
+.lesson-reader-layout .text-text-main {
+  color: #1a1a1a;
+}
+
+.lesson-reader-layout .text-gold,
+.lesson-reader-layout .font-arabic.text-gold {
+  color: #8b6914;
+}
+
+.lesson-reader-layout .text-gold-light {
+  color: #5c3d0e;
+}
+
+/* Tailwind white-text utilities used throughout the reader's children. */
+.lesson-reader-layout [class*="text-white"] {
+  color: rgba(26, 26, 26, 0.85);
 }

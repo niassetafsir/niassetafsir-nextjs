@@ -1,7 +1,7 @@
 import { getLesson, getAllLessons } from '@/lib/lessons';
 import { getReadingNotes } from '@/lib/readingNotes';
 import { notFound, redirect } from 'next/navigation';
-import Panel from '@/components/Panel';
+import LessonExperience from '@/components/LessonExperience';
 import BilingualText from '@/components/BilingualText';
 import PanelJumpTabs from '@/components/PanelJumpTabs';
 import LessonAudioBar from '@/components/LessonAudioBar';
@@ -120,10 +120,10 @@ export default async function LessonPage({ params }: { params: { id: string } })
     <>
       <PanelJumpTabs lessonId={lesson.id} lessons={lessonIndex} />
       <LessonAudioBar lessonId={lesson.id} />
-      <div className="flex items-center gap-2 px-4 py-1.5 text-xs" style={{borderBottom:'1px solid rgba(13,31,10,0.1)'}}>
+      <div className="flex items-center gap-2 px-4 py-1.5 text-xs" style={{borderBottom:'1px solid var(--hairline, rgba(232,232,224,0.12))'}}>
         <a href="/read"
           className="font-english hover:text-gold transition-colors flex items-center gap-1"
-          style={{color:'rgba(13,31,10,0.5)'}}>
+          style={{color:'var(--body-faint, rgba(232,232,224,0.45))'}}>
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
             <path d="m15 18-6-6 6-6"/>
           </svg>
@@ -135,8 +135,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
 
   // Main content: panels
   const mainContent = (
-    <>
-      <Panel icon="" titleAr="تفسير الشيخ إبراهيم نياس" titleEn="Shaykh Ibrāhīm's Tafsīr" panelId="tafsir" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange} defaultOpen={true}>
+    <LessonExperience
+      tafsir={<>
         {lesson.openingInvocation && (
           <OpeningInvocation html={(lesson as any).openingInvocation} />
         )}
@@ -149,13 +149,24 @@ export default async function LessonPage({ params }: { params: { id: string } })
           lessonId={lesson.id}
           footnoteOrder={(lesson as any).footnoteOrder}
         />
-      </Panel>
-
-      <Panel icon="" titleAr="الحواشي والمصادر" titleEn="Citations" panelId="citations" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
+      </>}
+      compare={<>
+        <div className="p-5" dir="ltr">
+          <ComparativeCommentary
+            jalalaynText={jalalaynArabicText}
+            ruhText={ruhArabicText}
+            niasseByVerse={niasseByVerse}
+            units={niasseUnits}
+            verseRange={lesson.verseRange}
+            jalalaynUrl={jalalaynUrl}
+            usulUrl={usulBaseUrl}
+          />
+        </div>
+      </>}
+      citations={<>
         <LessonCitations lessonId={lesson.id} />
-      </Panel>
-
-      <Panel icon="" titleAr="نظرة عامة على الدرس" titleEn="Lesson Overview" panelId="overview" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
+      </>}
+      overview={<>
         <div className="p-5" dir="ltr">
           <div className="mb-3 pb-3 border-b border-gold/15">
             <div className="font-english text-white/40 text-xs italic">
@@ -184,29 +195,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
             </div>
           )}
         </div>
-      </Panel>
-
-      {/* One comparison panel, not two.
-        *
-        * These were previously two <Panel>s, each rendering JalalaynVerseView
-        * with the SAME niasseByVerse prop -- so Shaykh Ibrāhīm's excerpt was
-        * printed twice on every lesson page, once beneath each comparandum.
-        * ComparativeCommentary renders him once and stacks both comparanda
-        * beneath. See that file's header for the presentation rules. */}
-      <Panel icon="" titleAr="الْمُقَارَنَةُ" titleEn="Compared with Jalālayn &amp; Rūḥ al-Bayān" panelId="compare" lessonId={lesson.id} lessonTitleEn={lesson.englishTitle} verseRange={lesson.verseRange}>
-        <div className="p-5" dir="ltr">
-          <ComparativeCommentary
-            jalalaynText={jalalaynArabicText}
-            ruhText={ruhArabicText}
-            niasseByVerse={niasseByVerse}
-            units={niasseUnits}
-            verseRange={lesson.verseRange}
-            jalalaynUrl={jalalaynUrl}
-            usulUrl={usulBaseUrl}
-          />
-        </div>
-      </Panel>
-    </>
+      </>}
+    />
   );
 
   // Bottom content: navigation

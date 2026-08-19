@@ -46,10 +46,30 @@ export default function LessonReaderLayout({
         * If this ever goes back to <style>{`...`}</style>, no apostrophe may
         * appear anywhere inside it -- including in a comment. */}
       <style dangerouslySetInnerHTML={{ __html: `
+        /*
+         * The reader is a paper surface: cream in both themes, deliberately,
+         * because a long Arabic text is read here and the site's dark chrome
+         * is navigation rather than reading.
+         *
+         * That means the theme variables must be re-declared locally. The
+         * global :root now carries dark-theme ink (light text), which is right
+         * everywhere except inside this cream slab, where it renders pale text
+         * on pale paper. Scoping them here makes the reader self-consistent
+         * regardless of which theme the rest of the site is in, and any
+         * component dropped inside it inherits the correct ink without knowing
+         * anything about themes.
+         */
         .lesson-reader-layout {
           min-height: calc(100vh - 56px);
           display: flex;
           flex-direction: column;
+          --body-text: rgba(13, 31, 10, 0.88);
+          --body-sub: rgba(13, 31, 10, 0.62);
+          --body-faint: rgba(13, 31, 10, 0.45);
+          --gold: #8a6d1f;
+          --hairline: rgba(13, 31, 10, 0.12);
+          --sticky-bg: rgba(245, 237, 214, 0.97);
+          color: rgba(13, 31, 10, 0.88);
         }
 
         /* Horizontal metadata bar */
