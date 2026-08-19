@@ -1031,3 +1031,39 @@ body:has(> .lesson-print-page) {
 .lesson-reader-layout [class*="text-white"] {
   color: rgba(26, 26, 26, 0.85);
 }
+
+/*
+ * The "white text brightness boost" block above forces white with !important
+ * on .font-english.text-white/NN. Inside the cream reader that is white on
+ * paper -- which is why the Layout / Language / Verse labels stayed faint even
+ * after the reader's other text was fixed. Three-class specificity plus
+ * !important to beat it, scoped to the reading surface only.
+ *
+ * These are secondary labels, so they sit below body ink rather than at it --
+ * but firmly readable, not the ghost they were.
+ */
+.lesson-reader-layout .font-english.text-white\/70,
+.lesson-reader-layout .font-english.text-white\/65,
+.lesson-reader-layout .font-english.text-white\/60,
+.lesson-reader-layout .font-english.text-white\/55,
+.lesson-reader-layout .font-english.text-white\/50,
+.lesson-reader-layout .font-english.text-white\/45,
+.lesson-reader-layout .font-english.text-white\/40,
+.lesson-reader-layout .font-english.text-white\/35,
+.lesson-reader-layout .font-english.text-white\/30 {
+  color: rgba(26, 26, 26, 0.75) !important;
+}
+
+.lesson-reader-layout .font-english.text-white\/25,
+.lesson-reader-layout .font-english.text-white\/20,
+.lesson-reader-layout .font-english.text-white\/15,
+.lesson-reader-layout .font-english.text-white\/12,
+.lesson-reader-layout .font-english.text-white\/10 {
+  color: rgba(26, 26, 26, 0.6) !important;
+}
+
+/* Same treatment for the Arabic faces, which use the same utilities. */
+.lesson-reader-layout .font-arabic[class*="text-white"],
+.lesson-reader-layout .font-arabic-sans[class*="text-white"] {
+  color: rgba(26, 26, 26, 0.85) !important;
+}
