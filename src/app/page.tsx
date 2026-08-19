@@ -1,46 +1,184 @@
 import Link from 'next/link';
-import AyahJumpBar from '@/components/AyahJumpBar';
-import SurahPickerBar from '@/components/SurahPickerBar';
+import HomeSearchBar from '@/components/HomeSearchBar';
+import { getCoverage, getSpecimen } from '@/lib/coverage';
+
+/**
+ * Homepage.
+ *
+ * Leads with the claim, then the text, then the coverage table.
+ *
+ * It used to lead with two dropdowns -- "Jump to a verse" and "Read a sūrah" --
+ * doing nearly the same thing, no text anywhere, and its only statement of what
+ * the site is sat in 12px grey beneath a picker: "Covers al-Fātiḥa & al-Baqara
+ * 1-202 so far". That sentence describes the *translation's* reach and read as
+ * though it described the site's, so a visitor concluded there were two sūras
+ * here. The Arabic edition is complete -- all 56 lessons -- and that, the
+ * strongest claim available, appeared nowhere.
+ *
+ * Coverage numbers are counted from the data at build time (src/lib/coverage.ts)
+ * rather than written by hand, so this page cannot drift from the files.
+ */
 
 export default async function HomePage() {
+  const coverage = await getCoverage();
+  const specimen = await getSpecimen();
+  const arabicLayer = coverage.layers.find(l => l.key === 'arabic');
+  const audio = coverage.layers.find(l => l.key === 'audio');
+
   return (
-    <main className="max-w-5xl mx-auto px-4 pb-20">
+    <main className="pb-20" dir="ltr">
 
-      {/* Header */}
-      <div className="text-center py-8 mb-6">
-        {/* English title — primary */}
-        <div className="mb-2">
-          <div className="font-english text-white/90 text-3xl font-semibold italic mb-1">
-            Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
-          </div>
-          <div className="font-english text-white/45 text-sm">
-            Shaykh Ibrāhīm Niasse (d. 1975)
-          </div>
-        </div>
-        {/* Arabic subtitle — smaller, contextual */}
-        <div className="mb-5">
-          <div className="font-arabic text-gold/60 text-lg leading-snug" dir="rtl">
-            فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
-          </div>
-        </div>
-        {/* Read/Listen/Research buttons removed -- redundant with the persistent
-            bottom nav (Home/Read/Listen/Research), which is visible on every page
-            including this one without scrolling. */}
-        <AyahJumpBar />
-        <SurahPickerBar />
-      </div>
+      {/* ---- Claim ---- */}
+      <section className="max-w-3xl mx-auto px-5 pt-12 pb-9 text-center">
+        <h1 className="font-arabic text-gold text-3xl sm:text-4xl leading-relaxed mb-2" dir="rtl">
+          فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
+        </h1>
+        <p className="font-english text-sm italic mb-7"
+          style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+          Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
+        </p>
 
-      {/* Full table of contents lives at /read (volume -> lesson tree,
-          searchable, plus jump-by-sūrah) -- kept as one link here rather
-          than duplicating that tree on the homepage too. */}
-      <Link
-        href="/read"
-        className="flex items-center justify-center gap-2 border rounded-xl px-4 py-3 font-english text-sm transition-colors hover:bg-gold/5"
-        style={{ borderColor: 'rgba(201,168,76,0.25)', color: 'rgba(201,168,76,0.9)' }}
-      >
-        Browse the full table of contents →
-      </Link>
+        <p className="font-english text-lg sm:text-xl leading-relaxed mb-4"
+          style={{ color: 'var(--body-text, rgba(13,31,10,0.88))' }}>
+          The{' '}
+          <strong style={{ fontWeight: 600, boxShadow: 'inset 0 -0.5em 0 rgba(138,109,31,0.16)' }}>
+            complete Arabic text
+          </strong>{' '}
+          of Shaykh Ibrāhīm Niasse&rsquo;s commentary on the Qurʾān —
+          all {arabicLayer?.count ?? coverage.totalLessons} lessons, digitally edited for
+          the first time. English translation in progress.
+        </p>
+        <p className="font-english text-sm"
+          style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+          Shaykh Ibrāhīm Niasse (1900–1975) · Kaolack, Senegal · 10 volumes, {coverage.totalLessons} majālis
+        </p>
 
+        <HomeSearchBar />
+
+        <p className="font-english text-xs mt-3"
+          style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+          or{' '}
+          <Link href="/read" className="transition-opacity hover:opacity-75"
+            style={{ color: '#8a6d1f', borderBottom: '1px dotted rgba(138,109,31,0.4)' }}>
+            browse all {coverage.totalLessons} lessons by volume
+          </Link>
+        </p>
+      </section>
+
+      {/* ---- The text itself ---- */}
+      {specimen && (
+        <section className="max-w-5xl mx-auto px-5">
+          <p className="font-english text-center text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-1"
+            style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+            From the opening of the tafsīr
+          </p>
+          <p className="font-english text-center text-xs mb-5"
+            style={{ color: 'var(--body-faint, rgba(13,31,10,0.42))' }}>
+            Lesson 1 · Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa · Q. 1:1–2:5
+          </p>
+
+          <div className="rounded-xl overflow-hidden"
+            style={{ border: '1px solid rgba(138,109,31,0.22)', background: 'rgba(138,109,31,0.035)' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="px-6 py-6 font-arabic text-lg leading-[2.1]" dir="rtl"
+                style={{
+                  color: 'var(--body-text, rgba(13,31,10,0.9))',
+                  borderBottom: '1px solid rgba(138,109,31,0.15)',
+                }}>
+                {specimen.arabic.map((p, i) => <p key={i} className="mb-4 last:mb-0">{p}</p>)}
+              </div>
+              <div className="px-6 py-6 font-english text-[15px] leading-[1.85]"
+                style={{ color: 'var(--body-text, rgba(13,31,10,0.78))' }}>
+                {specimen.english.map((p, i) => <p key={i} className="mb-4 last:mb-0">{p}</p>)}
+              </div>
+            </div>
+            <div className="text-center py-3"
+              style={{ borderTop: '1px solid rgba(138,109,31,0.18)', background: 'rgba(138,109,31,0.05)' }}>
+              <Link href="/lesson/1"
+                className="font-english text-sm font-medium transition-opacity hover:opacity-75"
+                style={{ color: '#8a6d1f' }}>
+                Continue reading Lesson 1 →
+              </Link>
+            </div>
+          </div>
+
+          <p className="font-english text-center text-xs mt-3"
+            style={{ color: 'var(--body-faint, rgba(13,31,10,0.42))' }}>
+            Lesson 1 also carries <em>Tafsīr al-Jalālayn</em> and <em>Rūḥ al-Bayān</em> verse by verse.
+          </p>
+        </section>
+      )}
+
+      {/* ---- Coverage ---- */}
+      <section className="max-w-3xl mx-auto px-5 mt-14">
+        <p className="font-english text-center text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-1"
+          style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+          State of the edition
+        </p>
+        <p className="font-english text-center text-xs mb-5"
+          style={{ color: 'var(--body-faint, rgba(13,31,10,0.42))' }}>
+          Counted from the edition files at build time
+        </p>
+
+        <table className="w-full font-english text-sm" style={{ borderCollapse: 'collapse' }}>
+          <tbody>
+            {coverage.layers.map(layer => {
+              const pct = layer.total ? (layer.count / layer.total) * 100 : 0;
+              const complete = layer.total > 0 && layer.count === layer.total;
+              return (
+                <tr key={layer.key} style={{ borderBottom: '1px solid rgba(138,109,31,0.18)' }}>
+                  <td className="py-3 pr-3 align-middle">
+                    <div style={{
+                      color: 'var(--body-text, rgba(13,31,10,0.85))',
+                      fontWeight: complete ? 600 : 400,
+                    }}>
+                      {layer.label}
+                    </div>
+                    <div className="text-xs mt-0.5"
+                      style={{ color: 'var(--body-faint, rgba(13,31,10,0.42))' }}>
+                      {layer.detail}
+                    </div>
+                  </td>
+                  <td className="py-3 px-3 align-middle hidden sm:table-cell" style={{ width: 180 }}>
+                    <div style={{ height: 7, borderRadius: 99, background: 'rgba(13,31,10,0.09)', overflow: 'hidden' }}>
+                      <div style={{
+                        width: `${pct}%`,
+                        height: '100%',
+                        borderRadius: 99,
+                        background: complete ? '#3f6212' : '#8a6d1f',
+                      }} />
+                    </div>
+                  </td>
+                  <td className="py-3 pl-3 text-right align-middle whitespace-nowrap"
+                    style={{
+                      width: 90,
+                      fontVariantNumeric: 'tabular-nums',
+                      fontWeight: 600,
+                      color: complete ? '#3f6212' : 'var(--body-text, rgba(13,31,10,0.8))',
+                    }}>
+                    {layer.count} / {layer.total}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+
+        <p className="font-english text-xs italic mt-4"
+          style={{ color: 'var(--body-faint, rgba(13,31,10,0.45))' }}>
+          The Arabic edition is complete and citable. Everything below it is in progress,
+          and each lesson page marks which layers are present.
+        </p>
+
+        {audio && audio.detail.includes('Wolof') && audio.count > 0 && (
+          <p className="font-english text-sm mt-5 text-center">
+            <Link href="/audio" className="transition-opacity hover:opacity-75"
+              style={{ color: '#8a6d1f', borderBottom: '1px dotted rgba(138,109,31,0.4)' }}>
+              Recorded in Arabic and Wolof for {audio.count} lessons →
+            </Link>
+          </p>
+        )}
+      </section>
     </main>
   );
 }

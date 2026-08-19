@@ -36,7 +36,29 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl">
+    // suppressHydrationWarning: the script below rewrites lang and dir on the
+    // client before React hydrates, so the attributes legitimately differ from
+    // what was server-rendered. Without this React reports a mismatch.
+    <html lang="ar" dir="rtl" suppressHydrationWarning>
+      <head>
+        {/*
+          Document direction used to be hardcoded rtl and never changed, so the
+          site stayed Arabic-direction even for a reader who picked English or
+          French -- English labels rendered right-to-left, and any horizontal
+          bar read backwards. LangSwitcher stores the choice in localStorage,
+          which the server cannot see, so the default stays Arabic and this
+          runs before first paint to correct it.
+
+          Deliberately a blocking inline script rather than an effect: an
+          effect would flip the direction after the page had already painted,
+          which is a visible reflow of the entire document.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var l=localStorage.getItem('site-lang');if(l&&l!=='ar'){var d=document.documentElement;d.setAttribute('lang',l);d.setAttribute('dir','ltr');}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="bg-bg min-h-screen pb-16">
         <ScrollToTop />
         <SiteNav />
