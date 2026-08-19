@@ -60,6 +60,15 @@ def first_sura(vr):
     if not m: return None
     return BY_NAME.get(norm(m.group(1)))
 
+def last_sura(vr):
+    """The final sura named in a sura-titled range -- 'Surat al-Ikhlas - Surat
+    al-Nas' -> 114. Needed for the LAST session, which has no successor to
+    chain against: without it the closing session drops out of the file
+    entirely and al-Ikhlas, al-Falaq and al-Nas resolve to nothing."""
+    parts = re.split(r'–', vr)
+    m = re.search(r'S[ūu]rat\s+(.+)', parts[-1].strip())
+    return BY_NAME.get(norm(m.group(1))) if m else None
+
 ids = sorted(lessons)
 starts = {}
 for lid in ids:
@@ -90,7 +99,10 @@ for i, lid in enumerate(ids):
     elif e:
         s2, a2, exact_end = e[2], e[3], True
     else:
-        continue
+        ls = last_sura(lessons[lid])
+        if not ls:
+            continue
+        s2, a2, exact_end = ls, AYAH[ls], False
     # an explicit range always wins over the chained end
     if e: s2, a2, exact_end = e[2], e[3], True
     ref = ed.get(str(lid))
@@ -103,6 +115,55 @@ for i, lid in enumerate(ids):
 
 json.dump(out, open('src/data/lessonRanges.json', 'w', encoding='utf-8'),
           ensure_ascii=False, indent=1)
+
+
+# ---------------------------------------------------------------------------
+# Attestation density: how much of a session's span is actually in the text.
+#
+# The chain proves the RANGES tile the mushaf. It proves nothing about whether
+# Niasse commented on every aya inside a range -- and he did not. The early
+# sessions are close to verse-by-verse; the later ones cover a sura or more per
+# majlis and are frankly selective. Recording the density here keeps the verse
+# page from claiming a session "treats this aya" when the aya is nowhere in it.
+#
+# Counted from translation-drafts/verse-match-report.json across ALL match
+# tiers including fuzzy -- deliberately generous, so the number is an upper
+# bound on what is attested rather than an undercount.
+# ---------------------------------------------------------------------------
+try:
+    rep = json.load(open('translation-drafts/verse-match-report.json', encoding='utf-8'))
+except FileNotFoundError:
+    rep = {}
+    print('WARNING: no verse-match-report.json; attestation counts omitted')
+
+def _count(r):
+    (s, a), (e, b) = r['start'], r['end']
+    n = 0
+    while (s, a) <= (e, b) and s <= 114:
+        n += 1
+        if a < AYAH[s]: a += 1
+        else: s += 1; a = 1
+    return n
+
+for lid, r in out.items():
+    o = rep.get(lid) or {}
+    hits = set()
+    for span in o.get('spans', []):
+        m = span.get('match')
+        if not m: continue
+        for v in (m['verse'].split('-') if '-' in m['verse'] else [m['verse']]):
+            sv, av = map(int, v.split(':'))
+            if tuple(r['start']) <= (sv, av) <= tuple(r['end']):
+                hits.add((sv, av))
+    r['span'] = _count(r)
+    r['attested'] = len(hits)
+
+json.dump(out, open('src/data/lessonRanges.json', 'w', encoding='utf-8'),
+          ensure_ascii=False, indent=1)
+
+tot = sum(r['span'] for r in out.values())
+att = sum(r['attested'] for r in out.values())
+print(f'attestation: {att} of {tot} ayat in range are quoted somewhere in the transcription ({100*att/tot:.1f}%)')
 
 # ---- report
 exact = sum(1 for v in out.values() if v['exact'])
@@ -129,6 +190,13 @@ for lid in sorted(out, key=int):
         else: cs += 1; ca = 1
     covered += c
 print('total āyāt covered by the 56 sessions:', covered)
+inverted = [(lid, out[lid]) for lid in out
+            if tuple(out[lid]['start']) > tuple(out[lid]['end'])]
+print('inverted ranges:', len(inverted))
+for lid, v in inverted:
+    print('   lesson', lid, v['start'], '->', v['end'], '  <-- start is after end')
+missing_ref = [lid for lid in out if out[lid]['volume'] is None]
+print('lessons with no printed reference:', len(missing_ref), missing_ref)
 print('discontinuities:', len(gaps))
 for g in gaps[:6]: print('   lesson', g[0], 'starts', g[2], 'but previous ended', g[1])
 print('first:', n(out[min(out,key=int)]['start']), ' last:', n(out[max(out,key=int)]['end']))

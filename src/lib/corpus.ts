@@ -334,6 +334,10 @@ interface LessonRange {
   exact: boolean;
   volume: number | null;
   page: number | null;
+  /** Āyāt inside the span. */
+  span?: number;
+  /** How many of those are actually quoted in the transcription. */
+  attested?: number;
 }
 
 // JSON widens the two-element arrays to number[], so the cast goes through
@@ -589,14 +593,7 @@ export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
           confidence: 'auto',
           derivation: 'session-range',
           rasm: 'hafs',
-          note: range.exact
-            ? `Lesson ${lessonId} runs from ${fmt(range.start)} to ${fmt(range.end)}, so it is ` +
-              'the session that treats this āya. The page given is where the lesson opens, ' +
-              'not where this verse is discussed — that has not been located yet.'
-            : `Lesson ${lessonId} is titled by sūra rather than by āya, and its bounds ` +
-              `(${fmt(range.start)}–${fmt(range.end)}) are inferred from where the ` +
-              'neighbouring sessions begin. Reliable in the middle of a session, soft at ' +
-              'its edges. The page given is where the lesson opens.',
+          note: coverageNote(lessonId, range),
         },
         locus,
         witness,
@@ -614,6 +611,38 @@ export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
 
 function fmt(v: [number, number]): string {
   return `Q ${v[0]}:${v[1]}`;
+}
+
+/**
+ * The wording here was wrong in the first cut and the correction matters.
+ *
+ * It said Lesson N "is the session that treats this āya", which reads as a
+ * claim that a comment on this verse exists at that page. The sessions do tile
+ * the muṣḥaf, but they do not comment on every āya they pass over: across the
+ * corpus only 1,228 of the 6,236 āyāt inside the session spans are quoted
+ * anywhere in the transcription, and that count is generous (it includes the
+ * fuzzy match tier, which is excluded from everything else public-facing).
+ *
+ * The distribution is the real finding. Lesson 2 quotes all twenty āyāt in its
+ * span; Lesson 43 quotes 25 of 345. The 1383/1964 cycle runs the whole Qurʾān
+ * in fifty-seven majālis, so it is close to verse-by-verse through al-Baqara
+ * and increasingly selective thereafter. A reader looking for Q 36:39 should
+ * be told that plainly, not sent to vol. 8 p. 55 on a promise.
+ */
+function coverageNote(lessonId: number, r: LessonRange): string {
+  const bounds = `${fmt(r.start)}–${fmt(r.end)}`;
+  const density =
+    r.span && r.attested !== undefined
+      ? ` Of the ${r.span} āyāt in that span, ${r.attested} are quoted in the transcription; ` +
+        'this one is not among them, so whether he comments on it is not established.'
+      : '';
+  const provenance = r.exact
+    ? `Lesson ${lessonId} runs from ${bounds}.`
+    : `Lesson ${lessonId} is titled by sūra rather than by āya; its bounds (${bounds}) are ` +
+      'inferred from where the neighbouring sessions begin, so they are soft at the edges.';
+  return (
+    `${provenance}${density} The page given is where the lesson opens — start there and read on.`
+  );
 }
 
 /** Split Shaykh Ibrahim's own loci from the school's. */

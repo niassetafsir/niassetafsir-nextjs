@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import HomeSearchBar from '@/components/HomeSearchBar';
+import { SURAH_LIST } from '@/lib/verseRanges';
 import { getCoverage, getSpecimen } from '@/lib/coverage';
 
 /**
@@ -53,7 +54,7 @@ export default async function HomePage() {
           Shaykh Ibrāhīm Niasse (1900–1975) · Kaolack, Senegal · 10 volumes, {coverage.totalLessons} majālis
         </p>
 
-        <HomeSearchBar />
+        <HomeSearchBar ayahCounts={SURAH_LIST.map(s => s.ayahCount)} />
 
         <p className="font-english text-xs mt-3"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>

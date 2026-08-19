@@ -10,9 +10,9 @@ import { getAllLessons } from './lessons';
 // taken from the Volume Catalogue on the Arabic Edition page, the site's
 // own existing (and most complete) description of each volume's contents.
 //
-// Lesson 57 in the data is a placeholder for suras already covered by
-// Lesson 56 (see app/lesson/[id]/page.tsx redirect), so Volume X's real
-// range is 51-56, not 51-57.
+// 57.json, a placeholder for suras already covered by Lesson 56, has been
+// deleted (see app/lesson/[id]/page.tsx, which still redirects old links).
+// Volume X runs 51-56.
 export interface VolumeMeta {
   vol: number;
   roman: string;

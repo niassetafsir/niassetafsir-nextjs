@@ -10,7 +10,9 @@
   ],
   "exact": true,
   "volume": 1,
-  "page": 29
+  "page": 29,
+  "span": 12,
+  "attested": 8
  },
  "2": {
   "start": [
@@ -23,7 +25,9 @@
   ],
   "exact": true,
   "volume": 1,
-  "page": 59
+  "page": 59,
+  "span": 20,
+  "attested": 20
  },
  "3": {
   "start": [
@@ -36,7 +40,9 @@
   ],
   "exact": true,
   "volume": 1,
-  "page": 72
+  "page": 72,
+  "span": 34,
+  "attested": 26
  },
  "4": {
   "start": [
@@ -49,7 +55,9 @@
   ],
   "exact": true,
   "volume": 1,
-  "page": 96
+  "page": 96,
+  "span": 46,
+  "attested": 34
  },
  "5": {
   "start": [
@@ -62,7 +70,9 @@
   ],
   "exact": true,
   "volume": 1,
-  "page": 120
+  "page": 120,
+  "span": 97,
+  "attested": 19
  },
  "6": {
   "start": [
@@ -75,7 +85,9 @@
   ],
   "exact": true,
   "volume": 1,
-  "page": 167
+  "page": 167,
+  "span": 50,
+  "attested": 17
  },
  "7": {
   "start": [
@@ -88,7 +100,9 @@
   ],
   "exact": true,
   "volume": 2,
-  "page": 3
+  "page": 3,
+  "span": 48,
+  "attested": 4
  },
  "8": {
   "start": [
@@ -101,7 +115,9 @@
   ],
   "exact": true,
   "volume": 2,
-  "page": 46
+  "page": 46,
+  "span": 77,
+  "attested": 11
  },
  "9": {
   "start": [
@@ -114,7 +130,9 @@
   ],
   "exact": true,
   "volume": 2,
-  "page": 79
+  "page": 79,
+  "span": 84,
+  "attested": 14
  },
  "10": {
   "start": [
@@ -127,7 +145,9 @@
   ],
   "exact": true,
   "volume": 2,
-  "page": 124
+  "page": 124,
+  "span": 48,
+  "attested": 12
  },
  "11": {
   "start": [
@@ -140,7 +160,9 @@
   ],
   "exact": true,
   "volume": 2,
-  "page": 161
+  "page": 161,
+  "span": 63,
+  "attested": 10
  },
  "12": {
   "start": [
@@ -153,7 +175,9 @@
   ],
   "exact": true,
   "volume": 2,
-  "page": 198
+  "page": 198,
+  "span": 61,
+  "attested": 13
  },
  "13": {
   "start": [
@@ -166,7 +190,9 @@
   ],
   "exact": true,
   "volume": 3,
-  "page": 3
+  "page": 3,
+  "span": 51,
+  "attested": 12
  },
  "14": {
   "start": [
@@ -179,7 +205,9 @@
   ],
   "exact": true,
   "volume": 3,
-  "page": 49
+  "page": 49,
+  "span": 59,
+  "attested": 17
  },
  "15": {
   "start": [
@@ -192,7 +220,9 @@
   ],
   "exact": true,
   "volume": 3,
-  "page": 84
+  "page": 84,
+  "span": 74,
+  "attested": 16
  },
  "16": {
   "start": [
@@ -205,7 +235,9 @@
   ],
   "exact": true,
   "volume": 3,
-  "page": 122
+  "page": 122,
+  "span": 75,
+  "attested": 27
  },
  "17": {
   "start": [
@@ -218,7 +250,9 @@
   ],
   "exact": true,
   "volume": 3,
-  "page": 159
+  "page": 159,
+  "span": 55,
+  "attested": 31
  },
  "18": {
   "start": [
@@ -231,7 +265,9 @@
   ],
   "exact": true,
   "volume": 3,
-  "page": 191
+  "page": 191,
+  "span": 87,
+  "attested": 17
  },
  "19": {
   "start": [
@@ -244,7 +280,9 @@
   ],
   "exact": true,
   "volume": 3,
-  "page": 216
+  "page": 216,
+  "span": 83,
+  "attested": 24
  },
  "20": {
   "start": [
@@ -257,7 +295,9 @@
   ],
   "exact": true,
   "volume": 4,
-  "page": 3
+  "page": 3,
+  "span": 76,
+  "attested": 20
  },
  "21": {
   "start": [
@@ -270,7 +310,9 @@
   ],
   "exact": true,
   "volume": 4,
-  "page": 44
+  "page": 44,
+  "span": 68,
+  "attested": 9
  },
  "22": {
   "start": [
@@ -283,7 +325,9 @@
   ],
   "exact": true,
   "volume": 4,
-  "page": 86
+  "page": 86,
+  "span": 59,
+  "attested": 18
  },
  "23": {
   "start": [
@@ -296,7 +340,9 @@
   ],
   "exact": true,
   "volume": 4,
-  "page": 129
+  "page": 129,
+  "span": 62,
+  "attested": 17
  },
  "24": {
   "start": [
@@ -309,7 +355,9 @@
   ],
   "exact": true,
   "volume": 4,
-  "page": 165
+  "page": 165,
+  "span": 89,
+  "attested": 24
  },
  "25": {
   "start": [
@@ -322,7 +370,9 @@
   ],
   "exact": true,
   "volume": 4,
-  "page": 196
+  "page": 196,
+  "span": 78,
+  "attested": 14
  },
  "26": {
   "start": [
@@ -335,7 +385,9 @@
   ],
   "exact": true,
   "volume": 5,
-  "page": 3
+  "page": 3,
+  "span": 92,
+  "attested": 35
  },
  "27": {
   "start": [
@@ -348,7 +400,9 @@
   ],
   "exact": true,
   "volume": 5,
-  "page": 39
+  "page": 39,
+  "span": 77,
+  "attested": 37
  },
  "28": {
   "start": [
@@ -361,7 +415,9 @@
   ],
   "exact": true,
   "volume": 5,
-  "page": 70
+  "page": 70,
+  "span": 77,
+  "attested": 23
  },
  "29": {
   "start": [
@@ -374,7 +430,9 @@
   ],
   "exact": true,
   "volume": 5,
-  "page": 100
+  "page": 100,
+  "span": 188,
+  "attested": 36
  },
  "30": {
   "start": [
@@ -387,7 +445,9 @@
   ],
   "exact": true,
   "volume": 5,
-  "page": 144
+  "page": 144,
+  "span": 150,
+  "attested": 19
  },
  "31": {
   "start": [
@@ -400,7 +460,9 @@
   ],
   "exact": false,
   "volume": 6,
-  "page": 3
+  "page": 3,
+  "span": 110,
+  "attested": 24
  },
  "32": {
   "start": [
@@ -413,7 +475,9 @@
   ],
   "exact": false,
   "volume": 6,
-  "page": 40
+  "page": 40,
+  "span": 98,
+  "attested": 28
  },
  "33": {
   "start": [
@@ -426,7 +490,9 @@
   ],
   "exact": false,
   "volume": 6,
-  "page": 84
+  "page": 84,
+  "span": 135,
+  "attested": 26
  },
  "34": {
   "start": [
@@ -439,7 +505,9 @@
   ],
   "exact": false,
   "volume": 6,
-  "page": 122
+  "page": 122,
+  "span": 190,
+  "attested": 30
  },
  "35": {
   "start": [
@@ -452,7 +520,9 @@
   ],
   "exact": false,
   "volume": 6,
-  "page": 167
+  "page": 167,
+  "span": 118,
+  "attested": 41
  },
  "36": {
   "start": [
@@ -465,7 +535,9 @@
   ],
   "exact": false,
   "volume": 7,
-  "page": 3
+  "page": 3,
+  "span": 141,
+  "attested": 28
  },
  "37": {
   "start": [
@@ -478,7 +550,9 @@
   ],
   "exact": false,
   "volume": 7,
-  "page": 52
+  "page": 52,
+  "span": 227,
+  "attested": 25
  },
  "38": {
   "start": [
@@ -491,7 +565,9 @@
   ],
   "exact": false,
   "volume": 7,
-  "page": 96
+  "page": 96,
+  "span": 181,
+  "attested": 25
  },
  "39": {
   "start": [
@@ -504,7 +580,9 @@
   ],
   "exact": false,
   "volume": 7,
-  "page": 145
+  "page": 145,
+  "span": 129,
+  "attested": 28
  },
  "40": {
   "start": [
@@ -517,7 +595,9 @@
   ],
   "exact": false,
   "volume": 7,
-  "page": 195
+  "page": 195,
+  "span": 64,
+  "attested": 26
  },
  "41": {
   "start": [
@@ -530,7 +610,9 @@
   ],
   "exact": false,
   "volume": 8,
-  "page": 3
+  "page": 3,
+  "span": 127,
+  "attested": 9
  },
  "42": {
   "start": [
@@ -543,7 +625,9 @@
   ],
   "exact": false,
   "volume": 8,
-  "page": 55
+  "page": 55,
+  "span": 128,
+  "attested": 37
  },
  "43": {
   "start": [
@@ -556,7 +640,9 @@
   ],
   "exact": false,
   "volume": 8,
-  "page": 105
+  "page": 105,
+  "span": 345,
+  "attested": 25
  },
  "44": {
   "start": [
@@ -569,7 +655,9 @@
   ],
   "exact": false,
   "volume": 8,
-  "page": 159
+  "page": 159,
+  "span": 85,
+  "attested": 40
  },
  "45": {
   "start": [
@@ -582,7 +670,9 @@
   ],
   "exact": false,
   "volume": 8,
-  "page": 203
+  "page": 203,
+  "span": 196,
+  "attested": 26
  },
  "46": {
   "start": [
@@ -595,7 +685,9 @@
   ],
   "exact": false,
   "volume": 9,
-  "page": 3
+  "page": 3,
+  "span": 169,
+  "attested": 32
  },
  "47": {
   "start": [
@@ -608,7 +700,9 @@
   ],
   "exact": false,
   "volume": 9,
-  "page": 56
+  "page": 56,
+  "span": 92,
+  "attested": 10
  },
  "48": {
   "start": [
@@ -621,7 +715,9 @@
   ],
   "exact": false,
   "volume": 9,
-  "page": 108
+  "page": 108,
+  "span": 226,
+  "attested": 25
  },
  "49": {
   "start": [
@@ -634,7 +730,9 @@
   ],
   "exact": false,
   "volume": 9,
-  "page": 152
+  "page": 152,
+  "span": 203,
+  "attested": 14
  },
  "50": {
   "start": [
@@ -647,7 +745,9 @@
   ],
   "exact": false,
   "volume": 9,
-  "page": 189
+  "page": 189,
+  "span": 73,
+  "attested": 26
  },
  "51": {
   "start": [
@@ -660,7 +760,9 @@
   ],
   "exact": false,
   "volume": 10,
-  "page": 3
+  "page": 3,
+  "span": 64,
+  "attested": 19
  },
  "52": {
   "start": [
@@ -673,7 +775,9 @@
   ],
   "exact": false,
   "volume": 10,
-  "page": 52
+  "page": 52,
+  "span": 206,
+  "attested": 19
  },
  "53": {
   "start": [
@@ -686,7 +790,9 @@
   ],
   "exact": false,
   "volume": 10,
-  "page": 94
+  "page": 94,
+  "span": 225,
+  "attested": 18
  },
  "54": {
   "start": [
@@ -699,7 +805,9 @@
   ],
   "exact": false,
   "volume": 10,
-  "page": 129
+  "page": 129,
+  "span": 276,
+  "attested": 20
  },
  "55": {
   "start": [
@@ -712,22 +820,11 @@
   ],
   "exact": false,
   "volume": 10,
-  "page": 167
+  "page": 167,
+  "span": 273,
+  "attested": 43
  },
  "56": {
-  "start": [
-   112,
-   1
-  ],
-  "end": [
-   111,
-   5
-  ],
-  "exact": false,
-  "volume": 10,
-  "page": 223
- },
- "57": {
   "start": [
    112,
    1
@@ -736,8 +833,10 @@
    114,
    6
   ],
-  "exact": true,
-  "volume": null,
-  "page": null
+  "exact": false,
+  "volume": 10,
+  "page": 223,
+  "span": 15,
+  "attested": 2
  }
 }

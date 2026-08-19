@@ -39,8 +39,8 @@ function countTextFiles(dir: string): number {
 }
 
 export async function getCoverage(): Promise<Coverage> {
-  // Lesson 57 is a placeholder for sūras already covered by 56 and is
-  // redirected away in app/lesson/[id]/page.tsx, so it is not a lesson.
+  // 57.json, a placeholder duplicating Lesson 56's sūras, has been deleted.
+  // The filter stays as a guard in case one is reintroduced.
   const lessons = (await getAllLessons()).filter(l => l.id <= 56);
   const total = lessons.length;
 

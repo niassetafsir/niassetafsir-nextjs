@@ -27,9 +27,12 @@ export async function generateStaticParams() {
 }
 
 export default async function LessonPage({ params }: { params: { id: string } }) {
-  // Lesson 57 was a duplicate placeholder for the same suras covered by Lesson 56
-  // (Al-Ikhlas / Al-Falaq / Al-Nas) per the Drive table of contents; the tafsir's
-  // final lesson is 56, not 57. Redirect any old links.
+  // 57.json was a 128-character placeholder duplicating Lesson 56's own sūras
+  // (Al-Ikhlas / Al-Falaq / Al-Nas) and has been deleted. While it existed, its
+  // explicit "Q. 112:1-114:6" outranked the chain in build-lesson-ranges.py and
+  // took those three sūras from the session that actually treats them, leaving
+  // Lesson 56 covering no āya at all. The tafsir's final lesson is 56. This
+  // redirect stays for old links.
   if (Number(params.id) === 57) redirect('/lesson/56');
 
   const lesson = await getLesson(Number(params.id));

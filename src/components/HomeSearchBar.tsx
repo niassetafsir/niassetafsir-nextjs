@@ -7,13 +7,22 @@ import { useRouter } from 'next/navigation';
  *
  * Replaces two dropdowns -- "Jump to a verse" and "Read a sūrah" -- that did
  * nearly the same thing and made a visitor work out the difference before
- * doing anything. Search is what a reader actually reaches for, it already
- * covers the whole indexed corpus, and it accepts a verse reference too, so
- * the āya-jump case is not lost: typing "2:255" or "Q. 2:255" goes straight
- * to the lesson covering that verse. The sūra picker now lives on /read,
- * where browsing belongs.
+ * doing anything. Search is what a reader actually reaches for, and it accepts
+ * a verse reference too, so the āya-jump case is not lost.
+ *
+ * That last part used to be a claim rather than a behaviour. The code sent
+ * "2:255" to /search?q=2:255, and /search is a full-text search over the
+ * transcription -- so a reader asking for Āyat al-Kursī got a literal string
+ * search for "2:255", which finds nothing. Now a well-formed reference goes to
+ * /verse/2/255, which is the page that answers the question. A reference whose
+ * numbers do not exist (sūra 200, or āya 300 of a sūra with 286) falls through
+ * to search rather than routing to a 404 -- better to show a reader nothing
+ * than to show them an error.
+ *
+ * PAYLOAD: takes the āya counts as a plain number[] rather than importing
+ * SURAH_LIST, which would drag the whole verse-range module onto the homepage.
  */
-export default function HomeSearchBar() {
+export default function HomeSearchBar({ ayahCounts }: { ayahCounts: number[] }) {
   const router = useRouter();
   const [q, setQ] = useState('');
 
@@ -25,8 +34,13 @@ export default function HomeSearchBar() {
     // A bare verse reference is a navigation, not a search.
     const ref = query.match(/^(?:Q\.?\s*)?(\d{1,3})\s*[:.]\s*(\d{1,3})$/);
     if (ref) {
-      router.push(`/search?q=${encodeURIComponent(ref[1] + ':' + ref[2])}`);
-      return;
+      const surah = Number(ref[1]);
+      const ayah = Number(ref[2]);
+      const max = ayahCounts[surah - 1];
+      if (max && ayah >= 1 && ayah <= max) {
+        router.push(`/verse/${surah}/${ayah}`);
+        return;
+      }
     }
     router.push(`/search?q=${encodeURIComponent(query)}`);
   };
