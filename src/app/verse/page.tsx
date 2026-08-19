@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import VersePicker from '@/components/VersePicker';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import {
   ACT_LABEL,
@@ -61,14 +62,18 @@ export default function VerseIndexPage() {
         style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
         Commentary by Verse
       </h1>
-      <p className="font-english text-xs italic mb-2"
+      <p className="font-english text-xs italic mb-4"
         style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-        {byNiasse} {byNiasse === 1 ? 'verse' : 'verses'} engaged in more than one of Shaykh
+        Every āya has a page. Listed below are the {byNiasse} engaged in more than one of Shaykh
         Ibrāhīm&rsquo;s own works
         {schoolOnly > 0 && (
-          <>; {schoolOnly} more where the second reading is a student&rsquo;s</>
-        )}
+          <>, and {schoolOnly} more where the second reading is a student&rsquo;s</>
+        )}.
       </p>
+
+      <VersePicker
+        surahs={SURAH_LIST.map(s => ({ id: s.id, name: s.nameEn, ayahCount: s.ayahCount }))}
+      />
       <p className="font-english text-[13px] leading-relaxed mb-8"
         style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
         The reader elsewhere on this site follows <em>Fī Riyāḍ al-Tafsīr</em>: one work, one printed

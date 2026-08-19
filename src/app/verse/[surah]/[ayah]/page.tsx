@@ -17,6 +17,7 @@ import {
 } from '@/lib/corpus';
 import VerseCorpusTimeline from '@/components/VerseCorpusTimeline';
 import VerseLocusCard, { type LocusExcerpt } from '@/components/VerseLocusCard';
+import VersePicker from '@/components/VersePicker';
 
 // /verse/[surah]/[ayah] -- every place in the corpus where Shaykh Ibrāhīm
 // engages this verse.
@@ -267,6 +268,14 @@ export default async function VersePage({
       )}
 
       <NeighbourNav surah={surah} ayah={ayah} max={meta.ayahCount} />
+
+      <div className="mt-6">
+        <VersePicker
+          surahs={SURAH_LIST.map(s => ({ id: s.id, name: s.nameEn, ayahCount: s.ayahCount }))}
+          initialSurah={surah}
+          initialAyah={ayah}
+        />
+      </div>
     </main>
   );
 }
