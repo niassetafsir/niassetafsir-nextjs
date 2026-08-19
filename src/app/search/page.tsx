@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Fuse from 'fuse.js';
+import { parseVerseRef } from '@/lib/verseRefQuery';
 
 interface SearchEntry {
   id: string;
@@ -107,6 +108,12 @@ export default function SearchPage() {
     return () => clearTimeout(timer);
   }, [query, search]);
 
+  // A query like "36:39" can never match the index, which holds prose only.
+  // It is still the most precise thing a reader can type, so it gets answered
+  // by routing rather than by matching. The placeholder has advertised
+  // "Q.2:255" since this page was written.
+  const verseRef = parseVerseRef(query);
+
   const filteredResults = results.filter(r => {
     if (filter === 'all') return true;
     if (filter === 'arabic') return r.item.language === 'ar';
@@ -164,12 +171,52 @@ export default function SearchPage() {
         </div>
       </div>
 
+      {/* Verse reference */}
+      {verseRef && (
+        <div className="mb-6 border border-gold/30 rounded-xl px-4 py-4" style={{ background: 'rgba(201,168,76,0.06)' }}>
+          <p className="font-english text-xs uppercase tracking-[0.12em] text-gold/70 mb-2">
+            Verse reference
+          </p>
+          {verseRef.meta && !verseRef.ayahOutOfRange ? (
+            <>
+              <p className="font-english text-white/85 text-sm mb-3">
+                Q {verseRef.surah}:{verseRef.ayah}
+                {verseRef.ayahEnd ? `–${verseRef.ayahEnd}` : ''} · Sūrat {verseRef.meta.nameEn}{' '}
+                <span className="font-arabic text-gold/80" dir="rtl">{verseRef.meta.nameAr}</span>
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Link
+                  href={`/verse/${verseRef.surah}/${verseRef.ayah}`}
+                  className="font-english text-xs px-3 py-1.5 rounded-full bg-gold text-bg font-semibold"
+                >
+                  Everywhere this verse appears →
+                </Link>
+                <Link
+                  href={`/surah/${verseRef.surah}`}
+                  className="font-english text-xs px-3 py-1.5 rounded-full border border-gold/30 text-white/70 hover:border-gold/60"
+                >
+                  Read Sūrat {verseRef.meta.nameEn} in sequence
+                </Link>
+              </div>
+            </>
+          ) : (
+            <p className="font-english text-white/60 text-sm">
+              {verseRef.meta
+                ? `Sūrat ${verseRef.meta.nameEn} has ${verseRef.meta.ayahCount} verses, so ${verseRef.surah}:${verseRef.ayah} does not exist.`
+                : `There is no sūra ${verseRef.surah}.`}
+            </p>
+          )}
+        </div>
+      )}
+
       {/* Results */}
       {query && filteredResults.length === 0 && !loading && (
         <div className="text-center py-12">
           <p className="font-english text-white/30 italic">
             {entries.length === 0
               ? 'Loading search index…'
+              : verseRef
+              ? `The text index holds prose, not references, so "${query}" matches nothing in it. Use the link above.`
               : `No results found for "${query}"`}
           </p>
         </div>

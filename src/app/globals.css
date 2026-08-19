@@ -24,6 +24,19 @@
   --input-bg: rgba(255,255,255,0.06);
   --sticky-bg: rgba(13,31,10,0.97);
   --hairline: rgba(232,232,224,0.12);
+  /* VolumeLessonTree renders on two different surfaces: the cream lesson
+     drawer, which is cream in both themes, and /read, which follows the page
+     background. It used to hardcode rgba(13,31,10,...) -- the page background
+     colour itself -- so on /read in dark mode the volume ranges computed to
+     contrast 1.00 and disappeared. The drawer sets these back to ink inline. */
+  --tree-strong: var(--body-text);
+  --tree-mid: var(--body-sub);
+  --tree-faint: var(--body-faint);
+  --tree-chip-bg: rgba(255,255,255,0.10);
+  --tree-accent: #C9A84C;
+  --tree-input-bg: rgba(255,255,255,0.06);
+  --tree-input-border: rgba(201,168,76,0.25);
+  --tree-input-text: rgba(232,232,224,0.92);
 }
 
 html { background: var(--bg); }
@@ -93,6 +106,14 @@ body {
   --input-bg: rgba(255,255,255,0.55);
   --sticky-bg: rgba(245,237,214,0.97);
   --hairline: rgba(13,31,10,0.12);
+  /* VolumeLessonTree -- see the :root block. The three text colours follow
+     --body-* and so flip with the theme on their own; only the surface-bound
+     values are restated here. */
+  --tree-chip-bg: rgba(13,31,10,0.08);
+  --tree-accent: #8a6d1f;
+  --tree-input-bg: rgba(255,255,255,0.92);
+  --tree-input-border: rgba(13,31,10,0.15);
+  --tree-input-text: #0D1F0A;
   --persistent-nav-bg: #EDE0C0;
   --persistent-nav-border: rgba(139,105,20,0.25);
   --panel-header-bg: rgba(232,213,176,0.97);

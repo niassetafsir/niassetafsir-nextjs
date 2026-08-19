@@ -77,9 +77,9 @@ export default function VolumeLessonTree({
           placeholder="Search sūrah, title, or verse…"
           className="w-full mb-3 rounded-lg px-3 py-2 text-sm font-english"
           style={{
-            background: 'rgba(255,255,255,0.92)',
-            border: '1px solid rgba(13,31,10,0.15)',
-            color: '#0D1F0A',
+            background: 'var(--tree-input-bg)',
+            border: '1px solid var(--tree-input-border)',
+            color: 'var(--tree-input-text)',
             outline: 'none',
           }}
         />
@@ -96,20 +96,20 @@ export default function VolumeLessonTree({
                 onClick={() => toggle(v.vol)}
                 className="w-full flex items-center justify-between gap-1 px-2 py-1.5 rounded-md transition-colors"
                 style={{
-                  color: containsCurrent ? '#8a6d1f' : 'rgba(13,31,10,0.75)',
+                  color: containsCurrent ? 'var(--tree-accent)' : 'var(--tree-mid)',
                   background: containsCurrent ? 'rgba(138,109,31,0.08)' : 'transparent',
                 }}
               >
                 <span className={'font-english font-semibold ' + (compact ? 'text-[7px]' : 'text-xs')}>
                   Volume {v.vol}{' '}
-                  <span className="font-normal" style={{ color: 'rgba(13,31,10,0.45)' }}>
+                  <span className="font-normal" style={{ color: 'var(--tree-faint)' }}>
                     · {v.start}–{v.end}
                   </span>
                 </span>
                 <span className={compact ? 'text-[9px]' : 'text-xs'}>{open ? '▾' : '▸'}</span>
               </button>
               {!compact && open && (
-                <div className="px-2 pb-1 font-english text-[10px] italic" style={{ color: 'rgba(13,31,10,0.4)' }}>
+                <div className="px-2 pb-1 font-english text-[10px] italic" style={{ color: 'var(--tree-faint)' }}>
                   {v.rangeLabel}
                 </div>
               )}
@@ -130,8 +130,8 @@ export default function VolumeLessonTree({
                         style={
                           compact
                             ? {
-                                background: isCurrent ? '#8a6d1f' : 'rgba(13,31,10,0.05)',
-                                color: isCurrent ? '#F5EDD6' : 'rgba(13,31,10,0.75)',
+                                background: isCurrent ? 'var(--tree-accent)' : 'var(--tree-chip-bg)',
+                                color: isCurrent ? '#F5EDD6' : 'var(--tree-mid)',
                               }
                             : {
                                 background: isCurrent ? 'rgba(138,109,31,0.12)' : 'transparent',
@@ -146,8 +146,8 @@ export default function VolumeLessonTree({
                             <span
                               className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0"
                               style={{
-                                background: isCurrent ? '#8a6d1f' : 'rgba(13,31,10,0.08)',
-                                color: isCurrent ? '#F5EDD6' : 'rgba(13,31,10,0.55)',
+                                background: isCurrent ? 'var(--tree-accent)' : 'var(--tree-chip-bg)',
+                                color: isCurrent ? '#F5EDD6' : 'var(--tree-faint)',
                               }}
                             >
                               {l.id}
@@ -155,11 +155,11 @@ export default function VolumeLessonTree({
                             <span className="flex-1 min-w-0">
                               <span
                                 className="block font-english text-xs truncate group-hover:underline"
-                                style={{ color: '#0D1F0A' }}
+                                style={{ color: 'var(--tree-strong)' }}
                               >
                                 {l.englishTitle}
                               </span>
-                              <span className="block font-english text-[10px] truncate" style={{ color: 'rgba(13,31,10,0.5)' }}>
+                              <span className="block font-english text-[10px] truncate" style={{ color: 'var(--tree-faint)' }}>
                                 {l.sura} · {l.verseRange}
                               </span>
                             </span>

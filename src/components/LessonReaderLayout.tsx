@@ -32,7 +32,11 @@ export default function LessonReaderLayout({
   bottomContent,
 }: LessonReaderLayoutProps) {
   return (
-    <div className="lesson-reader-layout bg-cream text-ink">
+    // `lesson-reading-page` is not decoration: globals.css scopes 206 rules to
+    // it, the whole block that makes this cream surface legible (Qur'anic
+    // citations, footnote superscripts, the Tailwind dark-palette overrides).
+    // Renaming the wrapper without renaming those rules silently kills them.
+    <div className="lesson-reading-page lesson-reader-layout bg-cream text-ink">
       {/* dangerouslySetInnerHTML, not a JSX text child.
         *
         * React HTML-escapes the text content of a <style> element when it

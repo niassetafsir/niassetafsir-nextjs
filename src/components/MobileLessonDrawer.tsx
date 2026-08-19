@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -64,7 +64,17 @@ export default function MobileLessonDrawer({ lessonId, lessons }: { lessonId: nu
               background: '#F5EDD6',
               display: 'flex', flexDirection: 'column',
               boxShadow: '4px 0 24px rgba(0,0,0,0.25)',
-            }}
+              // This panel is cream in both themes, so VolumeLessonTree inside
+              // it always needs ink, whatever the theme sets at :root.
+              ['--tree-strong' as string]: '#0D1F0A',
+              ['--tree-mid' as string]: 'rgba(13,31,10,0.75)',
+              ['--tree-faint' as string]: 'rgba(13,31,10,0.55)',
+              ['--tree-chip-bg' as string]: 'rgba(13,31,10,0.08)',
+              ['--tree-accent' as string]: '#8a6d1f',
+              ['--tree-input-bg' as string]: 'rgba(255,255,255,0.92)',
+              ['--tree-input-border' as string]: 'rgba(13,31,10,0.15)',
+              ['--tree-input-text' as string]: '#0D1F0A',
+            } as React.CSSProperties}
           >
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 border-b"

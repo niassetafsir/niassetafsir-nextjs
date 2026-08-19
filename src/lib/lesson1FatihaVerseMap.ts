@@ -49,18 +49,32 @@
 // indices stay meaningful). English indices are 0-based into the
 // <p class="en-para"> blocks of englishText, in document order.
 //
-// KNOWN GAP: the English translation appears to skip a substantive
-// discussion of verses 1:3 (al-Raḥmān al-Raḥīm) and 1:4 (Māliki yawmi
-// l-dīn) that IS present in the Arabic (paragraph 67, which walks through
-// al-ḥamd / rabb al-ʿālamīn / al-Raḥmān al-Raḥīm / māliki yawmi l-dīn in
-// sequence). English paragraph 26 ("...Lord of all the worlds") jumps
-// directly to paragraph 29 ("You alone we worship"), i.e. from verse 2
-// straight to verse 5, with no equivalent English paragraph for verses 3-4
-// in between. This is left as a genuine, disclosed gap (empty array) below
-// rather than papered over with a wrong or duplicated excerpt -- the UI
-// (JalalaynVerseView) shows an explicit "translation not yet available for
-// this verse" note when `en` is null instead of silently reusing another
-// verse's English text, which is the exact bug this file exists to fix.
+// ENGLISH INDICES RE-ANCHORED 2026-08-19 -- READ THIS BEFORE TRUSTING THEM.
+// The indices below were curated against a 37-paragraph English translation
+// of Lesson 1. Commit cd03f3a replaced `englishText` with a different, fuller
+// translation of the same lesson: 81 paragraphs, 46,963 characters against the
+// former 22,854, running through to the closing invocation where the earlier
+// one stopped partway. The old indices pointed into an array that no longer
+// exists, so they have been re-derived by reading the new translation against
+// ARABIC_PARAS (which is unchanged -- `arabicBody` was not touched).
+//
+// The re-anchoring is a close reading, not an algorithm, and it has NOT been
+// checked by AK. Old -> new, for anyone auditing it:
+//   1:1  13-25  ->  14-55    1:2  26-28  ->  56,58,59,60,61,62
+//   1:5  29-31  ->  57,63    1:6  32,33  ->  57,64
+//   1:7  32,34  ->  57,64,65
+//
+// THE OLD GAP AT 1:3 AND 1:4 IS CLOSED. The former translation skipped the
+// discussion of al-Raḥmān al-Raḥīm and Māliki yawmi l-dīn that the Arabic
+// carries in paragraph 67, and this file recorded that honestly as an empty
+// array. The new translation has it: paragraph 62 walks through al-ḥamd /
+// rabb al-ʿālamīn / al-Raḥmān al-Raḥīm / Māliki yawmi l-dīn in sequence, and
+// paragraph 59 glosses the same four names against the five pillars. Both
+// verses now point at real English.
+//
+// Where a verse still has no English, the UI (JalalaynVerseView) shows an
+// explicit "translation not yet available for this verse" note rather than
+// silently reusing another verse's text -- the bug this file exists to fix.
 
 export const ARABIC_PARAS: Record<string, number[]> = {
   // Istiʿādha + basmala discussion, then sūrah-level front matter (names,
@@ -88,16 +102,32 @@ export const ARABIC_PARAS: Record<string, number[]> = {
 };
 
 export const ENGLISH_PARAS: Record<string, number[]> = {
-  '1:1': [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-  '1:2': [26, 27, 28],
-  '1:3': [], // gap -- see file header
-  '1:4': [], // gap -- see file header
-  '1:5': [29, 30, 31],
-  '1:6': [32, 33],
-  // Paragraph 32 is the combined verse-6/verse-7 quotation ("...the path of
-  // those upon whom You have bestowed favor..."), shared with 1:6 above;
-  // 34 is verse 7's specific exegesis.
-  '1:7': [32, 34],
+  // Istiʿādha (14-27), basmala (28-41), then the sūra's own front matter --
+  // names, Meccan status, faḍāʾil ḥadīths (42-55). Attached to 1:1 on the
+  // same convention ARABIC_PARAS uses: sūrah-level material has no slot of
+  // its own. Paragraphs 0-13 are the introduction on the science of tafsīr
+  // and belong to no verse.
+  '1:1': Array.from({ length: 55 - 14 + 1 }, (_, i) => 14 + i),
+  // 56 is the genre-classification pass over al-ḥamd / rabb al-ʿālamīn /
+  // al-raḥmān al-raḥīm / mālik yawm al-dīn; 58 closes it. 59 reads the same
+  // four names against the five pillars, 60 supplies the elided "say", 61
+  // defines ḥamd, 62 glosses each name in turn.
+  '1:2': [56, 58, 59, 60, 61, 62],
+  // 56, 59 and 62 each treat al-Raḥmān and al-Raḥīm explicitly.
+  '1:3': [56, 59, 62],
+  // 56, 59 and 62 each treat Māliki yawmi l-dīn explicitly; 62 carries the
+  // longest gloss, on dominion and Q. 40:16.
+  '1:4': [56, 59, 62],
+  // 57 is the brief pass ("You alone we worship -- this is sharīʿa"), shared
+  // with 1:6 and 1:7; 63 is the substantive treatment, where praise earns the
+  // servant the address.
+  '1:5': [57, 63],
+  // 57 shared as above; 64 opens on "Guide us to the Straight Path".
+  '1:6': [57, 64],
+  // 64 runs on from 1:6 into "the path of those upon whom You have bestowed
+  // Your grace" within the same paragraph, so it answers for 1:7 too; 65 is
+  // verse 7's own exegesis and the closing note on āmīn.
+  '1:7': [57, 64, 65],
 };
 
 // ---------------------------------------------------------------------------
@@ -126,8 +156,11 @@ export const ENGLISH_PARAS: Record<string, number[]> = {
 //     Here it goes to the 1:7 unit alone, where the bulk of its text sits.
 //     Splitting the paragraph in the source would be the better fix and is
 //     not attempted here.
-//   - English 32 is the combined verse-6/verse-7 quotation. It goes to the
-//     1:5-6 unit alone; 34 is verse 7's own exegesis and goes to the 1:7 unit.
+//   - English 57 is the brief genre pass and covers 1:5, 1:6 and 1:7 in three
+//     consecutive clauses. It goes to the 1:5-6 unit alone.
+//   - English 64 straddles 1:6 and 1:7 the way Arabic 69 does, but the call
+//     goes the other way: it stays with the 1:5-6 unit, because 63 breaks off
+//     mid-thought and 64 finishes it. See the note on that unit below.
 //
 // SCOPE: lesson 1 / al-Fātiḥa only, for the same reason as the maps above --
 // this segmentation came out of reading the prose, not out of an algorithm,
@@ -154,27 +187,31 @@ export const FATIHA_UNITS: CommentaryUnitMap[] = [
     gloss: 'Istiʿādha, basmala, and the faḍāʾil of the sūra',
     verses: ['1:1'],
     ar: Array.from({ length: 57 - 29 + 1 }, (_, i) => 29 + i),
-    en: [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+    en: Array.from({ length: 55 - 14 + 1 }, (_, i) => 14 + i),
   },
   {
     label: 'Q. 1:2–1:4',
     gloss: 'al-ḥamd · rabb al-ʿālamīn · al-raḥmān al-raḥīm · mālik yawm al-dīn',
     verses: ['1:2', '1:3', '1:4'],
     ar: [58, 65, 66, 67],
-    en: [26, 27, 28],
+    en: [56, 58, 59, 60, 61, 62],
   },
   {
     label: 'Q. 1:5–1:6',
     gloss: 'iyyāka naʿbudu wa-iyyāka nastaʿīn · ihdinā l-ṣirāṭ al-mustaqīm',
     verses: ['1:5', '1:6'],
     ar: [59, 68],
-    en: [29, 30, 31, 32, 33],
+    // 64 straddles 1:6 and 1:7. It goes here rather than to the 1:7 unit
+    // because 63 ends mid-thought ("The servant then says:") and 64 completes
+    // it -- splitting them would break the sentence across two pager cards.
+    // The many-to-many map above still gives 64 to 1:7 as well.
+    en: [57, 63, 64],
   },
   {
     label: 'Q. 1:7',
     gloss: 'ṣirāṭ alladhīna anʿamta ʿalayhim · the closing note on āmīn',
     verses: ['1:7'],
     ar: [60, 61, 69, 70],
-    en: [34],
+    en: [65],
   },
 ];

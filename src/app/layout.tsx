@@ -58,6 +58,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `(function(){try{var l=localStorage.getItem('site-lang');if(l&&l!=='ar'){var d=document.documentElement;d.setAttribute('lang',l);d.setAttribute('dir','ltr');}}catch(e){}})();`,
           }}
         />
+        {/*
+          Same treatment for the theme, and for the same reason. globals.css
+          declares the dark palette at :root and light under
+          [data-theme="light"], so a document with no attribute paints dark.
+          ThemeToggle set the attribute in an effect, i.e. after first paint --
+          so every light-mode reader, which is the default, got a dark flash on
+          every single page load. This sets it before the first paint instead.
+          Keep the default here and in ThemeToggle's useState in agreement.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('site-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`,
+          }}
+        />
       </head>
       <body className="bg-bg min-h-screen pb-16">
         <ScrollToTop />

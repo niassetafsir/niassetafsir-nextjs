@@ -4,11 +4,14 @@ import { useState, useEffect } from 'react';
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<'dark' | 'light'>('light');
 
+  // The blocking script in the root layout has already read localStorage and
+  // set data-theme before first paint, so read the attribute rather than
+  // localStorage: one source of truth, and no second write that could differ
+  // from what the page is already painted as. Keep the useState default above
+  // in agreement with that script's fallback.
   useEffect(() => {
-    const stored = localStorage.getItem('site-theme') as 'dark' | 'light';
-    const t = stored || 'light';
+    const t = (document.documentElement.getAttribute('data-theme') as 'dark' | 'light') || 'light';
     setTheme(t);
-    document.documentElement.setAttribute('data-theme', t);
   }, []);
 
   const toggle = () => {
