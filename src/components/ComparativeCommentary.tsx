@@ -7,35 +7,43 @@ import { parseVerseSpan, spanIncludes } from '@/lib/verseRanges';
  * ComparativeCommentary — Niasse, Jalālayn and Rūḥ al-Bayān in one view.
  *
  * Replaces the two separate <Panel> blocks that each rendered
- * JalalaynVerseView with the SAME niasseByVerse prop
- * (src/app/lesson/[id]/page.tsx, formerly lines 189 and 220). That arrangement
- * printed Shaykh Ibrāhīm's excerpt twice on every lesson page -- once beneath
- * each comparandum -- which is the bug this component exists to remove.
+ * JalalaynVerseView with the SAME niasseByVerse prop, which printed Shaykh
+ * Ibrāhīm's excerpt twice on every lesson page.
+ *
+ * WHY COLUMNS RATHER THAN A STACK (rebuilt 2026-08-19, on AK's report that
+ * the view "isn't intuitive"). The three works used to stack in a fixed
+ * order, longest first. Measured on the Q. 1:1 unit: the page ran 16,646px,
+ * and Niasse occupied 739 to 15,107 of it. Jalālayn's gloss on 1:1 is one
+ * line; Rūḥ al-Bayān's is 6,875 characters. So the reader scrolled some
+ * fifteen screens past one commentary to reach the next, by which point
+ * there is nothing left to compare against. Three texts one after another
+ * is an anthology, not a comparison.
+ *
+ * Now: the reader picks which works to show, and the chosen ones sit side by
+ * side in columns that scroll independently. Independent scrolling is what
+ * makes the length asymmetry survivable — over al-Fātiḥa, Jalālayn runs
+ * 1,531 characters and Rūḥ al-Bayān 54,038, a factor of 35, and 176x on 1:1
+ * alone. In a shared scroll the long one dictates the page; in its own box it
+ * does not. Each column header carries its work's character count for that
+ * unit, so the disparity is stated rather than hidden.
+ *
+ * ONE LANGUAGE AT A TIME, governing every column (AK's choice). Two languages
+ * per column would double the width each needs and three columns would not
+ * fit. Rūḥ al-Bayān has no English yet — that column says so rather than
+ * disappearing, so the layout does not shift under the reader.
  *
  * TWO PRESENTATIONS, chosen by whether a hand-curated partition exists:
  *
- *   units != null  -> UNIT PAGER. Niasse's prose leads each page and appears
- *                     exactly once; the Jalālayn and Rūḥ al-Bayān glosses for
- *                     the verses in that unit stack beneath it. Lesson 1 only
- *                     today (see lesson1FatihaVerseMap.ts).
- *   units == null  -> VERSE RAIL. A sticky chip row over a continuous stack.
- *                     Asserts no segmentation, needs nothing but the [s:v]
- *                     markers already in the text files, and therefore works
- *                     on any lesson whose Arabic has been transcribed.
+ *   units != null  -> UNIT PAGER, one unit at a time, columns across.
+ *                     Lesson 1 only today (see lesson1FatihaVerseMap.ts).
+ *   units == null  -> VERSE RAIL. A sticky chip row over a stack of verses,
+ *                     each verse a row of columns. Asserts no segmentation,
+ *                     needs nothing but the [s:v] markers already in the text
+ *                     files, and so works on any lesson once transcribed.
  *
- * WHY NOT A PER-VERSE PAGER: the per-verse map is many-to-many by design --
- * 1:2, 1:3 and 1:4 all resolve to paragraphs [58, 65, 66, 67] -- so stepping
- * through verses would show the same Niasse text three times running. See the
- * UNITS comment block in lesson1FatihaVerseMap.ts.
- *
- * WHY RŪḤ AL-BAYĀN IS CLAMPED AND JALĀLAYN IS NOT: measured over al-Fātiḥa,
- * Jalālayn runs 1,531 characters and Rūḥ al-Bayān 54,038 -- 35x, and 176x on
- * 1:1 alone (39 chars against 6,875). That is what the two works are: a
- * tafsīr wajīz written for the margin of a muṣḥaf, and a discursive Sufi
- * commentary. Giving them equal room would misrepresent both. Jalālayn shows
- * in full because terseness is its point; Rūḥ al-Bayān clamps to a fixed
- * number of lines with the true character count on the card, so nothing is
- * concealed -- the reader can see the size of what is behind the fold.
+ * WHY NOT A PER-VERSE PAGER: the per-verse map is many-to-many by design —
+ * 1:2, 1:3 and 1:4 all resolve to the same paragraphs — so stepping through
+ * verses would show the same Niasse text three times running.
  */
 
 interface NiasseVerseExcerpt {
@@ -45,6 +53,8 @@ interface NiasseVerseExcerpt {
 
 interface ComparativeCommentaryProps {
   jalalaynText: string | null;
+  /** English Jalālayn, same [s:v] format. Absent for most sūras. */
+  jalalaynEnText?: string | null;
   ruhText: string | null;
   niasseByVerse?: Record<string, NiasseVerseExcerpt> | null;
   units?: CommentaryUnit[] | null;
@@ -59,12 +69,23 @@ interface ParsedVerse {
   verse: number;
 }
 
+type SourceId = 'niasse' | 'jalalayn' | 'ruh';
+type Lang = 'ar' | 'en';
+
 const GOLD = '#8a6d1f';
 const BLUE = '#1d4ed8';
 const RUH = '#7c2d12';
 
+const SOURCES: { id: SourceId; ar: string; en: string; colour: string }[] = [
+  { id: 'niasse', ar: 'الشيخ إبراهيم نياس', en: 'Niasse', colour: GOLD },
+  { id: 'jalalayn', ar: 'تفسير الجلالين', en: 'Jalālayn', colour: BLUE },
+  { id: 'ruh', ar: 'روح البيان', en: 'Rūḥ al-Bayān', colour: RUH },
+];
+
+const commas = (n: number) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
 /** Split "[1:1]\ntext\n[1:2]\ntext" into a key -> body map. */
-function parseByVerse(text: string | null): Record<string, string> {
+function parseByVerse(text: string | null | undefined): Record<string, string> {
   if (!text) return {};
   const out: Record<string, string> = {};
   const blocks = text.split(/(\[\d+:\d+\])/);
@@ -89,126 +110,159 @@ function orderedKeys(...maps: Record<string, string>[]): ParsedVerse[] {
 }
 
 /* ------------------------------------------------------------------ */
-/* Shared blocks                                                       */
+/* Controls                                                            */
 /* ------------------------------------------------------------------ */
 
-function NiasseBlock({
-  ar, en, heading, paraNote,
-}: { ar: string | null; en: string | null; heading: string; paraNote?: string }) {
-  if (!ar && !en) return null;
+function SourceControls({
+  active, setActive, lang, setLang, counts,
+}: {
+  active: Set<SourceId>;
+  setActive: (s: Set<SourceId>) => void;
+  lang: Lang;
+  setLang: (l: Lang) => void;
+  counts: Record<SourceId, number>;
+}) {
+  // At least one work must stay on — turning the last one off would leave an
+  // empty panel with no way back.
+  const toggle = (id: SourceId) => {
+    const next = new Set(active);
+    if (next.has(id)) { if (next.size === 1) return; next.delete(id); }
+    else next.add(id);
+    setActive(next);
+  };
+
   return (
-    <div className="rounded-xl overflow-hidden mb-3" style={{ border: '2px solid rgba(138,109,31,0.5)', background: 'rgba(138,109,31,0.06)' }}>
-      <div className="flex items-center gap-3 px-4 py-2.5" style={{ borderBottom: '1px solid rgba(138,109,31,0.22)' }}>
-        <div style={{ width: 3, height: 30, background: GOLD, borderRadius: 2, flexShrink: 0 }} />
-        <div className="min-w-0">
-          <div className="font-arabic-sans text-base font-bold" dir="rtl" style={{ color: GOLD, lineHeight: 1.4 }}>
-            الشيخ إبراهيم نياس
-          </div>
-          <div className="font-english text-[11px] mt-0.5" style={{ color: 'rgba(138,109,31,0.85)' }}>
-            Shaykh Ibrāhīm Niasse · <em>Fī Riyāḍ al-Tafsīr</em> — {heading}
-          </div>
-        </div>
-        {paraNote && (
-          <span className="font-english text-[10px] ml-auto flex-shrink-0" style={{ color: 'rgba(138,109,31,0.6)' }}>
-            {paraNote}
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3 pb-3"
+      style={{ borderBottom: '1px solid rgba(13,31,10,0.12)' }}>
+      <span className="font-english text-[10px] uppercase tracking-wider font-semibold"
+        style={{ color: 'rgba(13,31,10,0.4)' }}>Show</span>
+
+      {SOURCES.map(s => {
+        const on = active.has(s.id);
+        const n = counts[s.id];
+        return (
+          <button key={s.id} onClick={() => toggle(s.id)} aria-pressed={on}
+            className="font-english text-[11.5px] px-3 py-1.5 rounded-full transition-all flex items-center gap-2"
+            style={{
+              border: '1px solid ' + (on ? s.colour : 'rgba(13,31,10,0.2)'),
+              background: on ? s.colour : 'rgba(255,255,255,0.45)',
+              color: on ? '#fdfaf0' : 'rgba(13,31,10,0.55)',
+              fontWeight: on ? 600 : 400,
+            }}>
+            {lang === 'ar' ? <span className="font-arabic-sans" dir="rtl">{s.ar}</span> : s.en}
+            {n > 0 && (
+              <span className="text-[9.5px]" style={{ opacity: on ? 0.8 : 0.6 }}>
+                {commas(n)}
+              </span>
+            )}
+          </button>
+        );
+      })}
+
+      <div className="flex items-center gap-1 ml-auto rounded-full p-0.5"
+        style={{ border: '1px solid rgba(13,31,10,0.18)', background: 'rgba(255,255,255,0.45)' }}>
+        {(['ar', 'en'] as Lang[]).map(l => (
+          <button key={l} onClick={() => setLang(l)} aria-pressed={lang === l}
+            className={(l === 'ar' ? 'font-arabic-sans' : 'font-english') + ' text-[11.5px] px-3 py-1 rounded-full transition-all'}
+            style={{
+              background: lang === l ? 'rgba(13,31,10,0.82)' : 'transparent',
+              color: lang === l ? '#F5EDD6' : 'rgba(13,31,10,0.6)',
+              fontWeight: lang === l ? 600 : 400,
+            }}>
+            {l === 'ar' ? 'عربي' : 'English'}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Column                                                              */
+/* ------------------------------------------------------------------ */
+
+function Column({
+  source, lang, chars, subtitle, children, scroll,
+}: {
+  source: SourceId;
+  lang: Lang;
+  chars: number;
+  subtitle?: string;
+  children: React.ReactNode;
+  /** Unit pager gives each column its own scroll; the verse rail does not. */
+  scroll: boolean;
+}) {
+  const s = SOURCES.find(x => x.id === source)!;
+  const tint = source === 'niasse' ? 'rgba(138,109,31,' : source === 'jalalayn' ? 'rgba(29,78,216,' : 'rgba(124,45,18,';
+  return (
+    <div className="rounded-xl overflow-hidden flex flex-col min-w-0"
+      style={{ border: '2px solid ' + tint + '0.34)', background: tint + '0.05)' }}>
+      <div className="px-3.5 py-2 flex items-baseline gap-2 flex-wrap"
+        style={{ background: tint + '0.10)', borderBottom: '1px solid ' + tint + '0.2)' }}>
+        <span className="font-arabic-sans text-[13px] font-bold" dir="rtl" style={{ color: s.colour }}>{s.ar}</span>
+        <span className="font-english text-[10.5px]" style={{ color: tint + '0.75)' }}>{s.en}</span>
+        {subtitle && (
+          <span className="font-english text-[9.5px]" style={{ color: tint + '0.6)' }}>· {subtitle}</span>
+        )}
+        {chars > 0 && (
+          <span className="font-english text-[9.5px] ml-auto" style={{ color: tint + '0.6)' }}>
+            {commas(chars)} chars
           </span>
         )}
       </div>
-
-      {ar && en ? (
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="px-4 py-3 font-arabic-sans text-sm leading-8 whitespace-pre-line" dir="rtl"
-            style={{ color: '#0D1F0A', borderBottom: '1px solid rgba(138,109,31,0.15)' }}>
-            {ar}
-          </div>
-          <div className="px-4 py-3 font-english text-sm leading-7 whitespace-pre-line" dir="ltr"
-            style={{ color: 'rgba(13,31,10,0.8)', borderTop: '1px solid rgba(138,109,31,0.15)' }}>
-            {en}
-          </div>
-        </div>
-      ) : ar ? (
-        <div className="px-4 py-3 font-arabic-sans text-sm leading-8 whitespace-pre-line" dir="rtl" style={{ color: '#0D1F0A' }}>
-          {ar}
-          <div className="font-english text-[10px] italic mt-2" dir="ltr" style={{ color: 'rgba(13,31,10,0.4)' }}>
-            English translation not yet available for this passage — see the full bilingual Tafsīr panel above.
-          </div>
-        </div>
-      ) : (
-        <div className="px-4 py-3 font-english text-sm leading-7 whitespace-pre-line" dir="ltr" style={{ color: 'rgba(13,31,10,0.8)' }}>
-          {en}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function JalalaynCard({ vkey, body }: { vkey: string; body: string }) {
-  return (
-    <div className="rounded-xl overflow-hidden mb-2" style={{ border: '2px solid rgba(30,58,138,0.3)' }}>
-      <div className="flex items-center gap-2 px-3 py-1.5" style={{ background: 'rgba(29,78,216,0.08)' }}>
-        <span className="font-english text-[11px] font-bold" style={{ color: BLUE }}>[{vkey}]</span>
-        <span className="font-arabic-sans text-[10px]" dir="rtl" style={{ color: 'rgba(29,78,216,0.55)' }}>تَفْسِيرُ الْجَلَالَيْنِ</span>
-      </div>
-      <div className="px-4 py-3 font-arabic-sans text-sm leading-8" dir="rtl"
-        style={{ color: 'rgba(13,31,10,0.82)', background: 'rgba(29,78,216,0.06)' }}>
-        {body}
-      </div>
-    </div>
-  );
-}
-
-/** Rūḥ al-Bayān: clamped by line count, never by pixels -- see file header. */
-function RuhCard({ vkey, body }: { vkey: string; body: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="rounded-xl overflow-hidden mb-2" style={{ border: '2px solid rgba(124,45,18,0.28)' }}>
-      <div className="flex items-center gap-2 px-3 py-1.5" style={{ background: 'rgba(124,45,18,0.08)' }}>
-        <span className="font-english text-[11px] font-bold" style={{ color: RUH }}>[{vkey}]</span>
-        <span className="font-arabic-sans text-[10px]" dir="rtl" style={{ color: 'rgba(124,45,18,0.6)' }}>رُوحُ الْبَيَانِ</span>
-        <span className="font-english text-[9.5px] ml-auto" style={{ color: 'rgba(124,45,18,0.55)' }}>
-          {body.length.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} characters
-        </span>
-      </div>
       <div
-        className="px-4 py-3 font-arabic-sans text-sm leading-8"
-        dir="rtl"
-        style={{
-          color: 'rgba(13,31,10,0.82)',
-          background: 'rgba(124,45,18,0.05)',
-          display: open ? 'block' : '-webkit-box',
-          WebkitLineClamp: open ? 'unset' : 6,
-          WebkitBoxOrient: 'vertical',
-          overflow: open ? 'visible' : 'hidden',
-        }}
+        className="px-3.5 py-3"
+        style={scroll ? { maxHeight: '62vh', overflowY: 'auto' } : undefined}
+        dir={lang === 'ar' ? 'rtl' : 'ltr'}
       >
-        {body}
+        {children}
       </div>
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="w-full font-english text-[11.5px] py-1.5 transition-colors"
-        style={{ borderTop: '1px solid rgba(124,45,18,0.18)', background: 'rgba(124,45,18,0.09)', color: RUH }}
-      >
-        {open ? 'Collapse ▲' : 'Expand — full commentary ▼'}
-      </button>
     </div>
+  );
+}
+
+function Body({ text, lang }: { text: string; lang: Lang }) {
+  return lang === 'ar' ? (
+    <div className="font-arabic-sans text-sm leading-8 whitespace-pre-line" style={{ color: '#0D1F0A' }}>{text}</div>
+  ) : (
+    <div className="font-english text-sm leading-7 whitespace-pre-line" style={{ color: 'rgba(13,31,10,0.82)' }}>{text}</div>
+  );
+}
+
+function Missing({ what }: { what: string }) {
+  return (
+    <p className="font-english text-[12px] italic" dir="ltr" style={{ color: 'rgba(13,31,10,0.45)' }}>{what}</p>
+  );
+}
+
+/** A run of [verse] blocks inside one column. */
+function VerseBlocks({
+  keys, map, lang, colour,
+}: { keys: string[]; map: Record<string, string>; lang: Lang; colour: string }) {
+  const present = keys.filter(k => map[k]);
+  if (present.length === 0) return null;
+  return (
+    <>
+      {present.map((k, i) => (
+        <div key={k} className={i ? 'mt-3 pt-3' : ''}
+          style={i ? { borderTop: '1px solid rgba(13,31,10,0.1)' } : undefined}>
+          <span className="font-english text-[10px] font-bold" dir="ltr" style={{ color: colour }}>[{k}]</span>
+          <div className="mt-1"><Body text={map[k]} lang={lang} /></div>
+        </div>
+      ))}
+    </>
   );
 }
 
 function SourceLegend({ jalalaynUrl, usulUrl }: { jalalaynUrl: string; usulUrl: string }) {
   return (
-    <div className="flex items-center gap-x-4 gap-y-1.5 flex-wrap mb-3 pb-3" style={{ borderBottom: '1px solid rgba(13,31,10,0.1)' }}>
-      <span className="font-english text-[11px] flex items-center gap-1.5" style={{ color: 'rgba(13,31,10,0.55)' }}>
-        <i style={{ width: 9, height: 9, borderRadius: 2, background: GOLD, display: 'inline-block' }} />
-        Niasse
-      </span>
+    <div className="flex items-center gap-x-4 gap-y-1.5 flex-wrap mb-2">
       <a href={jalalaynUrl} target="_blank" rel="noopener"
-        className="font-english text-[11px] flex items-center gap-1.5 hover:underline" style={{ color: 'rgba(13,31,10,0.55)' }}>
-        <i style={{ width: 9, height: 9, borderRadius: 2, background: BLUE, display: 'inline-block' }} />
+        className="font-english text-[10.5px] hover:underline" style={{ color: 'rgba(13,31,10,0.5)' }}>
         Jalālayn — al-Maḥallī &amp; al-Suyūṭī ↗
       </a>
       <a href={usulUrl} target="_blank" rel="noopener"
-        className="font-english text-[11px] flex items-center gap-1.5 hover:underline" style={{ color: 'rgba(13,31,10,0.55)' }}>
-        <i style={{ width: 9, height: 9, borderRadius: 2, background: RUH, display: 'inline-block' }} />
+        className="font-english text-[10.5px] hover:underline" style={{ color: 'rgba(13,31,10,0.5)' }}>
         Rūḥ al-Bayān — al-Burūsawī (d. 1127/1715) ↗
       </a>
     </div>
@@ -220,23 +274,26 @@ function SourceLegend({ jalalaynUrl, usulUrl }: { jalalaynUrl: string; usulUrl: 
 /* ------------------------------------------------------------------ */
 
 export default function ComparativeCommentary({
-  jalalaynText, ruhText, niasseByVerse, units, verseRange, jalalaynUrl, usulUrl,
+  jalalaynText, jalalaynEnText, ruhText, niasseByVerse, units, verseRange, jalalaynUrl, usulUrl,
 }: ComparativeCommentaryProps) {
-  const jal = parseByVerse(jalalaynText);
+  const jalAr = parseByVerse(jalalaynText);
+  const jalEn = parseByVerse(jalalaynEnText);
   const ruh = parseByVerse(ruhText);
 
   // A sūra's Jalālayn / Rūḥ al-Bayān file holds the whole sūra, but a lesson
-  // covers only part of it -- al-Baqara alone is split across lessons 2-6 and
+  // covers only part of it — al-Baqara alone is split across lessons 2-6 and
   // beyond. Without this filter lesson 2 ("Q. 2:6-25") would render all 286
   // verses. If verseRange does not parse we show everything, which is the
   // behaviour that existed before.
   const span = parseVerseSpan(verseRange);
-  const verses = orderedKeys(jal, ruh).filter(
+  const verses = orderedKeys(jalAr, ruh).filter(
     v => !span || spanIncludes(span, v.surah, v.verse)
   );
 
   const [unitIdx, setUnitIdx] = useState(0);
   const [activeVerse, setActiveVerse] = useState<string | null>(null);
+  const [active, setActive] = useState<Set<SourceId>>(new Set<SourceId>(['niasse', 'jalalayn', 'ruh']));
+  const [lang, setLang] = useState<Lang>('ar');
   const stackRef = useRef<HTMLDivElement>(null);
 
   // Scroll-spy for the verse rail. Registered unconditionally so hook order
@@ -282,12 +339,30 @@ export default function ComparativeCommentary({
     );
   }
 
-  /* ---------------- E: unit pager ---------------- */
+  const jal = lang === 'ar' ? jalAr : jalEn;
+  const cols = SOURCES.filter(s => active.has(s.id)).length;
+  const gridCls =
+    cols === 1 ? 'grid grid-cols-1 gap-3'
+      : cols === 2 ? 'grid grid-cols-1 md:grid-cols-2 gap-3'
+        : 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3';
+
+  const sum = (keys: string[], map: Record<string, string>) =>
+    keys.reduce((n, k) => n + (map[k]?.length || 0), 0);
+
+  /* ---------------- unit pager ---------------- */
   if (units && units.length > 0) {
     const u = units[Math.min(unitIdx, units.length - 1)];
-    const enRange = u.enParas.length ? `EN ¶${u.enParas[0]}–${u.enParas[u.enParas.length - 1]}` : 'EN —';
-    const arRange = u.arParas.length ? `AR ¶${u.arParas[0]}–${u.arParas[u.arParas.length - 1]}` : '';
-    const unitVerses = u.verses.filter(k => jal[k] || ruh[k]);
+    const unitVerses = u.verses.filter(k => jalAr[k] || ruh[k]);
+    const niasseText = lang === 'ar' ? u.ar : u.en;
+    const paraNote = lang === 'ar'
+      ? (u.arParas.length ? `¶${u.arParas[0]}–${u.arParas[u.arParas.length - 1]}` : undefined)
+      : (u.enParas.length ? `¶${u.enParas[0]}–${u.enParas[u.enParas.length - 1]}` : undefined);
+
+    const counts: Record<SourceId, number> = {
+      niasse: niasseText?.length || 0,
+      jalalayn: sum(unitVerses, jal),
+      ruh: lang === 'ar' ? sum(unitVerses, ruh) : 0,
+    };
 
     return (
       <div dir="ltr">
@@ -327,26 +402,46 @@ export default function ComparativeCommentary({
           </button>
         </div>
 
-        <NiasseBlock ar={u.ar} en={u.en} heading={u.label} paraNote={`${arRange} · ${enRange}`} />
+        <SourceControls active={active} setActive={setActive} lang={lang} setLang={setLang} counts={counts} />
 
-        {unitVerses.some(k => jal[k]) && (
-          <p className="font-english text-[10px] uppercase tracking-wider font-semibold mt-4 mb-1.5" style={{ color: 'rgba(29,78,216,0.7)' }}>
-            Tafsīr al-Jalālayn — verse by verse
-          </p>
-        )}
-        {unitVerses.map(k => jal[k] ? <JalalaynCard key={'j' + k} vkey={k} body={jal[k]} /> : null)}
-
-        {unitVerses.some(k => ruh[k]) && (
-          <p className="font-english text-[10px] uppercase tracking-wider font-semibold mt-4 mb-1.5" style={{ color: 'rgba(124,45,18,0.75)' }}>
-            Rūḥ al-Bayān — verse by verse
-          </p>
-        )}
-        {unitVerses.map(k => ruh[k] ? <RuhCard key={'r' + k} vkey={k} body={ruh[k]} /> : null)}
+        <div className={gridCls}>
+          {active.has('niasse') && (
+            <Column source="niasse" lang={lang} chars={counts.niasse} subtitle={paraNote} scroll>
+              {niasseText
+                ? <Body text={niasseText} lang={lang} />
+                : <Missing what={lang === 'en'
+                  ? 'No English translation for this passage yet.'
+                  : 'لا يوجد نص عربي لهذا المقطع بعد.'} />}
+            </Column>
+          )}
+          {active.has('jalalayn') && (
+            <Column source="jalalayn" lang={lang} chars={counts.jalalayn} subtitle={u.label} scroll>
+              {counts.jalalayn > 0
+                ? <VerseBlocks keys={unitVerses} map={jal} lang={lang} colour={BLUE} />
+                : <Missing what={lang === 'en'
+                  ? 'No English Jalālayn for these verses yet.'
+                  : 'لا يوجد نص عربي لهذه الآيات بعد.'} />}
+            </Column>
+          )}
+          {active.has('ruh') && (
+            <Column source="ruh" lang={lang} chars={counts.ruh} subtitle={u.label} scroll>
+              {lang === 'en'
+                ? <Missing what="Rūḥ al-Bayān has not been translated into English on this site. Read it in Arabic, or follow the Usul.ai link above." />
+                : <VerseBlocks keys={unitVerses} map={ruh} lang={lang} colour={RUH} />}
+            </Column>
+          )}
+        </div>
       </div>
     );
   }
 
-  /* ---------------- B: verse rail ---------------- */
+  /* ---------------- verse rail ---------------- */
+  const railCounts: Record<SourceId, number> = {
+    niasse: verses.reduce((n, v) => n + ((lang === 'ar' ? niasseByVerse?.[v.key]?.ar : niasseByVerse?.[v.key]?.en)?.length || 0), 0),
+    jalalayn: sum(verses.map(v => v.key), jal),
+    ruh: lang === 'ar' ? sum(verses.map(v => v.key), ruh) : 0,
+  };
+
   return (
     <div dir="ltr">
       <SourceLegend jalalaynUrl={jalalaynUrl} usulUrl={usulUrl} />
@@ -381,16 +476,43 @@ export default function ComparativeCommentary({
         })}
       </div>
 
+      <SourceControls active={active} setActive={setActive} lang={lang} setLang={setLang} counts={railCounts} />
+
       <div ref={stackRef}>
         {verses.map(v => {
           const excerpt = niasseByVerse?.[v.key];
+          const nText = lang === 'ar' ? excerpt?.ar : excerpt?.en;
           return (
-            <div key={v.key} data-verse={v.key} className="mb-5">
-              {excerpt && (excerpt.ar || excerpt.en) && (
-                <NiasseBlock ar={excerpt.ar} en={excerpt.en} heading={`Q. ${v.key}`} />
-              )}
-              {jal[v.key] && <JalalaynCard vkey={v.key} body={jal[v.key]} />}
-              {ruh[v.key] && <RuhCard vkey={v.key} body={ruh[v.key]} />}
+            <div key={v.key} data-verse={v.key} className="mb-4">
+              <p className="font-english text-[10px] uppercase tracking-wider font-semibold mb-1.5"
+                style={{ color: 'rgba(13,31,10,0.42)' }}>Q. {v.key}</p>
+              <div className={gridCls}>
+                {active.has('niasse') && (
+                  <Column source="niasse" lang={lang} chars={nText?.length || 0} scroll={false}>
+                    {nText
+                      ? <Body text={nText} lang={lang} />
+                      : <Missing what={lang === 'en'
+                        ? 'No English for this verse yet.'
+                        : 'لم تُحرَّر مقاطع الشيخ لهذه الآية بعد.'} />}
+                  </Column>
+                )}
+                {active.has('jalalayn') && (
+                  <Column source="jalalayn" lang={lang} chars={jal[v.key]?.length || 0} scroll={false}>
+                    {jal[v.key]
+                      ? <Body text={jal[v.key]} lang={lang} />
+                      : <Missing what={lang === 'en' ? 'No English Jalālayn for this verse yet.' : 'لا يوجد نص لهذه الآية.'} />}
+                  </Column>
+                )}
+                {active.has('ruh') && (
+                  <Column source="ruh" lang={lang} chars={ruh[v.key]?.length || 0} scroll={false}>
+                    {lang === 'en'
+                      ? <Missing what="Not translated into English on this site." />
+                      : ruh[v.key]
+                        ? <Body text={ruh[v.key]} lang={lang} />
+                        : <Missing what="لا يوجد نص لهذه الآية." />}
+                  </Column>
+                )}
+              </div>
             </div>
           );
         })}

@@ -153,6 +153,10 @@ export default async function LessonPage({ params }: { params: { id: string } })
         <div className="p-5" dir="ltr">
           <ComparativeCommentary
             jalalaynText={jalalaynArabicText}
+            // The English Jalālayn already in the lesson JSON, same [s:v]
+            // format. Without it the English side of the comparison had only
+            // Niasse to show.
+            jalalaynEnText={lesson.jalalaynText ?? null}
             ruhText={ruhArabicText}
             niasseByVerse={niasseByVerse}
             units={niasseUnits}

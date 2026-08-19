@@ -21,7 +21,9 @@
     "lemma"
    ],
    "publish": true,
-   "compilerNote": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī (b. 1942), with Aḥmad b. al-Shaykh ʿAbd Allāh and al-Shaykh Bāy b. Aḥmad"
+   "compilerNote": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī (b. 1942), with Aḥmad b. al-Shaykh ʿAbd Allāh and al-Shaykh Bāy b. Aḥmad",
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler"
   },
   {
    "id": "tafsir-maani-wolof",
@@ -41,7 +43,9 @@
     "tafsir",
     "lemma"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler"
   },
   {
    "id": "hikam-qutbiyya",
@@ -64,7 +68,9 @@
     "prooftext"
    ],
    "publish": false,
-   "compilerNote": "UNRESOLVED. ALA #13 says Abū Bakr Niasse (Serigne Mbaye); the printed text names nobody as compiler. Its colophon names Muḥammad Gibrima of Nguru (grantor of the printing ijāza, 1387/1967-68), al-Ḥājj ʿUthmān al-Fallātī of Nguru (patron), and Sulaymān Mūsā (scribe)."
+   "compilerNote": "UNRESOLVED. ALA #13 says Abū Bakr Niasse (Serigne Mbaye); the printed text names nobody as compiler. Its colophon names Muḥammad Gibrima of Nguru (grantor of the printing ijāza, 1387/1967-68), al-Ḥājj ʿUthmān al-Fallātī of Nguru (patron), and Sulaymān Mūsā (scribe).",
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler"
   },
   {
    "id": "risalat-al-quran",
@@ -82,7 +88,9 @@
     "certainty": "attested"
    },
    "exegeticalRegister": [],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "kashif",
@@ -103,7 +111,9 @@
     "prooftext",
     "gloss"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "sirr-akbar",
@@ -124,7 +134,9 @@
     "prooftext",
     "gloss"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "bayan-tabyin",
@@ -142,7 +154,9 @@
    "exegeticalRegister": [
     "prooftext"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "ruh-al-adab",
@@ -163,7 +177,9 @@
     "gloss",
     "poetic"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "jawahir-rasail",
@@ -182,7 +198,9 @@
     "gloss"
    ],
    "publish": false,
-   "compilerNote": "Aḥmad Abū l-Fatḥ b. ʿAlī al-Yarwāwī, 2 vols.; supplement Ziyādat al-jawāhir (Maiduguri, 1410/1990)"
+   "compilerNote": "Aḥmad Abū l-Fatḥ b. ʿAlī al-Yarwāwī, 2 vols.; supplement Ziyādat al-jawāhir (Maiduguri, 1410/1990)",
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "hujja-baligha",
@@ -203,7 +221,9 @@
     "juristic",
     "prooftext"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "bahth-hilal",
@@ -221,7 +241,9 @@
    "exegeticalRegister": [
     "juristic"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "sabil-salam",
@@ -240,7 +262,9 @@
    "exegeticalRegister": [
     "juristic"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "wajh-tahqiq",
@@ -259,7 +283,9 @@
    "exegeticalRegister": [
     "juristic"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "tuhfat-hadira",
@@ -275,7 +301,9 @@
    "exegeticalRegister": [
     "juristic"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "dawawin-sitt",
@@ -295,7 +323,9 @@
     "poetic",
     "prooftext"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "jami-jawami",
@@ -313,7 +343,9 @@
     "prooftext"
    ],
    "publish": false,
-   "compilerNote": "Ibrahim Balarabe Jega, from the 'Great Diwan' established by Sh. 'Ali Sisay (Cisse) c. 1374/1954"
+   "compilerNote": "Ibrahim Balarabe Jega, from the 'Great Diwan' established by Sh. 'Ali Sisay (Cisse) c. 1374/1954",
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "ifriqiya",
@@ -333,7 +365,9 @@
    "exegeticalRegister": [
     "prooftext"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "risalat-tawba",
@@ -354,7 +388,9 @@
     "prooftext",
     "gloss"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "rihla-hijaziyya",
@@ -375,7 +411,9 @@
     "prooftext",
     "poetic"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "rihla-ghannariyya",
@@ -396,7 +434,9 @@
     "prooftext",
     "poetic"
    ],
-   "publish": false
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
   },
   {
    "id": "rihla-kunakiriyya",
@@ -417,7 +457,201 @@
     "prooftext",
     "poetic"
    ],
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "self"
+  },
+  {
+   "id": "qanabil-yadawiyya",
+   "titleAr": "القنابل اليدوية في الذب عن طريق الصوفية",
+   "titleTranslit": "al-Qanābil al-yadawiyya fī l-dhabb ʿan ṭarīq al-ṣūfiyya",
+   "titleEn": "In Defence of the Spiritual Path of the Sufis",
+   "genre": "sufi-doctrine",
+   "attestation": "B",
+   "byNiasse": false,
+   "author": "Muḥammad al-Mishrī",
+   "relation": "student",
+   "composed": {
+    "certainty": "unknown"
+   },
+   "exegeticalRegister": [
+    "tafsir",
+    "gloss",
+    "prooftext"
+   ],
    "publish": false
+  },
+  {
+   "id": "mawsua-1-asanid",
+   "titleAr": "الأسانيد",
+   "titleTranslit": "al-Asānīd",
+   "titleEn": null,
+   "genre": "asanid",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "alaNumber": null,
+   "composed": null,
+   "publish": true,
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler",
+   "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
+   "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
+   "seriesIndex": 1,
+   "note": "Chains — the ijāzāt and riwāya-lists. Verse citation here will be formulaic where it occurs at all."
+  },
+  {
+   "id": "mawsua-2-rasail-fardiyya",
+   "titleAr": "الرسائل الفردية",
+   "titleTranslit": "al-Rasāʾil al-fardiyya",
+   "titleEn": null,
+   "genre": "rasail",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "alaNumber": null,
+   "composed": null,
+   "publish": true,
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler",
+   "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
+   "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
+   "seriesIndex": 2,
+   "note": "Letters to named individuals. A. L. Finch’s eleven citations at \"vol. 2, p. 5\" most likely fall here — see the dossier."
+  },
+  {
+   "id": "mawsua-3-rasail-jamaiyya",
+   "titleAr": "الرسائل الجماعية",
+   "titleTranslit": "al-Rasāʾil al-jamāʿiyya",
+   "titleEn": null,
+   "genre": "rasail",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "alaNumber": null,
+   "composed": null,
+   "publish": true,
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler",
+   "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
+   "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
+   "seriesIndex": 3,
+   "note": "Circular letters, indexed by addressee rather than by title. The fihris runs to p. 339 and the body to at least p. 264; one letter is addressed to \"al-sayyidayn Sīdī al-Shaykhān wa-Sīdī Muḥammad al-Mishrī\" at p. 183."
+  },
+  {
+   "id": "mawsua-4-khutab-dakhiliyya",
+   "titleAr": "الخطب الداخلية",
+   "titleTranslit": "al-Khuṭab al-dākhiliyya",
+   "titleEn": null,
+   "genre": "khutab",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "alaNumber": null,
+   "composed": null,
+   "publish": true,
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler",
+   "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
+   "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
+   "seriesIndex": 4,
+   "note": "Addresses delivered inside the community."
+  },
+  {
+   "id": "mawsua-5-fatawa-ajwiba",
+   "titleAr": "الفتاوى والأجوبة",
+   "titleTranslit": "al-Fatāwā wa-l-ajwiba",
+   "titleEn": null,
+   "genre": "fatawa",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "alaNumber": null,
+   "composed": null,
+   "publish": true,
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler",
+   "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
+   "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
+   "seriesIndex": 5,
+   "note": "Numbered responsa, each opening \"waqaftu ʿalā suʾālika ʿan…\". The densest verse-bearing axis so far examined."
+  },
+  {
+   "id": "mawsua-6-adhkar",
+   "titleAr": "الأذكار والتحاصين والرقى",
+   "titleTranslit": "al-Adhkār wa-l-taḥāṣīn wa-l-ruqā",
+   "titleEn": null,
+   "genre": "awrad",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "alaNumber": null,
+   "composed": null,
+   "publish": true,
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler",
+   "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
+   "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
+   "seriesIndex": 6,
+   "note": "Litanies, protective formulae, healing prescriptions. Qurʾānic material here is operative rather than exegetical — the act type will usually be lemma, not tafsīr."
+  },
+  {
+   "id": "mawsua-7-faaliyyat-kharijiyya",
+   "titleAr": "من فعالياته الخارجية",
+   "titleTranslit": "Min faʿāliyyātihi al-khārijiyya",
+   "titleEn": null,
+   "genre": "khutab",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "alaNumber": null,
+   "composed": null,
+   "publish": true,
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler",
+   "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
+   "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
+   "seriesIndex": 7,
+   "note": "His public activity outside the community — conference addresses, delegations, the international appearances."
+  },
+  {
+   "id": "mawsua-8-muallafat",
+   "titleAr": "من مؤلفاته",
+   "titleTranslit": "Min muʾallafātihi",
+   "titleEn": null,
+   "genre": "muallafat",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "alaNumber": null,
+   "composed": null,
+   "publish": false,
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler",
+   "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
+   "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
+   "seriesIndex": 8,
+   "note": "Reprints of the treatises. NOT an independent work: its contents are further witnesses to titles already catalogued here (Kāshif al-ilbās, Rūḥ al-adab, and the rest). Photographed cover reads al-juzʾ al-thānī, so the axis runs to at least two parts. Catalogued to keep the series complete and citable; its loci belong to the treatises, not to this entry.",
+   "seriesPart": 2
+  },
+  {
+   "id": "mawsua-9-durar-nawadir",
+   "titleAr": "درر ونوادر",
+   "titleTranslit": "Durar wa-nawādir",
+   "titleEn": null,
+   "genre": "nawadir",
+   "attestation": "A",
+   "byNiasse": true,
+   "compiler": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "alaNumber": null,
+   "composed": null,
+   "publish": true,
+   "author": "Ibrāhīm Niasse",
+   "relation": "compiler",
+   "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
+   "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
+   "seriesIndex": 9,
+   "note": "Miscellany — sayings, anecdotes, uncollected fragments."
   }
  ],
  "witnesses": [
@@ -428,7 +662,8 @@
    "language": "ar",
    "year": "1383/1964",
    "addressScheme": "cassette-timecode",
-   "isBase": false
+   "isBase": false,
+   "occasionId": "ramadan-1383"
   },
   {
    "id": "fi-riyad-tunis-2010",
@@ -442,7 +677,8 @@
    "volumes": 6,
    "addressScheme": "volume-page",
    "isBase": false,
-   "derivesFrom": "fi-riyad-audio-1964"
+   "derivesFrom": "fi-riyad-audio-1964",
+   "occasionId": "ramadan-1383"
   },
   {
    "id": "fi-riyad-tunis-2022",
@@ -456,7 +692,8 @@
    "volumes": 10,
    "addressScheme": "volume-page",
    "isBase": true,
-   "derivesFrom": "fi-riyad-audio-1964"
+   "derivesFrom": "fi-riyad-audio-1964",
+   "occasionId": "ramadan-1383"
   },
   {
    "id": "fi-riyad-site-transcription",
@@ -464,7 +701,8 @@
    "medium": "digital",
    "language": "ar",
    "addressScheme": "lesson-paragraph",
-   "derivesFrom": "fi-riyad-tunis-2022"
+   "derivesFrom": "fi-riyad-tunis-2022",
+   "occasionId": "ramadan-1383"
   },
   {
    "id": "tafsir-maani-cassettes",
@@ -473,7 +711,8 @@
    "language": "wo",
    "year": "1950-1960",
    "publisher": "Saite Sall Family Inc., New York",
-   "addressScheme": "cassette-timecode"
+   "addressScheme": "cassette-timecode",
+   "occasionId": "medina-ramadan"
   },
   {
    "id": "kashif-cairo-2001",
@@ -504,7 +743,8 @@
    "place": "Nguru / Kano region, Nigeria",
    "year": "1387/1967-68",
    "addressScheme": "page",
-   "volumes": 1
+   "volumes": 1,
+   "occasionId": "shaban-1375"
   },
   {
    "id": "hikam-ak-edition",
@@ -514,7 +754,8 @@
    "addressScheme": "page",
    "volumes": 1,
    "isBase": true,
-   "derivesFrom": "hikam-nguru-1387"
+   "derivesFrom": "hikam-nguru-1387",
+   "occasionId": "shaban-1375"
   },
   {
    "id": "kashif-cairo-2001-print",
@@ -526,6 +767,144 @@
    "editor": "al-Tijānī b. ʿAlī Cissé",
    "addressScheme": "page",
    "isBase": true
+  },
+  {
+   "id": "qanabil-nardella-woodsmith",
+   "workId": "qanabil-yadawiyya",
+   "medium": "digital",
+   "language": "ar",
+   "year": "rev. July 2018",
+   "editor": "tr. Saʿīd Simone Nardella & Adnan Wood-Smith",
+   "addressScheme": "page",
+   "isBase": true,
+   "occasionId": "qanabil-questions",
+   "note": "Bilingual Arabic-English typescript, 43 pp. The Arabic in the PDF's text layer is in scrambled presentation forms and cannot be extracted reliably; the verse references below come from the translators' own inserted citations, and each must be checked against the Arabic before it is treated as an edition."
+  },
+  {
+   "id": "mawsua-1-asanid-print",
+   "workId": "mawsua-1-asanid",
+   "medium": "print",
+   "language": "ar",
+   "year": null,
+   "editor": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "publisher": null,
+   "place": null,
+   "volumes": 1,
+   "addressScheme": "section-page",
+   "isBase": true,
+   "derivesFrom": null
+  },
+  {
+   "id": "mawsua-2-rasail-fardiyya-print",
+   "workId": "mawsua-2-rasail-fardiyya",
+   "medium": "print",
+   "language": "ar",
+   "year": null,
+   "editor": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "publisher": null,
+   "place": null,
+   "volumes": 1,
+   "addressScheme": "section-page",
+   "isBase": true,
+   "derivesFrom": null
+  },
+  {
+   "id": "mawsua-3-rasail-jamaiyya-print",
+   "workId": "mawsua-3-rasail-jamaiyya",
+   "medium": "print",
+   "language": "ar",
+   "year": null,
+   "editor": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "publisher": null,
+   "place": null,
+   "volumes": 1,
+   "addressScheme": "section-page",
+   "isBase": true,
+   "derivesFrom": null
+  },
+  {
+   "id": "mawsua-4-khutab-dakhiliyya-print",
+   "workId": "mawsua-4-khutab-dakhiliyya",
+   "medium": "print",
+   "language": "ar",
+   "year": null,
+   "editor": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "publisher": null,
+   "place": null,
+   "volumes": 1,
+   "addressScheme": "section-page",
+   "isBase": true,
+   "derivesFrom": null
+  },
+  {
+   "id": "mawsua-5-fatawa-ajwiba-print",
+   "workId": "mawsua-5-fatawa-ajwiba",
+   "medium": "print",
+   "language": "ar",
+   "year": null,
+   "editor": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "publisher": null,
+   "place": null,
+   "volumes": 1,
+   "addressScheme": "section-page",
+   "isBase": true,
+   "derivesFrom": null
+  },
+  {
+   "id": "mawsua-6-adhkar-print",
+   "workId": "mawsua-6-adhkar",
+   "medium": "print",
+   "language": "ar",
+   "year": null,
+   "editor": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "publisher": null,
+   "place": null,
+   "volumes": 1,
+   "addressScheme": "section-page",
+   "isBase": true,
+   "derivesFrom": null
+  },
+  {
+   "id": "mawsua-7-faaliyyat-kharijiyya-print",
+   "workId": "mawsua-7-faaliyyat-kharijiyya",
+   "medium": "print",
+   "language": "ar",
+   "year": null,
+   "editor": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "publisher": null,
+   "place": null,
+   "volumes": 1,
+   "addressScheme": "section-page",
+   "isBase": true,
+   "derivesFrom": null
+  },
+  {
+   "id": "mawsua-8-muallafat-print",
+   "workId": "mawsua-8-muallafat",
+   "medium": "print",
+   "language": "ar",
+   "year": null,
+   "editor": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "publisher": null,
+   "place": null,
+   "volumes": 1,
+   "addressScheme": "section-page",
+   "isBase": true,
+   "derivesFrom": null
+  },
+  {
+   "id": "mawsua-9-durar-nawadir-print",
+   "workId": "mawsua-9-durar-nawadir",
+   "medium": "print",
+   "language": "ar",
+   "year": null,
+   "editor": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
+   "publisher": null,
+   "place": null,
+   "volumes": 1,
+   "addressScheme": "section-page",
+   "isBase": true,
+   "derivesFrom": null
   }
  ],
  "loci": [
@@ -990,6 +1369,338 @@
     "raw": "cassette not identified"
    },
    "transcriptionStatus": "none"
+  },
+  {
+   "id": "qanabil-q1-1",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 1"
+   },
+   "textEn": "r they dispute, as indicated by the ayah, “ Nay, by your Lord, they do not fully believe until they have you decide between them in whatever disputes arise be - tween them” (Qur’an 4:65). Know that for the ruh to be alive and the nafs to be dea d—that is the r",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q2-2",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 2"
+   },
+   "textEn": "mity towards that person from His speech “ Whoever is an enemy to Allah, His angels, His messengers, Jibril, and Mikail—then Allah is indeed an enemy to such disbelievers” (Qur’an 2:98): since Allah is an enemy to the angels ’ enemy, He must necessarily be an ",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q2-3",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 2"
+   },
+   "textEn": "d that person before the angel s in His (t.) speech, “For truly Allah is his Protector, and Jibril, the righteous believers, and the angels are reinforcements after that” (Qur’an 66:4). Shaykh Tijani used this ayah as proof that the right - eous believe r is b",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q8-4",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 8"
+   },
+   "textEn": "teous entails honouring their descendants. Allah (t.w.t.) has said in this regard, when explaining why He hon - oured two orphans, “Their forefather was a right - eous man” (Qur’an 18:82). Another exception is if the descendant has some but not all of the same",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q8-5",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 8"
+   },
+   "textEn": " station of his or her fore father, following Al- lah’s saying, “And for those who believe and have progeny who follow them in belief, We will unite them with their progeny” (Qur’an 52:21). It is well known that the station by which a wali has become a shaykh ",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q8-6",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 8"
+   },
+   "textEn": " involved in, and say in regards to them what Allah said to Nuh regarding his disobedient son: “Indeed, he is not from your family —indeed, his actions were not righteous ” (Qur’an 11:46)? If simply being the descendant of some one great does not suffice , tha",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q10-7",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 10"
+   },
+   "textEn": "he speech of the awliya’ , “no one knows its explanation except Allah and those firmly rooted in knowledge say, ‘We believe in it — all is from the presence of our Lord’ ” (Qur’an 3:8), because the wali is always with Allah and may go through three possible st",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q10-8",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 10"
+   },
+   "textEn": "ng of surahs: no one understands them except the one who knows what they are indi- cating —even Jibril (a.s.), for when he came to the Prophet (s.a.w.s.) with “K.H.Y. ʿ. Ṣ.” (Qur’an 19:1), the Prophet (s.a.w.s.) said at every abbreviated letter, “I know it,” a",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q10-9",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 10"
+   },
+   "textEn": "s- trate to my manifestation”) and if by “prostrate” he meant “show deference ”—as in when Allah (t.) says, “And when the Qur’an is recited to them, they do not prostrate” (Qur’an 84:21), mea ning they do not show deference to it—then it is also not problem- a",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q10-10",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 10"
+   },
+   "textEn": " would not dare to approach such a height of disbelief that even Iblis shied away from. “It is not eyes that go blind —rather, hearts within the breasts are what go blind” (Qur’an 22:46). The reali ty of envy i s that it is a chronic illness. Good for envy —ho",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q10-11",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 10"
+   },
+   "textEn": " her life! “Those who do good do it for t hemselves, and those who do bad do it against themselves” (Qur’an 41:46 & 45:15), “The evil plot catches no one but its plotters ” (Qur’an 35:43), and “Say, ‘Act, for Allah will see what you do, as will His M essenger,",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q10-12",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 10"
+   },
+   "textEn": "at you do, as will His M essenger, and the believers , and you will be returned to the Knower of the Unseen and the Seen, Who will then inform all of you about what you used to do ’ ” (Qur’an 9:105). “Of you two, the ﻓﺤﻘﯿﻘﺔ اﻟﺤﺴد أﻨﻪ داء ﻋﻀﺎل، وﷲ در اﻟﺤﺴد ﻤ ﺎ ",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q15-13",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 15"
+   },
+   "textEn": " of all things, from the first manifestations to the last . The Truth indicates this in His (t.w.t.) say- ing, “O humankind, We have c reated you from a male and a female” (Qur’an 49:13) —the “male” is in reality the Name, and the “female” is in reality the At",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q15-14",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 15"
+   },
+   "textEn": "and female together , because in terms of Name it is male, and in terms of Attribute it is female. A similar passage is, “It comes out from between the loins and the ribs” (Qur’an 86:7) : from between the loins of the Name and the ribs of the Attribute, just l",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q15-15",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 15"
+   },
+   "textEn": "Muhammad al -Mishri : In Defense of the Spiritual Path of the Sufis 34 god—truly I am for you a clear warner from Him” (Qur’an 51:49- 51). Allah, the Immense, has spoken the truth. I was speaking one day wi",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q15-16",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 15"
+   },
+   "textEn": " Allah’s speech, when he said to me that my father (r.a.a.) had said to him that he was able to extract all the meanings of the Qur’an from His (t.) words , “Two men said” (Qur’an 5:23). Then I said to him that I was able to do that with His (t.) words, “And o",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q15-17",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 15"
+   },
+   "textEn": "ct all the meanings of the Qur’an from His (t.) words , “Two men said” (Qur’an 5:23). Then I said to him that I was able to do that with His (t.) words, “And one man said” (Qur’an 40:28) . Regarding what my father had said, I explained that he meant the “two m",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q16-18",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 16"
+   },
+   "textEn": " one being asked about it has no more knowledge than the o ne asking,7 nor is he like him, nor close to him, no r with him in a ny da’irah . “He creates what you know not” (Qur’an 16:8), “ It rests on Allah to show the right way ” (Qur’an 16:9)…O Allah, “Guide",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q16-19",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 16"
+   },
+   "textEn": "he o ne asking,7 nor is he like him, nor close to him, no r with him in a ny da’irah . “He creates what you know not” (Qur’an 16:8), “ It rests on Allah to show the right way ” (Qur’an 16:9)…O Allah, “Guide us to the straight path” (Qur’an 1:6) . Question 17: ",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q16-20",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 16"
+   },
+   "textEn": "o r with him in a ny da’irah . “He creates what you know not” (Qur’an 16:8), “ It rests on Allah to show the right way ” (Qur’an 16:9)…O Allah, “Guide us to the straight path” (Qur’an 1:6) . Question 17: Do arifs have a unique under- standing of Allah’s (t.) s",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q17-21",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 17"
+   },
+   "textEn": "as arrived at. After Allah (t.) said, “Today I have perfected your deen for you, I have completed My blessing upon you, and I am pleased for you to have Islam as your deen” (Qur’an 5:3), the immaculate shari’ah was sealed —no one was to add or subtract anythin",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q17-22",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 17"
+   },
+   "textEn": "Muhammad al -Mishri : In Defense of the Spiritual Path of the Sufis 38 Manifest, and the Hidden” (Qur ’an 57:3). Those who have fana’ in the Essence see that there is noth- ing first, la",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q18-23",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 18"
+   },
+   "textEn": "r surely He is to be en- trusted with such a req uest, and is able to fulfil it. Question 18: What is the meaning of Al- lah’s (t.) speech, “O Prophet, have taqwa of Al- lah” (Qur’an 33:1) ? Answer : Allah is the on e who gives us success to reach what is corr",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q18-24",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 18"
+   },
+   "textEn": " i.e. carrying out what Allah (t.w.t.) has commanded and avoiding what He has forbidden, and it is what is meant by His (t.) saying “Have taqwa of Allah acc ording to your ability ” (Qur’an 3. The taqwa of the elite of the elite, which is protecting oneself fr",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q18-25",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 18"
+   },
+   "textEn": " elite, which is protecting oneself from anything other than Allah ever coming to mind, and it is w hat is meant by His (t.) saying “Have full and com- plete taqwa of Allah” (Qur’an 3:102) a nd “Have taqwa of Me, O you who have deep hearts ” (Qur’an 2:197). It",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q18-26",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 18"
+   },
+   "textEn": "er coming to mind, and it is w hat is meant by His (t.) saying “Have full and com- plete taqwa of Allah” (Qur’an 3:102) a nd “Have taqwa of Me, O you who have deep hearts ” (Qur’an 2:197). It is known that the Prophet (s.a.w.s.) never shared partners with Alla",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q18-27",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 18"
+   },
+   "textEn": "taqwa is a kind unique to the Prophet’s (s.a.w.s.) maqam and not known to an- yone else. We also understand from His (t.w.t.) say- ing “That is part of taqwa of the heart ” (Qur’an 22:32) that the kind of taqwa referred to there is the utmost extent of taqwa, ",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q19-28",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 19"
+   },
+   "textEn": "m among those who believe in him and gather with him in the Dunya and the Akhirah. Question 19: For the people of haqiqah, what is su btly indicated by His speech, “b y Asr” (Qur’an 103:1) ? Answer : Shaykh Ibrahim has spoken about this ayah, and one of the th",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q19-29",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 19"
+   },
+   "textEn": " that it is a sign of the Hour approach- ing, as is to be found in His (t.) speech: “When the earth is entirely shaken with her quaking , and the earth expels her burdens” (Qur’an 99:1- 2) and “ Un- til when the earth puts on her decorations and adorns herself",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q19-30",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 19"
+   },
+   "textEn": "9:1- 2) and “ Un- til when the earth puts on her decorations and adorns herself, and her people think that they have power over it , then Our command will come upon her…” (Qur’an 10:24 ). It should be clear that the اﻟﺤق ﺠل وﻋﻼ أﻗﺴم ﺒﺤﯿﺎﺘﻪ ﺼﻠﻰ اﷲ ﻋﻠﯿﻪ وﺴﻠم ﻓﯿﻪ",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q19-31",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 19"
+   },
+   "textEn": "ere is a glimmer of its beginning in the end of whatever comes before it. The wisdom behind all of this is “ so that those who have Iman will be increased in their Iman…” (Qur’an 74:31): it increases the people of Allah in their des ire and hope in Him, and in",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "qanabil-q19-32",
+   "witnessId": "qanabil-nardella-woodsmith",
+   "address": {
+    "raw": "Question 19"
+   },
+   "textEn": " of the earth must manifest its hidden elements. We ask Allah (t.w.t.) to grant us solace and keep us busy with His hidden elements away from anything other tha n Him. “And the last of the ir supplication will be , ‘al-Hamdu Lillah , Rabbil -Alamin’ ” (Qur’an ",
+   "transcriptionStatus": "draft",
+   "occasionId": "qanabil-questions"
+  },
+  {
+   "id": "mawsua-fatawa-20",
+   "witnessId": "mawsua-5-fatawa-ajwiba-print",
+   "address": {
+    "page": 274,
+    "raw": "§20, p. 274"
+   },
+   "textAr": "بسم الله الرحمن الرحيم الحمد لله رب العالمين الرحمن الرحيم والصلاة والسلام على الحجاب الأعظم ورضي الله عن سره وسر سره. أما بعد، فقد وقفت على سؤالك عن الروح والذات العلية؟ الجواب باختصار: قال تعالى: ﴿وَيَسْأَلُونَكَ عَنِ الرُّوحِ قُلِ الرُّوحُ مِنْ أَمْرِ رَبِّي﴾ اعلم أن الأرواح على أقسام: أرواح العامة وأرواح الخاصة وأرواح خاصة الخاصة. أما روح العامي فعلى قسمين: روح العامي الفاجر وروح العامي المسلم. العامي الفاجر لم يبال الله بروحه ولا جسده وهاهما في عقاب مخلد أبدا. وأما العامي المسلم فروحه يرجع إلى أصله وجسده يرجع كذلك إلى أصله. وأما الخاصي فلا فرق بين روحه وجسده عندي لأن روح الخاصة يمحق جسده حتى لا يبقى له أثر ولا يكون له إلا روح ذاتي رجع إلى أصله. وأما خاصة الخاصة فلا روح له ولا جسد لأنه مات عن نفسه وحيي بربه وفني عن نفسه وبقي بالله قائلا بلسان حاله: فلم يبق إلا الله لا شيء غيره — فما ثم موصول وما ثم بائن.",
+   "textEn": "In the name of God… I have looked into your question about the spirit and the Exalted Essence. The answer, in brief. God said: \"They ask you about the spirit. Say: the spirit is of my Lord’s command.\" Know that spirits fall into classes: the spirits of the common, the spirits of the elect, and the spirits of the elect of the elect. The common man’s spirit is of two kinds, the dissolute and the Muslim. Of the dissolute God has no regard for spirit or body, and both are in punishment for ever. The common Muslim’s spirit returns to its origin and his body likewise returns to its origin. As for the elect, I hold that there is no difference between his spirit and his body, because the spirit of the elect effaces his body until no trace of it remains and nothing is left him but an essential spirit returned to its origin. And the elect of the elect has neither spirit nor body, for he has died to himself and lived by his Lord, passed away from himself and subsisted by God, saying with the tongue of his state: \"Nothing remains but God, nothing besides Him — there is here no joining and no severance.\"",
+   "transcriptionStatus": "draft",
+   "occasionId": "mawsua-fatwa-ruh"
   }
  ],
  "verseLinks": [
@@ -1611,6 +2322,368 @@
    "confidence": "reported",
    "rasm": "unknown",
    "note": "Sixty-two cassettes of Wolof exegesis covering the whole Qurʾān, recorded 1950–1960 (ALA IV #72). The boxed set has never been located. This locus is listed because the cycle is complete, not because the passage has been found — and because Wolof, not Arabic, was Shaykh Ibrāhīm's normal language of delivery."
+  },
+  {
+   "locusId": "qanabil-q1-1",
+   "surah": 4,
+   "ayahStart": 65,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 1."
+  },
+  {
+   "locusId": "qanabil-q2-2",
+   "surah": 2,
+   "ayahStart": 98,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 2."
+  },
+  {
+   "locusId": "qanabil-q2-3",
+   "surah": 66,
+   "ayahStart": 4,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 2."
+  },
+  {
+   "locusId": "qanabil-q8-4",
+   "surah": 18,
+   "ayahStart": 82,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 8."
+  },
+  {
+   "locusId": "qanabil-q8-5",
+   "surah": 52,
+   "ayahStart": 21,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 8."
+  },
+  {
+   "locusId": "qanabil-q8-6",
+   "surah": 11,
+   "ayahStart": 46,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 8."
+  },
+  {
+   "locusId": "qanabil-q10-7",
+   "surah": 3,
+   "ayahStart": 8,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
+  },
+  {
+   "locusId": "qanabil-q10-8",
+   "surah": 19,
+   "ayahStart": 1,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
+  },
+  {
+   "locusId": "qanabil-q10-9",
+   "surah": 84,
+   "ayahStart": 21,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
+  },
+  {
+   "locusId": "qanabil-q10-10",
+   "surah": 22,
+   "ayahStart": 46,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
+  },
+  {
+   "locusId": "qanabil-q10-11",
+   "surah": 35,
+   "ayahStart": 43,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
+  },
+  {
+   "locusId": "qanabil-q10-12",
+   "surah": 9,
+   "ayahStart": 105,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
+  },
+  {
+   "locusId": "qanabil-q15-13",
+   "surah": 49,
+   "ayahStart": 13,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 15."
+  },
+  {
+   "locusId": "qanabil-q15-14",
+   "surah": 86,
+   "ayahStart": 7,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 15."
+  },
+  {
+   "locusId": "qanabil-q15-15",
+   "surah": 51,
+   "ayahStart": 49,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 15.",
+   "ayahEnd": 51
+  },
+  {
+   "locusId": "qanabil-q15-16",
+   "surah": 5,
+   "ayahStart": 23,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 15."
+  },
+  {
+   "locusId": "qanabil-q15-17",
+   "surah": 40,
+   "ayahStart": 28,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 15."
+  },
+  {
+   "locusId": "qanabil-q16-18",
+   "surah": 16,
+   "ayahStart": 8,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 16."
+  },
+  {
+   "locusId": "qanabil-q16-19",
+   "surah": 16,
+   "ayahStart": 9,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 16."
+  },
+  {
+   "locusId": "qanabil-q16-20",
+   "surah": 1,
+   "ayahStart": 6,
+   "type": "prooftext",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 16."
+  },
+  {
+   "locusId": "qanabil-q17-21",
+   "surah": 5,
+   "ayahStart": 3,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 17."
+  },
+  {
+   "locusId": "qanabil-q17-22",
+   "surah": 57,
+   "ayahStart": 3,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 17. The worked example for his whole theory of graded understanding: the same āya yields the Essence, then the Attribute, then sulūk, as the reader's ḥāl changes.",
+   "stance": "extends",
+   "stanceToward": [
+    "ibn-arabi-tradition"
+   ]
+  },
+  {
+   "locusId": "qanabil-q18-23",
+   "surah": 33,
+   "ayahStart": 1,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 18."
+  },
+  {
+   "locusId": "qanabil-q18-24",
+   "surah": 64,
+   "ayahStart": 16,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 18."
+  },
+  {
+   "locusId": "qanabil-q18-25",
+   "surah": 3,
+   "ayahStart": 102,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 18."
+  },
+  {
+   "locusId": "qanabil-q18-26",
+   "surah": 2,
+   "ayahStart": 197,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 18."
+  },
+  {
+   "locusId": "qanabil-q18-27",
+   "surah": 22,
+   "ayahStart": 32,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 18."
+  },
+  {
+   "locusId": "qanabil-q19-28",
+   "surah": 103,
+   "ayahStart": 1,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 19."
+  },
+  {
+   "locusId": "qanabil-q19-29",
+   "surah": 99,
+   "ayahStart": 1,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 19.",
+   "ayahEnd": 2
+  },
+  {
+   "locusId": "qanabil-q19-30",
+   "surah": 10,
+   "ayahStart": 24,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 19."
+  },
+  {
+   "locusId": "qanabil-q19-31",
+   "surah": 74,
+   "ayahStart": 31,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 19."
+  },
+  {
+   "locusId": "qanabil-q19-32",
+   "surah": 10,
+   "ayahStart": 10,
+   "type": "tafsir",
+   "confidence": "reported",
+   "rasm": "unknown",
+   "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 19."
+  },
+  {
+   "locusId": "mawsua-fatawa-20",
+   "surah": 17,
+   "ayahStart": 85,
+   "type": "prooftext",
+   "confidence": "curated",
+   "rasm": "unknown",
+   "note": "He quotes only as far as \"min amr rabbī\" and stops there, leaving out the rest of the verse. The citation is not exegesis of the verse: it licenses the taxonomy that follows rather than construing \"amr\". But the fatwā answers the question the verse itself records being put to the Prophet, so reading it as a bare proof-text understates what he is doing. Transcribed from a photograph of the printing; not yet checked against a clean copy."
+  }
+ ],
+ "occasions": [
+  {
+   "id": "kosi-first-tafsir",
+   "label": "The Kosi tafsīr, delivered without a book",
+   "hijri": "c. 1348",
+   "gregorian": "c. 1929",
+   "place": "Kosi",
+   "language": "wo",
+   "prompt": "unprompted",
+   "note": "Refused the loan of a Jalālayn by his brother Muḥammad Khalīfa, he delivered the tafsīr from memory. Seesemann p. 64 records the episode but warns the chronology of these early events cannot be fixed precisely (n. 62); the rupture with his brother came later, in 1349/1930-31 (p. 63). Dating soft; significance not."
+  },
+  {
+   "id": "medina-ramadan",
+   "label": "The annual Ramaḍān tafsīr at Medina Baye",
+   "gregorian": "from 1936",
+   "place": "Medina Baye, Kaolack",
+   "language": "wo",
+   "prompt": "annual",
+   "audience": "Regular attenders were entitled to wear the meetel",
+   "note": "Seesemann pp. 228-229. Mostly in Wolof (p. 342)."
+  },
+  {
+   "id": "shaban-1375",
+   "label": "The Shaʿbān 1375 majālis al-tafsīr",
+   "hijri": "Shaʿbān 1375",
+   "gregorian": "March–April 1956",
+   "language": "ar",
+   "prompt": "requested",
+   "place": "probably Nigeria",
+   "note": "Behind al-Ḥikam al-quṭbiyya. Brigaglia (2009, p. 355 n. 37) infers a Nigerian visit; the notes were printed eleven years later at the initiative of ʿUthmān al-Fallātī of Nguru. NOT Ramaḍān — which cuts against the annual-cycle frame."
+  },
+  {
+   "id": "ramadan-1383",
+   "label": "The Ramaḍān–Shawwāl 1383 Arabic cycle",
+   "hijri": "1383",
+   "gregorian": "1964",
+   "place": "Medina Baye, Kaolack",
+   "language": "ar",
+   "prompt": "annual",
+   "audience": "Arabic-speaking disciples from Mauritania and Nigeria",
+   "note": "56 sessions between ẓuhr and ʿaṣr. Behind Fī Riyāḍ al-Tafsīr. Delivered in Arabic rather than his usual Wolof because of the audience."
+  },
+  {
+   "id": "qanabil-questions",
+   "label": "Twenty questions put to al-Mishrī by a murīd",
+   "language": "ar",
+   "prompt": "responsum",
+   "requestedBy": "An unnamed murīd — the translators note al-Mishrī may have posed them to himself, as was his habit",
+   "note": "Questions 17-19 run: do the ʿārifūn have a distinctive understanding of God's speech; then two verses to demonstrate it on (Q 33:1, Q 103:1). The theoretical claim followed immediately by its cashing-out."
+  },
+  {
+   "id": "mawsua-fatwa-ruh",
+   "label": "A written question on the spirit and the Exalted Essence",
+   "language": "ar",
+   "prompt": "responsum",
+   "requestedBy": "Unnamed correspondent — the text addresses him only as \"suʾālika\"",
+   "note": "al-Fatāwā wa-l-ajwiba §20, p. 274. Undated in the printing. The answer opens on the verse and then divides the arwāḥ into ʿāmma, khāṣṣa and khāṣṣat al-khāṣṣa."
   }
  ]
 }

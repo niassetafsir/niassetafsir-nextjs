@@ -3,6 +3,8 @@ import {
   ACT_LABEL,
   CONFIDENCE_LABEL,
   CONFIDENCE_NOTE,
+  PROMPT_LABEL,
+  STANCE_LABEL,
   type VerseEntry,
 } from '@/lib/corpus';
 
@@ -62,6 +64,12 @@ export default function VerseLocusCard({
             style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
             {work.titleTranslit ?? work.id}
           </h3>
+          {!entry.isNiasse && work.author && (
+            <span className="font-english text-[11px] px-2 py-0.5 rounded-full border"
+              style={{ borderColor: 'rgba(255,255,255,0.22)', color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
+              {work.author}
+            </span>
+          )}
           {work.titleAr && (
             <span className="font-arabic text-[14px]" dir="rtl"
               style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
@@ -100,11 +108,32 @@ export default function VerseLocusCard({
           </strong>
           {witness.language && <> · {languageName(witness.language)}</>}
           {address && <> · {address}</>}
+          {/* A member of a series cannot be found from its own title alone:
+              every maḥwar of the Mawsūʿa paginates from 1, so the address is
+              only an address once the series and the ordinal are attached. */}
+          {work.series && (
+            <> · {work.series}
+              {work.seriesIndex !== undefined && <>, maḥwar {work.seriesIndex}</>}
+              {work.seriesPart !== undefined && <>/{work.seriesPart}</>}
+            </>
+          )}
           {witness.medium === 'audio' && <> · audio</>}
           {link.rasm !== 'unknown' && <> · numbered by {link.rasm === 'warsh' ? 'Warsh' : 'Ḥafṣ'}</>}
           {excerpt?.printedRef && <> · lesson opens at {excerpt.printedRef}</>}
           {work.compiler && <> · compiled by {shorten(work.compiler)}</>}
+          {entry.occasion && entry.occasion.prompt !== 'unknown' && (
+            <> · <span title={entry.occasion.note ?? ''} className="cursor-help">
+              {PROMPT_LABEL[entry.occasion.prompt]}
+            </span></>
+          )}
         </p>
+        {link.stance && (
+          <p className="font-english text-[11.5px] mt-1"
+            style={{ color: 'var(--gold-light, #E8D4A0)' }}>
+            {STANCE_LABEL[link.stance]}
+            {link.stanceToward?.length ? ` — ${link.stanceToward.join(', ')}` : ''}
+          </p>
+        )}
       </div>
 
       {/* body — four states, and all four are shown rather than hidden */}

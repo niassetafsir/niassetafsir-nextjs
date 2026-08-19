@@ -11,6 +11,7 @@ import {
   crossCorpusVerses,
   getVerseEntries,
   groupByAct,
+  splitBySpeaker,
   timelineMarks,
   type VerseEntry,
 } from '@/lib/corpus';
@@ -73,8 +74,10 @@ export default async function VersePage({
   const meta = SURAH_LIST.find(s => s.id === surah);
   if (!meta || !Number.isFinite(ayah) || ayah < 1 || ayah > meta.ayahCount) notFound();
 
-  const entries = getVerseEntries(surah, ayah);
+  const allEntries = getVerseEntries(surah, ayah);
+  const { niasse: entries, school } = splitBySpeaker(allEntries);
   const groups = groupByAct(entries);
+  const schoolGroups = groupByAct(school);
   const marks = timelineMarks(entries);
   const text = VERSES[`${surah}:${ayah}`];
   const printed = formatRef(suraRef(surah));
@@ -162,7 +165,7 @@ export default async function VersePage({
         </p>
       </div>
 
-      {entries.length === 0 ? (
+      {allEntries.length === 0 ? (
         <div className="rounded-xl border border-dashed px-5 py-6"
           style={{ borderColor: 'rgba(255,255,255,0.16)' }}>
           <p className="font-english text-[14px] leading-relaxed"
@@ -182,7 +185,22 @@ export default async function VersePage({
         </div>
       ) : (
         <>
+          {entries.length === 0 && (
+            <div className="rounded-xl border border-dashed px-5 py-5 mb-10"
+              style={{ borderColor: 'rgba(255,255,255,0.16)' }}>
+              <p className="font-english text-[13.5px] leading-relaxed"
+                style={{ color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
+                <strong style={{ color: 'var(--body-text, #FFFFFF)' }}>
+                  Nothing from Shaykh Ibrāhīm on this verse yet — but the school reads it.
+                </strong>{' '}
+                What follows is a student&rsquo;s commentary, not his. Where he treats the verse
+                himself, it has not been located or not yet ingested.
+              </p>
+            </div>
+          )}
+
           {/* ── summary ───────────────────────────────────────── */}
+          {entries.length > 0 && (
           <div className="flex flex-wrap gap-x-9 gap-y-3 mb-9">
             <Stat n={String(entries.length)} label={entries.length === 1 ? 'locus' : 'loci in the corpus'} />
             <Stat n={String(groups.length)} label={groups.length === 1 ? 'act' : 'distinct acts'} />
@@ -194,6 +212,7 @@ export default async function VersePage({
             )}
             <Stat n={`${loaded} of ${entries.length}`} label="text available" />
           </div>
+          )}
 
           <VerseCorpusTimeline marks={marks} />
 
@@ -216,6 +235,23 @@ export default async function VersePage({
               ))}
             </section>
           ))}
+
+          {schoolGroups.length > 0 && (
+            <section className="mt-14 pt-8 border-t" style={{ borderColor: 'rgba(201,168,76,0.25)' }}>
+              <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
+                Read in the school
+              </h2>
+              <p className="font-english text-[13px] italic mb-5"
+                style={{ color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
+                Not Shaykh Ibrāhīm&rsquo;s words. Students and successors reading the same verse — kept
+                below and apart, because a school&rsquo;s reading is evidence of transmission, not of
+                what the master said.
+              </p>
+              {schoolGroups.map(g => g.entries.map(entry => (
+                <VerseLocusCard key={`school-${entry.locus.id}-${entry.link.type}`} entry={entry} />
+              )))}
+            </section>
+          )}
 
           <p className="font-english text-[12.5px] leading-relaxed pt-6 border-t"
             style={{

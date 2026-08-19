@@ -22,17 +22,17 @@
 // A generic per-verse fix isn't safe here because Niasse's lecture doesn't
 // discuss al-Fātiḥa's seven verses in one clean linear pass. He first
 // classifies each verse briefly by rhetorical genre (arabicBody paragraphs
-// 58-60 -- ḥamd/tawḥīd/waʿd/waʿīd/sharīʿa/ḥaqīqa/duʿāʾ/qiṣṣa/mawʿiẓa), then
-// digresses into an unrelated ḥadīth about the five pillars of Islam
-// (61-64), then returns for a second, more substantive pass of
-// verse-by-verse exegesis (65-70). Several of his paragraphs bundle two or
-// three verses together in one block of prose with no clean internal seam
-// (e.g. paragraph 59 treats "iyyāka naʿbudu", "wa-iyyāka nastaʿīn", and
-// "ihdinā l-ṣirāṭ al-mustaqīm" -- spanning verses 5 and 6 -- as one
-// continuous unit). A generic "next verse starts here" algorithm over
-// paragraph indices was tried and confirmed to badly over- and
-// under-include: it pulls Sūrat al-Baqara's header paragraphs into verse
-// 7's excerpt, and it omits the substantive second exegesis pass (65-67)
+// 54-57 -- ḥamd/tawḥīd/waʿd/waʿīd/sharīʿa/ḥaqīqa/duʿāʾ/qiṣṣa/mawʿiẓa), then
+// reads the same divine names against the five pillars of Islam (58-60),
+// then returns for a second, more substantive pass of verse-by-verse
+// exegesis (61-66). Several of his paragraphs bundle two or three verses
+// together in one block of prose with no clean internal seam (e.g. paragraph
+// 55 treats "iyyāka naʿbudu", "wa-iyyāka nastaʿīn", and "ihdinā l-ṣirāṭ
+// al-mustaqīm" -- spanning verses 5 and 6 -- as one continuous unit, and 65
+// runs from ihdinā straight through to wa-lā l-ḍāllīn). A generic "next verse
+// starts here" algorithm over paragraph indices was tried and confirmed to
+// badly over- and under-include: it pulls Sūrat al-Baqara's header paragraphs
+// into verse 7's excerpt, and it omits the substantive second exegesis pass
 // for verses 2-4 entirely. The mapping below reflects an actual
 // verse-by-verse reading of the prose instead.
 //
@@ -49,7 +49,25 @@
 // indices stay meaningful). English indices are 0-based into the
 // <p class="en-para"> blocks of englishText, in document order.
 //
-// ENGLISH INDICES RE-ANCHORED 2026-08-19 -- READ THIS BEFORE TRUSTING THEM.
+// BOTH INDEX SETS RE-ANCHORED 2026-08-19 -- READ THIS BEFORE TRUSTING THEM.
+//
+// THE ARABIC SIDE HAD SILENTLY BROKEN. These indices were curated on
+// 2026-08-16; `arabicBody` was rebuilt afterwards and the array shifted by
+// roughly four. Sūrat al-Baqara now begins at paragraph 67, and the old map
+// sent Q 1:2-1:4 to 65-67 and Q 1:5, 1:6, 1:7 to 68, 69 and 70 -- so four of
+// the seven verses were showing commentary on a different sūra, including
+// al-Baqara's bare verse count under "iyyāka naʿbudu". Live from the rebuild
+// until now. Old -> new: 1:1 29-57 -> 14-53 · 1:2 [58,65,66,67] ->
+// [54,58,59,60,61,62,63] · 1:5 [59,68] -> [55,64] · 1:6 [59,69] -> [55,65] ·
+// 1:7 [60,61,69,70] -> [56,57,65,66].
+//
+// THESE INDICES ARE COUPLED TO THE TEXT AND WILL BREAK AGAIN THE NEXT TIME
+// EITHER FIELD IS REBUILT. Nothing enforces the coupling: a wrong index still
+// returns a real paragraph, so the panels keep rendering plausible Arabic.
+// After any edit to lesson 1's `arabicBody` or `englishText`, re-derive both
+// maps. The fixed points to anchor against: the heading سورة الفاتحة, the
+// heading سورة البقرة, and their English counterparts.
+//
 // The indices below were curated against a 37-paragraph English translation
 // of Lesson 1. Commit cd03f3a replaced `englishText` with a different, fuller
 // translation of the same lesson: 81 paragraphs, 46,963 characters against the
@@ -81,24 +99,29 @@ export const ARABIC_PARAS: Record<string, number[]> = {
   // Meccan/Medinan status, virtues/faḍāʾil ḥadīths) -- kept attached to
   // verse 1:1 since there's no separate slot for sūrah-level material, same
   // convention already used in ruhAlBayanArabic/SOURCE.md.
-  '1:1': Array.from({ length: 57 - 29 + 1 }, (_, i) => 29 + i),
-  // Brief genre-classification pass (58) + detailed second-pass exegesis of
-  // al-ḥamdu lillāhi rabbi l-ʿālamīn / al-raḥmāni l-raḥīm / māliki yawmi
-  // l-dīn (65-67). Not further splittable at the paragraph level -- 67 in
-  // particular walks through all three verses in one continuous block.
-  '1:2': [58, 65, 66, 67],
-  '1:3': [58, 65, 66, 67],
-  '1:4': [58, 65, 66, 67],
-  // "iyyāka naʿbudu wa-iyyāka nastaʿīn" (68) plus its mention in the brief
-  // pass (59, shared with 1:6 -- see below).
-  '1:5': [59, 68],
-  // "ihdinā l-ṣirāṭ al-mustaqīm" (69) plus its mention in the brief pass
-  // (59, shared with 1:5).
-  '1:6': [59, 69],
+  '1:1': Array.from({ length: 53 - 14 + 1 }, (_, i) => 14 + i),
+  // Genre-classification pass (54, which maps al-ḥamd → praise, rabb
+  // al-ʿālamīn → tawḥīd, al-raḥmān al-raḥīm → promise, mālik yawm al-dīn →
+  // warning), the five-names reading against the five pillars (58-60), the
+  // elided "qūlū" (61), the definition of ḥamd (62), and the paragraph that
+  // glosses each of the four names in turn (63).
+  '1:2': [54, 58, 59, 60, 61, 62, 63],
+  // 62 is only about ḥamd, so it drops out here; 63 carries al-Raḥmān and
+  // al-Raḥīm explicitly, as do 54 and 58-60.
+  '1:3': [54, 58, 59, 60, 63],
+  // Same, for Māliki yawmi l-dīn -- 63 holds the longest treatment, on
+  // dominion and Q. 40:16.
+  '1:4': [54, 58, 59, 60, 63],
+  // "iyyāka naʿbudu wa-iyyāka nastaʿīn" (64) plus its mention in the brief
+  // pass (55, shared with 1:6 -- see below).
+  '1:5': [55, 64],
+  // "ihdinā l-ṣirāṭ al-mustaqīm" (65) plus its mention in the brief pass
+  // (55, shared with 1:5).
+  '1:6': [55, 65],
   // "ṣirāṭ alladhīna anʿamta ʿalayhim ghayri l-maghḍūbi ʿalayhim wa-lā
-  // l-ḍāllīn" (60-61) plus its mention in the detailed pass (69, shared
-  // with 1:6) and the closing note on "āmīn" (70).
-  '1:7': [60, 61, 69, 70],
+  // l-ḍāllīn" (56-57) plus 65, which runs on from ihdinā into this verse
+  // inside one paragraph, and the closing note on āmīn (66).
+  '1:7': [56, 57, 65, 66],
 };
 
 export const ENGLISH_PARAS: Record<string, number[]> = {
@@ -143,24 +166,22 @@ export const ENGLISH_PARAS: Record<string, number[]> = {
 //
 // UNITS is the *partition*: every paragraph belongs to exactly one unit, and
 // the units follow the segmentation Niasse's own prose has. The boundaries are
-// the ones src/lib/verseIndex.ts already discovered independently for lesson 1
-// (its hand-curated entries break at paraIndex 29 / 58 / 59 / 60, i.e. at
-// 1:1 | 1:2-4 | 1:5-6 | 1:7).
+// the ones src/lib/verseIndex.ts discovered independently for lesson 1, in
+// that file's own paragraph numbering: 1:1 | 1:2-4 | 1:5-6 | 1:7.
 //
-// TWO PARAGRAPHS HAD TO BE ASSIGNED RATHER THAN SHARED, and both calls are
+// THREE PARAGRAPHS HAD TO BE ASSIGNED RATHER THAN SHARED, and each call is
 // arguable -- flagged here rather than buried:
 //
-//   - Arabic 69 straddles the 1:6/1:7 boundary. It opens on "ihdinā l-ṣirāṭ
-//     al-mustaqīm" and then runs on into "ṣirāṭ alladhīna anʿamta ʿalayhim"
-//     within the same paragraph. ARABIC_PARAS gives it to both 1:6 and 1:7.
-//     Here it goes to the 1:7 unit alone, where the bulk of its text sits.
-//     Splitting the paragraph in the source would be the better fix and is
-//     not attempted here.
-//   - English 57 is the brief genre pass and covers 1:5, 1:6 and 1:7 in three
-//     consecutive clauses. It goes to the 1:5-6 unit alone.
-//   - English 64 straddles 1:6 and 1:7 the way Arabic 69 does, but the call
-//     goes the other way: it stays with the 1:5-6 unit, because 63 breaks off
-//     mid-thought and 64 finishes it. See the note on that unit below.
+//   - Arabic 55 and English 57 are the brief genre pass and cover 1:5, 1:6
+//     and 1:7 in three consecutive clauses. Both go to the 1:5-6 unit alone.
+//   - Arabic 65 straddles the 1:6/1:7 boundary. It opens on "ihdinā l-ṣirāṭ
+//     al-mustaqīm" and runs on into "ṣirāṭ alladhīna anʿamta ʿalayhim" and
+//     "wa-lā l-ḍāllīn" within the same paragraph. ARABIC_PARAS gives it to
+//     both 1:6 and 1:7; here it stays with the 1:5-6 unit, alongside its
+//     English counterpart. Splitting the paragraph in the source would be the
+//     better fix and is not attempted here.
+//   - English 64 straddles the same boundary and makes the same move, so that
+//     the Arabic and English straddlers do not land in different units.
 //
 // SCOPE: lesson 1 / al-Fātiḥa only, for the same reason as the maps above --
 // this segmentation came out of reading the prose, not out of an algorithm,
@@ -186,32 +207,35 @@ export const FATIHA_UNITS: CommentaryUnitMap[] = [
     label: 'Q. 1:1',
     gloss: 'Istiʿādha, basmala, and the faḍāʾil of the sūra',
     verses: ['1:1'],
-    ar: Array.from({ length: 57 - 29 + 1 }, (_, i) => 29 + i),
+    ar: Array.from({ length: 53 - 14 + 1 }, (_, i) => 14 + i),
     en: Array.from({ length: 55 - 14 + 1 }, (_, i) => 14 + i),
   },
   {
     label: 'Q. 1:2–1:4',
     gloss: 'al-ḥamd · rabb al-ʿālamīn · al-raḥmān al-raḥīm · mālik yawm al-dīn',
     verses: ['1:2', '1:3', '1:4'],
-    ar: [58, 65, 66, 67],
+    ar: [54, 58, 59, 60, 61, 62, 63],
     en: [56, 58, 59, 60, 61, 62],
   },
   {
     label: 'Q. 1:5–1:6',
     gloss: 'iyyāka naʿbudu wa-iyyāka nastaʿīn · ihdinā l-ṣirāṭ al-mustaqīm',
     verses: ['1:5', '1:6'],
-    ar: [59, 68],
-    // 64 straddles 1:6 and 1:7. It goes here rather than to the 1:7 unit
-    // because 63 ends mid-thought ("The servant then says:") and 64 completes
-    // it -- splitting them would break the sentence across two pager cards.
-    // The many-to-many map above still gives 64 to 1:7 as well.
+    // Arabic 65 and English 64 both straddle 1:6 and 1:7, and both stay here
+    // rather than going to the 1:7 unit: Arabic 64 and English 63 each end
+    // mid-thought (the servant is granted leave to ask, then asks), and the
+    // paragraph that follows completes the sentence. Splitting them would
+    // break one utterance across two pager cards, and would put the Arabic
+    // and English straddlers in different units. The many-to-many map above
+    // still gives both to 1:7 as well.
+    ar: [55, 64, 65],
     en: [57, 63, 64],
   },
   {
     label: 'Q. 1:7',
     gloss: 'ṣirāṭ alladhīna anʿamta ʿalayhim · the closing note on āmīn',
     verses: ['1:7'],
-    ar: [60, 61, 69, 70],
+    ar: [56, 57, 66],
     en: [65],
   },
 ];

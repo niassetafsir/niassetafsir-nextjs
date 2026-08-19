@@ -63,6 +63,65 @@ export type Confidence = 'curated' | 'auto' | 'reported';
  */
 export type Rasm = 'warsh' | 'hafs' | 'unknown';
 
+/**
+ * What Niasse DOES to the authority he is reading with.
+ *
+ * `sourceFrame` records which prior commentary stands behind a locus; it says
+ * nothing about what he does to it. If the claim is that he adjudicates
+ * between positions -- sometimes affirming, sometimes departing, sometimes
+ * extending -- then the adjudication has to be a field, or it can never be
+ * shown from the data.
+ *
+ * This can only ever be filled in by a human reading the passage. The
+ * automated matcher produces `type` and nothing else; a stance that has not
+ * been read in is absent, not neutral.
+ */
+export type Stance =
+  | 'affirms'     // takes the received position as it stands
+  | 'qualifies'   // accepts it within limits he sets
+  | 'rejects'     // sets it aside for another
+  | 'extends'     // grants it, then carries it further
+  | 'reconciles'  // holds two positions together
+  | 'silent';     // draws on it without comment
+
+/**
+ * How a session or text came about. The distinction matters because the
+ * delivery of tafsir was itself an act of authority in the Fayda: standing up
+ * to give it unbidden is not the same speech-situation as being asked for it,
+ * and neither is the same as answering a letter about one verse.
+ */
+export type Prompt =
+  | 'unprompted'  // he began it himself
+  | 'requested'   // students asked for the session
+  | 'responsum'   // written answer to a question put to him
+  | 'annual'      // the recurring Ramadan cycle
+  | 'unknown';
+
+/** Who produced a work, and how they stand to Shaykh Ibrahim. */
+export type Relation =
+  | 'self'      // Shaykh Ibrahim's own words
+  | 'student'   // a member of the school commenting in his own right
+  | 'compiler'  // someone transcribing or arranging his words
+  | 'critic';   // an opponent
+
+/**
+ * The circumstance a body of commentary was delivered in. Attaches to a
+ * witness (a whole session-set) or to a single locus.
+ */
+export interface Occasion {
+  id: string;
+  label: string;
+  hijri?: string;
+  gregorian?: string;
+  place?: string;
+  language?: string;
+  prompt: Prompt;
+  /** Who asked, where the request is recorded. */
+  requestedBy?: string;
+  audience?: string;
+  note?: string;
+}
+
 export interface Work {
   id: string;
   titleAr?: string;
@@ -76,6 +135,23 @@ export interface Work {
   composed?: { hijri?: string; gregorian?: string; certainty?: string };
   exegeticalRegister?: ExegeticalAct[];
   publish?: boolean;
+  /** Whose words these are. Defaults to Shaykh Ibrahim. */
+  author?: string;
+  relation?: Relation;
+  /**
+   * Some works exist only as one member of a larger publishing project and
+   * cannot be cited without it. The nine mahawir of the Mawsuʿat al-athar
+   * al-nathriyya forced this field: each carries its own title and its own
+   * pagination beginning at 1, so a bare "vol. 2, p. 5" addresses nothing
+   * until you know which mahwar is meant.
+   */
+  series?: string;
+  seriesAr?: string;
+  /** Ordinal within the series; `seriesPart` distinguishes a multi-juzʾ member. */
+  seriesIndex?: number;
+  seriesPart?: number;
+  /** Editorial note about the work itself, not about its compiler. */
+  note?: string;
 }
 
 export interface Witness {
@@ -91,6 +167,7 @@ export interface Witness {
   addressScheme: string;
   isBase?: boolean;
   derivesFrom?: string | null;
+  occasionId?: string;
 }
 
 export interface LocusAddress {
@@ -112,6 +189,7 @@ export interface Locus {
   textAr?: string;
   textEn?: string;
   transcriptionStatus?: 'none' | 'ocr' | 'draft' | 'verified';
+  occasionId?: string;
 }
 
 export interface VerseLink {
@@ -123,6 +201,10 @@ export interface VerseLink {
   confidence: Confidence;
   rasm: Rasm;
   note?: string;
+  /** Only ever set by a human reader. See Stance. */
+  stance?: Stance;
+  /** Whom the stance is toward -- 'jalalayn', 'sawi', 'ruh-al-bayan', a name. */
+  stanceToward?: string[];
 }
 
 interface Corpus {
@@ -130,12 +212,29 @@ interface Corpus {
   witnesses: Witness[];
   loci: Locus[];
   verseLinks: VerseLink[];
+  occasions?: Occasion[];
 }
 
 const corpus = corpusRaw as unknown as Corpus;
 
 const WORKS = new Map(corpus.works.map(w => [w.id, w]));
 const WITNESSES = new Map(corpus.witnesses.map(w => [w.id, w]));
+const OCCASIONS = new Map((corpus.occasions ?? []).map(o => [o.id, o]));
+
+export function getOccasion(id?: string): Occasion | undefined {
+  return id ? OCCASIONS.get(id) : undefined;
+}
+
+export const STANCE_LABEL: Record<Stance, string> = {
+  affirms: 'affirms', qualifies: 'qualifies', rejects: 'departs from',
+  extends: 'extends', reconciles: 'reconciles', silent: 'draws on',
+};
+
+export const PROMPT_LABEL: Record<Prompt, string> = {
+  unprompted: 'delivered unbidden', requested: 'held at students\u2019 request',
+  responsum: 'answered in writing', annual: 'the annual Rama\u1e0d\u0101n cycle',
+  unknown: '',
+};
 
 export function getWork(id: string): Work | undefined {
   return WORKS.get(id);
@@ -268,6 +367,9 @@ export interface VerseEntry {
   locus: Locus;
   witness: Witness;
   work: Work;
+  occasion?: Occasion;
+  /** False when the words are a student's rather than Shaykh Ibrahim's. */
+  isNiasse: boolean;
   /** Sort key: Gregorian year of composition, or +Infinity if undatable. */
   year: number;
   /** Human-readable date for display. */
@@ -371,6 +473,8 @@ export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
       locus,
       witness,
       work,
+      occasion: getOccasion(locus.occasionId ?? witness.occasionId),
+      isNiasse: (work.relation ?? 'self') !== 'student',
       year: yearOf(work),
       dateLabel: dateLabelOf(work, witness),
       hasText: Boolean(locus.textAr || locus.textEn) ||
@@ -378,6 +482,14 @@ export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
     });
   }
   return out;
+}
+
+/** Split Shaykh Ibrahim's own loci from the school's. */
+export function splitBySpeaker(entries: VerseEntry[]) {
+  return {
+    niasse: entries.filter(e => e.isNiasse),
+    school: entries.filter(e => !e.isNiasse),
+  };
 }
 
 /** Entries grouped by act, in ACT_ORDER, each group ordered oldest first. */
