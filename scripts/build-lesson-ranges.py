@@ -12,6 +12,18 @@ Thirty lessons carry explicit "Q. x:y-z" ranges (exact: true). The other
 twenty-six are titled by sura only ("Surat Maryam - Surat Taha"); their bounds
 come from chaining -- each session ends where the next begins.
 
+Chaining is not simply "start at aya 1 of the first sura named". Twelve seams
+have consecutive titles that share a sura -- "Surat Maryam - Surat Taha" then
+"Surat Taha - Surat Al-Anbiya" -- and there the later session starts partway
+into that sura, at a point taken from the match report. See the seam block
+below; getting this wrong moved twelve sura openings one session late.
+
+VALIDATION 2: the openings this file derives must agree with the hand-curated
+table in src/lib/surahLessons.ts, except where these ranges open a sura EARLIER
+(a session running into the next sura's opening ayat before the commentary
+proper starts, which is what the curated table deliberately ignores). A sura
+opening LATER here is a bug and exits the script non-zero.
+
 ORDER MATTERS: the attestation block at the bottom reads
 translation-drafts/verse-match-report.json, so run node scripts/match-verses.js
 FIRST, and run it again whenever src/data/lessons/*.json changes. Running this
@@ -77,14 +89,104 @@ def last_sura(vr):
     m = re.search(r'S[ūu]rat\s+(.+)', parts[-1].strip())
     return BY_NAME.get(norm(m.group(1))) if m else None
 
+try:
+    rep = json.load(open('translation-drafts/verse-match-report.json', encoding='utf-8'))
+except FileNotFoundError:
+    rep = {}
+    print('WARNING: no verse-match-report.json; attestation counts omitted')
+
+HIGH_CONFIDENCE = ('substring', 'pair')
+ALL_TIERS = ('substring', 'pair', 'fuzzy', 'ambiguous')
+
+
+def quoted_ayat(lid, sura, tiers):
+    """Āyāt of `sura` that lesson `lid` is recorded as quoting. An 'ambiguous'
+    match contributes every candidate, because the true āya is one of them and
+    the point here is where the session's commentary reaches, not which of the
+    rivals it is."""
+    found = set()
+    for span in (rep.get(str(lid)) or {}).get('spans', []):
+        m = span.get('match')
+        if not m or m['type'] not in tiers:
+            continue
+        keys = m.get('candidates') or m['verse'].split('-')
+        for v in keys:
+            sv, av = map(int, v.split(':'))
+            if sv == sura:
+                found.add(av)
+    return found
+
+
+# ---------------------------------------------------------------------------
+# Seam sūras: where one session's title ends on the sūra the next one's title
+# begins on.
+#
+# Twelve seams read "Sūrat X – Sūrat A" followed by "Sūrat A – Sūrat B": Ṭāhā
+# between sessions 32 and 33, al-Anbiyāʾ between 33 and 34, then al-Nūr,
+# al-Naml, Luqmān, al-Aḥzāb, Fāṭir, al-Ṣāffāt, Fuṣṣilat, al-Dukhān, al-Fatḥ
+# and al-Dhāriyāt. first_sura() reads only the first sūra a title names and
+# starts the session at āya 1 of it, which handed sūra A whole to the LATER
+# session and then, because ends are chained backwards from the next start,
+# truncated the earlier one at the last āya of A-1 -- contradicting its own
+# title. Every one of the twelve moved a sūra's opening exactly one session
+# late, which is what the cross-check against surahLessons.ts was reporting.
+#
+# The text settles it. Lesson 32 closes on Ṭāhā 45-54 and Lesson 33 opens
+# "منها خلقناكم" (20:55); Lesson 44 closes on Fuṣṣilat 44-46 and Lesson 45
+# opens "إليه يرد علم الساعة" (41:47); Lesson 46 closes on al-Fatḥ 13-17 and
+# Lesson 47 opens "لقد رضي الله عن المؤمنين إذ يبايعونك" (48:18). The earlier
+# session runs well into the shared sūra in all three.
+#
+# So the boundary is placed after the last āya of the shared sūra the EARLIER
+# session is recorded as quoting. That witness is a floor, not a fix: the
+# matcher finds roughly two citations in five, so the true seam sits a little
+# later than the last one it caught -- 48:11 here against 48:18 in the text.
+# The residual error is a handful of āyāt at one seam, against a whole sūra
+# before. These bounds are already documented as soft at the edges
+# (src/lib/corpus.ts); they are no longer wrong about which session a sūra
+# belongs to.
+seam_notes = []
+
+
+def seam_split(prev_lid, lid, sura):
+    prev_hits = (quoted_ayat(prev_lid, sura, HIGH_CONFIDENCE)
+                 or quoted_ayat(prev_lid, sura, ALL_TIERS))
+    if not prev_hits:
+        return None
+    split = min(max(prev_hits) + 1, AYAH[sura])
+    nxt = (quoted_ayat(lid, sura, HIGH_CONFIDENCE)
+           or quoted_ayat(lid, sura, ALL_TIERS))
+    if nxt and min(nxt) < split:
+        seam_notes.append(
+            f'Q{sura} {NAME_EN.get(sura, "?")}: lesson {prev_lid} quotes up to āya '
+            f'{max(prev_hits)} but lesson {lid} already quotes āya {min(nxt)} -- the two '
+            f'witnesses cross, so the split at {sura}:{split} rests on {prev_lid} alone')
+    return split
+
+
 ids = sorted(lessons)
 starts = {}
-for lid in ids:
+for pos, lid in enumerate(ids):
     e = explicit(lessons[lid])
-    if e: starts[lid] = (e[0], e[1], True)
-    else:
-        s = first_sura(lessons[lid])
-        starts[lid] = ((s, 1, False) if s else None)
+    if e:
+        starts[lid] = (e[0], e[1], True)
+        continue
+    s = first_sura(lessons[lid])
+    if not s:
+        starts[lid] = None
+        continue
+    ayah = 1
+    prev = ids[pos - 1] if pos else None
+    if prev is not None and not explicit(lessons[prev]) and last_sura(lessons[prev]) == s:
+        ayah = seam_split(prev, lid, s)
+        if ayah is None:
+            raise SystemExit(
+                f'FAILED: lessons {prev} and {lid} both name Sūrat {NAME_EN.get(s, s)} in their '
+                f'titles, so lesson {lid} starts somewhere inside it, but the match report '
+                f'records no citation of that sūra in lesson {prev} to place the seam. '
+                f'Re-run node scripts/match-verses.js; if it still finds none, the seam has to '
+                f'be set by hand from the printed edition rather than guessed at āya 1.')
+    starts[lid] = (s, ayah, False)
 
 def prev_verse(s, a):
     if a > 1: return (s, a - 1)
@@ -137,12 +239,15 @@ json.dump(out, open('src/data/lessonRanges.json', 'w', encoding='utf-8'),
 # Counted from translation-drafts/verse-match-report.json across ALL match
 # tiers including fuzzy -- deliberately generous, so the number is an upper
 # bound on what is attested rather than an undercount.
+#
+# The 'ambiguous' tier contributes every one of its candidate āyāt, not just
+# the best-scoring one. src/lib/corpus.ts reads this figure as "as many as N
+# are quoted" and then says of an āya outside the set that whether Niasse
+# comments on it is not established -- a claim that is only safe while the set
+# is a true superset. An ambiguous clause sits verbatim in each of its
+# candidates and Niasse quoted one of them, so dropping the rest would let the
+# page deny a comment that is on the page.
 # ---------------------------------------------------------------------------
-try:
-    rep = json.load(open('translation-drafts/verse-match-report.json', encoding='utf-8'))
-except FileNotFoundError:
-    rep = {}
-    print('WARNING: no verse-match-report.json; attestation counts omitted')
 
 def _count(r):
     (s, a), (e, b) = r['start'], r['end']
@@ -159,7 +264,7 @@ for lid, r in out.items():
     for span in o.get('spans', []):
         m = span.get('match')
         if not m: continue
-        for v in (m['verse'].split('-') if '-' in m['verse'] else [m['verse']]):
+        for v in (m.get('candidates') or m['verse'].split('-')):
             sv, av = map(int, v.split(':'))
             if tuple(r['start']) <= (sv, av) <= tuple(r['end']):
                 hits.add((sv, av))
@@ -233,6 +338,12 @@ print('   (the rest are chained end-to-start and cannot disagree)')
 #        session's PRIMARY subject, so a session that merely runs into a sūra's
 #        opening āyāt is expected to differ; those are printed for reading, not
 #        counted as failures.
+#
+#        A sūra opening LATER here than in the curated table has no such
+#        excuse: it says these ranges put āya 1 of a sūra in a session that the
+#        curated table, the session titles and the Arabic all place a session
+#        earlier. Twelve of them stood for months because this block printed the
+#        count and moved on. It is a failure now.
 sl = open('src/lib/surahLessons.ts', encoding='utf-8').read()
 block = re.search(r'SURA_TO_LESSON[^{]*\{(.*?)\}', sl, re.S)
 CURATED = {int(a): int(b) for a, b in re.findall(r'(\d+)\s*:\s*(\d+)', block.group(1))} if block else {}
@@ -253,9 +364,17 @@ print(f'vs surahLessons.ts: {agree}/{len(CURATED)} sūras agree on the opening s
 print(f'   {len(early)} where the ranges open a sūra EARLIER than the curated table'
       ' -- expected, the session runs in before the commentary proper starts')
 print(f'   {len(late)} where the ranges open it LATER -- not explained by that rule')
-for s, mine, theirs in late[:14]:
-    print(f'      Q{s} {NAME_EN.get(s,"?")}: ranges say lesson {mine}, curated says {theirs}'
-          f'  [{"exact" if out[str(mine)]["exact"] else "inferred"}]')
+for s, mine, theirs in late:
+    tag = "exact" if mine is not None and out[str(mine)]["exact"] else "inferred"
+    print(f'      Q{s} {NAME_EN.get(s,"?")}: ranges say lesson {mine}, curated says {theirs}  [{tag}]')
+    failures.append(
+        f'Q{s} {NAME_EN.get(s,"?")} opens in lesson {mine} here but lesson {theirs} in '
+        f'src/lib/surahLessons.ts ({tag} range)')
+
+if seam_notes:
+    print('seam sūras where the two witnesses cross:')
+    for note in seam_notes:
+        print('   ', note)
 
 # --- 4. the load-bearing assumption, measured. Every sūra-level lesson is given
 #        a start of āya 1 of its first named sūra. The lessons that state their

@@ -320,7 +320,7 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
 // Session coverage: which majlis treats a given āya
 // ---------------------------------------------------------------------------
 // DERIVED_LOCI above resolves a verse to the PARAGRAPH that quotes it, which
-// only exists where the automated matcher found the quotation -- 1,634 verses
+// only exists where the automated matcher found the quotation -- 1,625 verses
 // against the recovered full text, up from 784 when the repository still held
 // only half of each lesson's Arabic.
 // But the fifty-six sessions run consecutively through the whole muṣḥaf, so
@@ -632,12 +632,13 @@ function fmt(v: [number, number]): string {
  * It said Lesson N "is the session that treats this āya", which reads as a
  * claim that a comment on this verse exists at that page. The sessions do tile
  * the muṣḥaf, but they do not comment on every āya they pass over: across the
- * corpus 2,760 of the 6,236 āyāt inside the session spans are quoted somewhere
+ * corpus 3,146 of the 6,236 āyāt inside the session spans are quoted somewhere
  * in the transcription, and that count is generous (it includes the fuzzy match
- * tier, which is excluded from everything else public-facing).
+ * tier, which is excluded from everything else public-facing, and every
+ * candidate of an ambiguous one).
  *
  * The distribution is the real finding. Lesson 2 quotes all twenty āyāt in its
- * span; Lesson 43 quotes 84 of 345. The 1383/1964 cycle runs the whole Qurʾān
+ * span; Lesson 43 quotes 85 of 228. The 1383/1964 cycle runs the whole Qurʾān
  * in fifty-six majālis, so it is close to verse-by-verse through al-Baqara and
  * increasingly selective thereafter.
  *
@@ -656,9 +657,10 @@ function coverageNote(lessonId: number, r: LessonRange): string {
   const density =
     r.span && r.attested !== undefined
       // "as many as", not a flat count. `attested` in lessonRanges.json counts
-      // all three match tiers including fuzzy, while build-verse-citations.js
-      // prints only the substring and pair tiers -- so attested (2,760) exceeds
-      // the verses actually indexed (1,634). Stated flatly it would overclaim.
+      // every match tier including fuzzy and every candidate of an ambiguous
+      // clause, while build-verse-citations.js prints only the substring and
+      // pair tiers -- so attested (3,146) exceeds the verses actually indexed
+      // (1,625). Stated flatly it would overclaim.
       // The generosity runs the safe way for the sentence that follows: a verse
       // absent even from the loose set really is absent, so declining to say he
       // commented on it is the conservative reading, not a denial.
