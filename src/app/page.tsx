@@ -41,13 +41,18 @@ export default async function HomePage() {
 
         <p className="font-english text-lg sm:text-xl leading-relaxed mb-4"
           style={{ color: 'var(--body-text, rgba(232,232,224,0.90))' }}>
-          The{' '}
+          Ask what Shaykh Ibrāhīm Niasse said about{' '}
           <strong style={{ fontWeight: 600, boxShadow: 'inset 0 -0.5em 0 rgba(138,109,31,0.16)' }}>
-            complete Arabic text
+            any verse of the Qurʾān
           </strong>{' '}
-          of Shaykh Ibrāhīm Niasse&rsquo;s commentary on the Qurʾān —
-          all {arabicLayer?.count ?? coverage.totalLessons} lessons, digitally edited for
-          the first time. English translation in progress.
+          — and be told which session, which volume, which page, and where he
+          quotes it.
+        </p>
+        <p className="font-english text-base leading-relaxed mb-4"
+          style={{ color: 'var(--body-sub, rgba(232,232,224,0.70))' }}>
+          The complete Arabic of his {arabicLayer?.count ?? coverage.totalLessons} sessions,
+          digitally edited for the first time, indexed verse by verse alongside his
+          fatwās, letters and poetry. English translation in progress.
         </p>
         <p className="font-english text-sm"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>

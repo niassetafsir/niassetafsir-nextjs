@@ -47,23 +47,39 @@ export default function HomeSearchBar({ ayahCounts }: { ayahCounts: number[] }) 
 
   return (
     <form onSubmit={submit} className="mt-7 flex flex-col sm:flex-row gap-2 max-w-2xl mx-auto">
-      <div className="flex-1 flex items-center gap-2 rounded-lg px-4 py-3"
+      {/* Padding lives on the input, not on this wrapper. With py-3 here the
+          input itself measured 32px tall, so the site's primary control had a
+          32px tap target -- tapping the padding hits the div and focuses
+          nothing. */}
+      <div className="flex-1 flex items-center gap-2 rounded-lg px-4"
         style={{ background: 'var(--input-bg, rgba(255,255,255,0.06))', border: '1px solid rgba(138,109,31,0.34)' }}>
         <span aria-hidden className="font-english text-sm"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>⌕</span>
         <input
           value={q}
           onChange={e => setQ(e.target.value)}
-          aria-label="Search the tafsīr"
-          placeholder="Search the tafsīr — الرحمن, mercy, Q. 2:255"
-          className="flex-1 bg-transparent border-none outline-none font-english text-[15px]"
+          aria-label="Enter an āya, or any word"
+          /* The verse lookup was the third example in "Search the tafsīr —
+             الرحمن, mercy, Q. 2:255", which buried the one thing this archive
+             is for. The behaviour was already right: submit() parses a verse
+             reference and routes to /verse/{surah}/{ayah}, and falls back to
+             full-text search. Only the words were wrong. */
+          placeholder="2:255 — or any word, in Arabic or English"
+          inputMode="text"
+          enterKeyHint="search"
+          autoCapitalize="off"
+          autoCorrect="off"
+          /* 16px: below that, iOS Safari zooms the page on focus, and a reader
+             who has just tapped the site's primary control should not have to
+             pinch their way back out. */
+          className="flex-1 self-stretch min-h-[52px] bg-transparent border-none outline-none font-english text-base"
           style={{ color: 'var(--body-text, rgba(232,232,224,0.90))' }}
         />
       </div>
       <button type="submit"
-        className="font-english text-[15px] font-semibold px-6 py-3 rounded-lg whitespace-nowrap transition-opacity hover:opacity-90"
+        className="font-english text-base font-semibold px-6 py-3.5 sm:py-3 rounded-lg whitespace-nowrap transition-opacity hover:opacity-90"
         style={{ background: 'var(--gold, #C9A84C)', color: '#0D1F0A', border: '1px solid var(--gold, #C9A84C)' }}>
-        Search
+        Look up
       </button>
     </form>
   );

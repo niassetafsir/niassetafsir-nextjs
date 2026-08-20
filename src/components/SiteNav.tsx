@@ -1,231 +1,175 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import ThemeToggle from '@/components/ThemeToggle';
+import ThemeToggle from './ThemeToggle';
+import { NAV, activeSection, type NavSection } from '@/lib/nav';
 
-interface DropdownItem { label: string; sub?: string; href: string; }
+/**
+ * The top bar.
+ *
+ * Its four dropdowns -- About, Contribute, Publications, Research -- and its
+ * five-section mobile sheet were two more hand-kept inventories of the site,
+ * disagreeing with PersistentNav and with /research about what the top level
+ * even was. Both now render src/lib/nav.ts, so there is one answer.
+ *
+ * The order is the table's order, and it opens on "By verse". A reader arriving
+ * at a Qurʾānic archive should meet the āya lookup before the colophon.
+ */
 
-// ── All nav item arrays — module scope ───────────────────────────
-
-const PUBLICATIONS_ITEMS: DropdownItem[] = [
-  { label: "Order Arabic Edition", sub: "10-volume compiled Arabic edition", href: "/order" },
-  { label: "Pre-Order Bilingual Edition", sub: "Register interest · forthcoming", href: "/preorder" },
-];
-
-const RESEARCH_ITEMS: DropdownItem[] = [
-  { label: "Commentary by Verse", sub: "Every place he treats an āya, across the corpus", href: "/verse" },
-  { label: "Search", sub: "Full-text across all lessons", href: "/search" },
-  { label: "Browse Tools", sub: "Footnotes, hadith, glossary, search", href: "/research" },
-  { label: "Saved", sub: "Passages you have kept, with citations", href: "/saved" },
-];
-
-const ABOUT_ITEMS: DropdownItem[] = [
-  { label: "The Tafsīr", sub: "Shaykh Ibrāhīm & the commentary", href: "/about/shaykh" },
-  { label: "The Project", sub: "Digital edition, translator, editorial note", href: "/about" },
-  { label: "The Arabic Edition", sub: "The ten-volume Tunis printing", href: "/about/arabic-edition" },
-  { label: "Companion Texts", sub: "Jalālayn, Rūḥ al-Bayān, and the rest", href: "/about/companion-texts" },
-  { label: "Founder & Translator", sub: "Who made this edition", href: "/about/translator" },
-];
-
-const CONTRIBUTE_ITEMS: DropdownItem[] = [
-  { label: "Feedback", sub: "Share your experience", href: "/get-involved/feedback" },
-  { label: "Suggestions", sub: "Ideas for the project", href: "/get-involved/suggestions" },
-  { label: "Report an Error", sub: "Flag a textual issue", href: "/get-involved/report-error" },
-  { label: "Join the Team", sub: "Transcription & translation", href: "/get-involved/join" },
-];
-
-const READ_ITEMS: DropdownItem[] = [
-  { label: "Read the Commentary", sub: "Browse by sūrah or volume", href: "/read" },
-  { label: "Commentary by Verse", sub: "Look up an āya across every work", href: "/verse" },
-  { label: "Listen", sub: "Audio recordings of the tafsīr", href: "/audio" },
-];
-
-const MORE_ITEMS: DropdownItem[] = [
-  { label: "Saved", sub: "Passages you have kept", href: "/saved" },
-  { label: "Pre-Order Bilingual", sub: "Register interest", href: "/preorder" },
-];
-
-// Mobile overlay sections
-const ALL_SECTIONS = [
-  { heading: 'Read', color: '#6B2424', items: READ_ITEMS },
-  { heading: 'Research', color: '#1A3A5C', items: RESEARCH_ITEMS },
-  { heading: 'About', color: '#1E5A4A', items: ABOUT_ITEMS },
-  { heading: 'More', color: '#C9A84C', items: MORE_ITEMS },
-];
-
-// ── NavDropdown (desktop only) ────────────────────────────────────
-function NavDropdown({ label, items }: { label: string; items: DropdownItem[] }) {
+function Dropdown({ section, active }: { section: NavSection; active: boolean }) {
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, []);
-
   return (
-    <div ref={ref} className="relative">
-      <button
-        onClick={() => setOpen(!open)}
-        className={`flex items-center gap-1 font-english text-sm px-3 py-1.5 rounded-md transition-all ${
-          open ? 'bg-gold/15 text-gold' : 'text-white/55 hover:text-white/80 hover:bg-white/5'
-        }`}
-      >
-        {label}
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" className={`transition-transform ${open ? 'rotate-180' : ''}`}>
-          <path d="M2 3.5l3 3 3-3" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
-        </svg>
-      </button>
+    <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <Link href={section.href}
+        aria-current={active ? 'page' : undefined}
+        className="font-english text-[13px] px-3 py-2 rounded-lg transition-all inline-flex items-center gap-1"
+        style={{ color: active ? 'var(--gold, #C9A84C)' : 'rgba(255,255,255,0.75)', fontWeight: active ? 700 : 500 }}>
+        {section.label}
+        <span aria-hidden className="text-[9px] opacity-60">▾</span>
+      </Link>
       {open && (
-        <div className="absolute top-full left-0 mt-1 w-56 bg-bg border border-gold/20 rounded-xl shadow-2xl z-50 overflow-hidden">
-          {items.map((item, i) => (
-            <Link key={i} href={item.href} onClick={() => setOpen(false)}
-              className="flex flex-col px-4 py-2.5 hover:bg-gold/8 transition-colors border-b border-white/5 last:border-0">
-              <span style={{fontSize:'13px', fontWeight:'600', color:'rgba(255,255,255,0.85)'}}>{item.label}</span>
-              {item.sub && <span style={{fontSize:'11px', color:'rgba(255,255,255,0.4)', marginTop:'1px'}}>{item.sub}</span>}
-            </Link>
-          ))}
+        <div className="absolute left-0 top-full pt-1 z-50 min-w-[248px]">
+          <div className="rounded-xl border p-1.5 shadow-xl"
+            style={{ background: 'rgba(18,26,14,0.99)', borderColor: 'rgba(201,168,76,0.25)' }}>
+            {section.children.map(c => (
+              <Link key={c.href} href={c.href} onClick={() => setOpen(false)}
+                className="block px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">
+                <span className="font-english block text-[13px] font-semibold" style={{ color: 'rgba(255,255,255,0.88)' }}>
+                  {c.label}
+                </span>
+                <span className="font-english block text-[11px] mt-0.5" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                  {c.hint}
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>
   );
 }
 
-// ── Mobile full-screen overlay ────────────────────────────────────
-function MobileNav() {
+function MobileSheet() {
   const [open, setOpen] = useState(false);
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  // The sheet is rendered into document.body rather than in place. It has to
+  // be: <nav> carries backdrop-blur, and a backdrop-filter establishes a
+  // containing block for position:fixed descendants, so a full-screen overlay
+  // declared here resolved against the nav bar instead of the viewport -- it
+  // collapsed to 44x44, the size of the close button, and the overflow made
+  // the page zoom out on a phone. Sizing it explicitly fixed the height and
+  // left it 12px off, because the origin shifts too. A portal removes the
+  // problem rather than compensating for it.
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const active = activeSection(pathname);
+  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => { setOpen(false); }, [pathname]);
 
-  useEffect(() => { setOpen(false); setExpanded({}); }, [pathname]);
-
-  const toggleSection = (heading: string) => {
-    setExpanded(prev => ({ ...prev, [heading]: !prev[heading] }));
-  };
+  // The page behind must not scroll while the sheet is up.
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prev; };
+  }, [open]);
 
   return (
     <>
-      <button onClick={() => setOpen(true)}
-        className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-md hover:bg-white/5 transition-all flex-shrink-0"
-        aria-label="Open menu">
+      <button onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open}
+        className="md:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 rounded-lg hover:bg-white/5 transition-all flex-shrink-0">
         <span className="block w-5 h-0.5 bg-gold/70 rounded-full" />
         <span className="block w-5 h-0.5 bg-gold/70 rounded-full" />
         <span className="block w-5 h-0.5 bg-gold/70 rounded-full" />
       </button>
 
-      {open && (
-        <div style={{position:'fixed', top:0, left:0, right:0, bottom:0, zIndex:99999, display:'flex', flexDirection:'column', background:'var(--overlay-bg, #1a1008)', minHeight:'100vh', minWidth:'100vw'}}>
-          {/* Header */}
-          <div className="flex items-center justify-between px-5 py-3 border-b"
-            style={{borderColor:'rgba(201,168,76,0.2)'}}>
-            <div>
-              <p className="font-arabic text-gold font-bold text-base" dir="rtl">في رياض التفسير</p>
-              <p className="font-english text-[10px]" style={{color:'rgba(255,255,255,0.35)'}}>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</p>
-            </div>
-            <button onClick={() => setOpen(false)}
-              className="w-9 h-9 flex items-center justify-center rounded-full border border-white/15 text-white/50 hover:text-white/80 transition-all">
+      {open && mounted && createPortal(
+        <div role="dialog" aria-modal="true" aria-label="Menu"
+          /* dir is set here because the portal renders into document.body and
+             so inherits the document's direction rather than the dir="ltr" that
+             wraps the page content. Without it the whole sheet reads
+             right-aligned. The Arabic labels carry their own dir="rtl". */
+          dir="ltr"
+          className="flex flex-col"
+          style={{
+            position: 'fixed', inset: 0,
+            height: '100dvh',
+            zIndex: 99999,
+            background: 'var(--overlay-bg, #1a1008)',
+          }}>
+          <div className="flex items-center justify-between px-5 py-3 border-b flex-shrink-0"
+            style={{ borderColor: 'rgba(201,168,76,0.2)' }}>
+            <p className="font-arabic text-gold font-bold text-base" dir="rtl">في رياض التفسير</p>
+            <button onClick={() => setOpen(false)} aria-label="Close menu"
+              className="w-11 h-11 flex items-center justify-center rounded-full border border-white/15 text-white/60">
               ✕
             </button>
           </div>
 
-          {/* Scrollable nav */}
-          <div className="flex-1 overflow-y-auto py-4 px-5" style={{textAlign:'left'}}>
-            {ALL_SECTIONS.map((section) => (
-              <div key={section.heading} className="mb-2">
-                <button onClick={() => toggleSection(section.heading)}
-                  className="w-full flex items-center justify-between py-2.5 text-left"
-                  style={{borderLeft: '3px solid ' + section.color, paddingLeft: '8px'}}>
-                  <span className="font-english text-[11px] font-bold uppercase tracking-widest"
-                    style={{color: section.color}}>
-                    {section.heading}
+          {/* Everything open at once. The previous sheet made each of five
+              sections a collapsed accordion, so reaching any page took two taps
+              and the site's contents were hidden behind headings on the screen
+              where hiding them costs most. */}
+          <div className="flex-1 overflow-y-auto px-4 py-4" style={{ WebkitOverflowScrolling: 'touch' }}>
+            {NAV.map(s => (
+              <div key={s.id} className="mb-5">
+                <Link href={s.href} onClick={() => setOpen(false)}
+                  className="block rounded-xl px-4 py-3 mb-1.5 border"
+                  style={{
+                    borderColor: active?.id === s.id ? 'var(--gold, #C9A84C)' : 'rgba(201,168,76,0.22)',
+                    background: active?.id === s.id ? 'rgba(201,168,76,0.10)' : 'transparent',
+                  }}>
+                  <span className="flex items-baseline justify-between gap-3">
+                    <span className="font-english text-base font-semibold" style={{ color: 'var(--gold, #C9A84C)' }}>
+                      {s.label}
+                    </span>
+                    <span className="font-arabic text-sm" dir="rtl" style={{ color: 'rgba(201,168,76,0.65)' }}>
+                      {s.labelAr}
+                    </span>
                   </span>
-                  <span style={{color: section.color, fontSize:'12px', marginRight:'4px'}}>
-                    {expanded[section.heading] ? '▾' : '▸'}
+                  <span className="font-english block text-xs mt-1" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                    {s.hint}
                   </span>
-                </button>
-                {expanded[section.heading] && (
-                  <div className="space-y-0.5 mt-1 mb-3">
-                    {section.items.map((item) => (
-                      <Link key={item.href} href={item.href} onClick={() => setOpen(false)}
-                        className="flex flex-col px-3 py-2.5 rounded-xl hover:bg-gold/8 transition-all border border-transparent hover:border-gold/20 text-left">
-                        <span className="font-english text-sm font-semibold" style={{color:'rgba(255,255,255,0.85)'}}>
-                          {item.label}
-                        </span>
-                        {item.sub && (
-                          <span className="font-english text-xs mt-0.5" style={{color:'rgba(255,255,255,0.6)'}}>
-                            {item.sub}
-                          </span>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                </Link>
+                {s.children.map(c => (
+                  <Link key={c.href} href={c.href} onClick={() => setOpen(false)}
+                    className="flex items-center min-h-[48px] px-4 rounded-lg"
+                    style={{ color: 'rgba(255,255,255,0.75)' }}>
+                    <span className="font-english text-[15px]">{c.label}</span>
+                  </Link>
+                ))}
               </div>
             ))}
           </div>
-
-          {/* Footer */}
-          <div className="px-5 py-4 border-t flex items-center justify-between"
-            style={{borderColor:'rgba(201,168,76,0.15)'}}>
-            <Link href="/search" onClick={() => setOpen(false)}
-              className="flex items-center gap-2 font-english text-sm"
-              style={{color:'rgba(255,255,255,0.45)'}}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-              </svg>
-              Search
-            </Link>
-            <ThemeToggle />
-          </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
 }
 
-// ── Main SiteNav ──────────────────────────────────────────────────
 export default function SiteNav() {
   const pathname = usePathname();
-  // Print/PDF-export pages render their own clean, distraction-free
-  // document look (see src/app/lesson/[id]/print/page.tsx) -- the site nav
-  // has no place there, same as PersistentNav already opts out of
-  // /lesson/* entirely.
-  if (pathname.startsWith('/lesson/') && pathname.endsWith('/print')) return null;
+  const active = activeSection(pathname);
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur border-b-0"
-      style={{background:"rgba(13,20,10,0.95)", borderTop:"3px solid #C9A84C", borderBottom:"1px solid rgba(201,168,76,0.2)"}}>
+    <nav className="sticky top-0 z-50 backdrop-blur"
+      style={{ background: 'rgba(13,20,10,0.95)', borderTop: '3px solid #C9A84C', borderBottom: '1px solid rgba(201,168,76,0.2)' }}>
 
-      {/* ── Desktop nav: 3-column grid ─────────────────────── */}
+      {/* Desktop */}
       <div className="hidden md:grid grid-cols-3 items-center px-5 py-2.5">
-
-        {/* LEFT: language + theme toggle */}
         <div className="flex items-center gap-2">
           <span className="font-english text-white/25 text-[10px]">EN · FR · AR</span>
-          <div className="border-l border-white/10 pl-2">
-            <ThemeToggle />
-          </div>
+          <div className="border-l border-white/10 pl-2"><ThemeToggle /></div>
         </div>
-
-        {/* CENTRE: nav dropdowns */}
-        <div className="flex items-center justify-center gap-1">
-          <NavDropdown label="About" items={ABOUT_ITEMS} />
-          <NavDropdown label="Contribute" items={CONTRIBUTE_ITEMS} />
-          <NavDropdown label="Publications" items={PUBLICATIONS_ITEMS} />
-          <NavDropdown label="Research" items={RESEARCH_ITEMS} />
+        <div className="flex items-center justify-center gap-0.5">
+          {NAV.map(s => <Dropdown key={s.id} section={s} active={active?.id === s.id} />)}
         </div>
-
-        {/* RIGHT: logo */}
         <div className="flex justify-end">
           <Link href="/" className="flex flex-col items-end hover:opacity-80 transition-opacity group">
             <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl"
-              style={{letterSpacing:"-0.01em", textShadow:"0 0 20px rgba(201,168,76,0.3)"}}>
-              في رياض التفسير
-            </span>
+              style={{ letterSpacing: '-0.01em' }}>في رياض التفسير</span>
             <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors" dir="ltr">
               Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
             </span>
@@ -233,19 +177,14 @@ export default function SiteNav() {
         </div>
       </div>
 
-      {/* ── Mobile nav: hamburger left, logo centre ─────────── */}
-      <div className="flex md:hidden items-center px-4 py-2.5 relative">
-        {/* Hamburger absolute left */}
-        <div className="absolute left-4 top-1/2 -translate-y-1/2">
-          <MobileNav />
-        </div>
-        {/* Logo centred */}
-        <Link href="/" className="flex flex-col items-center mx-auto hover:opacity-80 transition-opacity group">
+      {/* Mobile */}
+      <div className="flex md:hidden items-center px-3 py-2 relative">
+        <div className="absolute left-3 top-1/2 -translate-y-1/2"><MobileSheet /></div>
+        <Link href="/" className="flex flex-col items-center mx-auto hover:opacity-80 transition-opacity">
           <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl"
-            style={{letterSpacing:"-0.01em", textShadow:"0 0 20px rgba(201,168,76,0.3)"}}>
-            في رياض التفسير
-          </span>
+            style={{ letterSpacing: '-0.01em' }}>في رياض التفسير</span>
         </Link>
+        <div className="absolute right-3 top-1/2 -translate-y-1/2"><ThemeToggle /></div>
       </div>
     </nav>
   );

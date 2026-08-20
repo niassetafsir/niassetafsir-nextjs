@@ -1,58 +1,57 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { NAV, activeSection } from '@/lib/nav';
 
+/**
+ * The bottom bar, and on a phone the primary navigation.
+ *
+ * It used to carry its own list of five tabs and its own hand-written
+ * active-tab matching, which is why it went on highlighting /concordance,
+ * /scholars, /themes and /network after all four routes were deleted. Both come
+ * from src/lib/nav.ts now, so a route cannot be in the bar without existing and
+ * cannot exist in the table without appearing here.
+ */
 export default function PersistentNav() {
   const pathname = usePathname();
 
-  // Lesson reading pages have their own nav (mobile drawer + prev/next card);
-  // the global bar would just eat screen space during reading.
+  // The lesson page has its own navigation -- the drawer and the prev/next card
+  // -- and the bar would eat screen height during reading, which on a phone is
+  // most of what there is.
   if (pathname.startsWith('/lesson/')) return null;
 
-  // Active-tab matching. Every prefix below must name a route that resolves.
-  // This list has drifted before: it matched /concordance and the /scholars,
-  // /themes and /network stubs (all four routes are now deleted) and missed
-  // /notes, which IS on the research hub. It drifts because it is a second
-  // hand-kept inventory of the site, alongside SiteNav's dropdowns and
-  // src/app/research/page.tsx's TOOLS -- three lists for one fact.
+  const active = activeSection(pathname);
   const isHome = pathname === '/';
-  const isRead = pathname.startsWith('/lesson') || pathname.startsWith('/volume') ||
-    pathname.startsWith('/surah') || pathname === '/read';
-  const isListen = pathname.startsWith('/audio');
-  const isVerses = pathname.startsWith('/verse');
-  const isResearch = pathname.startsWith('/research') || pathname.startsWith('/notes') ||
-    pathname.startsWith('/footnotes') || pathname.startsWith('/hadith') ||
-    pathname.startsWith('/glossary') || pathname.startsWith('/search') ||
-    pathname.startsWith('/clips') || pathname.startsWith('/bookmarks');
-
-  const items = [
-    { label: 'Home', href: '/', icon: '⌂', active: isHome, colorVar: 'var(--nav-home)' },
-    { label: 'Read', href: '/read', icon: '◎', active: isRead, colorVar: 'var(--nav-read)' },
-    { label: 'Verses', href: '/verse', icon: '✦', active: isVerses, colorVar: 'var(--nav-verses)' },
-    { label: 'Listen', href: '/audio', icon: '♪', active: isListen, colorVar: 'var(--nav-listen)' },
-    { label: 'Research', href: '/research', icon: '⊞', active: isResearch, colorVar: 'var(--nav-research)' },
-  ];
 
   return (
-    <div dir="ltr" className="fixed bottom-0 left-0 right-0 z-50 flex border-t"
+    <nav dir="ltr" aria-label="Sections"
+      className="fixed bottom-0 left-0 right-0 z-50 flex border-t"
       style={{
         background: 'var(--persistent-nav-bg, rgba(10,18,8,0.97))',
         backdropFilter: 'blur(12px)',
-        borderColor: 'var(--persistent-nav-border, rgba(201,168,76,0.12))'
+        borderColor: 'var(--persistent-nav-border, rgba(201,168,76,0.12))',
+        paddingBottom: 'env(safe-area-inset-bottom)',
       }}>
-      {items.map(item => (
-        <Link key={item.label} href={item.href}
-          className="flex-1 flex flex-col items-center gap-0.5 py-3 transition-all"
-          style={{
-            color: item.active
-              ? item.colorVar
-              : 'var(--persistent-nav-text, rgba(255,255,255,0.6))',
-            fontWeight: item.active ? '700' : '600',
-          }}>
-          <span className="text-base leading-none">{item.icon}</span>
-          <span className="font-english text-[10px] leading-none tracking-wide font-semibold">{item.label}</span>
-        </Link>
-      ))}
-    </div>
+      {NAV.map(s => {
+        const on = !isHome && active?.id === s.id;
+        return (
+          <Link key={s.id} href={s.href}
+            aria-current={on ? 'page' : undefined}
+            /* min-h-[56px] rather than padding alone: this is the primary
+               navigation on a phone and every target clears the 44px
+               guideline with room for a thumb. */
+            className="flex-1 min-h-[56px] flex flex-col items-center justify-center gap-1 py-2 transition-all"
+            style={{
+              color: on ? 'var(--gold, #C9A84C)' : 'var(--persistent-nav-text, rgba(255,255,255,0.6))',
+              fontWeight: on ? 700 : 600,
+            }}>
+            <span className="text-base leading-none" aria-hidden>{s.icon}</span>
+            <span className="font-english text-[10px] leading-none tracking-wide text-center px-0.5">
+              {s.label}
+            </span>
+          </Link>
+        );
+      })}
+    </nav>
   );
 }
