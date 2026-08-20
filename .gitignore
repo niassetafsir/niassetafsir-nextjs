@@ -35,3 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 niassetafsir/
+
+# private authoring tool — AK only, never committed
+scripts/*.local.mjs
