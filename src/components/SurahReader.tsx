@@ -129,7 +129,7 @@ export default function SurahReader({ surahId, nameAr, nameEn, ayahCount, lesson
 
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
-      <Link href="/read" className="font-english text-xs flex items-center gap-1 mb-4"
+      <Link href="/read" className="tap font-english text-xs flex items-center gap-1 mb-4"
         style={{ color: 'rgba(201,168,76,0.6)' }}>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
           <path d="m15 18-6-6 6-6" />

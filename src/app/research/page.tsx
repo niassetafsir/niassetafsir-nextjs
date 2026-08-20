@@ -38,15 +38,8 @@ const TOOLS = [
   {
     href: '/glossary',
     titleAr: 'فهرس المصطلحات',
-    titleEn: 'Concordance of Terms',
-    desc: '20 theological and Sufi terms — every occurrence across the corpus, in context.',
-    tier: 'scholar',
-  },
-  {
-    href: '/glossary-map',
-    titleAr: 'خريطة المصطلحات',
-    titleEn: 'Map of Terms',
-    desc: 'The same terms laid out by how they cluster, rather than alphabetically.',
+    titleEn: 'Technical Terms',
+    desc: 'Twenty theological and Sufi terms — every occurrence in context, and the relations Niasse draws between them, each cited to the passage.',
     tier: 'scholar',
   },
   {
@@ -89,7 +82,7 @@ export default function ResearchPage() {
           </p>
         </div>
         <Link href="/lesson/1"
-          className="font-english text-xs hover:text-gold transition-colors"
+          className="tap font-english text-xs hover:text-gold transition-colors"
           style={{color:'rgba(255,255,255,0.3)'}}>
           ← Reading
         </Link>

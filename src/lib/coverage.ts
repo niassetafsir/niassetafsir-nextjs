@@ -115,6 +115,84 @@ export async function getCoverage(): Promise<Coverage> {
 }
 
 /**
+ * The figures the About page states about the edition, counted from the data.
+ *
+ * They were written by hand and went stale in four places at once: the footnote
+ * total was "1,994" on three pages while footnotesData.json held 1,997, and the
+ * translation was described as covering "Lessons 1-2" while five lessons carry
+ * one. A reader can check any of these against the site in about ten seconds, so
+ * a wrong one costs more than no number at all.
+ *
+ * Claims about the *printed* edition -- the compiler's six thousand hadith
+ * citations, the ten-volume recension superseding the six-volume -- stay written
+ * by hand on the page. They are facts about a book, not measurements of this
+ * repository, and counting files cannot check them.
+ */
+export interface EditionFacts {
+  totalLessons: number;
+  /** Lessons whose Arabic body is present. */
+  arabicLessons: number;
+  footnoteCount: number;
+  /** How many distinct lessons the apparatus reaches. */
+  footnoteLessons: number;
+  translatedCount: number;
+  translatedFirst: number | null;
+  translatedLast: number | null;
+  audioLessons: number;
+  wolofLessons: number;
+  /** Contiguous sūra span of the per-verse Qurʾān recitation, or null if it has
+   *  gaps -- in which case the page should not claim a range. */
+  quranAudioSurahs: { first: number; last: number } | null;
+}
+
+export async function getEditionFacts(): Promise<EditionFacts> {
+  const c = await getCoverage();
+  const lessons = (await getAllLessons()).filter(l => l.id <= 56);
+  const translated = c.translatedLessonIds;
+
+  let footnoteCount = 0;
+  let footnoteLessons = 0;
+  try {
+    const raw = fs.readFileSync(path.join(process.cwd(), 'src/data/footnotesData.json'), 'utf8');
+    const rows: { lessonId: number }[] = JSON.parse(raw);
+    footnoteCount = rows.length;
+    footnoteLessons = new Set(rows.map(r => r.lessonId)).size;
+  } catch {
+    /* leave at 0; the page renders the count only when it is non-zero */
+  }
+
+  let quranAudioSurahs: EditionFacts['quranAudioSurahs'] = null;
+  try {
+    const raw = fs.readFileSync(path.join(process.cwd(), 'public/data/audio_index.json'), 'utf8');
+    const nums: number[] = (JSON.parse(raw) as { surahNum?: number }[])
+      .map(a => a.surahNum)
+      // surahNum 0 is the closing Duʿāʾ Khatm al-Qurʾān, not a sūra. Left in, it
+      // made the page say "Sūras 0–18".
+      .filter((n): n is number => typeof n === 'number' && n >= 1 && n <= 114)
+      .sort((a, b) => a - b);
+    // Only state a range when the sūras really are contiguous. If a gap opens
+    // later, the page drops the range rather than printing a false one.
+    const contiguous = nums.length > 0 && nums.every((n, i) => i === 0 || n === nums[i - 1] + 1);
+    if (contiguous) quranAudioSurahs = { first: nums[0], last: nums[nums.length - 1] };
+  } catch {
+    /* leave null */
+  }
+
+  return {
+    totalLessons: c.totalLessons,
+    arabicLessons: c.layers.find(l => l.key === 'arabic')?.count ?? 0,
+    footnoteCount,
+    footnoteLessons,
+    translatedCount: translated.length,
+    translatedFirst: translated[0] ?? null,
+    translatedLast: translated[translated.length - 1] ?? null,
+    audioLessons: c.layers.find(l => l.key === 'audio')?.count ?? 0,
+    wolofLessons: lessons.filter(l => l.wolofAudioUrl || l.wolofPlaylistId).length,
+    quranAudioSurahs,
+  };
+}
+
+/**
  * The opening of Lesson 1, for the homepage specimen.
  *
  * Fixed on Lesson 1 rather than rotating: only five lessons are translated, so

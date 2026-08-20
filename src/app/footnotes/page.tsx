@@ -194,7 +194,7 @@ export default function FootnotesPage() {
                     <div className="flex items-start justify-between gap-3 mb-2">
                       <div className="flex items-center gap-2 flex-wrap">
                         <Link href={`/lesson/${fn.lessonId}?panel=tafsir`}
-                          className="font-english text-[10px] text-gold/60 hover:text-gold border border-gold/20 px-1.5 py-0.5 rounded transition-colors">
+                          className="tap font-english text-[10px] text-gold/60 hover:text-gold border border-gold/20 px-2 py-0.5 rounded transition-colors">
                           Lesson {fn.lessonId} · fn. {fn.displayNum ?? fn.num}{fn.id.split('-').length > 3 && !fn.id.includes('-b') ? ` (occ. ${fn.id.split('-').pop()})` : ''}
                         </Link>
                         {fn.volRef && (

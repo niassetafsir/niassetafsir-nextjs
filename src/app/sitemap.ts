@@ -10,23 +10,21 @@ const BASE_URL = 'https://niassetafsir.org';
 // ComingSoonApparatus, so Google was being sent to three empty pages; the
 // routes are gone. /concordance was listed too and had been a notFound() since
 // it was retired. /introduction is a redirect to /translators-note, which is
-// already indexed below -- an indexed redirect just splits the signal.
+// already indexed below -- an indexed redirect just splits the signal. For the
+// same reason /about/shaykh, /about/translator, /about/arabic-edition,
+// /about/companion-texts, /editorial-note and /glossary-map are absent: each is
+// now a redirect into /about, /about/tafsir, /translators-note or /glossary.
 const STATIC_ROUTES = [
   '',
   '/read',
   '/audio',
   '/research',
   '/about',
-  '/about/shaykh',
-  '/about/translator',
-  '/about/arabic-edition',
-  '/about/companion-texts',
-  '/editorial-note',
+  '/about/tafsir',
   '/translators-note',
   '/footnotes',
   '/hadith',
   '/glossary',
-  '/glossary-map',
   '/search',
   '/notes',
   '/get-involved',

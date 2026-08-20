@@ -142,7 +142,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         lessons={lessonIndex}
         trailing={
           <a href="/read"
-            className="font-english hover:text-gold transition-colors flex items-center gap-1 text-xs"
+            className="tap font-english hover:text-gold transition-colors flex items-center gap-1 text-xs"
             style={{color:'var(--body-faint, rgba(232,232,224,0.45))'}}>
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="m15 18-6-6 6-6"/>
@@ -256,17 +256,17 @@ export default async function LessonPage({ params }: { params: { id: string } })
       <div className="flex justify-between items-center mt-10 pt-6 border-t border-gold/15" dir="ltr">
         {lesson.prevId ? (
           <Link href={"/lesson/" + lesson.prevId}
-            className="font-english text-sm text-white/50 hover:text-gold border border-gold/20 hover:border-gold/50 px-4 py-2 rounded-lg transition-all">
+            className="tap font-english text-sm text-white/50 hover:text-gold border border-gold/20 hover:border-gold/50 px-4 py-2 rounded-lg transition-all">
             ← Lesson {lesson.prevId}
           </Link>
         ) : <span />}
         <Link href="/"
-          className="font-english text-sm text-white/50 hover:text-gold border border-gold/20 hover:border-gold/50 px-4 py-2 rounded-lg transition-all">
+          className="tap font-english text-sm text-white/50 hover:text-gold border border-gold/20 hover:border-gold/50 px-4 py-2 rounded-lg transition-all">
           ↩ Contents
         </Link>
         {lesson.nextId ? (
           <Link href={"/lesson/" + lesson.nextId}
-            className="font-english text-sm font-semibold text-gold-deep border border-gold-deep/40 bg-gold/15 hover:bg-gold/25 px-4 py-2 rounded-lg transition-all">
+            className="tap font-english text-sm font-semibold text-gold-deep border border-gold-deep/40 bg-gold/15 hover:bg-gold/25 px-4 py-2 rounded-lg transition-all">
             Lesson {lesson.nextId} →
           </Link>
         ) : <span />}

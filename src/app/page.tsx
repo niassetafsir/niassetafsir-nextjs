@@ -64,7 +64,7 @@ export default async function HomePage() {
         <p className="font-english text-xs mt-3"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
           or{' '}
-          <Link href="/read" className="transition-opacity hover:opacity-75"
+          <Link href="/read" className="tap transition-opacity hover:opacity-75"
             style={{ color: 'var(--gold, #C9A84C)', borderBottom: '1px dotted rgba(138,109,31,0.4)' }}>
             browse all {coverage.totalLessons} lessons by volume
           </Link>
@@ -124,7 +124,7 @@ export default async function HomePage() {
             <div className="text-center py-3"
               style={{ borderTop: '1px solid rgba(138,109,31,0.18)', background: 'rgba(138,109,31,0.05)' }}>
               <Link href="/lesson/1"
-                className="font-english text-sm font-medium transition-opacity hover:opacity-75"
+                className="tap font-english text-sm font-medium transition-opacity hover:opacity-75"
                 style={{ color: 'var(--gold, #C9A84C)' }}>
                 Continue reading Lesson 1 →
               </Link>

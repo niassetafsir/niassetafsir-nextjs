@@ -28,7 +28,7 @@ export default function LessonNav({ lessonId, totalLessons = 56, lessonTitle, ma
       {hasPrev ? (
         <Link
           href={`/lesson/${lessonId - 1}`}
-          className="flex items-center gap-1.5 font-english text-xs font-semibold transition-all hover:text-gold"
+          className="tap flex items-center gap-1.5 font-english text-xs font-semibold transition-all hover:text-gold"
           style={{ color: '#8a6d1f' }}
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -53,7 +53,7 @@ export default function LessonNav({ lessonId, totalLessons = 56, lessonTitle, ma
       {hasNext ? (
         <Link
           href={`/lesson/${lessonId + 1}`}
-          className="flex items-center gap-1.5 font-english text-xs font-semibold transition-all hover:text-gold"
+          className="tap flex items-center gap-1.5 font-english text-xs font-semibold transition-all hover:text-gold"
           style={{ color: '#8a6d1f' }}
         >
           Lesson {lessonId + 1}

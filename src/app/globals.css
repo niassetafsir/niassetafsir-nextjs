@@ -1143,3 +1143,55 @@ body:has(> .lesson-print-page) {
 .lesson-reader-layout .font-arabic-sans[class*="text-white"] {
   color: #000000 !important;
 }
+
+/* ── Touch targets ────────────────────────────────────────
+   Measured on a 390px viewport across sixteen routes: 102 standalone controls
+   sat under 44px, and almost all of them were <button>. They are not sloppy --
+   they are padded for a mouse, where a 33px theme toggle is comfortable. On a
+   phone the same control is a miss.
+
+   Scoped to `pointer: coarse` so the desktop layout is untouched: this changes
+   nothing for a mouse or a trackpad.
+
+   Deliberately NOT applied to <a>. Inline links live inside running prose --
+   footnote markers, verse-number badges, references in About text -- and giving
+   them a 44px box would tear holes in every paragraph. Standalone links are
+   fixed where they are, individually.
+
+   inline-flex rather than block so a chip keeps its shape and only grows to
+   meet the minimum. */
+@media (pointer: coarse) {
+  button,
+  select,
+  summary,
+  [role="button"],
+  [role="tab"] {
+    min-height: 44px;
+  }
+  /* Chips and icon buttons: give them width too, and centre what is inside
+     now that the box is taller than the label. */
+  button:not(.w-full):not([class*="flex-1"]),
+  [role="tab"] {
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* The lesson panel cards are left-aligned blocks, not chips -- centring
+     their two lines of text would misalign the whole row. */
+  [role="tab"].text-left,
+  button.text-left {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  /* Standalone links opt in by name. There is no CSS test for "this <a> is a
+     navigation control rather than a word inside a sentence", and the two need
+     opposite treatment: a footnote marker in running Arabic must stay small, a
+     "Back to reading" link must not. So the ~10 that are controls say so. */
+  .tap {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

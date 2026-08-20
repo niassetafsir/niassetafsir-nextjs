@@ -134,7 +134,7 @@ export default async function VersePage({
       <div className="pb-6 mb-6 border-b" style={{ borderColor: 'rgba(255,255,255,0.10)' }}>
         <div className="font-english text-[11px] tracking-[0.12em] uppercase mb-3"
           style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-          <Link href={`/surah/${surah}`} className="hover:text-gold">
+          <Link href={`/surah/${surah}`} className="tap hover:text-gold">
             Sūrat {meta.nameEn}
           </Link>
           {' · '}
@@ -220,7 +220,7 @@ export default async function VersePage({
             means the work has not been done, not that he passed the verse over.
           </p>
           <Link href={`/surah/${surah}`}
-            className="inline-block mt-4 font-english text-[12.5px] text-gold/70 hover:text-gold underline">
+            className="tap mt-4 font-english text-[12.5px] text-gold/70 hover:text-gold underline">
             Read Sūrat {meta.nameEn} in the lesson sequence →
           </Link>
         </div>
@@ -340,17 +340,17 @@ function NeighbourNav({ surah, ayah, max }: { surah: number; ayah: number; max: 
     <nav className="flex justify-between items-center mt-10 pt-5 border-t font-english text-[12.5px]"
       style={{ borderColor: 'rgba(255,255,255,0.10)' }}>
       {ayah > 1 ? (
-        <Link href={`/verse/${surah}/${ayah - 1}`} className="text-gold/70 hover:text-gold">
+        <Link href={`/verse/${surah}/${ayah - 1}`} className="tap text-gold/70 hover:text-gold">
           ← {surah}:{ayah - 1}
         </Link>
       ) : <span />}
       <Link href={`/surah/${surah}`}
         style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}
-        className="hover:text-gold">
+        className="tap hover:text-gold">
         Sūrah {surah}
       </Link>
       {ayah < max ? (
-        <Link href={`/verse/${surah}/${ayah + 1}`} className="text-gold/70 hover:text-gold">
+        <Link href={`/verse/${surah}/${ayah + 1}`} className="tap text-gold/70 hover:text-gold">
           {surah}:{ayah + 1} →
         </Link>
       ) : <span />}
