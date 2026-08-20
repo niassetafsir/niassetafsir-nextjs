@@ -17,7 +17,7 @@ const RESEARCH_ITEMS: DropdownItem[] = [
   { label: "Commentary by Verse", sub: "Every place he treats an āya, across the corpus", href: "/verse" },
   { label: "Search", sub: "Full-text across all lessons", href: "/search" },
   { label: "Browse Tools", sub: "Footnotes, hadith, glossary, search", href: "/research" },
-  { label: "Cite a Passage", sub: "Select text to clip and cite", href: "/clips" },
+  { label: "Saved", sub: "Passages you have kept, with citations", href: "/saved" },
 ];
 
 const ABOUT_ITEMS: DropdownItem[] = [
@@ -42,8 +42,7 @@ const READ_ITEMS: DropdownItem[] = [
 ];
 
 const MORE_ITEMS: DropdownItem[] = [
-  { label: "Bookmarks", sub: "Saved passages", href: "/bookmarks" },
-  { label: "Research Clips", sub: "Cited passages", href: "/clips" },
+  { label: "Saved", sub: "Passages you have kept", href: "/saved" },
   { label: "Pre-Order Bilingual", sub: "Register interest", href: "/preorder" },
 ];
 

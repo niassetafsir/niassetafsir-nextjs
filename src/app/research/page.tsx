@@ -57,17 +57,10 @@ const TOOLS = [
     tier: 'research',
   },
   {
-    href: '/clips',
-    titleAr: 'اقتباسات البحث',
-    titleEn: 'Research Clips',
-    desc: 'Select any passage — Chicago citation generated automatically.',
-    tier: 'personal',
-  },
-  {
-    href: '/bookmarks',
+    href: '/saved',
     titleAr: 'المحفوظات',
-    titleEn: 'Bookmarks',
-    desc: 'Save passages for later study.',
+    titleEn: 'Saved',
+    desc: 'Passages you have kept while reading — bookmarks and cited clips in one list, with a Chicago citation ready to copy.',
     tier: 'personal',
   },
 ];
