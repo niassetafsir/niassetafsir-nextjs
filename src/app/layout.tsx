@@ -22,7 +22,12 @@ export const metadata: Metadata = {
     url: "https://niassetafsir.org",
     siteName: "niassetafsir.org",
     title: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Edition & Research Platform",
-    description: "A digital edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse (d. 1975). Arabic text, growing English translation, 1,994-footnote critical apparatus, and scholarly research tools.",
+    // No footnote count here. It was "1,994-footnote" while the apparatus held
+    // 1,997, and a figure in an Open Graph description is the least visible
+    // place a stale number can hide -- it renders in link previews, not on the
+    // site, so nobody proofreading a page ever sees it. Pages that want the
+    // real total read it from src/data via getEditionFacts().
+    description: "A digital edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse (d. 1975). Arabic text, growing English translation, critical apparatus, and scholarly research tools.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Fī Riyāḍ Tafsīr — niassetafsir.org" }],
   },
   twitter: {

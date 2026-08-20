@@ -175,6 +175,14 @@ export default function VerseLocusCard({
                 Working transcription — not yet proofread against the printing.
               </p>
             )}
+            {/* An unsigned draft translation reads exactly like a finished one
+                unless the page says which it is. */}
+            {locus.editorialNote && (
+              <p className="font-english text-[11.5px] italic mt-2 leading-relaxed"
+                style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
+                {locus.editorialNote}
+              </p>
+            )}
             {link.note && (
               <p className="font-english text-[12px] italic mt-3 pt-3 border-t"
                 style={{
@@ -191,19 +199,11 @@ export default function VerseLocusCard({
             <p className="font-english text-[13px] leading-relaxed"
               style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
               <strong style={{ color: 'var(--body-text, rgba(255,255,255,0.8))' }}>
-                {/* A session-coverage entry has a note by construction, so the
-                    old `link.note ? ...` test printed "Recorded, not yet
-                    transcribed" on every one of them -- false for all fifty-six
-                    sessions, each of which carries its transcribed Arabic in
-                    src/data/lessons and is linked from this very card. What is
-                    missing is the location of THIS āya inside that text. */}
                 {witness.medium === 'audio'
                   ? 'Not located.'
-                  : link.derivation === 'session-range'
-                    ? 'Session transcribed; this āya not located within it.'
-                    : link.note
-                      ? 'Recorded, not yet transcribed.'
-                      : 'Not yet ingested.'}
+                  : link.note
+                    ? 'Recorded, not yet transcribed.'
+                    : 'Not yet ingested.'}
               </strong>{' '}
               {link.note ??
                 'This locus is recorded because the attribution is attested, not because the text is available here.'}

@@ -87,7 +87,12 @@ export const NAV: NavSection[] = [
     match: ['/research', '/footnotes', '/hadith', '/glossary', '/glossary-map', '/notes', '/saved', '/search'],
     children: [
       { href: '/research', label: 'All tools', hint: 'Everything in one place' },
-      { href: '/footnotes', label: 'Footnotes', hint: '1,997 compiler citations, classified' },
+      // No count in this hint. NAV is a static table consumed by client
+      // components, and the counter lives in coverage.ts, which reads the
+      // filesystem -- so this cannot derive the figure, and a hand-typed one
+      // here would be right only until the apparatus next changes. The
+      // /footnotes page states its own total, counted.
+      { href: '/footnotes', label: 'Footnotes', hint: 'Compiler citations, classified' },
       { href: '/hadith', label: 'Ḥadīth index', hint: 'By collection' },
       { href: '/glossary', label: 'Terms', hint: 'In context, and how he connects them' },
       { href: '/notes', label: 'Research notes', hint: 'Working observations on the text' },

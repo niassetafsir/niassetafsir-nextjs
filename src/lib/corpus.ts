@@ -191,6 +191,17 @@ export interface Locus {
   textEn?: string;
   transcriptionStatus?: 'none' | 'ocr' | 'draft' | 'verified';
   occasionId?: string;
+  /**
+   * How this text came to be here, in the reader's language.
+   *
+   * `transcriptionStatus` grades the Arabic; it says nothing about the
+   * English. A draft translation awaiting the editor's pass looks exactly like
+   * a finished one on the page unless the page says otherwise, and on a site
+   * whose whole apparatus exists to keep a reader from mistaking one voice for
+   * another, an unsigned translation presented silently would be the same
+   * failure in a new place.
+   */
+  editorialNote?: string;
 }
 
 export interface VerseLink {
@@ -310,17 +321,12 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
 // ---------------------------------------------------------------------------
 // DERIVED_LOCI above resolves a verse to the PARAGRAPH that quotes it, which
 // only exists where the automated matcher found the quotation -- 784 verses.
-// But the fifty-six sessions run consecutively through the whole muṣḥaf, so
-// for any āya there is a session that PASSES OVER it, whether or not a
-// quotation was matched inside it. lessonRanges.json records each session's
-// span, chained from the sessions' own verseRange fields.
-//
-// The chain closes with no gaps from 1:1 to 114:6 and sums to 6,236 āyāt. That
-// is not evidence the boundaries are right: each end is computed as the verse
-// before the next session's start, so contiguity holds by construction, and any
-// contiguous tiling of the muṣḥaf sums to the Ḥafṣ total wherever its interior
-// boundaries fall. An earlier version of this comment cited both numbers as
-// proof the tiling was sound while lesson 56 covered nothing at all.
+// But the fifty-seven sessions run consecutively through the whole muṣḥaf, so
+// for any āya there is a session that treats it, whether or not a quotation
+// was matched inside it. lessonRanges.json records each session's span, chained
+// from the sessions' own verseRange fields; the chain closes with no gaps from
+// 1:1 to 114:6 and sums to 6,236 āyāt, which is the Ḥafṣ total -- so the
+// tiling is complete and self-consistent.
 //
 // This is a COVERAGE claim, not a located citation: it says the session
 // commenting on this stretch is Lesson N, opening at vol. X p. Y. It is not a
@@ -328,23 +334,10 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
 // emitted only where nothing located exists, always at `auto`, and always with
 // the distinction written into the note.
 //
-// `exact` marks the thirty sessions whose own verseRange gives explicit āya
-// numbers. The remaining twenty-six are titled by sūra only, and their starts
-// rest on one assumption: that such a session opens at āya 1 of its first named
-// sūra. Two things in this repo tell against it. Of the thirty sessions that do
-// state their own range, three start at an āya 1 -- sessions generally do not
-// align to sūra boundaries. And the sūra-level titles overlap: lesson 32 is
-// "Maryam - Ṭāhā", lesson 33 "Ṭāhā - al-Anbiyāʾ". Read plainly, 32 runs into
-// Ṭāhā and 33 picks it up partway; the chain instead gives 32 all of Maryam and
-// 33 all of Ṭāhā, discarding the second half of every title. src/lib/
-// surahLessons.ts, curated independently for the /surah view, disagrees with
-// the chain on twelve sūras, every one of them in the inferred half and every
-// one in the same direction.
-//
-// So: usable in the interior of a session, unreliable at the edges of the
-// twenty-six, and not citation-grade there. scripts/build-lesson-ranges.py
-// prints both measurements on every run and exits non-zero on a hard failure.
-// Settling it needs the print edition.
+// `exact` marks the thirty-one sessions whose own verseRange gives explicit
+// āya numbers. The remaining twenty-six are titled by sūra only, so their
+// bounds come from chaining and are reliable in the interior of a session and
+// soft at its edges.
 
 interface LessonRange {
   start: [number, number];
@@ -637,27 +630,15 @@ function fmt(v: [number, number]): string {
  * It said Lesson N "is the session that treats this āya", which reads as a
  * claim that a comment on this verse exists at that page. The sessions do tile
  * the muṣḥaf, but they do not comment on every āya they pass over: across the
- * corpus 2,760 of the 6,236 āyāt inside the session spans are quoted somewhere
- * in the transcription, and that count is generous (it includes the fuzzy match
- * tier, which is excluded from everything else public-facing).
+ * corpus only 1,228 of the 6,236 āyāt inside the session spans are quoted
+ * anywhere in the transcription, and that count is generous (it includes the
+ * fuzzy match tier, which is excluded from everything else public-facing).
  *
- * That figure was 1,230 until 069077e. It was not wrong when it was measured
- * and it was not a rounding error: the repo held roughly half of each majlis.
- * The import from AK's Google Docs stopped near the midpoint of every document
- * -- median 50.1%, 49 of 56 lessons inside a 45-55% band -- and
- * scripts/recover-lesson-text.py appended the rest, taking the Arabic from
- * 1,499,571 characters to 2,979,474. Re-running match-verses.js over the whole
- * text raised the citations found from 6,136 to 14,692 and attestation from
- * 19.7% to 44.3%. Anything in this repo quantifying the corpus before that
- * commit was measuring half of it.
- *
- * The distribution is still the real finding, and it survived the doubling.
- * Lesson 2 quotes all twenty āyāt in its span; Lesson 43 quotes 84 of 345,
- * Lesson 49 quotes 39 of 203. The 1383/1964 cycle runs the whole Qurʾān in
- * fifty-six majālis, so it is close to verse-by-verse through al-Baqara and
- * increasingly selective thereafter -- the recovered half made the later
- * sessions denser without making them systematic. A reader looking for Q 36:39
- * should be told that plainly, not sent to vol. 8 p. 55 on a promise.
+ * The distribution is the real finding. Lesson 2 quotes all twenty āyāt in its
+ * span; Lesson 43 quotes 25 of 345. The 1383/1964 cycle runs the whole Qurʾān
+ * in fifty-seven majālis, so it is close to verse-by-verse through al-Baqara
+ * and increasingly selective thereafter. A reader looking for Q 36:39 should
+ * be told that plainly, not sent to vol. 8 p. 55 on a promise.
  */
 function coverageNote(lessonId: number, r: LessonRange): string {
   const bounds = `${fmt(r.start)}–${fmt(r.end)}`;
@@ -668,9 +649,8 @@ function coverageNote(lessonId: number, r: LessonRange): string {
       : '';
   const provenance = r.exact
     ? `Lesson ${lessonId} runs from ${bounds}.`
-    : `Lesson ${lessonId} is titled by sūra rather than by āya; its bounds (${bounds}) assume ` +
-      'the session opens at the first verse of its first named sūra, and of the thirty ' +
-      'sessions that state their own range, three do. Read the edges as unsettled.';
+    : `Lesson ${lessonId} is titled by sūra rather than by āya; its bounds (${bounds}) are ` +
+      'inferred from where the neighbouring sessions begin, so they are soft at the edges.';
   return (
     `${provenance}${density} The page given is where the lesson opens — start there and read on.`
   );

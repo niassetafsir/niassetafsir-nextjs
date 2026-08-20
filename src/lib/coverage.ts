@@ -143,6 +143,31 @@ export interface EditionFacts {
   /** Contiguous sūra span of the per-verse Qurʾān recitation, or null if it has
    *  gaps -- in which case the page should not claim a range. */
   quranAudioSurahs: { first: number; last: number } | null;
+  /** Ḥadīth citations in the index, and the collections they run across. */
+  hadithCitations: number;
+  hadithCollections: number;
+  /** Terms /glossary actually lists. NOT the concordance length: the merged
+   *  page also lists the graph-only terms (ḥāl, nafs, ʿaql, tajallī), which
+   *  the relation graph makes claims about but the concordance has not
+   *  indexed. Counting the concordance alone gave "twenty" for a page showing
+   *  twenty-four. */
+  termCount: number;
+}
+
+/**
+ * The join key /glossary uses to merge the concordance with the relation graph.
+ *
+ * MUST stay identical to `key()` in src/app/glossary/page.tsx. The two files
+ * spell the same term differently ("al-Tawḥīd" against "tawḥīd"), and the count
+ * is the size of the union under this normalisation -- so if the page's key and
+ * this one drift apart, the stated total stops matching the list beneath it,
+ * which is the exact failure this whole counter exists to prevent.
+ */
+function termKey(s: string): string {
+  return s.normalize('NFC').toLowerCase()
+    .replace(/^al-/, '')
+    .replace(/[ʾʿ'’‘]/g, '')
+    .replace(/[\s-]+/g, '-');
 }
 
 export async function getEditionFacts(): Promise<EditionFacts> {
@@ -178,11 +203,42 @@ export async function getEditionFacts(): Promise<EditionFacts> {
     /* leave null */
   }
 
+  let hadithCitations = 0;
+  let hadithCollections = 0;
+  try {
+    const raw = fs.readFileSync(path.join(process.cwd(), 'src/data/hadith.json'), 'utf8');
+    const byCollection: Record<string, unknown[]> = JSON.parse(raw);
+    const entries = Object.values(byCollection).filter(Array.isArray);
+    hadithCollections = entries.length;
+    hadithCitations = entries.reduce((n, rows) => n + rows.length, 0);
+  } catch {
+    /* leave at 0; pages render the count only when it is non-zero */
+  }
+
+  // The glossary's own two files live in public/data (the page is a client
+  // component and fetches them), so they are read from there rather than
+  // src/data -- same as audio_index.json above.
+  let termCount = 0;
+  try {
+    const read = (f: string) =>
+      JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public/data', f), 'utf8'));
+    const concordance: { term: string }[] = read('term_concordance.json');
+    const graph: { nodes?: { id: string }[] } = read('glossary_graph.json');
+    const keys = new Set(concordance.map(t => termKey(t.term)));
+    for (const n of graph.nodes ?? []) keys.add(termKey(n.id));
+    termCount = keys.size;
+  } catch {
+    /* leave at 0 */
+  }
+
   return {
     totalLessons: c.totalLessons,
     arabicLessons: c.layers.find(l => l.key === 'arabic')?.count ?? 0,
     footnoteCount,
     footnoteLessons,
+    hadithCitations,
+    hadithCollections,
+    termCount,
     translatedCount: translated.length,
     translatedFirst: translated[0] ?? null,
     translatedLast: translated[translated.length - 1] ?? null,

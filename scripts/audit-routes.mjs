@@ -34,7 +34,13 @@ for(const mobile of [false,true]){
   for(const route of ROUTES){
     const errs=[], net=[];
     const onC=m=>{ if(m.type()==='error') errs.push(m.text().slice(0,120)); };
-    const onF=r=>{ const s=r.response()?.status(); net.push(`${r.url().replace(BASE,'')} ${s||'failed'}`); };
+    // requestfailed means the request never produced a response, so there is
+    // no status to read. request.response() also returns a PROMISE, so the old
+    // `r.response()?.status()` called .status() on a Promise and threw --
+    // killing the crawl the first time a request actually failed, i.e. in the
+    // one handler whose whole job is to report failures. failure() is the
+    // synchronous accessor for this event.
+    const onF=r=>{ net.push(`${r.url().replace(BASE,'')} ${r.failure()?.errorText||'failed'}`); };
     p.on('console',onC); p.on('requestfailed',onF);
     p.on('response',r=>{ if(r.status()>=400 && !r.url().includes('nope-404')) net.push(`${r.url().replace(BASE,'')} ${r.status()}`); });
     let status=null;
