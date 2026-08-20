@@ -48,7 +48,14 @@ export async function getCoverage(): Promise<Coverage> {
   const translated = lessons.filter(l => l.hasEnglish && (l.englishText || '').length > 2000);
   const withAudio = lessons.filter(l => l.arabicAudioUrl || l.arabicPlaylistId);
   const withWolof = lessons.filter(l => l.wolofAudioUrl || l.wolofPlaylistId);
-  const withJalalaynEn = lessons.filter(l => (l.jalalaynText || '').length > 200);
+  // This used to be `lessons.filter(l => l.jalalaynText.length > 200)`, which
+  // reported "Tafsīr al-Jalālayn alongside · English · 30 of 56" on the strength
+  // of Feras Hamza's translation (© 2007 Royal Aal al-Bayt) sitting unrendered
+  // in the lesson files. The site was publishing someone else's work as its own
+  // coverage. That text is deleted; this counts our own translation, in
+  // src/data/jalalaynEnglish, which is al-Fātiḥa and therefore Lesson 1.
+  const jalalaynEn = countTextFiles('jalalaynEnglish');
+  const withJalalaynEn = lessons.filter(l => jalalaynEn > 0 && l.id === 1);
 
   // The full comparative apparatus needs the *Arabic* of both comparanda,
   // which is transcribed sūra by sūra -- see the two SOURCE.md files.
@@ -83,7 +90,7 @@ export async function getCoverage(): Promise<Coverage> {
       {
         key: 'jalalayn',
         label: 'Tafsīr al-Jalālayn alongside',
-        detail: 'English',
+        detail: 'English, translated for this edition',
         count: withJalalaynEn.length,
         total,
       },

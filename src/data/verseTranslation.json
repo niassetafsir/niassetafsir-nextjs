@@ -1,0 +1,15 @@
+{
+  "_note": "Editorial renderings by AK. Keyed 'surah:ayah'. Where a verse has no entry here the site falls back to the base translation and says so. Never let an English line appear unattributed -- the whole point is that a reader can tell whose reading they are looking at.",
+  "_translator": "AK",
+  "_method": "The bāʾ is read instrumentally rather than locatively: 'By Allah's Name' rather than 'In the name of Allah'; 'by-through all things' rather than 'of all things'. Held consistently across the corpus.",
+  "verses": {
+    "1:1": {
+      "en": "By Allah's Name: The Entirely Merciful, The Especially Merciful",
+      "note": "bi- read as instrumental. The rendering of al-Raḥmān / al-Raḥīm follows the Saheeh International wording; AK to confirm whether to adopt, adapt or replace it."
+    },
+    "57:3": {
+      "en": "He is the first, and the last, and the evident, and the hidden, and He is by-through all things knowing-known",
+      "note": "Three moves. 'Evident / hidden' for al-ẓāhir / al-bāṭin drops Pickthall's spatial metaphor, at the cost of loosening the tie to the ẓāhir/bāṭin pair as a technical term. 'By-through' reads the bāʾ of bi-kulli shayʾin instrumentally rather than as taʿdiya. 'Knowing-known' makes explicit the active/passive ambiguity available to the faʿīl pattern. Check against Lesson 49, ¶64–66, where maʿlūm appears alongside ʿalīm — if Niasse brings the passive in himself, the rendering is warranted by the commentary rather than asserted over it."
+    }
+  }
+}

@@ -5,6 +5,7 @@ import { getLesson } from '@/lib/lessons';
 import { commentaryParagraphs } from '@/lib/niasseVerseExcerpt';
 import { EDITION_LABEL, formatRef, lessonRef, suraRef } from '@/lib/edition';
 import verseText from '@/data/verse_text.json';
+import verseTranslation from '@/data/verseTranslation.json';
 import {
   ACT_BLURB,
   ACT_HEADING,
@@ -36,6 +37,15 @@ import VersePicker from '@/components/VersePicker';
 // `output: 'export'`, so dynamic segments work on this deployment.
 
 const VERSES = verseText as unknown as Record<string, { ar: string; en: string }>;
+
+// Editorial renderings. See src/data/verseTranslation.json for the method
+// note; the short version is that the bāʾ is read instrumentally throughout,
+// which is why 1:1 is "By Allah's Name" and not "In the name of Allah".
+const TRANSLATOR = (verseTranslation as { _translator: string })._translator;
+const BASE_TRANSLATOR = 'Pickthall';
+const RENDERINGS = (verseTranslation as unknown as {
+  verses: Record<string, { en: string; note?: string }>;
+}).verses;
 
 /** Cap on how many Fī Riyāḍ lessons a single page will open to build snippets. */
 const MAX_LESSON_READS = 6;
@@ -81,6 +91,7 @@ export default async function VersePage({
   const schoolGroups = groupByAct(school);
   const marks = timelineMarks(entries);
   const text = VERSES[`${surah}:${ayah}`];
+  const rendering = RENDERINGS[`${surah}:${ayah}`];
   const printed = formatRef(suraRef(surah));
 
   // Resolve Fī Riyāḍ loci to their actual paragraphs, one lesson at a time and
@@ -136,11 +147,40 @@ export default async function VersePage({
             {text.ar}
           </p>
         )}
-        {text?.en && (
-          <p className="font-english text-[15px] italic"
-            style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
-            {text.en}
-          </p>
+        {/* The English is never unattributed. AK's renderings carry
+            interpretive weight -- the bāʾ read instrumentally, faʿīl's
+            active/passive ambiguity made explicit -- and a reader has to be
+            able to see that they are reading a construal rather than a
+            report. Where he has not yet rendered a verse the base translation
+            shows, named as such, so the two are never confused. Same
+            discipline the loci use for Niasse against his students. */}
+        {rendering ? (
+          <>
+            <p className="font-english text-[15px] italic"
+              style={{ color: 'var(--body-text, rgba(255,255,255,0.82))' }}>
+              {rendering.en}
+            </p>
+            <p className="font-english text-[11.5px] mt-1.5"
+              style={{ color: 'var(--gold-light, #E8D4A0)' }}>
+              Rendered by {TRANSLATOR}
+              {rendering.note && (
+                <span title={rendering.note} className="cursor-help"> · why</span>
+              )}
+            </p>
+            {text?.en && (
+              <p className="font-english text-[12.5px] italic mt-2"
+                style={{ color: 'var(--body-faint, rgba(255,255,255,0.42))' }}>
+                {text.en} <span className="not-italic">— {BASE_TRANSLATOR}</span>
+              </p>
+            )}
+          </>
+        ) : (
+          text?.en && (
+            <p className="font-english text-[15px] italic"
+              style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
+              {text.en} <span className="not-italic text-[12px]">— {BASE_TRANSLATOR}</span>
+            </p>
+          )
         )}
 
         {printed && (

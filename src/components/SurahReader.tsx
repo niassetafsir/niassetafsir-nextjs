@@ -98,7 +98,11 @@ function LessonBlock({ lesson }: { lesson: SurahLessonData }) {
               const withVerseNums = injectVerseNumbers(p, lesson.citations?.[String(i)]);
               return (
                 <p key={i}
-                  className="font-arabic-sans text-[1.05rem] leading-[2.1] text-gold/90 text-justify"
+                  className="font-arabic-sans text-[1.05rem] leading-[2.1] text-justify"
+                  /* Was text-gold/90 -- 1.82:1 on cream. Same reasoning as the
+                     lesson reader: this is the continuous reading view, the one
+                     place someone reads a whole sūra straight through. */
+                  style={{ color: 'var(--body-text, rgba(13,31,10,0.88))' }}
                   dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(withVerseNums, lesson.id, lesson.footnoteOrder, cursor) }}
                 />
               );

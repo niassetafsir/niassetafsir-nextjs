@@ -9,7 +9,12 @@ export interface Lesson {
   arabicBody?: string;
   arabicFootnotes?: string;
   englishText: string | null;
-  jalalaynText: string;
+  /** REMOVED from the data 2026-08-20. Held the Royal Aal al-Bayt English
+   *  Jalālayn (Feras Hamza, © 2007) across 30 lessons, 903,600 characters,
+   *  rendered nowhere but published in a public repo. Our own translation
+   *  lives in src/data/jalalaynEnglish/. Left optional so any stale reader
+   *  fails at the type level rather than silently reading undefined. */
+  jalalaynText?: never;
   hasEnglish: boolean;
   volume?: number;
   pageInVolume?: number | null;

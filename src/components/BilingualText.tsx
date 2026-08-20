@@ -358,7 +358,13 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
       {poemLines.length > 0 && (showBilingual || view === 'arabic') && (
         <div className="px-6 py-4 border-b border-gold/10 text-center bg-gold/3">
           {poemLines.map((line, i) => (
-            <div key={i} className="font-arabic text-gold/80 text-base leading-9" dir="rtl"
+            <div key={i} className="font-arabic text-base leading-9" dir="rtl"
+              /* The opening invocation is liturgical formula rather than
+                 commentary, so a warmer colour is defensible -- but gold/80 on
+                 cream is 1.5:1, which is not a stylistic choice, it is text a
+                 reader has to squint at. --gold inside the reader resolves to
+                 #8a6d1f: still gold, and 4.19:1. */
+              style={{ color: 'var(--gold, #8a6d1f)' }}
               dangerouslySetInnerHTML={{ __html: line }} />
           ))}
         </div>
@@ -436,7 +442,14 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                 <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2" dir="ltr">Arabic commentary</p>
                 {commentaryParagraphs.map((p, i) => (
                   <div key={i} id={`ar-para-${i}`}
-                    className={`font-arabic text-[1.1rem] leading-[2.2] text-gold/90 text-justify mb-3 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
+                    className={`font-arabic text-[1.1rem] leading-[2.2] text-justify mb-3 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
+                    /* Was text-gold/90. Gold on the cream reader measures 1.82:1 --
+                       WCAG AA wants 4.5 for body text, and this is the body text:
+                       three million characters of it, the surface a reader spends
+                       almost all their time on. Gold is the site's accent and
+                       belongs on chrome. The reader already declares its own ink,
+                       --body-text, which measures 10.68:1 on the same cream. */
+                    style={{ color: 'var(--body-text, rgba(13,31,10,0.88))' }}
                     dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(injectVerseNumbers(p, citations?.[String(i)]), lessonId, footnoteOrder, fnCursor) }} />
                 ))}
               </div>
