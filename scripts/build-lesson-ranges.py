@@ -95,8 +95,25 @@ except FileNotFoundError:
     rep = {}
     print('WARNING: no verse-match-report.json; attestation counts omitted')
 
-HIGH_CONFIDENCE = ('substring', 'pair')
-ALL_TIERS = ('substring', 'pair', 'fuzzy', 'ambiguous')
+HIGH_CONFIDENCE = ('substring', 'pair', 'enclosed')
+ALL_TIERS = ('substring', 'pair', 'enclosed', 'fuzzy', 'ambiguous')
+
+# Tiers the seam search below may place a boundary on. Wider than
+# HIGH_CONFIDENCE by 'ambiguous', and deliberately so: an ambiguous match is
+# not one the matcher doubts, it is one it cannot narrow to a single āya.
+# Every candidate is a verbatim occurrence of the clause, and quoted_ayat()
+# already expands it to all of them, so as evidence for HOW FAR INTO A SŪRA a
+# session reaches -- the only question a seam asks -- it is as good as a
+# definite match and better than a fuzzy one.
+#
+# This matters because the matcher's tiers are not fixed. When the pair pass
+# learned to refuse a pairing it could not prove, several hundred matches moved
+# from 'pair' to 'ambiguous' without one of them becoming less true, and seams
+# computed from HIGH_CONFIDENCE alone slid backwards: the Ṭāhā seam between
+# sessions 32 and 33 moved from 20:43 to 20:18, away from the 20:55 the text
+# itself gives (Lesson 33 opens "منها خلقناكم"). A seam must not move because a
+# match was relabelled more carefully.
+SEAM_TIERS = HIGH_CONFIDENCE + ('ambiguous',)
 
 
 def quoted_ayat(lid, sura, tiers):
@@ -149,12 +166,12 @@ seam_notes = []
 
 
 def seam_split(prev_lid, lid, sura):
-    prev_hits = (quoted_ayat(prev_lid, sura, HIGH_CONFIDENCE)
+    prev_hits = (quoted_ayat(prev_lid, sura, SEAM_TIERS)
                  or quoted_ayat(prev_lid, sura, ALL_TIERS))
     if not prev_hits:
         return None
     split = min(max(prev_hits) + 1, AYAH[sura])
-    nxt = (quoted_ayat(lid, sura, HIGH_CONFIDENCE)
+    nxt = (quoted_ayat(lid, sura, SEAM_TIERS)
            or quoted_ayat(lid, sura, ALL_TIERS))
     if nxt and min(nxt) < split:
         seam_notes.append(

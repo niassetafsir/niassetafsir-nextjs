@@ -1,14 +1,23 @@
 // Sūrah → lesson-range mapping for the /surah/[id] continuous-reading view.
 //
-// Mirrors the curated SURA_TO_LESSON / SURA_LESSON_END tables already in
-// src/app/read/page.tsx (kept in sync manually -- see that file for the
-// full derivation notes). "Begins" here means the first lesson where the
-// sūrah is the lesson's PRIMARY subject (matches lesson.sura), not merely
-// the first lesson whose tail end happens to touch its opening verses --
-// e.g. Lesson 20 ("Q. 7:171-8:40") technically reaches into the first 40
-// verses of al-Anfāl, but al-Anfāl's substantive commentary only begins at
-// Lesson 21, so that's where this table starts it. This matches what
-// readers already see in Browse-by-Sūrah on /read.
+// THIS FILE IS THE SINGLE SOURCE for the SURA_TO_LESSON / SURA_LESSON_END
+// tables. Do not transcribe them anywhere else. Every other consumer reads
+// them from here:
+//   - src/app/read/page.tsx        imports getLessonIdsForSurah()
+//   - scripts/build-lesson-ranges.py  parses SURA_TO_LESSON out of this file
+//   - scripts/match-verses.js         parses both tables out of this file
+// The last of those is why the rule is now absolute rather than a request:
+// the citation matcher breaks its ties on this table, so a copy drifting a
+// single sūrah out of step changes which āya numbers get printed beside
+// Niasse's Arabic, silently and on every page.
+//
+// "Begins" here means the first lesson where the sūrah is the lesson's
+// PRIMARY subject (matches lesson.sura), not merely the first lesson whose
+// tail end happens to touch its opening verses -- e.g. Lesson 20
+// ("Q. 7:171-8:40") technically reaches into the first 40 verses of
+// al-Anfāl, but al-Anfāl's substantive commentary only begins at Lesson 21,
+// so that's where this table starts it. This matches what readers already
+// see in Browse-by-Sūrah on /read.
 
 const SURA_TO_LESSON: Record<number, number> = {
   1:1, 2:2, 3:8, 4:11, 5:14, 6:16, 7:18, 8:21, 9:22, 10:24,

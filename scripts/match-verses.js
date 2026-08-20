@@ -21,26 +21,47 @@ const VERSE_TEXT_FILE = path.join(__dirname, '..', 'src', 'data', 'verse_text.js
 const LESSONS_DIR = path.join(__dirname, '..', 'src', 'data', 'lessons');
 const OUT_FILE = path.join(__dirname, '..', 'translation-drafts', 'verse-match-report.json');
 
-// --- Surah <-> lesson range (mirrors src/app/read/page.tsx / src/lib/surahLessons.ts) ---
+// --- Surah <-> lesson range ------------------------------------------------
+//
+// Read at run time out of src/lib/surahLessons.ts, which is the single source
+// for these two tables. They used to be transcribed here by hand as well, and
+// the two copies were kept in step by nothing but care. That was survivable
+// while the table only drove a browse widget. It is not survivable now: the
+// scope tie-breaks below decide which of several rival ayat gets its number
+// printed beside Niasse's Arabic, so one stale row here would change the
+// printed text of the edition without changing anything a reader could see.
+//
+// Node cannot require() a .ts file and this repo is not growing a build step
+// or a dependency for one object literal, so the literal is parsed out of the
+// source. scripts/build-lesson-ranges.py already reads the same file the same
+// way. Anything unexpected -- file moved, declaration renamed, table
+// truncated -- throws here rather than quietly matching against a half table.
 
-const SURA_TO_LESSON = {
-  1:1, 2:2, 3:8, 4:11, 5:14, 6:16, 7:18, 8:21, 9:22, 10:24,
-  11:25, 12:26, 13:28, 14:28, 15:29, 16:30, 17:30, 18:31, 19:32, 20:32,
-  21:33, 22:34, 23:35, 24:35, 25:36, 26:37, 27:37, 28:38, 29:39, 30:39,
-  31:39, 32:40, 33:40, 34:41, 35:41, 36:42, 37:42, 38:43, 39:43, 40:44,
-  41:44, 42:45, 43:45, 44:45, 45:46, 46:46, 47:46, 48:46, 49:47, 50:47,
-  51:47, 52:48, 53:48, 54:48, 55:49, 56:49, 57:49, 58:50, 59:50, 60:50,
-  61:50, 62:51, 63:51, 64:51, 65:51, 66:51, 67:52, 68:52, 69:52, 70:52,
-  71:52, 72:53, 73:53, 74:53, 75:53, 76:53, 77:53, 78:54, 79:54, 80:54,
-  81:54, 82:54, 83:54, 84:54, 85:54, 86:54, 87:55, 88:55, 89:55, 90:55,
-  91:55, 92:55, 93:55, 94:55, 95:55, 96:55, 97:55, 98:55, 99:55, 100:55,
-  101:55, 102:55, 103:55, 104:55, 105:55, 106:55, 107:55, 108:55, 109:55, 110:55,
-  111:55, 112:56, 113:56, 114:56,
-};
-const SURA_LESSON_END = {
-  2:7, 3:10, 4:13, 5:16, 6:17, 7:20, 9:23, 11:26, 12:27, 20:33, 21:34,
-  24:36, 27:38, 31:40, 33:41, 35:42, 37:43, 41:45, 44:46, 48:47, 51:48,
-};
+const SURAH_LESSONS_TS = path.join(__dirname, '..', 'src', 'lib', 'surahLessons.ts');
+
+function readSuraTable(source, name, minEntries) {
+  const block = new RegExp(`const\\s+${name}\\s*(?::[^=]*)?=\\s*\\{([^}]*)\\}`).exec(source);
+  if (!block) {
+    throw new Error(
+      `${name} not found in ${SURAH_LESSONS_TS}. That file is the single source ` +
+      `for the sura -> lesson tables; this script cannot match without it. If the ` +
+      `declaration was renamed or reformatted, fix the parse here -- do not paste ` +
+      `the table back into this file.`);
+  }
+  const table = {};
+  for (const m of block[1].matchAll(/(\d+)\s*:\s*(\d+)/g)) table[Number(m[1])] = Number(m[2]);
+  const found = Object.keys(table).length;
+  if (found < minEntries) {
+    throw new Error(
+      `${name} in ${SURAH_LESSONS_TS} parsed to only ${found} entries, expected at ` +
+      `least ${minEntries}. Refusing to run against a truncated table.`);
+  }
+  return table;
+}
+
+const surahLessonsSrc = fs.readFileSync(SURAH_LESSONS_TS, 'utf8');
+const SURA_TO_LESSON = readSuraTable(surahLessonsSrc, 'SURA_TO_LESSON', 114);
+const SURA_LESSON_END = readSuraTable(surahLessonsSrc, 'SURA_LESSON_END', 21);
 
 // Invert to lesson -> surahs touched (informational only now -- matching
 // itself searches the whole Qur'an, see note below). Lesson 1 also gets
@@ -64,6 +85,24 @@ const BASMALA_PATTERN = /^(أعوذ بالله|بسم الله|اللهم صل)/
 function isPoem(text) {
   return POEM_PATTERN.test(text.trim()) || BASMALA_PATTERN.test(text.trim());
 }
+
+// The same three formulas, written against NORMALIZED text, for the span-level
+// guard further down. BASMALA_PATTERN above matches raw text and must keep
+// doing so: isPoem() decides which paragraphs survive, and therefore what
+// paraIndex every later paragraph carries, and verseCitations.json is keyed by
+// that index. src/lib/arabicCommentary.ts filters the paragraphs the same way
+// on the site, so the two isPoem() must agree character for character or the
+// citations print against the wrong paragraphs.
+//
+// Spans are a different matter. A span is tested on its own, nothing downstream
+// is indexed by it, and inside the parentheses the formulas are usually fully
+// vocalised -- "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ" -- which the raw pattern
+// walks straight past, because the first character it compares is بِ and not ب.
+// The guard existed to keep recitation formulas out of the fuzzy pass, and
+// vocalised is how they are actually written, so it was letting through
+// precisely the spans it was written to catch. Note the bare alif in "اعوذ":
+// normalizeAr folds أ to ا, so a hamza here would never fire.
+const BASMALA_PATTERN_NORM = /^(اعوذ بالله|بسم الله|اللهم صل)/;
 
 function extractSpans(paragraph) {
   const spans = [];
@@ -174,22 +213,57 @@ function lessonScope(id, lesson) {
   return { range, surahs };
 }
 
+/** The āyāt a match id names. Pass 1 produces "2:255"; pass 2 produces the
+ *  adjacent pair "2:255-2:256". Everything that reasons about where a match
+ *  sits in the muṣḥaf goes through this, so both passes can share it. */
+function versesOf(matchId) { return matchId.split('-'); }
+
+/** Muṣḥaf order, for candidate lists that are read by a human or by
+ *  build-lesson-ranges.py. */
+function sortVerses(keys) {
+  return keys.sort((a, b) => posOf(...a.split(':').map(Number)) - posOf(...b.split(':').map(Number)));
+}
+
 /** Narrow a candidate list to the strongest scope that keeps at least one of
  *  them, and say which scope that was. Returns the untouched list when the
  *  lesson's declared scope excludes every candidate -- that is the normal
- *  shape of a cross-reference, not a reason to discard it. */
+ *  shape of a cross-reference, not a reason to discard it.
+ *
+ *  A candidate is in scope if ANY āya it names is, which for a single-āya
+ *  candidate is the plain test this function always ran, and for a pair
+ *  keeps a quotation that steps across the far edge of the lesson's declared
+ *  range -- the boundary case pass 2 exists to catch in the first place. */
 function narrowToScope(hits, scope) {
   if (hits.length < 2 || !scope) return { hits, scope: 'none' };
   if (scope.range) {
-    const inRange = hits.filter(h => {
-      const [s, a] = h.verse.split(':').map(Number);
+    const inRange = hits.filter(h => versesOf(h.verse).some(v => {
+      const [s, a] = v.split(':').map(Number);
       return scope.range.from <= posOf(s, a) && posOf(s, a) <= scope.range.to;
-    });
+    }));
     if (inRange.length) return { hits: inRange, scope: 'range' };
   }
-  const inSurah = hits.filter(h => scope.surahs.has(Number(h.verse.split(':')[0])));
+  const inSurah = hits.filter(h => versesOf(h.verse)
+    .some(v => scope.surahs.has(Number(v.split(':')[0]))));
   if (inSurah.length) return { hits: inSurah, scope: 'surah' };
   return { hits, scope: 'none' };
+}
+
+/** The shape both passes hand back when the clause sits verbatim in more than
+ *  one place and the lesson's own scope does not choose between them. The
+ *  candidate list is flattened to individual āyāt: build-lesson-ranges.py
+ *  reads it as the set of āyāt this span might attest, and src/lib/corpus.ts
+ *  reads that as "as many as N are quoted", so it has to be a true superset
+ *  and it has to parse as "sura:aya". */
+function ambiguous(hits, scopeName) {
+  let best = null;
+  for (const h of hits) if (!best || h.score > best.score) best = h;
+  return {
+    verse: best.verse,
+    score: best.score,
+    type: 'ambiguous',
+    scope: scopeName,
+    candidates: sortVerses([...new Set(hits.flatMap(h => versesOf(h.verse)))]),
+  };
 }
 
 function findMatch(spanNorm, candidates, scope) {
@@ -256,15 +330,7 @@ function findMatch(spanNorm, candidates, scope) {
       // rivals and hand back a 'pair', which this file ships as definite. The
       // Lesson 7 clause did exactly that in a draft of this fix, trading a
       // wrong Q 20:110 for a wrong Q 20:110-111.
-      return {
-        verse: best.verse,
-        score: best.score,
-        type: 'ambiguous',
-        scope: narrowed.scope,
-        candidates: narrowed.hits
-          .map(h => h.verse)
-          .sort((a, b) => posOf(...a.split(':').map(Number)) - posOf(...b.split(':').map(Number))),
-      };
+      return ambiguous(narrowed.hits, narrowed.scope);
     }
 
     // Exactly one candidate. Where the lesson's declared range or sura picked
@@ -282,19 +348,103 @@ function findMatch(spanNorm, candidates, scope) {
 
   // Pass 2: adjacent-pair concatenation, for citations spanning a verse
   // boundary (rare, but Niasse does sometimes quote across one).
-  let pass2 = null;
+  //
+  // "Rare" is the operative word, and this pass did not believe it: it was
+  // shipping 695 pairs as definite citations, on 695 spans, without ever
+  // asking whether the pairing was unique. It was not. 634 of the 695 matched
+  // more than one adjacent pair, and 615 matched exactly two -- (n-1, n) and
+  // (n, n+1), which is not two readings of a boundary-crossing quotation but
+  // the signature of a span sitting wholly INSIDE āya n and crossing no
+  // boundary at all. Those spans arrive here because pass 1 found them and
+  // then failed them on its confidence gate. Gluing a neighbour on does not
+  // improve the identification; it doubles the text the span has to fit
+  // inside, so the ratio score rises, and it prints a second āya number the
+  // quotation never reached. 56 of the 695 were real.
+  //
+  // The remedy is pass 1's, for pass 1's reasons: collect every candidate,
+  // narrow to the lesson's declared scope, ship only a unique survivor, and
+  // otherwise say 'ambiguous' and print nothing.
+  //
+  // Containment is word-aligned here too, and by the same padding. A bare
+  // .includes() on the concatenation let a span match inside a word, which is
+  // all that held up 61 of the 695: pad both sides and they match nothing.
+  // The normalization is already shared -- c.norm is normalizeAr() applied
+  // once at load, so the Uthmani small waw/yeh and the RTL mark are gone from
+  // both sides of this test exactly as they are from pass 1's.
+  //
+  // But withdrawing those 615 entirely would be the opposite error. The span
+  // IS in the muṣḥaf and we know exactly where: printing nothing beside a
+  // clause whose āya is not in doubt is as wrong as printing two āyāt when
+  // one was quoted. So each candidate is asked which āyāt it actually
+  // witnesses, before any of them is called a pair:
+  //
+  //   - if the span fits inside ONE of the two āyāt, word-aligned, that
+  //     candidate witnesses that āya, and the pairing is an artefact of
+  //     concatenation. Emitted as type 'enclosed'.
+  //   - otherwise the span really does use the tail of a and the head of b,
+  //     and the candidate witnesses the pair. Emitted as type 'pair'.
+  //
+  // Deduplicating by witness is what makes the intersection rule fall out
+  // for free: a span inside āya n is witnessed as n by BOTH windows around
+  // it, (n-1, n) and (n, n+1), so it collapses to the single hit n and
+  // survives as unique. Two DIFFERENT enclosing āyāt stay two hits and go to
+  // 'ambiguous', which is the guarantee that the āya is agreed by every
+  // candidate and not merely by most of them. A mix of an enclosure and a
+  // distant straddle is likewise two hits, and likewise ambiguous.
+  //
+  // This also catches the 14 spans the boundary test alone could not. A span
+  // inside āya n normally produces two windows, but not when n opens or
+  // closes a sūra: 2:286 ends al-Baqara and 5:1 opens al-Māʾida, so each had
+  // exactly one window, looked unique, and shipped as a definite pair naming
+  // a neighbouring āya the span never reached.
+  //
+  // On the confidence gate this appears to reopen: it does not. A span only
+  // reaches pass 2 if pass 1 returned nothing, and pass 1 returns nothing
+  // only when it found exactly ONE containing āya in the whole muṣḥaf and
+  // that āya was long relative to the span. So every 'enclosed' match here is
+  // a clause that occurs word-aligned in exactly one place in the Qur'an.
+  // Uniqueness across 6,236 āyāt is a stronger warrant than a length ratio,
+  // and pass 1 already says so for the case where scope narrowing picks the
+  // winner: "that IS the identification, and the score is beside the point".
+  // The ratio was only ever a proxy for the question uniqueness answers
+  // outright. MIN_SPAN_WORDS still applies -- it is enforced on the span at
+  // the top of this function, and an enclosed span is its own overlap.
+  //
+  // To reverse this, drop 'enclosed' from the tiers build-verse-citations.js
+  // ships; the tier stays in the report either way.
+  const pairHits = new Map(); // witness id -> hit. Keyed, so a repeated witness collapses.
   for (let i = 0; i < candidates.length - 1; i++) {
     const a = candidates[i], b = candidates[i + 1];
     const [as, aa] = a.key.split(':').map(Number);
     const [bs, ba] = b.key.split(':').map(Number);
     if (as !== bs || ba !== aa + 1) continue; // must be adjacent verses, same surah
     const combined = `${a.norm} ${b.norm}`;
-    if (combined.includes(spanNorm)) {
-      const score = spanNorm.length / combined.length;
-      if (!pass2 || score > pass2.score) pass2 = { verse: `${a.key}-${b.key}`, score, type: 'pair' };
+    if (!` ${combined} `.includes(paddedSpan)) continue;
+    const enclosedBy = ` ${a.norm} `.includes(paddedSpan) ? a
+      : ` ${b.norm} `.includes(paddedSpan) ? b
+      : null;
+    if (enclosedBy) {
+      pairHits.set(enclosedBy.key, {
+        verse: enclosedBy.key,
+        score: spanNorm.length / enclosedBy.norm.length,
+        enclosed: true,
+      });
+    } else {
+      const id = `${a.key}-${b.key}`;
+      pairHits.set(id, { verse: id, score: spanNorm.length / combined.length });
     }
   }
-  if (pass2) return pass2;
+  if (pairHits.size) {
+    const narrowed = narrowToScope([...pairHits.values()], scope);
+    if (narrowed.hits.length > 1) return ambiguous(narrowed.hits, narrowed.scope);
+    const only = narrowed.hits[0];
+    return {
+      verse: only.verse,
+      score: only.score,
+      type: only.enclosed ? 'enclosed' : 'pair',
+      scope: narrowed.scope,
+    };
+  }
 
   // Pass 3: word-overlap fallback for paraphrase-ish or partial matches.
   const spanWords = new Set(spanNorm.split(' ').filter(w => w.length > 1));
@@ -353,7 +503,8 @@ for (let id = 1; id <= 56; id++) {
       // recitation formulas, not citations of a specific verse, so leave
       // them unmatched rather than guess. isPoem() already excludes this
       // at paragraph-start; this catches the same patterns mid-paragraph.
-      const match = BASMALA_PATTERN.test(span.trim()) ? null : findMatch(normalizeAr(span), candidates, scope);
+      const spanNorm = normalizeAr(span);
+      const match = BASMALA_PATTERN_NORM.test(spanNorm) ? null : findMatch(spanNorm, candidates, scope);
       if (match) totalMatched++;
       if (match && match.type === 'ambiguous') {
         totalAmbiguous++;

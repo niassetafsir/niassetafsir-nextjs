@@ -2,13 +2,15 @@
 /**
  * Turns translation-drafts/verse-match-report.json (the full working
  * report, all match types, private/dev-only) into two small PRODUCTION
- * data files actually shipped to the site -- using ONLY substring/pair
- * type matches (the two high-confidence tiers). 'fuzzy' matches are left
+ * data files actually shipped to the site -- using ONLY the high-confidence
+ * tiers named in SHIPPED_TIERS below. 'fuzzy' matches are left
  * out here on purpose: spot-checking (2026-08-16) showed the fuzzy pass
  * correctly rescues citations mangled by OCR noise most of the time, but
  * also occasionally misattributes short liturgical/formulaic phrases to
  * an unrelated verse -- not a bar worth clearing for something printed as
  * a definite verse number next to Niasse's text on a public page.
+ * 'ambiguous' is excluded for the stronger reason that the matcher has said
+ * outright it cannot tell which āya of several is meant.
  *
  * Output 1: src/data/verseCitations.json
  *   { "<lessonId>": { "<paraIndex>": { "<spanIndex>": "<verse>" } } }
@@ -42,6 +44,16 @@ if (!fs.existsSync(REPORT_FILE)) {
 
 const report = JSON.parse(fs.readFileSync(REPORT_FILE, 'utf8'));
 
+// The tiers this file is willing to print as a definite āya number.
+//
+// 'substring' -- the clause sits verbatim in one āya and nothing rivals it.
+// 'pair'      -- the clause genuinely runs across one āya boundary.
+// 'enclosed'  -- the clause sits inside one āya, found by the pair pass while
+//                it was testing adjacent windows, and agreed by every window
+//                that contains it. See the pass 2 comment in match-verses.js.
+//                Removing 'enclosed' from this set is the whole of the revert.
+const SHIPPED_TIERS = new Set(['substring', 'pair', 'enclosed']);
+
 const citations = {};
 const indexByLesson = {};
 
@@ -52,7 +64,7 @@ for (const lessonId of Object.keys(report)) {
 
   for (const s of spans) {
     if (!s.match) continue;
-    if (s.match.type !== 'substring' && s.match.type !== 'pair') continue;
+    if (!SHIPPED_TIERS.has(s.match.type)) continue;
 
     const paraKey = String(s.paraIndex);
     (lessonCitations[paraKey] = lessonCitations[paraKey] || {})[String(s.spanIndex)] = s.match.verse;
