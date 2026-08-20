@@ -132,18 +132,26 @@ export default async function LessonPage({ params }: { params: { id: string } })
   // Top content: breadcrumb and jump tabs
   const topContent = (
     <>
-      <PanelJumpTabs lessonId={lesson.id} lessons={lessonIndex} />
+      {/* "All Sūrahs" used to occupy a full-width band of its own directly
+          below the drawer bar, which held one button. Three stacked
+          single-purpose rows -- drawer, audio, breadcrumb -- came to 137px
+          before the lesson's own title. The breadcrumb rides in the drawer
+          bar's spare width now. */}
+      <PanelJumpTabs
+        lessonId={lesson.id}
+        lessons={lessonIndex}
+        trailing={
+          <a href="/read"
+            className="font-english hover:text-gold transition-colors flex items-center gap-1 text-xs"
+            style={{color:'var(--body-faint, rgba(232,232,224,0.45))'}}>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+            All Sūrahs
+          </a>
+        }
+      />
       <LessonAudioBar lessonId={lesson.id} />
-      <div className="flex items-center gap-2 px-4 py-1.5 text-xs" style={{borderBottom:'1px solid var(--hairline, rgba(232,232,224,0.12))'}}>
-        <a href="/read"
-          className="font-english hover:text-gold transition-colors flex items-center gap-1"
-          style={{color:'var(--body-faint, rgba(232,232,224,0.45))'}}>
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <path d="m15 18-6-6 6-6"/>
-          </svg>
-          All Sūrahs
-        </a>
-      </div>
     </>
   );
 

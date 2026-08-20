@@ -4,6 +4,7 @@ import ArabicWordTool from '@/components/ArabicWordTool';
 import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
 import { isDraftTranslation } from '@/lib/draftTranslations';
 import { VERSE_INDEX } from '@/lib/verseIndex';
+import { SURAH_LIST } from '@/lib/verseRanges';
 import { isPoem, highlightEnVerses, stripEnFootnotes, injectFootnoteLinks, injectVerseNumbers } from '@/lib/textInject';
 
 // Re-exported for existing consumers (e.g. SurahReader.tsx imports these
@@ -13,7 +14,11 @@ import { isPoem, highlightEnVerses, stripEnFootnotes, injectFootnoteLinks, injec
 // client-component boundary.
 export { isPoem, highlightEnVerses, stripEnFootnotes, injectFootnoteLinks, injectVerseNumbers };
 
-type View = 'bilingual' | 'arabic' | 'english' | 'french' | 'wolof' | 'hausa';
+// 'french' | 'wolof' | 'hausa' were members here and each had a render branch
+// and a ComingSoonNote. No lesson in the corpus has text in any of them, so
+// every branch was unreachable except by clicking a chip that promised
+// something the archive does not hold. Add a member back with its text.
+type View = 'bilingual' | 'arabic' | 'english';
 
 interface BilingualTextProps {
   /** Opening istiʿādha/basmala/poem lines, shown in full (liturgical
@@ -41,13 +46,49 @@ function DraftTranslationNotice() {
   );
 }
 
+/* Five languages used to appear here as five identical chips. Counted across
+   all 56 lesson files: Arabic has text in 56, English in 5, and French, Wolof
+   and Hausa in none -- there is no field for French or Hausa text at all. So
+   three chips led to a "coming soon" panel on every lesson in the corpus and
+   English led to one on 51 of 56.
+
+   The languages stay visible, because the plan is worth announcing: a reader
+   should see that this edition intends French, Wolof and Hausa. What changes is
+   that a language you cannot read is no longer dressed as a button. Buttons are
+   for text that exists; everything else is a label, which is what it always was
+   underneath.
+
+   Wolof will read oddly against the audio, and that is accurate. Thirty lessons
+   carry a wolofPlaylistId and the tafsīr was delivered in Wolof, but the written
+   transcription is the thing in preparation; the recordings are on "Listen while
+   reading" and /audio, where they belong. */
 const LANG_TABS: { id: View; label: string }[] = [
-  { id: 'arabic',   label: 'عربي' },
-  { id: 'english',  label: 'English' },
-  { id: 'french',   label: 'Français' },
-  { id: 'wolof',    label: 'Wolof' },
-  { id: 'hausa',    label: 'Hausa' },
+  { id: 'arabic',  label: 'عربي' },
+  { id: 'english', label: 'English' },
 ];
+
+const PLANNED_LANGS = ['Français', 'Wolof', 'Hausa'] as const;
+
+/** Highest lesson number with a substantive English translation. Drives both
+ *  the status line and the ComingSoonNote, so the two cannot drift apart --
+ *  the note read "Lessons 1–2 available" while five lessons had a translation.
+ *  Update as the translation advances. */
+const TRANSLATED_THROUGH = 5;
+
+/** A language named but not yet readable. Deliberately not a <button>: it has
+ *  no action, so it gets no affordance, no hover, no focus ring and no place in
+ *  the tab order. Screen readers get the same distinction the eye does. */
+function PlannedLang({ label, title }: { label: string; title: string }) {
+  return (
+    <span
+      title={title}
+      className="font-english text-xs px-3 py-1 rounded-full border border-dashed cursor-default"
+      style={{ borderColor: 'rgba(138,109,31,0.28)', color: 'rgba(138,109,31,0.6)' }}
+    >
+      {label}
+    </span>
+  );
+}
 
 function TabBtn({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
   return (
@@ -69,22 +110,7 @@ function ComingSoonNote({ lang }: { lang: string }) {
     english: {
       title: "English Translation",
       body: "English translation forthcoming.",
-      sub: "Lessons 1–2 available · Full bilingual print edition in preparation · Amadu Kunateh",
-    },
-    french: {
-      title: "Traduction Française",
-      body: "Traduction française en cours de préparation.",
-      sub: "Amadu Kunateh (Université Harvard) · La traduction française du Tafsīr de Cheikh Ibrāhīm Niasse est actuellement en cours.",
-    },
-    wolof: {
-      title: "Wolof",
-      body: "Wolof audio tafsīr available — see Sheikh's Audio above.",
-      sub: "Shaykh Ibrāhīm Niasse delivered this tafsīr primarily in Wolof. Audio is available in the Sheikh's Audio panel. Written transcription and translation are in preparation.",
-    },
-    hausa: {
-      title: "Hausa Translation",
-      body: "Hausa translation coming soon.",
-      sub: "The Hausa-language tradition of Niasse's tafsīr is part of the broader West African legacy of this work. A Hausa component is planned for a future phase of this scholarly database.",
+      sub: `Lessons 1–${TRANSLATED_THROUGH} available · Full bilingual print edition in preparation · Amadu Kunateh`,
     },
   };
   const msg = msgs[lang] ?? msgs.english;
@@ -98,7 +124,13 @@ function ComingSoonNote({ lang }: { lang: string }) {
 }
 
 export default function BilingualText({ poemLines, arabicParagraphs, citations, englishText, hasEnglish, lessonId, footnoteOrder }: BilingualTextProps) {
-  const [view, setView] = useState<View>('bilingual');
+  // Opening on 'bilingual' regardless of whether a translation exists gave 51
+  // of 56 lessons a two-column layout in which one column said "English
+  // translation forthcoming" -- half the reading width spent on an absence.
+  // Those lessons open on the Arabic, full width.
+  const [view, setView] = useState<View>(
+    hasEnglish && (englishText || '').trim().length > 200 ? 'bilingual' : 'arabic'
+  );
   const [highlightedPara, setHighlightedPara] = useState<number>(-1);
 
   const fnCursor = { i: 0 };
@@ -188,6 +220,34 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
   const isDraft = lessonId ? isDraftTranslation(lessonId) : false;
   const verseEntries = lessonId ? (VERSE_INDEX[lessonId] || []) : [];
 
+  // What this lesson actually has, rather than what the project intends to
+  // have. `hasEnglish` alone is not enough: several lessons carry the flag with
+  // a stub or an empty string behind it, which is how "English translation
+  // forthcoming" ended up behind a chip that claimed a translation.
+  const hasTranslation = hasEnglish && (englishText || '').trim().length > 200;
+  const langTabs = LANG_TABS.filter(t => t.id === 'arabic' || hasTranslation);
+
+  // Fold the flat index into contiguous same-sūra runs, so the jump bar can
+  // label each one. A new group opens whenever the sūra changes, which keeps
+  // a lesson that returns to an earlier sūra honest rather than merging two
+  // separate passes into one heading.
+  const verseGroups = verseEntries.reduce<
+    { surah: number; name: string; entries: typeof verseEntries }[]
+  >((groups, entry) => {
+    const surah = Number(entry.verse.split(':')[0]);
+    const last = groups[groups.length - 1];
+    if (last && last.surah === surah) {
+      last.entries.push(entry);
+    } else {
+      groups.push({
+        surah,
+        name: SURAH_LIST.find(s => s.id === surah)?.nameEn ?? `Sūra ${surah}`,
+        entries: [entry],
+      });
+    }
+    return groups;
+  }, []);
+
   const jumpToVerse = (paraIndex: number) => {
     if (view !== 'bilingual' && view !== 'arabic') setView('bilingual');
     setHighlightedPara(paraIndex);
@@ -212,41 +272,84 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
           borderColor: 'rgba(13,31,10,0.1)',
         }}
       >
-        <div className="flex gap-2 flex-wrap items-center">
-          <span className="font-english text-xs text-white/30">Layout:</span>
-          <TabBtn label="Arabic + English" active={showBilingual} onClick={() => setView('bilingual')} />
-        </div>
+        {/* The Layout row held a single button labelled "Arabic + English" with
+            nothing to switch to, on every lesson. It appears now only when
+            there is in fact a second column to lay out. */}
+        {hasTranslation && (
+          <div className="flex gap-2 flex-wrap items-center">
+            <span className="font-english text-xs text-white/30">Layout:</span>
+            <TabBtn label="Arabic + English" active={showBilingual} onClick={() => setView('bilingual')} />
+          </div>
+        )}
+        {/* Readable languages first, as buttons. Then the ones this edition
+            intends, as labels -- dashed outline, no hover, no tab stop. The
+            reader can see the whole plan and can also see, without clicking,
+            which parts of it exist. */}
         <div className="flex gap-1.5 flex-wrap items-center">
           <span className="font-english text-xs text-white/30">Language:</span>
-          {LANG_TABS.map(tab => (
+          {langTabs.map(tab => (
             <TabBtn key={tab.id} label={tab.label} active={view === tab.id} onClick={() => setView(tab.id as View)} />
           ))}
+          {!hasTranslation && (
+            <PlannedLang
+              label="English"
+              title={`English translation in progress — lessons 1–${TRANSLATED_THROUGH} are done`}
+            />
+          )}
+          {PLANNED_LANGS.map(label => (
+            <PlannedLang key={label} label={label}
+              title={label === 'Wolof'
+                ? 'Delivered in Wolof; the recordings are under “Listen while reading”. Written transcription in preparation.'
+                : `${label} translation in preparation`} />
+          ))}
+          <span className="font-english text-[11px] pl-1" style={{ color: 'rgba(138,109,31,0.55)' }}>
+            dashed = in preparation
+          </span>
         </div>
       </div>
 
       {/* Verse jump bar — Jalālayn-style per-ayah navigation, only shown once
-          this lesson has a built verse index (see src/lib/verseIndex.ts) */}
-      {verseEntries.length > 0 && (
+          this lesson has a built verse index (see src/lib/verseIndex.ts).
+
+          Grouped by sūra, and it has to be. A lesson can cross a sūra boundary,
+          and the chip carries only the āya number, so Lesson 1 (Q 1:1–2:5)
+          rendered as "1 2 3 4 5 6 7 1 2 3 4 5" -- twelve identical chips, two
+          of them labelled 1, with nothing to say the sequence restarts or what
+          it restarts into. Runs are contiguous because VERSE_INDEX is ordered
+          by position in the commentary, so a plain fold over the list gives the
+          groups; it does not assume one run per sūra. */}
+      {verseGroups.length > 0 && (
         <div
           dir="ltr"
-          className="flex gap-1 overflow-x-auto px-3 py-2 border-b"
+          className="flex gap-1 overflow-x-auto px-3 py-2 border-b items-center"
           style={{ borderColor: 'rgba(13,31,10,0.1)', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}
         >
-          <span className="font-english text-[10px] text-white/30 flex-shrink-0 self-center pr-1">Verse:</span>
-          {verseEntries.map(entry => (
-            <button
-              key={entry.verse}
-              onClick={() => jumpToVerse(entry.paraIndex)}
-              className="font-english text-[10px] flex-shrink-0 px-1.5 py-0.5 rounded border transition-colors"
-              style={{
-                borderColor: 'rgba(138,109,31,0.3)',
-                color: '#8a6d1f',
-                opacity: entry.uncertain ? 0.55 : 1,
-              }}
-              title={entry.uncertain ? `Q.${entry.verse} — approximate match` : `Jump to Q.${entry.verse}`}
-            >
-              {entry.verse.split(':')[1]}
-            </button>
+          {verseGroups.map((group, gi) => (
+            <div key={`${group.surah}-${gi}`} className="flex gap-1 items-center flex-shrink-0">
+              {gi > 0 && (
+                <span aria-hidden className="flex-shrink-0 self-stretch mx-1.5 border-l"
+                  style={{ borderColor: 'rgba(138,109,31,0.25)' }} />
+              )}
+              <span className="font-english text-[10px] flex-shrink-0 self-center pr-1 whitespace-nowrap"
+                style={{ color: 'rgba(138,109,31,0.75)' }}>
+                {group.name}
+              </span>
+              {group.entries.map(entry => (
+                <button
+                  key={entry.verse}
+                  onClick={() => jumpToVerse(entry.paraIndex)}
+                  className="font-english text-[10px] flex-shrink-0 px-1.5 py-0.5 rounded border transition-colors"
+                  style={{
+                    borderColor: 'rgba(138,109,31,0.3)',
+                    color: '#8a6d1f',
+                    opacity: entry.uncertain ? 0.55 : 1,
+                  }}
+                  title={entry.uncertain ? `Q. ${entry.verse} — approximate match` : `Jump to Q. ${entry.verse}`}
+                >
+                  {entry.verse.split(':')[1]}
+                </button>
+              ))}
+            </div>
           ))}
         </div>
       )}
@@ -369,9 +472,6 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
         </div>
       )}
 
-      {view === 'french' && <div dir="ltr" className="p-5"><ComingSoonNote lang="french" /></div>}
-      {view === 'wolof' && <div dir="ltr" className="p-5"><ComingSoonNote lang="wolof" /></div>}
-      {view === 'hausa' && <div dir="ltr" className="p-5"><ComingSoonNote lang="hausa" /></div>}
     </div>
   );
 }

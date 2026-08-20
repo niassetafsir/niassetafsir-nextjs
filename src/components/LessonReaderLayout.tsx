@@ -6,8 +6,10 @@
  *   [Main content, capped at 1280px and centred]
  *
  * Replaces the earlier 260px sticky sidebar. The metadata that lived in the
- * sidebar now runs horizontally above the text; the work title is rendered
- * once, in .lesson-reader-header, not in the bar.
+ * sidebar now runs horizontally above the text. The work title is not here at
+ * all: SiteNav carries it in both scripts on every page, and repeating it in
+ * the reader put the name of the book on screen twice before the first word of
+ * commentary.
  */
 
 import React from 'react';
@@ -158,25 +160,6 @@ export default function LessonReaderLayout({
           padding: 0 2rem;
         }
 
-        .lesson-reader-header {
-          text-align: center;
-          padding-bottom: 1.5rem;
-          margin-bottom: 1.5rem;
-          border-bottom: 1px solid rgba(13, 31, 10, 0.12);
-        }
-
-        .lesson-reader-header-work-title {
-          font-size: 11px;
-          color: rgba(13, 31, 10, 0.5);
-          margin-bottom: 0.25rem;
-          letter-spacing: 0.03em;
-        }
-
-        .lesson-reader-header-work-title.arabic {
-          font-family: 'Amiri', serif;
-          direction: rtl;
-        }
-
         .lesson-reader-body {
           flex: 1;
           font-size: 16px;
@@ -272,11 +255,13 @@ export default function LessonReaderLayout({
 
       {/* Horizontal metadata bar.
         *
-        * Deliberately carries no "Work" item: the work title is rendered
-        * once, below, in .lesson-reader-header, in both Arabic and
-        * transliteration. The sidebar layout could show it in both places
-        * because they sat in separate columns; stacked vertically they are
-        * ~40px apart and read as a straight repetition. */}
+        * Deliberately carries no "Work" item. It used to point at the block
+        * below for that, which is gone; the reason holds either way. The
+        * sidebar layout could show the work title twice because the two sat in
+        * separate columns. Stacked vertically they read as a repetition, and
+        * SiteNav is already showing it a few hundred pixels above. What
+        * identifies this page is the lesson, its verses and its volume
+        * reference, which is what the bar carries. */}
       <div className="lesson-reader-meta-bar">
         <div className="lesson-reader-meta-item">
           {/* No label here: the value is already "الدرس الأول", so a
@@ -306,17 +291,16 @@ export default function LessonReaderLayout({
         )}
       </div>
 
-      {/* Main content — capped and centred, see .lesson-reader-main */}
-      <main className="lesson-reader-main">
-        <div className="lesson-reader-header">
-          <div className="lesson-reader-header-work-title arabic">
-            فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
-          </div>
-          <div className="lesson-reader-header-work-title english">
-            Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
-          </div>
-        </div>
+      {/* Main content — capped and centred, see .lesson-reader-main
 
+          A .lesson-reader-header sat here repeating the work's title in both
+          scripts. The site header three hundred pixels above carries the same
+          two lines, so a reader arriving at a lesson met the name of the book
+          twice before the first word of commentary, for 74px of the ~790px
+          that stood between the top of the page and the text. What identifies
+          this page is the lesson title and volume reference, and those are in
+          the meta bar above. */}
+      <main className="lesson-reader-main">
         <div className="lesson-reader-body">
           {children}
         </div>
