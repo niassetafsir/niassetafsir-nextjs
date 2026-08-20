@@ -72,7 +72,7 @@
   "volume": 1,
   "page": 120,
   "span": 97,
-  "attested": 19
+  "attested": 77
  },
  "6": {
   "start": [
@@ -87,7 +87,7 @@
   "volume": 1,
   "page": 167,
   "span": 50,
-  "attested": 17
+  "attested": 41
  },
  "7": {
   "start": [
@@ -102,7 +102,7 @@
   "volume": 2,
   "page": 3,
   "span": 48,
-  "attested": 4
+  "attested": 27
  },
  "8": {
   "start": [
@@ -117,7 +117,7 @@
   "volume": 2,
   "page": 46,
   "span": 77,
-  "attested": 11
+  "attested": 46
  },
  "9": {
   "start": [
@@ -132,7 +132,7 @@
   "volume": 2,
   "page": 79,
   "span": 84,
-  "attested": 14
+  "attested": 50
  },
  "10": {
   "start": [
@@ -147,7 +147,7 @@
   "volume": 2,
   "page": 124,
   "span": 48,
-  "attested": 12
+  "attested": 30
  },
  "11": {
   "start": [
@@ -162,7 +162,7 @@
   "volume": 2,
   "page": 161,
   "span": 63,
-  "attested": 10
+  "attested": 47
  },
  "12": {
   "start": [
@@ -177,7 +177,7 @@
   "volume": 2,
   "page": 198,
   "span": 61,
-  "attested": 13
+  "attested": 42
  },
  "13": {
   "start": [
@@ -192,7 +192,7 @@
   "volume": 3,
   "page": 3,
   "span": 51,
-  "attested": 12
+  "attested": 34
  },
  "14": {
   "start": [
@@ -207,7 +207,7 @@
   "volume": 3,
   "page": 49,
   "span": 59,
-  "attested": 17
+  "attested": 40
  },
  "15": {
   "start": [
@@ -222,7 +222,7 @@
   "volume": 3,
   "page": 84,
   "span": 74,
-  "attested": 16
+  "attested": 50
  },
  "16": {
   "start": [
@@ -237,7 +237,7 @@
   "volume": 3,
   "page": 122,
   "span": 75,
-  "attested": 27
+  "attested": 57
  },
  "17": {
   "start": [
@@ -252,7 +252,7 @@
   "volume": 3,
   "page": 159,
   "span": 55,
-  "attested": 31
+  "attested": 45
  },
  "18": {
   "start": [
@@ -267,7 +267,7 @@
   "volume": 3,
   "page": 191,
   "span": 87,
-  "attested": 17
+  "attested": 42
  },
  "19": {
   "start": [
@@ -282,7 +282,7 @@
   "volume": 3,
   "page": 216,
   "span": 83,
-  "attested": 24
+  "attested": 46
  },
  "20": {
   "start": [
@@ -297,7 +297,7 @@
   "volume": 4,
   "page": 3,
   "span": 76,
-  "attested": 20
+  "attested": 50
  },
  "21": {
   "start": [
@@ -312,7 +312,7 @@
   "volume": 4,
   "page": 44,
   "span": 68,
-  "attested": 9
+  "attested": 39
  },
  "22": {
   "start": [
@@ -327,7 +327,7 @@
   "volume": 4,
   "page": 86,
   "span": 59,
-  "attested": 18
+  "attested": 35
  },
  "23": {
   "start": [
@@ -342,7 +342,7 @@
   "volume": 4,
   "page": 129,
   "span": 62,
-  "attested": 17
+  "attested": 47
  },
  "24": {
   "start": [
@@ -357,7 +357,7 @@
   "volume": 4,
   "page": 165,
   "span": 89,
-  "attested": 24
+  "attested": 48
  },
  "25": {
   "start": [
@@ -372,7 +372,7 @@
   "volume": 4,
   "page": 196,
   "span": 78,
-  "attested": 14
+  "attested": 39
  },
  "26": {
   "start": [
@@ -387,7 +387,7 @@
   "volume": 5,
   "page": 3,
   "span": 92,
-  "attested": 35
+  "attested": 79
  },
  "27": {
   "start": [
@@ -402,7 +402,7 @@
   "volume": 5,
   "page": 39,
   "span": 77,
-  "attested": 37
+  "attested": 69
  },
  "28": {
   "start": [
@@ -417,7 +417,7 @@
   "volume": 5,
   "page": 70,
   "span": 77,
-  "attested": 23
+  "attested": 71
  },
  "29": {
   "start": [
@@ -432,7 +432,7 @@
   "volume": 5,
   "page": 100,
   "span": 188,
-  "attested": 36
+  "attested": 88
  },
  "30": {
   "start": [
@@ -447,7 +447,7 @@
   "volume": 5,
   "page": 144,
   "span": 150,
-  "attested": 19
+  "attested": 74
  },
  "31": {
   "start": [
@@ -462,7 +462,7 @@
   "volume": 6,
   "page": 3,
   "span": 110,
-  "attested": 24
+  "attested": 61
  },
  "32": {
   "start": [
@@ -477,7 +477,7 @@
   "volume": 6,
   "page": 40,
   "span": 98,
-  "attested": 28
+  "attested": 36
  },
  "33": {
   "start": [
@@ -492,7 +492,7 @@
   "volume": 6,
   "page": 84,
   "span": 135,
-  "attested": 26
+  "attested": 32
  },
  "34": {
   "start": [
@@ -507,7 +507,7 @@
   "volume": 6,
   "page": 122,
   "span": 190,
-  "attested": 30
+  "attested": 69
  },
  "35": {
   "start": [
@@ -522,7 +522,7 @@
   "volume": 6,
   "page": 167,
   "span": 118,
-  "attested": 41
+  "attested": 55
  },
  "36": {
   "start": [
@@ -537,7 +537,7 @@
   "volume": 7,
   "page": 3,
   "span": 141,
-  "attested": 28
+  "attested": 49
  },
  "37": {
   "start": [
@@ -552,7 +552,7 @@
   "volume": 7,
   "page": 52,
   "span": 227,
-  "attested": 25
+  "attested": 58
  },
  "38": {
   "start": [
@@ -567,7 +567,7 @@
   "volume": 7,
   "page": 96,
   "span": 181,
-  "attested": 25
+  "attested": 66
  },
  "39": {
   "start": [
@@ -582,7 +582,7 @@
   "volume": 7,
   "page": 145,
   "span": 129,
-  "attested": 28
+  "attested": 53
  },
  "40": {
   "start": [
@@ -612,7 +612,7 @@
   "volume": 8,
   "page": 3,
   "span": 127,
-  "attested": 9
+  "attested": 50
  },
  "42": {
   "start": [
@@ -627,7 +627,7 @@
   "volume": 8,
   "page": 55,
   "span": 128,
-  "attested": 37
+  "attested": 60
  },
  "43": {
   "start": [
@@ -642,7 +642,7 @@
   "volume": 8,
   "page": 105,
   "span": 345,
-  "attested": 25
+  "attested": 84
  },
  "44": {
   "start": [
@@ -657,7 +657,7 @@
   "volume": 8,
   "page": 159,
   "span": 85,
-  "attested": 40
+  "attested": 49
  },
  "45": {
   "start": [
@@ -672,7 +672,7 @@
   "volume": 8,
   "page": 203,
   "span": 196,
-  "attested": 26
+  "attested": 69
  },
  "46": {
   "start": [
@@ -687,7 +687,7 @@
   "volume": 9,
   "page": 3,
   "span": 169,
-  "attested": 32
+  "attested": 63
  },
  "47": {
   "start": [
@@ -702,7 +702,7 @@
   "volume": 9,
   "page": 56,
   "span": 92,
-  "attested": 10
+  "attested": 34
  },
  "48": {
   "start": [
@@ -717,7 +717,7 @@
   "volume": 9,
   "page": 108,
   "span": 226,
-  "attested": 25
+  "attested": 58
  },
  "49": {
   "start": [
@@ -732,7 +732,7 @@
   "volume": 9,
   "page": 152,
   "span": 203,
-  "attested": 14
+  "attested": 39
  },
  "50": {
   "start": [
@@ -747,7 +747,7 @@
   "volume": 9,
   "page": 189,
   "span": 73,
-  "attested": 26
+  "attested": 48
  },
  "51": {
   "start": [
@@ -762,7 +762,7 @@
   "volume": 10,
   "page": 3,
   "span": 64,
-  "attested": 19
+  "attested": 34
  },
  "52": {
   "start": [
@@ -777,7 +777,7 @@
   "volume": 10,
   "page": 52,
   "span": 206,
-  "attested": 19
+  "attested": 80
  },
  "53": {
   "start": [
@@ -792,7 +792,7 @@
   "volume": 10,
   "page": 94,
   "span": 225,
-  "attested": 18
+  "attested": 64
  },
  "54": {
   "start": [
@@ -807,7 +807,7 @@
   "volume": 10,
   "page": 129,
   "span": 276,
-  "attested": 20
+  "attested": 50
  },
  "55": {
   "start": [
@@ -822,7 +822,7 @@
   "volume": 10,
   "page": 167,
   "span": 273,
-  "attested": 43
+  "attested": 67
  },
  "56": {
   "start": [
@@ -837,6 +837,6 @@
   "volume": 10,
   "page": 223,
   "span": 15,
-  "attested": 2
+  "attested": 5
  }
 }

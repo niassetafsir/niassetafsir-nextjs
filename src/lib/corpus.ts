@@ -637,15 +637,27 @@ function fmt(v: [number, number]): string {
  * It said Lesson N "is the session that treats this āya", which reads as a
  * claim that a comment on this verse exists at that page. The sessions do tile
  * the muṣḥaf, but they do not comment on every āya they pass over: across the
- * corpus only 1,230 of the 6,236 āyāt inside the session spans are quoted
- * anywhere in the transcription, and that count is generous (it includes the
- * fuzzy match tier, which is excluded from everything else public-facing).
+ * corpus 2,760 of the 6,236 āyāt inside the session spans are quoted somewhere
+ * in the transcription, and that count is generous (it includes the fuzzy match
+ * tier, which is excluded from everything else public-facing).
  *
- * The distribution is the real finding. Lesson 2 quotes all twenty āyāt in its
- * span; Lesson 43 quotes 25 of 345. The 1383/1964 cycle runs the whole Qurʾān
- * in fifty-seven majālis, so it is close to verse-by-verse through al-Baqara
- * and increasingly selective thereafter. A reader looking for Q 36:39 should
- * be told that plainly, not sent to vol. 8 p. 55 on a promise.
+ * That figure was 1,230 until 069077e. It was not wrong when it was measured
+ * and it was not a rounding error: the repo held roughly half of each majlis.
+ * The import from AK's Google Docs stopped near the midpoint of every document
+ * -- median 50.1%, 49 of 56 lessons inside a 45-55% band -- and
+ * scripts/recover-lesson-text.py appended the rest, taking the Arabic from
+ * 1,499,571 characters to 2,979,474. Re-running match-verses.js over the whole
+ * text raised the citations found from 6,136 to 14,692 and attestation from
+ * 19.7% to 44.3%. Anything in this repo quantifying the corpus before that
+ * commit was measuring half of it.
+ *
+ * The distribution is still the real finding, and it survived the doubling.
+ * Lesson 2 quotes all twenty āyāt in its span; Lesson 43 quotes 84 of 345,
+ * Lesson 49 quotes 39 of 203. The 1383/1964 cycle runs the whole Qurʾān in
+ * fifty-six majālis, so it is close to verse-by-verse through al-Baqara and
+ * increasingly selective thereafter -- the recovered half made the later
+ * sessions denser without making them systematic. A reader looking for Q 36:39
+ * should be told that plainly, not sent to vol. 8 p. 55 on a promise.
  */
 function coverageNote(lessonId: number, r: LessonRange): string {
   const bounds = `${fmt(r.start)}–${fmt(r.end)}`;
