@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 export default async function EditorialConventionsPage() {
-  const { footnoteCount, totalLessons } = await getEditionFacts();
+  const { footnoteCount, footnoteLessons, totalLessons } = await getEditionFacts();
   return (
     <main className="max-w-3xl mx-auto px-4 pb-24 pt-6" dir="ltr">
       <div className="mb-2">
@@ -106,9 +106,13 @@ export default async function EditorialConventionsPage() {
         <p className="mb-3 text-justify">
           The apparatus has been classified by subject genre — Hadith Sciences, Tafsīr, Theology,
           Sufism, Fiqh, Linguistics, History — a classification not present in the printed Arabic text
-          and an original editorial contribution of this digital edition. It covers all {totalLessons}{' '}
-          lessons, {footnoteCount.toLocaleString('en-US')} footnotes in all; the classification of the
-          later lessons is still being reviewed. Browse it at{' '}
+          and an original editorial contribution of this digital edition. It covers{' '}
+          {footnoteLessons === totalLessons
+            ? `all ${totalLessons} lessons`
+            : `${footnoteLessons} of the ${totalLessons} lessons`},{' '}
+          {footnoteCount.toLocaleString('en-US')} footnotes in all. The apparatus for the remaining
+          lessons is withheld while its inline markers are re-checked against the verified documents.
+          Browse what is published at{' '}
           <Link href="/footnotes" className="text-gold/70 hover:text-gold transition-colors">Footnotes</Link>.
         </p>
         <p className="mb-3 text-justify">
