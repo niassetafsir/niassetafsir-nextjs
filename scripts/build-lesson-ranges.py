@@ -3,14 +3,22 @@
 Builds src/data/lessonRanges.json -- each majlis's span through the mushaf.
 
 WHY: the automated citation matcher resolves a verse to the PARAGRAPH that
-quotes it, which only exists for the 784 verses it managed to match. But the
-fifty-seven sessions run consecutively through the whole Qur'an, so for any
+quotes it, which only exists for the 1,634 verses it managed to match. But the
+fifty-six sessions run consecutively through the whole Qur'an, so for any
 aya there is a session that treats it. This derives that mapping from the
 lessons' own verseRange fields.
 
-Thirty-one lessons carry explicit "Q. x:y-z" ranges (exact: true). The other
+Thirty lessons carry explicit "Q. x:y-z" ranges (exact: true). The other
 twenty-six are titled by sura only ("Surat Maryam - Surat Taha"); their bounds
 come from chaining -- each session ends where the next begins.
+
+ORDER MATTERS: the attestation block at the bottom reads
+translation-drafts/verse-match-report.json, so run node scripts/match-verses.js
+FIRST, and run it again whenever src/data/lessons/*.json changes. Running this
+script alone against a stale report silently reproduces the old counts. That is
+how the verse pages came to say 1,228 of 6,236 ayat were attested: the figure
+was taken from a repository holding half of each lesson's Arabic. Against the
+recovered text it is 2,760.
 
 VALIDATION: the chain must close with no gaps from 1:1 to 114:6 and sum to
 6,236 ayat (the Hafs total). If either check fails the mapping is wrong; the

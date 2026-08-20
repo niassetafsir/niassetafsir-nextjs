@@ -779,112 +779,117 @@
   "7": [
     {
       "verse": "2:87",
-      "paraIndex": 22,
+      "paraIndex": 12,
       "uncertain": true
     },
     {
       "verse": "2:88",
-      "paraIndex": 22,
+      "paraIndex": 12,
+      "uncertain": true
+    },
+    {
+      "verse": "20:110",
+      "paraIndex": 24,
       "uncertain": true
     },
     {
       "verse": "2:260",
-      "paraIndex": 50,
+      "paraIndex": 40,
       "uncertain": true
     },
     {
       "verse": "2:261",
-      "paraIndex": 50,
+      "paraIndex": 40,
       "uncertain": true
     },
     {
       "verse": "2:267",
-      "paraIndex": 57,
+      "paraIndex": 47,
       "uncertain": true
     },
     {
       "verse": "2:268",
-      "paraIndex": 57,
+      "paraIndex": 47,
       "uncertain": true
     },
     {
       "verse": "2:271",
-      "paraIndex": 62,
+      "paraIndex": 52,
       "uncertain": true
     },
     {
       "verse": "2:272",
-      "paraIndex": 62,
+      "paraIndex": 52,
       "uncertain": true
     },
     {
       "verse": "2:275",
-      "paraIndex": 68,
+      "paraIndex": 58,
       "uncertain": true
     },
     {
       "verse": "2:276",
-      "paraIndex": 68,
+      "paraIndex": 58,
       "uncertain": true
     },
     {
       "verse": "2:281",
-      "paraIndex": 69,
+      "paraIndex": 59,
       "uncertain": true
     },
     {
       "verse": "2:282",
-      "paraIndex": 69,
+      "paraIndex": 59,
       "uncertain": true
     },
     {
       "verse": "46:19",
-      "paraIndex": 69,
+      "paraIndex": 59,
       "uncertain": true
     },
     {
       "verse": "2:283",
-      "paraIndex": 71,
+      "paraIndex": 61,
       "uncertain": true
     },
     {
       "verse": "2:284",
-      "paraIndex": 71,
+      "paraIndex": 61,
       "uncertain": true
     },
     {
       "verse": "2:285",
-      "paraIndex": 72,
+      "paraIndex": 62,
       "uncertain": true
     },
     {
       "verse": "2:286",
-      "paraIndex": 75,
+      "paraIndex": 65,
       "uncertain": true
     },
     {
       "verse": "3:6",
-      "paraIndex": 88,
+      "paraIndex": 78,
       "uncertain": true
     },
     {
       "verse": "3:7",
-      "paraIndex": 88,
+      "paraIndex": 78,
       "uncertain": true
     },
     {
       "verse": "3:8",
-      "paraIndex": 91,
+      "paraIndex": 81,
       "uncertain": true
     },
     {
       "verse": "3:9",
-      "paraIndex": 91,
+      "paraIndex": 81,
       "uncertain": true
     },
     {
       "verse": "44:37",
-      "paraIndex": 92,
+      "paraIndex": 82,
       "uncertain": true
     }
   ],

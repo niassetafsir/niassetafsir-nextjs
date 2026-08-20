@@ -85,12 +85,19 @@ function extractSpans(paragraph) {
 // (\p{Mn}) rather than a hand-picked codepoint range, so it strips ALL
 // diacritics regardless of which script convention produced them --
 // matters here because the rebuilt verse_text.json uses Uthmani-style
-// marks (sukun, wasla) that a plain-tashkil-only range would miss. -------
+// marks (sukun, wasla) that a plain-tashkil-only range would miss.
+//
+// Editorial footnote markers ("[55]") are stripped as a unit, before the
+// punctuation pass. That pass deletes the brackets but keeps the digits, so
+// "[55]وأخرجوهم" normalized to "55وأخرجوهم" and could never match anything:
+// the marker silently demoted exact citations to fuzzy ones or to nothing.
+// Q. 2:191 in Lesson 5 was lost that way the moment its footnote was keyed. --
 
 function normalizeAr(text) {
   return text
     .normalize('NFC')
     .replace(/\p{Mn}/gu, '')                 // all combining diacritics
+    .replace(/\[\s*\d+\s*\]/g, ' ')          // editorial footnote markers, e.g. "[55]"
     .replace(/[۞۩]/g, '')          // standalone Quranic markers (rub el hizb, sajda)
     .replace(/ـ/g, '')                  // tatwil
     .replace(/[آأإٱ]/g, 'ا') // alif variants + wasla -> bare alif
