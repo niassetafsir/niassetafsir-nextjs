@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { getAllLessons } from './lessons';
+import { hasApparatus } from './apparatus';
 
 /**
  * Edition coverage, counted from the data at build time.
@@ -179,7 +180,12 @@ export async function getEditionFacts(): Promise<EditionFacts> {
   let footnoteLessons = 0;
   try {
     const raw = fs.readFileSync(path.join(process.cwd(), 'src/data/footnotesData.json'), 'utf8');
-    const rows: { lessonId: number }[] = JSON.parse(raw);
+    // Count only what the site actually publishes. The file holds rows for all
+    // 56 lessons, but the apparatus for lessons beyond the verified set is
+    // hidden (src/lib/apparatus.ts), and a page that claims 2,034 footnotes
+    // while showing 324 is the drift this whole counter exists to prevent.
+    const rows: { lessonId: number }[] = (JSON.parse(raw) as { lessonId: number }[])
+      .filter(r => hasApparatus(r.lessonId));
     footnoteCount = rows.length;
     footnoteLessons = new Set(rows.map(r => r.lessonId)).size;
   } catch {

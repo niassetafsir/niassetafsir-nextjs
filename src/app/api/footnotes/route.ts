@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import footnotes from '@/data/footnotesData.json';
+import { hasApparatus } from '@/lib/apparatus';
 
 // Serves the compiler-footnote corpus that used to sit at the public,
 // unauthenticated, directly-linkable public/data/footnotes.json -- see
@@ -22,7 +23,10 @@ interface Footnote {
 
 export async function GET(request: NextRequest) {
   const lessonId = request.nextUrl.searchParams.get('lessonId');
-  const all = footnotes as Footnote[];
+  // Only the lessons whose apparatus has been verified are served. The rows for
+  // the rest are still in src/data -- they are simply not published while their
+  // markers are unreliable. See src/lib/apparatus.ts.
+  const all = (footnotes as Footnote[]).filter(f => hasApparatus(f.lessonId));
 
   if (lessonId !== null) {
     const id = Number(lessonId);

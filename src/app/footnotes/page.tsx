@@ -97,8 +97,18 @@ export default function FootnotesPage() {
         <p className="font-english text-sm mb-1" style={{color:'rgba(255,255,255,0.5)'}}>
           Footnotes & Citations
         </p>
-        <p className="font-english text-xs mb-5" style={{color:'rgba(255,255,255,0.25)'}}>
+        <p className="font-english text-xs mb-2" style={{color:'rgba(255,255,255,0.35)'}}>
           {footnotes.length} footnotes compiled by Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī
+        </p>
+        {/* Say which lessons this covers and why, rather than letting a reader
+            infer from a lesson filter that stops at 7 that the compiler wrote
+            no notes after Lesson 7. He wrote roughly 1,700 more. */}
+        <p className="font-english text-[11px] mb-5 max-w-lg mx-auto leading-5"
+          style={{color:'rgba(255,255,255,0.28)'}}>
+          Lessons {lessons.length ? `${lessons[0]}–${lessons[lessons.length-1]}` : '—'} so far.
+          The apparatus for the remaining lessons is withheld while its inline markers are
+          re-checked against the verified documents; the notes exist, but they cannot yet be
+          linked to the passages they annotate.
         </p>
         <input
           type="text" value={search} onChange={e => setSearch(e.target.value)}

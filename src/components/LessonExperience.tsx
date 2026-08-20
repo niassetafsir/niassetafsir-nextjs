@@ -43,18 +43,25 @@ interface Props {
   compare: ReactNode;
   citations: ReactNode;
   overview: ReactNode;
+  /** Lessons whose apparatus is not yet verified show no Citations tab at all
+   *  -- see src/lib/apparatus.ts. Offering the tab and then showing a panel
+   *  with three of seventy-five notes in it is the misleading case. */
+  hideCitations?: boolean;
 }
 
-export default function LessonExperience({ tafsir, compare, citations, overview }: Props) {
+export default function LessonExperience({ tafsir, compare, citations, overview, hideCitations }: Props) {
   const [mode, setMode] = useState<LessonMode>('tafsir');
+  const modes = hideCitations ? MODES.filter(m => m.id !== 'citations') : MODES;
 
   // Read the deep link on the client only -- the server has no query string
   // during static generation, and reading it during render would be a
   // hydration mismatch.
   useEffect(() => {
     const p = new URLSearchParams(window.location.search).get('panel');
-    if (p && MODES.some(m => m.id === p)) setMode(p as LessonMode);
-  }, []);
+    // ?panel=citations on a lesson without a verified apparatus falls back to
+    // the tafsir rather than selecting a tab that is not rendered.
+    if (p && modes.some(m => m.id === p)) setMode(p as LessonMode);
+  }, [hideCitations]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Inline footnote markers were plain links to /footnotes#id, so clicking [1]
   // mid-sentence navigated the reader out of the lesson -- while the Citations
@@ -92,7 +99,7 @@ export default function LessonExperience({ tafsir, compare, citations, overview 
   const body =
     mode === 'tafsir' ? tafsir :
     mode === 'compare' ? compare :
-    mode === 'citations' ? citations : overview;
+    mode === 'citations' && !hideCitations ? citations : overview;
 
   return (
     <div dir="ltr" onClick={openFootnote}>
@@ -105,9 +112,9 @@ export default function LessonExperience({ tafsir, compare, citations, overview 
       <div
         role="tablist"
         aria-label="Choose how to read this lesson"
-        className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mb-4"
+        className={`grid grid-cols-2 gap-1.5 mb-4 ${hideCitations ? 'sm:grid-cols-3' : 'sm:grid-cols-4'}`}
       >
-        {MODES.map(m => {
+        {modes.map(m => {
           const on = mode === m.id;
           return (
             <button

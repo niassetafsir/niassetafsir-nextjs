@@ -1,3 +1,5 @@
+import { hasApparatus } from './apparatus';
+
 // Pure text-transform helpers shared between the 'use client' bilingual
 // reading views (BilingualText.tsx, SurahReader.tsx) and server-rendered
 // pages (the print page) that need the SAME footnote-link / verse-number /
@@ -40,6 +42,12 @@ export function stripEnFootnotes(html: string): string {
 
 export function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrder?: string[], cursor?: { i: number }): string {
   if (!lessonId) return text;
+
+  // A lesson whose apparatus is not yet verified shows no markers at all --
+  // see src/lib/apparatus.ts. Its bodies still carry the old [N] from the
+  // pre-recovery import, and those are the ones that link to nothing, so they
+  // are removed from the rendered text rather than left as dead superscripts.
+  if (!hasApparatus(lessonId)) return text.replace(/\[\d+\]/g, '');
 
   // Strip inline bibliographic refs like "تفسير القرطبي ج35/" before [N]
   // Uses Unicode code points to avoid regex literal issues in TSX

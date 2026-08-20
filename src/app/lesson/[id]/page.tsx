@@ -10,6 +10,7 @@ import LessonNav from '@/components/LessonNav';
 import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
 import LessonCitations from '@/components/LessonCitations';
+import { hasApparatus } from '@/lib/apparatus';
 import LessonReaderLayout from '@/components/LessonReaderLayout';
 import Link from 'next/link';
 import { SURAH_LIST } from '@/lib/verseRanges';
@@ -169,7 +170,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
           englishText={lesson.englishText}
           hasEnglish={lesson.hasEnglish}
           lessonId={lesson.id}
-          footnoteOrder={(lesson as any).footnoteOrder}
+          footnoteOrder={hasApparatus(lesson.id) ? (lesson as any).footnoteOrder : undefined}
         />
       </>}
       compare={<>
@@ -188,6 +189,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
           />
         </div>
       </>}
+      hideCitations={!hasApparatus(lesson.id)}
       citations={<>
         <LessonCitations lessonId={lesson.id} />
       </>}

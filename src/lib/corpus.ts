@@ -192,14 +192,14 @@ export interface Locus {
   transcriptionStatus?: 'none' | 'ocr' | 'draft' | 'verified';
   occasionId?: string;
   /**
-   * How this text came to be here, in the reader's language.
+   * A short, reader-facing note about the state of this text.
    *
-   * `transcriptionStatus` grades the Arabic; it says nothing about the
-   * English. A draft translation awaiting the editor's pass looks exactly like
-   * a finished one on the page unless the page says otherwise, and on a site
-   * whose whole apparatus exists to keep a reader from mistaking one voice for
-   * another, an unsigned translation presented silently would be the same
-   * failure in a new place.
+   * `transcriptionStatus` grades the Arabic and says nothing about the
+   * English, so a provisional translation would otherwise look identical to a
+   * settled one. Keep what goes here editorial rather than procedural: the
+   * reader needs to know the translation is provisional and that the
+   * compiler's footnotes are absent. Internal workflow -- who still has to
+   * review it, which queue it is in -- does not belong on a public page.
    */
   editorialNote?: string;
 }
