@@ -1,9 +1,10 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { hasApparatus } from '@/lib/apparatus';
 
 interface HadithRef {
-  fnId: string;
+  fnId: string | null;
   lessonId: number;
   lessonTitleEn: string;
   volRef: string;
@@ -35,7 +36,19 @@ export default function HadithPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/data/hadith.json').then(r => r.json()).then(d => { setIndex(d); setLoading(false); });
+    fetch('/data/hadith.json').then(r => r.json()).then((d: HadithIndex) => {
+      // Only lessons whose apparatus is published. The rows for the rest stay in
+      // the file -- they return when those lessons are verified -- but listing
+      // them here would cite notes the site does not show, and their
+      // "Lesson N" links would land on a page that omits them.
+      const shown: HadithIndex = {};
+      for (const [coll, rows] of Object.entries(d)) {
+        const keep = rows.filter(r => hasApparatus(r.lessonId));
+        if (keep.length) shown[coll] = keep;
+      }
+      setIndex(shown);
+      setLoading(false);
+    });
   }, []);
 
   const total = Object.values(index).reduce((a, b) => a + b.length, 0);
@@ -51,6 +64,14 @@ export default function HadithPage() {
         <p className="font-english text-xs mb-5" style={{color:'rgba(255,255,255,0.25)'}}>
           {loading ? '…' : `${total} hadith citations across ${collections.length} collections`}
         </p>
+        {!loading && (
+          <p className="font-english text-[11px] mb-5 max-w-lg mx-auto leading-5"
+            style={{color:'rgba(255,255,255,0.28)'}}>
+            From the lessons whose footnote apparatus has been verified. The compiler cites
+            several thousand more across the remaining lessons; those appear here as each
+            lesson&apos;s apparatus is checked.
+          </p>
+        )}
       </div>
 
       {loading ? (
@@ -90,10 +111,20 @@ export default function HadithPage() {
                   <div key={i} className="border border-white/10 rounded-xl p-4 hover:border-white/20 transition-colors">
                     <div className="flex items-start justify-between gap-3 mb-2">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <Link href={`/footnotes#${ref.fnId}`}
-                          className="font-english text-[10px] text-gold/60 hover:text-gold border border-gold/20 px-1.5 py-0.5 rounded transition-colors">
-                          Lesson {ref.lessonId} [{ref.fnId.split('-').pop()}]
-                        </Link>
+                        {/* fnId is null where the row could not be re-matched to a
+                            note after the apparatus was rebuilt. Better a citation
+                            with no link than one pointing at the wrong footnote. */}
+                        {ref.fnId ? (
+                          <Link href={`/footnotes#${ref.fnId}`}
+                            className="tap font-english text-[10px] text-gold/60 hover:text-gold border border-gold/20 px-1.5 rounded transition-colors">
+                            Lesson {ref.lessonId} [{ref.fnId.split('-').pop()}]
+                          </Link>
+                        ) : (
+                          <span className="font-english text-[10px] border border-white/10 px-1.5 py-0.5 rounded"
+                            style={{color:'rgba(255,255,255,0.35)'}}>
+                            Lesson {ref.lessonId}
+                          </span>
+                        )}
                         {ref.number && (
                           <span className="font-english text-[11px] font-semibold text-gold/80">
                             No. {ref.number}

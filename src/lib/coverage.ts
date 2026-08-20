@@ -213,8 +213,13 @@ export async function getEditionFacts(): Promise<EditionFacts> {
   let hadithCollections = 0;
   try {
     const raw = fs.readFileSync(path.join(process.cwd(), 'src/data/hadith.json'), 'utf8');
-    const byCollection: Record<string, unknown[]> = JSON.parse(raw);
-    const entries = Object.values(byCollection).filter(Array.isArray);
+    const byCollection: Record<string, { lessonId: number }[]> = JSON.parse(raw);
+    // Count what /hadith actually lists: rows from lessons whose apparatus is
+    // published. The file keeps the rest for when those lessons are verified.
+    const entries = Object.values(byCollection)
+      .filter(Array.isArray)
+      .map(rows => rows.filter(r => hasApparatus(r.lessonId)))
+      .filter(rows => rows.length > 0);
     hadithCollections = entries.length;
     hadithCitations = entries.reduce((n, rows) => n + rows.length, 0);
   } catch {
