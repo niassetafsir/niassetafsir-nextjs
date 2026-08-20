@@ -55,7 +55,12 @@ export function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrd
       id = footnoteOrder[cursor.i];
       cursor.i += 1;
     }
-    return `<a href="/footnotes#${id}" class="fn-superscript" title="View footnote ${num}">[${num}]</a>`;
+    // The href stays a real link to the apparatus: it is the fallback without
+    // JS, it is what a middle-click or cmd-click should do, and the print page
+    // has no panel to switch to. data-fn is what LessonExperience delegates on,
+    // so an ordinary click opens the footnote in the Citations panel on this
+    // page rather than navigating the reader out of the lesson.
+    return `<a href="/footnotes#${id}" data-fn="${id}" class="fn-superscript" title="Footnote ${num}">[${num}]</a>`;
   });
 
   // Wrap Quranic verse citations «...» in colour span

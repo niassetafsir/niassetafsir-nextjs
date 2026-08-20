@@ -56,13 +56,46 @@ export default function LessonExperience({ tafsir, compare, citations, overview 
     if (p && MODES.some(m => m.id === p)) setMode(p as LessonMode);
   }, []);
 
+  // Inline footnote markers were plain links to /footnotes#id, so clicking [1]
+  // mid-sentence navigated the reader out of the lesson -- while the Citations
+  // panel, one tab away on this same page, was already rendering that exact
+  // footnote with id="citepanel-{id}". The target existed; nothing pointed at
+  // it.
+  //
+  // Delegated here rather than in BilingualText because the markers are
+  // injected as HTML strings in several places and this component wraps all of
+  // them. Modified clicks are left alone -- cmd, ctrl, shift and middle-click
+  // should still open the apparatus in a tab -- and with JS off the href
+  // behaves exactly as before.
+  const openFootnote = (e: React.MouseEvent) => {
+    if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const link = (e.target as HTMLElement).closest?.('[data-fn]');
+    const id = link?.getAttribute('data-fn');
+    if (!id) return;
+    e.preventDefault();
+    setMode('citations');
+    // The panel fetches its footnotes, so the target is not in the DOM yet.
+    // Re-assert rather than firing once -- the same approach the verse
+    // deep-link in BilingualText uses, for the same reason.
+    [80, 300, 700, 1200].forEach(delay => {
+      setTimeout(() => {
+        const el = document.getElementById(`citepanel-${id}`);
+        if (!el) return;
+        el.scrollIntoView({ behavior: 'instant', block: 'center' });
+        el.style.transition = 'background-color 0.4s';
+        el.style.backgroundColor = 'rgba(201,168,76,0.18)';
+        setTimeout(() => { el.style.backgroundColor = ''; }, 1600);
+      }, delay);
+    });
+  };
+
   const body =
     mode === 'tafsir' ? tafsir :
     mode === 'compare' ? compare :
     mode === 'citations' ? citations : overview;
 
   return (
-    <div dir="ltr">
+    <div dir="ltr" onClick={openFootnote}>
       {/*
         Two columns on a phone, four across from 640px. A horizontally
         scrolling strip was the alternative and is worse here: with only four

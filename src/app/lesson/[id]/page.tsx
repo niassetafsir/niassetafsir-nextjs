@@ -192,31 +192,57 @@ export default async function LessonPage({ params }: { params: { id: string } })
         <LessonCitations lessonId={lesson.id} />
       </>}
       overview={<>
+        {/* Summary and notes are different things and are no longer alternatives.
+            This panel used to try the note first and fall back to the summary,
+            which meant a lesson with a note would have shown no overview at all
+            -- and, since every note was null, the branch never ran. The summary
+            describes what the lesson covers; a note argues about it. */}
         <div className="p-5" dir="ltr">
           <div className="mb-3 pb-3 border-b border-gold/15">
             <div className="font-english text-white/40 text-xs italic">
               Lesson overview · Amadu Kunateh, Founder, Translator & Digital Editor
             </div>
           </div>
-          {readingNotes ? (
-            <div
-              className="font-english text-white/85 text-sm leading-7 space-y-3"
-              dangerouslySetInnerHTML={{ __html: readingNotes }}
-            />
-          ) : lesson.lessonSummary ? (
-            <div>
-              <p className="font-english text-sm leading-7" style={{color:'var(--body-text, rgba(255,255,255,0.75))'}}>
-                {lesson.lessonSummary}
-              </p>
-            </div>
+          {lesson.lessonSummary ? (
+            <p className="font-english text-sm leading-7" style={{color:'var(--body-text, rgba(255,255,255,0.75))'}}>
+              {lesson.lessonSummary}
+            </p>
           ) : (
-            <div className="text-center py-6">
-              <p className="font-english text-white/20 italic text-sm">
-                Lesson overview forthcoming.
-              </p>
-              <p className="font-english text-white/12 text-xs mt-2">
-                Comparative analysis of Shaykh Ibrāhīm&apos;s tafsīr alongside Jalālayn and Rūḥ al-Bayān, with theological and philological commentary by Amadu Kunateh (Harvard University).
-              </p>
+            <p className="font-english text-white/20 italic text-sm text-center py-6">
+              Lesson overview forthcoming.
+            </p>
+          )}
+
+          {readingNotes.length > 0 && (
+            <div className="mt-6 pt-5 border-t border-gold/15">
+              <div className="font-english text-white/40 text-xs italic mb-4">
+                Research notes · working observations, not settled positions
+              </div>
+              <div className="space-y-6">
+                {readingNotes.map(note => (
+                  <article key={note.id}>
+                    <h3 className="font-english text-sm font-semibold mb-1"
+                      style={{color:'var(--body-text, rgba(255,255,255,0.9))'}}>
+                      {note.title}
+                    </h3>
+                    <div className="font-english text-xs mb-2" style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
+                      {new Date(note.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                    </div>
+                    <div className="font-english text-sm leading-7"
+                      style={{color:'var(--body-sub, rgba(255,255,255,0.75))'}}
+                      dangerouslySetInnerHTML={{ __html: note.body }} />
+                    <div className="flex gap-2 flex-wrap mt-3">
+                      {note.tags.map(tag => (
+                        <span key={tag} className="font-english text-[10px] px-2 py-0.5 rounded"
+                          style={{ background: 'rgba(201,168,76,0.10)', color: 'rgba(138,109,31,0.85)',
+                                   border: '1px solid rgba(201,168,76,0.20)' }}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           )}
         </div>
