@@ -50,7 +50,11 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
   return (
     <DisablePrintWrapper>
       <div className="lesson-print-page">
-      <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+      {/* EB Garamond used to load here too, and never applied to anything: the
+          .lesson-print-page rule below set the sans-serif Arabic face, so the
+          serif was downloaded on every print view and rendered nothing. Amiri
+          now carries both scripts, matching the screen. */}
+      <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
       {/* dangerouslySetInnerHTML, not a JSX text child: React's SSR output
           HTML-entity-encodes apostrophes inside a plain {`...`} text child
           (e.g. 'IBM Plex Sans Arabic' -> &#x27;IBM Plex Sans Arabic&#x27;),
@@ -60,14 +64,14 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
           (confirmed 2026-08-16). dangerouslySetInnerHTML is inserted as raw
           HTML on both passes, sidestepping the mismatch entirely. */}
       <style dangerouslySetInnerHTML={{ __html: `
-        .lesson-print-page { font-family: 'IBM Plex Sans Arabic', sans-serif; font-size: 12pt; line-height: 1.8; color: #111; background: white; padding: 2.5cm; max-width: 21cm; margin: 0 auto; }
+        .lesson-print-page { font-family: 'Amiri', 'Noto Naskh Arabic', serif; font-size: 12pt; line-height: 1.8; font-size-adjust: ex-height 0.52; color: #111; background: white; padding: 2.5cm; max-width: 21cm; margin: 0 auto; }
         .lesson-print-page .work-title { text-align: center; font-size: 10pt; color: #666; margin-bottom: 0.3cm; letter-spacing: 0.03em; }
-        .lesson-print-page .lesson-title-ar { text-align: center; font-family: 'Amiri', serif; font-size: 18pt; color: #7B5C14; direction: rtl; margin-bottom: 0.2cm; }
+        .lesson-print-page .lesson-title-ar { font-size-adjust: none; text-align: center; font-family: 'Amiri', serif; font-size: 18pt; color: #7B5C14; direction: rtl; margin-bottom: 0.2cm; }
         .lesson-print-page .lesson-title-en { text-align: center; font-size: 11pt; color: #444; margin-bottom: 0.1cm; }
         .lesson-print-page .vol-ref { text-align: center; font-size: 9pt; color: #888; margin-bottom: 0.6cm; }
         .lesson-print-page hr { border: none; border-top: 1px solid #C9A84C; margin: 0.5cm 0; opacity: 0.4; }
-        .lesson-print-page .poem-block { text-align: center; font-family: 'Amiri', serif; direction: rtl; font-size: 13pt; color: #7B5C14; line-height: 2.0; margin-bottom: 0.6cm; }
-        .lesson-print-page .body-ar { font-family: 'Amiri', serif; direction: rtl; text-align: justify; font-size: 13pt; line-height: 2.1; margin-top: 0.3cm; }
+        .lesson-print-page .poem-block { font-size-adjust: none; text-align: center; font-family: 'Amiri', serif; direction: rtl; font-size: 13pt; color: #7B5C14; line-height: 2.0; margin-bottom: 0.6cm; }
+        .lesson-print-page .body-ar { font-size-adjust: none; font-family: 'Amiri', serif; direction: rtl; text-align: justify; font-size: 13pt; line-height: 2.1; margin-top: 0.3cm; }
         .lesson-print-page .body-ar p { margin-bottom: 0.5cm; }
         .lesson-print-page .body-en { font-size: 12pt; line-height: 1.9; margin-top: 0.8cm; padding-top: 0.6cm; border-top: 1px solid #ddd; }
         .lesson-print-page .body-en p { margin-bottom: 0.5cm; }

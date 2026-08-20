@@ -310,12 +310,17 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
 // ---------------------------------------------------------------------------
 // DERIVED_LOCI above resolves a verse to the PARAGRAPH that quotes it, which
 // only exists where the automated matcher found the quotation -- 784 verses.
-// But the fifty-seven sessions run consecutively through the whole muṣḥaf, so
-// for any āya there is a session that treats it, whether or not a quotation
-// was matched inside it. lessonRanges.json records each session's span, chained
-// from the sessions' own verseRange fields; the chain closes with no gaps from
-// 1:1 to 114:6 and sums to 6,236 āyāt, which is the Ḥafṣ total -- so the
-// tiling is complete and self-consistent.
+// But the fifty-six sessions run consecutively through the whole muṣḥaf, so
+// for any āya there is a session that PASSES OVER it, whether or not a
+// quotation was matched inside it. lessonRanges.json records each session's
+// span, chained from the sessions' own verseRange fields.
+//
+// The chain closes with no gaps from 1:1 to 114:6 and sums to 6,236 āyāt. That
+// is not evidence the boundaries are right: each end is computed as the verse
+// before the next session's start, so contiguity holds by construction, and any
+// contiguous tiling of the muṣḥaf sums to the Ḥafṣ total wherever its interior
+// boundaries fall. An earlier version of this comment cited both numbers as
+// proof the tiling was sound while lesson 56 covered nothing at all.
 //
 // This is a COVERAGE claim, not a located citation: it says the session
 // commenting on this stretch is Lesson N, opening at vol. X p. Y. It is not a
@@ -323,10 +328,23 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
 // emitted only where nothing located exists, always at `auto`, and always with
 // the distinction written into the note.
 //
-// `exact` marks the thirty-one sessions whose own verseRange gives explicit
-// āya numbers. The remaining twenty-six are titled by sūra only, so their
-// bounds come from chaining and are reliable in the interior of a session and
-// soft at its edges.
+// `exact` marks the thirty sessions whose own verseRange gives explicit āya
+// numbers. The remaining twenty-six are titled by sūra only, and their starts
+// rest on one assumption: that such a session opens at āya 1 of its first named
+// sūra. Two things in this repo tell against it. Of the thirty sessions that do
+// state their own range, three start at an āya 1 -- sessions generally do not
+// align to sūra boundaries. And the sūra-level titles overlap: lesson 32 is
+// "Maryam - Ṭāhā", lesson 33 "Ṭāhā - al-Anbiyāʾ". Read plainly, 32 runs into
+// Ṭāhā and 33 picks it up partway; the chain instead gives 32 all of Maryam and
+// 33 all of Ṭāhā, discarding the second half of every title. src/lib/
+// surahLessons.ts, curated independently for the /surah view, disagrees with
+// the chain on twelve sūras, every one of them in the inferred half and every
+// one in the same direction.
+//
+// So: usable in the interior of a session, unreliable at the edges of the
+// twenty-six, and not citation-grade there. scripts/build-lesson-ranges.py
+// prints both measurements on every run and exits non-zero on a hard failure.
+// Settling it needs the print edition.
 
 interface LessonRange {
   start: [number, number];
@@ -619,7 +637,7 @@ function fmt(v: [number, number]): string {
  * It said Lesson N "is the session that treats this āya", which reads as a
  * claim that a comment on this verse exists at that page. The sessions do tile
  * the muṣḥaf, but they do not comment on every āya they pass over: across the
- * corpus only 1,228 of the 6,236 āyāt inside the session spans are quoted
+ * corpus only 1,230 of the 6,236 āyāt inside the session spans are quoted
  * anywhere in the transcription, and that count is generous (it includes the
  * fuzzy match tier, which is excluded from everything else public-facing).
  *
@@ -638,8 +656,9 @@ function coverageNote(lessonId: number, r: LessonRange): string {
       : '';
   const provenance = r.exact
     ? `Lesson ${lessonId} runs from ${bounds}.`
-    : `Lesson ${lessonId} is titled by sūra rather than by āya; its bounds (${bounds}) are ` +
-      'inferred from where the neighbouring sessions begin, so they are soft at the edges.';
+    : `Lesson ${lessonId} is titled by sūra rather than by āya; its bounds (${bounds}) assume ` +
+      'the session opens at the first verse of its first named sūra, and of the thirty ' +
+      'sessions that state their own range, three do. Read the edges as unsettled.';
   return (
     `${provenance}${density} The page given is where the lesson opens — start there and read on.`
   );

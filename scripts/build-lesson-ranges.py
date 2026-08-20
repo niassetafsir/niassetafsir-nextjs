@@ -165,38 +165,100 @@ tot = sum(r['span'] for r in out.values())
 att = sum(r['attested'] for r in out.values())
 print(f'attestation: {att} of {tot} ayat in range are quoted somewhere in the transcription ({100*att/tot:.1f}%)')
 
-# ---- report
-exact = sum(1 for v in out.values() if v['exact'])
-print(f'lessons with a range: {len(out)}  (exact {exact}, sura-level {len(out)-exact})')
+
+# ---------------------------------------------------------------------------
+# Report
+# ---------------------------------------------------------------------------
+# Two of the checks this block used to print could not fail. "discontinuities:
+# 0" compared each lesson's start against the previous lesson's end + 1, but the
+# loop above DEFINES each end as prev_verse(the next start), so the equality
+# holds by construction at every chained seam. "total āyāt covered: 6236" is an
+# identity: any contiguous tiling running 1:1 to 114:6 sums to the Ḥafṣ total
+# wherever its interior boundaries fall. Both passed on a file in which lesson
+# 56's range was [112:1, 111:5] -- end before start, matching no āya at all,
+# its three sūras taken by the placeholder 57.json.
+#
+# Everything below can fail, and the script exits non-zero if anything does.
+
 def n(sa): return f'{sa[0]}:{sa[1]}'
-covered = 0
-prev_end = None
-gaps = []
-for lid in sorted(out, key=int):
-    v = out[lid]
-    s = v['start']; e2 = v['end']
-    if prev_end:
-        nxt = None
-        ps, pa = prev_end
-        nxt = (ps, pa + 1) if pa < AYAH[ps] else (ps + 1, 1)
-        if tuple(s) != nxt: gaps.append((lid, n(prev_end), n(s)))
-    prev_end = tuple(e2)
-    # count verses in range
-    ss, sa = s; es, ea = e2
-    c = 0; cs, ca = ss, sa
-    while (cs, ca) <= (es, ea) and cs <= 114:
-        c += 1
-        if ca < AYAH[cs]: ca += 1
-        else: cs += 1; ca = 1
-    covered += c
-print('total āyāt covered by the 56 sessions:', covered)
-inverted = [(lid, out[lid]) for lid in out
-            if tuple(out[lid]['start']) > tuple(out[lid]['end'])]
+def idx(s, a): return sum(AYAH[k] for k in range(1, s)) + a   # muṣḥaf position
+
+failures = []
+exact = sum(1 for v in out.values() if v['exact'])
+print(f'lessons with a range: {len(out)}  (exact {exact}, sūra-level {len(out)-exact})')
+
+# --- 1. every range must run forwards. This is what the old checks missed.
+inverted = [(lid, v) for lid, v in out.items() if idx(*v['start']) > idx(*v['end'])]
 print('inverted ranges:', len(inverted))
 for lid, v in inverted:
     print('   lesson', lid, v['start'], '->', v['end'], '  <-- start is after end')
+    failures.append(f"lesson {lid} ends before it starts: {n(v['start'])} -> {n(v['end'])}")
+
 missing_ref = [lid for lid in out if out[lid]['volume'] is None]
 print('lessons with no printed reference:', len(missing_ref), missing_ref)
-print('discontinuities:', len(gaps))
-for g in gaps[:6]: print('   lesson', g[0], 'starts', g[2], 'but previous ended', g[1])
-print('first:', n(out[min(out,key=int)]['start']), ' last:', n(out[max(out,key=int)]['end']))
+
+# --- 2. seams. Vacuous where both sides are chained; has content wherever an
+#        explicit range overrode the chained end, since that end was not
+#        derived from the next start. Counted separately so the number cannot
+#        be read as more than it is.
+seams_tested = seams_failed = 0
+prev_lid = prev_end = None
+for lid in sorted(out, key=int):
+    v = out[lid]
+    if prev_end is not None:
+        ps, pa = prev_end
+        nxt = (ps, pa + 1) if pa < AYAH[ps] else (ps + 1, 1)
+        if out[prev_lid]['exact'] or v['exact']:
+            seams_tested += 1
+            if tuple(v['start']) != nxt:
+                seams_failed += 1
+                failures.append(
+                    f"lesson {lid} starts {n(v['start'])} but {prev_lid} ended {n(prev_end)}")
+    prev_lid, prev_end = lid, tuple(v['end'])
+print(f'seams with an explicit range on one side: {seams_tested} tested, {seams_failed} inconsistent')
+print('   (the rest are chained end-to-start and cannot disagree)')
+
+# --- 3. independent cross-check. src/lib/surahLessons.ts is a hand-curated
+#        sūra -> lesson table built for the /surah view, with no input from this
+#        script. Where the two disagree about which session a sūra opens in, one
+#        of them is wrong. The curated table records where a sūra becomes a
+#        session's PRIMARY subject, so a session that merely runs into a sūra's
+#        opening āyāt is expected to differ; those are printed for reading, not
+#        counted as failures.
+sl = open('src/lib/surahLessons.ts', encoding='utf-8').read()
+block = re.search(r'SURA_TO_LESSON[^{]*\{(.*?)\}', sl, re.S)
+CURATED = {int(a): int(b) for a, b in re.findall(r'(\d+)\s*:\s*(\d+)', block.group(1))} if block else {}
+
+def lesson_for(s, a):
+    for lid in sorted(out, key=int):
+        v = out[lid]
+        if idx(*v['start']) <= idx(s, a) <= idx(*v['end']): return int(lid)
+    return None
+
+agree, early, late = 0, [], []
+for s in sorted(CURATED):
+    mine, theirs = lesson_for(s, 1), CURATED[s]
+    if mine == theirs: agree += 1
+    elif mine is not None and mine < theirs: early.append((s, mine, theirs))
+    else: late.append((s, mine, theirs))
+print(f'vs surahLessons.ts: {agree}/{len(CURATED)} sūras agree on the opening session')
+print(f'   {len(early)} where the ranges open a sūra EARLIER than the curated table'
+      ' -- expected, the session runs in before the commentary proper starts')
+print(f'   {len(late)} where the ranges open it LATER -- not explained by that rule')
+for s, mine, theirs in late[:14]:
+    print(f'      Q{s} {NAME_EN.get(s,"?")}: ranges say lesson {mine}, curated says {theirs}'
+          f'  [{"exact" if out[str(mine)]["exact"] else "inferred"}]')
+
+# --- 4. the load-bearing assumption, measured. Every sūra-level lesson is given
+#        a start of āya 1 of its first named sūra. The lessons that state their
+#        own range are the only evidence for whether sessions actually begin on
+#        sūra boundaries, so count them instead of assuming.
+on_boundary = [lid for lid, v in out.items() if v['exact'] and v['start'][1] == 1]
+print(f'of the {exact} explicit lessons, {len(on_boundary)} start at āya 1 of a sūra'
+      f' -- the assumption behind all {len(out) - exact} sūra-level starts')
+
+print('first:', n(out[min(out, key=int)]['start']), ' last:', n(out[max(out, key=int)]['end']))
+if failures:
+    print('\nFAILED:')
+    for f in failures: print('  -', f)
+    raise SystemExit(1)

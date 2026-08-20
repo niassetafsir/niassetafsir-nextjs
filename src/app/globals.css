@@ -1,9 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+/* Amiri only. Three families used to load here, and the sans-serif Arabic one
+   was setting every line of English on the site, so all Latin prose rendered in
+   the Latin component of an Arabic face. The serif that loaded alongside it was
+   used on exactly one route.
+
+   Amiri's four text faces cover every letter and diacritic this corpus uses:
+   all four were tested against the 191 distinct non-Arabic characters present
+   in the data and the components, and nothing scholarly is missing (ā ī ū ḥ ṣ
+   ḍ ṭ ẓ ġ ḏ ṯ š ǧ ḫ ʿ ʾ all present in Regular, Bold, Italic and BoldItalic).
+   What Amiri lacks is UI furniture -- arrows, ✓, ✕, ☀, box-drawing, and the
+   five PersistentNav icons. CSS falls back per glyph, so the system-ui tail in
+   the stacks below picks those up without touching any text.
+
+   Do NOT add AmiriQuran to these stacks. It carries 266 glyphs and no Latin at
+   all; one appearance in a body-text stack breaks every transliteration. */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  /* One family, two stacks. Both open with Amiri; they differ only in the
+     fallback tail, which matters for the glyphs Amiri has no outline for.
+     `--font-english` was referenced by .fn-superscript and .verse-ref before it
+     was defined anywhere, so both declarations were invalid and silently
+     inherited instead. It exists now. */
+  --font-body: 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+  --font-english: 'Amiri', system-ui, -apple-system, sans-serif;
+
   --bg: #0D1F0A;
   --nav-read: #C9A84C;
   --nav-listen: #5eead4;
@@ -44,23 +67,43 @@ html { background: var(--bg); }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'IBM Plex Sans Arabic', 'Amiri', 'Traditional Arabic', sans-serif;
+  font-family: var(--font-body);
   min-height: 100vh;
   font-size: 17px;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
 
-/* English prose — Inter-like clean reading */
+/* English prose.
+   Amiri's x-height is 433/1000 em; the sans-serif Arabic face this replaced sat
+   at about 520/1000. Swapping the family without compensating would render every
+   line of English about 20% smaller than it was -- 17px English reading like
+   14px -- and, because hundreds of components set their own size with Tailwind
+   utilities (text-[13px] and the rest), bumping this one rule would fix only
+   the prose and leave every label and chip small.
+
+   font-size-adjust does it at every size at once: it scales the used font so
+   its x-height lands on the ratio given, so 0.52 reproduces the apparent size
+   of the old face wherever the class is applied. Where it is unsupported the
+   declaration is ignored and text renders at Amiri's natural proportion --
+   smaller, but never broken.
+
+   Deliberately NOT applied to --font-body: Arabic has no x-height in this
+   sense, and the same adjustment would scale the Arabic up by a fifth. */
 .font-english {
   font-size: 17px;
-  line-height: 1.85;
+  line-height: 1.75;
+  font-size-adjust: ex-height 0.52;
 }
 
 /* Arabic text -- site-wide, matches the lesson reading page */
-.font-arabic { font-family: 'Amiri', 'IBM Plex Sans Arabic', 'Traditional Arabic', serif; }
-.font-arabic-sans { font-family: 'IBM Plex Sans Arabic', sans-serif; }
-.font-english { font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif; }
+.font-arabic { font-family: var(--font-body); }
+.font-english { font-family: var(--font-english); }
+/* Kept as an alias rather than deleted: twelve call sites use it, and several
+   carry running Arabic (SurahReader's continuous text, ArabicWordTool,
+   ComparativeCommentary's commentary body) rather than UI chrome. Those wanted
+   a reading face all along. */
+.font-arabic-sans { font-family: var(--font-body); }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
@@ -534,7 +577,7 @@ input[type="text"].search-input::placeholder {
 .fn-link {
   color: var(--color-gold, #C9A84C);
   font-size: 0.7em;
-  font-family: 'IBM Plex Sans Arabic', sans-serif;
+  font-family: var(--font-english);
   text-decoration: none;
   opacity: 0.75;
   padding: 0 1px;
@@ -580,6 +623,11 @@ nav .font-english.text-xs {
   vertical-align: super;
   color: rgba(201, 168, 76, 0.7);
   font-family: var(--font-english);
+  /* Pinned to 400. Amiri Regular carries the superscript digits
+     (U+2070, U+2075-2079); Amiri Bold and Italic do not, so a bold or
+     italicised marker would fall back to system-ui for the digit alone
+     and change face mid-line. */
+  font-weight: 400;
   text-decoration: none;
   margin-inline: 1px;
   transition: color 0.15s;
@@ -610,6 +658,11 @@ nav .font-english.text-xs {
   color: #34d399;
   opacity: 0.85;
   font-family: var(--font-english);
+  /* Pinned to 400. Amiri Regular carries the superscript digits
+     (U+2070, U+2075-2079); Amiri Bold and Italic do not, so a bold or
+     italicised marker would fall back to system-ui for the digit alone
+     and change face mid-line. */
+  font-weight: 400;
   margin-inline-start: 0.2em;
   font-style: normal;
   unicode-bidi: isolate;
@@ -742,7 +795,7 @@ nav .font-english.text-xs {
    ══════════════════════════════════════════════════════════ */
 
 .font-arabic-sans {
-  font-family: 'IBM Plex Sans Arabic', sans-serif !important;
+  font-family: var(--font-body) !important;
 }
 
 body:has(.lesson-reading-page) {

@@ -13,10 +13,15 @@ const config: Config = {
         cream: "#F5EDD6",
         "text-main": "#E8E8E0",
       },
+      // These mirror the two stacks defined at :root in globals.css. Amiri
+      // leads all three; the tails differ only for the glyphs Amiri has no
+      // outline for (arrows, the nav icons, check marks), which CSS resolves
+      // per glyph. "arabic-sans" is kept as an alias because twelve call sites
+      // use it and several carry running Arabic rather than UI chrome.
       fontFamily: {
-        arabic: ["IBM Plex Sans Arabic", "Amiri", "Traditional Arabic", "sans-serif"],
-        english: ["IBM Plex Sans Arabic", "system-ui", "sans-serif"],
-        "arabic-sans": ["IBM Plex Sans Arabic", "sans-serif"],
+        arabic: ["Amiri", "Noto Naskh Arabic", "Traditional Arabic", "serif"],
+        english: ["Amiri", "system-ui", "-apple-system", "sans-serif"],
+        "arabic-sans": ["Amiri", "Noto Naskh Arabic", "Traditional Arabic", "serif"],
       },
     },
   },

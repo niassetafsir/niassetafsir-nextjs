@@ -3,8 +3,14 @@ import type { MetadataRoute } from 'next';
 const BASE_URL = 'https://niassetafsir.org';
 
 // Static, high-value routes. Kept as a plain list rather than auto-crawling
-// the app dir so utility/personal pages (bookmarks, clips, get-involved
-// subforms) and the retired /concordance stub stay out of the index.
+// the app dir so utility and personal pages (bookmarks, clips, the
+// get-involved subforms) stay out of the index.
+//
+// /themes, /scholars and /network were listed here while each was a six-line
+// ComingSoonApparatus, so Google was being sent to three empty pages; the
+// routes are gone. /concordance was listed too and had been a notFound() since
+// it was retired. /introduction is a redirect to /translators-note, which is
+// already indexed below -- an indexed redirect just splits the signal.
 const STATIC_ROUTES = [
   '',
   '/read',
@@ -15,16 +21,12 @@ const STATIC_ROUTES = [
   '/about/translator',
   '/about/arabic-edition',
   '/about/companion-texts',
-  '/introduction',
   '/editorial-note',
   '/translators-note',
   '/footnotes',
   '/hadith',
   '/glossary',
   '/glossary-map',
-  '/themes',
-  '/scholars',
-  '/network',
   '/search',
   '/notes',
   '/get-involved',

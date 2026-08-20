@@ -9,11 +9,12 @@ export default function PersistentNav() {
   // the global bar would just eat screen space during reading.
   if (pathname.startsWith('/lesson/')) return null;
 
-  // Active-tab matching. Every prefix below must name a route that resolves --
-  // this list had drifted: it still matched /concordance (retired to a
-  // notFound), still matched the /scholars, /themes and /network stubs, and
-  // missed /notes, which IS on the research hub. Keep it in step with
-  // src/app/research/page.tsx's TOOLS.
+  // Active-tab matching. Every prefix below must name a route that resolves.
+  // This list has drifted before: it matched /concordance and the /scholars,
+  // /themes and /network stubs (all four routes are now deleted) and missed
+  // /notes, which IS on the research hub. It drifts because it is a second
+  // hand-kept inventory of the site, alongside SiteNav's dropdowns and
+  // src/app/research/page.tsx's TOOLS -- three lists for one fact.
   const isHome = pathname === '/';
   const isRead = pathname.startsWith('/lesson') || pathname.startsWith('/volume') ||
     pathname.startsWith('/surah') || pathname === '/read';
