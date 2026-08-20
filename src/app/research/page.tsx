@@ -30,7 +30,7 @@ const TOOLS = [
     // Hardcoded, this read "1,994" while the apparatus held 1,997 -- the card
     // linking to the footnote index misreported the size of the thing it links
     // to.
-    desc: '{footnotes} footnotes by the compiler, genre-classified: Hadith, Tafsīr, Theology, Sufism, Fiqh.',
+    desc: '{footnotes} footnotes by the compiler, genre-classified: Hadith, Tafsīr, Theology, Sufism, Fiqh. Lessons {fnLessons} of {totalLessons} so far.',
     tier: 'scholar',
   },
   {
@@ -82,7 +82,9 @@ export default async function ResearchPage() {
     .replace('{footnotes}', n(f.footnoteCount))
     .replace('{hadith}', n(f.hadithCitations))
     .replace('{collections}', n(f.hadithCollections))
-    .replace('{terms}', n(f.termCount));
+    .replace('{terms}', n(f.termCount))
+    .replace('{fnLessons}', n(f.footnoteLessons))
+    .replace('{totalLessons}', n(f.totalLessons));
 
   return (
     <main className="max-w-4xl mx-auto px-4 pb-20 pt-5" dir="ltr">

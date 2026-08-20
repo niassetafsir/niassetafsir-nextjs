@@ -162,10 +162,12 @@ export default async function VersePage({
             </p>
             <p className="font-english text-[11.5px] mt-1.5"
               style={{ color: 'var(--gold-light, #E8D4A0)' }}>
+              {/* The "· why" tooltip carried the translator's working notes --
+                  "AK to confirm whether to adopt, adapt or replace it", "Check
+                  against Lesson 49, ¶64-66" -- straight to any reader who
+                  hovered. Those notes are worth keeping in src/data; they are
+                  not for the page. See src/lib/publicText.ts. */}
               Rendered by {TRANSLATOR}
-              {rendering.note && (
-                <span title={rendering.note} className="cursor-help"> · why</span>
-              )}
             </p>
             {text?.en && (
               <p className="font-english text-[12.5px] italic mt-2"

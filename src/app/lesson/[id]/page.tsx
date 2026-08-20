@@ -11,6 +11,7 @@ import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
 import LessonCitations from '@/components/LessonCitations';
 import { hasApparatus } from '@/lib/apparatus';
+import footnotesData from '@/data/footnotesData.json';
 import LessonReaderLayout from '@/components/LessonReaderLayout';
 import Link from 'next/link';
 import { SURAH_LIST } from '@/lib/verseRanges';
@@ -156,10 +157,34 @@ export default async function LessonPage({ params }: { params: { id: string } })
     </>
   );
 
+  // How many of the compiler's notes exist for this lesson but are not yet
+  // published. Said out loud on the page: a reader who sees no footnotes and no
+  // Citations tab would otherwise conclude the compiler annotated nothing here,
+  // when he may have written seventy-five notes on it.
+  const withheldNotes = hasApparatus(lesson.id)
+    ? 0
+    : (footnotesData as { lessonId: number }[]).filter(f => f.lessonId === lesson.id).length;
+
   // Main content: panels
   const mainContent = (
     <LessonExperience
       tafsir={<>
+        {withheldNotes > 0 && (
+          <div className="mb-5 rounded-xl border px-4 py-3" dir="ltr"
+            style={{ borderColor: 'rgba(138,109,31,0.28)', background: 'rgba(138,109,31,0.05)' }}>
+            <p className="font-english text-[12.5px] leading-6"
+              style={{ color: 'var(--body-sub, rgba(232,232,224,0.62))' }}>
+              The compiler wrote <strong style={{ fontWeight: 600 }}>{withheldNotes}</strong> footnotes
+              on this lesson. They are not shown yet: their inline markers were placed before the full
+              text of the lesson was recovered, so they cannot reliably be attached to the passages they
+              annotate. The apparatus is being re-checked lesson by lesson against the verified
+              documents — see{' '}
+              <Link href="/translators-note" className="text-gold/70 hover:text-gold transition-colors">
+                Editorial Conventions
+              </Link>.
+            </p>
+          </div>
+        )}
         {lesson.openingInvocation && (
           <OpeningInvocation html={(lesson as any).openingInvocation} />
         )}
