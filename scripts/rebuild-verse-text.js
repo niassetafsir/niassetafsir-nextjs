@@ -8,12 +8,25 @@
  * normalization was, because that text simply wasn't stored.
  *
  * Source: fawazahmed0/quran-api (github.com/fawazahmed0/quran-api), served
- * via jsDelivr. Arabic edition is "ara-quranuthmanihaf" (Uthmani script,
- * Ḥafṣ ʿan ʿĀṣim -- the standard reading used almost everywhere, including
- * West Africa). English edition is "eng-mohammedmarmadu" (Pickthall,
- * 1930, public domain, sourced from tanzil.net) -- the same translator
- * already reflected in the old file's English wording, so this keeps that
- * consistent rather than switching translations.
+ * via jsDelivr. Arabic edition is "ara-quranwarsh" -- Warsh ʿan Nāfiʿ, the
+ * riwāya of North and West Africa and of the Tijānī tradition in which the
+ * tafsīr was delivered.
+ *
+ * It was "ara-quranuthmanihaf" (Ḥafṣ ʿan ʿĀṣim) until 20 August 2026, under
+ * a comment claiming Ḥafṣ was standard "almost everywhere, including West
+ * Africa". That is wrong about the Maghrib and West Africa, and it put the
+ * reference text at odds with the edition's own Editorial Conventions page,
+ * which states that the Qurʾānic text follows the Warsh rasm. The mismatch
+ * was not cosmetic: quotations in the tafsīr are Warsh, so the Ḥafṣ
+ * reference could not match them. Switching gained 211 inline citations and
+ * 118 distinct verses. Verse numbering is identical between the two
+ * editions, and Amiri covers every codepoint the Warsh text uses.
+ *
+ * Do not revert AR_URL to a Ḥafṣ edition.
+ *
+ * English edition is "eng-mohammedmarmadu" (Pickthall, 1930, public domain,
+ * sourced from tanzil.net). It is shown on the site only as a named base
+ * translation beneath AK's own rendering, never unattributed.
  *
  * The OLD (truncated) file is renamed to verse_text.truncated.bak.json
  * rather than deleted, in case anything needs to be cross-checked later.
@@ -24,7 +37,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const AR_URL = 'https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/ara-quranuthmanihaf.json';
+const AR_URL = 'https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/ara-quranwarsh.json';
 const EN_URL = 'https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/eng-mohammedmarmadu.json';
 
 const OUT_FILE = path.join(__dirname, '..', 'src', 'data', 'verse_text.json');
@@ -42,7 +55,7 @@ async function fetchJson(url, label) {
 
 async function main() {
   const [arVerses, enVerses] = await Promise.all([
-    fetchJson(AR_URL, 'Arabic (Uthmani, Ḥafṣ)'),
+    fetchJson(AR_URL, 'Arabic (Warsh ʿan Nāfiʿ)'),
     fetchJson(EN_URL, 'English (Pickthall)'),
   ]);
 

@@ -58,6 +58,10 @@ function normalise(s) {
     .replace(/[\u064b-\u0652\u0653-\u0655\u06d6-\u06ed\u0640]/g, '')  // tashkīl, tatwīl
     .replace(/[\u0622\u0623\u0625\u0671]/g, '\u0627')      // آ أ إ ٱ -> ا
     .replace(/\u0649/g, '\u064a')                            // ى -> ي
+    // Yeh barree (U+06D2, U+06D3) -> ي. The Warsh reference writes final yāʾ
+    // this way in 2,072 of its 6,236 verses; the catch-all two lines below
+    // would otherwise turn each one into a space and split the word in half.
+    .replace(/[\u06d2\u06d3]/g, '\u064a')
     .replace(/\u0629/g, '\u0647')                            // ة -> ه
     .replace(/\u0624/g, '\u0648').replace(/\u0626/g, '\u064a') // ؤ -> و, ئ -> ي
     .replace(/[^\u0621-\u064a\s]/g, ' ')                     // drop punctuation/latin/digits

@@ -151,6 +151,14 @@ function normalizeAr(text) {
     .replace(/[آأإٱ]/g, 'ا') // alif variants + wasla -> bare alif
     .replace(/ة/g, 'ه')            // ta marbuta -> ha
     .replace(/ى/g, 'ي')            // alif maqsura -> ya
+    // Yeh barree (U+06D2, U+06D3). The Warsh reference writes final yāʾ this
+    // way -- "فِے", "اَ۬لذِے" -- in 2,072 of the 6,236 verses, while the tafsīr
+    // quotes the same words in imlāʾī spelling with a plain ي. Neither
+    // codepoint is a combining mark or a format character, so both survive
+    // every sweep above and then fail to compare equal to the ي they stand
+    // for. Left unfolded, this starves a third of the Qurʾān of exact matches
+    // and demotes those citations to fuzzy.
+    .replace(/[ےۓ]/g, 'ي')
     .replace(/[ؤئ]/g, 'ء')    // hamza-on-waw/ya -> bare hamza
     .replace(/[،؛؟!:"'«»()\[\]]/g, '')
     .replace(/\s+/g, ' ')
