@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import footnotes from '@/data/footnotesData.json';
 import { hasApparatus } from '@/lib/apparatus';
+import { editorNotesFor } from '@/lib/editorNotes';
 
 // Serves the compiler-footnote corpus that used to sit at the public,
 // unauthenticated, directly-linkable public/data/footnotes.json -- see
@@ -33,7 +34,15 @@ export async function GET(request: NextRequest) {
     if (!Number.isFinite(id)) {
       return NextResponse.json({ error: 'lessonId must be a number' }, { status: 400 });
     }
-    return NextResponse.json(all.filter(f => f.lessonId === id));
+    // The editor's notes ride alongside the compiler's, each carrying its own
+    // voice, and are NOT gated on hasApparatus(): that gate exists because the
+    // compiler's inline [N] markers are unverified outside Lessons 1-7, and an
+    // editor's note has no [N] marker to be wrong about. It anchors to a
+    // paragraph. See src/lib/editorNotes.ts.
+    return NextResponse.json({
+      compiler: all.filter(f => f.lessonId === id),
+      editor: editorNotesFor(id),
+    });
   }
 
   return NextResponse.json(all);

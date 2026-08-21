@@ -118,8 +118,25 @@ export default async function EditorialConventionsPage() {
         <p className="mb-3 text-justify">
           The apparatus throughout preserves all of Niasse&apos;s original scholarly citations — to the
           hadith collections, to al-Suyūṭī&apos;s <em>al-Itqān</em>, to al-Ghazālī, to Ibn ʿArabī —
-          traced to their canonical sources. Translator&apos;s notes are added only where necessary and
-          are marked as distinct from the Arabic compiler&apos;s footnotes.
+          traced to their canonical sources.
+        </p>
+
+        <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
+          Three voices
+        </h2>
+        <p className="mb-3 text-justify">
+          Three people speak on a lesson page, and the edition keeps them apart. The commentary is
+          Niasse&apos;s. The footnotes are Muḥammad ibn al-Shaykh&apos;s, and they are documentary:
+          they record where a ḥadīth comes from, in which collection, at which number, on which page.
+          The editor&apos;s notes are the present editor&apos;s, and they are interpretive: they place
+          a passage in the debate it addresses, name the position Niasse is answering, or identify a
+          source he alludes to without naming it.
+        </p>
+        <p className="mb-3 text-justify">
+          The two apparatuses are never merged. The editor&apos;s notes stand above the
+          compiler&apos;s in the Critical Apparatus panel, ruled in gold, each carrying its
+          author&apos;s name and marked as absent from the printed edition. Where this edition asks
+          you to accept a judgement rather than a citation, it tells you whose.
         </p>
 
         <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
