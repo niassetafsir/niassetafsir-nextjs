@@ -1,0 +1,5402 @@
+[
+  {
+    "lesson": 1,
+    "verse": "75:16",
+    "words": 6
+  },
+  {
+    "lesson": 1,
+    "verse": "7:44",
+    "words": 5
+  },
+  {
+    "lesson": 1,
+    "verse": "42:11",
+    "words": 6
+  },
+  {
+    "lesson": 1,
+    "verse": "23:88",
+    "words": 5
+  },
+  {
+    "lesson": 2,
+    "verse": "3:97",
+    "words": 9
+  },
+  {
+    "lesson": 2,
+    "verse": "11:36",
+    "words": 6
+  },
+  {
+    "lesson": 2,
+    "verse": "21:107",
+    "words": 5
+  },
+  {
+    "lesson": 2,
+    "verse": "26:136",
+    "words": 8
+  },
+  {
+    "lesson": 2,
+    "verse": "52:16",
+    "words": 5
+  },
+  {
+    "lesson": 2,
+    "verse": "14:21",
+    "words": 8
+  },
+  {
+    "lesson": 2,
+    "verse": "26:136",
+    "words": 9
+  },
+  {
+    "lesson": 2,
+    "verse": "19:59",
+    "words": 5
+  },
+  {
+    "lesson": 2,
+    "verse": "2:22",
+    "words": 5
+  },
+  {
+    "lesson": 3,
+    "verse": "2:26",
+    "words": 5
+  },
+  {
+    "lesson": 3,
+    "verse": "22:73",
+    "words": 15
+  },
+  {
+    "lesson": 3,
+    "verse": "29:41",
+    "words": 9
+  },
+  {
+    "lesson": 3,
+    "verse": "10:99",
+    "words": 6
+  },
+  {
+    "lesson": 3,
+    "verse": "10:99",
+    "words": 9
+  },
+  {
+    "lesson": 3,
+    "verse": "2:29",
+    "words": 10
+  },
+  {
+    "lesson": 3,
+    "verse": "2:30",
+    "words": 7
+  },
+  {
+    "lesson": 3,
+    "verse": "35:28",
+    "words": 6
+  },
+  {
+    "lesson": 3,
+    "verse": "3:18",
+    "words": 10
+  },
+  {
+    "lesson": 3,
+    "verse": "8:2",
+    "words": 7
+  },
+  {
+    "lesson": 3,
+    "verse": "58:11",
+    "words": 9
+  },
+  {
+    "lesson": 3,
+    "verse": "3:18",
+    "words": 10
+  },
+  {
+    "lesson": 3,
+    "verse": "12:101",
+    "words": 9
+  },
+  {
+    "lesson": 3,
+    "verse": "3:48",
+    "words": 5
+  },
+  {
+    "lesson": 3,
+    "verse": "4:113",
+    "words": 5
+  },
+  {
+    "lesson": 3,
+    "verse": "4:69",
+    "words": 6
+  },
+  {
+    "lesson": 3,
+    "verse": "7:22",
+    "words": 5
+  },
+  {
+    "lesson": 3,
+    "verse": "69:7",
+    "words": 5
+  },
+  {
+    "lesson": 3,
+    "verse": "2:55",
+    "words": 5
+  },
+  {
+    "lesson": 3,
+    "verse": "2:56",
+    "words": 7
+  },
+  {
+    "lesson": 3,
+    "verse": "2:60",
+    "words": 6
+  },
+  {
+    "lesson": 4,
+    "verse": "2:60",
+    "words": 5
+  },
+  {
+    "lesson": 4,
+    "verse": "10:62",
+    "words": 6
+  },
+  {
+    "lesson": 4,
+    "verse": "2:64",
+    "words": 5
+  },
+  {
+    "lesson": 4,
+    "verse": "2:65",
+    "words": 5
+  },
+  {
+    "lesson": 4,
+    "verse": "7:163",
+    "words": 8
+  },
+  {
+    "lesson": 4,
+    "verse": "5:79",
+    "words": 10
+  },
+  {
+    "lesson": 4,
+    "verse": "2:72",
+    "words": 5
+  },
+  {
+    "lesson": 4,
+    "verse": "2:77",
+    "words": 7
+  },
+  {
+    "lesson": 4,
+    "verse": "2:87",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "2:106",
+    "words": 6
+  },
+  {
+    "lesson": 5,
+    "verse": "2:109",
+    "words": 9
+  },
+  {
+    "lesson": 5,
+    "verse": "2:112",
+    "words": 10
+  },
+  {
+    "lesson": 5,
+    "verse": "2:115",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "19:16",
+    "words": 9
+  },
+  {
+    "lesson": 5,
+    "verse": "2:115",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "14:35",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "2:128",
+    "words": 6
+  },
+  {
+    "lesson": 5,
+    "verse": "61:6",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "2:136",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "30:30",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "3:61",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "53:39",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "5:27",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "3:110",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "5:19",
+    "words": 6
+  },
+  {
+    "lesson": 5,
+    "verse": "41:42",
+    "words": 6
+  },
+  {
+    "lesson": 5,
+    "verse": "2:143",
+    "words": 6
+  },
+  {
+    "lesson": 5,
+    "verse": "2:154",
+    "words": 7
+  },
+  {
+    "lesson": 5,
+    "verse": "2:185",
+    "words": 9
+  },
+  {
+    "lesson": 5,
+    "verse": "2:187",
+    "words": 5
+  },
+  {
+    "lesson": 5,
+    "verse": "2:187",
+    "words": 9
+  },
+  {
+    "lesson": 5,
+    "verse": "2:196",
+    "words": 8
+  },
+  {
+    "lesson": 6,
+    "verse": "25:23",
+    "words": 9
+  },
+  {
+    "lesson": 6,
+    "verse": "25:23",
+    "words": 5
+  },
+  {
+    "lesson": 6,
+    "verse": "2:204",
+    "words": 10
+  },
+  {
+    "lesson": 6,
+    "verse": "9:111",
+    "words": 5
+  },
+  {
+    "lesson": 6,
+    "verse": "2:209",
+    "words": 5
+  },
+  {
+    "lesson": 6,
+    "verse": "4:145",
+    "words": 5
+  },
+  {
+    "lesson": 6,
+    "verse": "4:43",
+    "words": 8
+  },
+  {
+    "lesson": 6,
+    "verse": "5:90",
+    "words": 13
+  },
+  {
+    "lesson": 6,
+    "verse": "4:10",
+    "words": 13
+  },
+  {
+    "lesson": 6,
+    "verse": "2:232",
+    "words": 5
+  },
+  {
+    "lesson": 6,
+    "verse": "2:233",
+    "words": 5
+  },
+  {
+    "lesson": 6,
+    "verse": "2:235",
+    "words": 5
+  },
+  {
+    "lesson": 6,
+    "verse": "2:261",
+    "words": 9
+  },
+  {
+    "lesson": 6,
+    "verse": "2:246",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:253",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "4:34",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "21:107",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "48:10",
+    "words": 10
+  },
+  {
+    "lesson": 7,
+    "verse": "9:62",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "3:110",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "34:28",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "48:1",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "48:2",
+    "words": 11
+  },
+  {
+    "lesson": 7,
+    "verse": "14:35",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "33:33",
+    "words": 8
+  },
+  {
+    "lesson": 7,
+    "verse": "37:99",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "17:1",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "41:53",
+    "words": 11
+  },
+  {
+    "lesson": 7,
+    "verse": "53:11",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "53:17",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "33:40",
+    "words": 11
+  },
+  {
+    "lesson": 7,
+    "verse": "2:253",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:253",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:255",
+    "words": 10
+  },
+  {
+    "lesson": 7,
+    "verse": "2:255",
+    "words": 8
+  },
+  {
+    "lesson": 7,
+    "verse": "2:255",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:255",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:256",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:258",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:258",
+    "words": 9
+  },
+  {
+    "lesson": 7,
+    "verse": "2:258",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:259",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:259",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:259",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:259",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "2:259",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:260",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "13:28",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "2:260",
+    "words": 7
+  },
+  {
+    "lesson": 7,
+    "verse": "2:260",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:260",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "2:260",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:261",
+    "words": 17
+  },
+  {
+    "lesson": 7,
+    "verse": "2:261",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "2:262",
+    "words": 10
+  },
+  {
+    "lesson": 7,
+    "verse": "2:263",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:264",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "2:264",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:265",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:265",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "2:266",
+    "words": 9
+  },
+  {
+    "lesson": 7,
+    "verse": "2:267",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:269",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:271",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:272",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "2:272",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "2:273",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "2:273",
+    "words": 8
+  },
+  {
+    "lesson": 7,
+    "verse": "2:274",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:274",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:274",
+    "words": 11
+  },
+  {
+    "lesson": 7,
+    "verse": "2:276",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:277",
+    "words": 19
+  },
+  {
+    "lesson": 7,
+    "verse": "2:278",
+    "words": 7
+  },
+  {
+    "lesson": 7,
+    "verse": "2:281",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:286",
+    "words": 6
+  },
+  {
+    "lesson": 7,
+    "verse": "2:285",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "2:255",
+    "words": 8
+  },
+  {
+    "lesson": 7,
+    "verse": "3:7",
+    "words": 10
+  },
+  {
+    "lesson": 7,
+    "verse": "6:144",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "6:143",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "3:7",
+    "words": 5
+  },
+  {
+    "lesson": 7,
+    "verse": "3:7",
+    "words": 9
+  },
+  {
+    "lesson": 8,
+    "verse": "3:19",
+    "words": 5
+  },
+  {
+    "lesson": 8,
+    "verse": "3:24",
+    "words": 5
+  },
+  {
+    "lesson": 8,
+    "verse": "3:28",
+    "words": 5
+  },
+  {
+    "lesson": 8,
+    "verse": "3:29",
+    "words": 7
+  },
+  {
+    "lesson": 8,
+    "verse": "3:30",
+    "words": 8
+  },
+  {
+    "lesson": 8,
+    "verse": "2:166",
+    "words": 9
+  },
+  {
+    "lesson": 8,
+    "verse": "19:59",
+    "words": 6
+  },
+  {
+    "lesson": 8,
+    "verse": "3:37",
+    "words": 5
+  },
+  {
+    "lesson": 8,
+    "verse": "3:37",
+    "words": 8
+  },
+  {
+    "lesson": 8,
+    "verse": "3:37",
+    "words": 11
+  },
+  {
+    "lesson": 8,
+    "verse": "3:37",
+    "words": 12
+  },
+  {
+    "lesson": 8,
+    "verse": "3:45",
+    "words": 6
+  },
+  {
+    "lesson": 8,
+    "verse": "3:50",
+    "words": 11
+  },
+  {
+    "lesson": 8,
+    "verse": "3:55",
+    "words": 5
+  },
+  {
+    "lesson": 8,
+    "verse": "3:61",
+    "words": 5
+  },
+  {
+    "lesson": 8,
+    "verse": "3:62",
+    "words": 6
+  },
+  {
+    "lesson": 8,
+    "verse": "3:65",
+    "words": 7
+  },
+  {
+    "lesson": 8,
+    "verse": "3:66",
+    "words": 8
+  },
+  {
+    "lesson": 8,
+    "verse": "3:71",
+    "words": 9
+  },
+  {
+    "lesson": 8,
+    "verse": "3:73",
+    "words": 5
+  },
+  {
+    "lesson": 8,
+    "verse": "3:84",
+    "words": 16
+  },
+  {
+    "lesson": 9,
+    "verse": "3:94",
+    "words": 6
+  },
+  {
+    "lesson": 9,
+    "verse": "29:69",
+    "words": 8
+  },
+  {
+    "lesson": 9,
+    "verse": "9:71",
+    "words": 5
+  },
+  {
+    "lesson": 9,
+    "verse": "9:71",
+    "words": 5
+  },
+  {
+    "lesson": 9,
+    "verse": "9:71",
+    "words": 5
+  },
+  {
+    "lesson": 9,
+    "verse": "3:114",
+    "words": 10
+  },
+  {
+    "lesson": 9,
+    "verse": "9:71",
+    "words": 5
+  },
+  {
+    "lesson": 9,
+    "verse": "2:217",
+    "words": 5
+  },
+  {
+    "lesson": 9,
+    "verse": "2:120",
+    "words": 8
+  },
+  {
+    "lesson": 9,
+    "verse": "48:26",
+    "words": 5
+  },
+  {
+    "lesson": 9,
+    "verse": "3:128",
+    "words": 7
+  },
+  {
+    "lesson": 9,
+    "verse": "3:132",
+    "words": 5
+  },
+  {
+    "lesson": 9,
+    "verse": "11:102",
+    "words": 12
+  },
+  {
+    "lesson": 9,
+    "verse": "11:102",
+    "words": 6
+  },
+  {
+    "lesson": 9,
+    "verse": "3:145",
+    "words": 8
+  },
+  {
+    "lesson": 9,
+    "verse": "3:156",
+    "words": 6
+  },
+  {
+    "lesson": 9,
+    "verse": "3:160",
+    "words": 7
+  },
+  {
+    "lesson": 10,
+    "verse": "3:173",
+    "words": 5
+  },
+  {
+    "lesson": 10,
+    "verse": "40:44",
+    "words": 7
+  },
+  {
+    "lesson": 10,
+    "verse": "3:176",
+    "words": 5
+  },
+  {
+    "lesson": 10,
+    "verse": "48:2",
+    "words": 6
+  },
+  {
+    "lesson": 10,
+    "verse": "79:40",
+    "words": 8
+  },
+  {
+    "lesson": 10,
+    "verse": "3:198",
+    "words": 6
+  },
+  {
+    "lesson": 10,
+    "verse": "4:1",
+    "words": 5
+  },
+  {
+    "lesson": 10,
+    "verse": "4:10",
+    "words": 8
+  },
+  {
+    "lesson": 10,
+    "verse": "4:9",
+    "words": 10
+  },
+  {
+    "lesson": 10,
+    "verse": "4:11",
+    "words": 6
+  },
+  {
+    "lesson": 10,
+    "verse": "4:11",
+    "words": 10
+  },
+  {
+    "lesson": 10,
+    "verse": "4:19",
+    "words": 8
+  },
+  {
+    "lesson": 11,
+    "verse": "37:99",
+    "words": 5
+  },
+  {
+    "lesson": 11,
+    "verse": "4:39",
+    "words": 7
+  },
+  {
+    "lesson": 11,
+    "verse": "5:19",
+    "words": 6
+  },
+  {
+    "lesson": 11,
+    "verse": "71:1",
+    "words": 5
+  },
+  {
+    "lesson": 11,
+    "verse": "2:143",
+    "words": 10
+  },
+  {
+    "lesson": 11,
+    "verse": "6:23",
+    "words": 5
+  },
+  {
+    "lesson": 11,
+    "verse": "6:23",
+    "words": 5
+  },
+  {
+    "lesson": 11,
+    "verse": "98:1",
+    "words": 6
+  },
+  {
+    "lesson": 11,
+    "verse": "4:41",
+    "words": 6
+  },
+  {
+    "lesson": 11,
+    "verse": "25:68",
+    "words": 6
+  },
+  {
+    "lesson": 11,
+    "verse": "4:60",
+    "words": 5
+  },
+  {
+    "lesson": 11,
+    "verse": "4:73",
+    "words": 5
+  },
+  {
+    "lesson": 11,
+    "verse": "4:76",
+    "words": 11
+  },
+  {
+    "lesson": 11,
+    "verse": "4:77",
+    "words": 7
+  },
+  {
+    "lesson": 11,
+    "verse": "4:78",
+    "words": 8
+  },
+  {
+    "lesson": 11,
+    "verse": "4:82",
+    "words": 10
+  },
+  {
+    "lesson": 11,
+    "verse": "4:83",
+    "words": 6
+  },
+  {
+    "lesson": 12,
+    "verse": "42:7",
+    "words": 6
+  },
+  {
+    "lesson": 12,
+    "verse": "54:55",
+    "words": 6
+  },
+  {
+    "lesson": 12,
+    "verse": "42:7",
+    "words": 6
+  },
+  {
+    "lesson": 12,
+    "verse": "54:55",
+    "words": 6
+  },
+  {
+    "lesson": 12,
+    "verse": "32:11",
+    "words": 5
+  },
+  {
+    "lesson": 12,
+    "verse": "4:89",
+    "words": 7
+  },
+  {
+    "lesson": 12,
+    "verse": "4:92",
+    "words": 6
+  },
+  {
+    "lesson": 12,
+    "verse": "4:100",
+    "words": 7
+  },
+  {
+    "lesson": 12,
+    "verse": "4:100",
+    "words": 9
+  },
+  {
+    "lesson": 12,
+    "verse": "6:160",
+    "words": 5
+  },
+  {
+    "lesson": 12,
+    "verse": "4:103",
+    "words": 5
+  },
+  {
+    "lesson": 12,
+    "verse": "4:114",
+    "words": 7
+  },
+  {
+    "lesson": 12,
+    "verse": "4:40",
+    "words": 5
+  },
+  {
+    "lesson": 12,
+    "verse": "39:53",
+    "words": 19
+  },
+  {
+    "lesson": 12,
+    "verse": "4:136",
+    "words": 7
+  },
+  {
+    "lesson": 12,
+    "verse": "4:146",
+    "words": 5
+  },
+  {
+    "lesson": 13,
+    "verse": "4:148",
+    "words": 6
+  },
+  {
+    "lesson": 13,
+    "verse": "4:148",
+    "words": 10
+  },
+  {
+    "lesson": 13,
+    "verse": "4:150",
+    "words": 7
+  },
+  {
+    "lesson": 13,
+    "verse": "6:3",
+    "words": 5
+  },
+  {
+    "lesson": 13,
+    "verse": "4:172",
+    "words": 6
+  },
+  {
+    "lesson": 13,
+    "verse": "4:171",
+    "words": 8
+  },
+  {
+    "lesson": 13,
+    "verse": "45:13",
+    "words": 5
+  },
+  {
+    "lesson": 13,
+    "verse": "58:7",
+    "words": 10
+  },
+  {
+    "lesson": 13,
+    "verse": "58:7",
+    "words": 5
+  },
+  {
+    "lesson": 13,
+    "verse": "58:7",
+    "words": 9
+  },
+  {
+    "lesson": 13,
+    "verse": "53:17",
+    "words": 5
+  },
+  {
+    "lesson": 13,
+    "verse": "8:17",
+    "words": 5
+  },
+  {
+    "lesson": 13,
+    "verse": "4:176",
+    "words": 5
+  },
+  {
+    "lesson": 13,
+    "verse": "5:2",
+    "words": 5
+  },
+  {
+    "lesson": 13,
+    "verse": "5:7",
+    "words": 11
+  },
+  {
+    "lesson": 13,
+    "verse": "5:15",
+    "words": 5
+  },
+  {
+    "lesson": 13,
+    "verse": "5:15",
+    "words": 5
+  },
+  {
+    "lesson": 13,
+    "verse": "5:19",
+    "words": 6
+  },
+  {
+    "lesson": 13,
+    "verse": "22:47",
+    "words": 8
+  },
+  {
+    "lesson": 14,
+    "verse": "5:23",
+    "words": 6
+  },
+  {
+    "lesson": 14,
+    "verse": "5:25",
+    "words": 5
+  },
+  {
+    "lesson": 14,
+    "verse": "5:28",
+    "words": 5
+  },
+  {
+    "lesson": 14,
+    "verse": "5:33",
+    "words": 6
+  },
+  {
+    "lesson": 14,
+    "verse": "5:39",
+    "words": 7
+  },
+  {
+    "lesson": 14,
+    "verse": "42:13",
+    "words": 5
+  },
+  {
+    "lesson": 14,
+    "verse": "2:124",
+    "words": 5
+  },
+  {
+    "lesson": 14,
+    "verse": "5:49",
+    "words": 8
+  },
+  {
+    "lesson": 14,
+    "verse": "5:51",
+    "words": 5
+  },
+  {
+    "lesson": 14,
+    "verse": "5:51",
+    "words": 6
+  },
+  {
+    "lesson": 14,
+    "verse": "5:55",
+    "words": 7
+  },
+  {
+    "lesson": 14,
+    "verse": "5:63",
+    "words": 6
+  },
+  {
+    "lesson": 14,
+    "verse": "5:77",
+    "words": 5
+  },
+  {
+    "lesson": 14,
+    "verse": "5:80",
+    "words": 8
+  },
+  {
+    "lesson": 15,
+    "verse": "5:84",
+    "words": 8
+  },
+  {
+    "lesson": 15,
+    "verse": "5:87",
+    "words": 6
+  },
+  {
+    "lesson": 15,
+    "verse": "5:89",
+    "words": 8
+  },
+  {
+    "lesson": 15,
+    "verse": "4:43",
+    "words": 5
+  },
+  {
+    "lesson": 15,
+    "verse": "5:95",
+    "words": 5
+  },
+  {
+    "lesson": 15,
+    "verse": "5:97",
+    "words": 6
+  },
+  {
+    "lesson": 15,
+    "verse": "5:97",
+    "words": 6
+  },
+  {
+    "lesson": 15,
+    "verse": "5:98",
+    "words": 7
+  },
+  {
+    "lesson": 15,
+    "verse": "5:106",
+    "words": 5
+  },
+  {
+    "lesson": 15,
+    "verse": "5:106",
+    "words": 6
+  },
+  {
+    "lesson": 15,
+    "verse": "5:116",
+    "words": 6
+  },
+  {
+    "lesson": 15,
+    "verse": "4:82",
+    "words": 6
+  },
+  {
+    "lesson": 15,
+    "verse": "16:103",
+    "words": 10
+  },
+  {
+    "lesson": 15,
+    "verse": "6:11",
+    "words": 6
+  },
+  {
+    "lesson": 15,
+    "verse": "6:14",
+    "words": 7
+  },
+  {
+    "lesson": 15,
+    "verse": "6:19",
+    "words": 8
+  },
+  {
+    "lesson": 15,
+    "verse": "6:25",
+    "words": 9
+  },
+  {
+    "lesson": 15,
+    "verse": "6:29",
+    "words": 8
+  },
+  {
+    "lesson": 16,
+    "verse": "6:37",
+    "words": 6
+  },
+  {
+    "lesson": 16,
+    "verse": "6:35",
+    "words": 6
+  },
+  {
+    "lesson": 16,
+    "verse": "16:8",
+    "words": 9
+  },
+  {
+    "lesson": 16,
+    "verse": "11:48",
+    "words": 7
+  },
+  {
+    "lesson": 16,
+    "verse": "4:83",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "6:52",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "42:20",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "42:20",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "6:54",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "31:34",
+    "words": 6
+  },
+  {
+    "lesson": 16,
+    "verse": "6:59",
+    "words": 6
+  },
+  {
+    "lesson": 16,
+    "verse": "32:11",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "11:76",
+    "words": 8
+  },
+  {
+    "lesson": 16,
+    "verse": "6:68",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "6:74",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "6:75",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "17:1",
+    "words": 10
+  },
+  {
+    "lesson": 16,
+    "verse": "31:13",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "6:88",
+    "words": 10
+  },
+  {
+    "lesson": 16,
+    "verse": "6:91",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "6:91",
+    "words": 7
+  },
+  {
+    "lesson": 16,
+    "verse": "6:92",
+    "words": 14
+  },
+  {
+    "lesson": 16,
+    "verse": "9:128",
+    "words": 10
+  },
+  {
+    "lesson": 16,
+    "verse": "6:93",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "6:97",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "6:109",
+    "words": 5
+  },
+  {
+    "lesson": 16,
+    "verse": "6:110",
+    "words": 6
+  },
+  {
+    "lesson": 17,
+    "verse": "6:28",
+    "words": 8
+  },
+  {
+    "lesson": 17,
+    "verse": "6:124",
+    "words": 6
+  },
+  {
+    "lesson": 17,
+    "verse": "6:125",
+    "words": 9
+  },
+  {
+    "lesson": 17,
+    "verse": "6:144",
+    "words": 5
+  },
+  {
+    "lesson": 17,
+    "verse": "2:173",
+    "words": 8
+  },
+  {
+    "lesson": 17,
+    "verse": "39:7",
+    "words": 8
+  },
+  {
+    "lesson": 17,
+    "verse": "6:151",
+    "words": 6
+  },
+  {
+    "lesson": 17,
+    "verse": "7:58",
+    "words": 6
+  },
+  {
+    "lesson": 17,
+    "verse": "2:261",
+    "words": 11
+  },
+  {
+    "lesson": 17,
+    "verse": "34:12",
+    "words": 5
+  },
+  {
+    "lesson": 18,
+    "verse": "7:2",
+    "words": 6
+  },
+  {
+    "lesson": 18,
+    "verse": "23:101",
+    "words": 6
+  },
+  {
+    "lesson": 18,
+    "verse": "7:11",
+    "words": 5
+  },
+  {
+    "lesson": 18,
+    "verse": "38:75",
+    "words": 7
+  },
+  {
+    "lesson": 18,
+    "verse": "38:75",
+    "words": 7
+  },
+  {
+    "lesson": 18,
+    "verse": "7:20",
+    "words": 7
+  },
+  {
+    "lesson": 18,
+    "verse": "20:120",
+    "words": 5
+  },
+  {
+    "lesson": 18,
+    "verse": "7:25",
+    "words": 5
+  },
+  {
+    "lesson": 18,
+    "verse": "7:27",
+    "words": 9
+  },
+  {
+    "lesson": 18,
+    "verse": "7:40",
+    "words": 5
+  },
+  {
+    "lesson": 18,
+    "verse": "7:43",
+    "words": 6
+  },
+  {
+    "lesson": 18,
+    "verse": "7:51",
+    "words": 9
+  },
+  {
+    "lesson": 18,
+    "verse": "7:43",
+    "words": 6
+  },
+  {
+    "lesson": 18,
+    "verse": "29:14",
+    "words": 6
+  },
+  {
+    "lesson": 18,
+    "verse": "7:69",
+    "words": 6
+  },
+  {
+    "lesson": 18,
+    "verse": "27:45",
+    "words": 5
+  },
+  {
+    "lesson": 19,
+    "verse": "7:90",
+    "words": 5
+  },
+  {
+    "lesson": 19,
+    "verse": "7:99",
+    "words": 5
+  },
+  {
+    "lesson": 19,
+    "verse": "6:82",
+    "words": 11
+  },
+  {
+    "lesson": 19,
+    "verse": "10:64",
+    "words": 7
+  },
+  {
+    "lesson": 19,
+    "verse": "10:88",
+    "words": 5
+  },
+  {
+    "lesson": 19,
+    "verse": "10:88",
+    "words": 6
+  },
+  {
+    "lesson": 19,
+    "verse": "10:88",
+    "words": 9
+  },
+  {
+    "lesson": 19,
+    "verse": "7:137",
+    "words": 6
+  },
+  {
+    "lesson": 19,
+    "verse": "28:24",
+    "words": 7
+  },
+  {
+    "lesson": 19,
+    "verse": "7:143",
+    "words": 5
+  },
+  {
+    "lesson": 19,
+    "verse": "9:71",
+    "words": 5
+  },
+  {
+    "lesson": 19,
+    "verse": "7:150",
+    "words": 5
+  },
+  {
+    "lesson": 19,
+    "verse": "7:154",
+    "words": 5
+  },
+  {
+    "lesson": 19,
+    "verse": "7:158",
+    "words": 16
+  },
+  {
+    "lesson": 19,
+    "verse": "7:158",
+    "words": 8
+  },
+  {
+    "lesson": 19,
+    "verse": "7:163",
+    "words": 5
+  },
+  {
+    "lesson": 20,
+    "verse": "38:26",
+    "words": 14
+  },
+  {
+    "lesson": 20,
+    "verse": "16:32",
+    "words": 5
+  },
+  {
+    "lesson": 20,
+    "verse": "11:102",
+    "words": 8
+  },
+  {
+    "lesson": 20,
+    "verse": "7:188",
+    "words": 8
+  },
+  {
+    "lesson": 20,
+    "verse": "7:188",
+    "words": 6
+  },
+  {
+    "lesson": 20,
+    "verse": "7:195",
+    "words": 5
+  },
+  {
+    "lesson": 20,
+    "verse": "7:195",
+    "words": 5
+  },
+  {
+    "lesson": 20,
+    "verse": "38:35",
+    "words": 8
+  },
+  {
+    "lesson": 20,
+    "verse": "17:110",
+    "words": 10
+  },
+  {
+    "lesson": 20,
+    "verse": "66:6",
+    "words": 8
+  },
+  {
+    "lesson": 20,
+    "verse": "8:5",
+    "words": 6
+  },
+  {
+    "lesson": 20,
+    "verse": "8:11",
+    "words": 5
+  },
+  {
+    "lesson": 20,
+    "verse": "8:17",
+    "words": 6
+  },
+  {
+    "lesson": 20,
+    "verse": "8:23",
+    "words": 5
+  },
+  {
+    "lesson": 20,
+    "verse": "67:10",
+    "words": 10
+  },
+  {
+    "lesson": 20,
+    "verse": "8:27",
+    "words": 7
+  },
+  {
+    "lesson": 20,
+    "verse": "8:32",
+    "words": 7
+  },
+  {
+    "lesson": 20,
+    "verse": "8:32",
+    "words": 16
+  },
+  {
+    "lesson": 20,
+    "verse": "8:35",
+    "words": 5
+  },
+  {
+    "lesson": 21,
+    "verse": "3:159",
+    "words": 23
+  },
+  {
+    "lesson": 21,
+    "verse": "8:47",
+    "words": 7
+  },
+  {
+    "lesson": 21,
+    "verse": "8:53",
+    "words": 7
+  },
+  {
+    "lesson": 21,
+    "verse": "25:44",
+    "words": 5
+  },
+  {
+    "lesson": 21,
+    "verse": "71:26",
+    "words": 8
+  },
+  {
+    "lesson": 21,
+    "verse": "10:88",
+    "words": 11
+  },
+  {
+    "lesson": 21,
+    "verse": "8:72",
+    "words": 7
+  },
+  {
+    "lesson": 21,
+    "verse": "8:73",
+    "words": 5
+  },
+  {
+    "lesson": 21,
+    "verse": "9:6",
+    "words": 5
+  },
+  {
+    "lesson": 21,
+    "verse": "9:6",
+    "words": 5
+  },
+  {
+    "lesson": 21,
+    "verse": "9:12",
+    "words": 6
+  },
+  {
+    "lesson": 21,
+    "verse": "9:14",
+    "words": 7
+  },
+  {
+    "lesson": 21,
+    "verse": "9:19",
+    "words": 5
+  },
+  {
+    "lesson": 21,
+    "verse": "9:27",
+    "words": 9
+  },
+  {
+    "lesson": 21,
+    "verse": "9:29",
+    "words": 6
+  },
+  {
+    "lesson": 21,
+    "verse": "9:32",
+    "words": 5
+  },
+  {
+    "lesson": 21,
+    "verse": "33:56",
+    "words": 7
+  },
+  {
+    "lesson": 22,
+    "verse": "9:40",
+    "words": 7
+  },
+  {
+    "lesson": 22,
+    "verse": "9:62",
+    "words": 5
+  },
+  {
+    "lesson": 22,
+    "verse": "33:36",
+    "words": 5
+  },
+  {
+    "lesson": 22,
+    "verse": "9:72",
+    "words": 6
+  },
+  {
+    "lesson": 22,
+    "verse": "9:74",
+    "words": 5
+  },
+  {
+    "lesson": 22,
+    "verse": "9:74",
+    "words": 5
+  },
+  {
+    "lesson": 22,
+    "verse": "63:6",
+    "words": 5
+  },
+  {
+    "lesson": 22,
+    "verse": "9:80",
+    "words": 6
+  },
+  {
+    "lesson": 22,
+    "verse": "9:80",
+    "words": 6
+  },
+  {
+    "lesson": 22,
+    "verse": "14:21",
+    "words": 7
+  },
+  {
+    "lesson": 22,
+    "verse": "9:84",
+    "words": 6
+  },
+  {
+    "lesson": 22,
+    "verse": "9:84",
+    "words": 10
+  },
+  {
+    "lesson": 22,
+    "verse": "9:80",
+    "words": 6
+  },
+  {
+    "lesson": 22,
+    "verse": "9:92",
+    "words": 5
+  },
+  {
+    "lesson": 22,
+    "verse": "12:108",
+    "words": 9
+  },
+  {
+    "lesson": 23,
+    "verse": "9:95",
+    "words": 5
+  },
+  {
+    "lesson": 23,
+    "verse": "9:96",
+    "words": 5
+  },
+  {
+    "lesson": 23,
+    "verse": "24:39",
+    "words": 6
+  },
+  {
+    "lesson": 23,
+    "verse": "9:97",
+    "words": 9
+  },
+  {
+    "lesson": 23,
+    "verse": "35:32",
+    "words": 7
+  },
+  {
+    "lesson": 23,
+    "verse": "9:104",
+    "words": 9
+  },
+  {
+    "lesson": 23,
+    "verse": "48:10",
+    "words": 5
+  },
+  {
+    "lesson": 23,
+    "verse": "19:42",
+    "words": 11
+  },
+  {
+    "lesson": 23,
+    "verse": "9:107",
+    "words": 5
+  },
+  {
+    "lesson": 23,
+    "verse": "9:109",
+    "words": 9
+  },
+  {
+    "lesson": 23,
+    "verse": "9:108",
+    "words": 6
+  },
+  {
+    "lesson": 23,
+    "verse": "2:124",
+    "words": 7
+  },
+  {
+    "lesson": 23,
+    "verse": "28:56",
+    "words": 5
+  },
+  {
+    "lesson": 23,
+    "verse": "9:117",
+    "words": 8
+  },
+  {
+    "lesson": 23,
+    "verse": "9:118",
+    "words": 7
+  },
+  {
+    "lesson": 23,
+    "verse": "9:120",
+    "words": 9
+  },
+  {
+    "lesson": 23,
+    "verse": "9:120",
+    "words": 5
+  },
+  {
+    "lesson": 23,
+    "verse": "9:120",
+    "words": 5
+  },
+  {
+    "lesson": 23,
+    "verse": "9:120",
+    "words": 5
+  },
+  {
+    "lesson": 23,
+    "verse": "9:120",
+    "words": 5
+  },
+  {
+    "lesson": 23,
+    "verse": "9:121",
+    "words": 9
+  },
+  {
+    "lesson": 23,
+    "verse": "10:2",
+    "words": 6
+  },
+  {
+    "lesson": 23,
+    "verse": "10:2",
+    "words": 13
+  },
+  {
+    "lesson": 23,
+    "verse": "10:3",
+    "words": 6
+  },
+  {
+    "lesson": 23,
+    "verse": "10:22",
+    "words": 9
+  },
+  {
+    "lesson": 24,
+    "verse": "10:30",
+    "words": 5
+  },
+  {
+    "lesson": 24,
+    "verse": "10:31",
+    "words": 10
+  },
+  {
+    "lesson": 24,
+    "verse": "10:57",
+    "words": 5
+  },
+  {
+    "lesson": 24,
+    "verse": "10:61",
+    "words": 10
+  },
+  {
+    "lesson": 24,
+    "verse": "10:62",
+    "words": 5
+  },
+  {
+    "lesson": 24,
+    "verse": "10:62",
+    "words": 10
+  },
+  {
+    "lesson": 24,
+    "verse": "19:71",
+    "words": 5
+  },
+  {
+    "lesson": 24,
+    "verse": "10:64",
+    "words": 5
+  },
+  {
+    "lesson": 24,
+    "verse": "10:67",
+    "words": 9
+  },
+  {
+    "lesson": 24,
+    "verse": "10:74",
+    "words": 6
+  },
+  {
+    "lesson": 24,
+    "verse": "10:88",
+    "words": 5
+  },
+  {
+    "lesson": 24,
+    "verse": "10:90",
+    "words": 9
+  },
+  {
+    "lesson": 24,
+    "verse": "26:62",
+    "words": 5
+  },
+  {
+    "lesson": 24,
+    "verse": "10:90",
+    "words": 5
+  },
+  {
+    "lesson": 24,
+    "verse": "10:97",
+    "words": 8
+  },
+  {
+    "lesson": 24,
+    "verse": "10:98",
+    "words": 5
+  },
+  {
+    "lesson": 24,
+    "verse": "21:87",
+    "words": 6
+  },
+  {
+    "lesson": 24,
+    "verse": "37:147",
+    "words": 5
+  },
+  {
+    "lesson": 24,
+    "verse": "10:104",
+    "words": 5
+  },
+  {
+    "lesson": 25,
+    "verse": "11:6",
+    "words": 5
+  },
+  {
+    "lesson": 25,
+    "verse": "11:6",
+    "words": 6
+  },
+  {
+    "lesson": 25,
+    "verse": "31:16",
+    "words": 7
+  },
+  {
+    "lesson": 25,
+    "verse": "31:16",
+    "words": 5
+  },
+  {
+    "lesson": 25,
+    "verse": "11:8",
+    "words": 5
+  },
+  {
+    "lesson": 25,
+    "verse": "11:12",
+    "words": 5
+  },
+  {
+    "lesson": 25,
+    "verse": "17:88",
+    "words": 8
+  },
+  {
+    "lesson": 25,
+    "verse": "17:88",
+    "words": 8
+  },
+  {
+    "lesson": 25,
+    "verse": "11:18",
+    "words": 10
+  },
+  {
+    "lesson": 25,
+    "verse": "11:23",
+    "words": 6
+  },
+  {
+    "lesson": 25,
+    "verse": "71:26",
+    "words": 8
+  },
+  {
+    "lesson": 25,
+    "verse": "11:29",
+    "words": 5
+  },
+  {
+    "lesson": 25,
+    "verse": "11:31",
+    "words": 8
+  },
+  {
+    "lesson": 25,
+    "verse": "11:34",
+    "words": 6
+  },
+  {
+    "lesson": 25,
+    "verse": "71:26",
+    "words": 6
+  },
+  {
+    "lesson": 25,
+    "verse": "11:43",
+    "words": 5
+  },
+  {
+    "lesson": 25,
+    "verse": "11:49",
+    "words": 11
+  },
+  {
+    "lesson": 25,
+    "verse": "11:51",
+    "words": 5
+  },
+  {
+    "lesson": 25,
+    "verse": "11:51",
+    "words": 6
+  },
+  {
+    "lesson": 25,
+    "verse": "11:57",
+    "words": 10
+  },
+  {
+    "lesson": 25,
+    "verse": "11:58",
+    "words": 5
+  },
+  {
+    "lesson": 25,
+    "verse": "11:70",
+    "words": 5
+  },
+  {
+    "lesson": 25,
+    "verse": "29:32",
+    "words": 7
+  },
+  {
+    "lesson": 25,
+    "verse": "11:76",
+    "words": 10
+  },
+  {
+    "lesson": 26,
+    "verse": "11:84",
+    "words": 6
+  },
+  {
+    "lesson": 26,
+    "verse": "11:87",
+    "words": 5
+  },
+  {
+    "lesson": 26,
+    "verse": "11:88",
+    "words": 10
+  },
+  {
+    "lesson": 26,
+    "verse": "11:90",
+    "words": 8
+  },
+  {
+    "lesson": 26,
+    "verse": "11:92",
+    "words": 7
+  },
+  {
+    "lesson": 26,
+    "verse": "11:93",
+    "words": 9
+  },
+  {
+    "lesson": 26,
+    "verse": "11:101",
+    "words": 9
+  },
+  {
+    "lesson": 26,
+    "verse": "5:30",
+    "words": 9
+  },
+  {
+    "lesson": 26,
+    "verse": "7:176",
+    "words": 9
+  },
+  {
+    "lesson": 26,
+    "verse": "19:59",
+    "words": 6
+  },
+  {
+    "lesson": 26,
+    "verse": "2:166",
+    "words": 9
+  },
+  {
+    "lesson": 26,
+    "verse": "15:42",
+    "words": 9
+  },
+  {
+    "lesson": 26,
+    "verse": "57:3",
+    "words": 5
+  },
+  {
+    "lesson": 26,
+    "verse": "12:4",
+    "words": 5
+  },
+  {
+    "lesson": 26,
+    "verse": "12:13",
+    "words": 5
+  },
+  {
+    "lesson": 26,
+    "verse": "12:33",
+    "words": 6
+  },
+  {
+    "lesson": 26,
+    "verse": "12:33",
+    "words": 8
+  },
+  {
+    "lesson": 26,
+    "verse": "12:34",
+    "words": 6
+  },
+  {
+    "lesson": 27,
+    "verse": "89:28",
+    "words": 5
+  },
+  {
+    "lesson": 27,
+    "verse": "12:78",
+    "words": 5
+  },
+  {
+    "lesson": 27,
+    "verse": "12:79",
+    "words": 7
+  },
+  {
+    "lesson": 27,
+    "verse": "12:90",
+    "words": 7
+  },
+  {
+    "lesson": 27,
+    "verse": "12:93",
+    "words": 6
+  },
+  {
+    "lesson": 27,
+    "verse": "12:98",
+    "words": 7
+  },
+  {
+    "lesson": 27,
+    "verse": "12:100",
+    "words": 8
+  },
+  {
+    "lesson": 27,
+    "verse": "13:4",
+    "words": 5
+  },
+  {
+    "lesson": 27,
+    "verse": "13:5",
+    "words": 6
+  },
+  {
+    "lesson": 27,
+    "verse": "39:47",
+    "words": 6
+  },
+  {
+    "lesson": 28,
+    "verse": "20:115",
+    "words": 6
+  },
+  {
+    "lesson": 28,
+    "verse": "40:8",
+    "words": 6
+  },
+  {
+    "lesson": 28,
+    "verse": "40:8",
+    "words": 5
+  },
+  {
+    "lesson": 28,
+    "verse": "10:7",
+    "words": 5
+  },
+  {
+    "lesson": 28,
+    "verse": "2:260",
+    "words": 6
+  },
+  {
+    "lesson": 28,
+    "verse": "13:31",
+    "words": 5
+  },
+  {
+    "lesson": 28,
+    "verse": "13:33",
+    "words": 5
+  },
+  {
+    "lesson": 28,
+    "verse": "13:36",
+    "words": 6
+  },
+  {
+    "lesson": 28,
+    "verse": "2:286",
+    "words": 6
+  },
+  {
+    "lesson": 28,
+    "verse": "14:28",
+    "words": 5
+  },
+  {
+    "lesson": 28,
+    "verse": "14:1",
+    "words": 10
+  },
+  {
+    "lesson": 28,
+    "verse": "14:5",
+    "words": 6
+  },
+  {
+    "lesson": 28,
+    "verse": "14:10",
+    "words": 5
+  },
+  {
+    "lesson": 28,
+    "verse": "14:13",
+    "words": 9
+  },
+  {
+    "lesson": 28,
+    "verse": "14:21",
+    "words": 8
+  },
+  {
+    "lesson": 28,
+    "verse": "26:136",
+    "words": 6
+  },
+  {
+    "lesson": 28,
+    "verse": "14:22",
+    "words": 6
+  },
+  {
+    "lesson": 28,
+    "verse": "14:21",
+    "words": 9
+  },
+  {
+    "lesson": 28,
+    "verse": "14:21",
+    "words": 9
+  },
+  {
+    "lesson": 28,
+    "verse": "36:58",
+    "words": 5
+  },
+  {
+    "lesson": 28,
+    "verse": "25:24",
+    "words": 6
+  },
+  {
+    "lesson": 28,
+    "verse": "25:23",
+    "words": 5
+  },
+  {
+    "lesson": 29,
+    "verse": "15:2",
+    "words": 6
+  },
+  {
+    "lesson": 29,
+    "verse": "15:2",
+    "words": 7
+  },
+  {
+    "lesson": 29,
+    "verse": "26:27",
+    "words": 6
+  },
+  {
+    "lesson": 29,
+    "verse": "15:14",
+    "words": 5
+  },
+  {
+    "lesson": 29,
+    "verse": "15:19",
+    "words": 5
+  },
+  {
+    "lesson": 29,
+    "verse": "51:42",
+    "words": 7
+  },
+  {
+    "lesson": 29,
+    "verse": "41:29",
+    "words": 11
+  },
+  {
+    "lesson": 29,
+    "verse": "7:12",
+    "words": 5
+  },
+  {
+    "lesson": 29,
+    "verse": "38:75",
+    "words": 5
+  },
+  {
+    "lesson": 29,
+    "verse": "15:59",
+    "words": 5
+  },
+  {
+    "lesson": 29,
+    "verse": "1:7",
+    "words": 6
+  },
+  {
+    "lesson": 29,
+    "verse": "20:14",
+    "words": 6
+  },
+  {
+    "lesson": 29,
+    "verse": "36:78",
+    "words": 5
+  },
+  {
+    "lesson": 29,
+    "verse": "10:39",
+    "words": 6
+  },
+  {
+    "lesson": 29,
+    "verse": "16:9",
+    "words": 6
+  },
+  {
+    "lesson": 29,
+    "verse": "16:26",
+    "words": 6
+  },
+  {
+    "lesson": 29,
+    "verse": "16:31",
+    "words": 7
+  },
+  {
+    "lesson": 29,
+    "verse": "16:32",
+    "words": 5
+  },
+  {
+    "lesson": 29,
+    "verse": "16:38",
+    "words": 5
+  },
+  {
+    "lesson": 29,
+    "verse": "16:51",
+    "words": 9
+  },
+  {
+    "lesson": 29,
+    "verse": "3:18",
+    "words": 5
+  },
+  {
+    "lesson": 29,
+    "verse": "3:64",
+    "words": 6
+  },
+  {
+    "lesson": 29,
+    "verse": "3:64",
+    "words": 6
+  },
+  {
+    "lesson": 29,
+    "verse": "3:64",
+    "words": 14
+  },
+  {
+    "lesson": 29,
+    "verse": "3:64",
+    "words": 6
+  },
+  {
+    "lesson": 29,
+    "verse": "16:80",
+    "words": 6
+  },
+  {
+    "lesson": 29,
+    "verse": "16:86",
+    "words": 5
+  },
+  {
+    "lesson": 30,
+    "verse": "16:90",
+    "words": 5
+  },
+  {
+    "lesson": 30,
+    "verse": "16:105",
+    "words": 5
+  },
+  {
+    "lesson": 30,
+    "verse": "16:104",
+    "words": 7
+  },
+  {
+    "lesson": 30,
+    "verse": "16:116",
+    "words": 6
+  },
+  {
+    "lesson": 30,
+    "verse": "6:146",
+    "words": 7
+  },
+  {
+    "lesson": 30,
+    "verse": "16:119",
+    "words": 5
+  },
+  {
+    "lesson": 30,
+    "verse": "16:127",
+    "words": 5
+  },
+  {
+    "lesson": 30,
+    "verse": "12:91",
+    "words": 8
+  },
+  {
+    "lesson": 30,
+    "verse": "1:7",
+    "words": 6
+  },
+  {
+    "lesson": 30,
+    "verse": "17:9",
+    "words": 5
+  },
+  {
+    "lesson": 30,
+    "verse": "17:10",
+    "words": 8
+  },
+  {
+    "lesson": 30,
+    "verse": "17:39",
+    "words": 6
+  },
+  {
+    "lesson": 30,
+    "verse": "17:23",
+    "words": 10
+  },
+  {
+    "lesson": 30,
+    "verse": "17:24",
+    "words": 9
+  },
+  {
+    "lesson": 30,
+    "verse": "17:36",
+    "words": 10
+  },
+  {
+    "lesson": 30,
+    "verse": "17:47",
+    "words": 6
+  },
+  {
+    "lesson": 30,
+    "verse": "17:75",
+    "words": 5
+  },
+  {
+    "lesson": 30,
+    "verse": "18:24",
+    "words": 8
+  },
+  {
+    "lesson": 30,
+    "verse": "17:85",
+    "words": 10
+  },
+  {
+    "lesson": 30,
+    "verse": "17:86",
+    "words": 7
+  },
+  {
+    "lesson": 30,
+    "verse": "17:89",
+    "words": 5
+  },
+  {
+    "lesson": 30,
+    "verse": "17:96",
+    "words": 6
+  },
+  {
+    "lesson": 30,
+    "verse": "6:9",
+    "words": 5
+  },
+  {
+    "lesson": 30,
+    "verse": "17:101",
+    "words": 5
+  },
+  {
+    "lesson": 30,
+    "verse": "17:104",
+    "words": 10
+  },
+  {
+    "lesson": 30,
+    "verse": "2:163",
+    "words": 6
+  },
+  {
+    "lesson": 30,
+    "verse": "17:111",
+    "words": 12
+  },
+  {
+    "lesson": 31,
+    "verse": "17:1",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "18:1",
+    "words": 7
+  },
+  {
+    "lesson": 31,
+    "verse": "72:19",
+    "words": 6
+  },
+  {
+    "lesson": 31,
+    "verse": "18:2",
+    "words": 9
+  },
+  {
+    "lesson": 31,
+    "verse": "18:6",
+    "words": 6
+  },
+  {
+    "lesson": 31,
+    "verse": "17:29",
+    "words": 13
+  },
+  {
+    "lesson": 31,
+    "verse": "18:10",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "18:10",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "18:14",
+    "words": 10
+  },
+  {
+    "lesson": 31,
+    "verse": "18:15",
+    "words": 7
+  },
+  {
+    "lesson": 31,
+    "verse": "18:16",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "18:30",
+    "words": 6
+  },
+  {
+    "lesson": 31,
+    "verse": "18:38",
+    "words": 6
+  },
+  {
+    "lesson": 31,
+    "verse": "18:39",
+    "words": 7
+  },
+  {
+    "lesson": 31,
+    "verse": "18:39",
+    "words": 7
+  },
+  {
+    "lesson": 31,
+    "verse": "18:45",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "4:113",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "18:66",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "18:69",
+    "words": 9
+  },
+  {
+    "lesson": 31,
+    "verse": "18:70",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "18:69",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "18:69",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "18:69",
+    "words": 6
+  },
+  {
+    "lesson": 31,
+    "verse": "5:26",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "18:78",
+    "words": 6
+  },
+  {
+    "lesson": 31,
+    "verse": "18:82",
+    "words": 7
+  },
+  {
+    "lesson": 31,
+    "verse": "18:95",
+    "words": 5
+  },
+  {
+    "lesson": 31,
+    "verse": "18:107",
+    "words": 6
+  },
+  {
+    "lesson": 31,
+    "verse": "18:110",
+    "words": 11
+  },
+  {
+    "lesson": 32,
+    "verse": "19:8",
+    "words": 10
+  },
+  {
+    "lesson": 32,
+    "verse": "19:15",
+    "words": 8
+  },
+  {
+    "lesson": 32,
+    "verse": "3:43",
+    "words": 5
+  },
+  {
+    "lesson": 32,
+    "verse": "19:19",
+    "words": 7
+  },
+  {
+    "lesson": 32,
+    "verse": "19:29",
+    "words": 6
+  },
+  {
+    "lesson": 32,
+    "verse": "19:33",
+    "words": 7
+  },
+  {
+    "lesson": 32,
+    "verse": "19:42",
+    "words": 9
+  },
+  {
+    "lesson": 32,
+    "verse": "19:43",
+    "words": 5
+  },
+  {
+    "lesson": 32,
+    "verse": "46:20",
+    "words": 5
+  },
+  {
+    "lesson": 32,
+    "verse": "46:20",
+    "words": 5
+  },
+  {
+    "lesson": 32,
+    "verse": "19:63",
+    "words": 7
+  },
+  {
+    "lesson": 32,
+    "verse": "19:64",
+    "words": 5
+  },
+  {
+    "lesson": 32,
+    "verse": "19:64",
+    "words": 5
+  },
+  {
+    "lesson": 32,
+    "verse": "19:96",
+    "words": 7
+  },
+  {
+    "lesson": 32,
+    "verse": "20:6",
+    "words": 8
+  },
+  {
+    "lesson": 32,
+    "verse": "20:6",
+    "words": 5
+  },
+  {
+    "lesson": 32,
+    "verse": "20:10",
+    "words": 5
+  },
+  {
+    "lesson": 32,
+    "verse": "20:16",
+    "words": 6
+  },
+  {
+    "lesson": 32,
+    "verse": "20:39",
+    "words": 6
+  },
+  {
+    "lesson": 32,
+    "verse": "20:52",
+    "words": 5
+  },
+  {
+    "lesson": 33,
+    "verse": "20:72",
+    "words": 5
+  },
+  {
+    "lesson": 33,
+    "verse": "20:73",
+    "words": 5
+  },
+  {
+    "lesson": 33,
+    "verse": "20:86",
+    "words": 6
+  },
+  {
+    "lesson": 33,
+    "verse": "20:97",
+    "words": 6
+  },
+  {
+    "lesson": 33,
+    "verse": "20:98",
+    "words": 10
+  },
+  {
+    "lesson": 33,
+    "verse": "75:16",
+    "words": 6
+  },
+  {
+    "lesson": 33,
+    "verse": "20:127",
+    "words": 7
+  },
+  {
+    "lesson": 33,
+    "verse": "31:34",
+    "words": 12
+  },
+  {
+    "lesson": 33,
+    "verse": "31:34",
+    "words": 13
+  },
+  {
+    "lesson": 33,
+    "verse": "31:34",
+    "words": 5
+  },
+  {
+    "lesson": 33,
+    "verse": "57:3",
+    "words": 5
+  },
+  {
+    "lesson": 33,
+    "verse": "66:6",
+    "words": 8
+  },
+  {
+    "lesson": 33,
+    "verse": "21:47",
+    "words": 6
+  },
+  {
+    "lesson": 34,
+    "verse": "71:26",
+    "words": 5
+  },
+  {
+    "lesson": 34,
+    "verse": "21:87",
+    "words": 6
+  },
+  {
+    "lesson": 34,
+    "verse": "21:87",
+    "words": 6
+  },
+  {
+    "lesson": 34,
+    "verse": "40:44",
+    "words": 7
+  },
+  {
+    "lesson": 34,
+    "verse": "3:173",
+    "words": 5
+  },
+  {
+    "lesson": 34,
+    "verse": "21:88",
+    "words": 5
+  },
+  {
+    "lesson": 34,
+    "verse": "21:98",
+    "words": 6
+  },
+  {
+    "lesson": 34,
+    "verse": "22:2",
+    "words": 15
+  },
+  {
+    "lesson": 34,
+    "verse": "22:1",
+    "words": 5
+  },
+  {
+    "lesson": 34,
+    "verse": "22:5",
+    "words": 5
+  },
+  {
+    "lesson": 34,
+    "verse": "22:11",
+    "words": 5
+  },
+  {
+    "lesson": 34,
+    "verse": "22:17",
+    "words": 8
+  },
+  {
+    "lesson": 34,
+    "verse": "22:22",
+    "words": 6
+  },
+  {
+    "lesson": 34,
+    "verse": "22:30",
+    "words": 7
+  },
+  {
+    "lesson": 34,
+    "verse": "22:31",
+    "words": 7
+  },
+  {
+    "lesson": 34,
+    "verse": "22:71",
+    "words": 5
+  },
+  {
+    "lesson": 34,
+    "verse": "5:19",
+    "words": 6
+  },
+  {
+    "lesson": 34,
+    "verse": "41:42",
+    "words": 5
+  },
+  {
+    "lesson": 34,
+    "verse": "2:143",
+    "words": 10
+  },
+  {
+    "lesson": 34,
+    "verse": "2:143",
+    "words": 10
+  },
+  {
+    "lesson": 35,
+    "verse": "40:43",
+    "words": 5
+  },
+  {
+    "lesson": 35,
+    "verse": "23:57",
+    "words": 6
+  },
+  {
+    "lesson": 35,
+    "verse": "23:65",
+    "words": 5
+  },
+  {
+    "lesson": 35,
+    "verse": "23:68",
+    "words": 7
+  },
+  {
+    "lesson": 35,
+    "verse": "23:99",
+    "words": 5
+  },
+  {
+    "lesson": 35,
+    "verse": "22:47",
+    "words": 7
+  },
+  {
+    "lesson": 35,
+    "verse": "24:7",
+    "words": 7
+  },
+  {
+    "lesson": 35,
+    "verse": "6:9",
+    "words": 5
+  },
+  {
+    "lesson": 35,
+    "verse": "2:163",
+    "words": 6
+  },
+  {
+    "lesson": 35,
+    "verse": "17:111",
+    "words": 12
+  },
+  {
+    "lesson": 36,
+    "verse": "24:55",
+    "words": 5
+  },
+  {
+    "lesson": 36,
+    "verse": "24:55",
+    "words": 7
+  },
+  {
+    "lesson": 36,
+    "verse": "40:43",
+    "words": 5
+  },
+  {
+    "lesson": 36,
+    "verse": "42:7",
+    "words": 6
+  },
+  {
+    "lesson": 36,
+    "verse": "24:61",
+    "words": 6
+  },
+  {
+    "lesson": 36,
+    "verse": "24:61",
+    "words": 6
+  },
+  {
+    "lesson": 36,
+    "verse": "24:63",
+    "words": 8
+  },
+  {
+    "lesson": 36,
+    "verse": "25:68",
+    "words": 7
+  },
+  {
+    "lesson": 36,
+    "verse": "67:1",
+    "words": 7
+  },
+  {
+    "lesson": 36,
+    "verse": "25:10",
+    "words": 5
+  },
+  {
+    "lesson": 36,
+    "verse": "25:10",
+    "words": 5
+  },
+  {
+    "lesson": 36,
+    "verse": "29:14",
+    "words": 5
+  },
+  {
+    "lesson": 36,
+    "verse": "57:2",
+    "words": 6
+  },
+  {
+    "lesson": 36,
+    "verse": "32:17",
+    "words": 9
+  },
+  {
+    "lesson": 36,
+    "verse": "25:42",
+    "words": 5
+  },
+  {
+    "lesson": 36,
+    "verse": "25:44",
+    "words": 5
+  },
+  {
+    "lesson": 36,
+    "verse": "25:47",
+    "words": 6
+  },
+  {
+    "lesson": 36,
+    "verse": "25:48",
+    "words": 5
+  },
+  {
+    "lesson": 36,
+    "verse": "25:54",
+    "words": 6
+  },
+  {
+    "lesson": 36,
+    "verse": "47:19",
+    "words": 5
+  },
+  {
+    "lesson": 36,
+    "verse": "25:61",
+    "words": 5
+  },
+  {
+    "lesson": 36,
+    "verse": "25:65",
+    "words": 9
+  },
+  {
+    "lesson": 36,
+    "verse": "25:68",
+    "words": 22
+  },
+  {
+    "lesson": 36,
+    "verse": "25:68",
+    "words": 6
+  },
+  {
+    "lesson": 36,
+    "verse": "17:29",
+    "words": 5
+  },
+  {
+    "lesson": 37,
+    "verse": "10:99",
+    "words": 5
+  },
+  {
+    "lesson": 37,
+    "verse": "26:7",
+    "words": 7
+  },
+  {
+    "lesson": 37,
+    "verse": "26:22",
+    "words": 7
+  },
+  {
+    "lesson": 37,
+    "verse": "26:34",
+    "words": 6
+  },
+  {
+    "lesson": 37,
+    "verse": "10:90",
+    "words": 11
+  },
+  {
+    "lesson": 37,
+    "verse": "33:33",
+    "words": 8
+  },
+  {
+    "lesson": 37,
+    "verse": "66:8",
+    "words": 5
+  },
+  {
+    "lesson": 37,
+    "verse": "21:69",
+    "words": 6
+  },
+  {
+    "lesson": 37,
+    "verse": "26:156",
+    "words": 7
+  },
+  {
+    "lesson": 37,
+    "verse": "26:169",
+    "words": 5
+  },
+  {
+    "lesson": 37,
+    "verse": "26:181",
+    "words": 5
+  },
+  {
+    "lesson": 37,
+    "verse": "26:213",
+    "words": 6
+  },
+  {
+    "lesson": 37,
+    "verse": "6:74",
+    "words": 5
+  },
+  {
+    "lesson": 37,
+    "verse": "4:148",
+    "words": 5
+  },
+  {
+    "lesson": 37,
+    "verse": "27:5",
+    "words": 5
+  },
+  {
+    "lesson": 37,
+    "verse": "27:15",
+    "words": 6
+  },
+  {
+    "lesson": 37,
+    "verse": "27:19",
+    "words": 9
+  },
+  {
+    "lesson": 37,
+    "verse": "27:26",
+    "words": 8
+  },
+  {
+    "lesson": 37,
+    "verse": "27:49",
+    "words": 5
+  },
+  {
+    "lesson": 38,
+    "verse": "27:62",
+    "words": 5
+  },
+  {
+    "lesson": 38,
+    "verse": "27:63",
+    "words": 5
+  },
+  {
+    "lesson": 38,
+    "verse": "75:16",
+    "words": 6
+  },
+  {
+    "lesson": 38,
+    "verse": "28:7",
+    "words": 6
+  },
+  {
+    "lesson": 38,
+    "verse": "26:227",
+    "words": 5
+  },
+  {
+    "lesson": 38,
+    "verse": "28:7",
+    "words": 5
+  },
+  {
+    "lesson": 38,
+    "verse": "28:25",
+    "words": 7
+  },
+  {
+    "lesson": 38,
+    "verse": "28:29",
+    "words": 8
+  },
+  {
+    "lesson": 38,
+    "verse": "7:159",
+    "words": 5
+  },
+  {
+    "lesson": 38,
+    "verse": "28:57",
+    "words": 6
+  },
+  {
+    "lesson": 38,
+    "verse": "28:57",
+    "words": 5
+  },
+  {
+    "lesson": 38,
+    "verse": "28:64",
+    "words": 8
+  },
+  {
+    "lesson": 38,
+    "verse": "28:71",
+    "words": 9
+  },
+  {
+    "lesson": 38,
+    "verse": "28:71",
+    "words": 6
+  },
+  {
+    "lesson": 38,
+    "verse": "28:81",
+    "words": 5
+  },
+  {
+    "lesson": 38,
+    "verse": "28:87",
+    "words": 6
+  },
+  {
+    "lesson": 39,
+    "verse": "2:214",
+    "words": 8
+  },
+  {
+    "lesson": 39,
+    "verse": "29:8",
+    "words": 9
+  },
+  {
+    "lesson": 39,
+    "verse": "29:14",
+    "words": 7
+  },
+  {
+    "lesson": 39,
+    "verse": "29:17",
+    "words": 5
+  },
+  {
+    "lesson": 39,
+    "verse": "6:65",
+    "words": 7
+  },
+  {
+    "lesson": 39,
+    "verse": "53:4",
+    "words": 5
+  },
+  {
+    "lesson": 39,
+    "verse": "29:63",
+    "words": 6
+  },
+  {
+    "lesson": 39,
+    "verse": "83:14",
+    "words": 7
+  },
+  {
+    "lesson": 39,
+    "verse": "30:20",
+    "words": 5
+  },
+  {
+    "lesson": 39,
+    "verse": "47:19",
+    "words": 5
+  },
+  {
+    "lesson": 39,
+    "verse": "30:40",
+    "words": 10
+  },
+  {
+    "lesson": 39,
+    "verse": "30:46",
+    "words": 5
+  },
+  {
+    "lesson": 39,
+    "verse": "30:48",
+    "words": 6
+  },
+  {
+    "lesson": 39,
+    "verse": "30:50",
+    "words": 7
+  },
+  {
+    "lesson": 39,
+    "verse": "30:56",
+    "words": 12
+  },
+  {
+    "lesson": 39,
+    "verse": "31:13",
+    "words": 6
+  },
+  {
+    "lesson": 39,
+    "verse": "31:20",
+    "words": 12
+  },
+  {
+    "lesson": 39,
+    "verse": "31:21",
+    "words": 13
+  },
+  {
+    "lesson": 40,
+    "verse": "2:256",
+    "words": 7
+  },
+  {
+    "lesson": 40,
+    "verse": "31:23",
+    "words": 10
+  },
+  {
+    "lesson": 40,
+    "verse": "2:256",
+    "words": 5
+  },
+  {
+    "lesson": 40,
+    "verse": "22:47",
+    "words": 7
+  },
+  {
+    "lesson": 40,
+    "verse": "31:33",
+    "words": 5
+  },
+  {
+    "lesson": 40,
+    "verse": "31:33",
+    "words": 6
+  },
+  {
+    "lesson": 40,
+    "verse": "31:34",
+    "words": 5
+  },
+  {
+    "lesson": 40,
+    "verse": "32:5",
+    "words": 5
+  },
+  {
+    "lesson": 40,
+    "verse": "32:5",
+    "words": 11
+  },
+  {
+    "lesson": 40,
+    "verse": "22:47",
+    "words": 6
+  },
+  {
+    "lesson": 40,
+    "verse": "22:47",
+    "words": 5
+  },
+  {
+    "lesson": 40,
+    "verse": "24:37",
+    "words": 6
+  },
+  {
+    "lesson": 40,
+    "verse": "24:37",
+    "words": 6
+  },
+  {
+    "lesson": 40,
+    "verse": "32:20",
+    "words": 9
+  },
+  {
+    "lesson": 40,
+    "verse": "33:40",
+    "words": 5
+  },
+  {
+    "lesson": 40,
+    "verse": "8:75",
+    "words": 13
+  },
+  {
+    "lesson": 40,
+    "verse": "7:172",
+    "words": 6
+  },
+  {
+    "lesson": 40,
+    "verse": "3:81",
+    "words": 5
+  },
+  {
+    "lesson": 40,
+    "verse": "3:82",
+    "words": 6
+  },
+  {
+    "lesson": 40,
+    "verse": "3:26",
+    "words": 7
+  },
+  {
+    "lesson": 40,
+    "verse": "33:12",
+    "words": 5
+  },
+  {
+    "lesson": 40,
+    "verse": "33:22",
+    "words": 7
+  },
+  {
+    "lesson": 41,
+    "verse": "5:38",
+    "words": 7
+  },
+  {
+    "lesson": 41,
+    "verse": "33:35",
+    "words": 6
+  },
+  {
+    "lesson": 41,
+    "verse": "33:36",
+    "words": 7
+  },
+  {
+    "lesson": 41,
+    "verse": "33:37",
+    "words": 6
+  },
+  {
+    "lesson": 41,
+    "verse": "33:38",
+    "words": 5
+  },
+  {
+    "lesson": 41,
+    "verse": "33:40",
+    "words": 5
+  },
+  {
+    "lesson": 41,
+    "verse": "33:50",
+    "words": 8
+  },
+  {
+    "lesson": 41,
+    "verse": "33:53",
+    "words": 7
+  },
+  {
+    "lesson": 41,
+    "verse": "33:53",
+    "words": 7
+  },
+  {
+    "lesson": 41,
+    "verse": "33:40",
+    "words": 5
+  },
+  {
+    "lesson": 41,
+    "verse": "33:56",
+    "words": 7
+  },
+  {
+    "lesson": 41,
+    "verse": "33:56",
+    "words": 7
+  },
+  {
+    "lesson": 41,
+    "verse": "33:65",
+    "words": 6
+  },
+  {
+    "lesson": 41,
+    "verse": "33:66",
+    "words": 11
+  },
+  {
+    "lesson": 41,
+    "verse": "33:73",
+    "words": 7
+  },
+  {
+    "lesson": 41,
+    "verse": "34:1",
+    "words": 8
+  },
+  {
+    "lesson": 41,
+    "verse": "35:34",
+    "words": 5
+  },
+  {
+    "lesson": 41,
+    "verse": "7:43",
+    "words": 12
+  },
+  {
+    "lesson": 41,
+    "verse": "10:10",
+    "words": 5
+  },
+  {
+    "lesson": 41,
+    "verse": "34:6",
+    "words": 5
+  },
+  {
+    "lesson": 41,
+    "verse": "34:12",
+    "words": 7
+  },
+  {
+    "lesson": 41,
+    "verse": "34:14",
+    "words": 8
+  },
+  {
+    "lesson": 41,
+    "verse": "34:14",
+    "words": 6
+  },
+  {
+    "lesson": 41,
+    "verse": "34:16",
+    "words": 6
+  },
+  {
+    "lesson": 41,
+    "verse": "34:22",
+    "words": 6
+  },
+  {
+    "lesson": 41,
+    "verse": "34:33",
+    "words": 7
+  },
+  {
+    "lesson": 41,
+    "verse": "34:54",
+    "words": 5
+  },
+  {
+    "lesson": 41,
+    "verse": "35:5",
+    "words": 14
+  },
+  {
+    "lesson": 41,
+    "verse": "35:10",
+    "words": 6
+  },
+  {
+    "lesson": 41,
+    "verse": "35:14",
+    "words": 7
+  },
+  {
+    "lesson": 42,
+    "verse": "43:71",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "35:28",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "35:28",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "35:28",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "35:28",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "35:38",
+    "words": 6
+  },
+  {
+    "lesson": 42,
+    "verse": "36:44",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "36:51",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "23:28",
+    "words": 7
+  },
+  {
+    "lesson": 42,
+    "verse": "6:23",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "45:29",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "9:14",
+    "words": 7
+  },
+  {
+    "lesson": 42,
+    "verse": "46:25",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "36:76",
+    "words": 6
+  },
+  {
+    "lesson": 42,
+    "verse": "36:78",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "36:79",
+    "words": 7
+  },
+  {
+    "lesson": 42,
+    "verse": "17:99",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "36:83",
+    "words": 7
+  },
+  {
+    "lesson": 42,
+    "verse": "37:5",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "37:37",
+    "words": 5
+  },
+  {
+    "lesson": 42,
+    "verse": "37:39",
+    "words": 6
+  },
+  {
+    "lesson": 43,
+    "verse": "21:87",
+    "words": 6
+  },
+  {
+    "lesson": 43,
+    "verse": "37:163",
+    "words": 5
+  },
+  {
+    "lesson": 43,
+    "verse": "3:128",
+    "words": 5
+  },
+  {
+    "lesson": 43,
+    "verse": "38:7",
+    "words": 10
+  },
+  {
+    "lesson": 43,
+    "verse": "38:26",
+    "words": 6
+  },
+  {
+    "lesson": 43,
+    "verse": "38:54",
+    "words": 6
+  },
+  {
+    "lesson": 43,
+    "verse": "15:32",
+    "words": 5
+  },
+  {
+    "lesson": 43,
+    "verse": "7:12",
+    "words": 6
+  },
+  {
+    "lesson": 43,
+    "verse": "2:261",
+    "words": 9
+  },
+  {
+    "lesson": 43,
+    "verse": "39:16",
+    "words": 5
+  },
+  {
+    "lesson": 43,
+    "verse": "39:23",
+    "words": 10
+  },
+  {
+    "lesson": 43,
+    "verse": "44:49",
+    "words": 5
+  },
+  {
+    "lesson": 43,
+    "verse": "3:106",
+    "words": 5
+  },
+  {
+    "lesson": 43,
+    "verse": "39:47",
+    "words": 12
+  },
+  {
+    "lesson": 43,
+    "verse": "39:47",
+    "words": 5
+  },
+  {
+    "lesson": 43,
+    "verse": "28:78",
+    "words": 5
+  },
+  {
+    "lesson": 43,
+    "verse": "39:51",
+    "words": 5
+  },
+  {
+    "lesson": 43,
+    "verse": "25:68",
+    "words": 6
+  },
+  {
+    "lesson": 43,
+    "verse": "39:54",
+    "words": 6
+  },
+  {
+    "lesson": 43,
+    "verse": "39:56",
+    "words": 6
+  },
+  {
+    "lesson": 43,
+    "verse": "23:28",
+    "words": 7
+  },
+  {
+    "lesson": 43,
+    "verse": "39:74",
+    "words": 8
+  },
+  {
+    "lesson": 43,
+    "verse": "35:35",
+    "words": 8
+  },
+  {
+    "lesson": 44,
+    "verse": "21:69",
+    "words": 6
+  },
+  {
+    "lesson": 44,
+    "verse": "9:126",
+    "words": 5
+  },
+  {
+    "lesson": 44,
+    "verse": "1:7",
+    "words": 9
+  },
+  {
+    "lesson": 44,
+    "verse": "40:21",
+    "words": 5
+  },
+  {
+    "lesson": 44,
+    "verse": "25:23",
+    "words": 5
+  },
+  {
+    "lesson": 44,
+    "verse": "40:22",
+    "words": 6
+  },
+  {
+    "lesson": 44,
+    "verse": "40:28",
+    "words": 6
+  },
+  {
+    "lesson": 44,
+    "verse": "40:66",
+    "words": 5
+  },
+  {
+    "lesson": 44,
+    "verse": "40:69",
+    "words": 5
+  },
+  {
+    "lesson": 44,
+    "verse": "40:78",
+    "words": 9
+  },
+  {
+    "lesson": 44,
+    "verse": "41:14",
+    "words": 7
+  },
+  {
+    "lesson": 44,
+    "verse": "41:30",
+    "words": 5
+  },
+  {
+    "lesson": 44,
+    "verse": "7:199",
+    "words": 7
+  },
+  {
+    "lesson": 44,
+    "verse": "7:199",
+    "words": 7
+  },
+  {
+    "lesson": 44,
+    "verse": "7:199",
+    "words": 6
+  },
+  {
+    "lesson": 44,
+    "verse": "41:37",
+    "words": 7
+  },
+  {
+    "lesson": 45,
+    "verse": "41:50",
+    "words": 6
+  },
+  {
+    "lesson": 45,
+    "verse": "41:53",
+    "words": 8
+  },
+  {
+    "lesson": 45,
+    "verse": "42:3",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "42:5",
+    "words": 7
+  },
+  {
+    "lesson": 45,
+    "verse": "42:7",
+    "words": 6
+  },
+  {
+    "lesson": 45,
+    "verse": "42:13",
+    "words": 8
+  },
+  {
+    "lesson": 45,
+    "verse": "37:99",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "17:1",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "6:78",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "42:13",
+    "words": 8
+  },
+  {
+    "lesson": 45,
+    "verse": "42:15",
+    "words": 7
+  },
+  {
+    "lesson": 45,
+    "verse": "42:15",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "42:15",
+    "words": 9
+  },
+  {
+    "lesson": 45,
+    "verse": "42:15",
+    "words": 10
+  },
+  {
+    "lesson": 45,
+    "verse": "42:15",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "42:16",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "42:20",
+    "words": 6
+  },
+  {
+    "lesson": 45,
+    "verse": "33:33",
+    "words": 8
+  },
+  {
+    "lesson": 45,
+    "verse": "33:33",
+    "words": 9
+  },
+  {
+    "lesson": 45,
+    "verse": "10:24",
+    "words": 22
+  },
+  {
+    "lesson": 45,
+    "verse": "43:13",
+    "words": 7
+  },
+  {
+    "lesson": 45,
+    "verse": "43:13",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "43:13",
+    "words": 8
+  },
+  {
+    "lesson": 45,
+    "verse": "39:7",
+    "words": 9
+  },
+  {
+    "lesson": 45,
+    "verse": "43:24",
+    "words": 13
+  },
+  {
+    "lesson": 45,
+    "verse": "37:99",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "43:48",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "21:98",
+    "words": 6
+  },
+  {
+    "lesson": 45,
+    "verse": "43:62",
+    "words": 7
+  },
+  {
+    "lesson": 45,
+    "verse": "43:66",
+    "words": 7
+  },
+  {
+    "lesson": 45,
+    "verse": "43:74",
+    "words": 6
+  },
+  {
+    "lesson": 45,
+    "verse": "44:8",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "44:11",
+    "words": 5
+  },
+  {
+    "lesson": 45,
+    "verse": "44:12",
+    "words": 6
+  },
+  {
+    "lesson": 46,
+    "verse": "44:29",
+    "words": 7
+  },
+  {
+    "lesson": 46,
+    "verse": "44:33",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "43:71",
+    "words": 6
+  },
+  {
+    "lesson": 46,
+    "verse": "45:13",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "63:8",
+    "words": 8
+  },
+  {
+    "lesson": 46,
+    "verse": "63:8",
+    "words": 8
+  },
+  {
+    "lesson": 46,
+    "verse": "45:17",
+    "words": 9
+  },
+  {
+    "lesson": 46,
+    "verse": "45:21",
+    "words": 9
+  },
+  {
+    "lesson": 46,
+    "verse": "45:22",
+    "words": 8
+  },
+  {
+    "lesson": 46,
+    "verse": "45:18",
+    "words": 6
+  },
+  {
+    "lesson": 46,
+    "verse": "45:34",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "46:35",
+    "words": 6
+  },
+  {
+    "lesson": 46,
+    "verse": "46:4",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "46:5",
+    "words": 7
+  },
+  {
+    "lesson": 46,
+    "verse": "46:9",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "46:9",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "46:14",
+    "words": 8
+  },
+  {
+    "lesson": 46,
+    "verse": "9:72",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "46:20",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "29:14",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "42:13",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "47:15",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "47:20",
+    "words": 7
+  },
+  {
+    "lesson": 46,
+    "verse": "47:25",
+    "words": 8
+  },
+  {
+    "lesson": 46,
+    "verse": "47:25",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "47:28",
+    "words": 7
+  },
+  {
+    "lesson": 46,
+    "verse": "47:29",
+    "words": 10
+  },
+  {
+    "lesson": 46,
+    "verse": "47:32",
+    "words": 9
+  },
+  {
+    "lesson": 46,
+    "verse": "47:33",
+    "words": 10
+  },
+  {
+    "lesson": 46,
+    "verse": "47:34",
+    "words": 10
+  },
+  {
+    "lesson": 46,
+    "verse": "48:1",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "8:10",
+    "words": 5
+  },
+  {
+    "lesson": 46,
+    "verse": "48:4",
+    "words": 10
+  },
+  {
+    "lesson": 46,
+    "verse": "48:2",
+    "words": 6
+  },
+  {
+    "lesson": 46,
+    "verse": "48:6",
+    "words": 12
+  },
+  {
+    "lesson": 46,
+    "verse": "48:10",
+    "words": 15
+  },
+  {
+    "lesson": 46,
+    "verse": "48:11",
+    "words": 14
+  },
+  {
+    "lesson": 46,
+    "verse": "48:17",
+    "words": 6
+  },
+  {
+    "lesson": 47,
+    "verse": "48:22",
+    "words": 5
+  },
+  {
+    "lesson": 47,
+    "verse": "48:25",
+    "words": 5
+  },
+  {
+    "lesson": 47,
+    "verse": "47:11",
+    "words": 11
+  },
+  {
+    "lesson": 47,
+    "verse": "9:26",
+    "words": 6
+  },
+  {
+    "lesson": 47,
+    "verse": "48:27",
+    "words": 5
+  },
+  {
+    "lesson": 47,
+    "verse": "48:27",
+    "words": 5
+  },
+  {
+    "lesson": 47,
+    "verse": "48:27",
+    "words": 5
+  },
+  {
+    "lesson": 47,
+    "verse": "48:29",
+    "words": 5
+  },
+  {
+    "lesson": 47,
+    "verse": "48:29",
+    "words": 6
+  },
+  {
+    "lesson": 47,
+    "verse": "49:1",
+    "words": 15
+  },
+  {
+    "lesson": 47,
+    "verse": "49:5",
+    "words": 10
+  },
+  {
+    "lesson": 47,
+    "verse": "49:6",
+    "words": 5
+  },
+  {
+    "lesson": 47,
+    "verse": "49:12",
+    "words": 5
+  },
+  {
+    "lesson": 47,
+    "verse": "24:37",
+    "words": 6
+  },
+  {
+    "lesson": 47,
+    "verse": "49:15",
+    "words": 6
+  },
+  {
+    "lesson": 47,
+    "verse": "49:17",
+    "words": 11
+  },
+  {
+    "lesson": 47,
+    "verse": "50:16",
+    "words": 5
+  },
+  {
+    "lesson": 47,
+    "verse": "50:19",
+    "words": 5
+  },
+  {
+    "lesson": 47,
+    "verse": "50:24",
+    "words": 5
+  },
+  {
+    "lesson": 47,
+    "verse": "50:26",
+    "words": 6
+  },
+  {
+    "lesson": 48,
+    "verse": "51:28",
+    "words": 5
+  },
+  {
+    "lesson": 48,
+    "verse": "24:43",
+    "words": 5
+  },
+  {
+    "lesson": 48,
+    "verse": "9:118",
+    "words": 5
+  },
+  {
+    "lesson": 48,
+    "verse": "52:14",
+    "words": 6
+  },
+  {
+    "lesson": 48,
+    "verse": "26:136",
+    "words": 5
+  },
+  {
+    "lesson": 48,
+    "verse": "14:21",
+    "words": 7
+  },
+  {
+    "lesson": 48,
+    "verse": "14:21",
+    "words": 7
+  },
+  {
+    "lesson": 48,
+    "verse": "37:180",
+    "words": 5
+  },
+  {
+    "lesson": 48,
+    "verse": "42:51",
+    "words": 15
+  },
+  {
+    "lesson": 48,
+    "verse": "42:51",
+    "words": 7
+  },
+  {
+    "lesson": 48,
+    "verse": "20:18",
+    "words": 9
+  },
+  {
+    "lesson": 48,
+    "verse": "20:18",
+    "words": 10
+  },
+  {
+    "lesson": 48,
+    "verse": "53:28",
+    "words": 5
+  },
+  {
+    "lesson": 48,
+    "verse": "53:30",
+    "words": 5
+  },
+  {
+    "lesson": 48,
+    "verse": "3:188",
+    "words": 5
+  },
+  {
+    "lesson": 48,
+    "verse": "87:18",
+    "words": 5
+  },
+  {
+    "lesson": 48,
+    "verse": "29:14",
+    "words": 7
+  },
+  {
+    "lesson": 48,
+    "verse": "7:187",
+    "words": 5
+  },
+  {
+    "lesson": 48,
+    "verse": "22:47",
+    "words": 5
+  },
+  {
+    "lesson": 48,
+    "verse": "54:46",
+    "words": 6
+  },
+  {
+    "lesson": 48,
+    "verse": "54:55",
+    "words": 6
+  },
+  {
+    "lesson": 49,
+    "verse": "6:160",
+    "words": 6
+  },
+  {
+    "lesson": 49,
+    "verse": "42:7",
+    "words": 6
+  },
+  {
+    "lesson": 49,
+    "verse": "54:55",
+    "words": 6
+  },
+  {
+    "lesson": 49,
+    "verse": "54:55",
+    "words": 6
+  },
+  {
+    "lesson": 49,
+    "verse": "6:23",
+    "words": 5
+  },
+  {
+    "lesson": 49,
+    "verse": "56:90",
+    "words": 6
+  },
+  {
+    "lesson": 49,
+    "verse": "57:3",
+    "words": 9
+  },
+  {
+    "lesson": 49,
+    "verse": "35:10",
+    "words": 6
+  },
+  {
+    "lesson": 49,
+    "verse": "57:4",
+    "words": 6
+  },
+  {
+    "lesson": 49,
+    "verse": "35:10",
+    "words": 6
+  },
+  {
+    "lesson": 49,
+    "verse": "57:9",
+    "words": 5
+  },
+  {
+    "lesson": 49,
+    "verse": "21:8",
+    "words": 6
+  },
+  {
+    "lesson": 49,
+    "verse": "57:27",
+    "words": 5
+  },
+  {
+    "lesson": 50,
+    "verse": "58:4",
+    "words": 5
+  },
+  {
+    "lesson": 50,
+    "verse": "58:7",
+    "words": 7
+  },
+  {
+    "lesson": 50,
+    "verse": "58:8",
+    "words": 5
+  },
+  {
+    "lesson": 50,
+    "verse": "3:18",
+    "words": 5
+  },
+  {
+    "lesson": 50,
+    "verse": "35:28",
+    "words": 5
+  },
+  {
+    "lesson": 50,
+    "verse": "4:143",
+    "words": 8
+  },
+  {
+    "lesson": 50,
+    "verse": "58:15",
+    "words": 10
+  },
+  {
+    "lesson": 50,
+    "verse": "58:22",
+    "words": 15
+  },
+  {
+    "lesson": 50,
+    "verse": "59:2",
+    "words": 7
+  },
+  {
+    "lesson": 50,
+    "verse": "59:4",
+    "words": 8
+  },
+  {
+    "lesson": 50,
+    "verse": "59:9",
+    "words": 8
+  },
+  {
+    "lesson": 50,
+    "verse": "59:6",
+    "words": 6
+  },
+  {
+    "lesson": 50,
+    "verse": "2:163",
+    "words": 6
+  },
+  {
+    "lesson": 50,
+    "verse": "60:1",
+    "words": 14
+  },
+  {
+    "lesson": 50,
+    "verse": "60:7",
+    "words": 10
+  },
+  {
+    "lesson": 50,
+    "verse": "60:7",
+    "words": 10
+  },
+  {
+    "lesson": 50,
+    "verse": "60:8",
+    "words": 10
+  },
+  {
+    "lesson": 50,
+    "verse": "60:12",
+    "words": 9
+  },
+  {
+    "lesson": 51,
+    "verse": "24:37",
+    "words": 6
+  },
+  {
+    "lesson": 51,
+    "verse": "2:29",
+    "words": 8
+  },
+  {
+    "lesson": 51,
+    "verse": "62:10",
+    "words": 5
+  },
+  {
+    "lesson": 51,
+    "verse": "62:11",
+    "words": 7
+  },
+  {
+    "lesson": 51,
+    "verse": "4:143",
+    "words": 7
+  },
+  {
+    "lesson": 51,
+    "verse": "63:7",
+    "words": 5
+  },
+  {
+    "lesson": 51,
+    "verse": "64:4",
+    "words": 10
+  },
+  {
+    "lesson": 51,
+    "verse": "64:9",
+    "words": 7
+  },
+  {
+    "lesson": 51,
+    "verse": "65:3",
+    "words": 5
+  },
+  {
+    "lesson": 51,
+    "verse": "65:7",
+    "words": 11
+  },
+  {
+    "lesson": 51,
+    "verse": "66:1",
+    "words": 6
+  },
+  {
+    "lesson": 51,
+    "verse": "66:1",
+    "words": 6
+  },
+  {
+    "lesson": 51,
+    "verse": "66:1",
+    "words": 6
+  },
+  {
+    "lesson": 51,
+    "verse": "66:6",
+    "words": 5
+  },
+  {
+    "lesson": 51,
+    "verse": "66:8",
+    "words": 8
+  },
+  {
+    "lesson": 51,
+    "verse": "20:44",
+    "words": 5
+  },
+  {
+    "lesson": 52,
+    "verse": "23:3",
+    "words": 5
+  },
+  {
+    "lesson": 52,
+    "verse": "16:112",
+    "words": 5
+  },
+  {
+    "lesson": 52,
+    "verse": "69:7",
+    "words": 5
+  },
+  {
+    "lesson": 52,
+    "verse": "40:16",
+    "words": 6
+  },
+  {
+    "lesson": 52,
+    "verse": "69:18",
+    "words": 5
+  },
+  {
+    "lesson": 52,
+    "verse": "10:15",
+    "words": 5
+  },
+  {
+    "lesson": 52,
+    "verse": "8:32",
+    "words": 13
+  },
+  {
+    "lesson": 52,
+    "verse": "8:32",
+    "words": 7
+  },
+  {
+    "lesson": 52,
+    "verse": "8:32",
+    "words": 5
+  },
+  {
+    "lesson": 52,
+    "verse": "29:14",
+    "words": 6
+  },
+  {
+    "lesson": 52,
+    "verse": "71:23",
+    "words": 12
+  },
+  {
+    "lesson": 52,
+    "verse": "71:27",
+    "words": 7
+  },
+  {
+    "lesson": 53,
+    "verse": "73:7",
+    "words": 5
+  },
+  {
+    "lesson": 53,
+    "verse": "31:27",
+    "words": 8
+  },
+  {
+    "lesson": 53,
+    "verse": "73:14",
+    "words": 5
+  },
+  {
+    "lesson": 53,
+    "verse": "74:31",
+    "words": 6
+  },
+  {
+    "lesson": 53,
+    "verse": "74:31",
+    "words": 6
+  },
+  {
+    "lesson": 53,
+    "verse": "75:16",
+    "words": 5
+  },
+  {
+    "lesson": 53,
+    "verse": "7:44",
+    "words": 5
+  },
+  {
+    "lesson": 53,
+    "verse": "75:33",
+    "words": 5
+  },
+  {
+    "lesson": 54,
+    "verse": "66:6",
+    "words": 8
+  },
+  {
+    "lesson": 54,
+    "verse": "5:27",
+    "words": 5
+  },
+  {
+    "lesson": 54,
+    "verse": "23:101",
+    "words": 8
+  },
+  {
+    "lesson": 54,
+    "verse": "70:4",
+    "words": 7
+  },
+  {
+    "lesson": 54,
+    "verse": "85:11",
+    "words": 8
+  },
+  {
+    "lesson": 55,
+    "verse": "2:180",
+    "words": 8
+  },
+  {
+    "lesson": 55,
+    "verse": "48:2",
+    "words": 6
+  },
+  {
+    "lesson": 55,
+    "verse": "76:9",
+    "words": 10
+  },
+  {
+    "lesson": 55,
+    "verse": "39:56",
+    "words": 6
+  },
+  {
+    "lesson": 55,
+    "verse": "93:4",
+    "words": 5
+  },
+  {
+    "lesson": 55,
+    "verse": "39:53",
+    "words": 7
+  },
+  {
+    "lesson": 55,
+    "verse": "18:17",
+    "words": 5
+  },
+  {
+    "lesson": 55,
+    "verse": "48:2",
+    "words": 6
+  },
+  {
+    "lesson": 55,
+    "verse": "25:44",
+    "words": 5
+  },
+  {
+    "lesson": 55,
+    "verse": "96:11",
+    "words": 5
+  },
+  {
+    "lesson": 55,
+    "verse": "98:4",
+    "words": 6
+  },
+  {
+    "lesson": 55,
+    "verse": "34:12",
+    "words": 5
+  },
+  {
+    "lesson": 55,
+    "verse": "110:2",
+    "words": 6
+  },
+  {
+    "lesson": 55,
+    "verse": "34:46",
+    "words": 6
+  },
+  {
+    "lesson": 55,
+    "verse": "113:5",
+    "words": 5
+  },
+  {
+    "lesson": 55,
+    "verse": "17:88",
+    "words": 8
+  },
+  {
+    "lesson": 55,
+    "verse": "17:88",
+    "words": 8
+  },
+  {
+    "lesson": 55,
+    "verse": "4:103",
+    "words": 5
+  },
+  {
+    "lesson": 55,
+    "verse": "8:64",
+    "words": 5
+  },
+  {
+    "lesson": 55,
+    "verse": "2:201",
+    "words": 9
+  },
+  {
+    "lesson": 55,
+    "verse": "2:286",
+    "words": 11
+  },
+  {
+    "lesson": 55,
+    "verse": "2:286",
+    "words": 19
+  },
+  {
+    "lesson": 55,
+    "verse": "7:23",
+    "words": 10
+  },
+  {
+    "lesson": 55,
+    "verse": "25:74",
+    "words": 5
+  },
+  {
+    "lesson": 55,
+    "verse": "2:201",
+    "words": 9
+  },
+  {
+    "lesson": 55,
+    "verse": "37:180",
+    "words": 5
+  },
+  {
+    "lesson": 56,
+    "verse": "113:5",
+    "words": 5
+  },
+  {
+    "lesson": 56,
+    "verse": "17:88",
+    "words": 8
+  },
+  {
+    "lesson": 56,
+    "verse": "17:88",
+    "words": 8
+  },
+  {
+    "lesson": 56,
+    "verse": "4:103",
+    "words": 5
+  },
+  {
+    "lesson": 56,
+    "verse": "8:64",
+    "words": 5
+  },
+  {
+    "lesson": 56,
+    "verse": "2:201",
+    "words": 9
+  },
+  {
+    "lesson": 56,
+    "verse": "2:286",
+    "words": 11
+  },
+  {
+    "lesson": 56,
+    "verse": "2:286",
+    "words": 19
+  },
+  {
+    "lesson": 56,
+    "verse": "7:23",
+    "words": 10
+  },
+  {
+    "lesson": 56,
+    "verse": "25:74",
+    "words": 5
+  },
+  {
+    "lesson": 56,
+    "verse": "2:201",
+    "words": 9
+  },
+  {
+    "lesson": 56,
+    "verse": "37:180",
+    "words": 5
+  }
+]
