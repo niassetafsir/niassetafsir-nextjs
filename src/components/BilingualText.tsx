@@ -338,20 +338,22 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                 <button
                   key={entry.verse}
                   onClick={() => jumpToVerse(entry.paraIndex)}
-                  className="font-english text-[10px] flex-shrink-0 px-1.5 py-0.5 rounded transition-colors"
+                  className="font-english text-[10px] flex-shrink-0 px-1.5 py-0.5 rounded border transition-colors"
                   style={{
-                    // A dashed edge marks a quotation this edition identified
-                    // rather than one the compiler bracketed -- see
-                    // VerseIndexEntry.editorial. Same discipline as the gold
-                    // rule on the editor's notes: marked, never merged.
-                    border: entry.editorial ? '1px dashed rgba(138,109,31,0.55)' : '1px solid rgba(138,109,31,0.3)',
+                    borderColor: 'rgba(138,109,31,0.3)',
                     color: '#8a6d1f',
-                    opacity: entry.uncertain && !entry.editorial ? 0.55 : 1,
+                    opacity: entry.uncertain ? 0.55 : 1,
+                    // A quotation the printing brackets and one this project
+                    // read off a five-word run are different claims, so the
+                    // border says which. Dotted = we identified it.
+                    borderStyle: entry.inferred ? 'dotted' : 'solid',
                   }}
                   title={
-                    entry.editorial
-                      ? `Q. ${entry.verse} — quoted here without brackets in the printed edition; identified by this edition`
-                      : entry.uncertain ? `Q. ${entry.verse} — approximate match` : `Jump to Q. ${entry.verse}`
+                    entry.inferred
+                      ? `Q. ${entry.verse} — quoted without parentheses in the printing; identified here`
+                      : entry.uncertain
+                        ? `Q. ${entry.verse} — approximate match`
+                        : `Jump to Q. ${entry.verse}`
                   }
                 >
                   {entry.verse.split(':')[1]}

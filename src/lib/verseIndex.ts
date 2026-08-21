@@ -27,22 +27,16 @@ export interface VerseIndexEntry {
   /** Set when the match is uncertain (partial quote, compound citation, etc.) */
   uncertain?: boolean;
   /**
-   * Set when this edition identified the quotation, rather than reading it off
-   * the compiler's parentheses.
+   * The printing does not bracket this quotation; the project identified it.
    *
-   * The compiler brackets the lemma a session is commenting on. Niasse also
-   * reaches across the muṣḥaf constantly -- 37.9% of the unbracketed
-   * quotations fall outside their lesson's declared range, against 1.7% of the
-   * bracketed ones -- and those reaches carry no brackets at all. They are
-   * found instead by locating a run of five consecutive words that occurs
-   * word-aligned in exactly one āya of the 6,236 (scripts/find-unbracketed-
-   * quotations.js), and added by scripts/add-editorial-verse-index.js.
-   *
-   * Marked, never merged. A citation the compiler bracketed is one kind of
-   * evidence and one identified by method is another, and the reader is
-   * entitled to know which he is looking at.
+   * Everything else in this index comes from a span the compiler enclosed in
+   * ( ) or « », so the edition itself declares it a citation. These entries
+   * rest on a different warrant: a run of five consecutive words occurring
+   * word-aligned in exactly one āya of the 6,236 and nowhere else
+   * (scripts/index-unbracketed-ayat.js). Strong, and still a reading rather
+   * than a report, so the badge has to say which it is.
    */
-  editorial?: boolean;
+  inferred?: boolean;
 }
 
 // Lessons 1-3 below were hand-curated/spot-checked (see the comments on
@@ -113,22 +107,11 @@ const HAND_CURATED_VERSE_INDEX: Record<number, VerseIndexEntry[]> = {
 
 const AUTO_VERSE_INDEX = autoIndexRaw as unknown as Record<string, VerseIndexEntry[]>;
 
-// Merge: hand-curated lessons win outright -- their entries are never
-// overridden or reordered by the automated ones -- and everything else falls
-// back to the automated index.
-//
-// With one addition. A hand-curated lesson still takes EDITORIAL entries, the
-// unbracketed quotations, because those are not rival readings of anything the
-// hand curation covers: they are verses from elsewhere in the muṣḥaf that the
-// curation never had occasion to list. Lesson 1 is the case that forced this.
-// It walks through al-Fātiḥa, and it quotes Q 42:11 لَيْسَ كَمِثْلِهِ شَيْءٌ and
-// Q 75:16 لَا تُحَرِّكْ بِهِۦ لِسَانَكَ along the way. Discarding the automated
-// index wholesale threw both away -- and they are precisely the cross-Qurʾānic
-// reaching that makes an oral tafsīr worth indexing by verse in the first
-// place.
-//
-// Nothing is overridden: an editorial entry is dropped if the curated list
-// already names that verse at that paragraph.
+// Merge: a hand-curated lesson's own rows are never overridden by the
+// automated ones. Unbracketed quotations are the one addition, because they
+// come from a different instrument than the matcher the curation was
+// correcting -- see the note at the merge below. Everything else falls back
+// to the automated index when available.
 export const VERSE_INDEX: Record<number, VerseIndexEntry[]> = { ...HAND_CURATED_VERSE_INDEX };
 for (const key of Object.keys(AUTO_VERSE_INDEX)) {
   const lessonId = Number(key);
@@ -137,10 +120,14 @@ for (const key of Object.keys(AUTO_VERSE_INDEX)) {
     VERSE_INDEX[lessonId] = AUTO_VERSE_INDEX[key];
     continue;
   }
-  const extra = AUTO_VERSE_INDEX[key].filter(
-    e => e.editorial && !curated.some(c => c.verse === e.verse && c.paraIndex === e.paraIndex));
+  // Lessons 1-3 keep their hand-curated rows: the point of curating them was
+  // to override the matcher, and that still holds. But an unbracketed
+  // quotation did not come from the matcher, so suppressing it here would
+  // discard a source the curation never ruled on -- 31 āyāt across the three,
+  // Q 42:11 in Lesson 1 among them. Add those, never replace.
+  const held = new Set(curated.map(e => e.verse));
+  const extra = AUTO_VERSE_INDEX[key].filter(e => e.inferred && !held.has(e.verse));
   if (extra.length) {
-    VERSE_INDEX[lessonId] = [...curated, ...extra]
-      .sort((a, b) => a.paraIndex - b.paraIndex || a.verse.localeCompare(b.verse));
+    VERSE_INDEX[lessonId] = [...curated, ...extra].sort((a, b) => a.paraIndex - b.paraIndex);
   }
 }

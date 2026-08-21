@@ -79,6 +79,40 @@ looks clipped again, check `scripts/rebuild-verse-text.js` first before
 assuming it's a matching bug. Backup of the old truncated file:
 `src/data/verse_text.truncated.bak.json`.
 
+## The verse page carries a lexicon panel — do not strip it
+
+`/verse/[surah]/[ayah]` renders the āya through `src/components/RootPanel.tsx`,
+which underlines each word the Quranic Arabic Corpus supplies a root for and
+opens a lexicon card on hover or tap. It was rebuilt once already after a
+session removed it while working on something else, so: if you are editing that
+page and the āya block looks like it could be a plain `<p>`, it cannot.
+
+Three things about it that are easy to undo by accident:
+
+- **`src/data/verseRoots.json` is 634 KB and must stay on the server.** Only
+  the one āya's array crosses into the client bundle. `src/lib/volumes.ts`
+  documents what shipping reference data into a bundle costs.
+- **The roots are Ḥafṣ, re-keyed to this Warsh text** by
+  `scripts/align-warsh.mjs`. 125 of the 6,236 āyāt differ in word count between
+  the riwāyāt, so a positional map built on Ḥafṣ cannot simply be laid over
+  this text.
+- **A word with no underline is deliberate silence**, not a gap to fill with a
+  stemmer. `claude/lexicon-hover-commentary.md` has the measurement: a light
+  stemmer gets the root right 64% of the time, which on a critical edition is
+  worse than saying nothing. Niasse's own commentary carries no annotation at
+  all, on the same grounds.
+
+## Two agents on this repo at once
+
+It has happened, and it cost a revert. Symptoms: your working tree looks
+current but `origin/main` has commits you have never seen, and a file you
+"changed" comes back different. Before editing, `git fetch` and check whether
+`HEAD` is still an ancestor of `origin/main`; if you are running alongside
+another session, take a separate worktree rather than sharing one checkout.
+`src/app/globals.css` and `src/data/corpus.json` are the two files both
+sessions reach for, and the CSS variables at the top of `globals.css` have
+already been clobbered once by a whole-file rewrite — edit them in place.
+
 ## Editorial apparatus vs. body-text citations
 
 `src/data/footnotesData.json` (served via `/api/footnotes`, see
@@ -452,94 +486,3 @@ so far, both already in the codebase before this session:
   before redoing the work from scratch.
 - Lesson 6 has no English translation at all (`hasEnglish: false`) — needs
   AK's input on whether/how to source one before this can be closed out.
-
-## Two agents on this repo — read this before you write anything
-
-AK runs a second Claude Code session on this repository, locally on his Mac,
-while a cloud session also works on it. They have collided repeatedly, and the
-collisions are the expensive kind because they are silent.
-
-**What has actually gone wrong:**
-
-- A push from one side reverted `/research` from build-time figures back to a
-  hardcoded "1,994 footnotes", reintroducing the exact regression that fix
-  existed to close. The apparatus held 1,997. Nobody noticed until the next
-  session diffed the two trees.
-- A stale zero-byte `.git/index.lock` appeared twice, once blocking a push for
-  nearly two hours, left behind when two writers hit the index at the same
-  moment.
-- A push landed on the `lexicon-hover` branch while everyone assumed it had
-  gone to `main`, so a day's work looked like it had failed.
-
-**So, before writing anything into AK's working copy:**
-
-1. `git fetch` and diff your tree against `origin/main` FIRST. Do not assume
-   your branch point is still current.
-2. Check which branch his working copy is on (`.git/HEAD`) before telling him
-   to push. It is not always `main`.
-3. Never run `git` through `device_bash` on this repo — it creates an
-   `.git/index.lock` that cannot be removed from that sandbox. If a stale lock
-   is already there, `device_bash` cannot delete it either; `mv` it to
-   `.git/index.lock.stale-HHMM`, which git ignores.
-4. Deliver files as a tarball, unpack with `device_bash`, and verify every file
-   with `shasum` before reporting success. Keep archives under about 1.5 MB —
-   a 2.1 MB one timed out on the bridge and had to be split.
-
-**The structural fix is separate worktrees.** A worktree has its own index, so
-`index.lock` contention disappears:
-
-```
-git worktree add ../ntfs-local main      # for the local agent
-git worktree add ../ntfs-cloud main      # for the cloud session
-```
-
-Two clones work equally well and are simpler alongside GitHub Desktop, which
-does not handle worktrees gracefully. The one thing that does NOT work is what
-is happening now: two agents and GitHub Desktop writing the same working copy.
-
-## The root lexicon panel on verse pages — know it exists
-
-`src/components/RootPanel.tsx`, `src/data/verseRoots.json`, and 1,651 root
-files under `public/data/lex/`. An underlined word in the Qurʾānic text on a
-verse page opens the lexicon on its root: al-Rāghib's *Mufradāt*, Ibn Fāris's
-*Maqāyīs al-lugha*, and Lane.
-
-Two limits, both stated on `/translators-note` and both worth respecting in
-code:
-
-- **Scope.** Roots are supplied for the **Qurʾānic text only**, from a
-  morphologically annotated corpus. Niasse's own commentary carries no such
-  annotation and is deliberately untouched: automatic root extraction on
-  unvocalised prose is accurate enough to be useful and not accurate enough for
-  a critical edition. Do not extend root linking into `arabicBody`.
-- **Authority.** The digitised lexica name no printed edition, so the panel
-  gives work and headword but never a page. It is a reading aid; the edition
-  does not cite it.
-
-`scripts/align-warsh.mjs` maps the Warsh text to those roots. If the Qurʾānic
-reference text is ever rebuilt, that alignment has to be rebuilt with it.
-
-## Rebuild order — and the step everyone forgets
-
-`build-lesson-ranges.py` is a CONSUMER, not a producer. Run alone against a
-stale report it silently reprints the old counts.
-
-```
-node scripts/match-verses.js            → translation-drafts/verse-match-report.json
-python3 scripts/build-lesson-ranges.py  → src/data/lessonRanges.json   (CONSUMES the report)
-node scripts/build-verse-citations.js   → verseCitations.json, verseIndexAuto.json
-node scripts/add-editorial-verse-index.js --write   → re-adds the 934 editorial entries
-```
-
-The last line is **required**. `build-verse-citations.js` regenerates
-`verseIndexAuto.json` from the matcher, which reads only bracketed spans, so it
-drops every unbracketed quotation. Skip it and the verse index quietly loses 934
-entries and 453 āyāt.
-
-## The audit after any pass that touches Arabic text
-
-Diff every `arabicBody` against `d363dc1` character by character. Expect:
-substitutions only, **no length change in any file**, every difference in an
-intended letter class. Footnote markers in Lessons 1–7 must stay at
-51 / 13 / 39 / 35 / 57 / 67 / 62. This check is what makes the 3,215 OCR repairs
-auditable; run it before claiming a pass is clean.

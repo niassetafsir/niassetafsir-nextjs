@@ -25,7 +25,12 @@ export default function PersistentNav() {
 
   return (
     <nav dir="ltr" aria-label="Sections"
-      className="fixed bottom-0 left-0 right-0 z-50 flex border-t"
+      /* Phones only. On a desktop this repeated SiteNav's own centre row --
+         "Research" appeared twice on the same screen -- and ate 56px of a
+         viewport that had no shortage of width to put the same links in.
+         A phone is the one place it earns its keep, being a thumb's reach
+         from the bottom edge where the hamburger is not. */
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex border-t"
       style={{
         background: 'var(--persistent-nav-bg, rgba(10,18,8,0.97))',
         backdropFilter: 'blur(12px)',

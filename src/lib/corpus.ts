@@ -58,6 +58,12 @@ export type ExegeticalAct =
 export type Confidence = 'curated' | 'auto' | 'reported';
 
 /**
+ * How a link was arrived at, where naming only how confident we are would
+ * misdescribe it. `Confidence` grades the attribution; this names the route.
+ */
+export type Derivation = 'session-range' | 'unbracketed';
+
+/**
  * Verse-boundary numbering diverges between Warsh ʿan Nāfiʿ and Ḥafṣ ʿan
  * ʿĀṣim. The site's own edition follows Warsh; the reference corpus used to
  * build the Fī Riyāḍ indices is Ḥafṣ. Corpus-wide this stops being an edge
@@ -231,11 +237,15 @@ export interface VerseLink {
   /** Whom the stance is toward -- 'jalalayn', 'sawi', 'ruh-al-bayan', a name. */
   stanceToward?: string[];
   /**
-   * Set when the link was not found in the text at all but follows from a
-   * session's span. `auto` alone would read as "the matcher found this here",
+   * How the link was arrived at, where `confidence` alone would overstate it.
+   *
+   * `session-range` -- not found in the text at all; it follows from the span
+   * the session covers. `unbracketed` -- found in the text, but the printing
+   * does not bracket it: a run of five words unique in the muṣḥaf identifies
+   * the āya. `auto` on either would read as "the matcher found this here",
    * which is a stronger claim than the data supports.
    */
-  derivation?: 'session-range';
+  derivation?: Derivation;
 }
 
 interface Corpus {
@@ -325,6 +335,10 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
       type: 'tafsir',
       confidence: HAND_CURATED_LESSONS.has(lessonId) ? 'curated' : 'auto',
       rasm: 'hafs',
+      // An entry the compiler never bracketed did not come from the matcher,
+      // which reads inside brackets only. Calling it 'matched, unchecked'
+      // would name the wrong instrument.
+      ...(entry.inferred ? { derivation: 'unbracketed' as const } : {}),
     });
   }
 }
@@ -545,10 +559,19 @@ export const CONFIDENCE_LABEL: Record<Confidence, string> = {
   reported: 'reported',
 };
 
-export const DERIVATION_LABEL = 'session coverage';
-export const DERIVATION_NOTE =
-  'Not found in the text. The session running through this stretch of the muṣḥaf is ' +
-  'Lesson N, so the commentary on this āya is there; where on the page has not been located.';
+export const DERIVATION_LABEL: Record<Derivation, string> = {
+  'session-range': 'session coverage',
+  unbracketed: 'unbracketed quotation',
+};
+
+export const DERIVATION_NOTE: Record<Derivation, string> = {
+  'session-range':
+    'Not found in the text. The session running through this stretch of the muṣḥaf is ' +
+    'Lesson N, so the commentary on this āya is there; where on the page has not been located.',
+  unbracketed:
+    'The printing does not bracket this quotation. Five consecutive words of the paragraph ' +
+    'occur word-aligned in this āya and in no other of the 6,236, which is what identifies it.',
+};
 
 export const CONFIDENCE_NOTE: Record<Confidence, string> = {
   curated: 'This attribution was checked against the text by a human.',
