@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { stripWorkingProvenance } from '@/lib/publicText';
 import {
   ACT_LABEL,
   CONFIDENCE_LABEL,
@@ -67,10 +66,13 @@ export default function VerseLocusCard({
             style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
             {work.titleTranslit ?? work.id}
           </h3>
-          {!entry.isNiasse && work.author && (
+          {/* The badge names whoever actually spoke: a locus-level attribution
+              first, since a work of the Shaykh's answers can print someone
+              else's reply to him, then the work's own author. */}
+          {!entry.isNiasse && (locus.attributedTo || work.author) && (
             <span className="font-english text-[11px] px-2 py-0.5 rounded-full border"
               style={{ borderColor: 'rgba(255,255,255,0.22)', color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
-              {work.author}
+              {locus.attributedTo ?? work.author}
             </span>
           )}
           {work.titleAr && (
@@ -170,25 +172,27 @@ export default function VerseLocusCard({
                 Read in context →
               </Link>
             )}
-            {/* No working-state banner here. This used to render "Working
-                transcription — not yet proofread against the printing" beneath
-                the text, and the editorial note beneath that, which together
-                told the reader the edition was unfinished and named its editor
-                as a pending reviewer. See src/lib/publicText.ts. Editorial notes
-                still render, minus any sentence about the project's workflow. */}
-            {stripWorkingProvenance(locus.editorialNote) && (
-              <p className="font-english text-[11.5px] italic mt-2 leading-relaxed"
+            {locus.transcriptionStatus === 'draft' && (
+              <p className="font-english text-[11.5px] italic mt-3"
                 style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
-                {stripWorkingProvenance(locus.editorialNote)}
+                Working transcription — not yet proofread against the printing.
               </p>
             )}
-            {stripWorkingProvenance(link.note) && (
+            {/* An unsigned draft translation reads exactly like a finished one
+                unless the page says which it is. */}
+            {locus.editorialNote && (
+              <p className="font-english text-[11.5px] italic mt-2 leading-relaxed"
+                style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
+                {locus.editorialNote}
+              </p>
+            )}
+            {link.note && (
               <p className="font-english text-[12px] italic mt-3 pt-3 border-t"
                 style={{
                   borderColor: 'rgba(255,255,255,0.08)',
                   color: 'var(--body-faint, rgba(255,255,255,0.38))',
                 }}>
-                {stripWorkingProvenance(link.note)}
+                {link.note}
               </p>
             )}
           </>
@@ -198,16 +202,13 @@ export default function VerseLocusCard({
             <p className="font-english text-[13px] leading-relaxed"
               style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
               <strong style={{ color: 'var(--body-text, rgba(255,255,255,0.8))' }}>
-                {/* Say what the reader can and cannot find here, not what
-                    stage the project is at. "Not yet ingested" described a
-                    pipeline; "no text on this site yet" describes the page. */}
                 {witness.medium === 'audio'
                   ? 'Not located.'
                   : link.note
-                    ? 'Recording only — no text here.'
-                    : 'No text on this site yet.'}
+                    ? 'Recorded, not yet transcribed.'
+                    : 'Not yet ingested.'}
               </strong>{' '}
-              {stripWorkingProvenance(link.note) ||
+              {link.note ??
                 'This locus is recorded because the attribution is attested, not because the text is available here.'}
             </p>
           </div>

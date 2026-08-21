@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getEditionFacts } from '@/lib/coverage';
 
 export const metadata: Metadata = {
   title: 'Research Platform',
@@ -16,6 +15,13 @@ const TOOLS = [
     tier: 'scholar',
   },
   {
+    href: '/term',
+    titleAr: 'فهرس المصطلحات المعرَّفة',
+    titleEn: 'Terms He Defines',
+    desc: 'Passages where Shaykh Ibrāhīm stops to fix the sense of a word rather than construe a verse — ikhlāṣ, hayba, sayr, the quṭb — each cited to its page and its date, and marked where he adopts another man\'s formulation rather than coining his own.',
+    tier: 'scholar',
+  },
+  {
     href: '/notes',
     titleAr: 'ملاحظات البحث',
     titleEn: 'Research Notes',
@@ -26,27 +32,28 @@ const TOOLS = [
     href: '/footnotes',
     titleAr: 'الحواشي والمصادر',
     titleEn: 'Footnotes & Citations',
-    // {footnotes} is substituted at render from src/data/footnotesData.json.
-    // Hardcoded, this read "1,994" while the apparatus held 1,997 -- the card
-    // linking to the footnote index misreported the size of the thing it links
-    // to.
-    desc: '{footnotes} footnotes by the compiler, genre-classified: Hadith, Tafsīr, Theology, Sufism, Fiqh. Lessons {fnLessons} of {totalLessons} so far.',
+    desc: '1,994 footnotes by the compiler, genre-classified: Hadith, Tafsīr, Theology, Sufism, Fiqh.',
     tier: 'scholar',
   },
   {
     href: '/hadith',
     titleAr: 'فهرس الأحاديث',
     titleEn: 'Ḥadīth Index',
-    desc: '{hadith} hadith citations across {collections} collections — Bukhārī, Muslim, Tirmidhī, and others.',
+    desc: '384 hadith citations indexed by collection — Bukhārī, Muslim, Tirmidhī, and others.',
     tier: 'scholar',
   },
   {
     href: '/glossary',
     titleAr: 'فهرس المصطلحات',
-    titleEn: 'Technical Terms',
-    // "Twenty" was the concordance's length, but the merged page lists the
-    // graph-only terms too, so it showed twenty-four.
-    desc: '{terms} theological and Sufi terms — every occurrence in context, and the relations Niasse draws between them, each cited to the passage.',
+    titleEn: 'Concordance of Terms',
+    desc: '20 theological and Sufi terms — every occurrence across the corpus, in context.',
+    tier: 'scholar',
+  },
+  {
+    href: '/glossary-map',
+    titleAr: 'خريطة المصطلحات',
+    titleEn: 'Map of Terms',
+    desc: 'The same terms laid out by how they cluster, rather than alphabetically.',
     tier: 'scholar',
   },
   {
@@ -57,10 +64,17 @@ const TOOLS = [
     tier: 'research',
   },
   {
-    href: '/saved',
+    href: '/clips',
+    titleAr: 'اقتباسات البحث',
+    titleEn: 'Research Clips',
+    desc: 'Select any passage — Chicago citation generated automatically.',
+    tier: 'personal',
+  },
+  {
+    href: '/bookmarks',
     titleAr: 'المحفوظات',
-    titleEn: 'Saved',
-    desc: 'Passages you have kept while reading — bookmarks and cited clips in one list, with a Chicago citation ready to copy.',
+    titleEn: 'Bookmarks',
+    desc: 'Save passages for later study.',
     tier: 'personal',
   },
 ];
@@ -71,20 +85,8 @@ const TIER_LABELS: Record<string, string> = {
   personal: 'Personal',
 };
 
-export default async function ResearchPage() {
+export default function ResearchPage() {
   const tiers = ['scholar', 'research', 'personal'] as const;
-  // Every figure in a tool card is a measurement of this repository, so each
-  // one is counted at build time rather than typed. A card that misstates the
-  // size of the index it links to is checkable by the reader in one click.
-  const f = await getEditionFacts();
-  const n = (x: number) => x.toLocaleString('en-US');
-  const fill = (s: string) => s
-    .replace('{footnotes}', n(f.footnoteCount))
-    .replace('{hadith}', n(f.hadithCitations))
-    .replace('{collections}', n(f.hadithCollections))
-    .replace('{terms}', n(f.termCount))
-    .replace('{fnLessons}', n(f.footnoteLessons))
-    .replace('{totalLessons}', n(f.totalLessons));
 
   return (
     <main className="max-w-4xl mx-auto px-4 pb-20 pt-5" dir="ltr">
@@ -101,7 +103,7 @@ export default async function ResearchPage() {
           </p>
         </div>
         <Link href="/lesson/1"
-          className="tap font-english text-xs hover:text-gold transition-colors"
+          className="font-english text-xs hover:text-gold transition-colors"
           style={{color:'rgba(255,255,255,0.3)'}}>
           ← Reading
         </Link>
@@ -134,7 +136,7 @@ export default async function ResearchPage() {
                   </p>
                   <p className="font-english text-[11px] leading-4"
                     style={{color:'var(--body-faint, rgba(255,255,255,0.38))'}}>
-                    {fill(tool.desc)}
+                    {tool.desc}
                   </p>
                 </Link>
               ))}

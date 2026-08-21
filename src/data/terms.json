@@ -1,0 +1,47 @@
+{
+ "_note": "Passages where Shaykh Ibrāhīm DEFINES a term rather than construing a verse. The verse index answers 'what did he say about this āya'; this answers 'what did he mean by this word'. Keyed to the same loci, so a definition always carries its page and its date.",
+ "terms": [
+  { "slug": "qutb", "translit": "quṭb", "ar": "القطب", "en": "pole" },
+  { "slug": "fard", "translit": "fard", "ar": "الفرد", "en": "the singular one" },
+  { "slug": "ikhlas", "translit": "ikhlāṣ", "ar": "الإخلاص", "en": "sincerity" },
+  { "slug": "hayba", "translit": "hayba", "ar": "الهيبة", "en": "awe" },
+  { "slug": "sayr", "translit": "sayr", "ar": "السير", "en": "journeying" },
+  { "slug": "suluk", "translit": "sulūk", "ar": "السلوك", "en": "wayfaring" },
+  { "slug": "qurb", "translit": "qurb", "ar": "القرب", "en": "nearness" },
+  { "slug": "zahir-batin", "translit": "ẓāhir / bāṭin", "ar": "الظاهر والباطن", "en": "outer and inner sense" },
+  { "slug": "wahdaniyya", "translit": "waḥdāniyya", "ar": "الوحدانية", "en": "oneness" }
+ ],
+ "links": [
+  { "term": "zahir-batin", "locusId": "mawsua-fatawa-tafsir-01", "mode": "defines",
+    "glossEn": "A verse has a ẓāhir and a bāṭin like other verses — stated as a general principle of reading, then applied to give al-samāʾ both a figurative sense (rain) and a real one.",
+    "confidence": "curated" },
+
+  { "term": "suluk", "locusId": "mawsua-fatawa-tafsir-09", "mode": "defines",
+    "glossEn": "Taqwā outward and inward: compliance with the command and avoidance of the prohibition in the manner that pleases. Before jadhb it is a veil; after it, perfection.",
+    "against": ["jadhb"], "confidence": "curated" },
+
+  { "term": "qutb", "locusId": "mawsua-fatawa-tafsir-10", "mode": "defines",
+    "glossEn": "A tajallī among the tajalliyāt of al-Ḥaqq which gathers all the rest; the Garden and its fifteen worlds are a tajallī of the quṭb, who himself draws from the Seal and beyond that from the Muḥammadan ḥaqīqa.",
+    "confidence": "curated" },
+  { "term": "fard", "locusId": "mawsua-fatawa-tafsir-10", "mode": "distinguishes",
+    "glossEn": "The aqṭāb are many; the Fard is one in each age, and from him the ʿārifūn of that age draw supply. Unqualified, 'quṭb' means the comprehensive one — but the word is also used of anyone on whom a station or a state turns.",
+    "against": ["qutb"], "confidence": "curated" },
+  { "term": "ikhlas", "locusId": "mawsua-fatawa-tafsir-10", "mode": "defines",
+    "glossEn": "The driving out of the siwā in one's dealing with al-Ḥaqq — and therefore possible only for the one who has maʿrifa, since whoever knows the other-than-Him has not the strength for it.",
+    "confidence": "curated" },
+  { "term": "hayba", "locusId": "mawsua-fatawa-tafsir-10", "mode": "defines",
+    "glossEn": "A ḥāl that comes over the firmly established ʿārif through the witnessing of Greatness. Opposite to uns, as qabḍ is opposite to basṭ and fear to hope.",
+    "against": ["uns", "qabd", "bast"], "confidence": "curated" },
+  { "term": "sayr", "locusId": "mawsua-fatawa-tafsir-10", "mode": "defines",
+    "glossEn": "The maʿārif of the maʿārif, and equally the rising higher. Its way is unbroken pondering of the relations between rubūbiyya and ʿubūdiyya, and nothing else.",
+    "confidence": "curated" },
+  { "term": "qurb", "locusId": "mawsua-fatawa-tafsir-10", "mode": "distinguishes",
+    "glossEn": "Creation's nearness to al-Ḥaqq is their being brought to nothing in His existence. The Prophet's drawing-near is not that: it is real, with his noble essence remaining.",
+    "confidence": "curated" },
+
+  { "term": "wahdaniyya", "locusId": "mawsua-fatawa-tafsir-12", "mode": "quotes",
+    "glossEn": "That God's oneness is not the oneness of numerical scarcity found among created things, but a unity to which all multiplicities return.",
+    "quotedFrom": "Abū Muḥammad al-Amīr, by way of Muḥammad ʿIllīsh's fatāwā",
+    "confidence": "curated" }
+ ]
+}
