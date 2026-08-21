@@ -31,6 +31,16 @@ interface Footnote {
 
 const EDITOR = 'Amadu Kunateh';
 
+/**
+ * The offline demo has no server to answer a query string, so it reads the
+ * same payload from a file written by scripts/build-offline-api.js. Set at
+ * build time by scripts/build-offline-demo.sh; unset everywhere else, so the
+ * live site is untouched.
+ */
+const OFFLINE = process.env.NEXT_PUBLIC_OFFLINE === '1';
+const source = (lessonId: number) =>
+  OFFLINE ? `/data/offline/footnotes-${lessonId}.json` : `/api/footnotes?lessonId=${lessonId}`;
+
 const INTERVENTION_LABEL: Record<string, string> = {
   debate: 'Debate',
   response: 'Response',
@@ -49,7 +59,7 @@ export default function LessonCitations({ lessonId }: { lessonId: number }) {
     // Scoped to this lesson server-side, instead of downloading the full
     // ~2000-entry corpus on every panel open just to filter it client-side --
     // see src/app/api/footnotes/route.ts.
-    fetch(`/api/footnotes?lessonId=${lessonId}`)
+    fetch(source(lessonId))
       .then(r => r.json())
       .then((d: { compiler: Footnote[]; editor: EditorNote[] }) => {
         setCompiler(d.compiler ?? []);
