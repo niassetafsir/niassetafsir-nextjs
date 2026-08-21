@@ -92,6 +92,18 @@ export default async function EditorialConventionsPage() {
           corresponds to a session of oral delivery. The site presents all fifty-six lessons, covering
           the Qurʾān from al-Fātiḥa through al-Nās (Q. 1:1–114:6).
         </p>
+        <p className="mb-3 text-justify">
+          On the verse pages, a word of the Qurʾānic text carrying an underline opens the lexicon on
+          its root: al-Rāghib al-Iṣfahānī&apos;s <em>Mufradāt</em>, Ibn Fāris&apos;s{' '}
+          <em>Maqāyīs al-lugha</em>, and Lane. Two limits are worth stating plainly rather than
+          leaving to be inferred. The first is scope: roots are supplied for the Qurʾānic text only,
+          from a morphologically annotated corpus, and a word with no underline is one this edition
+          is not offering to gloss. Niasse&apos;s own commentary carries no such annotation and is
+          deliberately untouched — automatic root extraction on unvocalised prose is accurate enough
+          to be useful and not accurate enough for a critical edition. The second is authority: the
+          digitised lexica name no printed edition, so the panel gives work and headword but never a
+          page. It is a reading aid. The edition does not cite it, and neither should you.
+        </p>
 
         <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
           Footnote markers

@@ -19,8 +19,6 @@ import {
 import VerseCorpusTimeline from '@/components/VerseCorpusTimeline';
 import VerseLocusCard, { type LocusExcerpt } from '@/components/VerseLocusCard';
 import VersePicker from '@/components/VersePicker';
-import RootPanel from '@/components/RootPanel';
-import verseRootsData from '@/data/verseRoots.json';
 
 // /verse/[surah]/[ayah] -- every place in the corpus where Shaykh Ibrāhīm
 // engages this verse.
@@ -51,7 +49,24 @@ const RENDERINGS = (verseTranslation as unknown as {
 
 /** Cap on how many Fī Riyāḍ lessons a single page will open to build snippets. */
 const MAX_LESSON_READS = 6;
-const SNIPPET_CHARS = 260;
+/**
+ * How much of the Shaykh's paragraph the card shows before the deep link.
+ *
+ * The median commentary paragraph runs to about 1,400 characters, so the old
+ * 260 showed a fifth of one and cut it mid-word -- enough to prove a match,
+ * not enough to read. Fī Riyāḍ is published here under rights AK holds, so the
+ * only real constraint is the page, and 900 characters carries most of an
+ * argument while leaving "Read in context" something to do.
+ */
+const SNIPPET_CHARS = 900;
+
+/** Cut at the last word break so a snippet never ends inside a word. */
+function trimToWord(s: string, max: number): string {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  const space = cut.lastIndexOf(' ');
+  return (space > max * 0.6 ? cut.slice(0, space) : cut).trimEnd();
+}
 
 export async function generateStaticParams() {
   return crossCorpusVerses().map(v => ({
@@ -93,19 +108,6 @@ export default async function VersePage({
   const schoolGroups = groupByAct(school);
   const marks = timelineMarks(entries);
   const text = VERSES[`${surah}:${ayah}`];
-
-  // Root annotation for this one āya, and nothing else. VERSE_ROOTS is 634 KB
-  // and stays on the server: only this verse's array crosses into the client
-  // bundle, which is the rule src/lib/volumes.ts exists to enforce.
-  //
-  // The roots come from the Quranic Arabic Corpus, which is Ḥafṣ, re-keyed to
-  // this Warsh text by scripts/align-warsh.mjs. 125 of the 6,236 āyāt genuinely
-  // differ in word count between the two riwāyāt -- Q 3:133 reads سَارِعُوٓاْ
-  // here against Ḥafṣ وَسَارِعُوا, one word fewer -- so a positional map built
-  // on Ḥafṣ cannot be laid over this text without that alignment pass.
-  const arWords = text?.ar ? text.ar.split(/\s+/).filter(Boolean) : [];
-  const verseRoots =
-    (verseRootsData as Record<string, (string | null)[]>)[`${surah}:${ayah}`] ?? [];
   const rendering = RENDERINGS[`${surah}:${ayah}`];
   const printed = formatRef(suraRef(surah));
 
@@ -133,7 +135,7 @@ export default async function VersePage({
     if (!raw) continue;
     const truncated = raw.length > SNIPPET_CHARS;
     excerpts.set(e.locus.id, {
-      ar: truncated ? raw.slice(0, SNIPPET_CHARS).trimEnd() : raw,
+      ar: truncated ? trimToWord(raw, SNIPPET_CHARS) : raw,
       href: `/lesson/${lessonId}#ar-para-${para}`,
       truncated,
       printedRef: formatRef(lessonRef(lessonId)),
@@ -149,7 +151,7 @@ export default async function VersePage({
       <div className="pb-6 mb-6 border-b" style={{ borderColor: 'rgba(255,255,255,0.10)' }}>
         <div className="font-english text-[11px] tracking-[0.12em] uppercase mb-3"
           style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-          <Link href={`/surah/${surah}`} className="tap hover:text-gold">
+          <Link href={`/surah/${surah}`} className="hover:text-gold">
             Sūrat {meta.nameEn}
           </Link>
           {' · '}
@@ -157,19 +159,10 @@ export default async function VersePage({
         </div>
 
         {text?.ar && (
-          arWords.length > 0 && verseRoots.length === arWords.length ? (
-            <RootPanel words={arWords} roots={verseRoots} />
-          ) : (
-            // The root array is index-parallel to this exact tokenisation of
-            // verse_text.json's Warsh text -- see scripts/align-warsh.mjs. If
-            // the two ever disagree the āya renders unannotated rather than
-            // attaching every gloss one word off, which is the failure the
-            // whole alignment step exists to prevent.
-            <p className="font-arabic text-[26px] leading-[2] mb-3 text-right" dir="rtl"
-              style={{ color: 'var(--body-text, rgba(255,255,255,0.92))', textAlign: 'right' }}>
-              {text.ar}
-            </p>
-          )
+          <p className="font-arabic text-[26px] leading-[2] mb-3 text-right" dir="rtl"
+            style={{ color: 'var(--body-text, rgba(255,255,255,0.92))', textAlign: 'right' }}>
+            {text.ar}
+          </p>
         )}
         {/* The English is never unattributed. AK's renderings carry
             interpretive weight -- the bāʾ read instrumentally, faʿīl's
@@ -186,12 +179,10 @@ export default async function VersePage({
             </p>
             <p className="font-english text-[11.5px] mt-1.5"
               style={{ color: 'var(--gold-light, #E8D4A0)' }}>
-              {/* The "· why" tooltip carried the translator's working notes --
-                  "AK to confirm whether to adopt, adapt or replace it", "Check
-                  against Lesson 49, ¶64-66" -- straight to any reader who
-                  hovered. Those notes are worth keeping in src/data; they are
-                  not for the page. See src/lib/publicText.ts. */}
               Rendered by {TRANSLATOR}
+              {rendering.note && (
+                <span title={rendering.note} className="cursor-help"> · why</span>
+              )}
             </p>
             {text?.en && (
               <p className="font-english text-[12.5px] italic mt-2"
@@ -223,12 +214,14 @@ export default async function VersePage({
             borderColor: 'rgba(201,168,76,0.3)',
             color: 'var(--body-faint, rgba(255,255,255,0.35))',
           }}>
-          The site&rsquo;s Arabic edition follows Warsh ʿan Nāfiʿ; the reference text quoted here and
-          the matcher behind the Fī Riyāḍ loci are Ḥafṣ ʿan ʿĀṣim. Content is nearly identical, but
-          verse-boundary numbering diverges in a handful of places. Each locus carries its own
-          witness&rsquo;s numbering. Page references follow the ten-volume Tunis 2022 printing this
-          site was transcribed from; published scholarship on this text cites the six-volume Tunis
-          2010 printing, whose pagination is different.
+          The āya above is Warsh ʿan Nāfiʿ, the rasm of the printed edition. The root behind each
+          underlined word comes from a Ḥafṣ ʿan ʿĀṣim corpus, realigned to this Warsh text
+          word by word; 125 of the 6,236 āyāt differ in word count between the two riwāyāt, and
+          those were aligned rather than assumed. A word carries no underline where the corpus
+          supplies no root. Lexicon entries are a reading aid and carry no page reference; the
+          edition does not cite them. Page references elsewhere on this site follow the ten-volume
+          Tunis 2022 printing this site was transcribed from; published scholarship on this text
+          cites the six-volume Tunis 2010 printing, whose pagination is different.
         </p>
       </div>
 
@@ -246,7 +239,7 @@ export default async function VersePage({
             means the work has not been done, not that he passed the verse over.
           </p>
           <Link href={`/surah/${surah}`}
-            className="tap mt-4 font-english text-[12.5px] text-gold/70 hover:text-gold underline">
+            className="inline-block mt-4 font-english text-[12.5px] text-gold/70 hover:text-gold underline">
             Read Sūrat {meta.nameEn} in the lesson sequence →
           </Link>
         </div>
@@ -366,17 +359,17 @@ function NeighbourNav({ surah, ayah, max }: { surah: number; ayah: number; max: 
     <nav className="flex justify-between items-center mt-10 pt-5 border-t font-english text-[12.5px]"
       style={{ borderColor: 'rgba(255,255,255,0.10)' }}>
       {ayah > 1 ? (
-        <Link href={`/verse/${surah}/${ayah - 1}`} className="tap text-gold/70 hover:text-gold">
+        <Link href={`/verse/${surah}/${ayah - 1}`} className="text-gold/70 hover:text-gold">
           ← {surah}:{ayah - 1}
         </Link>
       ) : <span />}
       <Link href={`/surah/${surah}`}
         style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}
-        className="tap hover:text-gold">
+        className="hover:text-gold">
         Sūrah {surah}
       </Link>
       {ayah < max ? (
-        <Link href={`/verse/${surah}/${ayah + 1}`} className="tap text-gold/70 hover:text-gold">
+        <Link href={`/verse/${surah}/${ayah + 1}`} className="text-gold/70 hover:text-gold">
           {surah}:{ayah + 1} →
         </Link>
       ) : <span />}

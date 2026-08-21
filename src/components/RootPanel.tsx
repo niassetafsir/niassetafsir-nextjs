@@ -92,7 +92,12 @@ export default function RootPanel({
                 type="button"
                 onMouseEnter={() => open(r)}
                 onFocus={() => open(r)}
-                onClick={() => (on ? (setActive(null), setCard(null)) : open(r))}
+                // Click OPENS; it never toggles. On a mouse, mouseenter has
+                // already fired by the time the click lands, so a toggle would
+                // read the panel as open and shut it again — clicking the word
+                // you are looking at would dismiss its own entry. Closing is
+                // the Close button and Escape.
+                onClick={() => open(r)}
                 aria-expanded={on}
                 aria-label={`Lexicon for ${w}, root ${r}`}
                 className="tap font-arabic"
