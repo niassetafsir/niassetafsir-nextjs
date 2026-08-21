@@ -38,3 +38,4 @@ niassetafsir/
 
 # private authoring tool — AK only, never committed
 scripts/*.local.mjs
+lexicon-files.tgz
