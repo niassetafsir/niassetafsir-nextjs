@@ -333,8 +333,10 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
 // Session coverage: which majlis treats a given āya
 // ---------------------------------------------------------------------------
 // DERIVED_LOCI above resolves a verse to the PARAGRAPH that quotes it, which
-// only exists where the automated matcher found the quotation -- 784 verses.
-// But the fifty-seven sessions run consecutively through the whole muṣḥaf, so
+// only exists where the automated matcher found the quotation -- 1,625 verses
+// against the recovered full text, up from 784 when the repository still held
+// only half of each lesson's Arabic.
+// But the fifty-six sessions run consecutively through the whole muṣḥaf, so
 // for any āya there is a session that treats it, whether or not a quotation
 // was matched inside it. lessonRanges.json records each session's span, chained
 // from the sessions' own verseRange fields; the chain closes with no gaps from
@@ -347,7 +349,7 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
 // emitted only where nothing located exists, always at `auto`, and always with
 // the distinction written into the note.
 //
-// `exact` marks the thirty-one sessions whose own verseRange gives explicit
+// `exact` marks the thirty sessions whose own verseRange gives explicit
 // āya numbers. The remaining twenty-six are titled by sūra only, so their
 // bounds come from chaining and are reliable in the interior of a session and
 // soft at its edges.
@@ -645,22 +647,40 @@ function fmt(v: [number, number]): string {
  * It said Lesson N "is the session that treats this āya", which reads as a
  * claim that a comment on this verse exists at that page. The sessions do tile
  * the muṣḥaf, but they do not comment on every āya they pass over: across the
- * corpus only 1,228 of the 6,236 āyāt inside the session spans are quoted
- * anywhere in the transcription, and that count is generous (it includes the
- * fuzzy match tier, which is excluded from everything else public-facing).
+ * corpus 3,146 of the 6,236 āyāt inside the session spans are quoted somewhere
+ * in the transcription, and that count is generous (it includes the fuzzy match
+ * tier, which is excluded from everything else public-facing, and every
+ * candidate of an ambiguous one).
  *
  * The distribution is the real finding. Lesson 2 quotes all twenty āyāt in its
- * span; Lesson 43 quotes 25 of 345. The 1383/1964 cycle runs the whole Qurʾān
- * in fifty-seven majālis, so it is close to verse-by-verse through al-Baqara
- * and increasingly selective thereafter. A reader looking for Q 36:39 should
- * be told that plainly, not sent to vol. 8 p. 55 on a promise.
+ * span; Lesson 43 quotes 85 of 228. The 1383/1964 cycle runs the whole Qurʾān
+ * in fifty-six majālis, so it is close to verse-by-verse through al-Baqara and
+ * increasingly selective thereafter.
+ *
+ * Every figure here is only as good as the text it was counted from, and that
+ * text moved. The first cut of this note read 1,228 of 6,236, and Lesson 43 at
+ * 25 of 345, because the repository then held only about half of each lesson's
+ * Arabic; the August 2026 recovery roughly doubled it and the counts doubled
+ * with it. Q 36:39 was the example this comment used to cite as a verse Niasse
+ * never reaches. He does: Lesson 42 ¶69 quotes it and glosses كالعرجون القديم.
+ * Anything derived from lessonRanges.json must be rebuilt whenever the lesson
+ * JSON changes -- node scripts/match-verses.js, then
+ * python3 scripts/build-lesson-ranges.py, then node scripts/build-verse-citations.js.
  */
 function coverageNote(lessonId: number, r: LessonRange): string {
   const bounds = `${fmt(r.start)}–${fmt(r.end)}`;
   const density =
     r.span && r.attested !== undefined
-      ? ` Of the ${r.span} āyāt in that span, ${r.attested} are quoted in the transcription; ` +
-        'this one is not among them, so whether he comments on it is not established.'
+      // "as many as", not a flat count. `attested` in lessonRanges.json counts
+      // every match tier including fuzzy and every candidate of an ambiguous
+      // clause, while build-verse-citations.js prints only the substring and
+      // pair tiers -- so attested (3,146) exceeds the verses actually indexed
+      // (1,625). Stated flatly it would overclaim.
+      // The generosity runs the safe way for the sentence that follows: a verse
+      // absent even from the loose set really is absent, so declining to say he
+      // commented on it is the conservative reading, not a denial.
+      ? ` Of the ${r.span} āyāt in that span, as many as ${r.attested} are quoted in the ` +
+        'transcription; this one is not among them, so whether he comments on it is not established.'
       : '';
   const provenance = r.exact
     ? `Lesson ${lessonId} runs from ${bounds}.`
