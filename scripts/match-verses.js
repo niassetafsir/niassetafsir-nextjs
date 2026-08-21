@@ -102,7 +102,34 @@ function isPoem(text) {
 // vocalised is how they are actually written, so it was letting through
 // precisely the spans it was written to catch. Note the bare alif in "اعوذ":
 // normalizeAr folds أ to ا, so a hamza here would never fire.
-const BASMALA_PATTERN_NORM = /^(اعوذ بالله|بسم الله|اللهم صل)/;
+//
+// Written as a PREFIX to strip rather than a span to discard. The guard used
+// to null any span beginning with one of the formulas, and the compiler opens
+// every sūra by printing the basmala and the first āya inside one set of
+// parentheses -- "بسم الله الرحمن الرحيم سبحان الذي أسرى بعبده ليلا" -- so the
+// guard was throwing away Q 17:1 along with the formula in front of it. It
+// also swallowed Q 11:41, where "بِسْمِ ٱللَّهِ مَجْر۪ىٰهَا وَمُرْسَىٰهَا" is
+// not a formula at all but Noah's words, and Q 27:31, quoted at Lesson 37 ¶109
+// behind the basmala Solomon's letter opens with.
+//
+// So: strip whatever formula stands at the head, then match what is left. A
+// span that was nothing but the formula reduces to '' and is still discarded,
+// which is the behaviour the guard was written for. The two divine names are
+// matched loosely (الرحم\S+ الر\S+) because the OCR mangles them constantly --
+// الرحمل, الرحم, الرجيم all appear -- and a strict spelling would leak those
+// sūra openings straight back into the fuzzy pass.
+//
+// The taṣliya is different and stays absolute: "اللهم صل على آل فلان" is never
+// a citation, and stripping only "اللهم صل" would hand the remainder to the
+// fuzzy pass to guess at.
+const FORMULA_PREFIX = /^(?:اعوذ بالله(?: من الشيطان الرجيم)?|بسم الله(?: الرحم\S+ الر\S+)?)\s*/;
+const TASLIYA_PATTERN_NORM = /^اللهم صل/;
+
+/** The part of a span that could be a citation: '' for a bare formula. */
+function stripRecitationFormula(spanNorm) {
+  if (TASLIYA_PATTERN_NORM.test(spanNorm)) return '';
+  return spanNorm.replace(FORMULA_PREFIX, '').trim();
+}
 
 function extractSpans(paragraph) {
   const spans = [];
@@ -438,6 +465,26 @@ function findMatch(spanNorm, candidates, scope) {
         enclosed: true,
       });
     } else {
+      // A genuine straddle has to be a straddle on BOTH sides. The span sits
+      // in the concatenation and in neither āya alone, which puts a boundary
+      // inside it, but says nothing about how much falls either side -- and a
+      // span whose reach into the neighbour is a single short particle is not
+      // a citation of that neighbour. Lesson 16 ¶66 quotes "لرب العلمين وأن"
+      // and would otherwise print Q 6:71-72 on the strength of وأن.
+      //
+      // Pass 1 already holds its overlap to MIN_SPAN_WORDS for the same
+      // reason (see the substring pass). Here the test is per side, and lower:
+      // two significant words, because a straddle divides a span that has
+      // already cleared MIN_SPAN_WORDS as a whole.
+      const boundary = a.norm.split(' ').length;
+      const words = combined.split(' ');
+      const at = words.findIndex((_, k) =>
+        ` ${words.slice(k).join(' ')} `.startsWith(paddedSpan.slice(0, -1)));
+      if (at < 0) continue;
+      const spanLen = spanNorm.split(' ').length;
+      const left = words.slice(at, boundary).filter(w => w.length > 1).length;
+      const right = words.slice(boundary, at + spanLen).filter(w => w.length > 1).length;
+      if (left < 2 || right < 2) continue;
       const id = `${a.key}-${b.key}`;
       pairHits.set(id, { verse: id, score: spanNorm.length / combined.length });
     }
@@ -511,8 +558,12 @@ for (let id = 1; id <= 56; id++) {
       // recitation formulas, not citations of a specific verse, so leave
       // them unmatched rather than guess. isPoem() already excludes this
       // at paragraph-start; this catches the same patterns mid-paragraph.
+      // Only the formula itself is removed -- see stripRecitationFormula --
+      // because the compiler prints the basmala and the sūra's first āya
+      // inside one set of parentheses, and the āya is a citation.
       const spanNorm = normalizeAr(span);
-      const match = BASMALA_PATTERN_NORM.test(spanNorm) ? null : findMatch(spanNorm, candidates, scope);
+      const citable = stripRecitationFormula(spanNorm);
+      const match = citable ? findMatch(citable, candidates, scope) : null;
       if (match) totalMatched++;
       if (match && match.type === 'ambiguous') {
         totalAmbiguous++;

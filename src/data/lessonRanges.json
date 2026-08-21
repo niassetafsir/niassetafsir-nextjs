@@ -57,7 +57,7 @@
   "volume": 1,
   "page": 96,
   "span": 46,
-  "attested": 32
+  "attested": 33
  },
  "5": {
   "start": [
@@ -72,7 +72,7 @@
   "volume": 1,
   "page": 120,
   "span": 97,
-  "attested": 75
+  "attested": 76
  },
  "6": {
   "start": [
@@ -87,7 +87,7 @@
   "volume": 1,
   "page": 167,
   "span": 50,
-  "attested": 41
+  "attested": 42
  },
  "7": {
   "start": [
@@ -102,7 +102,7 @@
   "volume": 2,
   "page": 3,
   "span": 48,
-  "attested": 25
+  "attested": 26
  },
  "8": {
   "start": [
@@ -222,7 +222,7 @@
   "volume": 3,
   "page": 84,
   "span": 74,
-  "attested": 50
+  "attested": 53
  },
  "16": {
   "start": [
@@ -252,7 +252,7 @@
   "volume": 3,
   "page": 159,
   "span": 55,
-  "attested": 42
+  "attested": 43
  },
  "18": {
   "start": [
@@ -267,7 +267,7 @@
   "volume": 3,
   "page": 191,
   "span": 87,
-  "attested": 48
+  "attested": 50
  },
  "19": {
   "start": [
@@ -282,7 +282,7 @@
   "volume": 3,
   "page": 216,
   "span": 83,
-  "attested": 50
+  "attested": 52
  },
  "20": {
   "start": [
@@ -312,7 +312,7 @@
   "volume": 4,
   "page": 44,
   "span": 68,
-  "attested": 39
+  "attested": 41
  },
  "22": {
   "start": [
@@ -357,7 +357,7 @@
   "volume": 4,
   "page": 165,
   "span": 89,
-  "attested": 48
+  "attested": 49
  },
  "25": {
   "start": [
@@ -372,7 +372,7 @@
   "volume": 4,
   "page": 196,
   "span": 78,
-  "attested": 42
+  "attested": 44
  },
  "26": {
   "start": [
@@ -402,7 +402,7 @@
   "volume": 5,
   "page": 39,
   "span": 77,
-  "attested": 69
+  "attested": 67
  },
  "28": {
   "start": [
@@ -432,7 +432,7 @@
   "volume": 5,
   "page": 100,
   "span": 188,
-  "attested": 85
+  "attested": 87
  },
  "30": {
   "start": [
@@ -462,7 +462,7 @@
   "volume": 6,
   "page": 3,
   "span": 110,
-  "attested": 65
+  "attested": 66
  },
  "32": {
   "start": [
@@ -477,7 +477,7 @@
   "volume": 6,
   "page": 40,
   "span": 138,
-  "attested": 53
+  "attested": 55
  },
  "33": {
   "start": [
@@ -492,7 +492,7 @@
   "volume": 6,
   "page": 84,
   "span": 152,
-  "attested": 71
+  "attested": 72
  },
  "34": {
   "start": [
@@ -507,7 +507,7 @@
   "volume": 6,
   "page": 122,
   "span": 133,
-  "attested": 74
+  "attested": 73
  },
  "35": {
   "start": [
@@ -522,7 +522,7 @@
   "volume": 6,
   "page": 167,
   "span": 122,
-  "attested": 58
+  "attested": 60
  },
  "36": {
   "start": [
@@ -537,7 +537,7 @@
   "volume": 7,
   "page": 3,
   "span": 137,
-  "attested": 58
+  "attested": 60
  },
  "37": {
   "start": [
@@ -552,7 +552,7 @@
   "volume": 7,
   "page": 52,
   "span": 285,
-  "attested": 123
+  "attested": 131
  },
  "38": {
   "start": [
@@ -582,7 +582,7 @@
   "volume": 7,
   "page": 145,
   "span": 147,
-  "attested": 71
+  "attested": 74
  },
  "40": {
   "start": [
@@ -627,7 +627,7 @@
   "volume": 8,
   "page": 55,
   "span": 245,
-  "attested": 99
+  "attested": 101
  },
  "43": {
   "start": [
@@ -642,7 +642,7 @@
   "volume": 8,
   "page": 105,
   "span": 214,
-  "attested": 82
+  "attested": 83
  },
  "44": {
   "start": [
@@ -657,7 +657,7 @@
   "volume": 8,
   "page": 159,
   "span": 131,
-  "attested": 86
+  "attested": 90
  },
  "45": {
   "start": [
@@ -687,7 +687,7 @@
   "volume": 9,
   "page": 3,
   "span": 163,
-  "attested": 66
+  "attested": 69
  },
  "47": {
   "start": [
@@ -696,18 +696,18 @@
   ],
   "end": [
    51,
-   24
+   27
   ],
   "exact": false,
   "volume": 9,
   "page": 56,
-  "span": 106,
-  "attested": 43
+  "span": 109,
+  "attested": 47
  },
  "48": {
   "start": [
    51,
-   25
+   28
   ],
   "end": [
    54,
@@ -716,7 +716,7 @@
   "exact": false,
   "volume": 9,
   "page": 108,
-  "span": 202,
+  "span": 199,
   "attested": 68
  },
  "49": {
@@ -732,7 +732,7 @@
   "volume": 9,
   "page": 152,
   "span": 203,
-  "attested": 40
+  "attested": 42
  },
  "50": {
   "start": [
@@ -747,7 +747,7 @@
   "volume": 9,
   "page": 189,
   "span": 73,
-  "attested": 53
+  "attested": 55
  },
  "51": {
   "start": [
@@ -762,7 +762,7 @@
   "volume": 10,
   "page": 3,
   "span": 64,
-  "attested": 34
+  "attested": 35
  },
  "52": {
   "start": [
@@ -777,7 +777,7 @@
   "volume": 10,
   "page": 52,
   "span": 206,
-  "attested": 90
+  "attested": 92
  },
  "53": {
   "start": [
@@ -807,7 +807,7 @@
   "volume": 10,
   "page": 129,
   "span": 276,
-  "attested": 59
+  "attested": 58
  },
  "55": {
   "start": [
@@ -822,7 +822,7 @@
   "volume": 10,
   "page": 167,
   "span": 273,
-  "attested": 87
+  "attested": 88
  },
  "56": {
   "start": [
