@@ -19,7 +19,7 @@ const TOOLS = [
     href: '/term',
     titleAr: 'فهرس المصطلحات المعرَّفة',
     titleEn: 'Terms He Defines',
-    desc: 'Passages where Shaykh Ibrāhīm stops to fix the sense of a word rather than construe a verse — ikhlāṣ, hayba, sayr, the quṭb — each cited to its page and its date, and marked where he adopts another man\'s formulation rather than coining his own.',
+    desc: 'What he means by a word. The passages where he stops to fix a term\'s sense — ikhlāṣ, hayba, sayr, the quṭb — each cited to its page and its date, and marked where he adopts another man\'s formulation rather than coining his own. For where a term merely appears, use the concordance below.',
     tier: 'scholar',
   },
   {
@@ -51,14 +51,7 @@ const TOOLS = [
     href: '/glossary',
     titleAr: 'فهرس المصطلحات',
     titleEn: 'Concordance of Terms',
-    desc: '{terms} theological and Sufi terms — every occurrence across the corpus, in context.',
-    tier: 'scholar',
-  },
-  {
-    href: '/glossary-map',
-    titleAr: 'خريطة المصطلحات',
-    titleEn: 'Map of Terms',
-    desc: 'The same terms laid out by how they cluster, rather than alphabetically.',
+    desc: 'Where a word appears. Every occurrence of {terms} theological and Sufi terms across the corpus, in context, and how they cluster. For the passages that define one rather than use it, see Terms He Defines above.',
     tier: 'scholar',
   },
   {
@@ -69,17 +62,10 @@ const TOOLS = [
     tier: 'research',
   },
   {
-    href: '/clips',
-    titleAr: 'اقتباسات البحث',
-    titleEn: 'Research Clips',
-    desc: 'Select any passage — Chicago citation generated automatically.',
-    tier: 'personal',
-  },
-  {
-    href: '/bookmarks',
+    href: '/saved',
     titleAr: 'المحفوظات',
-    titleEn: 'Bookmarks',
-    desc: 'Save passages for later study.',
+    titleEn: 'Saved Passages',
+    desc: 'Anything you have kept, with a Chicago citation generated for each. /bookmarks and /clips were two cards here for one action and now redirect to this page.',
     tier: 'personal',
   },
 ];

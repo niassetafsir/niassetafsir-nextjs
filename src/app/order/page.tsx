@@ -1,3 +1,4 @@
+import Link from 'next/link';
 export default function OrderPage() {
   return (
     <main className="max-w-2xl mx-auto px-6 pb-20 pt-8" dir="ltr">
@@ -124,6 +125,18 @@ export default function OrderPage() {
           You will receive a response to your email with pricing and payment details.
         </p>
       </form>
+
+      {/* /preorder was reachable only by typing the URL: nothing in the site
+          linked to it, while the About menu promised "Order, and register for
+          the bilingual" from here. This is the link that was missing. */}
+      <p className="font-english text-sm text-center mt-8 pt-6 border-t"
+        style={{borderColor:'rgba(201,168,76,0.15)', color:'rgba(255,255,255,0.45)'}}>
+        The bilingual Arabic–English edition is in preparation.{' '}
+        <Link href="/preorder" className="transition-opacity hover:opacity-75"
+          style={{color:'var(--gold, #C9A84C)', borderBottom:'1px dotted rgba(201,168,76,0.4)'}}>
+          Register your interest
+        </Link>.
+      </p>
     </main>
   );
 }
