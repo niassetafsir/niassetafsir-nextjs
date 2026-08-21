@@ -486,18 +486,18 @@
   ],
   "end": [
    21,
-   57
+   63
   ],
   "exact": false,
   "volume": 6,
   "page": 84,
-  "span": 152,
-  "attested": 72
+  "span": 158,
+  "attested": 75
  },
  "34": {
   "start": [
    21,
-   58
+   64
   ],
   "end": [
    22,
@@ -506,7 +506,7 @@
   "exact": false,
   "volume": 6,
   "page": 122,
-  "span": 133,
+  "span": 127,
   "attested": 73
  },
  "35": {
