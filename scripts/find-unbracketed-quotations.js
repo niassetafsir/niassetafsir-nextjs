@@ -116,6 +116,36 @@ function normalizeAr(text) {
     .replace(/[،؛؟!:"'«»()\[\]]/g, '').replace(/\s+/g, ' ').trim();
 }
 
+// --- Paragraph indexing, matching scripts/match-verses.js -------------------
+//
+// verseIndexAuto.json is keyed by paragraph index AFTER isPoem() filtering, so
+// these must agree with match-verses.js and src/lib/arabicCommentary.ts
+// character for character or the jump index points at the wrong paragraph.
+
+const POEM_PATTERN = /^(يا ?همة الشيخ|ياهمة الشيخ|لنا بهذا المحضر|ولتعطفي بنظرة|تأتي لنا بالظفر|يا همة)/;
+const BASMALA_PATTERN = /^(أعوذ بالله|بسم الله|اللهم صل)/;
+function isPoem(text) {
+  return POEM_PATTERN.test(text.trim()) || BASMALA_PATTERN.test(text.trim());
+}
+
+/** [{ paraIndex, from, to }] over the raw body, kept paragraphs only. */
+function paragraphSpans(raw) {
+  const out = [];
+  let at = 0, paraIndex = 0;
+  for (const line of raw.split('\n')) {
+    if (line.trim() && !isPoem(line)) {
+      out.push({ paraIndex: paraIndex++, from: at, to: at + line.length });
+    }
+    at += line.length + 1;
+  }
+  return out;
+}
+
+function paraAt(spans, offset) {
+  for (const s of spans) if (offset >= s.from && offset <= s.to) return s.paraIndex;
+  return null;
+}
+
 // --- Which letter confusions this OCR is known to make ---------------------
 
 const provedClasses = new Map();
@@ -208,6 +238,7 @@ for (let id = 1; id <= 56; id++) {
   if (!body) continue;
 
   const bracketed = proseMask(body);
+  const paras = paragraphSpans(body);
   const words = [];
   let m;
   TOKEN.lastIndex = 0;
@@ -267,7 +298,13 @@ for (let id = 1; id <= 56; id++) {
     wj += pending.length;
 
     totalRuns++;
-    allRuns.push({ lesson: id, verse: verse.key, words: wi - wj - 1 });
+    allRuns.push({
+      lesson: id,
+      verse: verse.key,
+      words: wi - wj - 1,
+      paraIndex: paraAt(paras, words[wj + 1].at),
+      text: words.slice(wj + 1, wi).map(w => w.raw).join(' '),
+    });
     if (repairs.length) {
       for (const r of repairs) {
         const k = `${r.from}→${r.to}`;

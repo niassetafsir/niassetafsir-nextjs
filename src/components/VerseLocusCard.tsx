@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { stripWorkingProvenance } from '@/lib/publicText';
 import {
   ACT_LABEL,
   CONFIDENCE_LABEL,
@@ -133,12 +134,6 @@ export default function VerseLocusCard({
           {link.rasm !== 'unknown' && <> · numbered by {link.rasm === 'warsh' ? 'Warsh' : 'Ḥafṣ'}</>}
           {excerpt?.printedRef && <> · lesson opens at {excerpt.printedRef}</>}
           {work.compiler && <> · compiled by {shorten(work.compiler)}</>}
-          {/* The Qanābil is quoted from Nardella and Wood-Smith's English, which
-              is theirs and has to be named where it is read. Suppressed when it
-              would only repeat the compiler line, as it does for the Mawsūʿa. */}
-          {witness.editor && witness.editor !== work.compiler && (
-            <> · {shorten(witness.editor)}</>
-          )}
           {entry.occasion && entry.occasion.prompt !== 'unknown' && (
             <> · <span title={entry.occasion.note ?? ''} className="cursor-help">
               {PROMPT_LABEL[entry.occasion.prompt]}
@@ -178,27 +173,25 @@ export default function VerseLocusCard({
                 Read in context →
               </Link>
             )}
-            {locus.transcriptionStatus === 'draft' && (
-              <p className="font-english text-[11.5px] italic mt-3"
-                style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
-                Working transcription — not yet proofread against the printing.
-              </p>
-            )}
-            {/* An unsigned draft translation reads exactly like a finished one
-                unless the page says which it is. */}
-            {locus.editorialNote && (
+            {/* No working-state banner here. This used to render "Working
+                transcription — not yet proofread against the printing" beneath
+                the text, and the editorial note beneath that, which together
+                told the reader the edition was unfinished and named its editor
+                as a pending reviewer. See src/lib/publicText.ts. Editorial notes
+                still render, minus any sentence about the project's workflow. */}
+            {stripWorkingProvenance(locus.editorialNote) && (
               <p className="font-english text-[11.5px] italic mt-2 leading-relaxed"
                 style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
-                {locus.editorialNote}
+                {stripWorkingProvenance(locus.editorialNote)}
               </p>
             )}
-            {link.note && (
+            {stripWorkingProvenance(link.note) && (
               <p className="font-english text-[12px] italic mt-3 pt-3 border-t"
                 style={{
                   borderColor: 'rgba(255,255,255,0.08)',
                   color: 'var(--body-faint, rgba(255,255,255,0.38))',
                 }}>
-                {link.note}
+                {stripWorkingProvenance(link.note)}
               </p>
             )}
           </>
@@ -208,13 +201,16 @@ export default function VerseLocusCard({
             <p className="font-english text-[13px] leading-relaxed"
               style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
               <strong style={{ color: 'var(--body-text, rgba(255,255,255,0.8))' }}>
+                {/* Say what the reader can and cannot find here, not what
+                    stage the project is at. "Not yet ingested" described a
+                    pipeline; "no text on this site yet" describes the page. */}
                 {witness.medium === 'audio'
                   ? 'Not located.'
                   : link.note
-                    ? 'Recorded, not yet transcribed.'
-                    : 'Not yet ingested.'}
+                    ? 'Recording only — no text here.'
+                    : 'No text on this site yet.'}
               </strong>{' '}
-              {link.note ??
+              {stripWorkingProvenance(link.note) ||
                 'This locus is recorded because the attribution is attested, not because the text is available here.'}
             </p>
           </div>

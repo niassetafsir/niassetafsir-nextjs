@@ -26,6 +26,23 @@ export interface VerseIndexEntry {
   paraIndex: number;
   /** Set when the match is uncertain (partial quote, compound citation, etc.) */
   uncertain?: boolean;
+  /**
+   * Set when this edition identified the quotation, rather than reading it off
+   * the compiler's parentheses.
+   *
+   * The compiler brackets the lemma a session is commenting on. Niasse also
+   * reaches across the muṣḥaf constantly -- 37.9% of the unbracketed
+   * quotations fall outside their lesson's declared range, against 1.7% of the
+   * bracketed ones -- and those reaches carry no brackets at all. They are
+   * found instead by locating a run of five consecutive words that occurs
+   * word-aligned in exactly one āya of the 6,236 (scripts/find-unbracketed-
+   * quotations.js), and added by scripts/add-editorial-verse-index.js.
+   *
+   * Marked, never merged. A citation the compiler bracketed is one kind of
+   * evidence and one identified by method is another, and the reader is
+   * entitled to know which he is looking at.
+   */
+  editorial?: boolean;
 }
 
 // Lessons 1-3 below were hand-curated/spot-checked (see the comments on
@@ -96,12 +113,34 @@ const HAND_CURATED_VERSE_INDEX: Record<number, VerseIndexEntry[]> = {
 
 const AUTO_VERSE_INDEX = autoIndexRaw as unknown as Record<string, VerseIndexEntry[]>;
 
-// Merge: hand-curated lessons win outright (their entries are never mixed
-// with or overridden by the automated ones, even partially) -- everything
-// else falls back to the automated index when available.
+// Merge: hand-curated lessons win outright -- their entries are never
+// overridden or reordered by the automated ones -- and everything else falls
+// back to the automated index.
+//
+// With one addition. A hand-curated lesson still takes EDITORIAL entries, the
+// unbracketed quotations, because those are not rival readings of anything the
+// hand curation covers: they are verses from elsewhere in the muṣḥaf that the
+// curation never had occasion to list. Lesson 1 is the case that forced this.
+// It walks through al-Fātiḥa, and it quotes Q 42:11 لَيْسَ كَمِثْلِهِ شَيْءٌ and
+// Q 75:16 لَا تُحَرِّكْ بِهِۦ لِسَانَكَ along the way. Discarding the automated
+// index wholesale threw both away -- and they are precisely the cross-Qurʾānic
+// reaching that makes an oral tafsīr worth indexing by verse in the first
+// place.
+//
+// Nothing is overridden: an editorial entry is dropped if the curated list
+// already names that verse at that paragraph.
 export const VERSE_INDEX: Record<number, VerseIndexEntry[]> = { ...HAND_CURATED_VERSE_INDEX };
 for (const key of Object.keys(AUTO_VERSE_INDEX)) {
   const lessonId = Number(key);
-  if (HAND_CURATED_VERSE_INDEX[lessonId]) continue;
-  VERSE_INDEX[lessonId] = AUTO_VERSE_INDEX[key];
+  const curated = HAND_CURATED_VERSE_INDEX[lessonId];
+  if (!curated) {
+    VERSE_INDEX[lessonId] = AUTO_VERSE_INDEX[key];
+    continue;
+  }
+  const extra = AUTO_VERSE_INDEX[key].filter(
+    e => e.editorial && !curated.some(c => c.verse === e.verse && c.paraIndex === e.paraIndex));
+  if (extra.length) {
+    VERSE_INDEX[lessonId] = [...curated, ...extra]
+      .sort((a, b) => a.paraIndex - b.paraIndex || a.verse.localeCompare(b.verse));
+  }
 }

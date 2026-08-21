@@ -11,26 +11,18 @@
  * NOT ALL OF THEM, AND THAT IS THE POINT
  *
  * "Proved" means the scan produces this misreading, not that every instance of
- * the damaged spelling is one. Nine of the 83 are words in their own right,
- * and in Niasse's prose that is very likely what they are:
+ * the damaged spelling is one. Some of the 83 are words in their own right, and
+ * in Niasse's prose that may well be what they are. Those are held, with their
+ * contexts, in translation-drafts/prose-ocr-hold.md -- see the table below for
+ * which, and why.
  *
- *     قلما   qallamā, "rarely" -- 15 occurrences, and a commentator's word
- *     قلا    qalā, "he detested" -- Q 93:3, وَمَا قَلَىٰ
- *     حفت    ḥaffat, "it encircled" -- the false positive that started this
- *     خلفت   khalafat, "she succeeded"
- *     خلفا   khalafan, "a successor" -- and Q 7:169 uses خَلْف this way
- *     فوه    fūhu, "his mouth"
- *     فوم    fūm -- Q 2:61's وَفُومِهَا
- *     قمن    qamin, "worthy of", as in قَمِنٌ بأن
- *     الفي   ambiguous: al-fayʾ, or ulfiya
+ * A first pass held nine. Reading the contexts settled five: four were
+ * unbracketed Qurʾān throughout and are now applied, one was never a candidate
+ * at all. Four remain genuinely mixed, and for those the unit of decision is
+ * the instance, not the form.
  *
- * Each is also a form the scan really does produce, which is why they cleared
- * the evidence bar. Frequency cannot separate the two readings, and neither
- * can the Qurʾān; only a lexicon and the clause can. They are listed in
- * translation-drafts/prose-ocr-hold.md with their contexts.
- *
- * Held forms are not a defect in the bucketing. They are what the bucketing is
- * for -- it reduced 605 lexicon decisions to nine that actually matter.
+ * Held forms are not a defect in the bucketing. They are what it is for: 605
+ * lexical decisions reduced to four that actually matter.
  *
  * SCOPE
  *
@@ -51,17 +43,52 @@ const HOLD_MD = path.join(__dirname, '..', 'translation-drafts', 'prose-ocr-hold
 
 const WRITE = process.argv.includes('--write');
 
-/** Damaged forms that are also ordinary Arabic. Held for AK's judgement. */
+/**
+ * Forms held back from the attested bucket, and why.
+ *
+ * The first pass held nine. Reading their contexts settled five of them, which
+ * is the point AK made and the method the buckets were built to serve: a
+ * lexical decision is made in the clause, not in a frequency table.
+ *
+ * REJECTED OUTRIGHT -- never apply, in any pass:
+ *
+ *   الفي   Not القي at all. Every one of the seven is أَلْفَيْ, "two thousand" --
+ *          two thousand miracles, two thousand robes a year, a distance of two
+ *          thousand years. The proposal was simply wrong.
+ *
+ * STILL HELD -- genuinely mixed, so each instance needs deciding, not the form:
+ *
+ *   قلما   Q 6:44 فَلَمَّا نَسُوا and Q 6:76 فَلَمَّا جَنَّ عَلَيْهِ اِ۬لَّيْلُ are OCR.
+ *          But Lesson 13's صاحب القلم سمي قلما is the Pen.
+ *   حفت    Lessons 24 and 29 are Qurʾānic -- Niasse glosses the word وجبت, so
+ *          he reads حَقَّتْ. Lesson 4's سحابة حفت المدينة is a cloud encircling
+ *          the city: ḥaffat, and the false positive that started all of this.
+ *   خلفت   Q 38:75 لِمَا خَلَقْتُ بِيَدَيَّ and Q 17:61 لِمَنْ خَلَقْتَ طِيناً are OCR.
+ *          Lesson 26 is Abū Bakr's testament, "I have left ʿUmar among you".
+ *   خلفا   Both of Lesson 30's are Q 17:49 and 17:51, خَلْقاً جَدِيداً. Lesson 7
+ *          glosses faḍl as رزقا خلفا منه, provision as a replacement.
+ *
+ * RELEASED this pass -- every occurrence turned out to be unbracketed Qurʾān:
+ *
+ *   قلا    Q 75:31 فَلَا صَدَّقَ وَلَا صَلَّىٰ · Q 2:150 فَلَا تَخْشَوْهُمْ
+ *   فوه    Q 11:80 لَوْ أَنَّ لِي بِكُمْ قُوَّةً · Q 18:39 لَا قُوَّةَ إِلَّا بِاللَّهِ
+ *   فوم    Q 7:109 اَ۬لْمَلَؤُاْ مِن قَوْمِ فِرْعَوْنَ · حَرْثَ قَوْمٍ
+ *   قمن    Q 2:173 فَمَنِ اُ۬ضْطُرَّ · Q 28:27 فَمِنْ عِندِكَ
+ *
+ * That they were unbracketed is not incidental. 37.9% of unbracketed
+ * quotations fall outside their lesson's declared range against 1.7% of
+ * bracketed ones, so the prose is exactly where Niasse's cross-Qurʾānic
+ * reaching lives -- and exactly where the bracket rule could not follow him.
+ */
+const REJECT = new Map([
+  ['الفي', 'أَلْفَيْ, "two thousand" — the proposal was wrong'],
+]);
+
 const HOLD = new Map([
-  ['قلما', 'qallamā, "rarely" — a commentator\'s word, and common in this text'],
-  ['قلا', 'qalā, "he detested" — Q 93:3 وَمَا قَلَىٰ'],
-  ['حفت', 'ḥaffat, "it encircled" — the false positive that started this'],
-  ['خلفت', 'khalafat, "she succeeded / left behind"'],
-  ['خلفا', 'khalafan, "a successor" — Q 7:169 uses خَلْف in just this sense'],
-  ['فوه', 'fūhu, "his mouth"'],
-  ['فوم', 'fūm — Q 2:61 وَفُومِهَا'],
-  ['قمن', 'qamin, "worthy of", as in قَمِنٌ بأن'],
-  ['الفي', 'ambiguous — al-fayʾ (shade, spoils) or ulfiya'],
+  ['قلما', 'qallamā "rarely" / al-qalam the Pen, against Q 6:44, 6:76 فَلَمَّا'],
+  ['حفت', 'ḥaffat "it encircled" against Q 10:33 حَقَّتْ — mixed, L4 vs L24/L29'],
+  ['خلفت', 'khallaftu "I left behind" against Q 38:75 خَلَقْتُ — mixed, L26 vs L29/L30'],
+  ['خلفا', 'khalafan "a replacement" against Q 17:49 خَلْقاً — mixed, L7 vs L30'],
 ]);
 
 const TOKEN = /[ء-يٱےۓً-ْٰ]+/g;
@@ -78,7 +105,7 @@ const worksheet = JSON.parse(fs.readFileSync(WORKSHEET, 'utf8'));
 const apply = new Map();   // normalised damaged -> normalised proposed
 const held = [];
 for (const r of worksheet.attested) {
-  if (HOLD.has(r.damaged)) { held.push(r); continue; }
+  if (REJECT.has(r.damaged) || HOLD.has(r.damaged)) { held.push(r); continue; }
   apply.set(r.damaged, r.proposed);
 }
 
@@ -157,13 +184,13 @@ md.push('');
 md.push('| form | proposed | in prose | proved | why it is held |');
 md.push('|---|---|---|---|---|');
 for (const r of held) {
-  md.push(`| ${r.damaged} | ${r.proposed} | ${r.proseHits} | ${r.provedInQuotations}× | ${HOLD.get(r.damaged)} |`);
+  md.push(`| ${r.damaged} | ${r.proposed} | ${r.proseHits} | ${r.provedInQuotations}× | ${REJECT.has(r.damaged) ? '**REJECTED** — ' + REJECT.get(r.damaged) : HOLD.get(r.damaged)} |`);
 }
 md.push('');
 for (const r of held) {
   md.push(`## ${r.damaged} → ${r.proposed}`);
   md.push('');
-  md.push(`*${HOLD.get(r.damaged)}* · ${r.proseHits}× in prose · the scan is proved to produce this form ${r.provedInQuotations}×`);
+  md.push(`*${REJECT.get(r.damaged) || HOLD.get(r.damaged)}* · ${r.proseHits}× in prose · the scan is proved to produce this form ${r.provedInQuotations}×`);
   md.push('');
   for (const c of r.contexts) md.push(`- **L${c.lesson}** — ${c.text}`);
   md.push('');
