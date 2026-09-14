@@ -81,7 +81,11 @@ export default async function AboutPage() {
               <> alongside an English translation of Lesson{facts.translatedCount > 1 ? 's' : ''}{' '}
               {facts.translatedFirst}{facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''}, with more in
               progress</>
-            )}, and comparative passages from <em>Tafsīr al-Jalālayn</em> and <em>Rūḥ al-Bayān</em>.
+            )}. <em>Tafsīr al-Jalālayn</em> and <em>Rūḥ al-Bayān</em> run alongside it verse by
+            verse{facts.comparativeLessons === 1
+              ? ' for al-Fātiḥa (Lesson 1)'
+              : ` for ${facts.comparativeLessons} of ${facts.totalLessons} lessons`}; the
+            remaining sūras are still being transcribed.
           </p>
           <p className="leading-6 mt-3">
             What the research tools are, and what each is for, is listed on the{' '}

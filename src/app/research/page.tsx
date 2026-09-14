@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getEditionFacts } from '@/lib/coverage';
+import { corpusReachPhrase } from '@/lib/corpusReach';
 
 export const metadata: Metadata = {
   title: 'Research Platform',
@@ -12,7 +13,7 @@ const TOOLS = [
     href: '/verse',
     titleAr: 'فهرس الآيات القرآنية',
     titleEn: 'Commentary by Verse',
-    desc: 'Look up any āya and see every place Shaykh Ibrāhīm treats it — the tafsīr, the fatwās, the letters, the poetry — each entry typed by what he is doing with the verse, dated, and graded for how well attested it is. Readings by his students are held separate.',
+    desc: 'Look up any āya and see every place Shaykh Ibrāhīm treats it — Fī Riyāḍ, and beyond it {reach} — each entry typed by what he is doing with the verse, dated, and graded for how well attested it is. Readings by his students are held separate.',
     tier: 'scholar',
   },
   {
@@ -89,7 +90,10 @@ export default async function ResearchPage() {
     .replace('{collections}', n(f.hadithCollections))
     .replace('{terms}', n(f.termCount))
     .replace('{fnLessons}', n(f.footnoteLessons))
-    .replace('{totalLessons}', n(f.totalLessons));
+    .replace('{totalLessons}', n(f.totalLessons))
+    // Named genres are counted from corpus.json, not typed: this card listed
+    // "the letters" while no letter in the corpus carries a single locus.
+    .replace('{reach}', corpusReachPhrase());
 
   return (
     <main className="max-w-4xl mx-auto px-4 pb-20 pt-5" dir="ltr">

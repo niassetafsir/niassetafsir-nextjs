@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { getEditionFacts } from '@/lib/coverage';
 
 /**
  * The tafsīr: what the work is, where it sits in the history of the genre, and
@@ -24,7 +25,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() {
+export default async function Page() {
+  // How far the comparative apparatus actually reaches, counted at build time.
+  // "The two companion texts featured in this edition" below is a claim about
+  // Niasse's reading; without this it also reads as a claim about the site,
+  // where the pair is transcribed for al-Fātiḥa alone.
+  const facts = await getEditionFacts();
   return (
     <main className="max-w-3xl mx-auto px-6 pb-24 pt-6" dir="ltr">
       <div className="mb-2">
@@ -116,6 +122,14 @@ export default function Page() {
           interlocutors of <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>. Their inclusion here
           reflects the scholarly consensus established in the academic literature on Niasse&apos;s
           tafsīr, and their relationship to his commentary defines the intellectual character of the work.
+        </p>
+
+        <p>
+          Both are set beside <em>Fī Riyāḍ</em> verse by verse{facts.comparativeLessons === 1
+            ? ' for al-Fātiḥa, the first session'
+            : ` for ${facts.comparativeLessons} of ${facts.totalLessons} sessions`}. Transcribing
+          the rest is the slowest part of this edition, and the argument below concerns what Niasse
+          read, not what has so far been set beside him here.
         </p>
 
         <div className="pt-4">

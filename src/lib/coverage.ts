@@ -144,6 +144,9 @@ export interface EditionFacts {
   /** Contiguous sūra span of the per-verse Qurʾān recitation, or null if it has
    *  gaps -- in which case the page should not claim a range. */
   quranAudioSurahs: { first: number; last: number } | null;
+  /** Lessons carrying the full comparative apparatus (Jalālayn and Rūḥ
+   *  al-Bayān in Arabic, verse by verse). One today: al-Fātiḥa. */
+  comparativeLessons: number;
   /** Ḥadīth citations in the index, and the collections they run across. */
   hadithCitations: number;
   hadithCollections: number;
@@ -253,6 +256,7 @@ export async function getEditionFacts(): Promise<EditionFacts> {
     translatedCount: translated.length,
     translatedFirst: translated[0] ?? null,
     translatedLast: translated[translated.length - 1] ?? null,
+    comparativeLessons: c.layers.find(l => l.key === 'apparatus')?.count ?? 0,
     audioLessons: c.layers.find(l => l.key === 'audio')?.count ?? 0,
     wolofLessons: lessons.filter(l => l.wolofAudioUrl || l.wolofPlaylistId).length,
     quranAudioSurahs,

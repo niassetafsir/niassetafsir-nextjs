@@ -2,6 +2,7 @@ import Link from 'next/link';
 import HomeSearchBar from '@/components/HomeSearchBar';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { getCoverage, getSpecimen } from '@/lib/coverage';
+import { corpusReachPhrase } from '@/lib/corpusReach';
 
 /**
  * Homepage.
@@ -24,6 +25,10 @@ export default async function HomePage() {
   const coverage = await getCoverage();
   const specimen = await getSpecimen();
   const arabicLayer = coverage.layers.find(l => l.key === 'arabic');
+  // Which genres outside the tafsīr the verse index actually reaches, counted
+  // from corpus.json. Both sentences below used to name "letters", which have
+  // no loci at all, and one named "the recordings", which have none either.
+  const reach = corpusReachPhrase();
   const audio = coverage.layers.find(l => l.key === 'audio');
 
   return (
@@ -51,8 +56,8 @@ export default async function HomePage() {
         <p className="font-english text-base leading-relaxed mb-4"
           style={{ color: 'var(--body-sub, rgba(232,232,224,0.70))' }}>
           The complete Arabic of his {arabicLayer?.count ?? coverage.totalLessons} sessions,
-          digitally edited for the first time, indexed verse by verse alongside his
-          fatwās, letters and poetry. English translation in progress.
+          digitally edited for the first time, indexed verse by verse alongside{' '}
+          {reach}. English translation in progress.
         </p>
         <p className="font-english text-sm"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
@@ -87,9 +92,9 @@ export default async function HomePage() {
           </p>
           <p className="font-english text-[13.5px] leading-relaxed"
             style={{ color: 'var(--body-sub, rgba(232,232,224,0.6))' }}>
-            He commented on the Qurʾān in more than the tafsīr — in fatwās, letters, poetry and
-            the recordings. Look up an āya and see every place it survives, each entry dated and
-            marked for what he is doing with the verse.
+            He commented on the Qurʾān in more than the tafsīr — in {reach}. Look up an āya
+            and see every place it survives, each entry dated and marked for what he is doing
+            with the verse.
           </p>
         </Link>
       </section>
