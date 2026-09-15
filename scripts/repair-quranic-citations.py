@@ -1,26 +1,38 @@
 #!/usr/bin/env python3
 """
-Repair the Qurʾānic citations in the lesson Arabic against the Warsh text.
+Repair the Qurʾānic citations in the lesson Arabic against the Warsh text. v2.
 
-AK's rule, from the repair programme: inside ( ) and « » a divergence from the
-āya is an error by definition; outside them the words are Niasse's. This script
-acts only inside those marks, and only where a span matches a run of the muṣḥaf
-well enough to be certain which run it is.
+v1 (reverted in 5217d2f) corrupted five āyāt by substituting a different verse,
+clipped the trailing mark off every span it touched, and imported the rubʿ
+al-ḥizb sign into the text. Five changes answer those failures:
 
-How it decides. Each sūra is treated as one continuous stream of words, so a
-citation that runs across an āya boundary matches as one thing. Words are
-compared with the diacritics and orthography stripped, since that is exactly
-what the scan destroys. A span is repaired when the best matching window scores
-at or above the threshold AND the next-best window elsewhere in the muṣḥaf
-scores clearly worse -- a span that matches two places equally is left alone.
+  1. A word ends after its trailing combining marks, not at its last consonant,
+     so a case vowel or a silent ṣila yāʾ is no longer clipped.
+  2. Any span carrying a stray delimiter, a footnote digit, a brace, Latin
+     script, or a token with no Arabic letter at all is skipped outright. Those
+     tokens were counted as words and displaced the whole matching window.
+  3. The muṣḥaf slice is cleaned of ۞ and of the bidi marks; a division sign is
+     no part of an āya.
+  4. Word similarity is Levenshtein, not positional character overlap. Under v1
+     a single OCR insertion inside a word scored it 0.0 and handed the span to
+     the wrong candidate.
+  5. A span must agree with its neighbours. Spans are read in document order and
+     a running position is carried; a candidate that continues where the last
+     accepted span left off is preferred, and one that jumps to another sūra
+     must beat its rivals by a wide margin to be believed. Every one of v1's
+     eight wrong-verse substitutions sat inside a run of its true neighbours.
 
-Nothing is written without --write. Every change is reported.
+Dry run by default. --write applies. A lesson id limits it to that lesson.
 """
 import json, io, os, re, sys, unicodedata
 from collections import defaultdict
 
 REPO = os.environ['HOME'] + '/mnt/Documents/GitHub/niassetafsir-nextjs'
 MARKS = set(range(0x0610, 0x0620)) | set(range(0x064B, 0x0660)) | set(range(0x06D6, 0x06ED + 1)) | {0x0670}
+STRIP_FROM_SLICE = {0x06DE, 0x200E, 0x200F, 0x061C}          # ۞ and the bidi marks
+ARABIC = lambda ch: 0x0620 <= ord(ch) <= 0x064A or ch in 'ءآأؤإئا'
+DIGITS = set('0123456789٠١٢٣٤٥٦٧٨٩')
+FORBIDDEN_IN_SPAN = set('{}[]()«»<>') | DIGITS
 
 def norm_char(ch):
     if ch in 'أإآٱ': return 'ا'
@@ -29,43 +41,52 @@ def norm_char(ch):
     if ch in 'ؤئ': return 'ء'
     return ch
 
-def skel(s):
-    """Skeleton + index map back into s."""
-    out, idx = [], []
+def words_of(s):
+    """[(skeleton, start, end)] — end runs past the word's trailing marks."""
+    res, cur, start, last = [], [], None, None
     for i, ch in enumerate(s):
         if ord(ch) in MARKS or unicodedata.category(ch) == 'Mn':
             continue
-        out.append(norm_char(ch)); idx.append(i)
-    return ''.join(out), idx
-
-def words_of(s):
-    """[(skeleton_word, start_in_s, end_in_s)] for a raw Arabic string."""
-    sk, idx = skel(s)
-    res, cur, start = [], [], None
-    for k, ch in enumerate(sk):
         if ch.isspace():
-            if cur:
-                res.append((''.join(cur), start, idx[k - 1] + 1)); cur = []
+            if cur: res.append((''.join(cur), start, last)); cur = []
             continue
-        if not cur: start = idx[k]
-        cur.append(ch)
-    if cur: res.append((''.join(cur), start, idx[len(sk) - 1] + 1))
-    return [(w, a, b) for (w, a, b) in res if w]
+        if not cur: start = ch and i
+        cur.append(norm_char(ch)); last = i
+    if cur: res.append((''.join(cur), start, last))
+    out = []
+    for w, a, b in res:
+        e = b + 1
+        while e < len(s) and (ord(s[e]) in MARKS or unicodedata.category(s[e]) == 'Mn'):
+            e += 1
+        if w: out.append((w, a, e))
+    return out
+
+def lev(a, b, cap=4):
+    if a == b: return 0
+    la, lb = len(a), len(b)
+    if abs(la - lb) > cap: return cap + 1
+    prev = list(range(lb + 1))
+    for i in range(1, la + 1):
+        cur = [i] + [0] * lb
+        best = cur[0]
+        for j in range(1, lb + 1):
+            cur[j] = min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] != b[j - 1]))
+            best = min(best, cur[j])
+        if best > cap: return cap + 1
+        prev = cur
+    return prev[lb]
 
 def sim(a, b):
-    """Cheap character similarity, 0..1. OCR damage is mostly single letters."""
     if a == b: return 1.0
     if not a or not b: return 0.0
-    if abs(len(a) - len(b)) > 2: return 0.0
-    same = sum(1 for x, y in zip(a, b) if x == y)
-    return same / max(len(a), len(b))
+    d = lev(a, b)
+    m = max(len(a), len(b))
+    return max(0.0, 1.0 - d / m)
 
-# ── the muṣḥaf as one stream per sūra ────────────────────────────────
 VERSES = json.load(io.open(REPO + '/src/data/verse_text.json', encoding='utf-8'))
-streams = {}   # sura -> {'text': str, 'words': [(skel,a,b)], 'verse_at': [key per word]}
+streams = {}
 for key in sorted(VERSES, key=lambda k: (int(k.split(':')[0]), int(k.split(':')[1]))):
-    s, a = key.split(':')
-    s = int(s)
+    s, _ = key.split(':'); s = int(s)
     ar = VERSES[key]['ar'] if isinstance(VERSES[key], dict) else VERSES[key]
     st = streams.setdefault(s, {'text': '', 'words': [], 'verse_at': []})
     off = len(st['text'])
@@ -74,39 +95,33 @@ for key in sorted(VERSES, key=lambda k: (int(k.split(':')[0]), int(k.split(':')[
     for w, x, y in words_of(ar):
         st['words'].append((w, x + off, y + off)); st['verse_at'].append(key)
 
-# inverted index on rare-ish words for candidate generation
 index = defaultdict(list)
 for s, st in streams.items():
     for i, (w, _, _) in enumerate(st['words']):
-        if len(w) >= 3:
-            index[w].append((s, i))
+        if len(w) >= 3: index[w].append((s, i))
 DF = {w: len(v) for w, v in index.items()}
+
+def clean_slice(t):
+    return ''.join(c for c in t if ord(c) not in STRIP_FROM_SLICE)
 
 def score_window(span_words, s, start):
     st = streams[s]['words']
     if start < 0 or start + len(span_words) > len(st): return 0.0
-    tot = 0.0
-    for k, sw in enumerate(span_words):
-        tot += sim(sw, st[start + k][0])
-    return tot / len(span_words)
+    return sum(sim(sw, st[start + k][0]) for k, sw in enumerate(span_words)) / len(span_words)
 
-def best_matches(span_words, limit=2):
-    """Return the top windows as (score, sura, start)."""
+def candidates(span_words, limit=4):
     votes = defaultdict(int)
-    anchors = sorted(((DF.get(w, 10 ** 9), j, w) for j, w in enumerate(span_words) if len(w) >= 3))[:6]
+    anchors = sorted(((DF.get(w, 10**9), j, w) for j, w in enumerate(span_words) if len(w) >= 3))[:6]
     for df, j, w in anchors:
         if df > 400: continue
-        for (s, i) in index.get(w, ()):
-            votes[(s, i - j)] += 1
-    # near-miss anchors: allow one-letter damage on the rarest word
+        for (s, i) in index.get(w, ()): votes[(s, i - j)] += 1
     if not votes:
         for df, j, w in anchors[:2]:
-            for cand, positions in index.items():
+            for cand, pos in index.items():
                 if sim(cand, w) >= 0.8:
-                    for (s, i) in positions: votes[(s, i - j)] += 1
-    scored = []
-    seen = set()
-    for (s, start), v in sorted(votes.items(), key=lambda kv: -kv[1])[:400]:
+                    for (s, i) in pos: votes[(s, i - j)] += 1
+    scored, seen = [], set()
+    for (s, start), _ in sorted(votes.items(), key=lambda kv: -kv[1])[:400]:
         for d in (-1, 0, 1):
             k = (s, start + d)
             if k in seen: continue
@@ -115,41 +130,58 @@ def best_matches(span_words, limit=2):
     scored.sort(reverse=True)
     return scored[:limit]
 
-SPAN_RE = re.compile(r'\(([^()]{2,400})\)|«([^»]{2,400})»', re.S)
+SPAN_RE = re.compile(r'\(([^()]*)\)|«([^»]*)»', re.S)
 MIN_WORDS = 4
-ACCEPT = 0.82
-MARGIN = 0.10
+ACCEPT_CTX = 0.85      # continuing where the last span left off
+ACCEPT_JUMP = 0.93     # landing somewhere else in the muṣḥaf
+MARGIN_CTX = 0.08
+MARGIN_JUMP = 0.18
+CTX_REACH = 300        # words
 
-def repair_text(ar, report, lesson_id):
-    out = []
-    last = 0
+def skippable(inner):
+    if any(ch in FORBIDDEN_IN_SPAN for ch in inner): return 'stray delimiter or digit'
+    if re.search(r'[A-Za-z]', inner): return 'latin script'
+    for tok in inner.split():
+        if not any(ARABIC(c) for c in tok): return 'non-Arabic token: ' + tok[:12]
+    return None
+
+def repair_text(ar, report, lid):
+    out, ctx = [], None       # ctx = (sura, end_word_index)
     for m in SPAN_RE.finditer(ar):
         inner = m.group(1) if m.group(1) is not None else m.group(2)
-        open_ch, close_ch = ('(', ')') if m.group(1) is not None else ('«', '»')
+        op, cl = ('(', ')') if m.group(1) is not None else ('«', '»')
         sw = [w for (w, _, _) in words_of(inner)]
-        if len(sw) < MIN_WORDS:
+        if len(sw) < MIN_WORDS: continue
+        why = skippable(inner)
+        if why:
+            report['skipped'].append((lid, inner.strip()[:50], why)); continue
+        cands = candidates(sw)
+        if not cands: continue
+        best = None
+        for (sc, s, start) in cands:
+            in_ctx = ctx and s == ctx[0] and 0 <= start - ctx[1] <= CTX_REACH
+            need, marg = (ACCEPT_CTX, MARGIN_CTX) if in_ctx else (ACCEPT_JUMP, MARGIN_JUMP)
+            rivals = [c[0] for c in cands if (c[1], c[2]) != (s, start)]
+            runner = max(rivals) if rivals else 0.0
+            if sc >= need and (sc - runner) >= marg:
+                best = (sc, s, start, bool(in_ctx)); break
+        if not best:
+            sc, s, start = cands[0]
+            report['unsure'].append((lid, inner.strip()[:50], round(sc, 3)))
             continue
-        top = best_matches(sw)
-        if not top: continue
-        score, s, start = top[0]
-        runner = top[1][0] if len(top) > 1 else 0.0
-        if score < ACCEPT or (score - runner) < MARGIN:
-            if score >= 0.6:
-                report['skipped'].append((lesson_id, inner[:60], round(score, 3), round(runner, 3)))
-            continue
-        if score >= 0.999:
-            continue  # already correct
+        sc, s, start, in_ctx = best
+        ctx = (s, start + len(sw))
+        if sc >= 0.999: continue
         st = streams[s]
-        a = st['words'][start][1]
-        b = st['words'][start + len(sw) - 1][2]
-        correct = st['text'][a:b]
-        vfrom = streams[s]['verse_at'][start]
-        vto = streams[s]['verse_at'][start + len(sw) - 1]
-        out.append((m.start(), m.end(), open_ch + correct + close_ch))
-        report['fixed'].append((lesson_id, vfrom if vfrom == vto else vfrom + '–' + vto.split(':')[1],
-                                round(score, 3), inner.strip()[:70], correct[:70]))
+        a, b = st['words'][start][1], st['words'][start + len(sw) - 1][2]
+        correct = clean_slice(st['text'][a:b])
+        vf, vt = st['verse_at'][start], st['verse_at'][start + len(sw) - 1]
+        out.append((m.start(), m.end(), op + correct + cl))
+        report['fixed'].append((lid, vf if vf == vt else vf + '–' + vt.split(':')[1],
+                                round(sc, 3), 'ctx' if in_ctx else 'jump',
+                                inner.strip(), correct))
     if not out: return ar, 0
-    buf = []
+    buf, last = [], 0
     for (a, b, rep) in out:
         buf.append(ar[last:a]); buf.append(rep); last = b
     buf.append(ar[last:])
@@ -158,9 +190,8 @@ def repair_text(ar, report, lesson_id):
 def main():
     write = '--write' in sys.argv
     only = [a for a in sys.argv[1:] if a.isdigit()]
-    report = {'fixed': [], 'skipped': []}
-    d = REPO + '/src/data/lessons'
-    total = 0
+    rep = {'fixed': [], 'skipped': [], 'unsure': []}
+    d = REPO + '/src/data/lessons'; total = 0
     for fn in sorted(os.listdir(d)):
         if not fn.endswith('.json'): continue
         L = json.loads(io.open(d + '/' + fn, encoding='utf-8').read())
@@ -168,20 +199,20 @@ def main():
         if only and str(L['id']) not in only: continue
         key = 'arabicBody' if L.get('arabicBody') else 'arabicText'
         if not L.get(key): continue
-        new, n = repair_text(L[key], report, L['id'])
-        total += n
+        new, n = repair_text(L[key], rep, L['id']); total += n
         if n and write:
             L[key] = new
             io.open(d + '/' + fn, 'w', encoding='utf-8').write(json.dumps(L, ensure_ascii=False))
-    print('=== REPAIRED %d spans%s ===' % (total, '' if write else '  (dry run — nothing written)'))
-    for (lid, v, sc, was, now) in report['fixed']:
-        print('L%-2s %-12s %.2f' % (lid, v, sc))
+    print('=== REPAIRED %d spans%s ===' % (total, '' if write else '   (dry run — nothing written)'))
+    print('    of which continuing a neighbouring citation: %d ; jumping elsewhere: %d\n'
+          % (sum(1 for r in rep['fixed'] if r[3] == 'ctx'), sum(1 for r in rep['fixed'] if r[3] == 'jump')))
+    for (lid, v, sc, kind, was, now) in rep['fixed']:
+        print('L%-2s %-12s %.2f %s' % (lid, v, sc, kind))
         print('    was: ' + was)
         print('    now: ' + now)
-    print('\n=== LEFT ALONE: %d spans matched something but not confidently ===' % len(report['skipped']))
-    for (lid, t, sc, rn) in report['skipped'][:40]:
-        print('L%-2s %.2f (runner %.2f)  %s' % (lid, sc, rn, t))
-    if len(report['skipped']) > 40:
-        print('... and %d more' % (len(report['skipped']) - 40))
+    print('\n=== SKIPPED, span not clean: %d ===' % len(rep['skipped']))
+    for r in rep['skipped']: print('L%-2s %-46s %s' % (r[0], r[1], r[2]))
+    print('\n=== SKIPPED, no confident match: %d ===' % len(rep['unsure']))
+    for r in rep['unsure']: print('L%-2s %.2f  %s' % (r[0], r[2], r[1]))
 
 main()
