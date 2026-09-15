@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git diff *)",
+      "Bash(grep -oE '\\\\[-[^]]{0,120}-\\\\]|\\\\{\\\\+[^}]{0,120}\\\\+\\\\}')",
+      "Bash(node scripts/check-translation-overlap.local.mjs --lesson 6 --online --against ~/refs/removal-of-confusion.txt)",
+      "Bash(echo \"[exit $?]\")",
+      "Bash(ps -p 35671 -o pid=,etime=,command=)"
+    ]
+  }
+}
