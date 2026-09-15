@@ -160,6 +160,28 @@ export default function VerseLocusCard({
 
       {/* body — four states, and all four are shown rather than hidden */}
       <div className="px-4 py-4">
+        {/* The question first. A fatwā is a reply; printed without what was
+            asked, the reader works backwards from the answer to guess it. */}
+        {locus.question && (
+          <div className="mb-3.5 pb-3 border-b" style={{ borderColor: 'rgba(255,255,255,0.07)' }}>
+            {locus.question.ar && (
+              <p className="font-arabic text-[15.5px] leading-[1.95] mb-1.5 text-right" dir="rtl"
+                style={{ color: 'var(--gold-light, #E8D4A0)', textAlign: 'right' }}>
+                {locus.question.ar}
+              </p>
+            )}
+            <p className="font-english text-[13.5px] leading-relaxed"
+              style={{ color: 'var(--gold, #C9A84C)' }}>
+              {locus.question.en}
+              {locus.question.editorial && (
+                <span className="font-english text-[11px] italic"
+                  style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
+                  {' '}— editorial summary; the printing states no question here
+                </span>
+              )}
+            </p>
+          </div>
+        )}
         {hasBody ? (
           <>
             {ar && (

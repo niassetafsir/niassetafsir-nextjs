@@ -210,6 +210,17 @@ export interface Locus {
    */
   editorialNote?: string;
   /**
+   * The question this passage answers.
+   *
+   * A fatwā is a reply, and a reply shown without its question makes the
+   * reader reconstruct what was asked from the answer. `ar` is VERBATIM where
+   * the printing states the question itself -- §1, §4, §6, §8, §11, §12 and
+   * §20 all open with it. `editorial: true` marks the rest, where the printing
+   * gives no question at that place and the English is a summary of what the
+   * answer takes up, not the questioner's words.
+   */
+  question?: { ar?: string; en: string; editorial?: boolean };
+  /**
    * Overrides the work's own attribution for this one passage.
    *
    * `Relation` sits on the WORK, which assumes a work speaks with one voice.

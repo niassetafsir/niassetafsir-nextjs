@@ -1698,11 +1698,15 @@
         "page": 274,
         "raw": "§20, p. 274"
       },
-      "textAr": "فقد وقفت على سؤالك عن الروح والذات العلية؟ الجواب باختصار: قال تعالى: ﴿وَيَسْأَلُونَكَ عَنِ الرُّوحِ قُلِ الرُّوحُ مِنْ أَمْرِ رَبِّي﴾ اعلم أن الأرواح على أقسام: أرواح العامة وأرواح الخاصة وأرواح خاصة الخاصة.",
-      "textEn": "I have looked into your question about the spirit and the Exalted Essence. The answer, in brief. God said: “They ask you about the spirit. Say: the spirit is of my Lord’s command.” Know that spirits fall into classes: the spirits of the common, the spirits of the elect, and the spirits of the elect of the elect.",
+      "textAr": "الجواب باختصار: قال تعالى: ﴿وَيَسْأَلُونَكَ عَنِ الرُّوحِ قُلِ الرُّوحُ مِنْ أَمْرِ رَبِّي﴾ اعلم أن الأرواح على أقسام: أرواح العامة وأرواح الخاصة وأرواح خاصة الخاصة.",
+      "textEn": "The answer, in brief. God said: “They ask you about the spirit. Say: the spirit is of my Lord’s command.” Know that spirits fall into classes: the spirits of the common, the spirits of the elect, and the spirits of the elect of the elect.",
       "transcriptionStatus": "draft",
       "occasionId": "mawsua-fatwa-ruh",
-      "editorialNote": "Excerpt from the answer; the full text is not published here."
+      "editorialNote": "Excerpt from the answer; the full text is not published here.",
+      "question": {
+        "ar": "سؤالك عن الروح والذات العلية",
+        "en": "On the spirit and the Exalted Essence"
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-01",
@@ -1715,7 +1719,11 @@
       "transcriptionStatus": "draft",
       "occasionId": "mawsua-fatwa-01",
       "textAr": "الجواب عن الآية الأولى والله أعلم: أن للآية ظاهرا وباطنا كغيرها من الآيات، وقوله تعالى ﴿وَفِي ٱلسَّمَآءِ﴾ السماء: معناه المجازي المطر… والمعنى الحقيقي السماء المعروفة. والرزق أيضا رزقان: رزق مجازي ورزق حقيقي. فالرزق المجازي مدار أمره على المطر، لا ينزل رزق إلا بواسطة المطر.",
-      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included."
+      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
+      "question": {
+        "ar": "سؤال عن معنى قوله تعالى: ﴿وَفِي ٱلسَّمَآءِ رِزْقُكُمْ وَمَا تُوعَدُونَ﴾ (الذاريات:22)، وقوله: ﴿وَلَوْ أَنَّ أَهْلَ ٱلْقُرَىٰٓ ءَامَنُواْ وَٱتَّقَوْاْ لَفَتَحْنَا عَلَيْهِم بَرَكَٰتٍ مِّنَ ٱلسَّمَآءِ وَٱلْأَرْضِ﴾ الأعراف:96",
+        "en": "On the meaning of ﴿And in the heavens is your provision﴾ (Q 51:22) and ﴿had the people of the townships believed and had taqwā﴾ (Q 7:96)"
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-02",
@@ -1728,7 +1736,11 @@
       "transcriptionStatus": "draft",
       "occasionId": "mawsua-fatwa-02",
       "textAr": "فأما عن التفرق الذي ذكره الله تعالى في آية ﴿أَنْ أَقِيمُواْ ٱلدِّينَ وَلَا تَتَفَرَّقُواْ فِيهِ﴾ (الشورى:13)، كأنه قيل: وما ذلك المشروع المشترك بين هؤلاء الرسل؟ فقيل: هو إقامة الدين، أي دين الإسلام… والمراد بإقامته تعديل أركانه، وحفظه من أن يقع فيه زيغ، والمواظبة عليه والتشمر له.",
-      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included."
+      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
+      "question": {
+        "en": "On the division forbidden in ﴿uphold the dīn and do not fall into division over it﴾ (Q 42:13), and whether the prophets are maʿṣūm",
+        "editorial": true
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-03",
@@ -1740,7 +1752,11 @@
       "textEn": "The answer in brief. The verse said ﴿There is no private counsel of three﴾ …etc.… even though He is the first and the second and the third and the fourth and the fifth and what is above that, out to what lies beyond numbers… There is no difference here between maʿiyya [His accompaniment] and huwiyya [His He-ness], for you have come to know that the maʿiyya is by the Essence, and when it appears there is no maʿiyya.",
       "transcriptionStatus": "draft",
       "textAr": "الجواب باختصار نطقت الآية ﴿مَا يَكُونُ مِن نَّجْوَىٰ ثَلَٰثَةٍ﴾ …إلخ… وإن كان هو الأول والثاني والثالث والرابع والخامس وما فوق ذلك إلى ما وراء الأعداد… ولا فرق بين المعية والهوية هنا، فقد علمت أن المعية بالذات وإذا بدت فلا معية.",
-      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included."
+      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
+      "question": {
+        "en": "On ﴿There is no private counsel of three but He is their fourth﴾ (Q 58:7): God's maʿiyya and the numbers",
+        "editorial": true
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-04",
@@ -1753,7 +1769,11 @@
       "transcriptionStatus": "draft",
       "occasionId": "mawsua-fatwa-04",
       "textAr": "اعلم رزقنا الله وإياك الفهم عنه أن الله تبارك وتعالى جمع الكتب المنزلة كلها في سبعة أسباع القرآن. وجمع الأسباع السبعة في السبع المثاني، وجمع ذلك في سبعة أحرف بسم الله، وجمع ذلك في الألف، وافتتح به كتابه العزيز… ﴿هُدًى لِّلْمُتَّقِينَ﴾، أي: على الخصوص إرشادا وهدى، على الناس كلها بيانا… وليس في كون بعض الناس لم يهتدوا ما يخرجه من أن يكون هدى، فالشمس شمس وإن لم يرها الضرير.",
-      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included."
+      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
+      "question": {
+        "ar": "السؤال الأول عن قوله تعالى: ﴿هُدًى لِّلْمُتَّقِينَ…﴾ (البقرة:2-5) هل الصفات متحدة أو متباينة؟ … السؤال الثاني: عن قوله تعالى: ﴿فَإِنْ ءَانَسْتُم مِّنْهُمْ رُشْداً فَٱدْفَعُوٓاْ إِلَيْهِمْ﴾ (النساء:6) من المراد بهم في هذه الآية من أرباب الأحوال؟",
+        "en": "Two questions: whether the attributes in ﴿a guidance for those of taqwā﴾ (Q 2:2–5) are one or distinct; and who is meant in ﴿if you perceive in them sound judgement﴾ (Q 4:6)"
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-05",
@@ -1765,7 +1785,11 @@
       "textEn": "It is understood from this that Allah did not spread provision wide so that baghy [overreaching] should not occur. Yet it is known that He does spread provision wide for some of His servants… What appears to me, in removing this conflict, is that what is meant is: had Allah spread provision wide without an intermediary. For Allah decreed in pre-eternity that He would not provide any servant whatsoever, with a sensory or a meaning-bearing provision, except by way of a secondary cause and an appointed term in time and place.",
       "transcriptionStatus": "draft",
       "textAr": "يفهم منه أن الله لم يبسط الرزق ليلا يقع البغي، ومعلوم أنه يبسط الرزق لبعض عباده… والذي يظهر لي في إزالة هذا التعارض أن المراد لو بسط الله الرزق بلا واسطة إذ أن الله تعالى قدر في الأزل أنه لا يرزق عبدا كائنا من كان رزقا حسيا أو معنويا إلا بواسطة سبب وميقات زماني ومكاني.",
-      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included."
+      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
+      "question": {
+        "en": "On ﴿Were Allah to spread provision wide for His servants, they would overreach﴾ (Q 42:27), which appears to conflict with what is observed",
+        "editorial": true
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-06",
@@ -1777,7 +1801,11 @@
       "textEn": "The answer in brief is that the trust is the khilāfa, and the human being is the perfect one of his age, like Ādam and like Dāwūd, down to ʿAlī Ḥarāzim and so on. His wrongdoing is the overstepping of the bound of slavehood and being qualified by the attributes of Lordship; and his ignorance is his witnessing of the Essence — he knows nothing other than Allah, and that is knowledge itself. So one opposite earned an opposite.",
       "transcriptionStatus": "draft",
       "textAr": "ومختصر الجواب أن الأمانة هي الخلافة والإنسان هو الكامل في عصره كآدم وكداود إلى علي حرازم إلخ فظلمه تعدي طور العبودية والاتصاف بصفات الربوبية وجهله شهوده للذات لا يعلم ما سوى الله تعالى وذلك عين العلم فضد كسب ضدا.",
-      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included."
+      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
+      "question": {
+        "ar": "السؤال عن آية ﴿إِنَّا عَرَضْنَا ٱلْأَمَانَةَ﴾ الآية وما الظلم",
+        "en": "On ﴿We offered the trust﴾ (Q 33:72): what the trust is, and what the wrongdoing and the ignorance are"
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-07",
@@ -1789,7 +1817,11 @@
       "textEn": "Know that al-Ḥaqq is one in His Essence, His attributes and His Names. He disclosed Himself after He was and nothing was with Him, and He is now as He was. The first of His tajalliyāt to come forth is the Muḥammadan ḥaqīqa. He disclosed Himself a second time in the hidden ḥaqīqa, which is the inwardness of inwardnesses; so multiplicity came about — and it is oneness itself.",
       "transcriptionStatus": "draft",
       "textAr": "فاعلم… أن الحق جل ثناؤه واحد في ذاته وصفاته وأسمائه. وتجلى بعد ما كان ولا شيء معه وهو الآن على ما عليه كان. فإن أول بارز تجلياته الحقيقة المحمدية عليها الصلاة والسلام. وتجلى ثانيا في الحقيقة المكتومة التي هي بطون البطون فحصلت الكثرة وهي عين الوحدة.",
-      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included."
+      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
+      "question": {
+        "en": "On the oneness of al-Ḥaqq, the first of the tajalliyāt, and the difference between ḥāl and maqām",
+        "editorial": true
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-08",
@@ -1798,12 +1830,16 @@
         "page": 258,
         "raw": "§8, p. 258"
       },
-      "textEn": "A question to the ʿārifūn…: was Iblīs the accursed one among the angels before they were commanded to prostrate, or not?… The accursed one was never at any time among the noble angels, by the text of the verse: ﴿They do not disobey Allah in what He commands them, and they do what they are commanded﴾. For had he been among the noble angels he would not have refused after Allah commanded him to prostrate.",
+      "textEn": "The accursed one was never at any time among the noble angels, by the text of the verse: ﴿They do not disobey Allah in what He commands them, and they do what they are commanded﴾. For had he been among the noble angels he would not have refused after Allah commanded him to prostrate. [And back:] Then what is the meaning of the exception in ﴿So the angels prostrated, all of them together, except Iblīs﴾, given that he was not among those commanded?",
       "transcriptionStatus": "draft",
       "occasionId": "mawsua-fatwa-08",
-      "textAr": "سؤال إلى العارفين… هل إبليس اللعين كان من الملائكة قبل أن يؤمروا بالسجود أم لا… أما اللعين فلم يكن قط من الملائكة الكرام بنص الآية في قوله تعالى: ﴿لَا يَعْصُونَ ٱللَّهَ مَآ أَمَرَهُمْ وَيَفْعَلُونَ مَا يُؤْمَرُونَ﴾ فلو كان من الملائكة الكرام لما امتنع بعد أمر الله تعالى له بالسجود.",
+      "textAr": "أما اللعين فلم يكن قط من الملائكة الكرام بنص الآية في قوله تعالى: ﴿لَا يَعْصُونَ ٱللَّهَ مَآ أَمَرَهُمْ وَيَفْعَلُونَ مَا يُؤْمَرُونَ﴾ فلو كان من الملائكة الكرام لما امتنع بعد أمر الله تعالى له بالسجود. وما معنى الاستثناء في قوله: ﴿فَسَجَدَ ٱلْمَلَٰٓئِكَةُ كُلُّهُمْ أَجْمَعُونَ إِلَّا إِبْلِيسَ﴾ وما موجبه حيث لم يكن من المامورين؟",
       "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
-      "attributedTo": "ʿUthmān b. Aḥmad"
+      "attributedTo": "ʿUthmān b. Aḥmad",
+      "question": {
+        "ar": "سؤال إلى العارفين المتدبرين لحقائق التنزيل وهو هل إبليس اللعين كان من الملائكة قبل أن يؤمروا بالسجود أم لا",
+        "en": "Whether Iblīs was among the angels before they were commanded to prostrate"
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-09",
@@ -1815,7 +1851,11 @@
       "textEn": "As for the ḥaqīqa of sulūk, it is taqwā in the ẓāhir and in the bāṭin; and it is compliance with the command and avoidance of the prohibition in the manner that pleases Him. Sulūk before jadhb is a veil, and after it perfection. The upshot is that the stations of the dīn are three — islām, īmān and iḥsān — and each of them has its three waystations.",
       "transcriptionStatus": "draft",
       "textAr": "أما حقيقة السلوك فهي التقوى في الظاهر والباطن. وهي امتثال الأمر واجتناب النهي على الوجه الذي يرضى. فالسلوك قبل الجذب حجاب وبعده كمال. فالحاصل أن مقامات الدين ثلاثة: الإسلام والإيمان والإحسان، ولكل منها منازلها الثلاث.",
-      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included."
+      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
+      "question": {
+        "en": "On the ḥaqīqa of sulūk, the stations of the dīn, and giving out the ṭarīqa",
+        "editorial": true
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-10",
@@ -1828,7 +1868,11 @@
       "transcriptionStatus": "draft",
       "textAr": "مختصر الأجوبة: لأني أختصرها جدا خوفا على نفسي من إباحة السر. فالقطب تجل من تجليات الحق يجمع سائر التجليات، والجنة وما فيها من سائر التجليات فهي تجل من تجليات القطب ومعها خمسة عشر عالما كلها يمدها ويتصرف فيها ويستمد هو من الختم الكتم.",
       "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
-      "occasionId": "mawsua-fatwa-10"
+      "occasionId": "mawsua-fatwa-10",
+      "question": {
+        "en": "Abbreviated answers: the quṭb, the seeing of God in the Garden, ikhlāṣ, hayba, journeying, and quṭbness",
+        "editorial": true
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-11",
@@ -1837,10 +1881,14 @@
         "page": 264,
         "raw": "§11, p. 264"
       },
-      "textEn": "Resolving the difficulty in the Shaykh’s words concerning the tawḥīd of the wretched by taʿayyun [individuation], and “had they not been individuated they would have been among the felicitous.” Its meaning is: had they not been individuated, they would have arrived at the tawḥīd of the ʿārifūn. But they have more hope than those who affirm oneness at the degree of knowledge.",
+      "textEn": "Its meaning is: had they not been individuated, they would have arrived at the tawḥīd of the ʿārifūn. But they have more hope than those who affirm oneness at the degree of knowledge. Those who affirm oneness at the degree of knowledge are the generality, and their hope attaches to a thing absent from them, still to come; whereas these individuated ones — their hope attaches to a thing present and before them.",
       "transcriptionStatus": "draft",
-      "textAr": "حل الإشكال في قول الشيخ في توحيد الأشقياء بالتعين ولو لم يعينوا لسعدوا. معناه لو لم يعينوا لوصلوا إلى توحيد العارفين. ولكنهم أرجى من الموحدين بدرجة العلم.",
-      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included."
+      "textAr": "معناه لو لم يعينوا لوصلوا إلى توحيد العارفين. ولكنهم أرجى من الموحدين بدرجة العلم. والموحدون بدرجة العلم هم عامة الموحدين ورجاؤهم متعلق بشيء غائب عنهم مستقبل يشاهدونه. وهؤلاء المعينون رجاؤهم متعلق بشيء شاهد حاضر يشاهدونه.",
+      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
+      "question": {
+        "ar": "حل الإشكال في قول الشيخ في توحيد الأشقياء بالتعين ولو لم يعينوا لسعدوا",
+        "en": "Resolving the Shaykh's words on the tawḥīd of the wretched by taʿayyun"
+      }
     },
     {
       "id": "mawsua-fatawa-tafsir-12",
@@ -1852,7 +1900,11 @@
       "textEn": "…the third is that His oneness is not the onenesses of fewness, such as occur among originated things. Rather He is One to whom all multiplicities go back and upon whose oneness they turn: ﴿Take note — to Allah all matters come home﴾ (al-Shūrā 53). He is One whose oneness has appeared in every locus of manifestation… This is a noble meaning which cannot be explained by expression; it is tasted only in the measure of the opening and the tajallī from the Opener, the Aware. It is the sense of witnessing oneness within multiplicity, which the folk express as waḥdat al-wujūd.",
       "transcriptionStatus": "draft",
       "textAr": "الثالث أن وحدته تعالى ليست وحدات القلة كما يقع في الحوادث بل هو واحد إليه ترجع جميع الكثرات وعلى وحدته تدور ﴿أَلَآ إِلَى ٱللَّهِ تَصِيرُ ٱلْأُمُورُ﴾ (الشورى: 53) فهو واحد ظهرت وحدته في جميع المظاهر… وهذا معنى شريف لا يمكن شرحه بالتعبير إنما يذاق بحسب الفتح والتجلي من الفتاح الخبير، وهو معنى شهود الوحدة في الكثرة الذي يعبر عنه القوم بوحدة الوجود.",
-      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included."
+      "editorialNote": "Excerpt from the answer; the full text is not published here. Translation by Amadu Kunateh. The compiler's footnotes are not included.",
+      "question": {
+        "ar": "معنى قوله في صفات الله تبارك وتعالى واحد لا من قلة وموجود لا من علة",
+        "en": "On ʿIllaysh's fatwā — “One, not out of fewness; existent, not out of a cause” — and waḥdat al-wujūd"
+      }
     }
   ],
   "verseLinks": [
