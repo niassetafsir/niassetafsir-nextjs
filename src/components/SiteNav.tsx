@@ -174,7 +174,8 @@ export default function SiteNav() {
   const active = pathname === '/' ? undefined : activeSection(pathname);
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur border-b-0"
+    // The chrome is not the edition: let it be translated.
+    <nav translate="yes" className="sticky top-0 z-50 backdrop-blur border-b-0"
       style={{
         background: 'rgba(13,20,10,0.95)',
         borderTop: '3px solid #C9A84C',

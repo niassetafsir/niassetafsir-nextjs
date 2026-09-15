@@ -44,7 +44,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     // suppressHydrationWarning: the script below rewrites lang and dir on the
     // client before React hydrates, so the attributes legitimately differ from
     // what was server-rendered. Without this React reports a mismatch.
-    <html lang="ar" dir="rtl" suppressHydrationWarning>
+    // translate="no" + .notranslate: the document is lang="ar", so a browser
+    // offers to machine-translate the whole edition. It does it badly and the
+    // result carries Shaykh Ibrāhīm's name: on a juzʾ-30 page Chrome rendered
+    // ʿayn al-yaqīn as "the eyes of the innocent" and then "We remained an
+    // eye", and alam uṣiḥḥ laka jismak as "Did I not erase your body".
+    // Marking only the dir="rtl" elements was not enough -- the document
+    // itself is rtl, so most Arabic carries no dir of its own, and 52,375 of
+    // the 83,852 Arabic characters on /lesson/4 were still exposed. The block
+    // belongs at the root. The interface opts back in below, so a reader who
+    // needs the navigation in another language still gets it; the text of the
+    // tafsīr is what must not be guessed at.
+    <html lang="ar" dir="rtl" translate="no" className="notranslate" suppressHydrationWarning>
       <head>
         {/*
           Document direction used to be hardcoded rtl and never changed, so the

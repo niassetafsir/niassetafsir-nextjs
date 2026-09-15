@@ -9,7 +9,7 @@ export default function SiteFooter() {
   if (pathname.startsWith('/lesson/') && pathname.endsWith('/print')) return null;
 
   return (
-    <footer style={{borderTop:'1px solid rgba(255,255,255,0.06)', paddingTop:'12px', paddingBottom:'12px', paddingLeft:'24px', paddingRight:'24px', background:'transparent'}}>
+    <footer translate="yes" style={{borderTop:'1px solid rgba(255,255,255,0.06)', paddingTop:'12px', paddingBottom:'12px', paddingLeft:'24px', paddingRight:'24px', background:'transparent'}}>
       <div style={{maxWidth:'1100px', margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:'8px'}}>
         <p className="font-english" style={{fontSize:'10px', color:'rgba(255,255,255,0.2)', letterSpacing:'0.02em'}}>
           © niassetafsir.org
