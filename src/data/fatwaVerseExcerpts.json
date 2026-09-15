@@ -1,0 +1,65 @@
+{
+  "_note": "Per-verse cuts from the Mawsu'a fatawa. A reader who arrives at an aya should see the passage where that aya is treated, not the opening of the answer. Keyed locusId -> \"surah:ayahStart\" (the start, matching verseLinks). Where a link has no entry the locus default in corpus.json is shown.",
+  "excerpts": {
+    "mawsua-fatawa-tafsir-01": {
+      "7:96": {
+        "ar": "والثانية: في مدح الإيمان والتقوى، بأنهما سبب فتحه علينا بركات من السماء والأرض… يعني أن أهل القرى لو آمنوا الإيمان التام الحقيقي لفتح عليهم بركات السماء، وهي الفتوح والمعارف والأسرار والواردات والإلهامات التي هي بركات العالم العلوي، وبركات الأرض التي هي علوم الدرايات والروايات والمعاملات.",
+        "en": "As for the second: it is in praise of faith and taqwā in that the two are the cause of His throwing open to us blessings from the heaven and the earth… if the people of the townships were to believe with the complete, real faith, the blessings of the heaven would be thrown open to them — the openings [futūḥ], the maʿārif, the secrets, the wāridāt and the inspirations, which are the blessings of the upper world; and the blessings of the earth, which are the sciences of dirāyāt and riwāyāt and of dealings."
+      }
+    },
+    "mawsua-fatawa-tafsir-02": {
+      "38:32": {
+        "ar": "وقال ابن كثير في تفسيره عند قوله تعالى: ﴿فَقَالَ إِنِّىٓ أَحْبَبْتُ حُبَّ ٱلْخَيْرِ عَن ذِكْرِ رَبِّى حَتَّىٰ تَوَارَتْ بِٱلْحِجَابِ رُدُّوهَا عَلَىَّ﴾ (سورة ص:32،33) ذكر غير واحد من السلف والمفسرين أنه اشتغل بعرضها حتى فات وقت صلاة العصر والذي يقطع به أنه لم يتركها عمدا بل نسيانا.",
+        "en": "Ibn Kathīr said in his tafsīr, at ﴿I have loved the love of good things away from the remembrance of my Lord, until it concealed itself by the veil. Bring them back to me﴾ (Ṣād 32–33): more than one of the salaf and of the commentators mentioned that he was occupied with reviewing them until the time of the ʿaṣr prayer passed; and what is certain is that he did not leave it deliberately but out of forgetfulness."
+      },
+      "38:33": {
+        "ar": "وقال ابن كثير في تفسيره عند قوله تعالى: ﴿فَقَالَ إِنِّىٓ أَحْبَبْتُ حُبَّ ٱلْخَيْرِ عَن ذِكْرِ رَبِّى حَتَّىٰ تَوَارَتْ بِٱلْحِجَابِ رُدُّوهَا عَلَىَّ﴾ (سورة ص:32،33) ذكر غير واحد من السلف والمفسرين أنه اشتغل بعرضها حتى فات وقت صلاة العصر والذي يقطع به أنه لم يتركها عمدا بل نسيانا.",
+        "en": "Ibn Kathīr said in his tafsīr, at ﴿I have loved the love of good things away from the remembrance of my Lord, until it concealed itself by the veil. Bring them back to me﴾ (Ṣād 32–33): more than one of the salaf and of the commentators mentioned that he was occupied with reviewing them until the time of the ʿaṣr prayer passed; and what is certain is that he did not leave it deliberately but out of forgetfulness."
+      }
+    },
+    "mawsua-fatawa-tafsir-03": {
+      "5:73": {
+        "ar": "…إبطالا لمذهب التثليث ﴿لَّقَدْ كَفَرَ ٱلَّذِينَ قَالُوٓاْ إِنَّ ٱللَّهَ ثَالِثُ ثَلَٰثَةٍ﴾…إلخ وتنويها بمقام الثلاثة الذين هو رابعهم والخمسة الذين هو سادسهم.",
+        "en": "…as a nullification of the doctrine of trinity: ﴿Truly they have disbelieved who said: Allah is the third of three﴾ …etc. — and as an announcing of the rank of the three of whom He is the fourth and the five of whom He is the sixth."
+      }
+    },
+    "mawsua-fatawa-tafsir-04": {
+      "4:6": {
+        "ar": "السؤال الثاني: عن قوله تعالى: ﴿فَإِنْ ءَانَسْتُم مِّنْهُمْ رُشْداً فَٱدْفَعُوٓاْ إِلَيْهِمْ﴾ (النساء:6) من المراد بهم في هذه الآية من أرباب الأحوال؟ فأجبت: أن المراد بهم -والله تعالى أعلم- الرجال الأقوياء في السلوك والاجتهاد ومتابعة الشيخ. والمال هنا ما ترك المشايخ والإخوان في الله.",
+        "en": "The second question: about ﴿And if you perceive in them sound judgement, then hand over to them﴾ (al-Nisāʾ 6) — who is meant by “them” in this verse, among the masters of the states? So I answered: what is meant by them — and Allah knows best — is the men who are strong in sulūk, in striving, and in following the shaykh. And “the property” here is what the shaykhs and the brethren in Allah left behind."
+      },
+      "7:96": {
+        "ar": "الثانية: التجنب عن كل ما يؤثم من فعل أو ترك حتى الصغائر عند قوم، وهو المتعارف عليه بالتقوى في الشرع، وهو المعنى المراد في ﴿وَلَوْ أَنَّ أَهْلَ ٱلْقُرَىٰٓ ءَامَنُواْ وَٱتَّقَوْاْ﴾ (الأعراف:96).",
+        "en": "The second [kind of taqwā]: keeping clear of everything that incurs sin, whether by doing or by leaving undone — even the minor sins, in the view of some. This is what is commonly recognised as taqwā in the sharīʿa, and it is the sense intended in ﴿And had the people of the townships believed and had taqwā﴾ (al-Aʿrāf 96)."
+      },
+      "3:102": {
+        "ar": "الثالثة: أن يتنزه عما يشغل سره عن الحق عز وجل ويتبتل إليه بكليته، وهي التقوى الحقيقية المأمور بها في قوله تعالى: ﴿يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ ٱتَّقُواْ ٱللَّهَ حَقَّ تُقَاتِهِۦ﴾ (آل عمران:102).",
+        "en": "The third [kind of taqwā]: that one hold oneself above whatever occupies one’s inmost self away from al-Ḥaqq, mighty and majestic, and devote oneself wholly to Him. This is the real taqwā commanded in His words ﴿You who believe, have taqwā of Allah as is His due﴾ (Āl ʿImrān 102)."
+      },
+      "57:4": {
+        "ar": "وأما الغيب الذي غبت عنه فغيب الغيب، وهو حضرة الربوبية، قد غبت عنه وما غاب عنك بالوجود ﴿وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ﴾ (الحديد:4)، أنت بعيد منه وهو قريب منك، كما قال: ﴿وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ ٱلْوَرِيدِ﴾ (ق:16).",
+        "en": "As for the unseen from which you are absent, it is the unseen of the unseen, which is the presence of Lordship. You have become absent from it, while it has not become absent from you in respect of existence: ﴿And He is with you wherever you may be﴾ (al-Ḥadīd 4). You are far from Him, and He is near to you, as He said: ﴿And We are nearer to him than the cord of the jugular﴾ (Qāf 16)."
+      },
+      "92:5": {
+        "ar": "ذكر تعالى أربعة أشياء: التقوى، والإيمان بالغيب، وإقامة الصلاة، والإنفاق وذلك صفة الخلفاء الراشدين الأربعة. في الآية بيان فضلهم: التقوى لأبي بكر الصديق رضي الله عنه… والإيمان بالغيب لعمر الفاروق رضي الله عنه… وإقامة الصلاة لعثمان ذي النورين رضي الله عنه… والإنفاق لعلي المرتضى رضي الله عنه.",
+        "en": "He mentioned four things: taqwā, faith by the unseen, establishing the ṣalāt, and spending. That is the description of the four rightly guided caliphs. In the verse there is a setting out of their excellence. Taqwā is for Abū Bakr al-Ṣiddīq… faith by the unseen is for ʿUmar al-Fārūq… establishing the ṣalāt is for ʿUthmān of the two lights… and spending is for ʿAlī al-Murtaḍā."
+      }
+    },
+    "mawsua-fatawa-tafsir-10": {
+      "30:22": {
+        "ar": "وأما اختلاف الألوان ﴿وَمِنْ ءَايَٰتِهِۦ خَلْقُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ وَٱخْتِلَٰفُ أَلْسِنَتِكُمْ وَأَلْوَٰنِكُمْ﴾ (الروم:22) فذلك تمام القدرة الإلهية لأن الله تعالى لم يفعل شيئا إلا فعل ضده… وذلك التباين في الشخص الواحد أبهر عقول المتفكرين ولكن الآيات لا يعظم موقعها إلا في قلوب الرجال.",
+        "en": "As for the difference of colours — ﴿And among His signs is the creating of the heavens and the earth and the difference of your tongues and your colours﴾ (al-Rūm 22) — that is the completeness of the divine power, for Allah has done nothing without doing its opposite: male and female, heaven and earth, black and white… out to what has no end. And that divergence within a single person has dazzled the intellects of those who ponder; but the signs fall with weight only in the hearts of men."
+      },
+      "17:20": {
+        "ar": "وأما الدعاء فجائز أن يطلب العبد من الله كل مقام وكل شيء يمكن وجوده. فما عند الله باق لا ينفد ﴿كُلاًّ نُّمِدُّ هَٰٓؤُلَآءِ وَهَٰٓؤُلَآءِ مِنْ عَطَآءِ رَبِّكَ وَمَا كَانَ عَطَآءُ رَبِّكَ مَحْظُوراً﴾ (الإسراء:20).",
+        "en": "As for supplication: it is permitted for the servant to ask Allah for every station and for every thing whose existence is possible, for what is with Allah endures and is not used up — ﴿Each of them We supply, these and those, out of your Lord’s giving; and your Lord’s giving is never fenced off﴾ (al-Isrāʾ 20)."
+      }
+    },
+    "mawsua-fatawa-tafsir-12": {
+      "5:73": {
+        "ar": "قال بعض العارفين: إنما كفر من قال ﴿إِنَّ ٱللَّهَ ثَالِثُ ثَلَٰثَةٍ﴾ (المائدة:73) لأنه جعله بعضا من ثلاثة كما هو قاعدة فاعل مع ما اشتق منه من العدد فأوقع المشاكلة والمشابهة وجعله بعضا من متعدد…",
+        "en": "Some of the ʿārifūn said: the one who said ﴿Allah is the third of three﴾ (al-Māʾida 73) fell into unbelief only because he made Him a part of three — as is the rule for the fāʿil form together with the number it is derived from — and so brought about assimilation and resemblance, and made Him a part of a plurality…"
+      }
+    }
+  }
+}

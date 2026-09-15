@@ -18,6 +18,7 @@ import {
 } from '@/lib/corpus';
 import VerseCorpusTimeline from '@/components/VerseCorpusTimeline';
 import VerseLocusCard, { type LocusExcerpt } from '@/components/VerseLocusCard';
+import { fatwaVerseExcerpt } from '@/lib/fatwaVerseExcerpts';
 import VersePicker from '@/components/VersePicker';
 import RootPanel from '@/components/RootPanel';
 import verseRootsData from '@/data/verseRoots.json';
@@ -155,6 +156,14 @@ export default async function VersePage({
       truncated,
       printedRef: formatRef(lessonRef(lessonId)),
     });
+  }
+
+  // Per-verse cuts from the fatāwā. The locus already carries a default
+  // excerpt; this replaces it where the answer expounds this particular āya.
+  for (const e of entries) {
+    const cut = fatwaVerseExcerpt(e.locus.id, surah, ayah);
+    if (!cut) continue;
+    excerpts.set(e.locus.id, { ar: cut.ar ?? null, en: cut.en ?? null });
   }
 
   const loaded = entries.filter(e => e.hasText).length;

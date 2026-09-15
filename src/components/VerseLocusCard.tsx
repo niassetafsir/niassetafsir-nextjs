@@ -45,8 +45,12 @@ export default function VerseLocusCard({
   const { link, locus, witness, work } = entry;
   const isPrimary = link.type === 'tafsir';
   const address = locus.address.raw ?? formatAddress(entry);
-  const ar = locus.textAr ?? excerpt?.ar ?? null;
-  const en = locus.textEn ?? excerpt?.en ?? null;
+  // Excerpt first. A Fī Riyāḍ locus carries no text of its own and the excerpt
+  // is all there is; a fatwā locus carries the answer's default excerpt, and a
+  // per-verse cut, where one exists, says more about THIS āya than the default
+  // does — so the more specific text wins.
+  const ar = excerpt?.ar ?? locus.textAr ?? null;
+  const en = excerpt?.en ?? locus.textEn ?? null;
   const hasBody = Boolean(ar || en);
 
   return (
