@@ -486,3 +486,30 @@ so far, both already in the codebase before this session:
   before redoing the work from scratch.
 - Lesson 6 has no English translation at all (`hasEnglish: false`) — needs
   AK's input on whether/how to source one before this can be closed out.
+
+## Repairing the Qurʾānic citations
+
+`scripts/repair-quranic-citations.py` rewrites a bracketed or guillemeted span
+to the Warsh text of the run it quotes. It acts only inside `( )` and `« »`,
+which is where AK's rule makes a divergence from the āya an error by
+definition; outside them the words are Niasse's and the script does not touch
+them. Each sūra is treated as one stream of words so a citation crossing an āya
+boundary matches as one thing, and words are compared with the diacritics and
+orthography stripped, since that is what the scan destroys. A span is rewritten
+only when the best window scores ≥ 0.82 and beats the next-best elsewhere in the
+muṣḥaf by ≥ 0.10 — a span that matches two places equally is left alone, and so
+is a span that mixes Niasse's gloss in with the quotation.
+
+Dry run by default; `--write` applies; a lesson id limits it to that lesson. The
+run of 15 September 2026 rewrote 2,345 spans across all 56 lessons and left
+1,937 alone; the full before/after is in
+`translation-drafts/quranic-citation-repair-2026-09-15.txt`.
+
+**Re-run the citation pipeline afterwards, in this order**, or the indices
+describe text that no longer exists:
+
+```
+node scripts/match-verses.js
+node scripts/build-verse-citations.js
+node scripts/add-editorial-verse-index.js --write   # MUST follow the line above
+```
