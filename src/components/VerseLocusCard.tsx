@@ -66,9 +66,20 @@ export default function VerseLocusCard({
       {/* header */}
       <div className="px-4 pt-3.5 pb-3 border-b" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
         <div className="flex items-baseline gap-2 flex-wrap">
+          {/* The heading is what he says about this āya, not where it was
+              printed. A fatwā is a reply, so its heading is the question it
+              answers; the work and section drop to the provenance line below,
+              which is where a citation belongs. Loci with no question — the
+              Fī Riyāḍ sessions above all — keep the work as the heading. */}
           <h3 className="font-english text-[15px] font-semibold"
             style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
-            {work.titleTranslit ?? work.id}
+            {locus.question ? locus.question.en : (work.titleTranslit ?? work.id)}
+            {locus.question?.editorial && (
+              <span className="font-english text-[11px] font-normal italic"
+                style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
+                {' '}— editorial summary; the printing states no question here
+              </span>
+            )}
           </h3>
           {/* The badge names whoever actually spoke: a locus-level attribution
               first, since a work of the Shaykh's answers can print someone
@@ -79,7 +90,7 @@ export default function VerseLocusCard({
               {locus.attributedTo ?? work.author}
             </span>
           )}
-          {work.titleAr && (
+          {work.titleAr && !locus.question && (
             <span className="font-arabic text-[14px]" dir="rtl"
               style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
               {work.titleAr}
@@ -116,8 +127,16 @@ export default function VerseLocusCard({
           </span>
         </div>
 
+        {locus.question?.ar && (
+          <p className="font-arabic text-[15.5px] leading-[1.95] mt-2 text-right" dir="rtl"
+            style={{ color: 'var(--gold-light, #E8D4A0)', textAlign: 'right' }}>
+            {locus.question.ar}
+          </p>
+        )}
+
         <p className="font-english text-[11.5px] mt-1.5 leading-relaxed"
           style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
+          {locus.question && <>{work.titleTranslit ?? work.id} · </>}
           <strong className="font-semibold"
             style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
             {entry.dateLabel}
@@ -160,28 +179,6 @@ export default function VerseLocusCard({
 
       {/* body — four states, and all four are shown rather than hidden */}
       <div className="px-4 py-4">
-        {/* The question first. A fatwā is a reply; printed without what was
-            asked, the reader works backwards from the answer to guess it. */}
-        {locus.question && (
-          <div className="mb-3.5 pb-3 border-b" style={{ borderColor: 'rgba(255,255,255,0.07)' }}>
-            {locus.question.ar && (
-              <p className="font-arabic text-[15.5px] leading-[1.95] mb-1.5 text-right" dir="rtl"
-                style={{ color: 'var(--gold-light, #E8D4A0)', textAlign: 'right' }}>
-                {locus.question.ar}
-              </p>
-            )}
-            <p className="font-english text-[13.5px] leading-relaxed"
-              style={{ color: 'var(--gold, #C9A84C)' }}>
-              {locus.question.en}
-              {locus.question.editorial && (
-                <span className="font-english text-[11px] italic"
-                  style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
-                  {' '}— editorial summary; the printing states no question here
-                </span>
-              )}
-            </p>
-          </div>
-        )}
         {hasBody ? (
           <>
             {ar && (
