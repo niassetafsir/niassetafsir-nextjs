@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import ArabicWordTool from '@/components/ArabicWordTool';
 import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
-import { isDraftTranslation } from '@/lib/draftTranslations';
+import { isDraftTranslation, partialTranslation } from '@/lib/draftTranslations';
 import { VERSE_INDEX } from '@/lib/verseIndex';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { isPoem, highlightEnVerses, stripEnFootnotes, injectFootnoteLinks, injectVerseNumbers } from '@/lib/textInject';
@@ -218,6 +218,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
 
   const alignment = lessonId ? BILINGUAL_ALIGNMENT[lessonId] : undefined;
   const isDraft = lessonId ? isDraftTranslation(lessonId) : false;
+  const partial = lessonId ? partialTranslation(lessonId) : null;
   const verseEntries = lessonId ? (VERSE_INDEX[lessonId] || []) : [];
 
   // What this lesson actually has, rather than what the project intends to
@@ -368,7 +369,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
       {poemLines.length > 0 && (showBilingual || view === 'arabic') && (
         <div className="px-6 py-4 border-b border-gold/10 text-center bg-gold/3">
           {poemLines.map((line, i) => (
-            <div key={i} className="font-arabic text-base leading-9" dir="rtl"
+            <div key={i} className="font-arabic text-base leading-9" dir="rtl" translate="no"
               /* The opening invocation is liturgical formula rather than
                  commentary, so a warmer colour is defensible -- but gold/80 on
                  cream is 1.5:1, which is not a stylistic choice, it is text a
@@ -391,7 +392,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
               {alignment.blocks.map((block, bi) => (
                 <div key={`block-${bi}`} className="px-4 md:px-6 py-4">
                   {block.arabicIndices.map(ai => (
-                    <div key={ai} id={`ar-para-${ai}`} dir="rtl"
+                    <div key={ai} id={`ar-para-${ai}`} dir="rtl" translate="no"
                       className={`font-arabic text-[1.1rem] leading-[2.2] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === ai ? 'bg-gold/15 px-2 -mx-2' : ''}`}
                       dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(injectVerseNumbers(commentaryParagraphs[ai], citations?.[String(ai)]), lessonId, footnoteOrder, fnCursor) }} />
                   ))}
@@ -440,6 +441,16 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                     {enParagraphs.map((p, i) => (
                       <div key={i} className="mb-3" dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(p)) }} />
                     ))}
+                    {/* Where a translation stops short, say so at the point it
+                        stops. Without this the reader takes the last paragraph
+                        for the end of the lesson. */}
+                    {partial && (
+                      <p className="font-english text-[13px] italic mt-4 pt-3 border-t"
+                        style={{ borderColor: 'rgba(201,168,76,0.25)', color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
+                        The translation breaks off here, at {partial.endsAt}. The Arabic
+                        alongside continues to {partial.arabicEndsAt}.
+                      </p>
+                    )}
                   </div>
                 ) : (
                   <p className="font-english text-white/20 text-xs italic">
@@ -448,7 +459,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                 )}
               </div>
               {/* Arabic box -- full commentary text, paragraph by paragraph. */}
-              <div className="border rounded-lg p-4" style={{ borderColor: 'rgba(13,31,10,0.12)' }} dir="rtl">
+              <div className="border rounded-lg p-4" style={{ borderColor: 'rgba(13,31,10,0.12)' }} dir="rtl" translate="no">
                 <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2" dir="ltr">Arabic commentary</p>
                 {commentaryParagraphs.map((p, i) => (
                   <div key={i} id={`ar-para-${i}`}
@@ -470,7 +481,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
 
       {/* Arabic only -- full commentary text, word-lookup tool enabled */}
       {view === 'arabic' && (
-        <div className="p-5 text-center font-arabic" dir="rtl">
+        <div className="p-5 text-center font-arabic" dir="rtl" translate="no">
           {(() => {
             const arCursor = { i: 0 };
             const html = commentaryParagraphs

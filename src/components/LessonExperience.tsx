@@ -129,7 +129,7 @@ export default function LessonExperience({ tafsir, compare, citations, overview,
                 color: on ? '#0D1F0A' : 'var(--body-text, rgba(232,232,224,0.85))',
               }}
             >
-              <span className="font-arabic-sans block text-[13px] font-bold leading-tight" dir="rtl">
+              <span className="font-arabic-sans block text-[13px] font-bold leading-tight" dir="rtl" translate="no">
                 {m.ar}
               </span>
               <span className="font-english block text-[12.5px] font-semibold leading-tight mt-0.5">

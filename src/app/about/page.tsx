@@ -78,9 +78,10 @@ export default async function AboutPage() {
             designed to make this tafsīr accessible, searchable, and analytically usable for academic
             research. It presents the Arabic text of all {facts.arabicLessons} sessions
             {facts.translatedCount > 0 && (
-              <> alongside an English translation of Lesson{facts.translatedCount > 1 ? 's' : ''}{' '}
-              {facts.translatedFirst}{facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''}, with more in
-              progress</>
+              <> alongside English for Lesson{facts.translatedCount > 1 ? 's' : ''}{' '}
+              {facts.translatedFirst}{facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''} —
+              {' '}{facts.completeTranslationCount} of them complete and reviewed against the Arabic,
+              the rest in draft or breaking off partway, each saying where it stops</>
             )}. <em>Tafsīr al-Jalālayn</em> and <em>Rūḥ al-Bayān</em> run alongside it verse by
             verse{facts.comparativeLessons === 1
               ? ' for al-Fātiḥa (Lesson 1)'

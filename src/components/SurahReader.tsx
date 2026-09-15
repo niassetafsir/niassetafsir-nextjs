@@ -89,7 +89,7 @@ function LessonBlock({ lesson }: { lesson: SurahLessonData }) {
         )}
         <div className={enPars.length > 0 ? 'border rounded-lg p-4 order-1 md:order-2' : ''}
           style={enPars.length > 0 ? { borderColor: 'rgba(255,255,255,0.08)' } : undefined}
-          dir="rtl">
+          dir="rtl" translate="no">
           {enPars.length > 0 && (
             <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2" dir="ltr">Arabic commentary</p>
           )}
@@ -139,7 +139,7 @@ export default function SurahReader({ surahId, nameAr, nameEn, ayahCount, lesson
 
       {/* Header */}
       <div className="text-center mb-6">
-        <div className="font-arabic text-gold text-3xl font-bold mb-1" dir="rtl">{nameAr}</div>
+        <div className="font-arabic text-gold text-3xl font-bold mb-1" dir="rtl" translate="no">{nameAr}</div>
         <h1 className="font-english text-xl font-semibold" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
           {nameEn}
         </h1>

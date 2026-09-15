@@ -149,7 +149,7 @@ function SourceControls({
               color: on ? '#fdfaf0' : 'rgba(13,31,10,0.55)',
               fontWeight: on ? 600 : 400,
             }}>
-            {lang === 'ar' ? <span className="font-arabic-sans" dir="rtl">{s.ar}</span> : s.en}
+            {lang === 'ar' ? <span className="font-arabic-sans" dir="rtl" translate="no">{s.ar}</span> : s.en}
             {n > 0 && (
               <span className="text-[9.5px]" style={{ opacity: on ? 0.8 : 0.6 }}>
                 {commas(n)}
@@ -199,7 +199,7 @@ function Column({
       style={{ border: '2px solid ' + tint + '0.34)', background: tint + '0.05)' }}>
       <div className="px-3.5 py-2 flex items-baseline gap-2 flex-wrap"
         style={{ background: tint + '0.10)', borderBottom: '1px solid ' + tint + '0.2)' }}>
-        <span className="font-arabic-sans text-[13px] font-bold" dir="rtl" style={{ color: s.colour }}>{s.ar}</span>
+        <span className="font-arabic-sans text-[13px] font-bold" dir="rtl" translate="no" style={{ color: s.colour }}>{s.ar}</span>
         <span className="font-english text-[10.5px]" style={{ color: tint + '0.75)' }}>{s.en}</span>
         {subtitle && (
           <span className="font-english text-[9.5px]" style={{ color: tint + '0.6)' }}>· {subtitle}</span>

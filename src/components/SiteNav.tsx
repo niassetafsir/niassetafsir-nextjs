@@ -95,7 +95,7 @@ function MobileNav() {
           <div className="flex items-center justify-between px-5 py-3 border-b"
             style={{ borderColor: 'rgba(201,168,76,0.2)' }}>
             <div>
-              <p className="font-arabic text-gold font-bold text-base" dir="rtl">في رياض التفسير</p>
+              <p className="font-arabic text-gold font-bold text-base" dir="rtl" translate="no">في رياض التفسير</p>
               <p className="font-english text-[10px]" style={{ color: 'rgba(255,255,255,0.35)' }}>
                 Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
               </p>
@@ -183,11 +183,14 @@ export default function SiteNav() {
 
       {/* ── Desktop: 3-column grid ─────────────────────────── */}
       <div className="hidden md:grid grid-cols-3 items-center px-5 py-2.5">
+        {/* "EN · FR · AR" sat here as plain text for months. It was never a
+            control -- LangSwitcher is rendered nowhere -- so it advertised two
+            languages the site does not have and implied the English on the page
+            was the edition's. A reader who pressed it, found nothing, and let
+            Chrome translate the page instead got al-Takāthur's ʿayn al-yaqīn
+            back as "the eyes of the innocent". */}
         <div className="flex items-center gap-2">
-          <span className="font-english text-white/25 text-[10px]">EN · FR · AR</span>
-          <div className="border-l border-white/10 pl-2">
-            <ThemeToggle />
-          </div>
+          <ThemeToggle />
         </div>
 
         <div className="flex items-center justify-center gap-1">
@@ -198,7 +201,7 @@ export default function SiteNav() {
 
         <div className="flex justify-end">
           <Link href="/" className="flex flex-col items-end hover:opacity-80 transition-opacity group">
-            <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl"
+            <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl" translate="no"
               style={{ letterSpacing: '-0.01em', textShadow: '0 0 20px rgba(201,168,76,0.3)' }}>
               في رياض التفسير
             </span>
@@ -215,7 +218,7 @@ export default function SiteNav() {
           <MobileNav />
         </div>
         <Link href="/" className="flex flex-col items-center mx-auto hover:opacity-80 transition-opacity group">
-          <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl"
+          <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl" translate="no"
             style={{ letterSpacing: '-0.01em', textShadow: '0 0 20px rgba(201,168,76,0.3)' }}>
             في رياض التفسير
           </span>

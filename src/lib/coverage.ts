@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { getAllLessons } from './lessons';
 import { hasApparatus } from './apparatus';
+import { COMPLETE_TRANSLATION_LESSONS, PARTIAL_TRANSLATIONS } from './draftTranslations';
 
 /**
  * Edition coverage, counted from the data at build time.
@@ -55,6 +56,13 @@ export async function getCoverage(): Promise<Coverage> {
   // in the lesson files. The site was publishing someone else's work as its own
   // coverage. That text is deleted; this counts our own translation, in
   // src/data/jalalaynEnglish, which is al-Fātiḥa and therefore Lesson 1.
+  const translatedIds = translated.map(l => l.id);
+  const complete = translatedIds.filter(id => COMPLETE_TRANSLATION_LESSONS.includes(id));
+  const partialIds = translatedIds.filter(id => id in PARTIAL_TRANSLATIONS);
+  const draftOnly = translatedIds.filter(
+    id => !COMPLETE_TRANSLATION_LESSONS.includes(id) && !(id in PARTIAL_TRANSLATIONS),
+  );
+
   const jalalaynEn = countTextFiles('jalalaynEnglish');
   const withJalalaynEn = lessons.filter(l => jalalaynEn > 0 && l.id === 1);
 
@@ -97,9 +105,24 @@ export async function getCoverage(): Promise<Coverage> {
       },
       {
         key: 'english',
+        // "Lessons 1-5" read as five finished lessons. Two are finished;
+        // Lesson 3 reaches the end of its range but is unreviewed, and
+        // Lessons 4 and 5 stop about a quarter of the way through (see
+        // src/lib/draftTranslations.ts for the measurements). The count is
+        // what a reader can open; the detail says what they will find.
         label: 'English translation',
         detail: translated.length
-          ? `Lessons ${translated[0].id}–${translated[translated.length - 1].id}`
+          ? [
+              complete.length
+                ? `Lesson${complete.length > 1 ? 's' : ''} ${complete.join(', ')} complete`
+                : null,
+              partialIds.length
+                ? `${partialIds.join(', ')} partial`
+                : null,
+              draftOnly.length
+                ? `${draftOnly.join(', ')} in draft`
+                : null,
+            ].filter(Boolean).join(' · ')
           : 'Not yet begun',
         count: translated.length,
         total,
@@ -137,6 +160,8 @@ export interface EditionFacts {
   /** How many distinct lessons the apparatus reaches. */
   footnoteLessons: number;
   translatedCount: number;
+  /** Of those, the ones reviewed against the Arabic and complete. */
+  completeTranslationCount: number;
   translatedFirst: number | null;
   translatedLast: number | null;
   audioLessons: number;
@@ -254,6 +279,8 @@ export async function getEditionFacts(): Promise<EditionFacts> {
     hadithCollections,
     termCount,
     translatedCount: translated.length,
+    completeTranslationCount: translated.filter(id =>
+      COMPLETE_TRANSLATION_LESSONS.includes(id)).length,
     translatedFirst: translated[0] ?? null,
     translatedLast: translated[translated.length - 1] ?? null,
     comparativeLessons: c.layers.find(l => l.key === 'apparatus')?.count ?? 0,

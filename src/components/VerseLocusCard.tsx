@@ -91,7 +91,7 @@ export default function VerseLocusCard({
             </span>
           )}
           {work.titleAr && !locus.question && (
-            <span className="font-arabic text-[14px]" dir="rtl"
+            <span className="font-arabic text-[14px]" dir="rtl" translate="no"
               style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
               {work.titleAr}
             </span>
@@ -128,7 +128,7 @@ export default function VerseLocusCard({
         </div>
 
         {locus.question?.ar && (
-          <p className="font-arabic text-[15.5px] leading-[1.95] mt-2 text-right" dir="rtl"
+          <p className="font-arabic text-[15.5px] leading-[1.95] mt-2 text-right" dir="rtl" translate="no"
             style={{ color: 'var(--gold-light, #E8D4A0)', textAlign: 'right' }}>
             {locus.question.ar}
           </p>
@@ -182,7 +182,7 @@ export default function VerseLocusCard({
         {hasBody ? (
           <>
             {ar && (
-              <p className="font-arabic text-[17px] leading-[2.05] mb-3 text-right" dir="rtl"
+              <p className="font-arabic text-[17px] leading-[2.05] mb-3 text-right" dir="rtl" translate="no"
                 style={{ color: 'var(--body-text, rgba(255,255,255,0.88))', textAlign: 'right' }}>
                 {ar}
                 {excerpt?.truncated && <span style={{ opacity: 0.5 }}> …</span>}

@@ -191,7 +191,7 @@ export default async function VersePage({
             // the two ever disagree the āya renders unannotated rather than
             // attaching every gloss one word off, which is the failure the
             // whole alignment step exists to prevent.
-            <p className="font-arabic text-[26px] leading-[2] mb-3 text-right" dir="rtl"
+            <p className="font-arabic text-[26px] leading-[2] mb-3 text-right" dir="rtl" translate="no"
               style={{ color: 'var(--body-text, rgba(255,255,255,0.92))', textAlign: 'right' }}>
               {text.ar}
             </p>
