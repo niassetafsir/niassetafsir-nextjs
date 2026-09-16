@@ -130,6 +130,47 @@ def candidates(span_words, limit=4):
     scored.sort(reverse=True)
     return scored[:limit]
 
+
+def span_chars(inner):
+    return ''.join(w for (w, _, _) in words_of(inner))
+
+def window_chars(s, start, n):
+    st = streams[s]['words']
+    if start < 0 or start + n > len(st): return None
+    return ''.join(w for (w, _, _) in st[start:start + n])
+
+def boundary_ok(inner, s, start, n):
+    """
+    The guard v2 lacked, and the one that mattered.
+
+    v2 skipped a span carrying a stray bracket, a digit or a Latin letter. It
+    had no answer to the scan MERGING two words into one or SPLITTING one in
+    two, which is not any of those things: the span then holds one token too
+    few or too many, the window slides by a word, and the replacement deletes a
+    word the Shaykh quoted or prepends one he did not. Eight spans went out
+    that way in ae6847e -- Q 14:45 lost أنفسهم, Q 12:11 lost لناصحون, Q 7:170
+    lost إنّا, Q 9:17 lost وفي.
+
+    Character-level edit distance over the whole span settles it. If any
+    neighbouring window -- shifted or extended by a word at either end -- fits
+    the scribe's characters better than the chosen one, the alignment is wrong
+    and the span is left alone. Tested against those eight: it rejects all of
+    them and nothing else.
+    """
+    target = span_chars(inner)
+    if not target: return False
+    def d(st, nn):
+        w = window_chars(s, st, nn)
+        return None if w is None else lev(w, target, cap=max(8, len(target) // 3))
+    base = d(start, n)
+    if base is None: return False
+    for (st, nn) in ((start - 1, n), (start + 1, n), (start, n + 1), (start, n - 1),
+                     (start - 1, n + 1), (start, n + 2), (start - 1, n + 2)):
+        if nn < 1: continue
+        alt = d(st, nn)
+        if alt is not None and alt < base: return False
+    return True
+
 SPAN_RE = re.compile(r'\(([^()]*)\)|«([^»]*)»', re.S)
 MIN_WORDS = 4
 ACCEPT_CTX = 0.85      # continuing where the last span left off
@@ -141,6 +182,7 @@ CTX_REACH = 300        # words
 def skippable(inner):
     if any(ch in FORBIDDEN_IN_SPAN for ch in inner): return 'stray delimiter or digit'
     if re.search(r'[A-Za-z]', inner): return 'latin script'
+    if '\ufffd' in inner: return 'replacement character'
     for tok in inner.split():
         if not any(ARABIC(c) for c in tok): return 'non-Arabic token: ' + tok[:12]
     return None
@@ -170,6 +212,9 @@ def repair_text(ar, report, lid):
             report['unsure'].append((lid, inner.strip()[:50], round(sc, 3)))
             continue
         sc, s, start, in_ctx = best
+        if not boundary_ok(inner, s, start, len(sw)):
+            report['bounds'].append((lid, inner.strip()[:60], round(sc, 3)))
+            continue
         ctx = (s, start + len(sw))
         if sc >= 0.999: continue
         st = streams[s]
@@ -190,7 +235,7 @@ def repair_text(ar, report, lid):
 def main():
     write = '--write' in sys.argv
     only = [a for a in sys.argv[1:] if a.isdigit()]
-    rep = {'fixed': [], 'skipped': [], 'unsure': []}
+    rep = {'fixed': [], 'skipped': [], 'unsure': [], 'bounds': []}
     d = REPO + '/src/data/lessons'; total = 0
     for fn in sorted(os.listdir(d)):
         if not fn.endswith('.json'): continue
@@ -212,6 +257,8 @@ def main():
         print('    now: ' + now)
     print('\n=== SKIPPED, span not clean: %d ===' % len(rep['skipped']))
     for r in rep['skipped']: print('L%-2s %-46s %s' % (r[0], r[1], r[2]))
+    print('\n=== SKIPPED, window boundary not settled: %d ===' % len(rep['bounds']))
+    for r in rep['bounds']: print('L%-2s %.2f  %s' % (r[0], r[2], r[1]))
     print('\n=== SKIPPED, no confident match: %d ===' % len(rep['unsure']))
     for r in rep['unsure']: print('L%-2s %.2f  %s' % (r[0], r[2], r[1]))
 
