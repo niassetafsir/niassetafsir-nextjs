@@ -105,8 +105,8 @@ def clean_slice(t):
     return ''.join(c for c in t if ord(c) not in STRIP_FROM_SLICE)
 
 
-# A bare ص is not a word in Arabic. The scan produces it 542 times across 54
-# lessons, and in every instance read it stands for مِن. Reported by Imam Abdul
+# A bare ص is not a word in Arabic. It stands for مِن. 542 at the time it was
+# first counted, 420 once the citation passes had taken their share. Reported by Imam Abdul
 # Latif from Q 11:6 in Lesson 25: ( وَمَا صِ دَآبَّةٍ فِي الأَرْضِ … ).
 #
 # These spans scored below threshold because a one-letter token against a
@@ -117,9 +117,27 @@ def clean_slice(t):
 # boundary_ok() compares مِن against the muṣḥaf rather than ص. It checks
 # alignment, never the hypothesis itself. A في at that position would cost two
 # edits inside the cap and pass unremarked. The hypothesis held for all 127
-# instances audited -- every one sits on مِن -- but it holds empirically, not by
-# construction, and any new entry here needs the same check.
-SCAN_HYPOTHESES = {'ص': 'من'}
+# instances audited -- but that audit covered ص ALONE. م, س and ي were added
+# later on the survey's evidence and a 50-span audit of one batch, which is a
+# weaker warrant. The hypothesis holds empirically, never by construction, and
+# any new entry needs its own check.
+SCAN_HYPOTHESES = {
+    # A survey of every bare letter in the corpus (2,079 of them) found مِن
+    # flattened three different ways and فِي a fourth. Counts are total
+    # instances, citations and prose together:
+    'ص': 'من',   # 420 — the one Imam Abdul Latif reported, from Q 11:6
+    'م': 'من',   # 561 — مِ قَبْلِكُمْ, مِ رَبِّهِ, مِ السَّمَآءِ
+    'س': 'من',   # 31  — (س شَعَائِرِ اللَّهِ), (س الْخَاسِرِينَ)
+    'ي': 'في',   # 74  — (ي أَيَّامٍ مَعْدُودَاتٍ)
+    #
+    # NOT here, and not to be added:
+    #   و (532) is the compiler's own convention, not damage — و(الرَّحِيمِ),
+    #     and above all `وَ) اذكر (`, 52 times, where the wāw of the āya sits
+    #     outside the bracket and the gloss follows.
+    #   ج (14) is juzʾ in a bibliographic citation: ابن كثير ج ١/٣٦١.
+    #   ه، ن، ا، ل each hide more than one word — one ه in Lesson 2 is Jibrīl
+    #     naming a letter to the Prophet — and wait on AK's reading.
+}
 
 def hypothesise(w):
     return SCAN_HYPOTHESES.get(w, w)

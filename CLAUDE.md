@@ -487,6 +487,28 @@ so far, both already in the codebase before this session:
 - Lesson 6 has no English translation at all (`hasEnglish: false`) — needs
   AK's input on whether/how to source one before this can be closed out.
 
+### Bare letters that are NOT scan damage
+
+A survey of all 56 lessons (16 September 2026) found 2,079 places where a single
+letter stands where a word should. Most are the scan flattening a word — مِن
+comes out as م (561), ص (420) and س (31); فِي comes out as ي (74) — and
+`SCAN_HYPOTHESES` in `scripts/repair-quranic-citations.py` handles those inside
+citations.
+
+**Two are conventions, not damage. Do not "fix" them.**
+
+- **و** — 532 instances. The compiler writes `و(الرَّحِيمِ)` and `و«الرَّجِيمِ»`,
+  and 52 times `وَ) اذكر (`, where the wāw of the āya sits outside the bracket
+  and the gloss follows. This is how the printed apparatus works; rewriting it
+  breaks the lemma/gloss structure.
+- **ج** — 14 instances, every one beside a volume and page: `ابن كثير ج ١/٣٦١`,
+  `الجامع لأحكام القرآن ج ١٥/٥١`. It is *juzʾ*.
+
+**Four are mixed and wait on AK**: ه، ن، ا، ل (268 between them). One ه in
+Lesson 2 is Jibrīl naming a letter to the Prophet — correcting it would corrupt
+the passage. ن is عِندَ in one place and مِنَ in another; ا is sometimes the
+interrogative hamza; ل is often a split proclitic لِي.
+
 ## Repairing the Qurʾānic citations
 
 `scripts/repair-quranic-citations.py` rewrites a bracketed or guillemeted span
