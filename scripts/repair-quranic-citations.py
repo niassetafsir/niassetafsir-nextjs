@@ -104,6 +104,22 @@ DF = {w: len(v) for w, v in index.items()}
 def clean_slice(t):
     return ''.join(c for c in t if ord(c) not in STRIP_FROM_SLICE)
 
+
+# A bare ص is not a word in Arabic. The scan produces it 542 times across 54
+# lessons, and in every instance read it stands for مِن. Reported by Imam Abdul
+# Latif from Q 11:6 in Lesson 25: ( وَمَا صِ دَآبَّةٍ فِي الأَرْضِ … ).
+#
+# These spans scored below threshold because a one-letter token against a
+# two-letter word is a large relative edit distance. The fix is not to relax the
+# threshold — it is to offer the hypothesis and let the muṣḥaf refuse it. The
+# substitution is used ONLY for scoring; the replacement text is sliced from the
+# verse as always, and boundary_ok() still has to pass. Where the window is not
+# مِن there, the span fails and is left alone.
+SCAN_HYPOTHESES = {'ص': 'من'}
+
+def hypothesise(w):
+    return SCAN_HYPOTHESES.get(w, w)
+
 def score_window(span_words, s, start):
     st = streams[s]['words']
     if start < 0 or start + len(span_words) > len(st): return 0.0
@@ -132,7 +148,7 @@ def candidates(span_words, limit=4):
 
 
 def span_chars(inner):
-    return ''.join(w for (w, _, _) in words_of(inner))
+    return ''.join(hypothesise(w) for (w, _, _) in words_of(inner))
 
 def window_chars(s, start, n):
     st = streams[s]['words']
@@ -171,6 +187,39 @@ def boundary_ok(inner, s, start, n):
         if alt is not None and alt < base: return False
     return True
 
+
+RANGE_RE = re.compile(r'(\d+)\s*:\s*(\d+)\s*[–\-—]\s*(?:(\d+)\s*:\s*)?(\d+)')
+
+def declared_scope(lesson):
+    """
+    The lesson's own declared verse range, as a weak prior.
+
+    A lesson's FIRST citation has no neighbour to continue from, so it faced the
+    0.93 jump bar and lost: Q 11:6 opening Lesson 25 scored 0.91 and was left as
+    ( وَمَا صِ دَآبَّةٍ … ), which is what Imam Abdul Latif reported. But a lesson
+    declared "Q. 11:6–83" IS evidence about where its citations fall. Landing
+    inside the declared range counts as context — the same 0.85 bar a neighbour
+    would give, no lower.
+
+    Deliberately a prior and not a filter: the metadata is not reliable
+    everywhere (lesson 35 is declared Q 23–24 while its body commentates
+    Q 17:90–109), so a citation outside the declared range is not rejected, it
+    simply gets no help.
+    """
+    m = RANGE_RE.search(str(lesson.get('verseRange') or ''))
+    if not m: return None
+    s1, a1, s2, a2 = m.group(1), m.group(2), m.group(3), m.group(4)
+    return (int(s1), int(a1), int(s2 or s1), int(a2))
+
+def in_declared(scope, key):
+    if not scope: return False
+    su, ay = (int(x) for x in key.split(':'))
+    s1, a1, s2, a2 = scope
+    if su < s1 or su > s2: return False
+    if su == s1 and ay < a1: return False
+    if su == s2 and ay > a2: return False
+    return True
+
 SPAN_RE = re.compile(r'\(([^()]*)\)|«([^»]*)»', re.S)
 MIN_WORDS = 4
 ACCEPT_CTX = 0.85      # continuing where the last span left off
@@ -187,12 +236,12 @@ def skippable(inner):
         if not any(ARABIC(c) for c in tok): return 'non-Arabic token: ' + tok[:12]
     return None
 
-def repair_text(ar, report, lid):
+def repair_text(ar, report, lid, scope=None):
     out, ctx = [], None       # ctx = (sura, end_word_index)
     for m in SPAN_RE.finditer(ar):
         inner = m.group(1) if m.group(1) is not None else m.group(2)
         op, cl = ('(', ')') if m.group(1) is not None else ('«', '»')
-        sw = [w for (w, _, _) in words_of(inner)]
+        sw = [hypothesise(w) for (w, _, _) in words_of(inner)]
         if len(sw) < MIN_WORDS: continue
         why = skippable(inner)
         if why:
@@ -201,7 +250,8 @@ def repair_text(ar, report, lid):
         if not cands: continue
         best = None
         for (sc, s, start) in cands:
-            in_ctx = ctx and s == ctx[0] and 0 <= start - ctx[1] <= CTX_REACH
+            in_ctx = (ctx and s == ctx[0] and 0 <= start - ctx[1] <= CTX_REACH) \
+                     or in_declared(scope, streams[s]['verse_at'][start])
             need, marg = (ACCEPT_CTX, MARGIN_CTX) if in_ctx else (ACCEPT_JUMP, MARGIN_JUMP)
             rivals = [c[0] for c in cands if (c[1], c[2]) != (s, start)]
             runner = max(rivals) if rivals else 0.0
@@ -244,7 +294,7 @@ def main():
         if only and str(L['id']) not in only: continue
         key = 'arabicBody' if L.get('arabicBody') else 'arabicText'
         if not L.get(key): continue
-        new, n = repair_text(L[key], rep, L['id']); total += n
+        new, n = repair_text(L[key], rep, L['id'], declared_scope(L)); total += n
         if n and write:
             L[key] = new
             io.open(d + '/' + fn, 'w', encoding='utf-8').write(json.dumps(L, ensure_ascii=False))
