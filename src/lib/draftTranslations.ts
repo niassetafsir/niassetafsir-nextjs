@@ -28,11 +28,17 @@ export interface PartialTranslation {
 /**
  * Translations that cover only part of their lesson. Keyed by lesson id.
  *
- * Lesson 3 is not here: its English reaches the end of its range (~Q 2:58), so
- * whatever it is missing is in the middle rather than at the end, and a note
- * saying "breaks off at" would be false. It needs AK's read, not a marker.
+ * Lesson 3 was left out of this list on 15 September on the strength of a
+ * measurement, not a reading: its English ends on the prostration, and the
+ * prostration appears twice in its range — to Ādam at Q 2:34 and at the gate
+ * in Q 2:58 — so the character ratio was read as gaps in the middle. Aligning
+ * the two texts paragraph by paragraph settles it: English E32 translates
+ * Arabic A27 and stops mid-sentence there, and A28 to A70 — 43 of the 70
+ * paragraphs, 48% of the characters — have no English at all. It breaks off
+ * like the others.
  */
 export const PARTIAL_TRANSLATIONS: Record<number, PartialTranslation> = {
+  3: { endsAt: 'Q 2:34, mid-sentence on the angels\' prostration to Ādam', arabicEndsAt: 'Q 2:57' },
   4: { endsAt: 'Q 2:71, in the middle of the narrative of the cow', arabicEndsAt: 'Q 2:105' },
   5: { endsAt: 'Q 2:127, at Ibrāhīm and Ismāʿīl raising the foundations', arabicEndsAt: 'Q 2:202' },
 };
