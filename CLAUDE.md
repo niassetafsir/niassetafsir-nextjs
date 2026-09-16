@@ -632,3 +632,48 @@ rule applied across 268 of them would invent 268 readings.
 The same reasoning that kept 546 instances of `و` and `ج` out of
 `SCAN_HYPOTHESES` applies here, and for the same reason: frequency is not
 evidence of a substitution when the targets do not agree.
+
+## Lesson 55 contained the whole of Lesson 56 — cut 16 September
+
+Its `arabicBody` ran to 100,513 characters, twice the corpus median, because
+paragraph 222 was the bare heading `سورة الإخلاص` and everything after it was
+Lesson 56: al-Ikhlāṣ, al-Falaq, al-Nās, then volume 10's back matter. Thirty-four
+paragraphs over 200 characters sat in both lessons, including 1,848 characters
+on al-Ikhlāṣ. It is the only cross-lesson duplication in the corpus.
+
+Lesson 55 now ends at paragraph 221, the second half of the al-Masad ḥadīth
+citation (Bukhārī 4770 / Muslim 307). All 35 of its `[N]` markers are in the
+retained text, so `footnoteOrder` is untouched. **Lesson 56 was not modified.**
+
+### What was tried first, and why it was wrong
+
+The obvious move — give Lesson 56 the copy from Lesson 55's tail, which is
+fuller by ~1,300 characters of inline bibliographic citations (Rūḥ al-Maʿānī
+30/265–266, al-Durr al-Manthūr 8/682–683, Bayhaqī 7061, Muslim 1344 and others)
+— was built, audited and reverted. The premise was backwards. Lesson 56's copy
+is editorially cleaned; Lesson 55's tail is the raw OCR stream, and taking it
+would have imported 12 page running-heads breaking sentences mid-clause, six
+markdown backslashes, six more bare footnote digits, and 139 paragraphs of
+volume-10 back matter — a taqrīẓ qaṣīda, the colophon, and the fihris — into a
+239-paragraph lesson whose commentary ends at paragraph 99. It would also have
+destroyed the only surviving record of where Lesson 56's ten notes attach.
+
+The tail is kept at `translation-drafts/lesson-55-tail-removed.txt`. Merging its
+citations into Lesson 56 is worth doing and is a per-paragraph edit, not a
+replacement.
+
+### Also fixed here
+
+`suras` described neither lesson: 55 held `[87…99]` and 56 held `[100…111]` —
+the twelve sūras that are Lesson 55's. Both now agree with `lessonRanges.json`
+and `surahLessons.ts`: 55 → 87–111, 56 → 112–114.
+
+### Still open, surfaced by the same audit
+
+- Lesson 56 carries volume-10 back matter from paragraph 100 to the end — 58% of
+  the lesson. The commentary ends at the khatm duʿāʾ; after it come a taqrīẓ, the
+  colophon `تم الكتاب وعم باهر حسن`, and the volume fihris (sūras 62–114,
+  i.e. Lessons 51–56). This predates today's change. It belongs to the volume,
+  not to any lesson body.
+- Paragraphs repeated inside one lesson: L8 (3, 1,258 chars), L13 (1, 292),
+  L22 (1, 306), L30 (2, 1,105).
