@@ -321,7 +321,7 @@ export default async function VersePage({
               </p>
               {group.entries.map(entry => (
                 <VerseLocusCard
-                  key={`${entry.locus.id}-${entry.link.type}`}
+                  key={`${entry.locus.id}-${entry.link.acts.join('+')}`}
                   entry={entry}
                   excerpt={excerpts.get(entry.locus.id)}
                 />
@@ -341,7 +341,7 @@ export default async function VersePage({
                 what the master said.
               </p>
               {schoolGroups.map(g => g.entries.map(entry => (
-                <VerseLocusCard key={`school-${entry.locus.id}-${entry.link.type}`} entry={entry} />
+                <VerseLocusCard key={`school-${entry.locus.id}-${entry.link.acts.join('+')}`} entry={entry} />
               )))}
             </section>
           )}

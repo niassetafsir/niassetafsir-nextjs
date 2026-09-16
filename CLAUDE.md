@@ -608,3 +608,27 @@ printed page. Recovering them means reading the page images, not running a
 script. `claude/footnote-markers-missing-in-recovered-half.md` records why
 deriving positions by paragraph was measured at 69% and rejected; nothing has
 changed that.
+
+## The 268 bare letters are not a scan substitution — do not automate them
+
+Ruled 16 September, with AK's leave to use judgement, and the judgement is to
+leave them alone.
+
+`ص → من` was worth a rule: one mapping, 420 occurrences, the Qurʾān deciding
+every one. `ه ن ا ل` are not that. Of 268, only 127 sit inside a bracketed or
+guillemeted span where the āya can arbitrate at all, and of those only 12 sit in
+a span that matches its āya well enough to align. Those 12 align to **twelve
+different words**:
+
+    ه → الله · بالله · لن        ن → فسوف · نزلنا · دائبين · نب
+    ا → ان · الذين · وارتقبوا    ل → اولئك · ان · لا
+
+No mapping repeats. These are not one letter standing for one word; they are
+what is left when the scan breaks a word apart and strands a letter — so the
+repair is to restore the word, which means editing the text around the letter,
+not substituting the letter. That is hand work on individual passages, and a
+rule applied across 268 of them would invent 268 readings.
+
+The same reasoning that kept 546 instances of `و` and `ج` out of
+`SCAN_HYPOTHESES` applies here, and for the same reason: frequency is not
+evidence of a substitution when the targets do not agree.

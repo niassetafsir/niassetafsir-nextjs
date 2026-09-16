@@ -239,7 +239,19 @@ export interface VerseLink {
   surah: number;
   ayahStart: number;
   ayahEnd?: number;
-  type: ExegeticalAct;
+  /**
+   * What the locus DOES with the āya. A list, because a passage can do more
+   * than one thing at once and picking a winner would throw away the fact:
+   * Fī Riyāḍ routinely glosses a lemma word-for-word and then argues from it,
+   * which is `['gloss', 'prooftext']`, not a choice between them.
+   *
+   * ORDERED, and the order is meaning, not presentation. The first entry is
+   * the act the passage is chiefly performing -- what the reader would say
+   * the passage IS -- and everything that reads a single act off a link
+   * (`isPrimary`, the grouping in `entriesByAct`, the one-line summary) reads
+   * `acts[0]`. Never empty.
+   */
+  acts: ExegeticalAct[];
   confidence: Confidence;
   rasm: Rasm;
   note?: string;
@@ -343,7 +355,7 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
       locusId,
       surah,
       ayahStart: ayah,
-      type: 'tafsir',
+      acts: ['tafsir'],
       confidence: HAND_CURATED_LESSONS.has(lessonId) ? 'curated' : 'auto',
       rasm: 'hafs',
       // An entry the compiler never bracketed did not come from the matcher,
@@ -651,7 +663,7 @@ export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
           locusId: locus.id,
           surah,
           ayahStart: ayah,
-          type: 'tafsir',
+          acts: ['tafsir'],
           confidence: 'auto',
           derivation: 'session-range',
           rasm: 'hafs',
@@ -740,7 +752,7 @@ export function groupByAct(
   return ACT_ORDER.map(act => ({
     act,
     entries: entries
-      .filter(e => e.link.type === act)
+      .filter(e => e.link.acts[0] === act)
       .sort((a, b) => a.year - b.year),
   })).filter(g => g.entries.length > 0);
 }
@@ -778,7 +790,7 @@ export function timelineMarks(entries: VerseEntry[]): TimelineMark[] {
       detail:
         `${first.work.titleTranslit ?? workId}, ${first.dateLabel}. ` +
         `${group.length} ${group.length === 1 ? 'locus' : 'loci'}, ` +
-        `${ACT_LABEL[first.link.type]}.` +
+        `${ACT_LABEL[first.link.acts[0]]}.` +
         (anyText ? '' : ' Text not yet available.'),
     });
   });
@@ -855,7 +867,7 @@ export function getTermEntries(slug: string): TermEntry[] {
     if (!work) return;
     out.push({
       termLink: l,
-      link: { locusId: l.locusId, surah: 0, ayahStart: 0, type: 'gloss',
+      link: { locusId: l.locusId, surah: 0, ayahStart: 0, acts: ['gloss'],
               confidence: l.confidence, rasm: 'unknown' },
       locus, witness, work,
       occasion: getOccasion(locus.occasionId ?? witness.occasionId),

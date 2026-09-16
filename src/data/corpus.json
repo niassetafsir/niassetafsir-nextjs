@@ -1912,7 +1912,7 @@
       "locusId": "ala-49ii",
       "surah": 2,
       "ayahStart": 137,
-      "type": "poetic",
+      "acts": ["poetic"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "MS Kaolack 14"
@@ -1921,7 +1921,7 @@
       "locusId": "ala-74",
       "surah": 3,
       "ayahStart": 147,
-      "type": "poetic",
+      "acts": ["poetic"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "MS NU/Falke 1988; NU/Paden 250, 283"
@@ -1930,7 +1930,7 @@
       "locusId": "ala-49xxxi",
       "surah": 3,
       "ayahStart": 173,
-      "type": "poetic",
+      "acts": ["poetic"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "MS Kaolack 9; NU/Paden 287. Publ. in Jāmiʿ jawāmiʿ al-dawāwīn Composed 1360/1941-2."
@@ -1939,7 +1939,7 @@
       "locusId": "ala-49xxxii",
       "surah": 23,
       "ayahStart": 29,
-      "type": "poetic",
+      "acts": ["poetic"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Publ. at the end of ʿUmar b. Saʿīd al-Fūtī, Safīnat al-saʿāda, Dakar 1997"
@@ -1948,7 +1948,7 @@
       "locusId": "ala-49xxviii",
       "surah": 28,
       "ayahStart": 24,
-      "type": "poetic",
+      "acts": ["poetic"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "MS UBMIA/TIJ 68a; publ. n.p. [Ghana] n.d."
@@ -1957,7 +1957,7 @@
       "locusId": "ala-49xxiv",
       "surah": 40,
       "ayahStart": 44,
-      "type": "poetic",
+      "acts": ["poetic"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "MS Kaolack 11; NU/Paden 287 Composed 1362/1942-3."
@@ -1966,7 +1966,7 @@
       "locusId": "ala-68",
       "surah": 40,
       "ayahStart": 44,
-      "type": "poetic",
+      "acts": ["poetic"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "MS Kaolack 16 — ALA gives the same shelfmark for #38; one of the two is an error"
@@ -1975,7 +1975,7 @@
       "locusId": "ala-77",
       "surah": 40,
       "ayahStart": 44,
-      "type": "poetic",
+      "acts": ["poetic"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Opens Waliyyukum awliyāʾ Allāhi idh makarū * makran huwa llāhu mawlā l-khalqi fa-ṣṭabirū — layers Q 3:54 or 8:30 over the Q 40:44 acrostic Composed 22 Shawwāl 1375 / 2 June 1956."
@@ -1984,7 +1984,7 @@
       "locusId": "ala-49xvi",
       "surah": 6,
       "ayahStart": 141,
-      "type": "poetic",
+      "acts": ["poetic"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Macaronic: the Wolof 'gerte' (groundnut) set in an Arabic hemistich. On whether zakāt is due on peanut crops; cf. ALA #18 Irshād al-sārīn ilā ʿadam al-hārīn, 1355/1936. Simultaneously poetic and juristic. VERSE IS INFERRED FROM THE SUBJECT, not named by ALA — the only entry here that is not ALA's own attribution."
@@ -1993,7 +1993,7 @@
       "locusId": "hikam-p2-1",
       "surah": 1,
       "ayahStart": 1,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "The bāʾ of the basmala: the dot beneath the alif, tawāḍuʿ and rafʿ — man tawāḍaʿa rafaʿahu llāh. Hadith: mā bayna bismillāh al-raḥmān al-raḥīm wa-bayna al-ism al-aʿẓam illā kamā bayna sawād al-ʿayn wa-bayāḍihā."
@@ -2002,7 +2002,7 @@
       "locusId": "hikam-p2-2",
       "surah": 7,
       "ayahStart": 172,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "alastu bi-rabbikum qālū balā — cited within the basmala discussion, on primordial speech."
@@ -2011,7 +2011,7 @@
       "locusId": "hikam-p2-3",
       "surah": 47,
       "ayahStart": 15,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "[VERSE INFERRED FROM CONTEXT, no explicit lemma — check against source] The rivers of Paradise, named only as 'the verse in Sūrat al-Qitāl'."
@@ -2020,7 +2020,7 @@
       "locusId": "hikam-p2-4",
       "surah": 1,
       "ayahStart": 2,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "Aqsām al-ḥamd; rabb al-ʿālamīn — al-ʿālam is everything other than God; the masculine plural by taghlīb. al-Rabb is the one who rears, whether by small favours or by great ones — ʿulūm, maʿārif, laṭāʾif, asrār."
@@ -2029,7 +2029,7 @@
       "locusId": "hikam-p2-5",
       "surah": 1,
       "ayahStart": 3,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "al-Raḥīm: raḥma as riqqat al-qalb is impossible of God; its terminus, tafaḍḍul, is not. Hadith of the hundred mercies."
@@ -2038,7 +2038,7 @@
       "locusId": "hikam-p2-6",
       "surah": 1,
       "ayahStart": 4,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "mālik yawm al-dīn — kings of this world are contested; He is not."
@@ -2047,7 +2047,7 @@
       "locusId": "hikam-p2-7",
       "surah": 1,
       "ayahStart": 5,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "Taqdīm al-mafʿūl li-l-ḥaṣr. THE KEY DIVISION: iyyāka naʿbudu = sharīʿa, wa-iyyāka nastaʿīnu = ḥaqīqa. Then ʿAlī b. Abī Ṭālib on riyāʾ — ṣallaytu al-bāriḥa miʾat rakʿa. Collate against Fī Riyāḍ Lesson 1."
@@ -2056,7 +2056,7 @@
       "locusId": "hikam-p2-8",
       "surah": 1,
       "ayahStart": 6,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "God did not say ṣirāṭ alladhīna qutilū wa-dhubiḥū. The objection from the four caliphs, all martyred though all prayed for ʿāfiya. Resolution: al-ʿāfiya huwa al-riḍā bi-l-qadar — not that the Master assist you in all you desire, but that you consent to every decree. al-maghḍūb ʿalayhim = the Jews, al-ḍāllīn = the Christians. NOTE the parallel four-caliphs excursus in Fī Riyāḍ vol. 1, pp. 56-59, on Q 2:3 (Wright 2024)."
@@ -2065,7 +2065,7 @@
       "locusId": "hikam-p2-8",
       "surah": 1,
       "ayahStart": 7,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "God did not say ṣirāṭ alladhīna qutilū wa-dhubiḥū. The objection from the four caliphs, all martyred though all prayed for ʿāfiya. Resolution: al-ʿāfiya huwa al-riḍā bi-l-qadar — not that the Master assist you in all you desire, but that you consent to every decree. al-maghḍūb ʿalayhim = the Jews, al-ḍāllīn = the Christians. NOTE the parallel four-caliphs excursus in Fī Riyāḍ vol. 1, pp. 56-59, on Q 2:3 (Wright 2024)."
@@ -2074,7 +2074,7 @@
       "locusId": "hikam-p3-9",
       "surah": 1,
       "ayahStart": 2,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "EXCURSUS 1 — five names, five pillars: al-Fātiḥa fīhā khamsat asmāʾ, kull ism yushīr ilā qāʿida min qawāʿid al-sharʿ. al-Ḥamdu lillāh → tawḥīd; rabb al-ʿālamīn → the five prayers; al-Raḥmān al-Raḥīm → zakāt; mālik yawm al-dīn → ḥajj, and the fast."
@@ -2083,7 +2083,7 @@
       "locusId": "hikam-p3-9",
       "surah": 1,
       "ayahStart": 3,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "EXCURSUS 1 — five names, five pillars: al-Fātiḥa fīhā khamsat asmāʾ, kull ism yushīr ilā qāʿida min qawāʿid al-sharʿ. al-Ḥamdu lillāh → tawḥīd; rabb al-ʿālamīn → the five prayers; al-Raḥmān al-Raḥīm → zakāt; mālik yawm al-dīn → ḥajj, and the fast."
@@ -2092,7 +2092,7 @@
       "locusId": "hikam-p3-9",
       "surah": 1,
       "ayahStart": 4,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "EXCURSUS 1 — five names, five pillars: al-Fātiḥa fīhā khamsat asmāʾ, kull ism yushīr ilā qāʿida min qawāʿid al-sharʿ. al-Ḥamdu lillāh → tawḥīd; rabb al-ʿālamīn → the five prayers; al-Raḥmān al-Raḥīm → zakāt; mālik yawm al-dīn → ḥajj, and the fast."
@@ -2101,7 +2101,7 @@
       "locusId": "hikam-p3-10",
       "surah": 1,
       "ayahStart": 1,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "EXCURSUS 2 — nine sciences: al-Qurʾān mā fīhi illā tisʿat ʿulūm, kulluhā fī l-Fātiḥa. al-ḥamd / shukr / tawḥīd / waʿd / waʿīd / sharīʿa / ḥaqīqa / duʿāʾ / qiṣṣa / waʿẓ, each assigned to a clause."
@@ -2110,7 +2110,7 @@
       "locusId": "hikam-p3-10",
       "surah": 1,
       "ayahStart": 7,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "EXCURSUS 2 — nine sciences: al-Qurʾān mā fīhi illā tisʿat ʿulūm, kulluhā fī l-Fātiḥa. al-ḥamd / shukr / tawḥīd / waʿd / waʿīd / sharīʿa / ḥaqīqa / duʿāʾ / qiṣṣa / waʿẓ, each assigned to a clause."
@@ -2119,7 +2119,7 @@
       "locusId": "hikam-p3-11",
       "surah": 20,
       "ayahStart": 50,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "Three degrees of hidāya: ʿāmma (aʿṭā kulla shayʾin khalqahu thumma hadā), khāṣṣa (yahdīhim rabbuhum bi-īmānihim), khāṣṣat al-khāṣṣa (qul inna hudā llāhi huwa l-hudā; wa-wajadaka ḍāllan fa-hadā)."
@@ -2128,7 +2128,7 @@
       "locusId": "hikam-p3-11",
       "surah": 10,
       "ayahStart": 9,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "Three degrees of hidāya: ʿāmma (aʿṭā kulla shayʾin khalqahu thumma hadā), khāṣṣa (yahdīhim rabbuhum bi-īmānihim), khāṣṣat al-khāṣṣa (qul inna hudā llāhi huwa l-hudā; wa-wajadaka ḍāllan fa-hadā)."
@@ -2137,7 +2137,7 @@
       "locusId": "hikam-p3-11",
       "surah": 2,
       "ayahStart": 120,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "Three degrees of hidāya: ʿāmma (aʿṭā kulla shayʾin khalqahu thumma hadā), khāṣṣa (yahdīhim rabbuhum bi-īmānihim), khāṣṣat al-khāṣṣa (qul inna hudā llāhi huwa l-hudā; wa-wajadaka ḍāllan fa-hadā)."
@@ -2146,7 +2146,7 @@
       "locusId": "hikam-p3-11",
       "surah": 93,
       "ayahStart": 7,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "Three degrees of hidāya: ʿāmma (aʿṭā kulla shayʾin khalqahu thumma hadā), khāṣṣa (yahdīhim rabbuhum bi-īmānihim), khāṣṣat al-khāṣṣa (qul inna hudā llāhi huwa l-hudā; wa-wajadaka ḍāllan fa-hadā)."
@@ -2155,7 +2155,7 @@
       "locusId": "hikam-p3-12",
       "surah": 20,
       "ayahStart": 5,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "al-Raḥmān ʿalā l-ʿarsh istawā — inna l-ʿarsh maqlūb sharʿ: the consonants of ʿ-r-sh reversed give sh-r-ʿ. The Throne is where God's mercy descends, so the Law is the sum and landing-place of mercy on earth. NO PARALLEL FOUND in the published scholarship on Niasse."
@@ -2164,7 +2164,7 @@
       "locusId": "hikam-p3-13",
       "surah": 10,
       "ayahStart": 26,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "[VERSE INFERRED FROM CONTEXT, no explicit lemma — check against source] Ruʾyat Allāh as the ziyāda of li-lladhīna aḥsanū l-ḥusnā wa-ziyāda; then qul bi-faḍl Allāh wa-bi-raḥmatihi fa-bi-dhālika fa-l-yafraḥū."
@@ -2173,7 +2173,7 @@
       "locusId": "hikam-p3-13",
       "surah": 10,
       "ayahStart": 58,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "[VERSE INFERRED FROM CONTEXT, no explicit lemma — check against source] Ruʾyat Allāh as the ziyāda of li-lladhīna aḥsanū l-ḥusnā wa-ziyāda; then qul bi-faḍl Allāh wa-bi-raḥmatihi fa-bi-dhālika fa-l-yafraḥū."
@@ -2182,7 +2182,7 @@
       "locusId": "hikam-p4-14",
       "surah": 11,
       "ayahStart": 92,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "a-rahṭī aʿazzu ʿalaykum mina llāh — al-ʿizza ʿinda llāh against al-ʿizza ʿinda ahl al-dunyā (jāh and wealth). The verse covers whoever works for this world at the cost of the next."
@@ -2191,7 +2191,7 @@
       "locusId": "hikam-p4-15",
       "surah": 12,
       "ayahStart": 1,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "[VERSE INFERRED FROM CONTEXT, no explicit lemma — check against source] Jacob's letter to the king of Egypt; Joseph freeing the people of Egypt for joy at meeting his father."
@@ -2200,7 +2200,7 @@
       "locusId": "hikam-p4-16",
       "surah": 20,
       "ayahStart": 17,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "hiya ʿaṣāya — al-ʿaṣā and al-maʿṣiya are cognate in the lafẓ: what the servant ascribes to himself becomes a living thing against him. Then Moses' tongue, the coal, and why the miracle required the earlier defect.",
@@ -2210,7 +2210,7 @@
       "locusId": "hikam-p5-17",
       "surah": 21,
       "ayahStart": 22,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "law kāna fīhimā ālihatun illā llāhu la-fasadatā — ʿilm al-kalām is blamed and an innovation, and this one verse suffices a man, on tawḥīd al-afʿāl wa-l-ṣifāt wa-l-dhāt."
@@ -2219,7 +2219,7 @@
       "locusId": "hikam-p5-18",
       "surah": 21,
       "ayahStart": 30,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "wa-jaʿalnā min al-māʾ kulla shayʾin ḥayy — as water is the cause of every living thing here, lā ilāha illā llāh is the cause of life hereafter; that word is the water of the next world."
@@ -2228,7 +2228,7 @@
       "locusId": "hikam-p5-19",
       "surah": 21,
       "ayahStart": 83,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "Taṣrīḥ against taʿrīḍ in supplication: Zachariah asks explicitly (rabbi hab lī min ladunka waliyyan) because he seeks a good; Job alludes (annī massaniya l-ḍurr) because he seeks the lifting of an affliction, and allusion is nearer to adab."
@@ -2237,7 +2237,7 @@
       "locusId": "hikam-p5-19",
       "surah": 19,
       "ayahStart": 5,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "Taṣrīḥ against taʿrīḍ in supplication: Zachariah asks explicitly (rabbi hab lī min ladunka waliyyan) because he seeks a good; Job alludes (annī massaniya l-ḍurr) because he seeks the lifting of an affliction, and allusion is nearer to adab."
@@ -2246,7 +2246,7 @@
       "locusId": "hikam-p5-20",
       "surah": 63,
       "ayahStart": 9,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "wa-lā tulhikum amwālukum wa-lā awlādukum ʿan dhikri llāh — whoever is not connected to the Presence is, ʿinda ahl al-ḥaqīqa, ibn zinan. Also the four gazes that count as worship: the Kaʿba, a parent's face, the muṣḥaf, a scholar's face."
@@ -2255,7 +2255,7 @@
       "locusId": "hikam-p5-21",
       "surah": 24,
       "ayahStart": 35,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "FOUR LIGHTS: that which shows you and is not seen; that which shows you and is seen (the eye's light); that which only shows you (the intellect's light); and that which shows you the existent AND the non-existent — and that is God. Then the zujāja as the believer's heart: glass breaks fast; too much sleep, food and mixing with worldly people clouds it. COLLATION TARGET — Wright 2024 cites Fī Riyāḍ vol. 4, pp. 217-218 on this verse but does not analyse it."
@@ -2264,7 +2264,7 @@
       "locusId": "hikam-p5-22",
       "surah": 24,
       "ayahStart": 45,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "man yamshī ʿalā baṭnih = appetite of the belly; on two feet = appetite of sex; on four = those who seek jāh, called four because they are ridden. And some of the ʿārifūn walk by their spirits."
@@ -2273,7 +2273,7 @@
       "locusId": "hikam-p6-23",
       "surah": 48,
       "ayahStart": 1,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "li-yaghfira laka llāhu — the agent is not repeated; God assigns the act to Himself. The Prophet being maʿṣūm, the maghfira returns to the umma (cf. li-yudkhila l-muʾminīn). Three things no veil stops: a parent's prayer for a child, the prayer of the wronged, the word of ikhlāṣ.",
@@ -2283,7 +2283,7 @@
       "locusId": "hikam-p6-24",
       "surah": 16,
       "ayahStart": 127,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "wa-mā ṣabruka illā bi-llāh; wa-mā l-naṣru illā min ʿind Allāh; in yanṣurkumu llāhu fa-lā ghāliba lakum. 'Nowhere in the Qurʾān is victory mentioned without God being made its agent.'"
@@ -2292,7 +2292,7 @@
       "locusId": "hikam-p6-24",
       "surah": 3,
       "ayahStart": 126,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "wa-mā ṣabruka illā bi-llāh; wa-mā l-naṣru illā min ʿind Allāh; in yanṣurkumu llāhu fa-lā ghāliba lakum. 'Nowhere in the Qurʾān is victory mentioned without God being made its agent.'"
@@ -2301,7 +2301,7 @@
       "locusId": "hikam-p6-24",
       "surah": 3,
       "ayahStart": 160,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "wa-mā ṣabruka illā bi-llāh; wa-mā l-naṣru illā min ʿind Allāh; in yanṣurkumu llāhu fa-lā ghāliba lakum. 'Nowhere in the Qurʾān is victory mentioned without God being made its agent.'"
@@ -2310,7 +2310,7 @@
       "locusId": "hikam-p6-25",
       "surah": 52,
       "ayahStart": 21,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "alḥaqnā bihim dhurriyyatahum — the murīd of deficient state is joined to his shaykh's station as the child of deficient faith is joined to the parent's. al-marʾ maʿa man aḥabb."
@@ -2319,7 +2319,7 @@
       "locusId": "hikam-p6-26",
       "surah": 55,
       "ayahStart": 29,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "kulla yawmin huwa fī shaʾn — the boy who answered from the floor and was raised to the minbar; he was Mālik b. Anas."
@@ -2328,7 +2328,7 @@
       "locusId": "hikam-p6-27",
       "surah": 57,
       "ayahStart": 20,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "laʿib / lahw / zīna / tafākhur / takāthur mapped onto the seven-year ages of a life. Whoever has not repented to God by thirty is al-maghbūn."
@@ -2337,7 +2337,7 @@
       "locusId": "hikam-p6-28",
       "surah": 57,
       "ayahStart": 25,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "fīhi baʾsun shadīdun wa-manāfiʿu li-l-nās — what is of general benefit God made cheap (iron, fresh water, air); what has no use He made dear (gold, musk). 'Thus God exchanged, out of His mercy.'"
@@ -2346,7 +2346,7 @@
       "locusId": "hikam-p7-29",
       "surah": 83,
       "ayahStart": 15,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "kallā innahum ʿan rabbihim yawmaʾidhin la-maḥjūbūn — the veil is the CAUSE of the punishment, as a sultan first screens himself from the man he means to punish."
@@ -2355,7 +2355,7 @@
       "locusId": "hikam-p7-30",
       "surah": 89,
       "ayahStart": 27,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "yā ayyatuhā l-nafsu l-muṭmaʾinna — lā yumkin li-l-nafs al-iṭmiʾnān illā bi-l-maʿrifa. The souls of worldly people never rest: desire in pursuit cannot rest, desire in possession fears loss. WRIGHT'S 2024 THESIS (maʿrifa bi-llāh as the telos of Niasse's exegesis) stated flatly in 1956, on a verse he does not treat, in a text he does not know.",
@@ -2365,7 +2365,7 @@
       "locusId": "hikam-p8-31",
       "surah": 112,
       "ayahStart": 1,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "aḥad indefinite because His unicity is hidden from creation save from ahl al-maʿrifa; al-Ṣamad definite because known even to the deniers (Q 29:61). lam yalid wa-lam yūlad negates being begotten BEFORE begetting, since the deniers claimed the latter and none claimed the former (Q 9:30; the Arab pagans on the angels). Then: aḥad is the trustee (amīn) the intellect seeks, al-Ṣamad the rich man (ghanī muthrī) desire seeks.",
@@ -2375,7 +2375,7 @@
       "locusId": "hikam-p8-32",
       "surah": 29,
       "ayahStart": 61,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "Cited within the al-Ikhlāṣ commentary."
@@ -2384,7 +2384,7 @@
       "locusId": "hikam-p8-32",
       "surah": 9,
       "ayahStart": 30,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "Cited within the al-Ikhlāṣ commentary."
@@ -2393,7 +2393,7 @@
       "locusId": "hikam-p8-33",
       "surah": 113,
       "ayahStart": 1,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "qul aʿūdhu bi-rabb al-falaq — ONE name only (al-Rabb), because refuge is sought from four worldly harms and the need is worldly. ʿālam al-khalq (dense bodies) against ʿālam al-amr (luminous spirits, angels), from which no harm issues at all.",
@@ -2403,7 +2403,7 @@
       "locusId": "hikam-p9-34",
       "surah": 114,
       "ayahStart": 1,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "THREE names — rabb, malik, ilāh — because the need is religious. al-Rabb for the small, who need tarbiya and iṣlāḥ; al-Malik for the young, whose strength must be curbed by a king they cannot resist; al-Ilāh for the old, who have nothing left but return. Fa-l-nās thalāthat aqsām.",
@@ -2413,7 +2413,7 @@
       "locusId": "hikam-p9-35",
       "surah": 112,
       "ayahStart": 1,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "al-Ikhlāṣ is a third of the Qurʾān because the Qurʾān is command and prohibition, outward and inward, and ikhlāṣ is tawḥīd entire; al-Kāfirūn a quarter, negating worship of any other."
@@ -2422,7 +2422,7 @@
       "locusId": "hikam-p9-35",
       "surah": 109,
       "ayahStart": 1,
-      "type": "gloss",
+      "acts": ["gloss"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "al-Ikhlāṣ is a third of the Qurʾān because the Qurʾān is command and prohibition, outward and inward, and ikhlāṣ is tawḥīd entire; al-Kāfirūn a quarter, negating worship of any other."
@@ -2431,7 +2431,7 @@
       "locusId": "hikam-p10-36",
       "surah": 53,
       "ayahStart": 3,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "wa-mā yanṭiqu ʿan al-hawā — authorising the chain of testimony to his maʿrifa in exchange (3) of the sirr dialogue. NOTE exchange (4): asked 'are you among the aqṭāb?', he answers qultu lā adrī. ALA #13's summary — 'justifying his claims to be a walī and a quṭb' — flattens a refusal into a claim."
@@ -2440,7 +2440,7 @@
       "locusId": "kashif-fana",
       "surah": 2,
       "ayahStart": 115,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Cited for fanāʾ — 'wheresoever you turn, there is the Face of God.' Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category."
@@ -2449,7 +2449,7 @@
       "locusId": "kashif-marifa",
       "surah": 2,
       "ayahStart": 269,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Cited for maʿrifa — 'He gives wisdom to whomsoever He pleases.' Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category."
@@ -2458,7 +2458,7 @@
       "locusId": "kashif-nur",
       "surah": 24,
       "ayahStart": 35,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Cited in support of the hierarchy of the saints. Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category."
@@ -2467,7 +2467,7 @@
       "locusId": "kashif-tadabbur",
       "surah": 47,
       "ayahStart": 24,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Cited on tadabbur of the Qurʾān. Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category."
@@ -2476,7 +2476,7 @@
       "locusId": "kashif-hajj",
       "surah": 22,
       "ayahStart": 38,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Cited in the argument for divine defence of the believers. Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category."
@@ -2485,7 +2485,7 @@
       "locusId": "kashif-luqman",
       "surah": 31,
       "ayahStart": 12,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Cited on ḥikma and its transmission. Observed by sampling the Fons Vitae translation, not by a census of the Arabic — no verse-index of the Arabic Kāshif exists. Wright's 2010 analysis counts 271 citations from 112 scholarly authorities but does not treat the Qurʾānic citations as a category.",
@@ -2495,7 +2495,7 @@
       "locusId": "wolof-cycle",
       "surah": 24,
       "ayahStart": 35,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Sixty-two cassettes of Wolof exegesis covering the whole Qurʾān, recorded 1950–1960 (ALA IV #72). The boxed set has never been located. This locus is listed because the cycle is complete, not because the passage has been found — and because Wolof, not Arabic, was Shaykh Ibrāhīm's normal language of delivery."
@@ -2504,7 +2504,7 @@
       "locusId": "wolof-cycle",
       "surah": 1,
       "ayahStart": 5,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Sixty-two cassettes of Wolof exegesis covering the whole Qurʾān, recorded 1950–1960 (ALA IV #72). The boxed set has never been located. This locus is listed because the cycle is complete, not because the passage has been found — and because Wolof, not Arabic, was Shaykh Ibrāhīm's normal language of delivery."
@@ -2513,7 +2513,7 @@
       "locusId": "wolof-cycle",
       "surah": 1,
       "ayahStart": 1,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Sixty-two cassettes of Wolof exegesis covering the whole Qurʾān, recorded 1950–1960 (ALA IV #72). The boxed set has never been located. This locus is listed because the cycle is complete, not because the passage has been found — and because Wolof, not Arabic, was Shaykh Ibrāhīm's normal language of delivery."
@@ -2522,7 +2522,7 @@
       "locusId": "wolof-cycle",
       "surah": 112,
       "ayahStart": 1,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Sixty-two cassettes of Wolof exegesis covering the whole Qurʾān, recorded 1950–1960 (ALA IV #72). The boxed set has never been located. This locus is listed because the cycle is complete, not because the passage has been found — and because Wolof, not Arabic, was Shaykh Ibrāhīm's normal language of delivery."
@@ -2531,7 +2531,7 @@
       "locusId": "qanabil-q1-1",
       "surah": 4,
       "ayahStart": 65,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 1."
@@ -2540,7 +2540,7 @@
       "locusId": "qanabil-q2-2",
       "surah": 2,
       "ayahStart": 98,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 2."
@@ -2549,7 +2549,7 @@
       "locusId": "qanabil-q2-3",
       "surah": 66,
       "ayahStart": 4,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 2."
@@ -2558,7 +2558,7 @@
       "locusId": "qanabil-q8-4",
       "surah": 18,
       "ayahStart": 82,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 8."
@@ -2567,7 +2567,7 @@
       "locusId": "qanabil-q8-5",
       "surah": 52,
       "ayahStart": 21,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 8."
@@ -2576,7 +2576,7 @@
       "locusId": "qanabil-q8-6",
       "surah": 11,
       "ayahStart": 46,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 8."
@@ -2585,7 +2585,7 @@
       "locusId": "qanabil-q10-7",
       "surah": 3,
       "ayahStart": 8,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
@@ -2594,7 +2594,7 @@
       "locusId": "qanabil-q10-8",
       "surah": 19,
       "ayahStart": 1,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
@@ -2603,7 +2603,7 @@
       "locusId": "qanabil-q10-9",
       "surah": 84,
       "ayahStart": 21,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
@@ -2612,7 +2612,7 @@
       "locusId": "qanabil-q10-10",
       "surah": 22,
       "ayahStart": 46,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
@@ -2621,7 +2621,7 @@
       "locusId": "qanabil-q10-11",
       "surah": 35,
       "ayahStart": 43,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
@@ -2630,7 +2630,7 @@
       "locusId": "qanabil-q10-12",
       "surah": 9,
       "ayahStart": 105,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 10."
@@ -2639,7 +2639,7 @@
       "locusId": "qanabil-q15-13",
       "surah": 49,
       "ayahStart": 13,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 15."
@@ -2648,7 +2648,7 @@
       "locusId": "qanabil-q15-14",
       "surah": 86,
       "ayahStart": 7,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 15."
@@ -2657,7 +2657,7 @@
       "locusId": "qanabil-q15-15",
       "surah": 51,
       "ayahStart": 49,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 15.",
@@ -2667,7 +2667,7 @@
       "locusId": "qanabil-q15-16",
       "surah": 5,
       "ayahStart": 23,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 15."
@@ -2676,7 +2676,7 @@
       "locusId": "qanabil-q15-17",
       "surah": 40,
       "ayahStart": 28,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 15."
@@ -2685,7 +2685,7 @@
       "locusId": "qanabil-q16-18",
       "surah": 16,
       "ayahStart": 8,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 16."
@@ -2694,7 +2694,7 @@
       "locusId": "qanabil-q16-19",
       "surah": 16,
       "ayahStart": 9,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 16."
@@ -2703,7 +2703,7 @@
       "locusId": "qanabil-q16-20",
       "surah": 1,
       "ayahStart": 6,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 16."
@@ -2712,7 +2712,7 @@
       "locusId": "qanabil-q17-21",
       "surah": 5,
       "ayahStart": 3,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 17."
@@ -2721,7 +2721,7 @@
       "locusId": "qanabil-q17-22",
       "surah": 57,
       "ayahStart": 3,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 17. The worked example for his whole theory of graded understanding: the same āya yields the Essence, then the Attribute, then sulūk, as the reader's ḥāl changes."
@@ -2730,7 +2730,7 @@
       "locusId": "qanabil-q18-23",
       "surah": 33,
       "ayahStart": 1,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 18."
@@ -2739,7 +2739,7 @@
       "locusId": "qanabil-q18-24",
       "surah": 64,
       "ayahStart": 16,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 18."
@@ -2748,7 +2748,7 @@
       "locusId": "qanabil-q18-25",
       "surah": 3,
       "ayahStart": 102,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 18."
@@ -2757,7 +2757,7 @@
       "locusId": "qanabil-q18-26",
       "surah": 2,
       "ayahStart": 197,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 18."
@@ -2766,7 +2766,7 @@
       "locusId": "qanabil-q18-27",
       "surah": 22,
       "ayahStart": 32,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 18."
@@ -2775,7 +2775,7 @@
       "locusId": "qanabil-q19-28",
       "surah": 103,
       "ayahStart": 1,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 19."
@@ -2784,7 +2784,7 @@
       "locusId": "qanabil-q19-29",
       "surah": 99,
       "ayahStart": 1,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 19.",
@@ -2794,7 +2794,7 @@
       "locusId": "qanabil-q19-30",
       "surah": 10,
       "ayahStart": 24,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 19."
@@ -2803,7 +2803,7 @@
       "locusId": "qanabil-q19-31",
       "surah": 74,
       "ayahStart": 31,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 19."
@@ -2812,7 +2812,7 @@
       "locusId": "qanabil-q19-32",
       "surah": 10,
       "ayahStart": 10,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "Muḥammad al-Mishrī, not Shaykh Ibrāhīm — the school reading, in a responsum. Question 19."
@@ -2821,7 +2821,7 @@
       "locusId": "mawsua-fatawa-20",
       "surah": 17,
       "ayahStart": 85,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "He quotes only as far as \"min amr rabbī\" and stops there, leaving out the rest of the verse. The citation is not exegesis of the verse: it licenses the taxonomy that follows rather than construing \"amr\". But the fatwā answers the question the verse itself records being put to the Prophet, so reading it as a bare proof-text understates what he is doing. Transcribed from a photograph of the printing; not yet checked against a clean copy."
@@ -2830,7 +2830,7 @@
       "locusId": "mawsua-fatawa-tafsir-01",
       "surah": 51,
       "ayahStart": 22,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§1. The edition prints this reference itself."
@@ -2839,7 +2839,7 @@
       "locusId": "mawsua-fatawa-tafsir-01",
       "surah": 7,
       "ayahStart": 96,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§1. The edition prints this reference itself."
@@ -2848,7 +2848,7 @@
       "locusId": "mawsua-fatawa-tafsir-01",
       "surah": 5,
       "ayahStart": 66,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§1. The edition prints this reference itself."
@@ -2857,7 +2857,7 @@
       "locusId": "mawsua-fatawa-tafsir-01",
       "surah": 2,
       "ayahStart": 282,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§1. The edition prints this reference itself."
@@ -2866,7 +2866,7 @@
       "locusId": "mawsua-fatawa-tafsir-01",
       "surah": 8,
       "ayahStart": 29,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§1. The edition prints this reference itself."
@@ -2875,7 +2875,7 @@
       "locusId": "mawsua-fatawa-tafsir-02",
       "surah": 42,
       "ayahStart": 13,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§2. The edition prints this reference itself."
@@ -2884,7 +2884,7 @@
       "locusId": "mawsua-fatawa-tafsir-02",
       "surah": 3,
       "ayahStart": 19,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§2. The edition prints this reference itself."
@@ -2893,7 +2893,7 @@
       "locusId": "mawsua-fatawa-tafsir-02",
       "surah": 5,
       "ayahStart": 48,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§2. The edition prints this reference itself."
@@ -2902,7 +2902,7 @@
       "locusId": "mawsua-fatawa-tafsir-02",
       "surah": 38,
       "ayahStart": 32,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§2. The edition prints this reference itself."
@@ -2911,7 +2911,7 @@
       "locusId": "mawsua-fatawa-tafsir-02",
       "surah": 38,
       "ayahStart": 33,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§2. The edition prints this reference itself."
@@ -2920,7 +2920,7 @@
       "locusId": "mawsua-fatawa-tafsir-02",
       "surah": 9,
       "ayahStart": 117,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§2. The edition prints this reference itself."
@@ -2929,7 +2929,7 @@
       "locusId": "mawsua-fatawa-tafsir-03",
       "surah": 58,
       "ayahStart": 7,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§3. The edition prints this reference itself."
@@ -2938,7 +2938,7 @@
       "locusId": "mawsua-fatawa-tafsir-03",
       "surah": 5,
       "ayahStart": 73,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "§3. The edition quotes the verse without a printed reference; the identification is inferred."
@@ -2948,7 +2948,7 @@
       "surah": 2,
       "ayahStart": 2,
       "ayahEnd": 5,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -2957,7 +2957,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 4,
       "ayahStart": 6,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -2966,7 +2966,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 16,
       "ayahStart": 44,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -2975,7 +2975,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 20,
       "ayahStart": 114,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -2984,7 +2984,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 2,
       "ayahStart": 185,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -2993,7 +2993,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 69,
       "ayahStart": 50,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3002,7 +3002,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 7,
       "ayahStart": 96,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3011,7 +3011,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 3,
       "ayahStart": 102,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3020,7 +3020,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 7,
       "ayahStart": 172,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3029,7 +3029,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 57,
       "ayahStart": 4,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3038,7 +3038,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 50,
       "ayahStart": 16,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3047,7 +3047,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 15,
       "ayahStart": 75,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3056,7 +3056,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 2,
       "ayahStart": 43,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3065,7 +3065,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 70,
       "ayahStart": 23,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3074,7 +3074,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 4,
       "ayahStart": 103,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3084,7 +3084,7 @@
       "surah": 23,
       "ayahStart": 1,
       "ayahEnd": 2,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3093,7 +3093,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 73,
       "ayahStart": 20,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3102,7 +3102,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 6,
       "ayahStart": 162,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3112,7 +3112,7 @@
       "surah": 23,
       "ayahStart": 10,
       "ayahEnd": 11,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3122,7 +3122,7 @@
       "surah": 92,
       "ayahStart": 5,
       "ayahEnd": 6,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3131,7 +3131,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 8,
       "ayahStart": 64,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3140,7 +3140,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 39,
       "ayahStart": 9,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3149,7 +3149,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 2,
       "ayahStart": 274,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3158,7 +3158,7 @@
       "locusId": "mawsua-fatawa-tafsir-04",
       "surah": 96,
       "ayahStart": 8,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§4. The edition prints this reference itself."
@@ -3167,7 +3167,7 @@
       "locusId": "mawsua-fatawa-tafsir-05",
       "surah": 42,
       "ayahStart": 27,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "§5. The edition quotes the verse without a printed reference; the identification is inferred."
@@ -3176,7 +3176,7 @@
       "locusId": "mawsua-fatawa-tafsir-06",
       "surah": 33,
       "ayahStart": 72,
-      "type": "tafsir",
+      "acts": ["tafsir"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "§6. The edition quotes the verse without a printed reference; the identification is inferred."
@@ -3185,7 +3185,7 @@
       "locusId": "mawsua-fatawa-tafsir-06",
       "surah": 41,
       "ayahStart": 46,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "§6. The edition quotes the verse without a printed reference; the identification is inferred."
@@ -3194,7 +3194,7 @@
       "locusId": "mawsua-fatawa-tafsir-06",
       "surah": 20,
       "ayahStart": 122,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "§6. The edition quotes the verse without a printed reference; the identification is inferred."
@@ -3203,7 +3203,7 @@
       "locusId": "mawsua-fatawa-tafsir-08",
       "surah": 66,
       "ayahStart": 6,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "§8. Cited by ʿUthmān b. Aḥmad, answering a question from Shaykh Ibrāhīm."
@@ -3212,7 +3212,7 @@
       "locusId": "mawsua-fatawa-tafsir-10",
       "surah": 33,
       "ayahStart": 72,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "§10. The edition quotes the verse without a printed reference; the identification is inferred."
@@ -3221,7 +3221,7 @@
       "locusId": "mawsua-fatawa-tafsir-10",
       "surah": 33,
       "ayahStart": 13,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§10. The edition prints this reference itself."
@@ -3230,7 +3230,7 @@
       "locusId": "mawsua-fatawa-tafsir-10",
       "surah": 30,
       "ayahStart": 22,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§10. The edition prints this reference itself."
@@ -3239,7 +3239,7 @@
       "locusId": "mawsua-fatawa-tafsir-10",
       "surah": 27,
       "ayahStart": 88,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§10. The edition prints this reference itself."
@@ -3248,7 +3248,7 @@
       "locusId": "mawsua-fatawa-tafsir-10",
       "surah": 17,
       "ayahStart": 20,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§10. The edition prints this reference itself."
@@ -3257,7 +3257,7 @@
       "locusId": "mawsua-fatawa-tafsir-12",
       "surah": 42,
       "ayahStart": 53,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§12. The edition prints this reference itself."
@@ -3266,7 +3266,7 @@
       "locusId": "mawsua-fatawa-tafsir-12",
       "surah": 58,
       "ayahStart": 7,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§12. The edition prints this reference itself."
@@ -3275,7 +3275,7 @@
       "locusId": "mawsua-fatawa-tafsir-12",
       "surah": 41,
       "ayahStart": 54,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "curated",
       "rasm": "unknown",
       "note": "§12. The edition prints this reference itself."
@@ -3284,7 +3284,7 @@
       "locusId": "mawsua-fatawa-tafsir-12",
       "surah": 5,
       "ayahStart": 73,
-      "type": "prooftext",
+      "acts": ["prooftext"],
       "confidence": "reported",
       "rasm": "unknown",
       "note": "§12. The edition quotes the verse without a printed reference; the identification is inferred."

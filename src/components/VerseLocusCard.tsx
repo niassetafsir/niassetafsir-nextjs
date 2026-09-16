@@ -43,7 +43,7 @@ export default function VerseLocusCard({
   excerpt?: LocusExcerpt;
 }) {
   const { link, locus, witness, work } = entry;
-  const isPrimary = link.type === 'tafsir';
+  const isPrimary = link.acts[0] === 'tafsir';
   const address = locus.address.raw ?? formatAddress(entry);
   // Excerpt first. A Fī Riyāḍ locus carries no text of its own and the excerpt
   // is all there is; a fatwā locus carries the answer's default excerpt, and a
@@ -105,7 +105,7 @@ export default function VerseLocusCard({
                   ? 'var(--gold-light, #E8D4A0)'
                   : 'var(--body-faint, rgba(255,255,255,0.5))',
               }}>
-              {ACT_LABEL[link.type]}
+              {link.acts.map(a => ACT_LABEL[a]).join(' · ')}
             </span>
             {/* "matched, unchecked" would be a lie on a session-coverage
                 entry: the matcher never saw it. Label it for what it is. */}

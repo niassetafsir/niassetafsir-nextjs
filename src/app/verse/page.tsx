@@ -47,7 +47,7 @@ export default function VerseIndexPage() {
         )
       )
     );
-    const acts = Array.from(new Set(entries.map(e => ACT_LABEL[e.link.type])));
+    const acts = Array.from(new Set(entries.flatMap(e => e.link.acts.map(a => ACT_LABEL[a]))));
     const anyAudio = entries.some(e => getWitness(e.locus.witnessId)?.medium === 'audio');
     return { ...v, entries, school, works, schoolWorks, acts, anyAudio, secondNiasseWork };
   });
