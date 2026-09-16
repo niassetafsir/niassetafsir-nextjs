@@ -449,6 +449,16 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                         style={{ borderColor: 'rgba(201,168,76,0.25)', color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
                         The translation breaks off here, at {partial.endsAt}. The Arabic
                         alongside continues to {partial.arabicEndsAt}.
+                        {partial.gaps && partial.gaps.length > 0 && (
+                          <> Above this point the English also passes over{' '}
+                            {partial.gaps.map((g, i) => (
+                              <span key={i}>
+                                {i > 0 && (i === partial.gaps!.length - 1 ? ' and ' : ', ')}
+                                {g}
+                              </span>
+                            ))}, which the Arabic commentates.
+                          </>
+                        )}
                       </p>
                     )}
                   </div>
