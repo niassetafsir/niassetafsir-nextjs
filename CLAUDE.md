@@ -535,3 +535,76 @@ node scripts/match-verses.js
 node scripts/build-verse-citations.js
 node scripts/add-editorial-verse-index.js --write   # MUST follow the line above
 ```
+
+## Quotation brackets — the glyph, never the span
+
+`scripts/repair-quotation-brackets.py`. The scan renders one delimiter as three
+different glyphs. Corpus-wide the edition closes 13,899 spans with `( )`, 1,228
+with `« »` and 207 with `{ }` — and 173 of the 207 are Lesson 7, whose body came
+from AK's verified document rather than the scan. Outside Lesson 7 there are
+1,359 `{` against 124 `}`. An opener that almost never closes is the scanner
+misreading `(`, so Lesson 7 is excluded outright and the rest are candidates.
+
+**Deletions ran on 16 September (124 of them).** A doubled opener — `({`, `{(`
+or `{{` with nothing but space between — is the scan printing one bracket twice.
+Removing the brace cannot invent a quotation, cannot move a boundary and cannot
+change which characters fall inside the span, so it needs no judgement. The diff
+is 46 files, one line each, and the only bytes removed are 124 `{`.
+
+**Conversions (`{X)` → `(X)`, 918 of them) have NOT run.** They await AK. An
+adversarial read of all 1,062 original candidates found the reason: converting
+the glyph assumes the span is sound, and the span is exactly what this script
+promises not to inspect. Where the scan dropped a footnote or a paragraph of the
+Shaykh's spoken commentary into the middle of an āya, repairing the bracket turns
+a visibly broken quotation into a clean-looking false one — publishing a lexical
+note from the *Lisān* as part of Q 11:88, or al-Durr al-Manthūr as part of
+Q 59:18. The guards now catch those (see the docstring), but two further things
+are true and unresolved:
+
+- Every `{X)` conversion consumes a `)` that a naive matcher currently pairs with
+  an earlier `(`. Across Lessons 41–56 the count of openers with no closer goes
+  161 → 301. That is the true state being exposed rather than a defect being
+  created — the scan really did drop those closers — but `scripts/match-verses.js`
+  extracts `/\(([^()]{2,400})\)/g`, so the conversion changes what it sees. Run
+  the verse pipeline after, in the order this file already specifies.
+- `*` is a fourth misread delimiter glyph — `(وَالْحِكْمَةُ * سُنة النبي` wants `)`
+  at the asterisk. It needs its own pass, because `**` also carries Markdown bold
+  on the sūra headers.
+
+Left alone deliberately: `«X)` and `(X»` (154 spans — both are real delimiters
+here, so reading is the only way to tell which glyph is right), balanced `{X}`,
+and any opener with no closer anywhere.
+
+Two corpus defects surfaced by the same audit and not yet fixed: Lesson 13
+contains a ~1.76 kB passage twice, and Lesson 30 duplicates a block around
+offsets 8890 and 10398.
+
+## The compiler's footnotes for Lessons 8–56 cannot be anchored from anything we hold
+
+Checked exhaustively on 16 September, so it is not re-attempted. All 2,034 notes
+are in `src/data/footnotesData.json`; 324 are published (Lessons 1–7), 1,710 are
+not. The blocker is not the notes. It is where each note attaches.
+
+- The repo's own `[N]` markers are unusable. In every lesson from 8 to 56 the
+  last marker sits 35–53% through the body (median 45%) — the signature of the
+  truncated import, matching the 50.1% median cut in
+  `claude/site-text-truncated-at-half.md`. Marker count, note count and
+  `footnoteOrder` length disagree three ways (L30: 44 / 54 / 59).
+- The notes carry no position of their own. `num` never exceeds 5 anywhere in
+  Lessons 8–56 and restarts constantly: these are the printed edition's
+  per-page numbers. `volRef` is the *lesson's* first page repeated, not the
+  note's own page (L9: 60 notes all reading "Vol. 2, p. 46").
+- The Drive sources do not have anchors. The Google Docs in "FIR — Consolidated
+  Digitized Lessons" carry no `w:footnoteReference` and no `word/footnotes.xml`
+  at all — checked on Lesson 56. `scripts/recover-lesson-text.py` recovered the
+  missing half from *plain-text* exports, which is why the recovered half has no
+  markers.
+- AK's `Lesson_NN_Bilingual.docx` files (Lessons 1–30, on disk) carry zero
+  footnote references. The verified "Citations Fixed" documents that fixed
+  Lessons 1–7 are not on disk or in Drive under that name.
+
+So the anchor exists in exactly one place: the superscript numerals on the
+printed page. Recovering them means reading the page images, not running a
+script. `claude/footnote-markers-missing-in-recovered-half.md` records why
+deriving positions by paragraph was measured at 69% and rejected; nothing has
+changed that.

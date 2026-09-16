@@ -1,0 +1,1203 @@
+124 duplicate openers deleted, 0 spans converted, 963 left alone. Lesson 7 excluded.
+
+L01  0 deleted, 0 converted, 3 left alone
+     LEFT ALONE (conversion not requested) {…) @14742  {الرَّحِيمِ)
+     LEFT ALONE (conversion not requested) {…) @14923  {ٱلرَّحِيمِ)
+     LEFT ALONE (conversion not requested) {…) @19660  {إهْدِنَا الصِّرَطَ الْمُسْتَقِيمَ)
+L02  0 deleted, 0 converted, 5 left alone
+     LEFT ALONE (conversion not requested) {…) @7022  {أُللَّهُ يَسْتَهْزِئُ بِهِمْ)
+     LEFT ALONE (conversion not requested) {…) @7726  {وَتَرَكَهُمْ فِي ظُلْمَٰتٍ لأَيْبْصِرُونَ)
+     LEFT ALONE (conversion not requested) (…} @15514  (من دُولن اللَّهِ إِن كُنتُمْ صَدِفِينَ،}
+     LEFT ALONE (conversion not requested) {…) @17060  {النَّارَ التِى وَفُودُهَا التَّاسُ)
+     LEFT ALONE (conversion not requested) {…) @17767  {وَهُمْ فِيهَا خَٰلِدُونَ)
+L03  2 deleted, 0 converted, 13 left alone
+     DELETE duplicate opener @7266  ( {وَيَسْفِكُ الدِّمَاءَ} يريقها بالقتل كما فعل بنو الجان، كان
+     DELETE duplicate opener @10183  ({إِنَّكَ أَنتَ
+ألْعَلِيمْ الْحَكِيمْ) الذي لا يخرج شيء عن عل
+     LEFT ALONE (conversion not requested) {…) @5480  {وَيُفْسِدُونَ فِي الارْضِ)
+     LEFT ALONE (conversion not requested) {…) @6414  {ثُمَّ إسْتَوىّ)
+     LEFT ALONE (conversion not requested) {…) @9900  {ثُمَّ عَرَضَهُمْ عَلَى الْمَلِّبِكَةِ فَقَالَ)
+     LEFT ALONE (conversion not requested) {…) @10007  {إِنْ كُنتُمْ صَدِقِينَ)
+     LEFT ALONE (conversion not requested) {…) @10253  {قَالَ)
+     LEFT ALONE (conversion not requested) (…} @10299  (بأَسْمَآئهِمْ}
+     LEFT ALONE (conversion not requested) {…) @14582  {وَ)
+     LEFT ALONE (conversion not requested) {…) @17548  {وَقُلْنَا إَهْبِطُواْ)
+     LEFT ALONE (conversion not requested) (…} @17641  (لِبَعْضِ عَدُوّ}
+     LEFT ALONE (conversion not requested) {…) @21811  {قَمَر تَبِعَ هُداىَ)
+     LEFT ALONE (conversion not requested) {…) @25175  {إِذْ نَجَّيْنَٰكُم)
+     LEFT ALONE (span crosses a line break) (…} @28394  (وَإِذْ قُلْتُمْ يَمُوسِىٰ لَى نُومِسَ لَكَ حَتَّىٰ نَرَى اللَّهَ جَهْرَةَ بَأَخَذَتْكُمْ الصَّحِفَةُ وَأَنتُم
+     LEFT ALONE (conversion not requested) {…) @28873  {وَاذْ فَلْنَا أَدْخَلوَا هَٰذِهِ الْقَرْيَةَ)
+L04  1 deleted, 0 converted, 17 left alone
+     DELETE duplicate opener @25579  ({وَهُوَ ألْحَقُّ مُصَدِّقاً لِمَا مَعَهُمْ فُلْ قَلِمَ تَقْت
+     LEFT ALONE (conversion not requested) {…) @5779  {بِغَضَبُ مِسَ اللَّهُ ذَلِكَ)
+     LEFT ALONE (conversion not requested) {…) @6518  {فلَهُمْ أَجْرُهُمْ)
+     LEFT ALONE (conversion not requested) (…} @6867  (إِذَ آخَدْنَا مِيتَفَكُمْ وَرَفعْنَا فوْقَكُمُ الطُّورَ}
+     LEFT ALONE (conversion not requested) {…) @11506  {وَإذْ فَتَلْتُمْ تَنْسةٌ جَادَّرَأتُمْ بِيهَا وَاللَّهُ مُخْرِجْ مَا كُنتُمْ تَكْتَمُونَ)
+     LEFT ALONE (conversion not requested) {…) @12913  {تَسَرُ التَّظِينَ)
+     LEFT ALONE (conversion not requested) {…) @15993  {ثُمَّ فَسَتْ فُلْوبُكُم)
+     LEFT ALONE (conversion not requested) (…} @17951  (وَإِذَا خَلا}
+     LEFT ALONE (conversion not requested) {…) @18189  {أَبَلا تَعْقِلُونَ)
+     LEFT ALONE (conversion not requested) {…) @18423  {أَمَانِيَّ)
+     LEFT ALONE (conversion not requested) {…) @20405  { إِذّ آخَذْنَا مِيثَقَ بَنِه إِسْرَأَءِيلَ)
+     LEFT ALONE (conversion not requested) {…) @21290  {وَلَاَ تُخْرِجُونَ أَنْمُسَكْم صِ دِيْرِكُمْ ثُمَّ أَفْرَرْتُمْ)
+     LEFT ALONE (conversion not requested) (…} @24468  (لَعَنَهُمْ اللَّهَ}
+     LEFT ALONE (conversion not requested) {…) @25248  {بغَضَب)
+     LEFT ALONE (conversion not requested) {…) @26447  {إِن كْنتُم مُومِنِين)
+     LEFT ALONE (conversion not requested) {…) @26731  {وَلَنْ يَتَمَنَّوْهُ أَبَداً بِمَا قَدْمَتَ أَيْدِيهِمْ)
+     LEFT ALONE (conversion not requested) {…) @26850  {وَلَتَجِدَنَّهَمَ)
+     LEFT ALONE (span crosses a line break) {…) @26886  {أَحْرَصَ ألقَابِ
+عَلَىٰ حَبَوَةٌ وَمِنَ ألذِينَ أَشرَكُوا)
+L05  1 deleted, 0 converted, 25 left alone
+     DELETE duplicate opener @31068  ({قَالَ أَسْلَمْتُ لِرَبِّ الْعَلَمِينَ) لما قال اللّٰه لإبرا
+     LEFT ALONE (conversion not requested) (…} @12112  (وَقَالَتِ التَّصَرِى لَيسَتِ ٱلْيَهُودُ عَلَى شَيْءٍ}
+     LEFT ALONE (conversion not requested) {…) @12187  {وَهُمْ)
+     LEFT ALONE (conversion not requested) {…) @12351  {قَالَ ألذِيرَ لا يَعْلَمُونَ)
+     LEFT ALONE (conversion not requested) {…) @13216  {وَلِلهِ الْمَشْرِفُ وَالْمَغْرِبُّ)
+     LEFT ALONE (conversion not requested) {…) @21797  {ا مَيِّعَدُو )
+     LEFT ALONE (conversion not requested) {…) @29423  { رَبَا وَابْعَثْ فِيهِمْ )
+     LEFT ALONE (conversion not requested) {…) @31218  {إِبْرَهِيمُ بَنِيهٌ وَيَعْفُوبُ)
+     LEFT ALONE (conversion not requested) {…) @31647  {قَالُواْ تَعْبُدُ إِلَهَكَ وَالَة عَابَلِكَ إِبْرَهِيمَ وَاسْمَاعِيلَ وَإِسْحَٰلَ)
+     LEFT ALONE (conversion not requested) (…} @32767  (فقد إهتدَوا}
+     LEFT ALONE (conversion not requested) {…) @32834  {قَاتَّمَا هُمْ مِي شِقَاتٍ )
+     LEFT ALONE (conversion not requested) {…) @32943  { الْعَلِيمْ)
+     LEFT ALONE (conversion not requested) {…) @39645  {إِلَى صِرّطٍ مُسْتَفِيوَ)
+     LEFT ALONE (conversion not requested) {…) @43601  {ألْحَقُّ صِ رَبِّكُّ فَلاَ تَكُونَنَّ مِ الْمَمْتَرِينَ)
+     LEFT ALONE (conversion not requested) {…) @44273  {وَمِنْ حَيْثُ خَرَجْتَ)
+     LEFT ALONE (span crosses a line break) {…) @46374  {فَالَوَاْ إِنَّا لِلهِ
+وَإِنَّا إِلَيْهِ رَجِعُونَ)
+     LEFT ALONE (conversion not requested) {…) @46709  {وَأُوْلِّبِكَ هُمُ ألْمَهْتَدُونَ إِنَّ ألَبَ وَرَ )
+     LEFT ALONE (conversion not requested) (…} @48174  (إِنَّ مِ خَلْو السَّمَوَتِ وَالأَرْضِ}
+     LEFT ALONE (conversion not requested) {…) @48360  {بِمَا يَنقَعْ النَّاسَ)
+     LEFT ALONE (conversion not requested) {…) @48638  {وَالسَّحَابِ الغيم والْمْسَخُر بَيْنَ السَّمَاءِ وَالأَرْضِ)
+     LEFT ALONE (conversion not requested) {…) @51422  {وَلا يُزَكِّيهِمْ)
+     LEFT ALONE (conversion not requested) {…) @53296  {يَأَوْلِ الألْبَابِ)
+     LEFT ALONE (conversion not requested) {…) @54250  {قَسَى كَالَ مِنكُم مَرِيضاً أوْ عَلَىٰ سَبَرِ)
+     LEFT ALONE (conversion not requested) {…) @54641  {إِن كُنتُمْ تَعْلَمُونَ)
+     LEFT ALONE (conversion not requested) {…) @59718  {التَّفْوى)
+     LEFT ALONE (conversion not requested) {…) @59839  {بَصْلًا )
+L06  1 deleted, 0 converted, 13 left alone
+     DELETE duplicate opener @32196  ({وَإِنْ عَزَمُواْ ألطَّلَقَ) بأن لم يفيئوا فليوقعوه (إِنَّ ا
+     LEFT ALONE (conversion not requested) {…) @18687  { إِنِ إسْتَطَعُوا)
+     LEFT ALONE (conversion not requested) {…) @18882  { أعْمَلَهَنْ)
+     LEFT ALONE (conversion not requested) {…) @23133  {فَلِ)
+     LEFT ALONE (conversion not requested) {…) @26866  {وَاللَّهُ يَعْلَمْ الْمَبْسِدَ)
+     LEFT ALONE (conversion not requested) {…) @29901  {وَيُجِبُّ الْمَتَطَهَرِينَ)
+     LEFT ALONE (conversion not requested) {…) @39051  {وَعَلَى الْوَارِثِ)
+     LEFT ALONE (conversion not requested) {…) @40260  {أَوْ أكْنَنتَمْ)
+     LEFT ALONE (conversion not requested) {…) @43367  {إِنَّ اللَّهَ بِمَا تَعْمَلُونَ بَصِيرٌ)
+     LEFT ALONE (conversion not requested) {…) @46787  {قَفَالَ لَهُمُ أَللَّهُ مُوتُوا)
+     LEFT ALONE (conversion not requested) {…) @51782  {وَءَالَ هَرُولَ)
+     LEFT ALONE (conversion not requested) {…) @52110  {إِل كُنْتُم مُومِنِينَ)
+     LEFT ALONE (conversion not requested) {…) @52913  {قَالَوَأ لا طَافَةَ لَنَا ألْيَوْمَ بِجَالُوتَ وَجُنُودو)
+     LEFT ALONE (conversion not requested) (…} @53393  (وَانصُرْنَا عَلَى ألْقَوْمِ اِلْكَفِرِينَ فَهَزَمُوهُم}
+L07  excluded by hand (body is verified, not scanned)
+L08  4 deleted, 0 converted, 10 left alone
+     DELETE duplicate opener @7068  {{وَمَنِ إتَّبَعَرِ، وَقُل لِلذِيرَ أوتُواْ الْكِتَبَ) اليهود
+     DELETE duplicate opener @33105  {{ وَيُعَلِّمْهُ الْكِتَبَ الخط (وَالْحِكْمَةَ وَالتَّوْرِيَة
+     DELETE duplicate opener @36064  {{بِأَنَّا مُسْلِمُونُ رَبّنَا ءَامَتَّا بِمَا أَنزَلْتَ من ا
+     DELETE duplicate opener @42725  ({ وَأَخَذْتُمْ) قبلتم ( عَلَى ذَٰلِكُمُو إِصْرِى)
+عهدي (قَال
+     LEFT ALONE (conversion not requested) {…) @16780  { اللَّهُ نَجْسَةُ )
+     LEFT ALONE (conversion not requested) {…) @17833  {ص سُوْءِ تَوَدَّ لَوْ آنَّ بَيْنَهَا وَبَيْنَهُ أَمَداً بَعِيداً)
+     LEFT ALONE (span crosses a line break) {…) @21973  { وَقل
+عِنْرَتَ )
+     LEFT ALONE (conversion not requested) {…) @22268  {وَاللهُ سَمِيعٌ عَلِيمٌ)
+     LEFT ALONE (conversion not requested) {…) @30530  {وَاصْطَبِيَكِ عَلَىٰ نِسَآءِ الْعَلَمِينَ)
+     LEFT ALONE (conversion not requested) {…) @35693  {قَاتَّفُوا اللَّةَ وَأطِيعُوبَ)
+     LEFT ALONE (conversion not requested) {…) @35850  {عِيسِى مِنْهُمْ الْكَهْرَ)
+     LEFT ALONE (conversion not requested) {…) @36320  {إِذْ قَالَ أللَّهُ يَعِيسِىَّ إِنِّي مُتَوَقِّيكَ)
+     LEFT ALONE (conversion not requested) {…) @42448  { إِذَ آخَذَ اللَّهُ مِيتَقَ التَّبِيَ)
+     LEFT ALONE (conversion not requested) {…) @44426  {وَمَا لَهُم مِ نِصِرِيتٌ)
+L09  0 deleted, 0 converted, 19 left alone
+     LEFT ALONE (conversion not requested) (…} @0  (لَن تَنَالُواْ الْبِرَّ}
+     LEFT ALONE (conversion not requested) {…) @67  { مِمَّا تُحِبُّونُ)
+     LEFT ALONE (conversion not requested) {…) @18289  {وَإِلَى اللَّهِ تُرْجَعُ الأُمُورُ)
+     LEFT ALONE (conversion not requested) {…) @24099  {وَلا يُحِبُّونَكُمْ)
+     LEFT ALONE (conversion not requested) {…) @28674  {إِذْ غَدَوْتَ مِنَ اهْلِكَ)
+     LEFT ALONE (conversion not requested) {…) @29757  { تَقُولَ لِلْمَومِنِينَ)
+     LEFT ALONE (conversion not requested) {…) @30103  {هَدَا يَمْدِدْكُمْ رَبُّكْم بِخَمْسَةٍ غَالَفِ قِرَ ٱلْمَلْبِكَةِ مُسَوَّمِينَ)
+     LEFT ALONE (conversion not requested) {…) @30453  {إِلَّ بُشْرِى لَكُمْ)
+     LEFT ALONE (conversion not requested) {…) @30718  {الْعَزِيرِ الْحَكِيمِ)
+     LEFT ALONE (conversion not requested) {…) @32202  {وَللِهِ مَافِى السَّمَوَتِ وَمَامِ الأَرْضِ)
+     LEFT ALONE (conversion not requested) {…) @35273  {الذُّنُوبَ إِلاَّا اللَّهُ وَلَمْ يُصِرُّوا)
+     LEFT ALONE (conversion not requested) {…) @38532  {وَيَعْلَمَ الصِّبرِينَ)
+     LEFT ALONE (conversion not requested) {…) @42724  {الظِّلِمِينَ)
+     LEFT ALONE (conversion not requested) {…) @42751  {وَلَقَدْ صَدَفَكُمُ أَلَهُ وَعْدَدَد )
+     LEFT ALONE (conversion not requested) {…) @46068  {إِنَّ ألذِيرَ تَوَلَّوْاْ مِنكُمْ)
+     LEFT ALONE (conversion not requested) {…) @46858  {وَاللَّهُ بِمَا تَعْمَلُونَ بَصِير )
+     LEFT ALONE (conversion not requested) {…) @48223  { جَلَاَ غَالِبَ لَكُمُّ وَان يَعْذَلْكُمْ قَمَل ذَا ألذى يَنصّرُكُم)
+     LEFT ALONE (conversion not requested) {…) @52179  {هُمْ لِلْكُبْرِ يَوْمَئِذٍ آفْرَبُ مِنْهُمْ لِلايمَرِ)
+     LEFT ALONE (conversion not requested) {…) @52389  {وَاللَّهُ أَعْلَمْ بِمَا يَكْتُمُونَ)
+L10  1 deleted, 0 converted, 16 left alone
+     DELETE duplicate opener @22026  ({مَا مَلَكَتَ أَيْتَشْكُنَهم من الإنا
+إذ ليس لهن من الحقوق م
+     LEFT ALONE (conversion not requested) {…) @758  {إِلَّ ألتَّاسَ)
+     LEFT ALONE (conversion not requested) {…) @3767  {وَلَهُمْ عَذَابُ عَظِيمٌ)
+     LEFT ALONE (conversion not requested) {…) @7422  { إِذَ آخَذَ اللَّهُ مِيتَوَ ألذِينَ أوتُوا الْكِتَٰبَ)
+     LEFT ALONE (conversion not requested) {…) @7667  {تَمَنَا قَلِيلًا )
+     LEFT ALONE (conversion not requested) {…) @12031  { أَنّهِ لَا أضِيعُ عَمَلَ عَيِلٍ مِنكُم صِ ذَكَّرٍ أوْ انبِئ بَعْصُكْم مِنْ بَعْضِ)
+     LEFT ALONE (conversion not requested) {…) @16279  { وَمَا أنزِلَ إِلَيْهِمْ)
+     LEFT ALONE (conversion not requested) (…} @19319  (بسم اللَّهِ الرحْمَن الرَّحيمِ}
+     LEFT ALONE (conversion not requested) {…) @19352  {يَأَيَّهَا ألناسُ)
+     LEFT ALONE (hand-excluded: the closer belongs to an earlier opener) {…) @19981  { الأَرْحَامَ)
+     LEFT ALONE (conversion not requested) {…) @32285  {وَكَانَ اللَّهُ عَلِيماً)
+     LEFT ALONE (conversion not requested) {…) @32539  {وَلاَ ألذِيرَ يَمُوتُونَ وَهُمْ كُمَّارٌ)
+     LEFT ALONE (conversion not requested) {…) @33025  {أَن تَرِثُوا ألنِّسَاءَ)
+     LEFT ALONE (conversion not requested) {…) @34983  {وَفَدَ آَبْضِى)
+     LEFT ALONE (conversion not requested) {…) @35964  { وَمَفْتاً)
+     LEFT ALONE (conversion not requested) {…) @36216  {وَبَنَاتُكُمْ )
+     LEFT ALONE (conversion not requested) {…) @36320  {وَأخَوَتُكُمْ)
+L11  3 deleted, 0 converted, 9 left alone
+     DELETE duplicate opener @21158  ({ وَإِن كُنتُم مَرْضِىّ) مرضا يضره الماء ( أَوْ عَلَىٰ سَقَر
+     DELETE duplicate opener @22669  ({وَيَفُولُونَ) للنبي صلى اللّٰه عليه وسلم سَمعنا قولك ( وَعَ
+     DELETE duplicate opener @41629  ({قَالَ قَدْ ألْعَمَ اللَّه لَى ذَالَمَ أخْر مُعَهُن
+ام حاضرا
+     LEFT ALONE (conversion not requested) {…) @1395  {آن يَنكِحَ ألْمَحْصَنَتِ)
+     LEFT ALONE (conversion not requested) {…) @2887  {وَأَن تَصْبِرُواْ خَيْرٌ لَكُمْ)
+     LEFT ALONE (conversion not requested) {…) @15719  {وَمَنْ يَكُنِ الشَّيْطَرُ لَهْر فَرِينا )
+     LEFT ALONE (conversion not requested) {…) @36344  { وَالْوَسُول)
+     LEFT ALONE (conversion not requested) {…) @37664  {إِلَّ إِحْسَنا)
+     LEFT ALONE (conversion not requested) {…) @37874  {وَقُل لَهَمْ  أَنْجُسِهِمْ)
+     LEFT ALONE (conversion not requested) {…) @40250  { أَجْرا عَظِيماً وَلَهَدَيْنَهُمْ صِرَاطاً مُسْتَفِيمام)
+     LEFT ALONE (conversion not requested) {…) @40909  {أوِ إنعِرُوا جَمِيعاً )
+     LEFT ALONE (conversion not requested) {…) @44882  { إِلَى الرَّسُولِ وَإِلَى أَوْلِي الأَمْرِ مِنْهُمْ)
+L12  0 deleted, 0 converted, 15 left alone
+     LEFT ALONE (conversion not requested) {…) @5394  {بَمَا جَعَلَ أللَّهُ لَكُمْ عَلَيْهِمْ سَبِيلًا )
+     LEFT ALONE (conversion not requested) {…) @6933  {وَمَر فَتَلَ مُومِناً خَطَئا)
+     LEFT ALONE (conversion not requested) {…) @10606  {أَلَمْ تَكُرَ ارْض اللَّهِ وَاسِعَةً بَنَّهَاجِرُواْ جِيهَام)
+     LEFT ALONE (conversion not requested) {…) @13908  { أَسْلِحَتَهُمْ)
+     LEFT ALONE (conversion not requested) {…) @20752  {إِذْ يُبَيِّتُورَ)
+     LEFT ALONE (conversion not requested) {…) @25001  {مَنَ آمَرَ بِصَدَفَةٍ )
+     LEFT ALONE (conversion not requested) {…) @31063  { وَيَسْتَفْتُونَكَ)
+     LEFT ALONE (conversion not requested) {…) @32152  {أَن تَنكِحُوهُرَ)
+     LEFT ALONE (conversion not requested) {…) @34045  {وَإِن إِمْرَأَةً خَاقَتْ مِنْ بَعْلِهَا نُشُوزاً)
+     LEFT ALONE (conversion not requested) {…) @39671  {وَلِلهِ مَا فِي السَّمَوَاتِ وَمَا فِي الارْضِ)
+     LEFT ALONE (conversion not requested) {…) @41017  {أَن تَعْدِلُوا )
+     LEFT ALONE (conversion not requested) {…) @41235  {بِاللَّهِ وَرَسُولِهِ وَالْكِتَّٰبِ الذِى نَزَّلَ عَلَىٰ رَسُّولهِ)
+     LEFT ALONE (conversion not requested) {…) @41836  {الْمُنَامِفِينَ بِأَنَّ لَهُمْ عَذَاباً الِيما)
+     LEFT ALONE (conversion not requested) {…) @43171  {قَاللَّهُ يَحْكُمُ بَيْنَكُمْ وبينهم يَوْمَ ألْقِيمَةُ)
+     LEFT ALONE (conversion not requested) {…) @43678  {وَلا يَذْكْرُونَ اللَّةَ)
+L13  1 deleted, 0 converted, 20 left alone
+     DELETE duplicate opener @26919  ({وَيَزِيدُهُم مِ قَضْلِهِ،) ما لا عين رأت ولا أذن سمعت ولا خ
+     LEFT ALONE (conversion not requested) {…) @1651  {أَوْ تَعْفُواْ عَى سُوءٍ)
+     LEFT ALONE (conversion not requested) {…) @6384  {مَا لَهْم بِهِ)
+     LEFT ALONE (conversion not requested) {…) @6488  {وَمَا قَتَلَوهْ يَفِيناً )
+     LEFT ALONE (conversion not requested) {…) @12064  {وَيَوْمَ الْقِيَمَةِ يَكُولُ عَلَيْهِمْ شَهِيداً بما فعلوه مَبِظُلْمِ)
+     LEFT ALONE (conversion not requested) {…) @12178  {حَرَّمْنَا عَلَيْهِمْ طَيِّبَتٍ اجِلَّتْ لَهُمْ )
+     LEFT ALONE (conversion not requested) {…) @26193  {المسيخ أَن يَكُونَ عَبْدا لِلِ)
+     LEFT ALONE (conversion not requested) (…} @26821  (قَأَمَّا ألذِيرَ ءَامَنُواْ وَعَمِلُواْ الصَّلِحَنِ قَيُوَقِّيهِمُ وَ أُجُورَهُمْ}
+     LEFT ALONE (conversion not requested) (…} @33345  (بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ يَأَيِّهَا ألذِينَ ءَامَنُوا أَوْفوا بِالْعُفُودِ}
+     LEFT ALONE (conversion not requested) {…) @36104  {وَمَآ أهِلَّ لِغَيْرِ اللَّهِ بِهِ،)
+     LEFT ALONE (conversion not requested) {…) @45393  {وَامْسَحُوا بِرَءُوسِكُمْ وَأَرْجَلَكُمَ)
+     LEFT ALONE (conversion not requested) {…) @45555  {أَوْ عَلَىٰ سَبَرٍ)
+     LEFT ALONE (conversion not requested) {…) @45584  {آوْ جَآءَ احَدٌ مِنكُم مِنَ الْغَابِطِ)
+     LEFT ALONE (only 7 marks in a 24-letter window -- prose inside the span) {…) @49492  {وَجَعَلْنَا قُلُوبَهُمْ فَسِيَةً لا تلين لقبول الحق يُحَرِّقونَ الْكَلِمَ)
+     LEFT ALONE (conversion not requested) {…) @50450  {فَدْ جَاءُهُمْ رَسُونَتَا )
+     LEFT ALONE (conversion not requested) {…) @50484  { يُبَيّن لَكْمْ كَثِيراً مِمَّا كَنتُمْ تُخْمُونَ)
+     LEFT ALONE (conversion not requested) {…) @51837  {وَيَعَّب وَنَاً)
+     LEFT ALONE (conversion not requested) {…) @52232  {فَدْ جَاءُهُمْ رَسُونَتَا )
+     LEFT ALONE (conversion not requested) {…) @52266  { يُبَيّن لَكْمْ كَثِيراً مِمَّا كَنتُمْ تُخْمُونَ)
+     LEFT ALONE (conversion not requested) {…) @53600  {وَيَعَّب وَنَاً)
+     LEFT ALONE (conversion not requested) {…) @55152  {وَإِنَّا لَى نَدْخُلَهَا حَشْىٰ يَخْرُجُواْ مِنْها فذ يَحْرُجُواْ مِنْهَا بَإِنَّا دَاجِلُونَ)
+L14  2 deleted, 0 converted, 17 left alone
+     DELETE duplicate opener @41816  {{ إِنَّ ألذِيسَ ءامَنُوا وَالذِيسَ هَادُوا\* هم اليهود {وَال
+     DELETE duplicate opener @47546  ({وَمَآ أنزِلَ إِلَيْهِ مَا إنَّخَذُوهُمُ) الكفار وأَوْلِيَآء
+     LEFT ALONE (conversion not requested) {…) @5316  {وَلَمْ يُتَفَبَّلْ مِنَ الآَخَرِ)
+     LEFT ALONE (conversion not requested) {…) @6879  {ياقْصِ)
+     LEFT ALONE (conversion not requested) {…) @15293  { ألذِيسَ يُسَرِعُونَ بِ الْكَبْرِ)
+     LEFT ALONE (conversion not requested) {…) @18516  {وَالأحْبَارُ)
+     LEFT ALONE (conversion not requested) {…) @19678  {بِالأَذْلِ وَالسَِّّ)
+     LEFT ALONE (only 5 marks in a 24-letter window -- prose inside the span) {…) @21515  {وَمَ لَمْ يَحْكُم بِمَآ أنزَلَ اللَّة في القصاص وغيره وقَد وْلَيِكَ هُمْ ألظِّلِمُونَ وَفَقَيْنَا )
+     LEFT ALONE (conversion not requested) {…) @23163  {لَيَيْلُوَكُمْ)
+     LEFT ALONE (conversion not requested) {…) @25268  { وَأَن أحْكَم بِيْنَهَم بِمَا أَنْزَلَ الله وَلا تَتَّبِعَ اهْوَآءَ م وَاحْدَرْهَمْ أَنْ يَفْنُوكَ)
+     LEFT ALONE (conversion not requested) {…) @32309  {إِنَّمَا وَلِيُّكُمْ اللَّهُ وَرَسُولْهُو وَالذِيَّ عَلَمَنْوا أَلذِينَ يُقِيمُونَ الصَّلَوْةَ وَيُوْتُونَ ال
+     LEFT ALONE (conversion not requested) {…) @41871  {وَالصَّبُونَ)
+     LEFT ALONE (conversion not requested) {…) @41926  {بِاللهِ وَالْيَوْمِ الآَخِرِ وَعَمِلَ صَلِحاً فَلاَ خَوْفٌ عَلَيْهِمْ وَلَاَ هُمْ يَحْزَنُون)
+     LEFT ALONE (conversion not requested) {…) @42398  {بِمَا لا تَهْوِىّ أَنْجِسْهُمْ)
+     LEFT ALONE (conversion not requested) {…) @42445  {قَرِيفاً)
+     LEFT ALONE (conversion not requested) {…) @45481  {وَاللَّهُ غَفُور)
+     LEFT ALONE (conversion not requested) {…) @45684  {كَانَا يَاكُلَىِ الطَّعَامَ)
+     LEFT ALONE (conversion not requested) {…) @47041  {لَبِيسَ مَا كَانُواْ يَمْعَلُونَ)
+     LEFT ALONE (conversion not requested) {…) @47324  {لَبِيسَ مَا قَدَّمَتْ لَهُمْوَ أَنْمُسْهُمْ,)
+L15  3 deleted, 0 converted, 16 left alone
+     DELETE duplicate opener @18919  ({يَايُهَا ألذِيرَ ءَامَنُواْ لا تَسْئَلُواْ عَىَ ٱشْيَآءَ إن
+     DELETE duplicate opener @39729  ({وَجَعَلَ الظَّلُمَتِ وَالتُّورَ) كل ظلمة ونورٍ أو ظلمات
+قلب
+     DELETE duplicate opener @46020  ({وَجَعَلْنَا عَلَىٰ فُلُوبِهِمْ أَكِنَّةً) أغطية ( آَنْ يَمْ
+     LEFT ALONE (conversion not requested) {…) @23608  {إِذَا حَضَرَ أَحَدَكُمْ الْمَوْتُ)
+     LEFT ALONE (conversion not requested) {…) @24155  {لَسَ ألآثِمِينَ)
+     LEFT ALONE (only 4 marks in a 24-letter window -- prose inside the span) {…) @25644  { وَاتَّفَواْ للَّة ع بترك الخيانة والكذب وَاسْمَعُوا)
+     LEFT ALONE (conversion not requested) {…) @28191  {رَبُّكَ)
+     LEFT ALONE (conversion not requested) {…) @32034  {اللّه )
+     LEFT ALONE (conversion not requested) {…) @32704  {أَنْ أعْبُدُواْ اللَّهَ رَبِّى وَرَبَّكُمْ وَكُنتُ عَلَيْهِمْ شَهِيداً)
+     LEFT ALONE (conversion not requested) {…) @33111  {وَإِن تَغْمِرْ لَهُمْ)
+     LEFT ALONE (conversion not requested) {…) @34222  {صِدْفَهُمْ لَهَمْ جَئَّتٌ تَجْرِى صِ تَحْتِهَا ألاَنْهَرْ خَلِدِينَ جِيهَا أَبَداً رَضِىَ اللَّهُ عَنْهُمْ)
+     LEFT ALONE (conversion not requested) {…) @43370  {فُلِ إِنّيَ أُمِرْتُ أَنَ آكُونَ أَوَل مَنَ اسْلَمْ)
+     LEFT ALONE (conversion not requested) {…) @43806  {جَهُوَ عَلَّىٰ كُلِّ شَءٍ قَدِيرٌ ٣)
+     LEFT ALONE (conversion not requested) {…) @44481  {الخَبِيرَ)
+     LEFT ALONE (conversion not requested) {…) @44502  {فَلَ آَىُّ شَيءٍ آكْبَرُ شَدَة)
+     LEFT ALONE (conversion not requested) {…) @45811  {وَاللَّهِ رَبِّنَا مَا كُنَّا مُشْرِكِينَ)
+     LEFT ALONE (conversion not requested) {…) @46611  {وَانْ يُهْلِكُونَ إِلّاَّ أَنْمُسَهُمْ)
+     LEFT ALONE (conversion not requested) {…) @47008  {وَلَوْ رَدُّوا)
+     LEFT ALONE (conversion not requested) {…) @47312  {إِنْ هِيَ إِلاَّ حَيَاتُنَا ألدُّنْيِا وَمَا نَحْنُ بِمَبْعُوثِينٌ وَلَوْ تَرِىّ إِذْوَفِعُواْ عَلَىٰ رَبِّهِ
+L16  3 deleted, 0 converted, 18 left alone
+     DELETE duplicate opener @10063  {{ إِنَّ أخَذَ اللّهُ
+البلاء لأن كل بلاء ولو بلغ ما بلغ من ال
+     DELETE duplicate opener @29635  ({وَكَذَلِكَ نُرِة إِبْرَهِيمَ مَلَكُوتَ السَّمَوَتِ وَالأَرْ
+     DELETE duplicate opener @37877  ({ أَجْرًا إِنْ هُوَ إِلَّ ذِكْرِى) عظة (لِلْعَلَمِينَ) الإنس
+     LEFT ALONE (conversion not requested) {…) @8392  {وَلَقَدَ ٱَرْسَلْنَا إِلَى أمَمِ مس قَبْلِكَ)
+     LEFT ALONE (conversion not requested) {…) @12912  {أَبَلا تَتَجَكَّرُونَ)
+     LEFT ALONE (conversion not requested) {…) @17250  { عَبَورَ)
+     LEFT ALONE (conversion not requested) {…) @21847  { أَلَا لَهُ الْحُكْمُ)
+     LEFT ALONE (conversion not requested) {…) @22507  { فَلْ هُوَ ٱلْفَادِرُ عَلَىٰ أَنْ يَنْعَرُ عَلَيْكُمْ عَنَّابا مِ قَوْفِكُمَ)
+     LEFT ALONE (conversion not requested) {…) @24919  {أَن تَبْسَلَ تَفْسَ)
+     LEFT ALONE (conversion not requested) {…) @25035  {وَلاَ شَصِيعٌ)
+     LEFT ALONE (conversion not requested) {…) @25695  {فَلِ إِنَّ هُدَى اللَّهِ)
+     LEFT ALONE (conversion not requested) {…) @25738  {هَوَ الْهَدِىّ)
+     LEFT ALONE (only 4 marks in a 24-letter window -- prose inside the span) {…) @28092  {أَتَتَّخِذُ أَصْنَاما الِهَدَّ ه تعبدها؟ استفهام توبيخ إِنِّي أَرِيْكَ)
+     LEFT ALONE (conversion not requested) {…) @31243  {قَلَمًا جَرَّ عَلَيْهِ اِليلِ)
+     LEFT ALONE (only 0 marks in a 24-letter window -- prose inside the span) {…) @31520  {قَالَ هَذَا رَبَّيٌ بَلَمَّآ أَبَلَ فَالَ لَبِ لَمْ يَهْدِنْهِ رَبِّي لَاكُونَرّ مِنَ ٱلْفَوْمِ الضَّآلِينُ ب
+     LEFT ALONE (conversion not requested) {…) @36041  {وَيَعْفُوبَ)
+     LEFT ALONE (conversion not requested) {…) @43494  {وَلِتُنذِرَ أمَّ الْقُرِى وَمَنْ حَوْلَهَا وَالذِينَ يُومِنُونَ بِالآَخِرَةِ يُومِنُونَ بِهِ وَهُمْ عَلَىٰ صَ
+     LEFT ALONE (conversion not requested) {…) @47563  { إِلَّ فِي ذَلِكُمْ لايَاتٍ)
+     LEFT ALONE (conversion not requested) {…) @49195  { قَيَسُبُّواْ أللَّهَ عَدْوا)
+     LEFT ALONE (conversion not requested) {…) @49617  {لَيُومِنُنَّ بِهَا فُلِ إِنَّمَا الآَيَاتُ عِنْدَ اللَّهِ وَمَا يُشْعِرُكْمُ رَ أَنَّهَا إِذَا جَآءَتْ لا يُو
+     LEFT ALONE (span crosses a line break) (…} @49768  ( وَنُظَلِّبُ
+أَبْدَتَهُمْ نحول قلوبهم عن حق بصرهم عن إبصار الحق فلا يومنون كَا لَمْ
+يُومِنُواْ بِهِ أَوَّلَ م
+L17  1 deleted, 0 converted, 9 left alone
+     DELETE duplicate opener @735  ({ وَلَوَ آَنَّنَا
+نََّ إليهِمِ المَلِّبِكَةَ) كما اقترحوا (و
+     LEFT ALONE (conversion not requested) {…) @2277  {بَعْضُهُمْوَ إِلَىٰ بَعْضٍ زُخْرُقَ ألْقَوْلِ)
+     LEFT ALONE (conversion not requested) {…) @4007  {مَنْ يَضِلُّ عَى سَبِيلِهِ، وَهُوَ أَعْلَمْ بِالْمُهْتَدِينَ)
+     LEFT ALONE (conversion not requested) {…) @9663  { الآَيَتِ لِفَوْمٍ يَذَّكَّرُونُ)
+     LEFT ALONE (conversion not requested) {…) @13704  {إِنَّ رَبَّكَ حَكِيمٌ)
+     LEFT ALONE (conversion not requested) {…) @14188  { وَشَهِدْواْ عَلَىّ أَنْمُسِهِمُ أَنَّهُمْ كَانُوا لجمِرِينٌ ذَلِكَ)
+     LEFT ALONE (conversion not requested) {…) @15763  {إِلَّ مَا تُوعَدُونَ لاتْ)
+     LEFT ALONE (conversion not requested) {…) @19776  {فَدْ خَسِرَ الذِينَ فَتَلُواْ أَوْلَدَهُمْ)
+     LEFT ALONE (conversion not requested) {…) @28203  {وَلا تَفْتُلُواْ التَّجْسَ التِه حَرَّمَ اللَّهُ إِلاّ بِالْحَقِّ)
+     LEFT ALONE (conversion not requested) (…} @40411  (حَنِيماً وَمَا كَانَ صِ الْمَشْرِ كِينَ}
+L18  4 deleted, 0 converted, 18 left alone
+     DELETE duplicate opener @21848  ({وَنَادَوَا اصْحَبَ الْجَنَّةِ أَن سَلَمُّ عَلَيْكُمْ) أهل ا
+     DELETE duplicate opener @26057  ({وَلَاَ تَعْسِدُواْ فِى الأَرْضِ بَعْدَ إِصْلَحِهَا))
+ببعث ا
+     DELETE duplicate opener @31881  ({وَالذِيرَ مَعَهُ ) من المؤمنين {بِرَحْمَةٍ مِنَّا وَفَطَعْن
+     DELETE duplicate opener @33799  ({وَعَتَوْاْ عَىَ آمْرِ رَبِّهِمْ وَقَالُواْ يَصَلِحُ إِيتِنَ
+     LEFT ALONE (conversion not requested) (…} @90  ( بِسْمِ اللَّهِ الرَّحْمَن الرَّحِيمِ الَمِّصَّ}
+     LEFT ALONE (conversion not requested) {…) @5749  {وَلَقَدْ مَكَّنَّكَمْ)
+     LEFT ALONE (conversion not requested) {…) @8208  {إِلَى يَوْمِ يُبْعَثُونَ )
+     LEFT ALONE (conversion not requested) {…) @11435  {وَلِبَاسَ التَّفْوى)
+     LEFT ALONE (conversion not requested) {…) @11504  { ذَلِكَ مِنَ ايَاتِ اللَّهِ لَعَلَّهُمْ يَذَّكِّرُونَ)
+     LEFT ALONE (conversion not requested) {…) @12472  {إِنَّا جَعَلْنَا الشَّيَطِيَ أَوْلِيَآء)
+     LEFT ALONE (conversion not requested) {…) @14442  {وَادْعُوهْ)
+     LEFT ALONE (conversion not requested) {…) @18582  { حَتَّى إِذَا إدَّارَكُواْ تلاحقوا بِيهَا جَمِيعاً فَالَتْ اخْرِيُهُمْ)
+     LEFT ALONE (conversion not requested) {…) @19368  { الْجَمَلُ مِ سَمِّ الْخِيَاطِ )
+     LEFT ALONE (conversion not requested) {…) @19836  {لَهُم مِ جَهَنَّمَ مِهَادَ)
+     LEFT ALONE (conversion not requested) {…) @24119  {أوْ تَرَدّ)
+     LEFT ALONE (conversion not requested) {…) @25425  {للَ لْحَلْلَ جميعا وَالأَم كله تَرَ )
+     LEFT ALONE (conversion not requested) {…) @25470  {اللّه رَبُّ أَلْعَلَمِينَ)
+     LEFT ALONE (conversion not requested) {…) @28656  {وَالذِى خَبْتَ)
+     LEFT ALONE (conversion not requested) {…) @30291  {إِنَّهُمْ كَانُواْ قَوْماً عَمِينَ)
+     LEFT ALONE (conversion not requested) {…) @31075  {رَجْلٍ مِنكُمْ لِيُنذِرَكُمْ وَاذْكُرُواْ إِذْ جَعَلَكُمْ خُلَقَآءَ)
+     LEFT ALONE (conversion not requested) {…) @35049  {لَوطاً إِذْ قَالَ لِقَوْمِهِ أَتَاتُونَ الْقَاحِشَةَ)
+     LEFT ALONE (conversion not requested) {…) @35492  {وَمَا كَانَ جَوَابَ فَوْمِهِة إِلَّ أَن قَالُوَا أَخْرِجُوهُم)
+L19  3 deleted, 0 converted, 20 left alone
+     DELETE duplicate opener @12159  ({مَا يَامِكُونَ قَوَفَعَ ألْحَقُّ)) ثبت وظهر (وَبَطْلَ مَا ك
+     DELETE duplicate opener @38991  ({وَلَمَّا سَكَتَ عَى مُوسَى) سكن عن موسى {الْغَضَبُ أَخَذَ ا
+     DELETE duplicate opener @49245  ({أَبَلا تَعْفِلُونُ) أنها خير فتؤثرونها. اللّه تبارك وتعالى 
+     LEFT ALONE (conversion not requested) {…) @1978  { لَبِيِ إتَّبَعْتُمْ شُعَيْباً إِنَّكُمُ إِذاً لَخَسِرُونُ بَأَخَذَتْهُمْ الرَّجْمَةُ)
+     LEFT ALONE (conversion not requested) {…) @6176  {وَهُمْ نَائِمُونَ)
+     LEFT ALONE (span crosses a line break) {…) @6266  {وَهُمْ يَلْعَبُونَ أَبَأَمِنُوا مَرَ ألِّهِ
+استدراجه إياهم بالنعمة وأخذهم بغتة جَلاَ يَامَنْ مَكْرَ أللَّهِ إ
+     LEFT ALONE (conversion not requested) {…) @10241  { بَإِذَا هِىَ بَيْضَاء )
+     LEFT ALONE (conversion not requested) {…) @10476  {قَالَ ألْمَلَا صِ قَوْمٍ مِرْعَوْنَ إِنَّ هَٰذَا لَسَجِرٌ عَلِيمٌ)
+     LEFT ALONE (conversion not requested) {…) @11240  {قَالواْ يَمُوسِىّ إِمَّا أَن تُلْفِى)
+     LEFT ALONE (span crosses a line break) {…) @13136  { لَمَكْرٌ مكَرْتَمَوهُ عيي
+التدِينَةِ لِتَخْرِجُواْ مِنْهَا أَهْلَهَا بَسَوْقَ تَعْلَمُورَ)
+     LEFT ALONE (conversion not requested) {…) @15346  { إِنَّ الاَرْضَ لِلهِ يُورِثُهَا)
+     LEFT ALONE (span crosses a line break) {…) @16121  {بمَوبى وَصَ
+مَعَةّ )
+     LEFT ALONE (conversion not requested) {…) @21129  {لَبِ كَشَمْتَ عَنَّا ألرِّجْزَ لَنْومِنَىَّ لَكَ وَلَنَرْسِلَىَّ مَعَكَ بَنِتِ إِسْرَآءِيل)
+     LEFT ALONE (conversion not requested) {…) @29245  {جَلَمَّا تَجَلِى رَبُّهُ )
+     LEFT ALONE (conversion not requested) {…) @38920  { إِلَّ رَبَّكَ مِنْ بَعْدِهَا)
+     LEFT ALONE (conversion not requested) {…) @39032  {الْغَضَبُ أَخَذَ الالْوَاحَ)
+     LEFT ALONE (conversion not requested) {…) @41488  {ألذِي يَجِدُوتَهُو مَكُتُوباً عِندَهُمُ مِي التَّوْرِبَةِ وَالانجِيلِ)
+     LEFT ALONE (conversion not requested) {…) @42567  {فُلْ يَأَيُّهَا أَلنَّاسُ إِنِّيِ رَسُولُ اللَّهِ إِلَيْكُمْ جَمِيعاً إِلذِي لَهُ مُلْكُ السَّمَوَتِ وَالأَرْ
+     LEFT ALONE (conversion not requested) {…) @45161  {وَمَا ظَلَمُونَا وَلَكِر كَانُوَا أَنْجِسَهُمْ يَظْلِمُونٌ وَ)
+     LEFT ALONE (conversion not requested) {…) @45230  {إِذْ قِيلَ لَهُمْ أسْكُنُوا هَذِهِ الْفَرْيَةَ)
+     LEFT ALONE (conversion not requested) {…) @45290  {وَكُلُواْ مِنْهَا حَيْثُ شِيْتُمْ وَفُولُوا أمرنا حِطَّةٌ وَادْخُلُواْ الْبَابَ سُجَّداً )
+     LEFT ALONE (conversion not requested) {…) @45933  {إِذْ يَعْدُولَ يعتدون مِي السَّبْتِ)
+     LEFT ALONE (conversion not requested) {…) @47509  {بِعَذَّابٍ بِيس)
+L20  3 deleted, 0 converted, 19 left alone
+     DELETE duplicate opener @16776  ({وَمَا خَلَقَ اْللَّهُ مِن شَءٍ وينظروا فيما خلقه اللّٰه من 
+     DELETE duplicate opener @25899  ({وَإِذَا فُرِئَ الْقُرْءَانُ بَاسْتَمِعُواْ لَهْ وَأَنصِتُوا
+     DELETE duplicate opener @46930  ({وَيْكَبِّرْ عَنكُمْ سَيِّئَاتِكُمْ وَيَغْمِرْ لَكُمْ )
+ذنوب
+     LEFT ALONE (conversion not requested) {…) @7  {إِذْ نَتَفْنَا الْجَبَلَ)
+     LEFT ALONE (conversion not requested) {…) @5662  { أَقَتُهْلِكْنَا)
+     LEFT ALONE (conversion not requested) {…) @10354  {أَوْلُيِكَ كَالاَنْعَمِ )
+     LEFT ALONE (conversion not requested) {…) @14601  {إِلَّ كَيْدِ مَتِينُّ)
+     LEFT ALONE (conversion not requested) {…) @21487  {إِلَّ وَلِّيَ اللَّهُ)
+     LEFT ALONE (conversion not requested) {…) @21744  {إِلَى الْهُدِى لا يَسْمَعُوا وَتَرِيُهُمْ)
+     LEFT ALONE (conversion not requested) {…) @25596  {وَإِذَا لَمْ تَاتِهِم)
+     LEFT ALONE (conversion not requested) {…) @31793  { ألذِيسَ إِذَا ذُكِرَ اللّه وعيده وَجِلَتْ )
+     LEFT ALONE (conversion not requested) {…) @34004  {كَمَآ أَخْرَجَكَ رَبُّكَ مِنْ بَيْتِكَ بِالْحَقِّ وَإِلَّ مَرِيفاً مِنَ الْمُومِنِينَ لَكَرِهُونَ)
+     LEFT ALONE (conversion not requested) {…) @38403  {إِلاَّ بُشْرِى)
+     LEFT ALONE (conversion not requested) {…) @38486  {وَلِتَطْمَبِيَّ بِهِ، فُلُوبُكُمْ )
+     LEFT ALONE (conversion not requested) {…) @38539  {وَمَا النَّصْرُ إِلاَّ مِنْ عِندِ اللَّهِ)
+     LEFT ALONE (conversion not requested) {…) @38634  {إِنَّ اللَّهَ عَزِيزٌ حَكِيمٌ)
+     LEFT ALONE (conversion not requested) {…) @38891  {وَيُنَزِّلْ عَلَيْكُم مِنَ السَّمَآءِ مَاءً لِيْطَقِرَكُم بِهِ،)
+     LEFT ALONE (conversion not requested) {…) @40928  { إِذْ يُوحِى رَبُّكَ إِلَى الْمَلِّبِكَةِ)
+     LEFT ALONE (conversion not requested) {…) @41402  {بِأَنَّهُمْ شَافّوا)
+     LEFT ALONE (conversion not requested) {…) @49008  {إِلَ آوْلِيَآؤُهُ  إِلاَّ الْمُتَّفُونَ وَلَكِنَّ أَكْثَرَهُمْ لاَ يَعْلَمُونَ)
+     LEFT ALONE (conversion not requested) {…) @49639  {لِيَمِيزَ اللَّهُ الْخَبِيثَ)
+     LEFT ALONE (conversion not requested) {…) @50146  {ومِتْنَةٌ)
+L21  1 deleted, 0 converted, 18 left alone
+     DELETE duplicate opener @36717  ({اشْتَرَوْاْ بِايَتِ اللَّهِ القرآن وتَمَناً فَلِيلًا ) من ا
+     LEFT ALONE (conversion not requested) {…) @4531  {وَلَوَ اَرِيْكَهُمْ كَثِيراً لَمَشِلْتُمْ)
+     LEFT ALONE (only 7 marks in a 24-letter window -- prose inside the span) {…) @4732  { وَإِذْ يُرِيكُمُوهُم أيها المؤمنون إِذ إلْتَفَيْتُمْ يِّ أَعْيُنِكُمْ قَلِيلًا )
+     LEFT ALONE (conversion not requested) {…) @9978  { إِنِّيَ أَرِى مَا لا تَرَوْنَ)
+     LEFT ALONE (conversion not requested) {…) @10057  {وَاللَّهُ شَدِيدُ الْعِقَابِ إِذْ يَقُولُ الْمُنَاجِفُونَ وَالذِيسَ فِي قُلُوبِهِم مَرَضِّ)
+     LEFT ALONE (conversion not requested) {…) @12573  {أللَّهَ لَمْ يَكْ مُغَيِّراً نِعْمَةً انْعَمَهَا عَلَىٰ قَوْمٍ)
+     LEFT ALONE (conversion not requested) {…) @15724  {وَإِمَّا تَخَاجَلّ صِ قَوْمِ)
+     LEFT ALONE (conversion not requested) {…) @20458  {وَان تَكُر مِنْكُم مِأيَةٌ يَغْلِبُوا أَلْمِا مِسَ أَلذِينَ كَبَرْواْ ياأَنَهْ وْمِ لاَ يَجْعَهَونَ)
+     LEFT ALONE (conversion not requested) {…) @26214  {مَكُلُواْ مِمَّا غَيْتُمْ حَلَلًا طَيِّبَا وَاتَّقُواْ أللَّةٌ إِنَّ اللَّهَ غَفُورٌ رَحِيمٌ يَأَيُّهَا التَّ
+     LEFT ALONE (conversion not requested) {…) @26502  {إِنْ يَعْلَمِ اِللَّهُ فِى فُلُوبِكُمْ خَيْراً)
+     LEFT ALONE (conversion not requested) {…) @28551  {وَاللهُ عَلِيمٌ)
+     LEFT ALONE (conversion not requested) {…) @35016  {إِنَّ اللَّهَ غَمُورٌ رَحِيم وَانَ آحَدٌ مِنَ الْمُشْرِكِينَ إسْتَجَارَكَ)
+     LEFT ALONE (conversion not requested) {…) @36314  { إِلَّ اللَّهَ يُحِبُّ الْمُتَّقِينُ)
+     LEFT ALONE (conversion not requested) {…) @36452  {وَإِنْ يَظْهَرْواْ عَلَيْكُمْ)
+     LEFT ALONE (conversion not requested) {…) @36844  {إِنَّهُمْ سَاءَ بيس مَا كَانُوا يَعْمَلُونَ)
+     LEFT ALONE (conversion not requested) {…) @37420  {وَهَمُّواْ بِإِخْرَاجِ الرَّسُولِ)
+     LEFT ALONE (conversion not requested) {…) @42013  {وَتِجَرَةٌ تَخْشَوْرَ كَسَادَهَا)
+     LEFT ALONE (conversion not requested) {…) @45230  {قَوْلَ ألذِيرَ كَبَرُواْصٍ قَبْلَ)
+     LEFT ALONE (conversion not requested) {…) @46749  {بِالْهُدِى وَدِيرِ الْحَقِّ لِيُظْهِرَهُ ٨)
+L22  5 deleted, 0 converted, 20 left alone
+     DELETE duplicate opener @147  ({وَيَصْدُّونَ) الناس (عَى سَبِيلِ اللَّهِ) دينه. وصفهم بأنهم
+     DELETE duplicate opener @19030  ({الصَّدَقَتِ جَانَ اعْظُواْ مِنْهَا رَضَواْ وَاد لَمْ يَعْطُ
+     DELETE duplicate opener @21493  ({هُوَ أذْلّ) يسمع كل قيل ويقبله فإذا حلفنا له أنا لم نقل صدق
+     DELETE duplicate opener @43312  ({وَلاَ تُصَلِّ عَلَىَّ أَحَدٍ مِنْهُم مَاتَ أَبَداً وَلا تَف
+     DELETE duplicate opener @46294  ({أَعَدَّ اللَّهُ لَهُمْ جَنَّتٍ تَجْرِى مِ تَحْتِهَا ألاَنْه
+     LEFT ALONE (conversion not requested) {…) @4227  {ذَلِ)
+     LEFT ALONE (conversion not requested) {…) @6971  {وَاللَّهُ لاَ يَهْدِ الْقَوْمَ الْكَفِرِينَ)
+     LEFT ALONE (conversion not requested) {…) @7897  {الأَخْرَةِ الأَ قَلِيلَ)
+     LEFT ALONE (conversion not requested) {…) @13281  {وَاللَّهُ عَزِيزٌ)
+     LEFT ALONE (conversion not requested) (…} @13847  ( لَخَرَجْنَا مَعَكُمْ يُهْلِكُونَ أَنْمُسَهُمْ}
+     LEFT ALONE (conversion not requested) {…) @13910  {وَاللَّهُ يَعْلَمُ إِنَّهُمْ الحَذِبُونَ)
+     LEFT ALONE (conversion not requested) {…) @14963  {وَلَكِر كَرِهَ اللَّهُ إنْبِعَاتَهُمْ)
+     LEFT ALONE (conversion not requested) {…) @15325  {وَفِيكُمْ سَمَّعُولَ لَهُمْ)
+     LEFT ALONE (conversion not requested) {…) @15375  {وَاللَّهُ عَلِيمٌ بِالظَّلِمِيرَ)
+     LEFT ALONE (conversion not requested) {…) @23331  {إِلَّ اللَّهَ مُخْرِجٌ)
+     LEFT ALONE (conversion not requested) {…) @24048  {إِنْ يُعْفَ عَى طَائِقَةٍ مِنْكُمْ )
+     LEFT ALONE (conversion not requested) {…) @24553  {وَيَنْهَوْنَ عَرِ الْمَعْرُوفِ)
+     LEFT ALONE (conversion not requested) {…) @25268  {وَلَهَمْ عَذَابٍ مُفِيم)
+     LEFT ALONE (conversion not requested) {…) @25444  { بِخَلَفِهِم)
+     LEFT ALONE (conversion not requested) {…) @31793  {وَمِنْهُم مَنْ عَهَدَ أللَّهَ لَبِيَ اتَيْنَا مِن بَضْلِهِ، لَنَصَّدَّفَرَّ وَلَنَكُونَيَّ مِنَ الصَّلِحِينَ)
+     LEFT ALONE (conversion not requested) {…) @36821  {ألْمُطَّوِعِينَ)
+     LEFT ALONE (conversion not requested) {…) @39355  {بِمَفْعَدِهِمْ)
+     LEFT ALONE (conversion not requested) {…) @41284  {وَلا تُصَلِّ عَلَى أَحَدٍ مِنْهُم مَاتَ أَبَداً)
+     LEFT ALONE (conversion not requested) {…) @43409  {إِنَّهُمْ كَبَرُواْ بِاللَّهِ وَرَسُولِهِ وَمَاتُواْ وَهُمْ بَاسِفُونَ)
+     LEFT ALONE (conversion not requested) {…) @46857  {إِذَا نَصَحُواْ لِلهِ وَرَسُولِهُ،)
+L23  3 deleted, 0 converted, 7 left alone
+     DELETE duplicate opener @7366  ({وَءَاخَرَ سَيِّئًا) وهو تخلفهم (عَسَى اللَّهُ أَنْ يَتُوبَ 
+     DELETE duplicate opener @33638  ({ وَإِذَا مَآ أنزِلَتْ سُورَة) فيها ذكرهم وقرأها الرسول صلى 
+     DELETE duplicate opener @45702  ({ ألآَيَتِ لِفَوْمٍ يَتَفَكَّرُونُ وَاللَّهُ يَدْعُوَا إِلَى
+     LEFT ALONE (conversion not requested) {…) @758  {وَمَأْوِبُهُمْ جَهَنَّمُ جَزَآءً بِمَا كَانُواْ يَكْسِبُونَ)
+     LEFT ALONE (conversion not requested) {…) @3546  {إِلَّ اللَّهَ غَفُور)
+     LEFT ALONE (conversion not requested) {…) @3763  {وَأَعَدَّ لَهُمْ جَنَّتٍ تَجْرِى تَحْتَهَا ألاَنْهَرْ خَٰلِدِيرَ فِيهَا أَبَداً ذَٰلِكَ ٱلْبَوْزُ الْعَظِيمُ)
+     LEFT ALONE (conversion not requested) {…) @24342  {إِلَّ أللَّهَ بِكُلِّ شَءٍ عَلِيمُ)
+     LEFT ALONE (conversion not requested) {…) @30436  {بأَنَّهُمْ)
+     LEFT ALONE (conversion not requested) {…) @33422  {وَمَاتُواْ وَهُمْ كَبِرُونَ أَوَلا يَرَوْنَ)
+     LEFT ALONE (conversion not requested) {…) @43679  {بِمَا لاَ يَعْلَمُ فِ السَّمَوَاتِ وَلاَ مِي الاَرْضِ سُبْحَتَهُ, وَتَعَلبى عَمَّا يَشْرِكُونَ وَمَا كَكَانَ 
+L24  2 deleted, 0 converted, 18 left alone
+     DELETE duplicate opener @6220  ({وَمِنْهُم مَى لاَّ يُومِنُ بِهِ، وَرَبُّكَ أَعْلَمُ بِالْمُ
+     DELETE duplicate opener @11749  ({وَلَكِرَّ أَكْثَرَهُمْ لا يَشْكْرُونُ وَمَا تَكُونُ) يا محم
+     LEFT ALONE (conversion not requested) {…) @5444  {وَتَفْصِيلَ الْكِتَبٍ)
+     LEFT ALONE (conversion not requested) {…) @5679  {وَادْعُوا)
+     LEFT ALONE (conversion not requested) {…) @6763  {وَمِنْهُم )
+     LEFT ALONE (conversion not requested) {…) @6993  {إِنَّ ٱللَّهَلَ يَظْلِمَ ٱلتَّاسَ شَيْئاً وَلَكِنَّ ألتَاسَ أَنْهِسَهُمْ يَظْلِمُونٌ وَيَوْمَ نَحْشَرُهُمْ كَ
+     LEFT ALONE (span crosses a line break) {…) @7541  { عَلَى 
+مَا يَمْعَلُونَ)
+     LEFT ALONE (conversion not requested) {…) @8065  {إِذَا جَآءَ اجَلُهُمْ بَلاَ يَسْتَٰخِرونَ)
+     LEFT ALONE (conversion not requested) {…) @8180  {إِنَ آتِيْكُمْ عَذَابُهُ و بَيَاتا)
+     LEFT ALONE (conversion not requested) {…) @8278  {الْمُجْرِمُون)
+     LEFT ALONE (conversion not requested) {…) @8461  {ثَمَّ قِيلَ لِلذِيَ ظَلَمْواْ ذُوفُوا عَذَابَ ألْخُلْدِ هَلْ تُجْزَوْنَ)
+     LEFT ALONE (conversion not requested) {…) @11488  {اَمْ عَلَى اللَّهِ تَعْتَرُون)
+     LEFT ALONE (conversion not requested) {…) @19429  {إِلاَ ألظَّرَ)
+     LEFT ALONE (conversion not requested) {…) @19910  { هوَ ألْغَنِيَّ)
+     LEFT ALONE (conversion not requested) {…) @24204  {بِايَتِنَا)
+     LEFT ALONE (conversion not requested) {…) @25509  {وَلَوْ كَرِهَ الْمُجْرِمُونَ)
+     LEFT ALONE (conversion not requested) {…) @27473  {بَلاَ يُومِنُواْ حَتَّىٰ يَرَوْا الْعَذَّابَ ألاَلِيم)
+     LEFT ALONE (conversion not requested) {…) @33306  {لَقَدْ جَآءَكَ ٱلْحَقُّ مِن رَبِّكَ بَلاَ تَكُونَىَّ مِنَ الْمَمْتَرِيقُّ وَلاَ تَكُونَتَّ مِنَ ألِيسَ كَذَّب
+     LEFT ALONE (conversion not requested) {…) @38896  {وَهُوَ خَيْرُ الْحَٰكِمِيرَ)
+     LEFT ALONE (conversion not requested) {…) @39581  {وَأَنِ إسْتَغْعِرَواْ رَبَّكُمْ)
+L25  1 deleted, 0 converted, 14 left alone
+     DELETE duplicate opener @20282  ({وَمَرَ امَنَ وَمَآ ءَامَىَ مَعَهُ إِلاَّا فَلِيل) قيل كانوا
+     LEFT ALONE (conversion not requested) {…) @4806  { وَلَبِيَ اخَّرْنَا عَنْهُمُ الْعَذَابَ إِلَى أمَّةٍ)
+     LEFT ALONE (conversion not requested) (…} @5190  (ألاَ يَوْمَ يَاتِيهِمْ لَيْسَ مَصْرُوماً عَنْهُمْ}
+     LEFT ALONE (conversion not requested) {…) @7718  { فُلْ بَاتُواْ بِعَشْرِ سُوَرٍ مِثْلِهِ)
+     LEFT ALONE (conversion not requested) (…} @11090  (اوْلِّيِكَ يُعْرَضُونَ عَلَىٰ رَبِّهِمْ }
+     LEFT ALONE (conversion not requested) {…) @12083  {إِلَى رَبِّهِمُدَ أَوْلِيِكَ أَصْحَبُ ألْجَنَّةُ هُمْ جِيهَا خَٰلِدُونّ مَقَلُ ألْبَرِيفَيْنِ)
+     LEFT ALONE (conversion not requested) {…) @16475  {وَلاَ يَنبَعُكُمْ نُصْحِىَ إِنَ أَرَدتُّ أَىَ أنصَحَ لَكُمُ وَ إِن كَانَ أْللَّهُ يْرِيدُ أَنْ يُغْوِيَكُمْ)
+     LEFT ALONE (conversion not requested) {…) @16787  {وَأَنَا بَرِءٌ مِمَّا تُجْرِمُونَ)
+     LEFT ALONE (conversion not requested) {…) @19679  {قَالَ إِى تَسْخَرُواْ مِنَّا بَرِنَّا تَسْخَرُ مِنْكُمْ كَمَا تَسْكَرُونٌ)
+     LEFT ALONE (conversion not requested) {…) @25477  {وَيَسَمَاءُ أَفْلِعِي)
+     LEFT ALONE (conversion not requested) {…) @25536  {ألْمَآءُ وَفَضِىَ الامْرَ)
+     LEFT ALONE (conversion not requested) {…) @30981  {لاَ هَوَ ءَاخِذَّ بِنَاصِيَتِهَا)
+     LEFT ALONE (conversion not requested) {…) @34343  {مِنْ خِزْي يَوْمَئِذَ)
+     LEFT ALONE (conversion not requested) {…) @34712  {وَلَقَدْ جَآءَتْ رَسُلُنَآ إِبْرَهِيمَ بِالْبُشْرِى)
+     LEFT ALONE (conversion not requested) {…) @35906  {وَهَٰذَا بَعْلِ)
+L26  4 deleted, 0 converted, 32 left alone
+     DELETE duplicate opener @1949  ( {أَن نَتْرُكَ مَا يَعْبُدْ ءَابَاؤُنَا} من الأصنام ( أَوْ ان
+     DELETE duplicate opener @3103  ({وَمَا فَوْمُ لُوطِ) منازلهم وزمن هلاكهم (منكُم بِبَعِيد) بب
+     DELETE duplicate opener @8941  ({ وَذَلِكَ يَوْمٌ مَشْهُودٌ) يشهده جميع الخلائق (وَمَا نُوَ۬
+     DELETE duplicate opener @47203  {{يُوسُفُ أَيُّهَا اَ۬لصِّدِّيقُ) أي كثير الصدق (أَفْتِنَا فِ
+     LEFT ALONE (span crosses a line break) (…} @2000  ( أَوْ ان نَّفْعَلَ فِي أَمْوَالِنَا مَا نَشَاءُ ۖ
+}
+     LEFT ALONE (span crosses a line break) {…) @2422  {قَالَ يَا قَوْمِ أَرَأَيْتُمْ إِن كُنتُ عَلَىٰ بَيِّنَةٍ مِّن رَّبِّي وَرَزَقَنِي مِنْهُ رِزْقًا حَسَنًا
+)
+     LEFT ALONE (conversion not requested) (…} @2615  (إِلَى مَا أَنْهِيْكُمْ عَنْهُ}
+     LEFT ALONE (span crosses a line break) {…) @2768  {إِلَّا بِاللَّهِ
+
+1 - في اللسان: عذَبَه عنه عذبًا: منعه وفطمه عن الأمر.
+
+عَلَيْهِ تَوَكَّلْتُ وَالَيْهِ أُنِي
+     LEFT ALONE (span crosses a line break) (…} @3181  (وَاسْتَغْفِرُوا
+ رَبَّكُمْ ثُمَّ تُوبُوَا إِلَيْهٌ إِنَّ رَبِّى رَحِيمٌ}
+     LEFT ALONE (conversion not requested) (…} @3572  (لَرَجَمْنَٰكَ}
+     LEFT ALONE (conversion not requested) {…) @4132  { قَالَ يَقَوْم أَرَهْطِيَ أَعَزُّ عَلَيْكُم مِنَ اللَّهِ)
+     LEFT ALONE (conversion not requested) {…) @4598  {إِِّ نِّي مَعَكَمْ رَقِيبٌ)
+     LEFT ALONE (conversion not requested) (…} @4857  (كَأَن لَمْ يَغْنَو}
+     LEFT ALONE (conversion not requested) (…} @4952  (أَلابُعْداً لِمَدْيَنَ كَمَا بَعِدَتْ ثَموُدُ}
+     LEFT ALONE (conversion not requested) {…) @5268  {فَأَوْرَدَهُمْ)
+     LEFT ALONE (conversion not requested) {…) @5413  {بِيسَ الرِّفْدِ)
+     LEFT ALONE (conversion not requested) (…} @5516  (مِنْهَا }
+     LEFT ALONE (conversion not requested) (…} @5700  ( فَمَآ أَغْنَتْ }
+     LEFT ALONE (conversion not requested) (…} @6025  (إِن أَخْذَهُ أَلِيمٌ شَدِيدٌ}
+     LEFT ALONE (conversion not requested) {…) @12541  {إِنَّهُ بِمَا يَعْمَلُونَ خَبِيرٌ)
+     LEFT ALONE (conversion not requested) {…) @13381  {إِلَى أَلْذِينَ ظَلَمُوا )
+     LEFT ALONE (conversion not requested) {…) @19857  {وَمَا رَبُّكَ بِغَافِلٍ عَمَّا تَعْمَلُونَ)
+     LEFT ALONE (conversion not requested) {…) @28195  {لَيْوسُفُ وَأَخُوهُ)
+     LEFT ALONE (conversion not requested) {…) @29297  {إِن كُنتُمْ فَعِلِينَ)
+     LEFT ALONE (conversion not requested) {…) @40115  { أَرْسَلَتِ اِلَيْهِنَّ وَأَعْتَدَتْ)
+     LEFT ALONE (conversion not requested) {…) @40514  {وَفُلْنَ حَٰشَ لِلهِ)
+     LEFT ALONE (conversion not requested) {…) @42168  {قَالَ رَبِّ السِّجْنَ أَحَبُّ إِلَىَّ مِمَّا يَدْعُونَنِےٓ وَإِلَّا تَصْرِفْ عَنِّے كَيْدَهُنَّ أَصْبُ إِلَيْ
+     LEFT ALONE (conversion not requested) {…) @46876  {إِن كُنتُمْ لِلرَّءِيا تَعْبَرُونَ)
+     LEFT ALONE (conversion not requested) {…) @46971  {وَمَا نَحْنُ بِتَاوِيلِ اِ۬لَاحْلَٰمِ بِعَٰلِمِينَۖ  وَقَالَ اَ۬لذِے نَجَا مِنْهُمَا)
+     LEFT ALONE (conversion not requested) {…) @47079  {وَادَّكَرَ)
+     LEFT ALONE (conversion not requested) {…) @47123  {اَنَآ أُنَبِّئُكُم بِتَاوِيلِهِۦ فَأَرْسِلُونِۖ )
+     LEFT ALONE (conversion not requested) {…) @47418  {لَعَلَّهُمْ يَعْلَمُونَ قَالَ تَزْرَعُونَ)
+     LEFT ALONE (conversion not requested) (…} @47589  (إِلَّا قَلِيلاٗ مِّمَّا تَاكُلُونَۖ }
+     LEFT ALONE (conversion not requested) {…) @47716  {يَاكُلْنَ مَا فَدَّمْتُمْ لَهُنَّ)
+     LEFT ALONE (conversion not requested) {…) @47918  {وَفِيهِ يَعْصِرُونَ)
+     LEFT ALONE (conversion not requested) {…) @48107  {قَالَ اَ۪رْجِعِ اِلَيٰ رَبِّكَ فَسْـَٔلْهُ مَا بَالُ اُ۬لنِّسْوَةِ اِ۬لتِے قَطَّعْنَ أَيْدِيَهُنَّۖ إِنَّ رَب
+L27  1 deleted, 0 converted, 28 left alone
+     DELETE duplicate opener @9740  ({ قَالُواْ يَٰٓأَبَانَا مَا نَبْغِےۖ ) من كرم هذا الملك (هَذ
+     LEFT ALONE (conversion not requested) {…) @4450  {فَلَمَّا كَلَّمَهُۥ قَالَ إِنَّكَ اَ۬لْيَوْمَ لَدَيْنَا مَكِينٌ اَمِينٞۖ )
+     LEFT ALONE (conversion not requested) (…} @15100  (قَبَدَأَ بِأَوْعِيَتِهِمْ}
+     LEFT ALONE (conversion not requested) {…) @16710  { وَلَمْ يُبْدِهَا)
+     LEFT ALONE (conversion not requested) {…) @17048  { إِنَّا نَر۪يٰكَ مِنَ اَ۬لْمُحْسِنِينَۖ )
+     LEFT ALONE (conversion not requested) {…) @17137  {أَن نَّاخُذَ إِلَّا مَنْ وَّجَدْنَا مَتَٰعَنَا عِندَهُۥٓ)
+     LEFT ALONE (conversion not requested) {…) @19880  {إِنَّهُۥ لَا يَاْيْـَٔسُ مِن رَّوْحِ اِ۬للَّهِ إِلَّا اَ۬لْقَوْمُ اُ۬لْكَٰفِرُونَۖ )
+     LEFT ALONE (conversion not requested) {…) @20503  {وَأَخِيهِ )
+     LEFT ALONE (conversion not requested) (…} @22953  (اَ۪ذْهَبُواْ بِقَمِيصِے هَٰذَا}
+     LEFT ALONE (conversion not requested) (…} @23128  (فَأَلْقُوهُ عَلَيٰ وَجْهِ أَبِے يَاتِ بَصِيراٗ }
+     LEFT ALONE (conversion not requested) (…} @25580  ( قَدْ جَعَلَهَا رَبِّے حَقّاٗۖ وَقَدَ اَحْسَنَ بِيَ }
+     LEFT ALONE (conversion not requested) (…} @25964  ( اَ۬لشَّيْطَٰنُ بَيْنِے وَبَيْنَ إِخْوَتِيَۖ إِنَّ رَبِّے لَطِيفٞ لِّمَا يَشَآءُۖ اِ۪نَّهُۥ هُوَ اَ۬لْعَلِيم
+     LEFT ALONE (conversion not requested) {…) @26082  {اُ۬لْحَكِيمُۖ)
+     LEFT ALONE (conversion not requested) {…) @29086  { رَبِّ قَدَ اٰتَيْتَنِے مِنَ اَ۬لْمُلْكِ وَعَلَّمْتَنِے مِن تَاوِيلِ اِ۬لَاحَادِيثِۖ)
+     LEFT ALONE (conversion not requested) (…} @29186  (ق فَاطِرَ اَ۬لسَّمَٰوَٰتِ وَالَارْضِ أَنتَ وَلِيِّۦ }
+     LEFT ALONE (conversion not requested) {…) @30165  {ذَلِكَ)
+     LEFT ALONE (conversion not requested) {…) @30463  {نُوحِيهِ إِلَيْكَۖ وَمَا كُنتَ لَدَيْهِمُۥٓ)
+     LEFT ALONE (conversion not requested) {…) @30523  {إِذَ اجْمَعُواْ أَمْرَهُمْ)
+     LEFT ALONE (conversion not requested) {…) @30560  {وَهُمْ يَمْكُرُونَۖ )
+     LEFT ALONE (conversion not requested) {…) @30705  {وَلَوْ حَرَصْتَ)
+     LEFT ALONE (conversion not requested) {…) @30783  {مِنَ اَجْرٍۖ)
+     LEFT ALONE (conversion not requested) {…) @30804  {اِنْ هُوَ إِلَّا ذِكْرٞ لِّلْعَٰلَمِينَۖ  وَكَأَيِّن مِّنَ اٰيَةٖ )
+     LEFT ALONE (conversion not requested) {…) @33321  { تَصْدِيقَ ألذِى بَيْنَ يَدَيْهِ)
+     LEFT ALONE (conversion not requested) {…) @35977  {أَ۟ذَا كُنَّا تُرَٰباً اِنَّا لَفِے خَلْقٖ جَدِيدٍۖ )
+     LEFT ALONE (conversion not requested) {…) @39160  { وَإِذَآ أَرَادَ اَ۬للَّهُ بِقَوْمٖ سُوٓءاٗ)
+     LEFT ALONE (conversion not requested) {…) @41166  {وَالاَصَالِ)
+     LEFT ALONE (conversion not requested) {…) @41514  {أَمْ هَلْ تَسْتَوِے اِ۬لظُّلُمَٰتُ وَالنُّورُۖ )
+     LEFT ALONE (conversion not requested) {…) @41921  { أَنزَلَ)
+     LEFT ALONE (conversion not requested) {…) @42744  { لَوَ اَنَّ لَهُم مَّا فِے اِ۬لَارْضِ جَمِيعاٗ وَمِثْلَهُۥ مَعَهُۥ لَافْتَدَوْاْ بِهِۦٓۖ )
+L28  0 deleted, 0 converted, 18 left alone
+     LEFT ALONE (conversion not requested) {…) @1300  {اِ۬لذِينَ يُوفُونَ بِعَهْدِ اِ۬للَّهِ )
+     LEFT ALONE (conversion not requested) {…) @1380  {وَلَا يَنقُضُونَ اَ۬لْمِيثَٰقَ )
+     LEFT ALONE (conversion not requested) {…) @7249  {اَ۬لذِينَ ءَامَنُواْ)
+     LEFT ALONE (conversion not requested) {…) @7408  {قُلُوبُهُم بِذِكْرِ اِ۬للَّهِۖ )
+     LEFT ALONE (conversion not requested) {…) @7447  {أَلَا بِذِكْرِ اِ۬للَّهِ تَطْمَئِنُّ اُ۬لْقُلُوبُۖ)
+     LEFT ALONE (conversion not requested) {…) @9687  {وَلَوَ اَنَّ قُرْءَاناٗ سُيِّرَتْ بِهِ اِ۬لْجِبَالُ )
+     LEFT ALONE (conversion not requested) {…) @9807  {أَوْ كُلِّمَ بِهِ اِ۬لْمَوْت۪يٰۖ )
+     LEFT ALONE (conversion not requested) (…} @12292  (بَلْ زُيِّنَ لِلذِينَ كَفَرُواْ مَكْرُهُمْ }
+     LEFT ALONE (conversion not requested) {…) @13206  { أَنَ اَعْبُدَ اَ۬للَّهَ وَلَآ أُشْرِكَ بِهِۦٓۖ إِلَيْهِ)
+     LEFT ALONE (conversion not requested) {…) @17919  {وَعِندَهُۥٓ أُمُّ اُ۬لْكِتَٰبِۖ وَإِن مَّا نُرِيَنَّكَ بَعْضَ اَ۬لذِے نَعِدُهُمُۥٓ )
+     LEFT ALONE (conversion not requested) {…) @18124  { وَعَلَيْنَا اَ۬لْحِسَابُۖ )
+     LEFT ALONE (conversion not requested) {…) @21034  {أَنَ اخْرِجِ قَوْمَكَ)
+     LEFT ALONE (conversion not requested) {…) @23096  {رَبُّكُمْ لَئِن شَكَرْتُمْ )
+     LEFT ALONE (conversion not requested) {…) @29184  {أَن  أَن دَعَوْتُكُمْ فَاسْتَجَبْتُمْ لِے فَلَا تَلُومُونِے وَلُومُوٓاْ أَنفُسَكُم )
+     LEFT ALONE (conversion not requested) {…) @35593  {اِ۬للَّهُ اُ۬لذِے خَلَقَ اَ۬لسَّمَٰوَٰتِ وَالَارْضَ وَأَنزَلَ مِنَ اَ۬لسَّمَآءِ مَآءٗ فَأَخْرَجَ بِهِۦ مِنَ
+     LEFT ALONE (conversion not requested) {…) @40104  { لَكُمُ َاْلَامْثَالَۖ)
+     LEFT ALONE (conversion not requested) {…) @40289  {وَإِن كَانَ مَكْرُهُمْ)
+     LEFT ALONE (conversion not requested) {…) @40539  {اُ۬لَارْضُ غَيْرَ اَ۬لَارْضِ وَالسَّمَٰوَٰتُۖ)
+L29  3 deleted, 0 converted, 32 left alone
+     DELETE duplicate opener @7273  ({وَقَدْ خَلَتْ سُنَّةُ اُ۬لَاوَّلِينَۖ) سنة اللّٰه فيهم من ت
+     DELETE duplicate opener @53908  ({ جَلَا تَضْرِبُواْ لِلهِ الأَمْثَالَ) لا تجعلوا له أشباها (
+     DELETE duplicate opener @56327  ({ وَجَعَلَ لَكُم مِنَ ألْجِبَالِ أَكْنَنار جمع كنّ وهو ما يس
+     LEFT ALONE (conversion not requested) {…) @7676  { وَلَقَدْ جَعَلْنَا فِے اِ۬لسَّمَآءِ بُرُوجاٗ)
+     LEFT ALONE (conversion not requested) {…) @9244  {وَأَلْقَيْنَا فِيهَا رَوَٰسِيَ)
+     LEFT ALONE (conversion not requested) {…) @9307  {يَ وَأَنۢبَتْنَا فِيهَا مِن كُلِّ شَےْءٖ مَّوْزُونٖ)
+     LEFT ALONE (conversion not requested) {…) @10780  {وَلَقَدْ عَلِمْنَا الْمُسْتَقْدِمِينَ مِنْكُمْ )
+     LEFT ALONE (conversion not requested) {…) @20243  {تُبَشِّرُولِ)
+     LEFT ALONE (conversion not requested) {…) @20722  {والمرْسَن)
+     LEFT ALONE (conversion not requested) {…) @25049  {وَلَقَدَ اتَيْنَكَ سَبْعاً مِرَ الْمَثَانِ)
+     LEFT ALONE (only 5 marks in a 24-letter window -- prose inside the span) {…) @28055  {وَاخبِضْ جَتَاحَكَ لِلْمُومِنِينَ ألن جنابك للمؤمنين وَقُل إِنِّىَ أَنَا التَّذِيرُ)
+     LEFT ALONE (conversion not requested) {…) @33637  {مُبِين)
+     LEFT ALONE (conversion not requested) {…) @37608  { لايَةَ )
+     LEFT ALONE (conversion not requested) {…) @37767  {إِنَّ  ذَلِكَ لأَيَتِ لِقَوْمِ يَعْفِلُونَ)
+     LEFT ALONE (conversion not requested) {…) @39307  { إِلَّ اللَّةَ لَغَقُورٌ رَحِيمٌ)
+     LEFT ALONE (conversion not requested) {…) @39607  {وَمَا يَشْعُرُونَ)
+     LEFT ALONE (conversion not requested) {…) @39865  { أَنَّ أُلَّهَ يَعْلَمْ مَا بُيرُولَ وَمَا يُعْلِنُونَ إِنَّهُ و لا يُحِبُّ الْمَسْتَكْبِرِينَ)
+     LEFT ALONE (conversion not requested) {…) @40583  {أوْزَارَهُمْ كَامِلَةً يَوْمَ أْلْقِيَمَةٍ وَمِنَ آوْزِارِ ٱلذِينَ يُضِلُّونَهُم بِغَيْرِ عِلْمٌ)
+     LEFT ALONE (conversion not requested) {…) @40705  {الاَ سَآءَ مَا يَزِرْونَ)
+     LEFT ALONE (conversion not requested) {…) @40992  {وَأَتِيَهُمْ الْعَذَابُ مِنْ حَيْثُ لاَ يَشْعُرُونَ)
+     LEFT ALONE (conversion not requested) {…) @41870  {ألذِينَ تَتَوَجَيْهُم الْمَلِّبِكَةُ ظَالِمِة أَنْمِيهِنْ)
+     LEFT ALONE (conversion not requested) {…) @43086  {وَلَكِر كَانُوا أَنْمُسَهُمْ يَظْلِمُونَ)
+     LEFT ALONE (conversion not requested) {…) @43724  { وَلَقَدْ بَعَتْنَا فِ كَلَ أمَّةِ رَسُولًا )
+     LEFT ALONE (conversion not requested) {…) @45733  {أوْ يَاتَبَهُمَ أَلْعَذَابَ مِنْ حَيْكَ لاَ يَشْعَرُونَ)
+     LEFT ALONE (conversion not requested) {…) @47172  { مَسَوْفَ تَعْلَمُونَ)
+     LEFT ALONE (conversion not requested) {…) @49033  {الْيَوْمَ وَلَهَمْ عَذَّابُ آلِيمَ)
+     LEFT ALONE (conversion not requested) {…) @49085  {وَمَا أَنزَلْتَا عَلّبْكَ الْكِتَبَ إِلاَّا لِتُبَيِّنَ لَهُمْ)
+     LEFT ALONE (span crosses a line break) {…) @49620  {لَفَوْمِ يَسْمَعُونَ وَإِلَّ لَكْمْ فِي إلانْعَمِ لَعِبْرًهَ
+اعتبارا وتشفِيكُم مِنَّا مِي بَطونِهِ)
+     LEFT ALONE (span crosses a line break) {…) @53866  { تنينا ولا
+نَتَطِيعُونَ)
+     LEFT ALONE (conversion not requested) {…) @54036  {صَرَبَ أللَّهُ مَثَلًا عَبْداً مَمْلُوكَالاً تَقْدِرْ عَلَىٰ شَءٍ)
+     LEFT ALONE (conversion not requested) {…) @54659  {بِخَيْرِ)
+     LEFT ALONE (conversion not requested) {…) @55648  {إِلا اللَّةٌ إِنَّ مِيِ ذَلِكَ لِلَاَيَات لَفَوْمِ يُومنونَ )
+     LEFT ALONE (only 0 marks in a 24-letter window -- prose inside the span) {…) @57201  { يَوْمَ نَبْعَثُ مِ غلّ امَةِ شَهِيدا هوْ نبيها يشهد لها وعليها وهو يوم القيامة قُمَ لا يَوذَتُ لِلِذِينَ كَج
+     LEFT ALONE (conversion not requested) {…) @57842  {وَأَلْقَواْ إِلَى اللَّهِ يَوْمَيِذِ السَلَم)
+     LEFT ALONE (conversion not requested) {…) @58525  {وَرَحْمَةَ وَبَشْرِى)
+L30  4 deleted, 0 converted, 35 left alone
+     DELETE duplicate opener @42617  ({ وَهُوَ مُومِلٌ جَاءُوْلَيِكَ كَانَ سَعْيُهُم مَشُكُوراه عن
+     DELETE duplicate opener @43080  ({وَفَضِىٰ رَبُّكَ) أمر ربك (أَلاَّ تَعْبُدْواْ إِلّاَّ إِيَّ
+     DELETE duplicate opener @43416  ({وَاخْمِضْ لَهُمَا جَنَاحَ التُّلِّ) ألن لهما جانبك (منَ الر
+     DELETE duplicate opener @49862  ({آن يَجْعَهُوة )
+أن يفهموه (وَمِيِ ءَاذَانِهِمْ وَفُراً وَإِ
+     LEFT ALONE (conversion not requested) {…) @5793  { وَقَدْ جَعَلْتُمُ اللَّهِ عَلَيْكُمْ خَعِياً)
+     LEFT ALONE (conversion not requested) {…) @7896  {وَلَنَجْزِيَنَّهُمْوَ أَجْرَهُم بِأَحْسَ مَا كَانُواْ يَعْمَلُونَ)
+     LEFT ALONE (span crosses a line break) {…) @8944  { عَلَى أَن
+ءَامَنُوا وَعَلَىٰ رَبِّهِمْ يَتَوَكَّلُونَ)
+     LEFT ALONE (span crosses a line break) {…) @10398  { عَلَى أَن
+ءَامَنُوا وَعَلَىٰ رَبِّهِمْ يَتَوَكَّلُونَ)
+     LEFT ALONE (conversion not requested) {…) @12545  {بَشَرَّ)
+     LEFT ALONE (conversion not requested) {…) @13494  {وَأوْلُبِكَ هُمُ الْكَذِبُونَ)
+     LEFT ALONE (conversion not requested) {…) @14589  {بأنَّهُمُ إسْتَحَبُّوا)
+     LEFT ALONE (conversion not requested) {…) @15105  {إِلَّ رَبَّكَ مِنْ بَعْدِهَا)
+     LEFT ALONE (conversion not requested) {…) @18062  {إِنَّمَا حَرَّمَ عَلَيْكُمْ الْمَيْئَةَ وَالدَّمَ وَلَحْمَ الْخِنزِيرِ وَمَآ أهِلَّ لِغَيْرِ اللَّهِ بِهِ فَم
+     LEFT ALONE (conversion not requested) {…) @18431  {إِنَّ ألذِيرَ يَعْتَرَونَ عَلَى أللَّهِ ٱلْكَذِبَ لاَ يَفْلِحُونَ)
+     LEFT ALONE (conversion not requested) {…) @18881  {مِنْ بَعْدِ ذَلِكَ وَأَصْلَحُوا)
+     LEFT ALONE (conversion not requested) {…) @26725  {أَلذِ بَرَكُنَا حَوْلَهُ )
+     LEFT ALONE (conversion not requested) {…) @39031  {وَجَعَلْتَهَ هَدىً لِبِةِ إِسْرَآءِيلَ أَلَّ تَتَّخِذُّواْ مِ دَونِى وَكِيلًا)
+     LEFT ALONE (conversion not requested) {…) @39234  {إِلَى بَبِجَ إِسْرَآءِيلَ مِي الْكِتَبِ)
+     LEFT ALONE (only 2 marks in a 24-letter window -- prose inside the span) {…) @44243  {وَاخْمِضٍ لَهُمَا جَنَاحَ أَلذَّلِّ مِنَ الرَّحْمَةِ وَقُل رَبِّ إرْحَمْهُمَا كَمَا رَبَّيْنِ صَغِيراً رَبُّك
+     LEFT ALONE (only 1 marks in a 24-letter window -- prose inside the span) {…) @44562  {وَالْمِسْكِينَ وَابْرَ أْلسَّيلِ وَلا تَتَدِّرْ تَبْذِيراً بالإنفاق في غير طاعة اللّه هوانَ ٱلْمَبَدِّرِيقَ ا
+     LEFT ALONE (conversion not requested) {…) @48021  {إِلَى فِي ٱلْعَرْشِ)
+     LEFT ALONE (conversion not requested) {…) @50056  {إِذْ يَسْتَمِعُونَ إِلَيْكَ وَإِذْ هُمْ نَجْوِى)
+     LEFT ALONE (conversion not requested) {…) @51232  {وَفَالُوا)
+     LEFT ALONE (conversion not requested) {…) @51257  { أَذَا كَنَّا عِظَماً وَرَجَتاً إِنَّا لَمَبْعُونُونَ خَلْفاً جَدِيداً فُلْ كُونُواْ حِجَارَةً آوْ حَدِيداً أ
+     LEFT ALONE (conversion not requested) {…) @51918  {ألتِى هِىَ أَحْسَنٌ إنَّ التَّيْطِرَ يَنزَغُ بَيْنَهَمّة إِنَّ ألفَّيْطَرَ كَانَ لِلانسَسِ عَدْوَاً مُبِينَاً
+     LEFT ALONE (conversion not requested) {…) @53484  {إِذْ فَلْنَا لَكَ إِنَّ رَبَّكَ أَحَاطَ بِالتَّاسِ)
+     LEFT ALONE (conversion not requested) {…) @53818  {إِلَّ طعينا كبيراً )
+     LEFT ALONE (conversion not requested) {…) @60764  {إِلَّ قَلِيلًا)
+     LEFT ALONE (conversion not requested) {…) @60864  {سُنَّةَ مَى فَدَ آرْسَلْنَا قَبْلَكَ مِن رُسْلِنَا)
+     LEFT ALONE (conversion not requested) {…) @61052  {إِلَى غَسَوِ أِليلِ)
+     LEFT ALONE (conversion not requested) {…) @64243  {وَزَهَقَ الْبَطِلُ)
+     LEFT ALONE (conversion not requested) {…) @71849  {وَلَسِ شِئْنَا لَتَذْهَبَنَّ بِالذِة أَوْحَيْنَا إِلَيْكَ)
+     LEFT ALONE (conversion not requested) {…) @73412  {لِلنَّاسِ فِي هَٰذَا الْفُرْءَادِ مِ كُلِّ مَثَلٍ فَأَبِىّ أَكْثَرُ أَلنَّاسِ)
+     LEFT ALONE (conversion not requested) {…) @73526  { وَفَالُوا لَى نُومِنَ لَكَ حَتَّىٰ تُمَجِّرَ لَنَا مِنَ الأَرْضِ يَنْبُوعاً )
+     LEFT ALONE (conversion not requested) {…) @73865  {أوْ تَاتِىَ بِاللَّهِ وَالْمَلْبِكَةِ قَبِيلًا)
+     LEFT ALONE (conversion not requested) {…) @74021  {وَلَى نُومِ لِرَفِيَكَ)
+     LEFT ALONE (conversion not requested) {…) @75312  {فُلْ كَصىٰ بِاللَّهِ شَهِيداً بَيْنِ وَبَيْنَكُمّ  إِنَّهُ كَانَ بِعِبَادِهِ خَبِيراً بَصِيراً)
+     LEFT ALONE (conversion not requested) (…} @75591  (وَمَنْ يَهْدِ اللَّهُ فَهُوَ الْمُهْتَدِء وَمَنْ يُصْلِلْ بَلَى تَجِدَ لَهَمَ أَوْلِيَآء}
+     LEFT ALONE (conversion not requested) {…) @76651  {إِذْ جَآءَهُمْ بَقَالَ لَهْ جِزْعَوْنُ إِنِّ لَاظَنُّكَ يَامُوبِسى مَسْحُوراً)
+L31  0 deleted, 0 converted, 44 left alone
+     LEFT ALONE (conversion not requested) {…) @141  {لِلهِ)
+     LEFT ALONE (conversion not requested) (…} @2870  (وَلَمْ يَجْعَل لَهُ}
+     LEFT ALONE (conversion not requested) {…) @3311  {لِينذِرَ)
+     LEFT ALONE (conversion not requested) (…} @3383  (شَدِيداً مِن لَّدْنْهُ}
+     LEFT ALONE (conversion not requested) (…} @3526  (وَيْبشرَ ألْمُومِنِينَ ألذِينَ يَعْمَلُونَ الصَّلِحَٰتِ أَنَّ لَهُم أَجْراً حَسَنا}
+     LEFT ALONE (conversion not requested) (…} @3702  (ألذِينَ قَالُواْ إتَّخَذَ اللَّهُ وَلَدا}
+     LEFT ALONE (conversion not requested) {…) @3829  {مِنْ عِلْمٍ)
+     LEFT ALONE (conversion not requested) (…} @3908  (وَلا لا بَآئهِمْ }
+     LEFT ALONE (conversion not requested) (…} @4406  (إِنْ يَقولُونَ إِلَّا كَذِبا}
+     LEFT ALONE (conversion not requested) (…} @4516  (عَلَى ءاثرِهِمُ}
+     LEFT ALONE (conversion not requested) (…} @4552  ( إِن لَمْ يُومِنُوا بِهَذَا الْحَدِيثِ أَسَفاً}
+     LEFT ALONE (conversion not requested) (…} @5633  (زِينَةَ لَهَا لِنَبْلُوَهُمُ}
+     LEFT ALONE (conversion not requested) (…} @6150  (جُرُزاً}
+     LEFT ALONE (conversion not requested) {…) @6280  {أمْ حَسبْتَ)
+     LEFT ALONE (conversion not requested) (…} @6299  (أَنَّ أَصْحَبَ الْكَهْفِ}
+     LEFT ALONE (conversion not requested) (…} @6649  (ايَتِنَا عَجَباُ}
+     LEFT ALONE (conversion not requested) (…} @6776  ( إِذَ آوَى الْفتيَةُ إِلَى أَلْكَهْف}
+     LEFT ALONE (conversion not requested) (…} @10516  ( فضَرَبْنَا عَلَى اذَانِهِمْ}
+     LEFT ALONE (conversion not requested) {…) @11198  {إِذْ قَامُوا )
+     LEFT ALONE (conversion not requested) (…} @11254  (ففَالُواْ رَبُّنَا رَبُّ السَّمَوَاتِ وَالاَرْضِ لَن نَدْعُوَاْ مِن دُونِهِ إِلَهَاً لَقَدْ قُلْنَآ إِذاً شَط
+     LEFT ALONE (conversion not requested) {…) @11673  {هؤلاء قوْمُنَا اتّخذُواْ مِن دُونِهِ ءالهَةً لَّوْلا يَاثُونَ)
+     LEFT ALONE (conversion not requested) (…} @12017  (يَنشَرْ لَكُمْ رَبُّكُم مِن رَّحْمَتِهِ، وَيْهَيِّئْ لَكْم مِنَ آمْرِكُم مَرْفِقاً}
+     LEFT ALONE (conversion not requested) {…) @12803  {أَيْفَاظا)
+     LEFT ALONE (conversion not requested) {…) @12841  {وَهُمْ رُفُودٌ)
+     LEFT ALONE (conversion not requested) (…} @12866  (وَنُفَلِّبُهُمْ ذَاتَ الْيَمِيِن وَذَاتَ الشِّمَالِ}
+     LEFT ALONE (conversion not requested) (…} @13644  (قَالُواْ}
+     LEFT ALONE (conversion not requested) (…} @16905  (وَلا تَسْتَفْتِ فِيهِم}
+     LEFT ALONE (conversion not requested) (…} @16973  ( أَحَداً}
+     LEFT ALONE (conversion not requested) (…} @17059  (وَلا تَفُولَنَّ لِشَيءٍ}
+     LEFT ALONE (conversion not requested) {…) @20228  {لَهْد غَيْبٌ أَلسَّمَوَاتِ وَالأَرْضِ)
+     LEFT ALONE (conversion not requested) {…) @21630  {تُرِيدُ زِينَةَ الْحَيَوَةِ الدُّنْبِا وَلَا تُطِعْ مَنَ اغْبَلْنَا قَلْبَهُ و عَى ذِكْرِنَا)
+     LEFT ALONE (conversion not requested) {…) @23133  { يَشْوِى الْوَجُودَ)
+     LEFT ALONE (conversion not requested) {…) @23194  {وَسَآءَتْ)
+     LEFT ALONE (conversion not requested) {…) @23413  {تَجْرِى مِ تَحْتِهِمْ الْأَنْهَرُ يُحَلَّوْنَ جِيهَا مِنَ اسَاوِرَ)
+     LEFT ALONE (conversion not requested) {…) @24820  { ثُمَّ سَوِّيَكَ)
+     LEFT ALONE (conversion not requested) {…) @25597  {جَلَى تَسْتَطِيعَ لَهُ عَلَياً وَأحِيظَ بِثْمَرِه،)
+     LEFT ALONE (conversion not requested) {…) @31094  { أَلَّى نَجْعَلَ لَكْم مَوْعِدا)
+     LEFT ALONE (conversion not requested) {…) @31943  {يَسَجَدُوا إِلَّ إِبْلِيسَ كَالَ مِنَ ألْجِرِّ)
+     LEFT ALONE (conversion not requested) {…) @33591  { ألذِيرَ زَعَمْتُمْ)
+     LEFT ALONE (conversion not requested) (…} @34906  (وَاتَّخَذُواْ ءَايَتِ وَمَآ أُنذِرُواْ هَزُوا}
+     LEFT ALONE (conversion not requested) {…) @35139  {آنْ يَفْفَهُوهُ )
+     LEFT ALONE (conversion not requested) {…) @35274  {وَان تَدْعُهُمْ  إِلَى ألْهَدِىٰ بَلَنْ يَهْتَدُوَاْ إِذا ابَدَاً وَرَبُّكَ ألْغَمُورُ ذُو أَلرَّحْمَةِ لَوْ 
+     LEFT ALONE (conversion not requested) {…) @38178  {مَا كُنَّانَبْغٌ،)
+     LEFT ALONE (conversion not requested) (…} @51426  (ابَحَسِبَ ألذِينَ كَبَرُواْ أَنْ يَتَخِذُواْ عِبَادِ}
+L32  1 deleted, 0 converted, 19 left alone
+     DELETE duplicate opener @16877  ({ اسْمِعْ بِهِمْ وَأَبْصِرْ)
+ما أسمعهم وأبصرهم ( يَوْمَ يَات
+     LEFT ALONE (conversion not requested) {…) @4371  {وَكَانَتِ إمْرَأَتِي عَافِراً)
+     LEFT ALONE (conversion not requested) {…) @4558  {وَيَرِثُ مِنَ -الِ يَعْفُوبَ)
+     LEFT ALONE (conversion not requested) {…) @5156  { يَزَكَرِيَّاءً إِنَّا تُبَشِّرُكَ بِغُلَرِ)
+     LEFT ALONE (conversion not requested) {…) @8558  {وَءَاتَيْنَٰهُ ألْحُكْمَ)
+     LEFT ALONE (conversion not requested) {…) @11404  {إِذِ إنتَبَدَتْ مِنَ آَهْلِهَا مَكَاناً شَرْفِيّاَ)
+     LEFT ALONE (only 0 marks in a 24-letter window -- prose inside the span) {…) @12895  { قَالَ رَبُّكِ هُوَ عَلَىَ هَيِّنّ بأن يَنفخ بأمري جبريل فيك فتحملي به ويكون ما ذكر، ولكون ما ذكر في معنى الع
+     LEFT ALONE (conversion not requested) {…) @13541  {قَالَتْ يَلَيْتَنِ مِتُّ قَبْلَ هَذَا)
+     LEFT ALONE (only 0 marks in a 24-letter window -- prose inside the span) {…) @17258  {إِنَّا نَحْرُ نَرِثُ الأَرْضَ وَمَنْ عَلَيْهَا من العقلاء وغيرهم بإهلاك أهلها وَإِلَيْنَا يُرْجَعُونَ)
+     LEFT ALONE (conversion not requested) {…) @19704  { سَأَسْتَغْبِرُ لَكَ رَبِّىَ إِنَّهُو كَانَ بِى حَعِيَّاً)
+     LEFT ALONE (conversion not requested) {…) @20347  {وَوَهَبْنَا لَهُم )
+     LEFT ALONE (conversion not requested) {…) @30468  {وَالشَّيَطِيرَ)
+     LEFT ALONE (conversion not requested) {…) @35508  {إِنَّمَا نَعْدُّ لَهُمْ)
+     LEFT ALONE (conversion not requested) {…) @35712  {إِلَى جَهَنَّمَ وِرْدا)
+     LEFT ALONE (conversion not requested) {…) @39908  {قَبْلَهُم ص فَرْدٍ)
+     LEFT ALONE (conversion not requested) {…) @41437  {ٱلرَّحْمَرُ)
+     LEFT ALONE (conversion not requested) {…) @50493  {نَاراً لَعَلِّىَ ءَاتِيكْم مِنْهَا بِقَبَس)
+     LEFT ALONE (conversion not requested) {…) @52049  {إِنَّنِيَ أَنَا ألَّهُ لَا إِلَةَ إِلَّ أَنَا بَاعْبُدْنِي وَأَفِمِ الصَّلَة لِذِكْرِى)
+     LEFT ALONE (conversion not requested) {…) @56097  {وَلِتُصْنَعَ عَلَى عَيْنِيَ)
+     LEFT ALONE (conversion not requested) {…) @57152  {وَلا تُعَذِّبْهُمْ فَدْ جِيْنَاكَ بِئَايَةٍ)
+L33  1 deleted, 0 converted, 18 left alone
+     DELETE duplicate opener @50250  ({وَلاَ يَسْمَعْ ألصُّمُّ الدُّعَآءَ إِذَا مَا يُنذَرُونَ) من
+     LEFT ALONE (conversion not requested) {…) @695  {وَمِنْهَا نُحْرِجُكُمْ)
+     LEFT ALONE (conversion not requested) {…) @730  {تَارَةً أخْرِئٍ )
+     LEFT ALONE (conversion not requested) {…) @4322  {مَاجْعَلْ بَيْنَنَا وَبَيْنَكَ مَوْعِداً لاَ نُخْلِعُهُو نَحْرُ وَلَا أَنتَ)
+     LEFT ALONE (conversion not requested) {…) @5364  {وَيْلَكُمْ)
+     LEFT ALONE (conversion not requested) {…) @5941  {ألْيَوْمَ مَنِ إسْتَعْلِى)
+     LEFT ALONE (conversion not requested) {…) @7433  {وَلا يُفْلِحُ السَّاحِرْ حَيْثُ أَتبىٌ)
+     LEFT ALONE (span crosses a line break) {…) @9145  {إِنَّمَا تَفْضِ هَذِهِ الْحَيَوَةَ الُّنْيَام
+لأنك قضاؤك في الدنيا فقط، ونحن نجزى في الآخرة وإِنَّا ءَامَنَّا
+     LEFT ALONE (conversion not requested) {…) @10682  {وَمَا هَدِئً)
+     LEFT ALONE (span crosses a line break) {…) @10814  {وَوَاعَدْنَكُمْ جَانِبَ
+الَّرِ ليَ)
+     LEFT ALONE (conversion not requested) {…) @12497  {ألْفَى السَّامِرِيَّ)
+     LEFT ALONE (span crosses a line break) {…) @15424  { فَالواْ لَل
+ترخ)
+     LEFT ALONE (conversion not requested) {…) @22918  {إِذْ فُلْنَا لِلْمَلِّبِكَةِ اسْجُدُوا لادَمَ بَسَجَدُوَا)
+     LEFT ALONE (conversion not requested) {…) @24142  {وَمُلْكِ لاَ يَبْلِى)
+     LEFT ALONE (conversion not requested) {…) @26035  {مِنْهَا)
+     LEFT ALONE (conversion not requested) {…) @29196  {يَمْشّوتَ فِي مَسَاكِنْهِمْ )
+     LEFT ALONE (conversion not requested) (…} @39086  (دَعْوِيْهُمْ}
+     LEFT ALONE (conversion not requested) {…) @50484  {إِنَّا كُنَّا ظَلِمِينَ)
+     LEFT ALONE (conversion not requested) {…) @51212  {لِلْمُتَّفِينَ ألذِينَ يَخْشَوْنَ رَبَّهُم بِالْعَيْبِ)
+L34  4 deleted, 0 converted, 29 left alone
+     DELETE duplicate opener @7692  ({وَكَانُواْ لَنَا عَبِدِينَ)
+كانوا مشتغلين بعبادة اللّٰه تبا
+     DELETE duplicate opener @8092  ({ وَأَدْخَلْنَهُ فِي رَحْمَتِنَا أدخل اللّٰه لوطا في رحمته ب
+     DELETE duplicate opener @29672  ({ وَتَضَعْ كُلُّ ذَاتِ حَمْلٍ حَمْلَهَا)
+المرأة تلقي حملها م
+     DELETE duplicate opener @45886  ({مَنَامِعَ لَهُمْ) يحجون ويشهدون منافع لهم، الحج فيه منافع ج
+     LEFT ALONE (conversion not requested) {…) @8750  {إِذْ يَحْكُمَي مِ الْحَرْتِ)
+     LEFT ALONE (only 0 marks in a 24-letter window -- prose inside the span) {…) @21600  {قَاسْتَجَبْنَا لَهَ وَنَجَّيْنَٰهُ مِنَ أَلْغَمّ وَكَذَلِكَ تُنْجِه الْمُومِنِينَ كما نجيناه ننجي المؤمنين من
+     LEFT ALONE (conversion not requested) {…) @21930  {وَوَهَبْنَا لَهُ يَحْبى)
+     LEFT ALONE (conversion not requested) {…) @21961  {وَأصْلَحْنَا لَهُ زَوْجَة)
+     LEFT ALONE (conversion not requested) (…} @22289  (وَرَهَباً}
+     LEFT ALONE (conversion not requested) {…) @24078  {أَنَّهُمْ لا يَرْجِعُونَ)
+     LEFT ALONE (conversion not requested) {…) @25545  {إِنَّ ألذِينَ سَبَقَتْ لَهُم مِنَّا)
+     LEFT ALONE (conversion not requested) {…) @25591  {الْحُسْبِىّ أولَبِكَ عَنْهَا مُبْعَدُونُ)
+     LEFT ALONE (conversion not requested) {…) @28254  {إِنَّهُ )
+     LEFT ALONE (conversion not requested) {…) @29744  {وَتَرَى النَّاسَ سُكَرِى)
+     LEFT ALONE (conversion not requested) {…) @32100  {إِلَىٰ عَذَابِ السَّعِيرِ يَأَيُّهَا النَّاسُ)
+     LEFT ALONE (conversion not requested) {…) @34362  {وَلاَ كِتَبٍ مُنِيرِ)
+     LEFT ALONE (conversion not requested) {…) @36818  {آلَمْ تَرَ)
+     LEFT ALONE (conversion not requested) {…) @40357  {الْمَسْجِدِ الْحَرَامِ الذى جَعَلْنَٰه)
+     LEFT ALONE (conversion not requested) (…} @46354  ( وَلْيُومُواْ نُذُورَهُمْ}
+     LEFT ALONE (conversion not requested) {…) @47392  {إِلاَّ مَا يُتُلُبى عَلَيْكُمْ)
+     LEFT ALONE (conversion not requested) {…) @47910  {لَكُمْ جِيهَا مَتَامِعُ)
+     LEFT ALONE (conversion not requested) {…) @49731  {ظلِمُوا)
+     LEFT ALONE (conversion not requested) {…) @50631  {وَلِلهِ عَفِبَةُ الأمُورُ)
+     LEFT ALONE (conversion not requested) {…) @50842  {وَفَوْمُ إِبْرَهِيمَ)
+     LEFT ALONE (conversion not requested) {…) @51490  {أوَ اذَاتٌ يَسْتَعُونَ بِهَا )
+     LEFT ALONE (conversion not requested) {…) @54628  {مَا يُلْفِى الشَّيْطَرُ نُهَ يُحْكِمُ اللَّهُ ءَايَاتِهُ)
+     LEFT ALONE (conversion not requested) {…) @55926  {وَالذِيسَ كَبَرُواْ وَكَذَّبُواْ بِئَايَاتِنَا بَأَوْلِّيِكَ لَهُمْ عَذَابٌ مَينٌ)
+     LEFT ALONE (conversion not requested) {…) @56015  {وَالذِيلَ هَاجَرُواْ فِى سَبِيلِ اللَّهِ)
+     LEFT ALONE (conversion not requested) {…) @56424  {بِمِثْلِ مَا عُوفِبَ بِهِ،)
+     LEFT ALONE (conversion not requested) {…) @57463  {أَنَّ اللَّهَ سَخَّرَ لَكْم مَا مِ الأَرْضِ)
+     LEFT ALONE (conversion not requested) {…) @57668  {إِنَّ اللَّهَ بِالتَّاسِ لَرَءُوقُ رَجِيمْ)
+     LEFT ALONE (conversion not requested) {…) @58706  {وَيَعْبُدُونَ)
+     LEFT ALONE (conversion not requested) {…) @59440  {وَبِيسَ الْمَصِيرَ)
+L35  3 deleted, 0 converted, 20 left alone
+     DELETE duplicate opener @8233  ({مَا لَكْم مِ اِلَهِ غَيْرَةٌ أَبَلاَ تَتَّفُونَ) تخافون عقو
+     DELETE duplicate opener @20670  ({أَمْ يَفُولُونَ بِهِ، جِنَّةً) ما منعهم من الإيمان بالقرآن؟
+     DELETE duplicate opener @49077  ({وَكَانَ الإنسَسُ فَتُورا) بخيلا (وَلَقَدَ اٰتَيْنَا مُوس۪يٰ
+     LEFT ALONE (conversion not requested) {…) @82  {ألْمُومِنُونَ)
+     LEFT ALONE (conversion not requested) {…) @7062  {بَأَسْكَنَّهُ مِ الأَرْضِ)
+     LEFT ALONE (conversion not requested) {…) @7676  {وَلَكُمْ فِيهَا مَنَاجِعُ كَثِيرَةٌ )
+     LEFT ALONE (conversion not requested) {…) @16532  {أمَّنْكُمْ)
+     LEFT ALONE (conversion not requested) {…) @16618  {وَأَنَا رَبُّكُمْ)
+     LEFT ALONE (conversion not requested) {…) @18644  {آنَّهُمُو إِلَى رَبِّهِمْ رَاجِعُونَ)
+     LEFT ALONE (conversion not requested) {…) @20094  {ألْيَوْمُ إِنَّكُم مِنَّا لا تَنصَرُونَ)
+     LEFT ALONE (conversion not requested) {…) @20544  {أَمْ جَآءَهُم مَا لَمْ يَاتِ ءَابَآءَهُمْ ألاَوَّلِينَ أَمْ لَمْ يَعْرِجُواْ رَسُولَهُمْ بَهُمْ لَهُ و مُنكِر
+     LEFT ALONE (conversion not requested) {…) @24752  {مِي الأَرْضِ وَإِلَيْهِ تُحْشَرُونَ )
+     LEFT ALONE (conversion not requested) {…) @26005  {بَلَ آَتَيْنَٰهُم بِالْحَقِ)
+     LEFT ALONE (conversion not requested) {…) @26910  {السَّيِّيَّةَ)
+     LEFT ALONE (conversion not requested) {…) @27613  { إِذَا نُمِخَ فِى الصُّورِ)
+     LEFT ALONE (conversion not requested) {…) @31755  {إِن لَبِثْتُمُ إِلَّا قَلِيلًا لَوَ أنَّكُمْ كُنتُمْ تَعْلَمُونَ)
+     LEFT ALONE (conversion not requested) {…) @32422  {وَقَل رَبِّ إغْمِرْ وَارْحَمْ)
+     LEFT ALONE (conversion not requested) {…) @34372  {إِن كُنتُمْ تُومِنُونَ بِاللَّهِ وَالْيَوْمِ الآَخِرِ)
+     LEFT ALONE (conversion not requested) {…) @35730  {وَحُرِّمَ ذَلِكَ)
+     LEFT ALONE (conversion not requested) {…) @39841  {وَالْخَمِسَةُ أَى لَعْنَتْ اللَّهِ عَلَيْهِ إِن كَانَ مِنَ الْكَذِبِينَ)
+     LEFT ALONE (conversion not requested) {…) @40113  {أَرْبَعَ شَهَدَتٍ بِاللَّهِ إِنَّهُو لَمِرَ الْكَذِبِيرَ)
+     LEFT ALONE (conversion not requested) {…) @46625  {م السَّمَآءِ)
+     LEFT ALONE (conversion not requested) {…) @46645  {وَلَى نُومِرَ لِرُفِيِّكَ)
+L36  2 deleted, 0 converted, 14 left alone
+     DELETE duplicate opener @20621  ({وَلاَ يَمْلِكُونَ مَوْتا إماتة لأحد (وَلا حَيَوَةَ ) ولا إح
+     DELETE duplicate opener @57540  ({ألذيرَ يَمْشُوتَ عَلَى ألارْضِ هَوْنا بسكينة وتواضع (وَإِذَ
+     LEFT ALONE (conversion not requested) {…) @12609  {أَوْ بِيّوتِ ءَابَآيِكْمُ)
+     LEFT ALONE (conversion not requested) {…) @13832  {لَيْسَ عَلَيْكُمْ جُنَاحُ آن تَاكُلُواْ جَمِيعاً)
+     LEFT ALONE (span crosses a line break) {…) @16203  {إِنَّمَا الْمُومِنُونَ ألذِيرَ
+
+دَامَنْواْ بالِّ وَرَسُولِه، وَذَا كَانُوا مَعَةَ )
+     LEFT ALONE (conversion not requested) {…) @21031  {إِلَّ إِبْكِّ)
+     LEFT ALONE (conversion not requested) {…) @21051  { إِجْتَرِية)
+     LEFT ALONE (conversion not requested) {…) @21392  { أَسَطِيرُ الأوَّلِيَ)
+     LEFT ALONE (conversion not requested) {…) @26013  {جَنَّتٍ تَجْرِى مِ تَحْتِهَا ألاَنْهَرْ وَيَجْعَل لَكَ فُصُورَا)
+     LEFT ALONE (conversion not requested) (…} @27398  (أَمْ هَمْ ضَلَّاْ لسَّبِيلَ}
+     LEFT ALONE (conversion not requested) (…} @27599  (وَلَكِر مَنَّعْتَهُمْ وَءَابَآءَهُمْ}
+     LEFT ALONE (conversion not requested) {…) @38627  {لِنَئَيِّتَ بِهِ بُؤَادَكٍّ)
+     LEFT ALONE (conversion not requested) {…) @40027  {إِلَىٰ جَهَنَّمَ أوْلُيِكَ شَرٌّ مَكَانا)
+     LEFT ALONE (conversion not requested) {…) @44837  {آمْ تَحْسِبُ أَنْ أَكْثَرَهُمْ يَسْمَعُونَ)
+     LEFT ALONE (conversion not requested) {…) @51289  {وَهَذَا مِلْحُ أجَاجٌ)
+     LEFT ALONE (conversion not requested) {…) @60606  {بِكُمْ رَبِّى لَوْلا دُعَاؤُكُمْ )
+L37  4 deleted, 0 converted, 18 left alone
+     DELETE duplicate opener @4603  ({قَالَ رَبِّ إِنِّيَ أَخَافُ أَنْ يُكَذِّبُونِ وَيَضِيوُ صَد
+     DELETE duplicate opener @19676  ({ وَأَنجَيْنَا مُوسى وَمَى مَعَهُ أَجْمَعِيرَ) لما دخل قوم ف
+     DELETE duplicate opener @33404  ({ الاَرْذَلُونَ) السفلة كالحاكة والأساكفة حقروا
+\- عن عبد ال
+     DELETE duplicate opener @66097  ({وَفَوْمَهُمْ أَجْمَعِينٌ مَتِلْكَ بُيُوتُهُمْ خَاوِيَةً) خا
+     LEFT ALONE (conversion not requested) {…) @1969  { أَوَلَمْ يَرَواْ)
+     LEFT ALONE (conversion not requested) {…) @9969  {أَوَلَوْ جِيْتُكَ بِشَءٍ مَبِينٍ)
+     LEFT ALONE (conversion not requested) {…) @11812  {وَآخَاء)
+     LEFT ALONE (conversion not requested) {…) @14384  {قَالَ)
+     LEFT ALONE (conversion not requested) {…) @15649  { أَنِ إسْرِ بِعِبَادِيَ)
+     LEFT ALONE (conversion not requested) {…) @19036  {بَكَانَ كُلُّ بِرْفِ كَالطَّوْدِ ٱلْعَظِيمٌ)
+     LEFT ALONE (conversion not requested) {…) @25061  {ألذِه خَلَفَنِه بَهُوَ يَهْدِيرٍ)
+     LEFT ALONE (conversion not requested) {…) @28546  {إِلَّ)
+     LEFT ALONE (conversion not requested) {…) @38376  {وَلَاَ تَمَسُّوهَا بِسُوءِ فَيَاخُذَكُمْ عَذَابٌ يَوْمٍ عَظِيمٍ)
+     LEFT ALONE (conversion not requested) {…) @40357  {الاوَّلِينَ قَالواْ إِنَّمَآ أَنتَ مِ ٱلْمُسَحَّرِينَ وَمَآ أَنتَ إِلَّ بَشَرٌ مِثْلُنَا وَإِن نَظُنُّكَ)
+     LEFT ALONE (conversion not requested) {…) @40581  {قَالَ رَبِّىَ أَعْلَمْ بِمَا تَعْمَلُونَ)
+     LEFT ALONE (conversion not requested) {…) @42970  {إِنَّهُمْ عَيِ السَّمْعِ)
+     LEFT ALONE (conversion not requested) {…) @53797  {إِلَىٰ مِرْعَوْنَ وَفَوْمِهِ إِنَّهُمْ كَانُواْ قَوْماً قَسِفِينٌ جَلَمَّا جَآءَتْهُمُو ايَتُنَا مُبْصِرَةَ)
+     LEFT ALONE (conversion not requested) {…) @54346  {ٱلْحَمْدُ لِلهِ ألذِ فَضَّلَنَا عَلَىٰ كَثِيرٍ مِنْ عِبَادِهِ الْمُومِنِينَ)
+     LEFT ALONE (conversion not requested) {…) @57066  { أَنَ اشْكَرَ نِعْمَتَكَ التِيِّ أَنْعَمْتَ عَلَىَّ وَعَلَىٰ وَالِدَىَّ وَأَنَ أَعْمَلَ صَلِحاً تَرْضِيْهُ وَ
+     LEFT ALONE (conversion not requested) {…) @62144  {آَذِلَّةً وَهُمْ صَغِرُونَ)
+     LEFT ALONE (conversion not requested) {…) @63799  {أَهَكَذَا عَرْشُيّ)
+     LEFT ALONE (conversion not requested) {…) @65381  {وَكَانَ فِي الْمَدِينَةِ )
+L38  3 deleted, 0 converted, 23 left alone
+     DELETE duplicate opener @36258  ({قَالَ رَبِّ بِمَآ أَنْعَمْتَ عَلَىَّ)
+بحق إنعامك عليّ بالمغ
+     DELETE duplicate opener @65792  ({وَلَاَ يُلَفّيْهَا إِلَّ الصَّبِرُونَ) على الطاعة وعن المعص
+     DELETE duplicate opener @68539  ({فل رَبِّىَ أَعْلَمُ مَن جَآءَ بِالْهُدِىٰ وَمَنْ هُوَ فِي ص
+     LEFT ALONE (conversion not requested) {…) @2526  { إِذَا دَعَاءُ وَيَكْشِفَ أَلسُّوَةَ)
+     LEFT ALONE (conversion not requested) {…) @5192  {أَمَّن يَهْدِيكُمْ )
+     LEFT ALONE (conversion not requested) {…) @5376  {الَ مَ ٱللَّهِ تَعَلَى اللَّهُ عَمَّا يَشْرِكُونَ)
+     LEFT ALONE (conversion not requested) {…) @5719  {إِن كُنتُمْ صَدِقِينَ)
+     LEFT ALONE (conversion not requested) {…) @5831  {فُل لاَّ يَعْلَهُ مَى فِي السَّمَاوَتِ وَالأَرْضِ)
+     LEFT ALONE (conversion not requested) {…) @5925  {إِلاَّ اللَّةُ وَمَا يَشْعُرُونَ)
+     LEFT ALONE (conversion not requested) {…) @12611  {ألَمْ يَرَوَا أنَّا جَعَلْنَا )
+     LEFT ALONE (conversion not requested) {…) @18758  {وَهُم)
+     LEFT ALONE (conversion not requested) {…) @28816  {الَ بِرْعَوْنَ)
+     LEFT ALONE (conversion not requested) {…) @32435  { وَحَرَّمْنَا عَلَيْهِ الْمَرَاضِعَ بِ قَبْل)
+     LEFT ALONE (conversion not requested) {…) @32600  {وَهَمْ لَهُ نَصِحُونَ)
+     LEFT ALONE (conversion not requested) {…) @34887  {وَهَذَا مِنْ عَدْوِهِ)
+     LEFT ALONE (conversion not requested) {…) @38964  {إِلَى ألظِّلِ)
+     LEFT ALONE (conversion not requested) (…} @44113  ( وَلَى مُدْبِراً}
+     LEFT ALONE (conversion not requested) {…) @44885  {إِنّى أَخَافٌ أَنْ يُكَذِّبُولِ، قلْ سَنَشُذَّ عَضَّدَكَ)
+     LEFT ALONE (conversion not requested) {…) @45142  {قَالَواْ مَا هَدَا إِلَّا سِحْرٌ مَعْتَرى)
+     LEFT ALONE (conversion not requested) {…) @47034  {وَلَكِنَّا أَنشَأْنَا فُرْونا)
+     LEFT ALONE (conversion not requested) (…} @50944  (جَاعْلَمَ أَنَّمَا يَتَّبِعُونَ أَهْوَآءَهُمْ}
+     LEFT ALONE (conversion not requested) {…) @51241  {ألذِيرَ ءاتَيْنَٰهُمْ الْكِتَبَ مِن قَبْلِهِ)
+     LEFT ALONE (conversion not requested) {…) @52349  {لا تَبْتَفِي الجَاهلِين)
+     LEFT ALONE (conversion not requested) {…) @57947  {كَمَر مَتَعْنَٰهُ مَتَعَ الْحَيَوةِ الدُنْيَا)
+     LEFT ALONE (conversion not requested) {…) @61874  {وَلَهُ أُلْحُكْمَ)
+     LEFT ALONE (conversion not requested) {…) @65606  {إِنَّهُ و لَذُو حَظِ عَظِيمٍ وَقَالَ ألذِيرَ أُوتُواْ الْعِلْمَ)
+L39  3 deleted, 0 converted, 21 left alone
+     DELETE duplicate opener @23283  ({وَكَذَلِكَ أَنزَلْنَآ إِلَيْكَ الْكِتَبَ) القرآن، كما أنزلن
+     DELETE duplicate opener @24194  ({ وَمَا يَجْحَدُ بِآيَاتِنَآ إِلَّ الظَّلِمُونُ) وقد ذكر الت
+     DELETE duplicate opener @57413  ({بِمَا فَدَّمَتَ آيْدِيهِمْ إِذَا هُمْ يَفْنَطُونُ) يائسون م
+     LEFT ALONE (conversion not requested) {…) @9028  { إِبْرَهِيمَ إِذْ قَالَ لِقَوْمِهِ إِعْبُدُواْ أللَّهَ وَاتَّفُوْهُ)
+     LEFT ALONE (conversion not requested) {…) @9677  {وَمَا عَلَى ألرَّسُولِ إِلاَّ الْبَلَ الْمَبِينَ)
+     LEFT ALONE (conversion not requested) {…) @11910  {الْحَكِيمُ)
+     LEFT ALONE (conversion not requested) {…) @17171  {وَمِرْعَوْنَ)
+     LEFT ALONE (conversion not requested) (…} @17408  (جَمِنْهُم مَرَ ارْسَلْنَا عَلَيْهِ حَاصِباً}
+     LEFT ALONE (conversion not requested) {…) @17535  {وَمِنْهُم مَنْ خَسَمْنَا بِهِ الارْضَ)
+     LEFT ALONE (conversion not requested) {…) @17698  { وَلَكِر كَانُواْ أَنمُسَهُمْ يَظْلِمُونُ)
+     LEFT ALONE (conversion not requested) {…) @23212  {وَإِلَهْنَا وَإِلَهُكُمْ وَاحِدٌ وَنَحْرُ لَهُ و مُسْلِمُونَ)
+     LEFT ALONE (conversion not requested) {…) @26855  {وَانَّمَا أَنَا نَذِيرٌ مُبِينَ)
+     LEFT ALONE (conversion not requested) {…) @37121  {وَلَسِ سَأَلْتَهُم مَى نَزَّلَ مِنَ السَّمَاءِ مَآءَ فَأحْيَابِهِ الأَرْضَ مِنْ بَعْدٍ مَوْتِهَا لَيَقُولَنَ 
+     LEFT ALONE (conversion not requested) {…) @42584  {أَلَّمِّ)
+     LEFT ALONE (conversion not requested) {…) @47349  {وَهُمْ عَيِ ٱلآَخِرَةِ هُمْ غَعِلُونَ)
+     LEFT ALONE (conversion not requested) {…) @51034  {وَيَوْمَ تَقْومُ السَّاعَةُ يُبْلِسُ الْمُجْرِمُونَ)
+     LEFT ALONE (conversion not requested) {…) @51125  {لَهُم مِ شُرَكَآئِهِمْ)
+     LEFT ALONE (conversion not requested) {…) @52196  {وَيُحْي الأَرْضَ بالنبات وَبَعْدَ مَوْتِهَا)
+     LEFT ALONE (conversion not requested) {…) @59191  {إِنَّهُو لا يُجِبُّ الْكَفِرِينُ وَمِنَ -ايَتِهِ أَنْ يُرْسِلَ الرِّيَاحَ مُبَشِّرَاتٍ)
+     LEFT ALONE (conversion not requested) (…} @59595  (وَكَارَ حَفّاً عَلَيْنَا نَصْرُ الْمُومِنِينَ اللَّهُ أَلذِى يُرْسِلُ ألرِّيَحَ فَتُثِيرُ سَحَاباً}
+     LEFT ALONE (conversion not requested) {…) @60949  {وَقَالَ الذِينَ أوتُواْ الْعِلْمَ وَالايمَنَ لَقَدْ لَبْثْتُمْ فِي كِتَبِ اللَّهِ إِلَىٰ يَوْمِ ٱِلْبَعْثُ بَ
+     LEFT ALONE (conversion not requested) {…) @61395  {بِايَةٍ لَيَفُولَىَّ ألذِيرَ كَبَرْواْ)
+     LEFT ALONE (conversion not requested) {…) @63329  { إِذْ قَالَ لَفْمَلُ لابْنِهِ، وَهُوَ يَعِظُهٌ يَبْنَيِّ)
+     LEFT ALONE (conversion not requested) {…) @64597  {وَاغْضُضْ)
+L40  5 deleted, 0 converted, 10 left alone
+     DELETE duplicate opener @15369  ({ثُمَّ إسْتَوى عَلَى
+
+الْعَرْشِ* وهو في اللغة سرير الملك است
+     DELETE duplicate opener @33795  ({إِذَ آخَذْنَا مِنَ النَّبِيِيرَ مِيتَقَهُمْ) حين أخرجوا من 
+     DELETE duplicate opener @33946  ({وَصِ نُوجٍ وَإبْرَهِيمَ وَمُوسِىٰ وَعِيسَى أَبْنِ مَرْيَمَ)
+     DELETE duplicate opener @34057  ({وَأَخَذْنَا مِنْهُم مِيتَفاً غَلِيظاً شديدا بالوفاء. قال عم
+     DELETE duplicate opener @44979  ({وَيَسْتَٰذِلُ مَرِيقٌ مِنْهُمْ النَّبِ في الرجوع (يَقُولُون
+     LEFT ALONE (conversion not requested) {…) @6981  { أَنَّ اللَّهَ يُولِجُ أليْلَ فِي النَّهارِ وَيُولِجٌ ألتَّهَارَ فِى إِليْلِ)
+     LEFT ALONE (conversion not requested) {…) @14698  { تنزيل الكتب)
+     LEFT ALONE (conversion not requested) {…) @14959  {اللَّهُ أَلذِى خَلَقَ السَّمَوَاتِ وَالأَرْضَ وَمَا بَيْنَهُمَا مِ ستَّةٍ أَيَّامِ )
+     LEFT ALONE (conversion not requested) {…) @21939  {بِهَا خَرُّواْ سُجَّداً وَسَبَّحُوا)
+     LEFT ALONE (conversion not requested) {…) @21985  {بِحَمْدِ رَبِّهِمْ)
+     LEFT ALONE (conversion not requested) {…) @28024  {وَلا تُطِعِ الْكَينَ وَالْمَنَاعِين )
+     LEFT ALONE (conversion not requested) {…) @32336  {أَوْلِى بِالْمُومِنِينَ مِنَ انمُسِهِمْ)
+     LEFT ALONE (conversion not requested) {…) @46150  {آوَ آرَادَ بِكُمْ رَحْمَةُ )
+     LEFT ALONE (conversion not requested) {…) @46345  {قَدْ يَعْلَمُ ٱللَّهُ الْمُعَوِّفِينَ)
+     LEFT ALONE (conversion not requested) {…) @48502  {إِنَّ اللَّةَ كَانَ)
+L41  5 deleted, 0 converted, 20 left alone
+     DELETE duplicate opener @26946  ({جَمَا لَكُمْ عَلَيْهَِّ مِنْ عِدَّةِ تَعْتَدُّونَهَا) تحصون
+     DELETE duplicate opener @33274  ({وَلَوَ اعْجَبَكَ حُسْنُهُرَّ إِلاَّ مَا مَلَكَتْ يَمِينُكَ)
+     DELETE duplicate opener @45146  ({وَكُبَرَآءَنَا بَأَضَلُّونَا السَّبِيلًا) طريق الهدى ( رَبّ
+     DELETE duplicate opener @51859  ({يَجِبَالُ أَوِّبِى مَعَهُ بالتسبيح ( وَالطَّيْرَ وَأَلَنَّا
+     DELETE duplicate opener @64135  ({إنَّمَا يَدْعُواْ حِزْبَهُ ) أتباعه (لِيَكُونُوا مِنَ اصْحَ
+     LEFT ALONE (conversion not requested) {…) @3895  {إِلَّ اللَّه كَانَ لَطِيماً)
+     LEFT ALONE (conversion not requested) {…) @18676  {فَدَراً مَفْدُورا)
+     LEFT ALONE (conversion not requested) {…) @30884  {وَمَا مَلَكَتَ آيْمَٰنُهُمْ)
+     LEFT ALONE (conversion not requested) {…) @34413  {إِلَى طَعَامٍ)
+     LEFT ALONE (conversion not requested) {…) @34608  {مُسْتَنِسِينَ لِحَدِيثٌ)
+     LEFT ALONE (conversion not requested) {…) @36376  {ذَلِكُمْ وَ أَطْهَرُ لِقْلُوبِكُمْ وَفْلُوبِهِنَّ)
+     LEFT ALONE (conversion not requested) {…) @45260  {وَالْعَنْهُمْ)
+     LEFT ALONE (conversion not requested) {…) @46672  {إنَّهُ كَانَ ظُلُوماً)
+     LEFT ALONE (span crosses a line break) {…) @48727  {ألذِ لَهُو مَا مِى ٱلسَّمَٰوَاتِ وَمَا فِىِ الأَرْضِ وَلَهُ الْحَمْدُ فِي الآَخِرَةُ وَهُوَ
+ابالله؛ وأما الجه
+     LEFT ALONE (conversion not requested) {…) @51308  {إِذَا مُزِّفْتُمْ)
+     LEFT ALONE (conversion not requested) {…) @52094  {وإِنِّي بِمَا تَعْتَلُونَ بَصِيرٌ وَلِسْلَيْمَنَ)
+     LEFT ALONE (conversion not requested) {…) @52874  {إِلْمَوْتَ مَا دَلَّهُمْ عَلَىٰ مَوْتِهِ إِلاَّ دَآبَّةُ الأَرْضِ)
+     LEFT ALONE (conversion not requested) {…) @55027  {إِلاَّا بَرِيفاً مِنَ الْمُومِنِينَ)
+     LEFT ALONE (conversion not requested) {…) @55750  {وَالأَرْضِ)
+     LEFT ALONE (conversion not requested) {…) @58031  {وَمَا نَحْنُ بِمُعَدَّبِينٌ فُلِ إِنَّ رَبِّ يَبْسُطُ أَلزِزْقَ)
+     LEFT ALONE (conversion not requested) {…) @58129  {وَيَفْدِرُ)
+     LEFT ALONE (conversion not requested) (…} @59411  (وَيَوْمَ نَحْشَرَهُمْ جَبِيعا }
+     LEFT ALONE (conversion not requested) {…) @59872  {بَيِّنَٰتِ فَالَوا مَا هَذَآ إِلَّ رَجْلٌ يُرِيدُ أَنْ يَصْدَكُمْ عَمَّا كَانَ يَعْبُدْ ءَابَاوُكُمْ)
+     LEFT ALONE (conversion not requested) {…) @61332  {أن تَفْومُواْ يِهِ)
+     LEFT ALONE (conversion not requested) {…) @61780  {فَلِ إِلَّ رَبّهِ يَفْذِفُ بِالْحَقِّ)
+L42  4 deleted, 0 converted, 25 left alone
+     DELETE duplicate opener @14627  ({وَلاَ يُحَبَّف عَنْهَم مَنْ عَدَّابِهَا)» طرفة عين
+(كَذَّلِ
+     DELETE duplicate opener @22811  ({وَجَعَلْنَا مِنْ بَيْ أَيْدِيهِمْ سُدّاً وَمِنْ خَلْعِهِمْ 
+     DELETE duplicate opener @37930  ({ سَلَمٌ فَوْلًا مِ رَبِّ رَحِيمٍ) يقال لهم سلام عليكم (وَ ي
+     DELETE duplicate opener @63136  ({وَنَصَرْنَهُمْ) على القبط (فَكَانُواْ هُمُ اُ۬لْغَٰلِبِينَۖ
+     LEFT ALONE (conversion not requested) {…) @3755  { إِنْ يَشَأْ يُذْهِبْكُمْ وَيَاتٍ بِخَلْفِ جَدِيدٌ)
+     LEFT ALONE (conversion not requested) {…) @16920  {قَلَ آرَّيْتُمْ)
+     LEFT ALONE (conversion not requested) {…) @17051  {أَرونِ)
+     LEFT ALONE (conversion not requested) {…) @17535  {إِنَ امْسَكَهُمَا مِنَ آحَدٍ مِنْ بَعْدِهْ)
+     LEFT ALONE (conversion not requested) {…) @17619  {إِنَّهُو كَانَ حَلِيماً غَبُورا)
+     LEFT ALONE (conversion not requested) {…) @18360  {وَلا يَجِيفُ)
+     LEFT ALONE (conversion not requested) {…) @18752  { جَلَى تَجِدَ لِسُنَّتِ أنَّهِ تَبْدِيلًا وَلَى تَجِدَ لِسُنَّتِ اللَّهِ تَحْوِيلا )
+     LEFT ALONE (conversion not requested) {…) @22740  {إِلَى الآَذْفَادِ بَهُم مُفْمَحُونَ)
+     LEFT ALONE (conversion not requested) {…) @27985  {وَمَا لِىَ لَا أَعْبُدُ ألذِ قَطَرَنِ)
+     LEFT ALONE (conversion not requested) {…) @29786  { كَمَ آهْلَكْنَا قَبْلَهُم مِسَ الْفُرُوبِ أَنَّهُمْوَ إِلَيْهِمْ لاَ يَرْجِعُونَ)
+     LEFT ALONE (conversion not requested) {…) @29883  {وَإِن كُلِّ)
+     LEFT ALONE (conversion not requested) {…) @33350  {وَمَا خَلْقِكُمْ)
+     LEFT ALONE (conversion not requested) (…} @33571  (مِمَّا رَزَقَكُمُ اللَه }
+     LEFT ALONE (conversion not requested) (…} @33609  (قَالَ ألِذِينَ كَبَرْواْ لِلذِيسَ ءَامَنُوا}
+     LEFT ALONE (conversion not requested) {…) @38682  {ألْيَوْمَ بِمَا كُنتُمْ تَكْبُرُونَ)
+     LEFT ALONE (conversion not requested) {…) @44864  {آنَّا خَلَفْنَا لَهُم)
+     LEFT ALONE (only 0 marks in a 24-letter window -- prose inside the span) {…) @44954  { أَنْعَما ألم ينظروا إلى الإبل والبقر والغنم؟ هذا من عملكم؟ لا، هذا عمل أيدينا نحن تبارك وتعالى جَهُمْ لَهَا 
+     LEFT ALONE (conversion not requested) {…) @48521  {الْعَلِينَ)
+     LEFT ALONE (conversion not requested) {…) @48835  {وَالصَّفَتِ صَبّا )
+     LEFT ALONE (conversion not requested) {…) @50164  {وَيُفْذَمُونَ)
+     LEFT ALONE (conversion not requested) {…) @50701  {وَإِذَا ذُكِّرُوا)
+     LEFT ALONE (conversion not requested) {…) @50913  {أَذَا مِنْنَا وَكُنَّا تَرَاباً وَعِظَماً إِنَّا لَمَبْعُوثُونَ أَوَ ءَابَآؤْنَا ألاَوَلُونَ فَلْ نَعَمْ)
+     LEFT ALONE (conversion not requested) {…) @56310  {وَهُم مُكْرَمُونَ)
+     LEFT ALONE (conversion not requested) {…) @57073  {أَنَّكَ لَمِنَ الْمُصَدِّفِينَ)
+     LEFT ALONE (conversion not requested) {…) @62669  {سَلَمُّ عَلَى إِبْرَهِيمُ كَذَلِتَ نَجْزِى اِلْمُحْسِنِينُ إِنَّهُ مِنْ عِبَادِنَا الْمُومِنِينَ وَبَشَّرْتَه
+L43  5 deleted, 0 converted, 18 left alone
+     DELETE duplicate opener @1346  ({وَأنْبَتْنَا عَلَيْهِ شَجَرَةَ مِنْ يَفْطِير) وهو
+
+القرع [1
+     DELETE duplicate opener @6402  ({وَإِنَّا لَنَحْنُ الصَّاقُونَ) أقدامنا في الصلاة ( وَإنَّا 
+     DELETE duplicate opener @9364  ({هَذَا سَحِرٌ كَذَّابٌّ) هكذا وصفوا النبي صلى اللّٰه عليه وس
+     DELETE duplicate opener @46726  ({ وَمَنْ يُضْلِلِ اللَّهُ بَمَا لَهُ و مِنْ هَادٍ آجَمَنْ يَ
+     DELETE duplicate opener @49541  {{وَيَجْزِيَهُمْ وَ أَجْرَهُم بِأَحْسَ إِلذِى كَانُواْ يَعْمَ
+     LEFT ALONE (conversion not requested) {…) @5403  {إِلاَّ مَنْ هُوَ صَالِ اِلْجَحِيمٌ)
+     LEFT ALONE (conversion not requested) {…) @8376  {وَالْحَمْدُ لِلهِ رَبِّ الْعَلَمِينَ)
+     LEFT ALONE (conversion not requested) {…) @15851  {وَلِاشْرَاي)
+     LEFT ALONE (conversion not requested) {…) @20444  {وَاهْدِنَا إِلَى سَوَاءِ الصِّرَاطِ إِنَّ هَٰذَآ أَخِى لَهُ و تِسْعٌ وَتِسْعُونَ نَعْجَةً)
+     LEFT ALONE (conversion not requested) {…) @24629  {ذَاِكَ)
+     LEFT ALONE (conversion not requested) {…) @24694  {جَوَيْلٌ لِلذِينَ كَبَرُوا مِنَ ألَرِ أَمْ نَجْعَلُ أَلذِيلَ ءَامَنُواْ وَعَمِلُواْ الصَّلِحَٰتِ كَالْمُفْسِد
+     LEFT ALONE (conversion not requested) {…) @31697  {وَإِنَّهُمْ عِنْدَنَا لَمِرَ الْمُصْطَبَيْرَ)
+     LEFT ALONE (conversion not requested) {…) @32268  {أَتْرَابُّ)
+     LEFT ALONE (conversion not requested) {…) @39526  { الْكِتَبَ بِالْحَقِ بَاعْبُدِ اللَّهَ مُخْلِصاً لَهُ الدِّيرُ)
+     LEFT ALONE (conversion not requested) {…) @40566  {ألْغَقَّرَ)
+     LEFT ALONE (conversion not requested) {…) @41417  { وَإِذَا مَسَّ الانسَرَ)
+     LEFT ALONE (conversion not requested) {…) @42019  {فَلْ هَلْ يَسْتَوِى الذِيلَ يَعْلَمُونَ وَالذِيرَ لا تَعْلَمونٌ)
+     LEFT ALONE (conversion not requested) {…) @44619  {أَلَمْ تَرَ)
+     LEFT ALONE (conversion not requested) {…) @45634  {مَثَانِيَ)
+     LEFT ALONE (conversion not requested) {…) @48495  {وَإِنَّهُم مَيِّتُونَ)
+     LEFT ALONE (conversion not requested) {…) @50171  {فُلَ ابَرِّيْتُم مَا تَدْعُونَ)
+     LEFT ALONE (conversion not requested) {…) @57919  {سَيُصِيبُهُمْ سَيِّئَاتُ مَا كَسَبُواْ وَمَا هُم بِمُعْجِزِينٌ)
+     LEFT ALONE (conversion not requested) (…} @58082  (لِمَنْ يَشَآءُ وَيَفْدِرٌ إِنَّ مِي ذَٰلِكَ لاَيَٰتٍ لِفَوْمِ يُومِنُونٌ فُلْ يَٰعِبَادِى الذِينَ أَسْرَبُواْ
+L44  1 deleted, 0 converted, 14 left alone
+     DELETE duplicate opener @32332  ({وَمِنْهَا تَاكُلُونٌ وَلَكَمْ فِيهَا مَنَمِعُ) من الدر والن
+     LEFT ALONE (conversion not requested) {…) @8288  {ذَلِكُم)
+     LEFT ALONE (conversion not requested) {…) @11054  {إِذِ ٱلْقُلُوبَ)
+     LEFT ALONE (conversion not requested) {…) @11827  { أَوَلَمْ يَسِيرُوا فِي الأَرْضِ فَيَنظُرُواْ كَيْفَ كَالَ عَقِبَةُ أَلذِيرَ كَانُواْ مِن قَبْلِهِمْ كَانُواْ
+     LEFT ALONE (conversion not requested) {…) @13906  {وَقَالَ رَجْلٌ مُومِلٌ مِنَ إلِ مِرْعَوْنَ)
+     LEFT ALONE (conversion not requested) {…) @20559  {وَيَوْمَ تَقَومَ السَّاعَةُ أَدْخِلَواْ ءَالَ فِرْعَوْنَ أَشَدَّ ألْعَذَّابُ)
+     LEFT ALONE (conversion not requested) (…} @21011  ( جَيَفُولُ الضُّعَبُواْ لِلذِيسَ إسْتَكْبَرُواْ إِنَّا كُنَّا لَكُمْ تَبَعا}
+     LEFT ALONE (conversion not requested) {…) @22762  {وَالابْكِر)
+     LEFT ALONE (conversion not requested) {…) @28572  {ألْحَمْدُ لِلهِ رَبِّ اِلْعَلَمِينَ فُلِ إِنِّيِ نهِيتُ أَنَ آعْبُدَ أْلذِينَ تَدْعُونَ صِ دُوبِ اللَّهِ لَمّ
+     LEFT ALONE (conversion not requested) {…) @29509  {ألذِيسَ كَذَّبُوا بِالْكِتَبِ)
+     LEFT ALONE (conversion not requested) {…) @29653  {إِذِ الاَغْلَلُ فِي أَعْنَافِهِمْ وَالسَّلَسِلُ)
+     LEFT ALONE (conversion not requested) {…) @29845  {أَيْرَ مَا كُنتُمْ تُشْرِكُونَ مِن دُولِ اللَّهِ)
+     LEFT ALONE (conversion not requested) {…) @53798  {وَلاَ تَسْتَوِه الْحَسَةُ وَلا السَّيِيَّةُ)
+     LEFT ALONE (conversion not requested) {…) @53887  {إدْجَعْ بِالتِىِ هِيَ أَحْسَرُ)
+     LEFT ALONE (conversion not requested) {…) @57558  {إِنَّهُو عَلَىٰ كُلِّ شَيْءٍ فَدِيره)
+L45  3 deleted, 0 converted, 12 left alone
+     DELETE duplicate opener @12300  ({وَمَا وَصَّيْنَا بِهِ إِبْرَهِيمَ) الخليل ( وَمُوسِى
+
+زعيسى
+     DELETE duplicate opener @30490  ({ وَلَمَنِ إنتَصَرَ بَعْدَ ظُلْمِهِ بَأَوْلُيِكَ مَا عَلَيْه
+     DELETE duplicate opener @41863  ({آوَمَنْ يَنشَوُّاْ فِي اِلْحِلْيَةِ) المرأة خلقتها غير كامل
+     LEFT ALONE (conversion not requested) {…) @12083  {إِنَّهُو بِكُلِّ شَيْءٍ عَلِيمٌ شَرَعَ لَكُم مِنَ ألدِّينِ مَا وَصِّىٰ بِهِ نُوحاً)
+     LEFT ALONE (conversion not requested) (…} @17392  (اللَّهُ رَبِّنَا وَرَبُّكُمّ لَنَآ أَعْمَلَنَا وَلَكْمُ أَعْمَلُكُمْ}
+     LEFT ALONE (conversion not requested) {…) @17537  {اللَّهُ يَجْمَعُ بَيْنَنَا)
+     LEFT ALONE (conversion not requested) {…) @19615  {وَمَى كَانَ يُرِيدُ حَرْثَ الدُّنْيِا نُوتِهِ مِنْهَا)
+     LEFT ALONE (conversion not requested) (…} @23360  (وَيَمْحُ ألَّهُ ألْبَطِلَ}
+     LEFT ALONE (conversion not requested) {…) @32485  {إِنَثَاً وَبَهَبُ لِمَنْ يَشَآءُ الدُّكْورَ أَوْ يُزَوِّجُهُمْ)
+     LEFT ALONE (conversion not requested) {…) @49777  {قَإِنَّا مِنْهُم مُنتَفِمُونَ)
+     LEFT ALONE (conversion not requested) {…) @49848  {أَلِ وَعَدْتَهَمْ إِنّا عَلَيْهِم مُفْتَدِرُونَ)
+     LEFT ALONE (conversion not requested) {…) @51122  {إِنَّنَا لَمُهْتَدُونُ)
+     LEFT ALONE (conversion not requested) {…) @52453  {إِنَّهُمْ كَانُوا قَوْما جَسِفِينَ)
+     LEFT ALONE (conversion not requested) {…) @55474  {مِنْ عَذَّابٍ يَوْم آلِيمٌ هَلْ يَنظُرُونَ إِلَّا السَّاعَةَ أَن تَاتِيَهُم بَغْتَةَ)
+     LEFT ALONE (conversion not requested) {…) @60380  {آمْراً مِنْ عِندِتَاً إِنَّا كُنَّا مُرْسِلِينَ رَحْمَةً)
+L46  8 deleted, 0 converted, 24 left alone
+     DELETE duplicate opener @9864  ({ وَاخْتِلَفِ اِليْلِ وَالنَّهارِ) ذهابهما ومجيئهما (وَمَآ أ
+     DELETE duplicate opener @23401  ({ وَخَتَمَ عَلَىٰ سَمْعِهِ، وَفَلْبِهِ) فلم يسمع الهدى ولم ي
+     DELETE duplicate opener @25389  ({وَكُنتُمْ قَوْماً مُجْرِمِيَ) كافرين ( وَإِذَا فِيلَ) لكم أ
+     DELETE duplicate opener @30087  ({ فَالَ أَلذِيرَ كَبَرُواْ لِلْحَقِّ) القرآن
+(لَمَّا جَآءَهُ
+     DELETE duplicate opener @40223  ({أَنَ اشْكُرَ نِعْمَتَكَ ألتِىِ أَنْعَمْتَ عَلَىَّ وَعَلَىٰ 
+     DELETE duplicate opener @40704  ({وَعْدَ الصِّدْفِ إِلذِى كَانُواْ يُوعَدُونَ)
+لقوله تعالى "و
+     DELETE duplicate opener @42462  ({بِهَا بَالْيَوْمَ تُجْزَوْنَ عَذَابَ ألْهُولِ بِمَا كُنتُمْ
+     DELETE duplicate opener @51786  ({آلَّ اللَّهَ ألذِى خَلَقَ السَّمَوَاتِ وَالأَرْضَ وَلَمْ يَ
+     LEFT ALONE (conversion not requested) {…) @1483  {إِنَّهُ )
+     LEFT ALONE (conversion not requested) {…) @9439  {وَمِي خَلْفِكُمْ)
+     LEFT ALONE (conversion not requested) {…) @12414  { وَاذَا عَلِمَ مِنَ ايَيِنَا)
+     LEFT ALONE (conversion not requested) {…) @13217  {إِلَّ فِي ذَلِكَ لاَيَاتٍ لِفَوْمِ يَتَبَكَّرُونُ)
+     LEFT ALONE (conversion not requested) {…) @16740  {قَوْما بِمَا كَانُواْ يَكْسِبُونَ)
+     LEFT ALONE (conversion not requested) {…) @19653  {قَوْمَا بِمَا كَانُواْ يَكْسِبُونَ)
+     LEFT ALONE (conversion not requested) {…) @20895  {السَّيَّاتِ)
+     LEFT ALONE (conversion not requested) {…) @24833  {وَتَرِى كُلَّ دُمَّةٍ)
+     LEFT ALONE (conversion not requested) {…) @47032  { إِنَّمَا الْعِلْمُ عِنْدَ اللَّهِ)
+     LEFT ALONE (conversion not requested) {…) @48586  {وَصَرَّبْنَا ألآيَاتِ)
+     LEFT ALONE (conversion not requested) {…) @48691  { ألذِيسَ إتَّخَذُواْ مِ دُولِ اِللَّهِ فُرْبَاناً)
+     LEFT ALONE (conversion not requested) {…) @48827  {إِبْكُهُمْ)
+     LEFT ALONE (conversion not requested) {…) @52855  { أَلَيْسَ هَذَا بِالْحَقِّ قَالُواْ يَلِى وَرَبِّا قَالَ جَذُوفُوا الْعَذَابَ بِمَا كُنْتُمْ تَكْجُرُونٌ قَاص
+     LEFT ALONE (conversion not requested) {…) @53417  {إِلاَّ ٱلْقَوْمُ الْعَسِفُونَ)
+     LEFT ALONE (conversion not requested) {…) @54997  {وألذِيرَ كَبَرُواْ وَصَدُّواْ عَى سَبِيلِ ٱللَّهِ)
+     LEFT ALONE (conversion not requested) {…) @55647  { ذَلِكَ)
+     LEFT ALONE (conversion not requested) {…) @56392  {الْوَتَاقَ)
+     LEFT ALONE (only 0 marks in a 24-letter window -- prose inside the span) {…) @57920  {بِأَنَّ اللَّهَ مَوْلَى ألذِيسَ ءَامَنُواْ وَأَلَّ الْكَمِرِيَ لاَ مَوْلِى لَهُمُوَ الله ناصر الذين آمنوا وول
+     LEFT ALONE (conversion not requested) {…) @59446  {وَلَهُمْ فِيهَا مِ كُلِّ اِلثَّمَرَاتِ وَمَغْبِرَةٌ مِ رَبِّهِمْ)
+     LEFT ALONE (conversion not requested) {…) @66384  {إِلَّ أَلذِيرَ كَبَرُواْ وَصَدُّواْ عَى سَبِيلِ إِللَّهِ)
+     LEFT ALONE (conversion not requested) {…) @67640  {وَاللهُ الْغَنِيُّ)
+     LEFT ALONE (conversion not requested) {…) @68721  {إِنَّا بَتَحْنَا لَكَ)
+     LEFT ALONE (conversion not requested) {…) @74888  { وَزُيِّرَ ذَلِكَ مِح فُلُوبِكُمْ)
+     LEFT ALONE (conversion not requested) {…) @75311  { إِذَا إنطَلَفْتُمْوَ إِلَى مَغَانِمَ)
+L47  0 deleted, 0 converted, 20 left alone
+     LEFT ALONE (only 4 marks in a 24-letter window -- prose inside the span) {…) @21248  { لِيْدْخِلَ اللَّهُ فِي رَحْمَتِهِ، مَنْ يَشَاءَم كالمؤمنين المذكورين لَوْ تَزَيَّلُوا)
+     LEFT ALONE (conversion not requested) {…) @21616  {فَأَنزَلَ أَلَّهُ سَكِينَتَهُو عَلَىٰ رَسُولِهِ، وَعَلَى الْمُومِنِينَ)
+     LEFT ALONE (conversion not requested) {…) @29579  {بَوْقَ صَوْتِ التَّيِءِ)
+     LEFT ALONE (conversion not requested) {…) @29613  {وَلَا تَجْهَرُوا لَهُ بِالْقَوْلِ )
+     LEFT ALONE (conversion not requested) {…) @29663  {كَجَهْرِ بَعْضِكُمْ لِبَعْضِ)
+     LEFT ALONE (conversion not requested) {…) @34475  {وَلَكِنَّ اللَّه حَبَّبَ إِلَيْكُمْ الايمً وَتَبِّنَهُ )
+     LEFT ALONE (conversion not requested) {…) @37704  {إِلَّ بَعْضَ ألظَّرِّ اِثْمٌ)
+     LEFT ALONE (conversion not requested) {…) @43096  {اتعَلِّمُونَ اللَّهَ بِدِينِكُمْ)
+     LEFT ALONE (conversion not requested) {…) @43647  {وَاللَّهُ بَصِيرٌ بِمَا تَعْمَلُونَ)
+     LEFT ALONE (conversion not requested) {…) @49505  {الخَرُوج)
+     LEFT ALONE (conversion not requested) {…) @49539  {كَدَّبَتْ قَبْلَه قَوْمُ نُوحٍ وَأَصْحَابُ أَلََّسِ)
+     LEFT ALONE (conversion not requested) {…) @49705  {وَبِرْعَوْنُ وَاخْوَانُ لُوطِ وَأَصْحَبُ الآيْكَةِ)
+     LEFT ALONE (conversion not requested) {…) @55803  {وَجَآءَ بِفَلْبٍ مُنِيبِ)
+     LEFT ALONE (conversion not requested) {…) @56722  {وَلَقَدْ خَلَفْنَا السَّمَوَاتِ وَالاَرْضَ وَمَا بَيْنَهُمَا مِ سِتَّةِ أَيَّامِ وَمَا مَسَّنَا صٍ لُغَوبٍ)
+     LEFT ALONE (conversion not requested) {…) @57237  {وَإِدْبَرَ السُّجُودُ)
+     LEFT ALONE (conversion not requested) {…) @58442  {وَالدُّرِيّاتِ)
+     LEFT ALONE (conversion not requested) {…) @58509  { الْحَمِلَتِ)
+     LEFT ALONE (conversion not requested) {…) @58761  { إِنَّمَا تُوعَدُونَ لَصَادِقٌ)
+     LEFT ALONE (conversion not requested) {…) @58994  {إِنَّكُمْ)
+     LEFT ALONE (conversion not requested) {…) @62994  {إِذْ دَخَلُواْ عَلَيْهِ جَفَالُواْ سَلَماً )
+L48  0 deleted, 0 converted, 11 left alone
+     LEFT ALONE (conversion not requested) {…) @1334  { وَتَرَكْنَا فِيهَا)
+     LEFT ALONE (conversion not requested) {…) @11478  {أَصْحَايهِمْ)
+     LEFT ALONE (conversion not requested) {…) @12753  {إِنَّ عَذَابَ رَبِّكَ لَوَافِعُ )
+     LEFT ALONE (conversion not requested) {…) @13102  {الذِيسَ هُمْ فِي خَوْضٍ)
+     LEFT ALONE (conversion not requested) {…) @15308  {الْحَفْنَا بِهِمْ ذُرِّبَّتِهِمْ)
+     LEFT ALONE (conversion not requested) {…) @17561  {أَمْ يُرِيدُونَ كَيْدَامَ)
+     LEFT ALONE (conversion not requested) {…) @19525  {رَسَ أليلِ بَسَتّحْم )
+     LEFT ALONE (conversion not requested) {…) @29857  {أَجَرَّبْتُمُ أللَّتَ وَالْعُزِّىٰ وَمَنَوْةَ الثَّالِئَةَ الأخْرِبي)
+     LEFT ALONE (conversion not requested) {…) @47083  {وَأَنتُمْ سَمِدُونَ)
+     LEFT ALONE (conversion not requested) {…) @51684  {سَيَعْلَمُونَ غَدآ)
+     LEFT ALONE (conversion not requested) {…) @52535  {وَلَقَدَ أَنتَرَهُم)
+L49  2 deleted, 0 converted, 18 left alone
+     DELETE duplicate opener @32702  ({مَى ذَا ألذِى يُفْرِضُ اللَّهَ فَرْضاً حَسَنا بإنفاق ماله ف
+     DELETE duplicate opener @47662  ({ وَيَغْمِرْ لَكُمْ وَاللَهُ غَبَورٌ رَجِيمٌ لِيَّلاً يَعْلَ
+     LEFT ALONE (conversion not requested) {…) @1216  {الْفَرْءَاتَ)
+     LEFT ALONE (conversion not requested) {…) @2499  {الشَّمْسَ وَالْقَمَرْ بِحُسْبَابٍ وَالنَّجْمُ وَالشَّجَرْ يَسْجَدَبٍ)
+     LEFT ALONE (conversion not requested) {…) @4231  {وَالْحَبُّ)
+     LEFT ALONE (conversion not requested) {…) @4407  {تُكَذِّبَابِ)
+     LEFT ALONE (conversion not requested) {…) @6686  {الْبَحْرَيِ)
+     LEFT ALONE (conversion not requested) {…) @6981  {قَبِأَيّ ءَالاءِ رَبِّكُمَا تُكَذِّبَابِ)
+     LEFT ALONE (conversion not requested) {…) @16111  {إِلاَّ الإحْسَرّ)
+     LEFT ALONE (conversion not requested) {…) @21189  {فُلِ إِنَّ ألاوَلِينَ وَالآخِرِينَ لَمَجْمُوعُونَ إِلَى مِيفَتِ)
+     LEFT ALONE (conversion not requested) {…) @22366  {وَنَنشِيَّكُمْ)
+     LEFT ALONE (conversion not requested) {…) @22450  {وَلَقَدْ عَلِمْتُمُ النَّشْأَةَ ألْأَولِى جَلَوْلاَ تَذَّكَّرُونَ)
+     LEFT ALONE (conversion not requested) {…) @23051  {إِنَّا لَمُغْرَمُونَ)
+     LEFT ALONE (conversion not requested) {…) @31708  {بِاللَّهِ)
+     LEFT ALONE (conversion not requested) {…) @39489  {وَمَا الْحَيّوهُ الدُّنْيَا)
+     LEFT ALONE (span over 300 chars) {…) @39534  {إِلاَّ مَتَعَ الْغُرُورِ سَابِفُوا إِلِّى مَعْبِرَةٍ ص رَبِّكْمْ والإنسان إذا عمر آخرته أحب الانتقال إلى اللّ
+     LEFT ALONE (conversion not requested) {…) @41627  {إِلاَّ مِي كِتَبٍ)
+     LEFT ALONE (conversion not requested) {…) @45526  { وَلِيَعْلَمَ اللَّهُ مَنْ يَنصُرُهُ وَرْسُلَهُو بِالْغَيْبُ)
+     LEFT ALONE (conversion not requested) {…) @46371  {إبْتَدَعُوهَا)
+     LEFT ALONE (conversion not requested) {…) @47793  {أَلاَ يَفْدِرُونَ عَلَىٰ شَءٍ مِ بَضْلِ اللَّهِ)
+L50  3 deleted, 0 converted, 12 left alone
+     DELETE duplicate opener @26288  ({مَا طَلَّتَمَ أَنْ يَخْرَجُوَا وَلُواْ أَنَّهَم مَانِعَتَهُ
+     DELETE duplicate opener @31413  ({وَلِيُخْزِىَ) اللّٰه وليخزي بالإذن في القطع وٱلْجَسِفِينَ)
+
+     DELETE duplicate opener @43408  ({وَاتَّقُواْ اللَّةُ إِنَّ اللَّهَ خَبِيرٌ بِمَا
+ج117/8: أخر
+     LEFT ALONE (conversion not requested) {…) @11417  {وَاذَا فِيلَ أنشَرُوا)
+     LEFT ALONE (conversion not requested) {…) @15034  {جَإِن لَمْ تَجِدُوا)
+     LEFT ALONE (conversion not requested) {…) @17134  { وَيَحْسِبُونَ أَنَّهُمْ عَلَى شَيْءٍ)
+     LEFT ALONE (conversion not requested) {…) @26499  {وَقَدَّقَ)
+     LEFT ALONE (conversion not requested) {…) @31007  {اللَّةَ وَرَسُولَةُ وَمَنْ يُشَآقِ اللَّهَ فَإِنَّ أللَّهَ شَدِيدٌ أَلْعِقَابٌ مَا فَطَعْتُم)
+     LEFT ALONE (conversion not requested) {…) @40354  {ذَلِكَ بِأَنَّهَمْ قَوْمٌ لَاَ يَعْفِلُونَ)
+     LEFT ALONE (conversion not requested) {…) @44152  {وَلَا تَكُونُوا كَالِذِيلَ لَسُوا اللَّهُ)
+     LEFT ALONE (conversion not requested) (…} @57734  (إلَيْهِم بالْمَوََّةِ}
+     LEFT ALONE (conversion not requested) {…) @60023  {رَبَّنَا لاَ تَجْعَلْنَا مِتْنَةَ لِلِذِينَ كَبَرُواْ )
+     LEFT ALONE (conversion not requested) {…) @63051  {وَلَا تُمْسِكُواْ بِعِصَمِ الْكَوَامِرِ)
+     LEFT ALONE (conversion not requested) {…) @63692  {وَإِن جَاتَكُمْ شَءٌ مِ ازْوَاجِكُمُ وَ)
+     LEFT ALONE (conversion not requested) {…) @70495  {إِذْ فَالَ عِيسَى إَبْنُ مَرْيَمَ يَبَنِةِ إِسْرَاءِيلَ)
+L51  2 deleted, 0 converted, 20 left alone
+     DELETE duplicate opener @34106  ({مُبَيِّنَةُ) فيخرجن لإقامة الحد عليهن ( وَتِلْكَ)
+المذكورات
+     DELETE duplicate opener @35961  ({ وَأَوْلَتُ الاَحْمَالِ أَجَلُهُنَّ أَنْ يَضَعْرَ حَمْلَهُّ
+     LEFT ALONE (conversion not requested) {…) @5605  {وَاللَّهُ ذُو ألْفَصْلِ الْعَظِيمُ مَثَلُ الذِينَ حُمِّلُوا التَّوْرِيَةَ)
+     LEFT ALONE (span crosses a line break) {…) @6091  {وَاللَّهُ لا يَهْدِى ٱلْقَوْمَ
+الظَّلِمِينَ)
+     LEFT ALONE (conversion not requested) {…) @6146  {فُلْ يَأَيُّهَا ألذِيسَ هَادُوا)
+     LEFT ALONE (conversion not requested) {…) @7954  {جَيُنَبِئُكُم بِمَا كُنتُمْ تَعْمَلُونَ)
+     LEFT ALONE (conversion not requested) {…) @17242  {وَاللَّهُ يَعْلَمُ إِنَّكَ لَرَسُولُهُو وَاللَّهُ يَشْهَدْ)
+     LEFT ALONE (conversion not requested) {…) @19080  { يَحْيِبُونَ كَلَّ صَيْحَةٍ )
+     LEFT ALONE (conversion not requested) {…) @19952  {إِنَّ أللَّهَ لا يَهْدِ اِلْفَوْمَ الْعَسِفِينَ)
+     LEFT ALONE (conversion not requested) {…) @22842  {وَأَكْر مِنَ الصَّلِحِينَ)
+     LEFT ALONE (span crosses a line break) {…) @24135  {وَإلَيْهِ الْمَصِيرٌ يَعْلَمُ مَا فِ السَّمَٰوَاتِ
+
+وَالأَرْضِ وَيَعْلَمْ مَا تُسِرُّونَ وَمَا تَعْلِنُونَ وَ
+     LEFT ALONE (conversion not requested) (…} @25218  (يَوْمَ يَجْمَعْكُمْ لِيَوْم الْجَمْعِ}
+     LEFT ALONE (conversion not requested) {…) @35578  {وَمَنْ يَتَوَكَّلْ عَلَى اللَّهِ)
+     LEFT ALONE (conversion not requested) {…) @35647  {إِنَّ اللَّهَ بَٰلِغٌ آمْرَه )
+     LEFT ALONE (hand-excluded: the closer belongs to an earlier opener) {…) @36696  {مِنْ وَجْدِكُمْ)
+     LEFT ALONE (conversion not requested) {…) @36861  {وَإن كُرَّ أُوْلَتِ حَمْلٍ فَأَنهِفُواْ عَلَيْهِنَّ حَتَّىٰ يَصَعْرَ حَمْلَهُنَّ بَإِنَ أَرْضَعْرَ لَكُمْ)
+     LEFT ALONE (conversion not requested) {…) @36982  {جَاتُوهُنَّ أجُورَهُنَّ)
+     LEFT ALONE (conversion not requested) {…) @37956  {بَاتَّفُواْ اللَّهَ يَأُوْلِ الالْبَابِ)
+     LEFT ALONE (conversion not requested) {…) @41939  {لَكُمْ تَجِلَّةَ أَيْمَنِكُمْ)
+     LEFT ALONE (conversion not requested) {…) @42586  { إِذَ آسَرَّ النَّءُ إِلَى بَعْضِ أَزْوَاجِهِ، هي حفصة وحَدِيثاً)
+     LEFT ALONE (conversion not requested) {…) @44382  { أَنْ يُبَدِّلَة أَزْوَاجا خَيْراً مِنكُرَّ)
+     LEFT ALONE (conversion not requested) {…) @48400  {إِنَّمَا تُجْزَوْتَ مَا كُنتُمْ تَعْمَلُونَ)
+L52  4 deleted, 0 converted, 12 left alone
+     DELETE duplicate opener @6869  ({قَالُواْ بَلِى فَدْ جَآءَنَا نَذِيرٌ بَكِّذَّبْنَا وَقُلْنَ
+     DELETE duplicate opener @11017  ({وَلَفَدْ كَذَّبَ أَلذِيلَ مِ قَبْلِهِمْ ) من الأمم (بَكَيْف
+     DELETE duplicate opener @13849  ({إِلَ آهْلَكَنِييَ أَلَّهُ وَمَى مَعِىَ) من المؤمنين بعذابه 
+     DELETE duplicate opener @51626  ({ابْصَرُهُمْ تَرْهَفْهُمْ) تغشاهم (ذِلَّةࣱۖ ذَٰلِكَ اَ۬لْيَو
+     LEFT ALONE (conversion not requested) {…) @1357  {إلذِى خَلَقَ الْمَوْتَ وَالْحَيَوَةَ)
+     LEFT ALONE (conversion not requested) {…) @3442  {وَهُوَ الْعَزِيزُ)
+     LEFT ALONE (conversion not requested) {…) @6480  {إِذَآ الْفُواْ جِيهَا سَمِعُواْ لَهَا شَهِيفا)
+     LEFT ALONE (conversion not requested) {…) @26360  {مَصْبِحِينَ)
+     LEFT ALONE (conversion not requested) {…) @27743  {إِن كُنْتُمْ صَرِمِين)
+     LEFT ALONE (conversion not requested) {…) @35119  { وَانشَفَّتِ السَّمَاءُ)
+     LEFT ALONE (conversion not requested) {…) @46082  {وَنَّهُ )
+     LEFT ALONE (conversion not requested) {…) @48394  {وَنَرِيْهُ قَرِيباً)
+     LEFT ALONE (conversion not requested) {…) @48431  {يَوْمَ تَكُولُ السَّمَاءُ )
+     LEFT ALONE (conversion not requested) {…) @48778  {يَوَدُّ الْمُجْرِمُ يتمنى الكافر لَوْ يَعْتَدِه مِنْ عَذَّابٍ يَوْمَيِذٍ بِيَنِيهِ)
+     LEFT ALONE (conversion not requested) {…) @50652  {قَمَالِ الذِيرَ كَبَرُواْ قِبَلَكَ مُهْطِعِيَ)
+     LEFT ALONE (conversion not requested) {…) @51958  {قَالَ يَقَوْمٍ إِنِّيِ لَكُمْ نَذِيرٌ مُبِيسُّ)
+L53  2 deleted, 0 converted, 10 left alone
+     DELETE duplicate opener @33598  ({إِلاَّ ذِكْرِ الْرَ
+وهذه النار يذكرها القرآن تذكرة للمؤمنين
+     DELETE duplicate opener @35458  ({وَمَا تَذْكُرُونَ إِلَّ أَنْ يَشَآءَ أللَّهُ كل بمشيئته تبا
+     LEFT ALONE (conversion not requested) {…) @6542  {وَاِنَّهُمْ)
+     LEFT ALONE (conversion not requested) {…) @9017  {تَسْلَكَنَه)
+     LEFT ALONE (conversion not requested) {…) @32600  {إِلاَّا بِتْنَةَ)
+     LEFT ALONE (conversion not requested) {…) @33747  {إنَّهَا)
+     LEFT ALONE (conversion not requested) {…) @37514  {وَجُمِعَ الشَّمْسُ وَالْقَمَرُ)
+     LEFT ALONE (conversion not requested) {…) @45227  {إِنَّمَا نُظْعِمُكُمْ لِوَجْهِ اللَّهِ)
+     LEFT ALONE (conversion not requested) {…) @45627  {جِيهَا شَمْساً وَلا زَمْهَرِيراً)
+     LEFT ALONE (conversion not requested) {…) @48701  {يَجَعَلْتَهُ مِ قَبِارٍ مَكِين )
+     LEFT ALONE (conversion not requested) {…) @49007  {وَجَعَلْنَا فِيهَا رَوَاسِىَ شَمِخَتِ)
+     LEFT ALONE (conversion not requested) {…) @49669  {بَإِن كَارَ لَكُمْ كَيْدٌ )
+L54  1 deleted, 0 converted, 14 left alone
+     DELETE duplicate opener @29458  ({جَعَدَّلَكَ) جعلك معتدل الخلى متناسب الأعضاء ليست يد أو رجل
+     LEFT ALONE (conversion not requested) {…) @6734  {وَقَالَ )
+     LEFT ALONE (conversion not requested) {…) @10687  { فَالسِّيِقَاتِ سَبْها)
+     LEFT ALONE (conversion not requested) {…) @12889  {إِذْ نَادِيْهُ رَبُّهُ و بِالْوَادِ ٱلْمُفَدَّسِ طَوَىٌ )
+     LEFT ALONE (conversion not requested) {…) @17190  {أَنتَ صِ ذِكْرِبُهَا)
+     LEFT ALONE (only 2 marks in a 24-letter window -- prose inside the span) {…) @21480  {إِنَّا صَبَبْنَا الْمَاء من السحاب صَبّان قبل أن تجد لقمة أمر اللّٰه السحاب فأمطرت \*ثُمَّ شَفَفْنَا الارْضَ)
+     LEFT ALONE (conversion not requested) {…) @29944  {وَالَّ الْمَجَارَ الكفار لَصِى جَحِيمٍ)
+     LEFT ALONE (conversion not requested) {…) @32461  {لِلْمُطَقِّمِسَ ألذِيرَ إِذَا حْتَوْ عَلَى النَّاسِ يَسْتَوْجُونَ)
+     LEFT ALONE (conversion not requested) {…) @37916  { إِلَى أَهْلِهِمْ إنفَلَبُواْ بَكِهِينَ)
+     LEFT ALONE (conversion not requested) {…) @38893  {لِرَبِّهَا وَحُفَّتْ)
+     LEFT ALONE (conversion not requested) {…) @38931  { وَإِذَا الارْضُ مُدَّتْ)
+     LEFT ALONE (conversion not requested) {…) @41268  {وَالْقَمَرِ إِذَا إَتَّسَقَ)
+     LEFT ALONE (span crosses a line break) {…) @42100  {والذِينَ ءَامَنُواْ وَعَمِلُواْ الصَّلِعَٰتِ
+الَهْمْدَ أَجْرّ غَيْرٌ مَمْنُولِ)
+     LEFT ALONE (conversion not requested) {…) @45616  {وَلَهُمْ عَذَابُ الْحَرِيقِ إِنَّ ألذِينَ ءَامَنُواْ وَعَمِلُواْ الصَّلِحَٰتِ لَهَمْ جَنَّتٌ تَجْرِى صِ تَحْت
+     LEFT ALONE (conversion not requested) {…) @47116  {الْمَجِيدُ بَعَالٌ لَمَا يُرِيدٌ)
+L55  1 deleted, 0 converted, 12 left alone
+     DELETE duplicate opener @16409  ({إِذَا دُكَّتِ الأَرْضُ دَكّاً دَكّا زلزلت حتى ينهدم كل بناء
+     LEFT ALONE (conversion not requested) {…) @13341  { جَيُعَدِّبَهُ أَللَّهُ الْعَذَابَ الأَكْبَرَ)
+     LEFT ALONE (conversion not requested) {…) @28437  {إِذَا يَغْشِى)
+     LEFT ALONE (conversion not requested) {…) @28519  {وَمَا خَلَقَ الذَّكَرَ وَالأَنثِىّ)
+     LEFT ALONE (conversion not requested) {…) @28996  {وَمَا يُغْنِى عَنْهُ مَالُهُ إِذَا تَرَدِّىٌّ)
+     LEFT ALONE (conversion not requested) {…) @31720  {وَالصُّحى وَاليْلِ إِذَا سَجَىٰ)
+     LEFT ALONE (conversion not requested) {…) @32980  {رَبُّكَ وَمَا فَلبىّ)
+     LEFT ALONE (conversion not requested) {…) @44722  {إِلَّ الإنسَرَ لَيَطْعِىّ)
+     LEFT ALONE (conversion not requested) {…) @45405  {إِن كَذَّبَ)
+     LEFT ALONE (conversion not requested) {…) @53190  {وَتَوَاصَوْا بِالحَقِّ وَتَوَاصَوْا بِالصَّبْرِ)
+     LEFT ALONE (conversion not requested) {…) @53692  {لَيْنُبَدَّنَّ)
+     LEFT ALONE (conversion not requested) {…) @54939  {وَامَتَهُم مِنْ خَوْبٌ)
+     LEFT ALONE (conversion not requested) {…) @90682  {الرَّحْمَنِ الرَّحِيمِ)
+L56  0 deleted, 0 converted, 1 left alone
+     LEFT ALONE (conversion not requested) {…) @20816  {الرَّحْمَنِ الرَّحِيمِ)
