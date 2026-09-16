@@ -113,8 +113,12 @@ def clean_slice(t):
 # two-letter word is a large relative edit distance. The fix is not to relax the
 # threshold — it is to offer the hypothesis and let the muṣḥaf refuse it. The
 # substitution is used ONLY for scoring; the replacement text is sliced from the
-# verse as always, and boundary_ok() still has to pass. Where the window is not
-# مِن there, the span fails and is left alone.
+# verse as always. Note what this does NOT do: span_chars() hypothesises too, so
+# boundary_ok() compares مِن against the muṣḥaf rather than ص. It checks
+# alignment, never the hypothesis itself. A في at that position would cost two
+# edits inside the cap and pass unremarked. The hypothesis held for all 127
+# instances audited -- every one sits on مِن -- but it holds empirically, not by
+# construction, and any new entry here needs the same check.
 SCAN_HYPOTHESES = {'ص': 'من'}
 
 def hypothesise(w):
@@ -181,7 +185,11 @@ def boundary_ok(inner, s, start, n):
     base = d(start, n)
     if base is None: return False
     for (st, nn) in ((start - 1, n), (start + 1, n), (start, n + 1), (start, n - 1),
-                     (start - 1, n + 1), (start, n + 2), (start - 1, n + 2)):
+                     (start - 1, n + 1), (start, n + 2), (start - 1, n + 2),
+                     # (+1, -1) is the one that catches a lemma the scribe has
+                     # already quoted and glossed being prepended a second time:
+                     # L27's أولياء, L28's موسى. Without it all four got through.
+                     (start + 1, n - 1), (start + 2, n), (start - 1, n - 1), (start, n - 2)):
         if nn < 1: continue
         alt = d(st, nn)
         if alt is not None and alt < base: return False
@@ -220,6 +228,32 @@ def in_declared(scope, key):
     if su == s2 and ay > a2: return False
     return True
 
+
+def looks_scanned(inner):
+    """
+    Scanned muṣḥaf text carries ḥarakāt; typed prose does not.
+
+    L15 quotes Q 5:116 twice — once as the lecturer's own unvocalised words
+    inside his sentence, once as the scanned lemma two clauses later. The
+    matcher preferred the clean typed one and rewrote it into full Warsh
+    orthography, leaving two differently-dressed copies of the same āya three
+    lines apart and leaving the actually damaged lemma alone. Density settles
+    it: every genuinely scanned span in the corpus runs above 0.5 marks per
+    letter; that one ran 0.02.
+    """
+    letters = sum(1 for c in inner if '\u0620' <= c <= '\u064A')
+    marks = sum(1 for c in inner if ord(c) in MARKS)
+    if letters < 8: return True
+    return marks / letters >= 0.15
+
+# Spans held back by hand, with the reason, because no general rule reaches them.
+HAND_EXCLUDED = {
+    # The scribe split وَيَوْمَ across his own gloss — (… المحضرين وَ) اذكر
+    # (يَوْمَ يُنَادِيهِمْ …) — exactly as Jalālayn does. Restoring the wāw to the
+    # second half would print it twice.
+    (38, '28:62–63'),
+}
+
 SPAN_RE = re.compile(r'\(([^()]*)\)|«([^»]*)»', re.S)
 MIN_WORDS = 4
 ACCEPT_CTX = 0.85      # continuing where the last span left off
@@ -243,6 +277,8 @@ def repair_text(ar, report, lid, scope=None):
         op, cl = ('(', ')') if m.group(1) is not None else ('«', '»')
         sw = [hypothesise(w) for (w, _, _) in words_of(inner)]
         if len(sw) < MIN_WORDS: continue
+        if not looks_scanned(inner):
+            report['skipped'].append((lid, inner.strip()[:50], 'typed prose, not a scanned lemma')); continue
         why = skippable(inner)
         if why:
             report['skipped'].append((lid, inner.strip()[:50], why)); continue
@@ -250,6 +286,12 @@ def repair_text(ar, report, lid, scope=None):
         if not cands: continue
         best = None
         for (sc, s, start) in cands:
+            # A window opening BEHIND where the last citation closed means the
+            # lemma is being quoted twice -- L4's وما, L38's ويوم. The declared
+            # range must not override that; it is a weaker signal than the
+            # neighbour it would be contradicting.
+            if ctx and s == ctx[0] and start < ctx[1]:
+                continue
             in_ctx = (ctx and s == ctx[0] and 0 <= start - ctx[1] <= CTX_REACH) \
                      or in_declared(scope, streams[s]['verse_at'][start])
             need, marg = (ACCEPT_CTX, MARGIN_CTX) if in_ctx else (ACCEPT_JUMP, MARGIN_JUMP)
@@ -271,8 +313,11 @@ def repair_text(ar, report, lid, scope=None):
         a, b = st['words'][start][1], st['words'][start + len(sw) - 1][2]
         correct = clean_slice(st['text'][a:b])
         vf, vt = st['verse_at'][start], st['verse_at'][start + len(sw) - 1]
+        label = vf if vf == vt else vf + '–' + vt.split(':')[1]
+        if (lid, label) in HAND_EXCLUDED:
+            report['skipped'].append((lid, inner.strip()[:50], 'held by hand — see HAND_EXCLUDED')); continue
         out.append((m.start(), m.end(), op + correct + cl))
-        report['fixed'].append((lid, vf if vf == vt else vf + '–' + vt.split(':')[1],
+        report['fixed'].append((lid, label,
                                 round(sc, 3), 'ctx' if in_ctx else 'jump',
                                 inner.strip(), correct))
     if not out: return ar, 0
