@@ -734,3 +734,51 @@ end of their lesson** — nearly all pre-existing (Lessons 5, 20, 22 were never
 cut). Its generator is not in `scripts/`, so it was left alone rather than
 hand-edited. The audit also found ~25 more whose recorded context no longer
 matches their recorded index.
+
+## What has actually been verified, and by whom — AK, 19 September
+
+The site had been asserting more than anyone had done. Both claims below were
+live and both are now corrected in `src/lib/corpus.ts`.
+
+**Prose: Lessons 1–6 only.** AK has read the Arabic of those six against the
+printing. Lessons 7–56 have had no such pass — they are uncorrected OCR. Every
+derived Fī Riyāḍ locus was nevertheless born `transcriptionStatus: 'verified'`,
+so the "not yet proofread" notice in `VerseLocusCard` never appeared for any
+lesson and a scanned lesson looked exactly like a checked one. Now: `'verified'`
+for 1–6, `'ocr'` for 7–56, with a notice of its own.
+
+**Verses: none, in any lesson.** Not Lessons 1–3, not 1–6. `HAND_CURATED_LESSONS
+= {1,2,3}` tagged those links `confidence: 'curated'`, which renders as "●
+verified" with the tooltip *"This attribution was checked against the text by a
+human."* Nobody has. The index they come from says as much in its own header:
+built by matching guillemet-quoted clauses against a **Ḥafṣ** reference while
+the edition follows **Warsh**, and "not citation-grade until spot-checked
+against the print edition's own numbering". An extra machine pass over three
+lessons is not a human reading them. All derived links are now `'auto'` —
+"matched, unchecked".
+
+The 93 `curated` links in `corpus.json` are untouched: all are Ḥikam and Mawsūʿa
+loci AK entered by hand, none are Fī Riyāḍ.
+
+**Do not re-tag anything `curated` without AK saying he read it.**
+
+## Is there more misfiled matter? Two answers
+
+**Whole misfiled blocks: no more found.** A shingled scan (10-word runs,
+normalised for OCR drift — the method that would have caught Lesson 35, which
+exact matching missed) turns up only three lesson pairs, all innocent: L37/L52
+share a ḥadīth of al-Zuhrī the compiler footnotes twice, L30/L50 the passage on
+al-Raḥmān as the greatest name, L8/L24 the ḥadīth of God addressing the people
+of Paradise. Oral commentary repeats itself; that is the Shaykh, not the import.
+
+**Paratext inside bodies: 312 fragments, still there.** Different class — single
+paragraphs, not blocks:
+
+- 97 bare sūra running heads (`سورة النساء`). Some are genuine section headings;
+  some are page furniture that breaks a sentence in two. Only reading tells
+  which — the test is whether the paragraphs on either side join up.
+- 53 bare page or ḥadīth numbers (`193\.`, `6713)`, `.7932`)
+- 162 orphan fragments under 8 characters (`.`, `-`, `من بعض.`)
+
+Worst: L15 (19), L55 (18), L56 (15), L27 (13), L54 (13). This is the next body
+of text work and it needs the running heads read, not matched.

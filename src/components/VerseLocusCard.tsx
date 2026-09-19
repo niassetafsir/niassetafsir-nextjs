@@ -207,6 +207,15 @@ export default function VerseLocusCard({
                 Working transcription — not yet proofread against the printing.
               </p>
             )}
+            {/* Until now every Fī Riyāḍ locus was born 'verified', so this
+                notice never appeared anywhere and a scanned, unproofread
+                lesson looked exactly like a checked one. */}
+            {locus.transcriptionStatus === 'ocr' && (
+              <p className="font-english text-[11.5px] italic mt-3"
+                style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
+                Uncorrected scan — this lesson has not been read against the printing.
+              </p>
+            )}
             {/* An unsigned draft translation reads exactly like a finished one
                 unless the page says which it is. */}
             {locus.editorialNote && (

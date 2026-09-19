@@ -323,7 +323,14 @@ export function getWitness(id: string): Witness | undefined {
 // edition this site follows is Warsh -- that mismatch is a real caveat and the
 // interface says so rather than hiding it.
 
-const HAND_CURATED_LESSONS = new Set([1, 2, 3]);
+/**
+ * Whose prose AK has read against the printing. Lessons 1-6, and only the
+ * prose: he confirmed the Arabic text of those six on 19 September and said
+ * plainly that he has NOT checked how their verses are rendered. Lessons 7-56
+ * have had neither pass. So the transcription of everything from Lesson 7 on
+ * is uncorrected OCR and has to say so.
+ */
+const PROSE_VERIFIED_LESSONS = new Set([1, 2, 3, 4, 5, 6]);
 
 const DERIVED_LOCI: Locus[] = [];
 const DERIVED_LINKS: VerseLink[] = [];
@@ -348,7 +355,7 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
           paragraph: entry.paraIndex,
           raw: `Lesson ${lessonId}, ¶${entry.paraIndex + 1}`,
         },
-        transcriptionStatus: 'verified',
+        transcriptionStatus: PROSE_VERIFIED_LESSONS.has(lessonId) ? 'verified' : 'ocr',
       });
     }
     DERIVED_LINKS.push({
@@ -356,7 +363,15 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
       surah,
       ayahStart: ayah,
       acts: ['tafsir'],
-      confidence: HAND_CURATED_LESSONS.has(lessonId) ? 'curated' : 'auto',
+      // Every one of these is 'auto'. Lessons 1-3 used to be tagged 'curated',
+      // which renders as a ● and the words "verified" with the tooltip "checked
+      // against the text by a human". Nobody has done that. The index those
+      // entries come from says so itself -- built by matching guillemet-quoted
+      // clauses against a Ḥafṣ reference while the edition follows Warsh, and
+      // "not citation-grade until spot-checked against the print edition's own
+      // numbering" (src/lib/verseIndex.ts). An extra machine pass over three
+      // lessons is not a human reading them.
+      confidence: 'auto',
       rasm: 'hafs',
       // An entry the compiler never bracketed did not come from the matcher,
       // which reads inside brackets only. Calling it 'matched, unchecked'
