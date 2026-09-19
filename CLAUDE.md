@@ -804,3 +804,40 @@ paragraphs, not blocks:
 
 Worst: L15 (19), L55 (18), L56 (15), L27 (13), L54 (13). This is the next body
 of text work and it needs the running heads read, not matched.
+
+## Page furniture in the lesson bodies — 47 paragraphs removed 19 September
+
+Every printed page carries the book's title and the sūra's name at its head. The
+OCR took both for commentary, so they sat inside the Shaykh's sentences and cut
+them in half:
+
+    …والذي خوطب بخذ ذهب  ⟦سورة المالية⟧  لا نعطي شيئا من أموالنا بعد النبي…
+
+`scripts/strip-page-furniture.py`. **Read, not matched.** Ninety-seven bare
+sūra-name lines are in the corpus and most are real section headings that must
+stay. They separate on whether the paragraph interrupts: a heading sits where a
+sentence has ended and the next thing begins (`مكية`, `بسم الله`, a verse
+count); a running head lands mid-clause. That test isolated 24, each of which
+was then read. Twenty-two are furniture; **two are not and stay** — L1 ¶67
+`سورة البقرة` followed by `مائتان وست وثمانون آية`, and L43 ¶113 `سورة الزمر`
+followed by its Meccan note.
+
+The scan's own spelling corroborates it. A heading the compiler set would not be
+misspelt four ways: `المالية`, `المالمية`, `المان.`, `المالة` are one running
+head — المائدة — read badly four times. Likewise `الأنوام`/`الأمر` for الأنعام,
+`الإمراء` for الإسراء, `الكهز` for الكهف, `الشعرء` for الشعراء.
+
+The 25 book-title lines need no list: a short line ending `رياض التفسير` is the
+running title and nothing else. Its first word is mangled too — `بي`, `بى`,
+`بن`, `بل`, `فى`, `ا` for في — so it is matched on the tail. All 25 were read in
+context first; every one interrupts.
+
+The script asserts the expected text at each listed index, so a shifted body
+aborts rather than deleting the wrong paragraph.
+
+### Still open in this class
+
+53 bare page or ḥadīth numbers sitting in the prose (`193\.`, `6713)`, `.7932`)
+and 162 fragments under eight characters (`.`, `-`, `من بعض.`). A separate
+class, needing their own reading — a digit in this text may be a page number, a
+ḥadīth number, or a footnote marker, and only the third should go.
