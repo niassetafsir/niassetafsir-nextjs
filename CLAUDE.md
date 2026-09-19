@@ -841,3 +841,36 @@ aborts rather than deleting the wrong paragraph.
 and 162 fragments under eight characters (`.`, `-`, `من بعض.`). A separate
 class, needing their own reading — a digit in this text may be a page number, a
 ḥadīth number, or a footnote marker, and only the third should go.
+
+## Four blocks the scanner read twice — removed 19 September
+
+`scripts/remove-duplicated-blocks.py`. Each is a run of consecutive paragraphs
+appearing once and then again a few paragraphs later. Lesson 8's second copy is
+introduced by a page running head — `سورة ال عمران`, whose internal space is why
+`strip-page-furniture.py` missed it — which says plainly what happened: the same
+printed page went through twice.
+
+| | kept | dropped | copies agree |
+|---|---|---|---|
+| L8 | ¶48–52 | ¶53–58 (with the running head) | 1.00 |
+| L13 | ¶112–122 | ¶123–133 | 0.98 mean, 0.77 worst |
+| L22 | ¶1–3 | ¶4–6 | 0.99 |
+| L30 | ¶19–21 | ¶22–24 | 0.98 |
+
+**Which copy goes was read, not assumed.** It happens to be the second every
+time, but that was decided where the copies disagree:
+
+- L13 ¶117 runs 460 characters against ¶128's 441 — the first is fuller.
+- L22's difference sits inside the lemma of Q 2:189: the first reads
+  `وَالْحَجُّ`, the second `وَالْحَتِحُ`. One has the word, the other noise.
+- L30 ¶23 carries one extra word at its head, but its lemma is wrecked —
+  `(إنَهُ لَيْسَ لَهْد سُلْطَرَ)` against ¶20's correct
+  `(إِنَّهُۥ لَيْسَ لَهُۥ سُلْطَٰنٌ)`, Q 16:99. In an edition whose apparatus
+  keys off the bracketed citations, the intact lemma wins.
+
+So three of the 23 dropped paragraphs are not byte-identical to anything left —
+they are the losing variants above, and that is the point. The guard requires
+the block to agree 0.95 on average and no paragraph below 0.65, so a shifted
+body aborts while a paragraph the scanner read badly twice still passes.
+
+No paragraph over 200 characters now repeats inside any lesson.
