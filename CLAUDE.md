@@ -677,3 +677,60 @@ and `surahLessons.ts`: 55 → 87–111, 56 → 112–114.
   not to any lesson body.
 - Paragraphs repeated inside one lesson: L8 (3, 1,258 chars), L13 (1, 292),
   L22 (1, 306), L30 (2, 1,105).
+
+## Volume back matter is not commentary — cut 19 September
+
+Every volume closes, in the printing, with its fihris; volume 8 adds the
+printer's colophon and volume 10 three taqārīẓ and a chronogram. The import read
+all of it as the Shaykh's words. Lesson 56 was the worst: 135 of its 219
+paragraphs were a taqrīẓ qaṣīda and a table of contents for sūras 62–114, so a
+reader of the final lesson met them as tafsīr. Eight other volume-final lessons
+carried 4 to 23 paragraphs of the same.
+
+`scripts/extract-volume-back-matter.py` cuts them and writes all 246 paragraphs
+to `src/data/volumeBackMatter.json`, keyed by volume. **Nothing is deleted, and
+nothing renders it yet** — this preserves the paratext, it does not publish it.
+Every boundary was read; the guard in `EXPECT` fails loudly if a body shifts.
+Two boundaries are not the `المحتويات` heading: Lesson 30's fihris starts seven
+paragraphs earlier (dot leaders, `سورة يوسف . ..`, are what tell a fihris line
+from a running head), and Lesson 56's cut is the first taqrīẓ, after the khatm
+duʿāʾ that closes the whole work.
+
+### Lesson 35 was handed the wrong volume's tail
+
+It is volume 6 (al-Muʾminūn–al-Nūr), but from paragraph 104 its body
+commentates **al-Isrāʾ** — volume 5's last sūra, Lesson 30's subject — and the
+fihris after it lists Yūsuf to al-Isrāʾ, volume 5's contents. Eight of those
+seventeen paragraphs stand word-for-word in Lesson 30 already. They are filed
+under volume 5 and, because they are exegesis rather than paratext, kept in a
+separate `misfiledCommentary` array: calling them back matter would file the
+Shaykh's commentary as a table of contents.
+
+Consequences worth knowing: **volume 6's own fihris is nowhere in the corpus,
+and neither is volume 1's**, though both were printed with one. Those are import
+gaps, not absences in the book.
+
+### Index space
+
+These cuts count non-blank paragraphs; every `paraIndex` downstream counts the
+poem-filtered array. They agree in every lesson here except 56, where raw 84 is
+rendered 83. Cutting at the tail, surviving indices are stable either way.
+
+## Stale paragraph indices — prune after any body change
+
+`scripts/prune-stale-para-indices.js`. A `paraIndex` past the end of its lesson
+is a citation to a paragraph that does not exist: the verse-jump button renders
+and silently does nothing, and `src/lib/corpus.ts` emits a locus for it marked
+`transcriptionStatus: 'verified'` — the site asserting it checked a passage it
+cannot show. Neither `build-verse-citations.js` nor `add-editorial-verse-index.js`
+prunes, so they accumulate. Twenty-four were found on 19 September, ten of them
+left by the Lesson 55 cut three days earlier and eight in lessons nothing had
+touched. **Run it last in the pipeline, after every body change.**
+
+### Still open
+
+`public/data/term_concordance.json` holds 873 loci, of which **62 point past the
+end of their lesson** — nearly all pre-existing (Lessons 5, 20, 22 were never
+cut). Its generator is not in `scripts/`, so it was left alone rather than
+hand-edited. The audit also found ~25 more whose recorded context no longer
+matches their recorded index.
