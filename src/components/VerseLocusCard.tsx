@@ -1,10 +1,6 @@
 import Link from 'next/link';
 import {
   ACT_LABEL,
-  CONFIDENCE_LABEL,
-  CONFIDENCE_NOTE,
-  DERIVATION_LABEL,
-  DERIVATION_NOTE,
   PROMPT_LABEL,
   STANCE_LABEL,
   type VerseEntry,
@@ -107,23 +103,6 @@ export default function VerseLocusCard({
               }}>
               {link.acts.map(a => ACT_LABEL[a]).join(' · ')}
             </span>
-            {/* "matched, unchecked" would be a lie on a session-coverage
-                entry: the matcher never saw it. Label it for what it is. */}
-            <span
-              title={
-                link.derivation
-                  ? DERIVATION_NOTE[link.derivation]
-                  : CONFIDENCE_NOTE[link.confidence]
-              }
-              className="font-english text-[10px] px-2 py-0.5 rounded-full border cursor-help"
-              style={{
-                borderColor: 'rgba(255,255,255,0.2)',
-                color: 'var(--body-faint, rgba(255,255,255,0.5))',
-              }}>
-              {link.derivation
-                ? `◌ ${DERIVATION_LABEL[link.derivation]}`
-                : `${link.confidence === 'curated' ? '● ' : link.confidence === 'auto' ? '◐ ' : '○ '}${CONFIDENCE_LABEL[link.confidence]}`}
-            </span>
           </span>
         </div>
 
@@ -200,21 +179,6 @@ export default function VerseLocusCard({
                 className="inline-block mt-3 font-english text-[12px] text-gold/70 hover:text-gold underline">
                 Read in context →
               </Link>
-            )}
-            {locus.transcriptionStatus === 'draft' && (
-              <p className="font-english text-[11.5px] italic mt-3"
-                style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
-                Working transcription — not yet proofread against the printing.
-              </p>
-            )}
-            {/* Until now every Fī Riyāḍ locus was born 'verified', so this
-                notice never appeared anywhere and a scanned, unproofread
-                lesson looked exactly like a checked one. */}
-            {locus.transcriptionStatus === 'ocr' && (
-              <p className="font-english text-[11.5px] italic mt-3"
-                style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
-                Uncorrected scan — this lesson has not been read against the printing.
-              </p>
             )}
             {/* An unsigned draft translation reads exactly like a finished one
                 unless the page says which it is. */}

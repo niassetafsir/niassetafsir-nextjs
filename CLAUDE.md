@@ -579,7 +579,29 @@ Two corpus defects surfaced by the same audit and not yet fixed: Lesson 13
 contains a ~1.76 kB passage twice, and Lesson 30 duplicates a block around
 offsets 8890 and 10398.
 
-## The compiler's footnotes for Lessons 8–56 cannot be anchored from anything we hold
+## CORRECTED 19 Sept — the footnote anchors DO exist, in the OCR text
+
+The section below is wrong and is kept only so the mistake is not repeated. It
+concluded the anchors were unrecoverable because the Drive documents carry no
+Word footnote elements — no `w:footnoteReference`, no `word/footnotes.xml`. That
+test was the wrong test. **These documents are OCR of photographed pages**, so
+the compiler's superscript numerals come through as ordinary text, and so does
+the footnote block printed at the foot of each page:
+
+    …إن سورة الإخلاص تعدل ثلث القرآن 1. من قرأ…      ← the marker
+    1 - أخرج البخاري في كتاب التوحيد…                ← the note
+
+In Lesson 56 alone: 16 inline markers and 21 block openers, numbered per printed
+page and restarting — which is exactly the `num` pattern in `footnotesData.json`
+(never above 5, constantly restarting). Page boundaries are recoverable too,
+since the OCR keeps the bare page number as its own paragraph.
+
+So the programme is: per page, pair marker *k* with block *k*. Counts do not yet
+align — 16 markers against 21 candidate blocks against the 10 notes on file for
+Lesson 56 — so the pairing needs building and auditing before anything is
+written. But it is a text problem, not a missing-source problem.
+
+## SUPERSEDED — the earlier conclusion, and why it was wrong
 
 Checked exhaustively on 16 September, so it is not re-attempted. All 2,034 notes
 are in `src/data/footnotesData.json`; 324 are published (Lessons 1–7), 1,710 are

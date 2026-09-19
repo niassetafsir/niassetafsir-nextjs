@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
-  CONFIDENCE_LABEL,
-  CONFIDENCE_NOTE,
   DEFINITION_MODE_LABEL,
   definedTerms,
   getTerm,
@@ -101,12 +99,7 @@ export default function TermPage({ params }: { params: { slug: string } }) {
                     }}>
                     {DEFINITION_MODE_LABEL[t.mode]}
                   </span>
-                  <span title={CONFIDENCE_NOTE[t.confidence]}
-                    className="font-english text-[10px] px-2 py-0.5 rounded-full border cursor-help"
-                    style={{ borderColor: 'rgba(255,255,255,0.2)',
-                             color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-                    {CONFIDENCE_LABEL[t.confidence]}
-                  </span>
+
                 </span>
               </div>
               <p className="font-english text-[11.5px] mt-1.5 leading-relaxed"
