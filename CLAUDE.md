@@ -895,3 +895,30 @@ September were measured against a corpus that still held Lesson 56 inside Lesson
 55, the volume back matter and four double-scanned pages; most of what looked
 like matcher error was the body being wrong underneath it. See
 `translation-drafts/verse-citations-to-check.md`.
+
+## term_concordance.json was stale — re-anchored 19 September
+
+`scripts/reanchor-term-concordance.js`. Its 873 loci point at paragraphs by
+index, and this week's body work moved most of those indices; 67 pointed past
+the end of their lesson. No generator for the file exists in the repo, so it is
+edited in place.
+
+Nothing was deleted. Every occurrence carries the `context` it was recorded
+against, so each was FOUND again: 707 by exact context, 36 more by the longest
+run of distinctive words that still occurs exactly once. **Across the whole file
+not one context matched two paragraphs** — every hit was unique, which is what
+makes this safe. 743 re-anchored, 0 now out of range.
+
+The 130 that could not be found are flagged `anchorLost: true` and clamped into
+range, rather than left pointing at whatever paragraph now sits at the old
+index. All 130 fall in Lessons 1–30 — text that has had OCR repairs since the
+file was built in August, so the wording it recorded no longer exists.
+
+**Reader-visible impact: none.** `src/app/glossary/page.tsx` links by a text
+query (`?q=<context>`), not by `paraIndex`, so nothing was broken on the page.
+The dataset is published, though, and should be right.
+
+One thing measured and worth not re-deriving: only 273 of the 873 contexts
+contain their term's headword form — the file records `matchedForm` separately
+because it indexes morphological variants. So a locus whose paragraph does not
+literally contain `الفيضة` is normal, not a mis-anchoring.
