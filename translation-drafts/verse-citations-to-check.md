@@ -26,3 +26,32 @@ The 112 the checker could not resolve were its own limits, not defects: 35 are
 range keys (`2:38-2:39`) it does not parse, and 77 are guillemet spans, which
 `extractSpans` indexes in the same sequence as parens — the checker counted
 only parens.
+
+
+---
+
+## Re-measured 19 September, after the body cleanups
+
+The five above were found by hand on a corpus that still contained Lesson 56
+inside Lesson 55, the volume back matter, 47 running heads and four
+double-scanned pages. Removing those shifted most paragraph indices, so the list
+was re-derived from scratch with `scripts/check-citation-neighbours.js` rather
+than carried forward.
+
+**4,563 citations checked. Two flagged, not five.**
+
+| | assigned | fits better | |
+|---|---|---|---|
+| L45 ¶85 s11 | 43:14 | **43:13** | `سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَٰذَا…` is Q 43:13 entire; 43:14 is `وَإِنَّا إِلَىٰ رَبِّنَا لَمُنقَلِبُونَ`. Genuinely off by one. |
+| L46 ¶170 s2 | 48:1 | 48:2 | Not an error. The span opens `إِنَّا فَتَحْنَا لَكَ فَتْحًا مُبِينًا` — Q 48:1 — and runs on into 48:2, so the neighbour scores higher on coverage while 48:1 is where the citation begins. A straddle, correctly named for its first āya. |
+
+The thin-span weakness has gone: nine citations rest on fewer than three content
+words, and each is a distinctive phrase (`فِي رَحْلِ أَخِيهِ`, Q 12:70), not the
+one-word `حَمِيدٌ` that prompted the original note.
+
+So the class did not need a matcher change — `MIN_SPAN_WORDS = 3` in
+`match-verses.js` and the five-word run in `add-editorial-verse-index.js` were
+already doing their work, and most of what looked like matcher error was the
+body being wrong underneath it. What it needed was a standing check, which now
+runs last in the pipeline and reports rather than corrects: which āya a
+straddling span should name is an editorial call, not a scoring one.

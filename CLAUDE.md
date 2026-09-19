@@ -874,3 +874,24 @@ the block to agree 0.95 on average and no paragraph below 0.65, so a shifted
 body aborts while a paragraph the scanner read badly twice still passes.
 
 No paragraph over 200 characters now repeats inside any lesson.
+
+## Citation sanity check — run it last
+
+`scripts/check-citation-neighbours.js`. Reports two things on every run: a
+citation whose neighbouring āya fits the span clearly better (off by one), and a
+citation resting on fewer than three content words. It **reports and changes
+nothing** — a straddling span really does cover two āyāt, and which one it
+should name is an editorial call.
+
+Run order for anything that touches a lesson body:
+
+    match-verses.js → build-verse-citations.js → add-editorial-verse-index.js --write
+    → build-search-index.js → prune-stale-para-indices.js --write
+    → check-citation-neighbours.js
+
+As of 19 September: 4,563 checked, 2 flagged, 9 thin spans — all nine
+distinctive phrases rather than errors. The five hand-found cases of 16
+September were measured against a corpus that still held Lesson 56 inside Lesson
+55, the volume back matter and four double-scanned pages; most of what looked
+like matcher error was the body being wrong underneath it. See
+`translation-drafts/verse-citations-to-check.md`.
