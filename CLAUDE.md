@@ -922,3 +922,45 @@ One thing measured and worth not re-deriving: only 273 of the 873 contexts
 contain their term's headword form — the file records `matchedForm` separately
 because it indexes morphological variants. So a locus whose paragraph does not
 literally contain `الفيضة` is normal, not a mis-anchoring.
+
+## Presentation pass — 20 September
+
+A reader was sent round the live site. Four things it found, three fixed here.
+
+**Fifty-one of the fifty-six lessons looked broken.** `/lesson/1` sets its
+bilingual text in two ~600px columns and reads well; the moment English is
+absent the page fell through to the Arabic-only view, which had no width
+constraint and centred its prose — justified lines of two hundred characters
+across a 1400px viewport. That view is the site's main reading surface, since
+only five lessons carry English. It now takes `max-w-[46rem]`, the measure the
+bilingual column reaches on desktop, and `text-justify` to match how the Arabic
+is set there. Centring belongs to the container, not the prose.
+
+**The tafsīr tab promised a translation on every lesson.** `hint:
+'Shaykh Ibrāhīm, with translation'` was false on 51 of 56 pages, and it was the
+first thing a reader saw. Now conditional on `hasTranslation`.
+
+**The glossary exposed "Show pending"** — a checkbox revealing unconfirmed edges
+in the term graph. What counts as verified is the editor's call, not a reader's
+toggle. Replaced with a statement of how many are held back.
+
+**A verse page headed "across the corpus" that shows only Fī Riyāḍ** reads as a
+claim that the other works were searched and had nothing. They were not
+searched: 156 āyāt of 6,236 (2.5%) carry a link from the Ḥikam, the fatwās,
+Kāshif, the Qanābīl or the Tafsīr Maʿānī cassettes. The closing note now says
+so, counting from the data rather than a typed figure.
+
+Note for whoever reads the audit: it reported that "every entry on every verse
+page comes from one work — Fī Riyāḍ itself." That is wrong, and checking it
+before acting mattered. The 152 hand-curated links come from six OTHER works;
+Fī Riyāḍ's entries are the derived ones. The reader had looked at Q 2:255 and
+Q 78:1, neither of which is in the 2.5%.
+
+### Not fixed — cannot reproduce from here
+
+`/saved` was reported rendering dark-green with near-invisible footer text while
+the rest of the site is cream. The theme is a global `data-theme` on `<html>`
+from localStorage, defaulting to light, so a single page cannot diverge — unless
+the client component paints before the theme script, or the `/clips` redirect
+flashes the unthemed default. Needs reproducing in a browser with the theme set
+to light.

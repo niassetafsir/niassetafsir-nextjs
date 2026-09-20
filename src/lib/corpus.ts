@@ -482,6 +482,15 @@ function keyOf(surah: number, ayah: number) {
   return `${surah}:${ayah}`;
 }
 
+/**
+ * The hand-entered verse links — everything EXCEPT the Fī Riyāḍ loci this module
+ * derives from VERSE_INDEX. /verse counts distinct āyāt across these to say how
+ * far the rest of the corpus has been indexed, because a verse page headed
+ * "across the corpus" that shows only Fī Riyāḍ reads as a claim that the other
+ * works were searched and had nothing. They were not searched.
+ */
+export const CORPUS_VERSE_LINKS: VerseLink[] = corpus.verseLinks;
+
 for (const link of corpus.verseLinks.concat(DERIVED_LINKS)) {
   const end = link.ayahEnd ?? link.ayahStart;
   for (let a = link.ayahStart; a <= end; a++) {

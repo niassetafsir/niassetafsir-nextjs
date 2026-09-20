@@ -270,13 +270,18 @@ export default function TermsPage() {
                       style={{ color: 'rgba(255,255,255,0.45)' }}>
                       How Niasse connects it
                     </p>
+                    {/* "Show pending" toggles unconfirmed edges in the term
+                        graph — a decision about what has been verified, which
+                        is the editor's to make and not something to hand a
+                        reader as a checkbox. The unconfirmed edges stay out;
+                        pendingCount still drives the count shown below, so the
+                        page says how many are held back rather than offering to
+                        reveal them. */}
                     {pendingCount > 0 && (
-                      <label className="tap font-english text-[11px] flex items-center gap-1.5 cursor-pointer"
+                      <p className="font-english text-[11px]"
                         style={{ color: 'rgba(255,255,255,0.35)' }}>
-                        <input type="checkbox" checked={showPending}
-                          onChange={e => setShowPending(e.target.checked)} className="w-5 h-5" />
-                        Show pending
-                      </label>
+                        {pendingCount} connection{pendingCount === 1 ? '' : 's'} not yet verified, held back
+                      </p>
                     )}
                   </div>
 

@@ -15,6 +15,7 @@ import {
   splitBySpeaker,
   timelineMarks,
   type VerseEntry,
+  CORPUS_VERSE_LINKS,
 } from '@/lib/corpus';
 import VerseCorpusTimeline from '@/components/VerseCorpusTimeline';
 import VerseLocusCard, { type LocusExcerpt } from '@/components/VerseLocusCard';
@@ -77,6 +78,16 @@ export async function generateStaticParams() {
     ayah: String(v.ayah),
   }));
 }
+
+// How far the corpus beyond Fī Riyāḍ actually reaches. Counted here rather than
+// written in, because a hand-typed figure goes stale the moment a locus is added.
+const OTHER_WORK_VERSES = (() => {
+  const seen = new Set<string>();
+  for (const l of CORPUS_VERSE_LINKS) {
+    for (let a = l.ayahStart; a <= (l.ayahEnd ?? l.ayahStart); a++) seen.add(`${l.surah}:${a}`);
+  }
+  return seen.size;
+})();
 
 export async function generateMetadata({
   params,
@@ -355,6 +366,10 @@ export default async function VersePage({
             oldest first inside each group, so the same words can be seen carrying different work
             across a career. Every entry names the witness it comes from and how well attested the
             attribution is. Loci that are known but not yet available are listed rather than hidden.
+            {' '}Beyond <em>Fī Riyāḍ al-Tafsīr</em>, {OTHER_WORK_VERSES} āyāt have so far been indexed
+            from his other writings — the <em>Ḥikam</em>, the fatwās, <em>Kāshif al-Ilbās</em>, the
+            <em>Qanābīl</em>, the <em>Tafsīr Maʿānī</em> cassettes. A verse with nothing under this
+            heading has not been searched in them and found wanting; it has not been searched.
           </p>
         </>
       )}

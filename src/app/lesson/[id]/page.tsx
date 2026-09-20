@@ -168,6 +168,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
   // Main content: panels
   const mainContent = (
     <LessonExperience
+      hasTranslation={!!lesson.hasEnglish}
       tafsir={<>
         {withheldNotes > 0 && (
           <div className="mb-5 rounded-xl border px-4 py-3" dir="ltr"

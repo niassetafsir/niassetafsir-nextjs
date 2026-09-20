@@ -31,8 +31,11 @@ import { useState, useEffect, type ReactNode } from 'react';
 
 export type LessonMode = 'tafsir' | 'compare' | 'citations' | 'overview';
 
+// The tafsīr tab used to read "Shaykh Ibrāhīm, with translation" on every
+// lesson. Five of the fifty-six have a translation. On the other fifty-one the
+// label was simply false, and it was the first thing a reader saw.
 const MODES: { id: LessonMode; en: string; ar: string; hint: string }[] = [
-  { id: 'tafsir',    en: 'Tafsīr',     ar: 'التفسير',        hint: 'Shaykh Ibrāhīm, with translation' },
+  { id: 'tafsir',    en: 'Tafsīr',     ar: 'التفسير',        hint: 'Shaykh Ibrāhīm' },
   { id: 'compare',   en: 'Comparison', ar: 'المقارنة',       hint: 'Jalālayn & Rūḥ al-Bayān' },
   { id: 'citations', en: 'Citations',  ar: 'الحواشي',        hint: 'Sources and footnotes' },
   { id: 'overview',  en: 'Overview',   ar: 'نظرة عامة',      hint: 'Editor’s introduction' },
@@ -47,9 +50,11 @@ interface Props {
    *  -- see src/lib/apparatus.ts. Offering the tab and then showing a panel
    *  with three of seventy-five notes in it is the misleading case. */
   hideCitations?: boolean;
+  /** True only for the five lessons that actually carry English. */
+  hasTranslation?: boolean;
 }
 
-export default function LessonExperience({ tafsir, compare, citations, overview, hideCitations }: Props) {
+export default function LessonExperience({ tafsir, compare, citations, overview, hideCitations, hasTranslation }: Props) {
   const [mode, setMode] = useState<LessonMode>('tafsir');
   const modes = hideCitations ? MODES.filter(m => m.id !== 'citations') : MODES;
 
@@ -139,7 +144,7 @@ export default function LessonExperience({ tafsir, compare, citations, overview,
                 className="font-english hidden sm:block text-[10px] leading-tight mt-1"
                 style={{ color: on ? 'rgba(13,31,10,0.65)' : 'var(--body-faint, rgba(232,232,224,0.45))' }}
               >
-                {m.hint}
+                {m.id === 'tafsir' && hasTranslation ? 'Shaykh Ibrāhīm, with translation' : m.hint}
               </span>
             </button>
           );

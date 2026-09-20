@@ -489,15 +489,30 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
         </div>
       )}
 
-      {/* Arabic only -- full commentary text, word-lookup tool enabled */}
+      {/* Arabic only -- full commentary text, word-lookup tool enabled.
+          FIFTY-ONE of the fifty-six lessons land here, because only five carry
+          English. This is the site's main reading surface, and it used to run
+          the Arabic edge to edge across the viewport: justified lines of two
+          hundred characters, centred, with no column. Beside it /lesson/1 sets
+          its bilingual text in two ~600px columns and reads beautifully, so the
+          moment a translation was missing the page looked like it had failed to
+          load rather than like a text in one language.
+          max-w-[46rem] is the same measure the bilingual column arrives at on a
+          desktop viewport, and text-justify matches how the Arabic is set
+          there. Centring belongs to the container, not to the prose. */}
       {view === 'arabic' && (
-        <div className="p-5 text-center font-arabic" dir="rtl" translate="no">
+        <div className="px-4 md:px-6 py-5 font-arabic" dir="rtl" translate="no">
           {(() => {
             const arCursor = { i: 0 };
             const html = commentaryParagraphs
-              .map((p, i) => `<p class="mb-4 text-center leading-loose">${injectFootnoteLinks(injectVerseNumbers(p, citations?.[String(i)]), lessonId, footnoteOrder, arCursor)}</p>`)
+              .map((p, i) => `<p class="mb-4 text-justify leading-[2.2]">${injectFootnoteLinks(injectVerseNumbers(p, citations?.[String(i)]), lessonId, footnoteOrder, arCursor)}</p>`)
               .join('');
-            return <ArabicWordTool text={html} />;
+            return (
+              <div className="mx-auto max-w-[46rem] text-[1.1rem]"
+                style={{ color: 'var(--body-text, rgba(13,31,10,0.88))' }}>
+                <ArabicWordTool text={html} />
+              </div>
+            );
           })()}
         </div>
       )}
