@@ -343,13 +343,13 @@ function findMatch(spanNorm, candidates, scope) {
   for (const c of candidates) {
     if (!c.norm) continue;
     const paddedVerse = ` ${c.norm} `;
-    let overlap;
-    if (paddedVerse.includes(paddedSpan)) overlap = spanNorm;
-    else if (paddedSpan.includes(paddedVerse)) overlap = c.norm;
+    let overlap, within;
+    if (paddedVerse.includes(paddedSpan)) { overlap = spanNorm; within = 'clause'; }
+    else if (paddedSpan.includes(paddedVerse)) { overlap = c.norm; within = 'quoted'; }
     else continue;
     if (overlap.split(' ').filter(w => w.length > 1).length < MIN_SPAN_WORDS) continue;
     const score = Math.min(spanNorm.length, c.norm.length) / Math.max(spanNorm.length, c.norm.length);
-    hits.push({ verse: c.key, score });
+    hits.push({ verse: c.key, score, within });
   }
   if (hits.length) {
     const narrowed = narrowToScope(hits, scope);
@@ -377,7 +377,7 @@ function findMatch(spanNorm, candidates, scope) {
     // original confidence gate untouched, so a stock three-word phrase buried
     // in one long aya still falls through to the fuzzy pass as it always did.
     if (narrowed.scope !== 'none' || best.score >= 0.25) {
-      return { verse: best.verse, score: best.score, type: 'substring', scope: narrowed.scope };
+      return { verse: best.verse, score: best.score, type: 'substring', scope: narrowed.scope, within: best.within };
     }
   }
 
