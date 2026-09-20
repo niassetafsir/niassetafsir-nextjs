@@ -376,7 +376,7 @@ for (const [lessonKey, entries] of Object.entries(VERSE_INDEX)) {
       // An entry the compiler never bracketed did not come from the matcher,
       // which reads inside brackets only. Calling it 'matched, unchecked'
       // would name the wrong instrument.
-      ...(entry.inferred ? { derivation: 'unbracketed' as const } : {}),
+      ...(entry.editorial ? { derivation: 'unbracketed' as const } : {}),
     });
   }
 }

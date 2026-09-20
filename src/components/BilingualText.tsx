@@ -347,10 +347,10 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                     // A quotation the printing brackets and one this project
                     // read off a five-word run are different claims, so the
                     // border says which. Dotted = we identified it.
-                    borderStyle: entry.inferred ? 'dotted' : 'solid',
+                    borderStyle: entry.editorial ? 'dotted' : 'solid',
                   }}
                   title={
-                    entry.inferred
+                    entry.editorial
                       ? `Q. ${entry.verse} — quoted without parentheses in the printing; identified here`
                       : entry.uncertain
                         ? `Q. ${entry.verse} — approximate match`
