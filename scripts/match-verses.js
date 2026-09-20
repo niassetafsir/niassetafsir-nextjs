@@ -578,6 +578,7 @@ for (let id = 1; id <= 56; id++) {
           score: Number(match.score.toFixed(2)),
           type: match.type,
           ...(match.scope ? { scope: match.scope } : {}),
+          ...(match.within ? { within: match.within } : {}),
           ...(match.candidates ? { candidates: match.candidates } : {}),
         } : null,
       });
