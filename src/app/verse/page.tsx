@@ -80,8 +80,7 @@ export default function VerseIndexPage() {
         edition, fifty-six lessons in sequence. These pages invert that. They gather every place in
         the corpus where a given verse is commented on, glossed, cited as proof, argued from in a
         legal ruling, or built into a poem — across works separated by decades, compiled by
-        different hands, and never bound together. Each entry names the witness it comes from and
-        how well attested the attribution is.
+        different hands, and never bound together. Each entry names the witness it comes from.
       </p>
       <p className="font-english text-[13px] leading-relaxed mb-8"
         style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>

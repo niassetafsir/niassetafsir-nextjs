@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { getLesson } from '@/lib/lessons';
-import { commentaryParagraphs } from '@/lib/niasseVerseExcerpt';
+import { commentaryParagraphs, curatedFatihaPair } from '@/lib/niasseVerseExcerpt';
 import { EDITION_LABEL, formatRef, lessonRef, suraRef } from '@/lib/edition';
 import verseText from '@/data/verse_text.json';
 import verseTranslation from '@/data/verseTranslation.json';
@@ -151,12 +151,39 @@ export default async function VersePage({
   const lessonCache = new Map<number, Awaited<ReturnType<typeof getLesson>>>();
   for (const id of lessonIds) lessonCache.set(id, await getLesson(id));
 
+  // Where a curated pair exists, it wins. The Arabic paragraph below is chosen
+  // by the matcher and has no English counterpart anywhere in the data, so a
+  // card built from it is Arabic-only whatever the lesson's translation state.
+  // al-Fātiḥa is the one stretch read verse by verse in both languages
+  // (src/lib/lesson1FatihaVerseMap.ts), and that reading is the only matched
+  // Arabic-and-English object this site holds. Used once per page: two loci
+  // showing the same pair would be the reuse bug wearing a new coat.
+  let pairShown = false;
+
   for (const e of lessonLoci) {
     const lessonId = e.locus.address.lesson as number;
     const para = e.locus.address.paragraph;
     const lesson = lessonCache.get(lessonId);
     const body = lesson?.arabicBody || lesson?.arabicText;
     if (!lesson || !body || para === undefined) continue;
+
+    const pair = pairShown
+      ? null
+      : curatedFatihaPair(lessonId, `${surah}:${ayah}`, text?.ar, body, lesson.englishText);
+    if (pair) {
+      pairShown = true;
+      const arCut = pair.ar !== null && pair.ar.length > SNIPPET_CHARS;
+      const enCut = pair.en !== null && pair.en.length > SNIPPET_CHARS;
+      excerpts.set(e.locus.id, {
+        ar: pair.ar === null ? null : arCut ? trimToWord(pair.ar, SNIPPET_CHARS) : pair.ar,
+        en: pair.en === null ? null : enCut ? trimToWord(pair.en, SNIPPET_CHARS) : pair.en,
+        href: `/lesson/${lessonId}#ar-para-${pair.anchorPara}`,
+        truncated: arCut || enCut,
+        printedRef: formatRef(lessonRef(lessonId)),
+      });
+      continue;
+    }
+
     const paras = commentaryParagraphs(body);
     const raw = paras[para];
     if (!raw) continue;
@@ -362,8 +389,8 @@ export default async function VersePage({
         }}>
         Entries are grouped by what Shaykh Ibrāhīm is <em>doing</em> with the verse, then ordered
         oldest first inside each group, so the same words can be seen carrying different work
-        across a career. Every entry names the witness it comes from and how well attested the
-        attribution is. Loci that are known but not yet available are listed rather than hidden.
+        across a career. Every entry names the witness it comes from. Passages that are known
+        but not yet available are listed rather than hidden.
         {' '}Beyond <em>Fī Riyāḍ al-Tafsīr</em>, {OTHER_WORK_VERSES} āyāt have so far been indexed
         from his other writings — the <em>Ḥikam</em>, the fatwās, <em>Kāshif al-Ilbās</em>, the
         <em>Qanābīl</em>, the <em>Tafsīr Maʿānī</em> cassettes. A verse with nothing under this

@@ -97,6 +97,99 @@ export function getNiasseVerseExcerpts(
   return result;
 }
 
+/**
+ * The curated Arabic and English for one āya of al-Fātiḥa, paired.
+ *
+ * The verse page picks its Arabic by paragraph: VERSE_INDEX resolves an āya to
+ * the paragraph that quotes it, and the card shows that paragraph. There is no
+ * English counterpart to a paragraph anywhere in this repository --
+ * BILINGUAL_ALIGNMENT is empty, and the paragraph counts rule index pairing
+ * out (Lesson 5 has 124 Arabic paragraphs against 28 English). So the card
+ * cannot translate the paragraph it chose.
+ *
+ * It can show a pair that was curated as a pair. ARABIC_PARAS and
+ * ENGLISH_PARAS were read against each other for Lesson 1, verse by verse, and
+ * that is the one matched Arabic-and-English object this repository holds. The
+ * verse page uses it for al-Fātiḥa and nothing else.
+ *
+ * THE GATE. These indices are coupled to `arabicBody` and have broken twice
+ * (see lesson1FatihaVerseMap.ts). A stale index still returns a real
+ * paragraph, so bounds-checking catches nothing -- the 2026-09 break put the
+ * heading of البقرة under Q 1:7 and every array was in range. The check
+ * has to be against the āya: does the curated Arabic contain a run of
+ * consecutive words from the verse it claims to comment on? Where it does not,
+ * this returns null and the card falls back to the Arabic paragraph alone.
+ * The run is three words, or the whole āya where it is shorter -- Q 1:3 is
+ * الرحمن الرحيم, two words, and cannot supply three.
+ *
+ * Q 1:5 fails the gate today and is meant to: its paragraph carries
+ * إياك نعبد in OCR too damaged for any three-word run to survive. The gate
+ * cannot tell scanning damage from drift, and silence is the right answer to
+ * both.
+ *
+ * Q 1:1 is not paired at all. ARABIC_PARAS attaches the whole of the sura's
+ * front matter to it -- 39 paragraphs, by the convention documented there --
+ * so its block is not a comment on the basmala and 900 characters cut from its
+ * opening would say nothing about the āya.
+ */
+const PAIRED_VERSES = new Set(['1:2', '1:3', '1:4', '1:5', '1:6', '1:7']);
+
+/** Marks, tatwil and the pause signs, dropped before comparing. */
+const AR_MARKS = /[\u064B-\u065F\u0670\u06D6-\u06ED\u0640\u0610-\u061A]/g;
+
+/**
+ * Enough normalisation to compare a printed āya against OCR of a lecture
+ * quoting it: marks off, the alif forms and alif maqsura and ta marbuta
+ * unified, hamza carriers dropped, everything but Arabic letters treated as a
+ * space.
+ */
+function normalizeAr(s: string): string {
+  return s
+    .replace(AR_MARKS, '')
+    .replace(/[\u0622\u0623\u0625\u0671]/g, '\u0627')
+    .replace(/\u0649/g, '\u064A')
+    .replace(/\u0629/g, '\u0647')
+    .replace(/[\u0624\u0626\u0621]/g, '')
+    .replace(/[^\u0621-\u064A\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** Does `text` quote this āya -- a run of consecutive words, word-aligned? */
+function quotesAya(text: string, ayaAr: string): boolean {
+  const words = normalizeAr(ayaAr).split(' ').filter(Boolean);
+  if (words.length === 0) return false;
+  const run = Math.min(3, words.length);
+  const hay = normalizeAr(text);
+  for (let i = 0; i + run <= words.length; i++) {
+    if (hay.includes(words.slice(i, i + run).join(' '))) return true;
+  }
+  return false;
+}
+
+export interface CuratedVersePair extends NiasseVerseExcerpt {
+  /** First curated Arabic paragraph, so a deep link lands where the pair opens. */
+  anchorPara: number;
+}
+
+/** The pair for this āya, or null where nothing confirms it. */
+export function curatedFatihaPair(
+  lessonId: number,
+  verse: string,
+  ayaAr: string | null | undefined,
+  arabicBody: string | null | undefined,
+  englishText: string | null | undefined
+): CuratedVersePair | null {
+  if (!ayaAr || !PAIRED_VERSES.has(verse)) return null;
+  const all = getNiasseVerseExcerpts(lessonId, arabicBody, englishText);
+  const pair = all?.[verse];
+  if (!pair?.ar) return null;
+  if (!quotesAya(pair.ar, ayaAr)) return null;
+  const anchorPara = (ARABIC_PARAS[verse] ?? [])[0];
+  if (anchorPara === undefined) return null;
+  return { ar: pair.ar, en: pair.en, anchorPara };
+}
+
 /** One page of the unit pager: Niasse's own prose plus the verses it covers. */
 export interface CommentaryUnit {
   label: string;
