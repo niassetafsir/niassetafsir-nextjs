@@ -41,6 +41,12 @@ export default function VerseLocusCard({
   const { link, locus, witness, work } = entry;
   const isPrimary = link.acts[0] === 'tafsir';
   const address = locus.address.raw ?? formatAddress(entry);
+  // A session-coverage locus names the session running through this stretch of
+  // the mushaf. That session is transcribed and on this site, so the card has
+  // to send the reader to it rather than report an absence and stop.
+  const inSession = link.derivation === 'session-range';
+  const lessonId = locus.address.lesson;
+  const lessonHref = lessonId !== undefined ? `/lesson/${lessonId}` : null;
   // Excerpt first. A Fī Riyāḍ locus carries no text of its own and the excerpt
   // is all there is; a fatwā locus carries the answer's default excerpt, and a
   // per-verse cut, where one exists, says more about THIS āya than the default
@@ -204,15 +210,30 @@ export default function VerseLocusCard({
             <p className="font-english text-[13px] leading-relaxed"
               style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
               <strong style={{ color: 'var(--body-text, rgba(255,255,255,0.8))' }}>
-                {witness.medium === 'audio'
-                  ? 'Not located.'
-                  : link.note
-                    ? 'Recorded, not yet transcribed.'
+                {inSession
+                  ? 'In this session, not yet located.'
+                  : witness.medium === 'audio'
+                    ? 'Not located.'
                     : 'Not yet ingested.'}
               </strong>{' '}
               {link.note ??
                 'This locus is recorded because the attribution is attested, not because the text is available here.'}
             </p>
+            {inSession && (
+              <p className="font-english text-[12.5px] leading-relaxed mt-2.5"
+                style={{ color: 'var(--body-faint, rgba(255,255,255,0.42))' }}>
+                Most of Shaykh Ibrāhīm&rsquo;s Qurʾānic commentary is oral. Sixty-two cassettes
+                of Wolof exegesis covering the whole Qurʾān have never been transcribed, and this
+                index reaches only what the written sessions quote. An absence here belongs to the
+                index, not to the corpus.
+              </p>
+            )}
+            {lessonHref && (
+              <Link href={lessonHref}
+                className="inline-block mt-3 font-english text-[12px] text-gold/70 hover:text-gold underline">
+                Read Lesson {lessonId} →
+              </Link>
+            )}
           </div>
         )}
       </div>

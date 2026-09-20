@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { indexedVerses } from '@/lib/corpus';
 
 const BASE_URL = 'https://niassetafsir.org';
 
@@ -56,5 +57,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...staticEntries, ...lessonEntries, ...volumeEntries];
+  // Every āya the corpus actually locates: 3,509 of the 6,236, being the ones
+  // with a Fī Riyāḍ paragraph or a locus in one of the other works. The rest
+  // resolve to a session-coverage card and nothing more, so they are left out
+  // until there is something on them to read. /verse/[surah]/[ayah] is where a
+  // reader who searched for a verse arrives, and nothing offered these URLs
+  // before this list did.
+  const verseEntries: MetadataRoute.Sitemap = indexedVerses()
+    .map(key => key.split(':').map(Number) as [number, number])
+    .sort((a, b) => a[0] - b[0] || a[1] - b[1])
+    .map(([surah, ayah]) => ({
+      url: `${BASE_URL}/verse/${surah}/${ayah}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }));
+
+  return [...staticEntries, ...lessonEntries, ...volumeEntries, ...verseEntries];
 }

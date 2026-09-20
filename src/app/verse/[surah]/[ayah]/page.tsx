@@ -177,7 +177,16 @@ export default async function VersePage({
     excerpts.set(e.locus.id, { ar: cut.ar ?? null, en: cut.en ?? null });
   }
 
-  const loaded = entries.filter(e => e.hasText).length;
+  // What the cards will actually print, which is not what `hasText` grades.
+  // `hasText` is a property of the locus; whether a snippet resolves is a
+  // property of this render. A paragraph index that no longer lands inside its
+  // lesson, and every locus past MAX_LESSON_READS, carry hasText and show an
+  // empty box, so counting them said "9 of 9 text available" over six snippets
+  // and three blanks. Mirror VerseLocusCard's own test instead.
+  const loaded = entries.filter(e => {
+    const x = excerpts.get(e.locus.id);
+    return Boolean(x?.ar || x?.en || e.locus.textAr || e.locus.textEn);
+  }).length;
 
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
@@ -192,6 +201,11 @@ export default async function VersePage({
           {' · '}
           <span className="text-gold font-semibold">{surah} : {ayah}</span>
         </div>
+
+        <h1 className="font-english text-[20px] font-semibold leading-snug mb-3.5"
+          style={{ color: 'var(--body-text, rgba(255,255,255,0.92))' }}>
+          Q {surah}:{ayah} in the tafsīr of Shaykh Ibrāhīm Niasse
+        </h1>
 
         {text?.ar && (
           arWords.length > 0 && verseRoots.length === arWords.length ? (
@@ -244,6 +258,17 @@ export default async function VersePage({
           )
         )}
 
+        <p className="font-english text-[13px] leading-relaxed mt-5"
+          style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
+          Shaykh Ibrāhīm Niasse (d. 1975) read the whole Qurʾān aloud at Medina Baye over
+          fifty-six sessions between ẓuhr and ʿaṣr in Ramaḍān 1383/1964, and his students wrote
+          those sessions down as <em>Fī Riyāḍ al-Tafsīr</em>. He comes back to the same āya elsewhere
+          — in the fatwās, the <em>Ḥikam</em>, the poetry — decades apart.{' '}
+          <Link href="/about/tafsir" className="text-gold/80 hover:text-gold underline">
+            About the tafsīr →
+          </Link>
+        </p>
+
         {printed && (
           <p className="font-english text-[12px] mt-4"
             style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
@@ -269,110 +294,81 @@ export default async function VersePage({
         </p>
       </div>
 
-      {allEntries.length === 0 ? (
-        <div className="rounded-xl border border-dashed px-5 py-6"
-          style={{ borderColor: 'rgba(255,255,255,0.16)' }}>
-          <p className="font-english text-[14px] leading-relaxed"
-            style={{ color: 'var(--body-faint, rgba(255,255,255,0.6))' }}>
-            <strong style={{ color: 'var(--body-text, rgba(255,255,255,0.85))' }}>
-              No locus recorded for this verse yet.
-            </strong>{' '}
-            That is a statement about the index, not about the corpus. Most of Shaykh Ibrāhīm&rsquo;s
-            Qurʾānic commentary is oral and untranscribed — sixty-two cassettes of Wolof exegesis
-            covering the whole Qurʾān have never been transcribed at all — so an empty page here
-            means the work has not been done, not that he passed the verse over.
-          </p>
-          <Link href={`/surah/${surah}`}
-            className="inline-block mt-4 font-english text-[12.5px] text-gold/70 hover:text-gold underline">
-            Read Sūrat {meta.nameEn} in the lesson sequence →
-          </Link>
-        </div>
-      ) : (
-        <>
-          {entries.length === 0 && (
-            <div className="rounded-xl border border-dashed px-5 py-5 mb-10"
-              style={{ borderColor: 'rgba(255,255,255,0.16)' }}>
-              <p className="font-english text-[13.5px] leading-relaxed"
-                style={{ color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
-                <strong style={{ color: 'var(--body-text, #FFFFFF)' }}>
-                  Nothing from Shaykh Ibrāhīm on this verse yet — but the school reads it.
-                </strong>{' '}
-                What follows is a student&rsquo;s commentary, not his. Where he treats the verse
-                himself, it has not been located or not yet ingested.
-              </p>
-            </div>
-          )}
-
-          {/* ── summary ───────────────────────────────────────── */}
-          {entries.length > 0 && (
-          <div className="flex flex-wrap gap-x-9 gap-y-3 mb-9">
-            <Stat n={String(entries.length)} label={entries.length === 1 ? 'locus' : 'loci in the corpus'} />
-            <Stat n={String(groups.length)} label={groups.length === 1 ? 'act' : 'distinct acts'} />
-            {marks.length > 1 && (
-              <Stat
-                n={`${marks[0].year} – ${marks[marks.length - 1].year}`}
-                label="attested span"
-              />
-            )}
-            <Stat n={`${loaded} of ${entries.length}`} label="text available" />
-          </div>
-          )}
-
-          <VerseCorpusTimeline marks={marks} />
-
-          {/* ── the acts ──────────────────────────────────────── */}
-          {groups.map(group => (
-            <section key={group.act} className="mb-10">
-              <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
-                {ACT_HEADING[group.act]}
-              </h2>
-              <p className="font-english text-[13px] italic mb-5"
-                style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-                {ACT_BLURB[group.act]}
-              </p>
-              {group.entries.map(entry => (
-                <VerseLocusCard
-                  key={`${entry.locus.id}-${entry.link.acts.join('+')}`}
-                  entry={entry}
-                  excerpt={excerpts.get(entry.locus.id)}
-                />
-              ))}
-            </section>
-          ))}
-
-          {schoolGroups.length > 0 && (
-            <section className="mt-14 pt-8 border-t" style={{ borderColor: 'rgba(201,168,76,0.25)' }}>
-              <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
-                Read in the school
-              </h2>
-              <p className="font-english text-[13px] italic mb-5"
-                style={{ color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
-                Not Shaykh Ibrāhīm&rsquo;s words. Students and successors reading the same verse — kept
-                below and apart, because a school&rsquo;s reading is evidence of transmission, not of
-                what the master said.
-              </p>
-              {schoolGroups.map(g => g.entries.map(entry => (
-                <VerseLocusCard key={`school-${entry.locus.id}-${entry.link.acts.join('+')}`} entry={entry} />
-              )))}
-            </section>
-          )}
-
-          <p className="font-english text-[12.5px] leading-relaxed pt-6 border-t"
-            style={{
-              borderColor: 'rgba(255,255,255,0.10)',
-              color: 'var(--body-faint, rgba(255,255,255,0.4))',
-            }}>
-            Entries are grouped by what Shaykh Ibrāhīm is <em>doing</em> with the verse, then ordered
-            oldest first inside each group, so the same words can be seen carrying different work
-            across a career. Every entry names the witness it comes from and how well attested the
-            attribution is. Loci that are known but not yet available are listed rather than hidden.
-            {' '}Beyond <em>Fī Riyāḍ al-Tafsīr</em>, {OTHER_WORK_VERSES} āyāt have so far been indexed
-            from his other writings — the <em>Ḥikam</em>, the fatwās, <em>Kāshif al-Ilbās</em>, the
-            <em>Qanābīl</em>, the <em>Tafsīr Maʿānī</em> cassettes. A verse with nothing under this
-            heading has not been searched in them and found wanting; it has not been searched.
-          </p>
-        </>
+      {/* Both branches that used to stand here — "No locus recorded for this
+          verse yet" and "Nothing from Shaykh Ibrāhīm on this verse yet" — were
+          unreachable. getVerseEntries appends a session-coverage entry wherever
+          no Fī Riyāḍ entry stands, the fifty-six sessions tile 1:1 to 114:6 with
+          no gaps, and that entry is always his, so allEntries and entries were
+          never empty for any of the 6,236. The copy they carried now sits on
+          the coverage card in VerseLocusCard, where a reader will see it. */}
+      {/* ── summary ──────────────────────────────────── */}
+      {entries.length > 0 && (
+      <div className="flex flex-wrap gap-x-9 gap-y-3 mb-9">
+        <Stat n={String(entries.length)} label={entries.length === 1 ? 'locus' : 'loci in the corpus'} />
+        <Stat n={String(groups.length)} label={groups.length === 1 ? 'act' : 'distinct acts'} />
+        {marks.length > 1 && (
+          <Stat
+            n={`${marks[0].year} – ${marks[marks.length - 1].year}`}
+            label="attested span"
+          />
+        )}
+        <Stat n={`${loaded} of ${entries.length}`} label="text available" />
+      </div>
       )}
+
+      <VerseCorpusTimeline marks={marks} />
+
+      {/* ── the acts ──────────────────────────────────────── */}
+      {groups.map(group => (
+        <section key={group.act} className="mb-10">
+          <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
+            {ACT_HEADING[group.act]}
+          </h2>
+          <p className="font-english text-[13px] italic mb-5"
+            style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
+            {ACT_BLURB[group.act]}
+          </p>
+          {group.entries.map(entry => (
+            <VerseLocusCard
+              key={`${entry.locus.id}-${entry.link.acts.join('+')}`}
+              entry={entry}
+              excerpt={excerpts.get(entry.locus.id)}
+            />
+          ))}
+        </section>
+      ))}
+
+      {schoolGroups.length > 0 && (
+        <section className="mt-14 pt-8 border-t" style={{ borderColor: 'rgba(201,168,76,0.25)' }}>
+          <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
+            Read in the school
+          </h2>
+          <p className="font-english text-[13px] italic mb-5"
+            style={{ color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
+            Not Shaykh Ibrāhīm&rsquo;s words. Students and successors reading the same verse — kept
+            below and apart, because a school&rsquo;s reading is evidence of transmission, not of
+            what the master said.
+          </p>
+          {schoolGroups.map(g => g.entries.map(entry => (
+            <VerseLocusCard key={`school-${entry.locus.id}-${entry.link.acts.join('+')}`} entry={entry} />
+          )))}
+        </section>
+      )}
+
+      <p className="font-english text-[12.5px] leading-relaxed pt-6 border-t"
+        style={{
+          borderColor: 'rgba(255,255,255,0.10)',
+          color: 'var(--body-faint, rgba(255,255,255,0.4))',
+        }}>
+        Entries are grouped by what Shaykh Ibrāhīm is <em>doing</em> with the verse, then ordered
+        oldest first inside each group, so the same words can be seen carrying different work
+        across a career. Every entry names the witness it comes from and how well attested the
+        attribution is. Loci that are known but not yet available are listed rather than hidden.
+        {' '}Beyond <em>Fī Riyāḍ al-Tafsīr</em>, {OTHER_WORK_VERSES} āyāt have so far been indexed
+        from his other writings — the <em>Ḥikam</em>, the fatwās, <em>Kāshif al-Ilbās</em>, the
+        <em>Qanābīl</em>, the <em>Tafsīr Maʿānī</em> cassettes. A verse with nothing under this
+        heading has not been searched in them and found wanting; it has not been searched.
+      </p>
 
       <NeighbourNav surah={surah} ayah={ayah} max={meta.ayahCount} />
 
