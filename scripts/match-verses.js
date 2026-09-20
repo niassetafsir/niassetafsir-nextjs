@@ -301,6 +301,84 @@ function ambiguous(hits, scopeName) {
   };
 }
 
+/** Significant words, the length>1 filter this file uses everywhere: a lone
+ *  particle is not evidence of anything. */
+function significantWords(s) { return s.split(' ').filter(w => w.length > 1).length; }
+
+/** What is left of a span either side of an aya it contains verbatim.
+ *  `paddedSpan` is ` ${spanNorm} `, so the aya sits between two spaces and the
+ *  slices land on token boundaries. */
+function residueAround(paddedSpan, verseNorm) {
+  const at = paddedSpan.indexOf(` ${verseNorm} `);
+  return {
+    before: paddedSpan.slice(0, at + 1).trim(),
+    after: paddedSpan.slice(at + verseNorm.length + 1).trim(),
+  };
+}
+
+/** True when this aya's text occurs, word-aligned, in no other aya.
+ *  Memoized: the scan is over all 6,236 ayat and only a few dozen ayat ever
+ *  reach it. */
+const ayaIsUniqueCache = new Map();
+function ayaIsUniqueString(rec) {
+  let unique = ayaIsUniqueCache.get(rec.key);
+  if (unique === undefined) {
+    const padded = ` ${rec.norm} `;
+    unique = !ALL_VERSES.some(v => v.key !== rec.key && ` ${v.norm} `.includes(padded));
+    ayaIsUniqueCache.set(rec.key, unique);
+  }
+  return unique;
+}
+
+// How far a span may reach past the aya it quotes and still be read as a
+// citation of that aya alone. Same number, and the same reason, as the
+// per-side test in pass 2: "a span whose reach into the neighbour is a single
+// short particle is not a citation of that neighbour". Read the other way
+// round here -- a span that reaches one short particle past its aya is still
+// a citation of that aya, and usually the particle is not a reach at all but
+// the OCR'd stump of the previous word: Lesson 23 quotes the whole of
+// Q 10:8 with "غفلون" in front of it, which is not a reach into Q 10:7
+// but what the scan made of the "غافلون" that ends it.
+const MAX_QUOTED_RESIDUE_WORDS = 1;
+
+/** Whether a span that CONTAINS this aya verbatim thereby identifies it.
+ *
+ *  Pass 1's containment test runs in both directions and ships both as
+ *  'substring', whose warrant is "the clause sits verbatim in one aya". That
+ *  warrant only covers one of the two. When the span sits inside the aya
+ *  (`clause`), the aya accounts for every word of the span, and a rival aya
+ *  containing the same clause is a second hit, so the ambiguity is caught.
+ *  When the aya sits inside the SPAN (`quoted`), neither holds: the span is
+ *  the aya plus something else, and a longer aya that also contains that
+ *  something else is NOT a second hit, because it does not fit inside the
+ *  span. The 'quoted' direction is therefore blind in exactly the place the
+ *  'clause' direction sees, and two failures follow from it:
+ *
+ *    - Under-citation. Most of the quoted spans run across an aya boundary --
+ *      Niasse quotes the tail of n-1 with the whole of n, or the whole of n
+ *      with the head of n+1 -- and pass 1 printed one number for two ayat.
+ *    - Misattribution. An aya that occurs verbatim inside a longer aya
+ *      identifies nothing when it is merely contained in a span: the span may
+ *      be quoting the longer one. Lesson 1 quotes Q 27:30, Solomon's letter,
+ *      which opens "بسم الله الرحمن الرحيم" -- so Q 1:1 sits inside it verbatim and
+ *      pass 1 printed Q 1:1, twice, on three pages.
+ *
+ *  So a quoted hit counts only when the aya accounts for essentially the whole
+ *  span AND is not a string some other aya also contains. Everything else
+ *  falls through to pass 2, which is the pass that already knows how to ask
+ *  which ayat a boundary-crossing span witnesses, and answers 'ambiguous' --
+ *  no printed number -- when it cannot tell. A quoted span cannot come back
+ *  from pass 2 as 'enclosed': it is longer than the aya it contains, so it
+ *  fits inside no single aya. It comes back as a pair whose two sides each
+ *  carry two significant words, or it comes back as nothing.
+ */
+function quotedIdentifies(paddedSpan, c) {
+  const { before, after } = residueAround(paddedSpan, c.norm);
+  if (significantWords(before) > MAX_QUOTED_RESIDUE_WORDS) return false;
+  if (significantWords(after) > MAX_QUOTED_RESIDUE_WORDS) return false;
+  return ayaIsUniqueString(c);
+}
+
 function findMatch(spanNorm, candidates, scope) {
   if (!spanNorm) return null;
   if (spanNorm.split(' ').filter(w => w.length > 1).length < MIN_SPAN_WORDS) {
@@ -345,7 +423,15 @@ function findMatch(spanNorm, candidates, scope) {
     const paddedVerse = ` ${c.norm} `;
     let overlap, within;
     if (paddedVerse.includes(paddedSpan)) { overlap = spanNorm; within = 'clause'; }
-    else if (paddedSpan.includes(paddedVerse)) { overlap = c.norm; within = 'quoted'; }
+    else if (paddedSpan.includes(paddedVerse)) {
+      // see quotedIdentifies(): a span that merely CONTAINS an aya is
+      // not on that account a citation of it. Dropped rather than kept
+      // as a weak hit, so it neither ships nor manufactures an
+      // ambiguity: where a clause hit also exists it is the sounder
+      // reading, and where none does the span belongs to pass 2.
+      if (!quotedIdentifies(paddedSpan, c)) continue;
+      overlap = c.norm; within = 'quoted';
+    }
     else continue;
     if (overlap.split(' ').filter(w => w.length > 1).length < MIN_SPAN_WORDS) continue;
     const score = Math.min(spanNorm.length, c.norm.length) / Math.max(spanNorm.length, c.norm.length);
