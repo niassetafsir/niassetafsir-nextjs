@@ -208,6 +208,350 @@ for (const key of Object.keys(verseText)) {
   ALL_VERSES.push(rec);
 }
 
+// --- Attestation: which āyāt a stretch of the commentary carries -----------
+//
+// The number printed beside a quotation and the set of āyāt that quotation
+// witnesses are two different questions, and this file used to answer only the
+// first. One span can carry five āyāt -- the compiler runs al-Fātiḥa 1:2
+// through 1:6 inside one set of parentheses -- and the verse index, which
+// inherited the citation's single answer, concluded that four of them are
+// treated nowhere and left four verse pages empty over commentary sitting in
+// plain view. Where two āyāt share a formula the matcher answers 'ambiguous',
+// prints nothing and credits neither, when the passage may plainly hold both.
+//
+// So every span, and every paragraph, now also records `attests`: the āyāt
+// whose own text that stretch demonstrably carries. Nothing here touches
+// `match`. build-verse-citations.js still prints `match`, and only `match`, as
+// the citation beside the Arabic; `attests` feeds the verse index alone.
+//
+// THE WARRANT, and it is the whole of it: containment of the āya's own text.
+// No score, no ratio, no threshold anywhere below.
+//
+//   align  A maximal run of the stretch's words sits word-aligned in exactly
+//          ONE place in the muṣḥaf, and the āya lies wholly inside that run.
+//          Uniqueness is measured over the sūra's whole word stream, so the run
+//          may cross āya boundaries: a span quoting the tail of 2:254, all of
+//          2:255 and the head of 2:256 locates once and attests 2:255 alone,
+//          and a span running 1:2-1:6 attests five. An āya only partly inside
+//          the run is not attested -- the run has to hold every word of it.
+//
+//          Where the longest run occurs in more than one place, nothing is
+//          attested, and that is what keeps the refrains honest. "فاتقوا الله
+//          وأطيعون" is eight āyāt of Sūrat al-Shuʿarāʾ and on its own attests
+//          none of them; the same words behind "إذ قال لهم أخوهم هود" locate
+//          once and attest 26:125. It is also what answers the genuinely
+//          ambiguous case the brief cares about: a formula that could be either
+//          of two āyāt, quoted with nothing round it, attests neither, and the
+//          matcher's existing silence is right.
+//
+//   short  The stretch IS an āya of two significant words, and no other āya has
+//          that text. MIN_SPAN_WORDS below exists so that Q 2:1 "الم" does not
+//          match half the corpus; that reasoning says nothing about an āya
+//          which is itself two words long, and al-Fātiḥa -- the sūra every
+//          visitor arrives on -- is bracketed lemma by lemma in exactly that
+//          shape, "(الرحمن الرحيم)". An āya of one word is never attested this
+//          way, and a two-word āya is never attested from inside a longer
+//          stretch, only from a stretch that is nothing but the āya.
+//
+// Both rules run over the normalized text and then over each fold below,
+// because the quotations are OCR'd.
+
+// THE FOLDS, and why there are two of them.
+//
+// The scan's confusions are qāf/fāʾ, ḥāʾ/jīm, rāʾ/zāy, ṣād/ḍād, dāl/dhāl,
+// ʿayn/ghayn, the dotted set bāʾ/tāʾ/thāʾ/nūn/yāʾ for each other, and nūn/lām.
+// A fold has to be an equivalence relation -- it rewrites a word to a canonical
+// form so two spellings can be compared with ===. Confusion is not one. Putting
+// lām into the dotted set, as scripts/sync-rendered-snippets.js does, takes the
+// transitive closure of two separate confusions and licenses a third nobody
+// reports: lām becomes interchangeable with bāʾ, tāʾ, thāʾ and yāʾ, so الله and
+// إليه fold equal, and 390 pairs of muṣḥaf words collide through that step
+// alone. A snippet locator can absorb that; an attestation cannot.
+//
+// So the confusions are folded in two passes and their results unioned. Each
+// pass is a genuine equivalence relation, and no word is ever compared under
+// the closure of both:
+//
+//   dotted  bāʾ/tāʾ/thāʾ/nūn/yāʾ/alif-maqṣūra, plus the six undotted pairs
+//   lamnun  lām/nūn, plus the same six undotted pairs
+//
+// A span carrying a dotted error and a lām/nūn error in the same stretch is not
+// reachable by either pass. That is the intended price.
+//
+// THE HEAD GUARD, and it is load-bearing. A letter of the pass's own variable
+// class is left unfolded when it stands at the head of a word, or behind up to
+// two proclitics. Word-initially -- and immediately behind wa-, fa-, li-, sa-,
+// which are the proclitics that attach to an imperfect verb -- those letters
+// carry the person of the verb, and folding them there turns the Shaykh's own
+// prose into an āya. Lesson 31 ¶16 says of the people of this world "ويضحكون
+// ولا يبكون", they laugh and do not weep, and folded that is Q 53:60 "وتضحكون
+// ولا تبكون", addressed to them. Guarding index 0 alone does not catch it: the
+// marker sits at index 1 behind the wāw.
+//
+// The scan does make word-initial errors of this kind -- 26 of the 925 letter
+// swaps tabulated in repair-quranic-letter-confusions.py are word-initial and
+// dotted -- so the guard costs real coverage. It costs less than a verse page
+// asserting a passage that does not treat it.
+//
+// bāʾ and kāf are deliberately NOT proclitics here. They attach to nouns, not
+// to imperfect verbs, so they carry no person, and counting them would guard
+// the yāʾ in "كي" -- which is how Lesson 32 ¶118 quotes Q 20:33.
+const FOLD_UNDOTTED = [
+  [0x0641, 0x0642],   // fāʾ / qāf
+  [0x062C, 0x062D],   // jīm / ḥāʾ
+  [0x0635, 0x0636],   // ṣād / ḍād
+  [0x0631, 0x0632],   // rāʾ / zāy
+  [0x062F, 0x0630],   // dāl / dhāl
+  [0x0639, 0x063A],   // ʿayn / ghayn
+];
+const FOLD_VARIABLE = {
+  dotted: [0x0628, 0x062A, 0x062B, 0x0646, 0x064A, 0x0649],
+  lamnun: [0x0644, 0x0646],
+};
+// wāw, fāʾ, lām, sīn -- see above.
+//
+// The proclitic test runs on the FOLDED letter, not the raw one, and it has to.
+// fāʾ is a proclitic and qāf is not, but the two fold together, so testing raw
+// letters made "فليلون" guard its lām while "قليلون" folded it, and Q 26:54
+// stopped matching its own OCR damage. Whatever governs the guard has to be
+// something both spellings agree on, which is the folded form.
+const PROCLITIC_CHARS = [0x0648, 0x0641, 0x0644, 0x0633].map(c => String.fromCharCode(c));
+const MAX_PROCLITICS = 2;
+
+const FOLD_MODES = Object.keys(FOLD_VARIABLE);
+const FOLD_TABLE = {};       // mode -> Map(char -> tag)
+const FOLD_GUARDED = {};     // mode -> Set(char) of that mode's variable class
+const FOLD_PROCLITIC = {};   // mode -> Set(tag) a proclitic folds to
+for (const mode of FOLD_MODES) {
+  const table = new Map();
+  FOLD_UNDOTTED.forEach(([a, b], i) => {
+    table.set(String.fromCharCode(a), `U${i}`);
+    table.set(String.fromCharCode(b), `U${i}`);
+  });
+  const guarded = new Set();
+  for (const c of FOLD_VARIABLE[mode]) {
+    const ch = String.fromCharCode(c);
+    table.set(ch, 'V');
+    guarded.add(ch);
+  }
+  FOLD_TABLE[mode] = table;
+  FOLD_GUARDED[mode] = guarded;
+  FOLD_PROCLITIC[mode] = new Set(PROCLITIC_CHARS.map(ch => table.get(ch) || ch));
+}
+
+// FOLD_SOFT is gone. It mapped the alif variants to one tag and tāʾ marbūṭa to
+// hāʾ, both of which normalizeAr() has already done by the time anything
+// reaches here, so it relabelled letters that were already identical and
+// changed no comparison.
+
+function foldLine(s, mode) {
+  const table = FOLD_TABLE[mode], guarded = FOLD_GUARDED[mode];
+  const proclitic = FOLD_PROCLITIC[mode];
+  let out = '', at = 0, proclitics = 0;
+  for (const ch of s) {
+    if (ch === ' ') { out += ' '; at = 0; proclitics = 0; continue; }
+    // head position: index 0, or behind a run of at most MAX_PROCLITICS
+    // proclitic letters and nothing else
+    const head = at === 0 || (proclitics === at && at <= MAX_PROCLITICS);
+    const tag = table.get(ch) || ch;
+    out += (head && guarded.has(ch)) ? ch : tag;
+    if (proclitics === at && proclitic.has(tag)) proclitics++;
+    at++;
+  }
+  return out;
+}
+
+// Ordered āyāt per sūra, one spelling per matching mode, built once off the
+// same normalizeAr() the matcher uses.
+const MODES = ['plain', ...FOLD_MODES];
+const ORDERED = new Map(); // surah -> [{ key, ayah, norm, byMode: { mode: words[] } }]
+for (const key of Object.keys(verseText)) {
+  const entry = verseText[key];
+  if (!entry || !entry.ar) continue;
+  const [s, a] = key.split(':').map(Number);
+  const norm = normalizeAr(entry.ar);
+  const byMode = {};
+  for (const mode of MODES) {
+    byMode[mode] = (mode === 'plain' ? norm : foldLine(norm, mode)).split(' ').filter(Boolean);
+  }
+  if (!ORDERED.has(s)) ORDERED.set(s, []);
+  ORDERED.get(s).push({ key, ayah: a, norm, byMode });
+}
+for (const list of ORDERED.values()) list.sort((x, y) => x.ayah - y.ayah);
+
+// The two-word rule needs to know whether an āya's text is its alone.
+const AYA_BY_TEXT = new Map();
+for (const list of ORDERED.values()) {
+  for (const v of list) {
+    let twins = AYA_BY_TEXT.get(v.norm);
+    if (!twins) AYA_BY_TEXT.set(v.norm, twins = []);
+    twins.push(v.key);
+  }
+}
+
+// Each sūra as one word stream, plus where every āya starts and ends in it.
+// Positions are indexed by trigram so a stretch can be located without walking
+// the muṣḥaf: each word position appears in exactly one bucket, so the lists
+// are complete and a uniqueness claim made against them is sound.
+const STREAMS = {};
+function streams(mode) {
+  if (STREAMS[mode]) return STREAMS[mode];
+  const out = {};
+  for (const [s, list] of ORDERED) {
+    const words = [], starts = [], lens = [], ayahs = [];
+    for (const v of list) {
+      const w = v.byMode[mode];
+      starts.push(words.length); lens.push(w.length); ayahs.push(v.ayah);
+      for (const x of w) words.push(x);
+    }
+    out[s] = { words, starts, lens, ayahs };
+  }
+  return (STREAMS[mode] = out);
+}
+const TRIGRAMS = {};
+function trigrams(mode) {
+  if (TRIGRAMS[mode]) return TRIGRAMS[mode];
+  const map = new Map(), st = streams(mode);
+  for (const s of Object.keys(st)) {
+    const w = st[s].words;
+    for (let i = 0; i + 3 <= w.length; i++) {
+      const k = `${w[i]}\u0000${w[i + 1]}\u0000${w[i + 2]}`;
+      let l = map.get(k); if (!l) map.set(k, l = []);
+      l.push(Number(s) * 100000 + i);
+    }
+  }
+  return (TRIGRAMS[mode] = map);
+}
+
+/** The longest stretch of `words` from `i` that sits in the muṣḥaf, and
+ *  whether it sits in exactly one place. */
+function maximalMatch(words, i, mode) {
+  const cands = trigrams(mode).get(`${words[i]}\u0000${words[i + 1]}\u0000${words[i + 2]}`);
+  if (!cands) return null;
+  const st = streams(mode);
+  let best = 0, at = null, ties = 0;
+  for (const enc of cands) {
+    const s = Math.floor(enc / 100000), p = enc % 100000, A = st[s].words;
+    let k = 3;
+    while (i + k < words.length && p + k < A.length && A[p + k] === words[i + k]) k++;
+    if (k > best) { best = k; at = [s, p]; ties = 1; }
+    else if (k === best) ties++;
+  }
+  if (ties !== 1) return { len: best, unique: false };
+  return { len: best, unique: true, surah: at[0], pos: at[1] };
+}
+
+/** The āyāt lying wholly inside [pos, pos+len) of a sūra's word stream. */
+function ayatInside(surah, pos, len, mode) {
+  const st = streams(mode)[surah], out = [];
+  for (let i = 0; i < st.starts.length; i++) {
+    if (st.starts[i] >= pos && st.starts[i] + st.lens[i] <= pos + len) {
+      out.push(`${surah}:${st.ayahs[i]}`);
+    }
+  }
+  return out;
+}
+
+// The recitation formulas, as a splitter rather than a head-of-string strip.
+// stripRecitationFormula() takes a formula off the front of a span because a
+// sūra opening prints the basmala and the first āya inside one set of
+// parentheses. Attestation needs the formulas gone wherever they stand, and
+// for a sharper reason: the basmala IS Q 1:1, every lesson opens with it, and
+// a lesson that opens "بسم الله الرحمن الرحيم الحمد ..." reproduces the first
+// five words of al-Fātiḥa exactly and locates there uniquely. Lesson 31 ¶2 did,
+// and put Q 1:1 in the index off a piece of liturgical furniture. The formulas
+// are not evidence of anything, here as everywhere else in this file, so the
+// text is cut at them and each piece aligned on its own.
+const FORMULA_ANYWHERE = new RegExp(
+  `${FORMULA_PREFIX.source.replace(/^\^/, '')}|${TASLIYA_PATTERN_NORM.source.replace(/^\^/, '')}`, 'g');
+
+// --- What is not the Shaykh speaking ---------------------------------------
+//
+// THE EDITION'S OWN APPARATUS. The 2022 edition cites its ḥadīth sources in
+// the running text, and a source citation names the āya its chapter is built
+// on: "صحيح البخاري: كتاب التوحيد/ باب قول الله تعالى «وجوه يومئذ ناضرة إلى
+// ربها ناظرة» (7440)". That is al-Bukhārī's bāb title, not Niasse's quotation,
+// and it was carrying Q 75:22 into the index as its ONLY locus, under a flag
+// that reads "quoted without parentheses in the printing; identified here".
+//
+// The editorial signal is the slash between kitāb and bāb -- the apparatus
+// writes it and running prose does not -- so the text is cut there and
+// everything after it discarded. Cutting to the end of the paragraph is safe
+// because the apparatus is always the last thing in one; the four known sites
+// are Lesson 30 ¶179 (Q 75:22), Lesson 43 ¶4 (Q 37:139), and Lesson 52 ¶97 and
+// Lesson 54 ¶123 (Q 84:8).
+//
+// This applies to the PROSE pass only. Spans are read out of ( ) and « », and
+// the apparatus quotes inside " ", which extractSpans does not touch -- and
+// anything that changed what extractSpans returns would change what prints.
+const AR_BAB = String.fromCharCode(0x0628, 0x0627, 0x0628);
+const APPARATUS_TAIL = new RegExp(`\\/\\s*${AR_BAB}(?=\\s)[\\s\\S]*$`);
+
+// PARAGRAPHS THAT ARE NOT COMMENTARY. Hand-listed, because each is a judgement
+// about what the paragraph is doing rather than about what it contains, and a
+// rule general enough to catch them would catch a great deal else. Suppressing
+// attestation here does not touch `match`, so nothing these paragraphs cite
+// stops printing; they simply stop being offered as the place an āya is
+// treated.
+const NOT_COMMENTARY = {
+  // The muqaṭṭaʿāt argument: the number of oaths opening a sūra matches the
+  // number of letters in its opening letters -- one oath for ص and ق, two for
+  // طه and يس, three for الم. To make the count the Shaykh recites ten incipits
+  // in a row. Each is a tally mark. None is treated, and Q 53:1, 79:1, 79:3 and
+  // 103:1 had this passage as their only locus, so /verse/103/1 opened on nine
+  // hundred characters about how many letters begin a sūra.
+  47: { 104: 'incipits counted, not treated', 105: 'incipits counted, not treated', 109: 'incipits counted, not treated' },
+  // Two sentences on what an imperative means, commenting on Q 33:1, with
+  // "يا أيها المدثر قم وأنذر" held up beside it as the contrasting case. Sole
+  // locus for Q 74:1.
+  40: { 62: 'grammatical foil, not commentary' },
+};
+
+/** Every āya a stretch of commentary attests, the formulas cut out of it. */
+function attestsOf(textNorm) {
+  const found = new Map();
+  for (const piece of textNorm.split(FORMULA_ANYWHERE)) {
+    const t = (piece || '').trim();
+    if (t) for (const a of attestsOfPiece(t)) if (!found.has(a.verse)) found.set(a.verse, a);
+  }
+  return sortVerses([...found.keys()]).map(k => found.get(k));
+}
+
+function attestsOfPiece(textNorm) {
+  const found = new Map();
+  for (const mode of MODES) {
+    const s = mode === 'plain' ? textNorm : foldLine(textNorm, mode);
+    const words = s.split(' ').filter(Boolean);
+    if (!words.length) continue;
+
+    // An āya of two significant words, quoted as itself and nothing else.
+    // 176 āyāt have exactly two significant words and 28 have one, which this
+    // never touches. (By whitespace tokens the counts are 175 and 28; the one
+    // āya that differs is Q 50:1, "ق والقرءان المجيد", whose first token is a
+    // single letter. The test is on significant words because that is the
+    // metric MIN_SPAN_WORDS itself uses.)
+    if (mode === 'plain' && significantWords(textNorm) === 2) {
+      const twins = AYA_BY_TEXT.get(textNorm);
+      if (twins && twins.length === 1 && !found.has(twins[0])) {
+        found.set(twins[0], { verse: twins[0], rule: 'short', mode, run: words.length });
+      }
+    }
+
+    let i = 0;
+    while (i + 3 <= words.length) {
+      const m = maximalMatch(words, i, mode);
+      if (!m || m.len < 3) { i++; continue; }
+      if (m.unique) {
+        for (const key of ayatInside(m.surah, m.pos, m.len, mode)) {
+          if (!found.has(key)) found.set(key, { verse: key, rule: 'align', mode, run: m.len });
+        }
+      }
+      i += Math.max(1, m.len);
+    }
+  }
+  return sortVerses([...found.keys()]).map(k => found.get(k));
+}
+
 // --- Matching ----------------------------------------------------------
 
 // Citations shorter than this are too ambiguous to match reliably (a lone
@@ -612,6 +956,7 @@ function loadLesson(id) {
 
 const report = {};
 let totalSpans = 0, totalMatched = 0, totalAmbiguous = 0;
+let totalAttested = 0, totalParaAttested = 0, apparatusCut = 0;
 const byScope = { range: 0, surah: 0, none: 0 };
 
 for (let id = 1; id <= 56; id++) {
@@ -632,9 +977,18 @@ for (let id = 1; id <= 56; id++) {
 
   const paragraphs = raw.split('\n').filter(p => p.trim()).filter(p => !isPoem(p));
   const lessonReport = [];
+  // Attestation found in a paragraph but in none of its brackets: the
+  // compiler quotes without parentheses constantly, and
+  // add-editorial-verse-index.js already carries that kind of identification
+  // into the index under `editorial: true`. Same warrant as the spans above it
+  // -- containment of the āya's own text -- and a weaker claim about the
+  // printing, so it is kept apart and flagged apart.
+  const lessonParaAttests = {};
 
   paragraphs.forEach((p, paraIndex) => {
     const spans = extractSpans(p);
+    const attestedInSpans = new Set();
+    const attesting = !((NOT_COMMENTARY[id] || {})[paraIndex]);
     spans.forEach((span, spanIndex) => {
       totalSpans++;
       // Liturgical formulas (refuge formula, basmala, etc.) recur as fixed
@@ -650,6 +1004,9 @@ for (let id = 1; id <= 56; id++) {
       const spanNorm = normalizeAr(span);
       const citable = stripRecitationFormula(spanNorm);
       const match = citable ? findMatch(citable, candidates, scope) : null;
+      const attests = (citable && attesting) ? attestsOf(citable) : [];
+      for (const a of attests) attestedInSpans.add(a.verse);
+      totalAttested += attests.length;
       if (match) totalMatched++;
       if (match && match.type === 'ambiguous') {
         totalAmbiguous++;
@@ -659,6 +1016,7 @@ for (let id = 1; id <= 56; id++) {
         paraIndex,
         spanIndex,
         text: span,
+        ...(attests.length ? { attests } : {}),
         match: match ? {
           verse: match.verse,
           score: Number(match.score.toFixed(2)),
@@ -669,9 +1027,28 @@ for (let id = 1; id <= 56; id++) {
         } : null,
       });
     });
+
+    // The paragraph as a whole, minus whatever its brackets already carried.
+    // 34.7% of paragraphs in this corpus have unbalanced parentheses (the scan
+    // loses brackets constantly), so a quotation whose closing paren was
+    // dropped is invisible to extractSpans and visible here.
+    const paraNorm = normalizeAr(p.replace(/<[^>]+>/g, '')).replace(APPARATUS_TAIL, ' ').trim();
+    if (paraNorm !== normalizeAr(p.replace(/<[^>]+>/g, ''))) apparatusCut++;
+    const paraAttests = (paraNorm && attesting)
+      ? attestsOf(paraNorm).filter(a => !attestedInSpans.has(a.verse))
+      : [];
+    if (paraAttests.length) {
+      lessonParaAttests[paraIndex] = paraAttests;
+      totalParaAttested += paraAttests.length;
+    }
   });
 
-  report[id] = { surahs, spanCount: lessonReport.length, spans: lessonReport };
+  report[id] = {
+    surahs,
+    spanCount: lessonReport.length,
+    spans: lessonReport,
+    ...(Object.keys(lessonParaAttests).length ? { paraAttests: lessonParaAttests } : {}),
+  };
   console.log(`Lesson ${id}: ${lessonReport.length} citation(s), surah(s) ${surahs.join(',')}`);
 }
 
@@ -689,4 +1066,24 @@ console.log(`  ${totalAmbiguous} clause(s) sit verbatim in more than one aya eve
 console.log(`  narrowing to the lesson's own scope -- reported as 'ambiguous' with the`);
 console.log(`  full candidate list, and printed on no page. Narrowed by: explicit range`);
 console.log(`  ${byScope.range}, sura set ${byScope.surah}, no declared scope matched ${byScope.none}.`);
+
+const attestRules = {};
+const attestedVerses = new Set();
+for (const l of Object.values(report)) {
+  for (const s of l.spans) for (const a of (s.attests || [])) {
+    attestRules[`${a.rule}/${a.mode}`] = (attestRules[`${a.rule}/${a.mode}`] || 0) + 1;
+    attestedVerses.add(a.verse);
+  }
+  for (const list of Object.values(l.paraAttests || {})) for (const a of list) {
+    attestRules[`prose ${a.rule}/${a.mode}`] = (attestRules[`prose ${a.rule}/${a.mode}`] || 0) + 1;
+    attestedVerses.add(a.verse);
+  }
+}
+console.log(`\nAttested: ${totalAttested} aya(s) inside bracketed spans, ${totalParaAttested} more`);
+console.log(`  in the prose round them -- ${attestedVerses.size} distinct ayat, each one carried`);
+console.log(`  word for word by the passage that attests it. This feeds the verse index only;`);
+console.log(`  the citation printed beside the Arabic is still 'match' and nothing else.`);
+console.log(`  by rule: ${Object.entries(attestRules).sort((a, b) => b[1] - a[1]).map(([r, n]) => `${r} ${n}`).join(' · ')}`);
+console.log(`  ${apparatusCut} paragraph(s) had the edition's own kitāb/bāb apparatus cut off the end`);
+console.log(`  before the prose pass read them; ${Object.values(NOT_COMMENTARY).reduce((n, o) => n + Object.keys(o).length, 0)} paragraph(s) are excluded outright.`);
 console.log(`Wrote ${path.relative(process.cwd(), OUT_FILE)}`);

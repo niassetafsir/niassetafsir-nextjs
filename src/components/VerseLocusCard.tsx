@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import {
   ACT_LABEL,
+  DERIVATION_LABEL,
+  DERIVATION_NOTE,
   PROMPT_LABEL,
   STANCE_LABEL,
   type VerseEntry,
@@ -45,6 +47,14 @@ export default function VerseLocusCard({
   // the mushaf. That session is transcribed and on this site, so the card has
   // to send the reader to it rather than report an absence and stop.
   const inSession = link.derivation === 'session-range';
+  // Whether the compiler marked this as a quotation or this project did. Every
+  // other entry in the index comes from a span the printing itself encloses in
+  // ( ) or « », so the edition declares it a citation; these rest on a run of
+  // words identified by method. Rendering the two alike puts the project's
+  // reading behind the edition's authority, which is the one thing the
+  // apparatus exists to prevent — and it is why these rows were admitted at
+  // all. A dotted rule and a word, not a warning.
+  const unbracketed = link.derivation === 'unbracketed';
   const lessonId = locus.address.lesson;
   const lessonHref = lessonId !== undefined ? `/lesson/${lessonId}` : null;
   // Excerpt first. A Fī Riyāḍ locus carries no text of its own and the excerpt
@@ -60,6 +70,7 @@ export default function VerseLocusCard({
       className="rounded-xl border mb-3.5 overflow-hidden"
       style={{
         borderColor: isPrimary ? 'rgba(201,168,76,0.28)' : 'rgba(255,255,255,0.10)',
+        borderStyle: unbracketed ? 'dotted' : 'solid',
         borderLeftWidth: isPrimary ? 3 : 1,
         borderLeftColor: isPrimary ? 'var(--gold, #C9A84C)' : 'rgba(255,255,255,0.10)',
       }}
@@ -109,6 +120,15 @@ export default function VerseLocusCard({
               }}>
               {link.acts.map(a => ACT_LABEL[a]).join(' · ')}
             </span>
+            {unbracketed && (
+              <span className="font-english text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full"
+                style={{
+                  border: '1px dotted rgba(255,255,255,0.3)',
+                  color: 'var(--body-faint, rgba(255,255,255,0.5))',
+                }}>
+                {DERIVATION_LABEL.unbracketed}
+              </span>
+            )}
           </span>
         </div>
 
@@ -194,13 +214,17 @@ export default function VerseLocusCard({
                 {locus.editorialNote}
               </p>
             )}
-            {link.note && (
+            {/* Named only for 'unbracketed'. DERIVATION_NOTE['session-range']
+                carries a literal "Lesson N" and is written for a card that
+                always supplies its own note, so reading the map by key would
+                print the placeholder. */}
+            {(link.note || unbracketed) && (
               <p className="font-english text-[12px] italic mt-3 pt-3 border-t"
                 style={{
                   borderColor: 'rgba(255,255,255,0.08)',
                   color: 'var(--body-faint, rgba(255,255,255,0.38))',
                 }}>
-                {link.note}
+                {link.note ?? DERIVATION_NOTE.unbracketed}
               </p>
             )}
           </>

@@ -615,9 +615,18 @@ export const DERIVATION_NOTE: Record<Derivation, string> = {
   'session-range':
     'Not found in the text. The session running through this stretch of the muṣḥaf is ' +
     'Lesson N, so the commentary on this āya is there; where on the page has not been located.',
+  // What the matcher actually does, which is not what this said. It said five
+  // consecutive words falling inside the āya; the floor is three, 45 of the 159
+  // prose rows sit exactly there, the run is credited to every āya lying inside
+  // IT rather than the other way round, and a run matched through the fold does
+  // not occur in the printed āya at all. See attestsOfPiece in
+  // scripts/match-verses.js.
   unbracketed:
-    'The printing does not bracket this quotation. Five consecutive words of the paragraph ' +
-    'occur word-aligned in this āya and in no other of the 6,236, which is what identifies it.',
+    'The printing brackets no quotation here. A run of consecutive words in this paragraph ' +
+    '— three at the shortest — occurs in one place in the muṣḥaf and nowhere else, and every ' +
+    'āya lying inside that run is credited, so a run crossing a boundary attests both. ' +
+    'Matching folds together the letter shapes the scan confuses, so the words need not stand ' +
+    'in the āya exactly as printed.',
 };
 
 export const CONFIDENCE_NOTE: Record<Confidence, string> = {
@@ -671,12 +680,32 @@ export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
     });
   }
 
-  // Session coverage, only where nothing located in Fī Riyāḍ already stands.
-  // Adding it alongside a matched paragraph would say the same thing twice,
-  // less precisely.
-  const haveFiRiyad = out.some(e => e.work.id === 'fi-riyad');
-  if (!haveFiRiyad) {
-    const session = sessionForVerse(surah, ayah);
+  // Session coverage, wherever the āya's OWN session is not already standing
+  // on the page.
+  //
+  // The test used to be whether any Fī Riyāḍ locus had been found at all, on the
+  // reasoning that coverage alongside a matched paragraph says the same thing
+  // twice and less precisely. That holds only while every located paragraph
+  // sits in the session the sequence reaches the āya in. It no longer does.
+  // The index now admits a quotation wherever it falls, and Niasse quotes
+  // across the muṣḥaf constantly -- a cross-reference in a later majlis, a
+  // grammatical example, an āya counted out to make a point about another.
+  // For 105 āyāt every located row names some other session.
+  //
+  // Suppressing coverage on the strength of one of those trades a true and
+  // modest claim -- Lesson N runs through this stretch, opening at vol. X
+  // p. Y -- for a paragraph in a different majlis, and the reader loses the
+  // only answer the page had to "where does he reach this verse". Q 1:5
+  // resolved to nothing in Lesson 1; Q 2:1 resolved to the session on
+  // al-Ikhlāṣ and nothing else.
+  //
+  // So a locus outside the āya's own session is supplementary. It stays on the
+  // page, and the coverage card stays with it.
+  const session = sessionForVerse(surah, ayah);
+  const coveredHere = out.some(
+    e => e.work.id === 'fi-riyad' && e.locus.address.lesson === session?.lessonId
+  );
+  if (!coveredHere) {
     const locus = session && getLocus(`firiyad-session-${session.lessonId}`);
     const witness = locus && getWitness(locus.witnessId);
     const work = witness && getWork(witness.workId);
@@ -749,8 +778,14 @@ function coverageNote(lessonId: number, r: LessonRange): string {
       // The generosity runs the safe way for the sentence that follows: a verse
       // absent even from the loose set really is absent, so declining to say he
       // commented on it is the conservative reading, not a denial.
-      ? ` Of the ${r.span} āyāt in that span, as many as ${r.attested} are quoted in the ` +
-        'transcription; this one is not among them, so whether he comments on it is not established.'
+      // Scoped to THIS session, and it has to be. The card now stands beside
+      // located loci from elsewhere in the corpus, so "quoted in the
+      // transcription ... this one is not among them" read as a denial that he
+      // ever quotes the āya, directly under a card showing him quoting it. He
+      // quotes Q 2:1 in Lesson 56; what is unestablished is whether he pauses
+      // on it in Lesson 1, where the sequence reaches it.
+      ? ` Of the ${r.span} āyāt in that span, as many as ${r.attested} are quoted where the ` +
+        'session reaches them; this one is not, so whether he takes it up here is not established.'
       : '';
   const provenance = r.exact
     ? `Lesson ${lessonId} runs from ${bounds}.`
