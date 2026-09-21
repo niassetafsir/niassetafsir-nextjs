@@ -46,22 +46,9 @@ inconsistent with the rest of the corpus for no gain to a reader.
   python3 scripts/repair-ayat-al-kursi.py --write
 
 
-HOW A SITE IS IDENTIFIED (changed 21 September 2026)
-
-This script no longer addresses its sites by a raw character offset.  Each row
-carries the target word before and after the repair, plus the raw skeletons of
-the words on either side as they stood when the row was minted; the old offset
-survives only as `hint`, which orders the search and appears in reports.  The
-resolver requires exactly one place in the field to carry that neighbourhood
-and refuses to choose when more than one does.  Rows that share an anchor form
-a group, and the group must name exactly as many places as it has rows -- that
-is how a passage repeated verbatim inside one field is handled without ever
-picking between its copies.
-
-The change exists so that a repair may add or remove a character.  While every
-row was an offset, nine scripts shared an unenforced contract that no pass ever
-changed a length, and the whole class of dropped-letter damage was unreachable.
-See scripts/repair_anchors.py.
+Sites are named by content, not by offset: see scripts/repair_anchors.py for
+the scheme and for why. The `hint` in each row is the offset the row used to
+carry, kept only to order the search and to appear in reports.
 
 
 HOW A SITE IS IDENTIFIED (changed 21 September 2026)
@@ -99,9 +86,9 @@ ROWS = {
          ['062706440630064a', '064a064206480645', '0628062a062f0628064a0631', '062e064406420647', '062f0627064a06450627060c'],
          5, 1, 40387, 'ayat al-kursi'),
         ('arabicBody', '0623064406520641064e064a0651064f06480645064c', '0623064406520642064e064a0651064f06480645064c',
-         ['06410644064a0627062e0630', '0641063606440647', '06270644062d064a', '06270644062f0627064a0645', '06270644062806420627'],
-         ['062706440645062806270644063a', '0641064a', '062706440642064a06270645', '0628062a062f0628064a0631', '062e064406420647060c'],
-         5, 1, 11616, 'ayat al-kursi'),
+         ['062706310627062f', '06270646', '064a06410636064406460627', '0628063a064a0631', '0627064406440647', '06410644064a0627062e0630', '0641063606440647', '06270644062d064a', '06270644062f0627064a0645', '06270644062806420627'],
+         ['062706440645062806270644063a', '0641064a', '062706440642064a06270645', '0628062a062f0628064a0631', '062e064406420647060c', '0647063006270646', '0627064406270633064506270646', '0648063506410627', '0627064406440647', '062a0628062706310643'],
+         10, 1, 11616, 'ayat al-kursi'),
         ('arabicBody', '0623064406520641064e064a0651064f06480645', '0623064406520642064e064a0651064f06480645',
          ['064706300627', '0627063306450647', '06470648060c', '06270644062d064a', '0627063306450647060c'],
          ['060c', '06440627', '062a0627062e06300647', '0627064406360645064a0631', '06390627064a062f'],
@@ -115,9 +102,9 @@ ROWS = {
          ['0648064706300647', '062706440627064a0647', '0641064a06470627', '063006430631', '0627064406440647'],
          5, 1, 10754, 'ayat al-kursi'),
         ('arabicBody', '0627064406520641064e064a0651064f06480645064f', '0627064406520642064e064a0651064f06480645064f',
-         ['062706440627', '06470648', '06270644062d064a', '06270644062f0627064a0645', '06270644062806420627'],
-         ['062706440645062806270644063a', '0641064a', '062706440642064a06270645', '0628062a062f0628064a0631', '062e064406420647'],
-         5, 1, 9812, 'ayat al-kursi'),
+         ['06440627', '0645063906280648062f', '0628062d0642', '0641064a', '062706440648062c0648062f', '062706440627', '06470648', '06270644062d064a', '06270644062f0627064a0645', '06270644062806420627'],
+         ['062706440645062806270644063a', '0641064a', '062706440642064a06270645', '0628062a062f0628064a0631', '062e064406420647', '063006430631', '06270646', '0627064406440647', '062a0628062706310643', '0648062a063906270644064a'],
+         10, 1, 9812, 'ayat al-kursi'),
     ],
 }
 
@@ -131,7 +118,8 @@ def main():
         by_field = {}
         for field, old, new, lead, tail, width, mult, hint, note in ROWS[lesson]:
             by_field.setdefault(field, []).append(
-                (A.hx(old), A.hx(new), [A.hx(x) for x in lead],
+                ('|'.join(A.hx(x) for x in old.split('|')),
+                 A.hx(new), [A.hx(x) for x in lead],
                  [A.hx(x) for x in tail], width, mult, hint, note))
         for field, rows in by_field.items():
             text = data.get(field) or ''

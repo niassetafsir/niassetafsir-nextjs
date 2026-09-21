@@ -55,6 +55,7 @@ DROP = {chr(0x621)}
 AR_LO, AR_HI = 0x600, 0x6FF
 
 CONTEXT = 5        # words of lead and of tail stored in an anchor
+NEAR    = 3        # of those, the immediate ones that must nearly all match
 NEED    = 7        # of the (up to) 10 that must match for a candidate to count
 
 
@@ -97,6 +98,18 @@ def hx(cps):
     return ''.join(chr(int(cps[i:i + 4], 16)) for i in range(0, len(cps), 4))
 
 
+def forms(text):
+    """A row's accepted starting forms.
+
+    Normally one.  A row whose repair has since been CORRECTED lists the
+    superseded form after a '|', so that the pipeline can carry a tree already
+    holding the old repair forward to the new one.  Without this, replaying
+    from a commit that contains a repair this table has since revised is
+    impossible, and 'every change must be reproducible by running a script'
+    becomes unenforceable the first time anyone fixes a repair."""
+    return text.split('|')
+
+
 def cp(text):
     return ''.join('%04x' % ord(c) for c in text)
 
@@ -114,13 +127,6 @@ def mint(text, off, old):
     return lead, tail
 
 
-def _score(have, want, from_right):
-    if not want:
-        return 0
-    a, b = (have[::-1], want[::-1]) if from_right else (have, want)
-    return sum(1 for x, y in zip(a, b) if x == y)
-
-
 def _match(stored, have):
     """How much of `stored` survives in `have`, order preserved.  difflib and
     not a positional compare, so that a neighbour word splitting in two -- or
@@ -132,20 +138,57 @@ def _match(stored, have):
     return sum(b.size for b in sm.get_matching_blocks()), len(stored)
 
 
+def _clears(stored_lead, stored_tail, have_lead, have_tail):
+    """Score one candidate against a minted neighbourhood.
+
+    Two tests, both of which must pass.
+
+    NEAR -- the three words either side.  This is what tells two occurrences
+    of the same word apart when they stand a few words from each other, which
+    a wide window cannot do: widen far enough and both copies see almost the
+    same context.
+
+    FAR -- the whole stored window, at 70%.  This is what survives another
+    script editing the neighbourhood, which is the reason anchors exist.
+
+    There is deliberately no exact-match tier.  A tier that returns the
+    perfect matches and discards everything else is a preference, and a
+    preference is the one thing this module promises never to apply: if a
+    degraded true site and an intact decoy both clear, that is an ambiguity to
+    raise, not a contest to settle.
+    """
+    # The word immediately before or immediately after must match exactly.
+    # Nothing else separates a quoted word from the gloss repeating it one
+    # word later -- Lesson 14 has `yuqattaluu yuqtaluu`, the aya then its
+    # gloss, and a window wide enough to be robust sees almost the same text
+    # on both.  An edit would have to land on BOTH immediate neighbours to
+    # lose the site, which no single repair does.
+    lhs = bool(stored_lead) and bool(have_lead) and stored_lead[-1] == have_lead[-1]
+    rhs = bool(stored_tail) and bool(have_tail) and stored_tail[0] == have_tail[0]
+    if not (lhs or rhs):
+        return 0, 0, False
+    nl, nt = stored_lead[-NEAR:], stored_tail[:NEAR]
+    a, ca = _match(nl, have_lead[-NEAR:] if have_lead else [])
+    b, cb = _match(nt, have_tail[:NEAR])
+    near, near_cap = a + b, ca + cb
+    if not near_cap or near < max(1, near_cap - 2):
+        return near, near_cap, False
+    a, ca = _match(stored_lead, have_lead)
+    b, cb = _match(stored_tail, have_tail)
+    s, c = a + b, ca + cb
+    return s, c, bool(c) and s >= max(min(NEED, c), int(c * 0.7))
+
+
 def _cands(RW, ns, lead, tail, width, pairs=frozenset()):
-    scored = []
+    out = []
     for n in ns:
         step = 2 if n in pairs else 1
         hl = RW[max(0, n - width):n]
         ht = RW[n + step:n + step + width]
-        a, ca = _match(lead, hl)
-        b, cb = _match(tail, ht)
-        scored.append((n, a + b, ca + cb))
-    exact = [n for n, s, c in scored if c and s == c]
-    if exact:
-        return exact
-    return [n for n, s, c in scored
-            if c and s >= max(min(NEED, c), int(c * 0.7))]
+        s, c, ok = _clears(lead, tail, hl, ht)
+        if ok:
+            out.append((n, s, c))
+    return out
 
 
 def plan(text, rows, label=''):
@@ -176,21 +219,30 @@ def plan(text, rows, label=''):
     out = []
     for key, grp in groups.items():
         old, new, lead, tail, width = key
-        keys = {raw(old), raw(new), raw(new).replace(' ', '')}
+        keys = {raw(new), raw(new).replace(' ', '')}
+        keys |= {raw(f) for f in forms(old)}
         ns = sorted({n for k in keys for n in occ.get(k, [])})
         pr = {n for n in ns if n < len(RW) - 1 and
               RW[n] + RW[n + 1] in keys and RW[n] not in keys}
-        cand = _cands(RW, ns, list(lead), list(tail), width, pr)
+        scored = _cands(RW, ns, list(lead), list(tail), width, pr)
+        cand = [n for n, _, _ in scored]
         hints = ', '.join(f'@{r[6]}' for r in grp)
+        mults = {r[5] for r in grp}
+        if mults != {len(grp)}:
+            raise AmbiguousAnchor(
+                f'{label}: {len(grp)} row(s) ({hints}) share an anchor but '
+                f'declare mult {sorted(mults)}. A row of a duplicated passage '
+                f'has been added or removed without its partner.')
         if not cand:
             raise AnchorLost(
                 f'{label}: {cp(old)} with this neighbourhood is no longer in '
                 f'the text (was {hints}) -- the text has moved under this row')
         if len(cand) != len(grp):
-            where = ', '.join(f'@{W[n][0]}' for n in cand)
+            where = ', '.join(f'@{W[n][0]} (score {s}/{c})' for n, s, c in scored)
             raise AmbiguousAnchor(
                 f'{label}: {len(grp)} row(s) ({hints}) but the anchor names '
-                f'{len(cand)} place(s) ({where}). Refusing to choose.')
+                f'{len(cand)} place(s) -- {where}. Refusing to choose; '
+                f'widen the anchor.')
         for r, n in zip(sorted(grp, key=lambda x: x[6]), cand):
             start = W[n][0]
             end = W[n + 1][0] + len(W[n + 1][1]) if n in pairs and \
@@ -208,18 +260,24 @@ def apply_rows(text, rows, label=''):
     applied = skipped = 0
     log = []
     for off, old, new, hint, note, span in sorted(steps, key=lambda r: -r[0]):
-        # Already applied?  Compare skeletons with spaces removed, so that a
-        # later pass having split this word into two does not read as damage.
-        flat = lambda s: raw(s).replace(' ', '')
-        if flat(text[off:off + span]) == flat(new):
+        # Already applied?  LITERALLY, character for character, over the row's
+        # own extent.  A skeleton comparison would skip any row whose repair
+        # leaves the skeleton alone -- a hamza seat, a transposition, a mark --
+        # before it ever fired.  The extra clause is for a repair that SHORTENS
+        # a word: `yasha\'a` is a prefix of `yasha\'ah`, so a bare prefix test
+        # would read the damage as the repair.
+        olds = forms(old)
+        is_new = text[off:off + len(new)] == new
+        hit = next((o for o in olds if text[off:off + len(o)] == o), None)
+        if is_new and not (hit is not None and len(new) < len(hit)):
             skipped += 1
             continue
-        here = text[off:off + len(old)]
-        if here != old:
+        if hit is None:
             raise AnchorLost(
                 f'{label} (hint @{hint}) resolved to {off}, which holds '
-                f'{cp(here)} and not {cp(old)} -- the text has moved')
-        text = text[:off] + new + text[off + len(old):]
+                f'{cp(text[off:off + 12])} -- none of '
+                f'{old} nor {cp(new)}. The text has moved.')
+        text = text[:off] + new + text[off + len(hit):]
         applied += 1
         log.append((hint, off, old, new, note))
     return text, applied, skipped, log
@@ -237,9 +295,7 @@ def locate(text, char, lead, tail, width, hint, label=''):
         after = next((n for n, (o, _) in enumerate(W) if o > i), len(W))
         hl = RW[max(0, after - width):after]
         ht = RW[after:after + width]
-        a, ca = _match(lead, hl)
-        b, cb = _match(tail, ht)
-        if ca + cb and a + b >= max(NEED, int((ca + cb) * 0.8)):
+        if _clears(lead, tail, hl, ht)[2]:
             cand.append(i)
     if not cand:
         raise AnchorLost(f'{label}: no {char!r} carries this neighbourhood '

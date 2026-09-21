@@ -245,15 +245,24 @@ const flagRef = f => (f || '').split(':')[1] || '';
 //   * no single run of inserted or dropped letters may exceed two, so a
 //     clause can never qualify however small the distance is beside a long
 //     passage;
-//   * exactly one window may fit, or the passage has not been identified.
+//   * exactly one window may fit — not the cheapest of several, since a
+//     lesson repeats its formulas and there is no basis for preferring the
+//     closer copy of two.
 //
 // Word order comes free: the alignment preserves it, and a reordering shows up
 // as a large distance.  Word count is guarded by the run cap.  A dropped or
 // restored one-letter word passes as a repair, which is what it is.
-const EDIT_FLOOR = 3;      // always allow three edits
-const EDIT_RATE = 50;      // and one more per fifty letters
+const EDIT_FLOOR = 2;      // two edits at the very least: a pass can correct one
+                           // letter and drop another in the same sentence
+const EDIT_RATE = 50;      // and one more per fifty letters beyond that
 const MAX_RUN = 2;         // a longer run of indels is a clause, not a correction
-const MIN_REALIGN = 24;    // folded letters; shorter than this, nothing is distinctive
+const MIN_REALIGN = 40;    // folded letters.  The floor and the budget meet here:
+                           // forty letters is about ten words and buys two edits,
+                           // five per cent of them, which a different sentence
+                           // does not fit through.  A floor of three edits at
+                           // twenty-four letters — six words — did, so both moved.
+                           // Fragment anchors need forty letters as well, so
+                           // nothing anchored is left unable to be placed.
 const editBudget = n => Math.max(EDIT_FLOOR, Math.ceil(n / EDIT_RATE));
 
 const tokenRange = (s, i) => {
@@ -340,14 +349,26 @@ function realign(pattern, hay) {
       if (starts.size > 400) break;
     }
   }
-  let best = null, tied = false;
+  // Every window inside the budget is a candidate for being this passage, so
+  // more than one of them — at whatever cost — means the passage has not been
+  // identified.  Windows that overlap are the same passage aligned a letter or
+  // two apart, and the cheapest of those is the right alignment; windows that
+  // do not overlap are rival answers, and there is no basis for preferring the
+  // cheaper.  A lesson repeats its formulas, so this happens.
+  const accepted = [];
   for (const st of starts) {
     const a = align(pattern, hay, st, budget);
-    if (!a || a.cost > budget || a.maxRun > MAX_RUN) continue;
-    if (!best || a.cost < best.cost) { best = a; tied = false; }
-    else if (a.cost === best.cost && (a.end <= best.at || a.at >= best.end)) tied = true;
+    if (a && a.cost <= budget && a.maxRun <= MAX_RUN) accepted.push(a);
   }
-  return tied ? null : best;
+  if (!accepted.length) return null;
+  accepted.sort((x, y) => x.at - y.at || x.cost - y.cost);
+  let clusters = 0, reach = -1, best = null;
+  for (const a of accepted) {
+    if (a.at >= reach) clusters++;
+    reach = Math.max(reach, a.end);
+    if (!best || a.cost < best.cost) best = a;
+  }
+  return clusters > 1 ? { ambiguous: true } : best;
 }
 
 function compare(frag, src) {
@@ -393,6 +414,7 @@ function compare(frag, src) {
   // substitute them, so look for the same passage rather than the same shape.
   const win = realign(sk, src.sk);
   if (!win) return { found: false };
+  if (win.ambiguous) return { found: false, ambiguous: true };
   return Object.assign({ found: true, at: win.at, pidx: idx, edits: win.cost, maxRun: win.maxRun },
                        read(win.ops));
 }
@@ -468,7 +490,8 @@ function applyEdits(frag, cmp, src) {
 
 // ------------------------------------------------------------------ modes
 const argv = process.argv.slice(2);
-const MODE = argv.includes('--anchor') ? 'anchor'
+const MODE = argv.includes('--restore') ? 'restore'
+  : argv.includes('--anchor') ? 'anchor'
   : argv.includes('--sync') ? 'sync'
   : argv.includes('--mark') ? 'mark'
   : argv.includes('--witnesses') ? 'witnesses'
@@ -478,6 +501,7 @@ const MODE = argv.includes('--anchor') ? 'anchor'
 const WRITE = argv.includes('--write');
 const HERE = 'node scripts/sync-rendered-snippets.js';
 const decisionFile = (argv.find(a => a.startsWith('--decisions=')) || '').split('=')[1];
+const FROM = (argv.find(a => a.startsWith('--from=')) || '').split('=')[1];
 const DECISIONS = decisionFile
   ? new Map(fs.readFileSync(decisionFile, 'utf8').trim().split('\n')
       .map(l => l.split('\t')).map(([f, label, flag]) => [`${f}\t${label}`, flag]))
@@ -485,7 +509,7 @@ const DECISIONS = decisionFile
 
 const tally = { records: 0, anchored: 0, absent: 0, unmatched: 0, short: 0, ortho: 0,
                 agreed: 0, changed: 0, skipped: 0, marked: 0, realigned: 0,
-                kept: [], notes: [], problems: [], open: [] };
+                kept: [], spent: [], notes: [], problems: [], open: [] };
 
 /** the anchor string for a snippet as it stands now */
 function stamp(text, lessonId, keepFlag, existing, raw) {
@@ -512,15 +536,33 @@ function stamp(text, lessonId, keepFlag, existing, raw) {
   let v = `${a.which}${a.lesson}#${hash(skeleton(frag).sk)}` + (whole ? '' : `#${a.start}-${a.end}`);
   const src = lessonField(a.lesson, a.which);
   const cmp = compare(frag, src);
-  if (cmp.found && !cmp.drift.length) return v + '=' + hash(frag);   // they agree: record it
-  if (keepFlag) v += '!' + keepFlag;                                 // still differs: keep the judgement
+  // A judgement written into the data is an editorial decision, and a build
+  // step does not get to delete one.  When the difference it was recorded
+  // against has gone, the flag stays and is reported as spent; clearing it is
+  // a deliberate act: --mark with "-".
+  if (cmp.found && !cmp.drift.length) return v + '=' + hash(frag) + (keepFlag ? '!' + keepFlag : '');
+  if (keepFlag) v += '!' + keepFlag;
   return v;
+}
+
+/** the named records as a git revision had them, for --restore */
+function asOf(rev, target) {
+  const raw = require('child_process')
+    .execFileSync('git', ['-C', ROOT, 'show', `${rev}:${target.file}`], { maxBuffer: 1 << 28 })
+    .toString('utf8');
+  const out = new Map();
+  for (const { rec, label } of target.walk(JSON.parse(raw)))
+    out.set(label, { text: rec[target.field], anchor: rec.sourceAnchor });
+  return out;
 }
 
 for (const target of TARGETS) {
   const file = path.join(ROOT, target.file);
   const data = JSON.parse(fs.readFileSync(file, 'utf8'));
   let dirty = false;
+  const wanted = MODE === 'restore'
+    ? [...DECISIONS.keys()].some(k => k.startsWith(target.file + '\t')) : false;
+  const before = wanted ? asOf(FROM, target) : null;
 
   for (const { rec, label } of target.walk(data)) {
     const text = rec[target.field];
@@ -528,6 +570,18 @@ for (const target of TARGETS) {
     if (typeof text !== 'string' || typeof lessonId !== 'number') continue;
     tally.records++;
     const a = parseAnchor(rec.sourceAnchor);
+
+    if (MODE === 'restore') {
+      if (!DECISIONS.has(`${target.file}\t${label}`) || !before) continue;
+      const was = before.get(label);
+      if (!was) { console.log(`  ${target.file}  ${label} — not in ${FROM}`); continue; }
+      if (was.text === text && was.anchor === rec.sourceAnchor) { console.log(`  ${target.file}  ${label} — already as ${FROM} has it`); continue; }
+      rec[target.field] = was.text;
+      if (was.anchor === undefined) delete rec.sourceAnchor; else rec.sourceAnchor = was.anchor;
+      dirty = true; tally.marked++;
+      console.log(`  ${target.file}  ${label}  restored to ${FROM}: anchor ${was.anchor}`);
+      continue;
+    }
 
     if (MODE === 'mark') {
       const flag = DECISIONS.get(`${target.file}\t${label}`);
@@ -541,6 +595,8 @@ for (const target of TARGETS) {
 
     if (MODE === 'anchor') {
       const v = stamp(text, lessonId, a.flag, a, rec.sourceAnchor);
+      if (a.flag && parseAnchor(v).agreed)
+        tally.spent.push(`${target.file}  ${label}  !${a.flag}`);
       if (rec.sourceAnchor !== v) { rec.sourceAnchor = v; dirty = true; }
       const st = parseAnchor(v);
       if (st.state === 'anchored') { tally.anchored++; if (st.agreed) tally.agreed++; }
@@ -587,6 +643,23 @@ for (const target of TARGETS) {
     const cmp = compare(frag, src);
     if (!cmp.found) {
       if (MODE !== 'check') continue;
+      if (cmp.ambiguous) {
+        // More than one passage in the lesson fits this snippet.  Re-anchoring
+        // would pick one of them, which is the thing not to do.
+        tally.open.push({ file: target.file, label, lesson: a.lesson, which: a.which, flag: a.flag,
+          note: 'more than one passage in this lesson fits the snippet, so it cannot be placed — '
+            + 'a person has to say which', show: [] });
+        continue;
+      }
+      if (skeleton(frag).sk.length < MIN_REALIGN) {
+        // Too little text to place by alignment, so whether the passage was
+        // repaired or reworded cannot be told apart here.  Say so; do not
+        // stop a build on a guess.
+        tally.open.push({ file: target.file, label, lesson: a.lesson, which: a.which, flag: a.flag,
+          note: 'its passage is not where it was, and the snippet is too short to place by alignment',
+          show: [] });
+        continue;
+      }
       tally.problems.push({ file: target.file, label, lessonId, kind: 'passage reworded',
         detail: `lesson ${a.lesson} ${FIELD[a.which]} holds no passage close enough to be this one — `
           + `no window aligns within ${editBudget(skeleton(frag).sk.length)} letter edits without a run of `
@@ -600,7 +673,8 @@ for (const target of TARGETS) {
     if (!cmp.drift.length) {
       if (MODE === 'check' && a.flag)
         tally.notes.push(`${target.file}  ${label}  marked !${a.flag} but it now agrees with `
-          + `lesson ${a.lesson} ${FIELD[a.which]} — clear it with \`${HERE} --anchor --write\``);
+          + `lesson ${a.lesson} ${FIELD[a.which]} — the judgement is spent; clear it deliberately with `
+          + `\`${HERE} --mark --decisions=FILE --write\` listing "${target.file}\t${label}\t-"`);
       continue;
     }
 
@@ -686,11 +760,23 @@ for (const target of TARGETS) {
 
 // ----------------------------------------------------------------- output
 if (MODE === 'witnesses' || MODE === 'settled' || MODE === 'disagreements') process.exit(0);
+if (MODE === 'restore') {
+  console.log(`${tally.marked} record${tally.marked === 1 ? '' : 's'} restored from ${FROM}`
+    + (WRITE ? '' : ' (dry run — pass --write)'));
+  process.exit(0);
+}
 if (MODE === 'mark') {
   console.log(`${tally.marked} anchors marked` + (WRITE ? '' : ' (dry run — pass --write)'));
   process.exit(0);
 }
 if (MODE === 'anchor') {
+  if (tally.spent.length) {
+    console.log(`${tally.spent.length} judgement${tally.spent.length === 1 ? '' : 's'} kept though spent — `
+      + `the record now agrees with the lesson, and clearing a judgement is a deliberate act, `
+      + `not something a re-anchor does:`);
+    tally.spent.forEach(x => console.log(`  ${x}`));
+    console.log(`  clear them with \`${HERE} --mark --decisions=FILE --write\` and "-" as the flag`);
+  }
   if (tally.kept.length)
     console.log(`${tally.kept.length} anchor${tally.kept.length === 1 ? '' : 's'} left as they were: `
       + `their snippet differs from the lesson at single positions inside words, which is a repair to `
@@ -725,7 +811,7 @@ if (tally.open.length) {
       : flagName(o.flag) === 'lesson' ? 'the lesson is the broken witness'
       : flagName(o.flag) === 'review' ? 'neither reading judged yet'
       : 'not judged yet';
-    console.log(`  ${o.file}  ${o.label}  (lesson ${o.lesson} ${FIELD[o.which]}) — ${tag}`);
+    console.log(`  ${o.file}  ${o.label}  (lesson ${o.lesson} ${FIELD[o.which]}) — ${o.note || tag}`);
     o.show.slice(0, 3).forEach(w => console.log(`      record: ${w.record}    lesson: ${w.lesson}`));
   }
   if (tally.open.length > 12) console.log(`  ... and ${tally.open.length - 12} more — \`${HERE} --disagreements\``);
