@@ -79,7 +79,7 @@ warrant -- see the two paragraphs at the end of section 1.
     scored `min\' higher; the rest sit outside any citation the aligner can
     anchor.  None was guessed.
 
-3.  Eighteen sites confirmed one at a time -- class `named`
+3.  Twenty-five sites confirmed one at a time -- class `named`
 
     Each carries its own warrant in the table.  Three deserve saying aloud:
       - L45 @16598 `fa-li-dhalika\' was written by the first pass and REVERTED
@@ -98,6 +98,51 @@ warrant -- see the two paragraphs at the end of section 1.
         substitution: the hamza seat and the ya stand in each other\'s places.
         `riy\'\' is not an Arabic word and the passive of ra\'a is the only
         reading the sentence admits.
+
+    THE SAME SENTENCE CAN BE CORRUPTED TWO DIFFERENT WAYS, AND ONE ROW THEN
+    COVERS ONLY ONE OF THEM.  The Sibawayh anecdote stands twice in Lesson 1.
+    `arabicBody\' @13441 read `ry\'\' and `arabicFootnotes\' @20074 reads
+    `rb\'\' -- ba, not ya.  The first version of this file carried the body
+    row alone, so the footnote kept the wrong reading twenty thousand
+    characters from the right one.  `rb\'\' is the worse of the two to leave
+    standing, because `rabi\'a\' is a real verb, "to keep lookout", and its
+    skeleton is also the mushaf\'s `rabbi\': the footnote reads as Arabic and
+    nothing downstream would have caught it.  Both rows are here now.
+    The corpus corroborates the repair on its own: scholars.json spells the
+    same passive `r\'y\' at al-Ghazali[7], `majnun Layla RU\'IYA `ala katifihi
+    kalb\', and the Sibawayh record is the only place it is spelt otherwise.
+
+    That prompted a sweep of all 578 sites for the general case -- a parallel
+    copy of a repaired word carrying a DIFFERENT misreading, which a table keyed
+    to one corrupt form cannot see.  Lessons 1-30 carry much of arabicBody again
+    in arabicFootnotes; the two word sequences were aligned per lesson and every
+    repaired site mapped to its partner.  356 sites had a parallel copy, 192 are
+    in lessons 31-56 where arabicFootnotes is empty, and 30 the alignment could
+    not map were retried by anchoring on neighbours instead of on the word: 22
+    of those have no parallel passage at all.  FOUR partners carried a different
+    corruption, three of them written here:
+
+      L1  fn   @20074  rb\'    -> ru\'iya     (above)
+      L7  body @36850  mih    -> fi          Q 2:284
+      L11 body @26066  ta`mir -> wa-yaghfir  Q 4:48
+
+    The fourth, L16 body @19367, reads `fi\' with the ya simply absent -- a
+    missing letter, not a substitution, so it is out of scope and on the
+    worklist.
+
+    Each of the three drags in the rest of its citation, because half a
+    citation is worse than none:
+      L7  body @36892 `fih\' and @36897 `anmusikum\' complete Q 2:284;
+      L11 body @26026 `at\' and @26039 `ya`mir\' complete Q 4:48.
+    Q 4:48 in that copy still ends `yasha\'ah\' for `yasha\'u\': a letter too
+    many, which cannot be removed without moving every later offset.
+
+    L11 @26039 and @26066 are also the one place where the GHAYN is damaged as
+    well as the fa -- `yaghfir\' read as `ya`mir\'.  Section 1 requires the
+    ghayn to be intact, so that whole class was invisible to this pass.  It is
+    1,005 candidates corpus-wide and it is NOT worked here: 726 of them are the
+    name `Umar and most of the rest are sound `amal, `aql, `abara.  Only 46
+    reach a neighbour score of 2.  It belongs in a pass of its own.
 
     NOT WRITTEN, THOUGH IT WAS IN THE FIRST VERSION OF THIS FILE: L21 body
     @5220 `miyyatan\' for Q 8:45 `fi\'atan\'.  Moving the mim alone leaves
@@ -148,6 +193,7 @@ WRITE = '--write' in sys.argv
 FIXES = {
     1: [
         ('arabicBody',  13441, '0631064a0626', ((1, '0626'), (2, '064a'), ), '-', 0, 'named', 'riy\' -> RU\'IYA Sibawayh fi l-janna'),
+        ('arabicFootnotes',  20074, '063106280626', ((1, '0626'), (2, '064a'), ), '-', 0, 'named', 'riy\' -> RU\'IYA; the SECOND copy of the Sibawayh sentence, corrupted as `rb\'` not `ry\'`'),
     ],
     2: [
         ('arabicBody',   2091, '0648064e064a064e063a0652064506500631064f', ((6, '0641'), ), '4:48', 5, 'ghfr', 'ويغمر -> ويغفر'),
@@ -201,6 +247,9 @@ FIXES = {
     ],
     7: [
         ('arabicBody',  41713, '06450650064a', ((0, '0641'), ), '3:5', 3, 'fi', 'mi -> FI'),
+        ('arabicBody',  36897, '0623064e064606520645064f063306500643064f06450652', ((4, '0641'), ), '2:284', 0, 'named', 'anmusikum -> anFusikum; finishing the citation'),
+        ('arabicBody',  36892, '06410650062d0650', ((2, '064a'), ), '2:284', 0, 'named', 'fih -> FI; ha for ya, the same fault as @36850 in the same citation'),
+        ('arabicBody',  36850, '06450650062d0650', ((0, '0641'), (2, '064a'), ), '2:284', 0, 'named', 'mih -> FI; `fi l-samawat` stands sound 24 characters earlier in the same citation'),
         ('arabicBody',   4420, '064a064e063a0652062806500631064e', ((4, '0641'), ), '26:82', 3, 'ghfr', 'يغبر -> يغفر'),
         ('arabicFootnotes',  63460, '06450650064a', ((0, '0641'), ), '3:13', 6, 'fi', 'mi -> FI'),
         ('arabicFootnotes',  60376, '06450650064a', ((0, '0641'), ), '3:7', 4, 'fi', 'mi -> FI'),
@@ -244,6 +293,9 @@ FIXES = {
    11: [
         ('arabicBody',  41917, '06450650064a', ((0, '0641'), ), '4:74', 3, 'fi', 'mi -> FI'),
         ('arabicBody',  38154, '0648064e062706330652062a064e063a06520628064e0631064e', ((9, '0641'), ), '4:64', 4, 'ghfr', 'واستغبر -> واستغفر'),
+        ('arabicBody',  26066, '0648064e062a064e06390652064506500631064f', ((2, '064a'), (4, '063a'), (6, '0641'), ), '4:48', 0, 'named', 'ta`mir -> waYaGHFir; the same, three letters'),
+        ('arabicBody',  26039, '064a064e06390652064506500631064f', ((2, '063a'), (4, '0641'), ), '4:48', 0, 'named', 'ya`mir -> yaGHFir; the ghayn is damaged too, which no rule in this pass could see'),
+        ('arabicBody',  26026, '0627062a', ((1, '0646'), ), '4:48', 0, 'named', 'at -> INna llah; opening the citation'),
         ('arabicBody',  24990, '0648064e064a064e063a0652062806500631064f', ((6, '0641'), ), '4:48', 3, 'ghfr', 'ويغبر -> ويغفر'),
         ('arabicBody',  24412, '0648064e064a064e063a0652062806500631064f', ((6, '0641'), ), '4:48', 4, 'ghfr', 'ويغبر -> ويغفر'),
         ('arabicBody',  24385, '064a064e063a06520645065006310652', ((4, '0641'), ), '4:48', 3, 'ghfr', 'يغمر -> يغفر'),

@@ -246,25 +246,77 @@ function alignedWords(frag, cmp, src, d) {
            partial: cut0 || cut1 };
 }
 
+const MAX_SUBS = 3;   // substituted positions still count as a repair
+
+/**
+ * Find `pattern` inside `hay` at the SAME LENGTH with at most k positions
+ * substituted.  Splitting the pattern into k+1 blocks means at least one block
+ * survives untouched however the k substitutions fall, so the candidate
+ * offsets are cheap to enumerate and then check.  A tie between two equally
+ * close windows is no answer at all, so it returns nothing.
+ */
+function relocate(pattern, hay, k) {
+  const n = pattern.length;
+  if (!n || n > hay.length) return null;
+  const blocks = k + 1;
+  const size = Math.floor(n / blocks);
+  if (size < 6) return null;                 // too short to place this way
+  const seen = new Set();
+  let best = null, tied = false;
+  for (let b = 0; b < blocks; b++) {
+    const off = b * size;
+    const block = pattern.slice(off, b === blocks - 1 ? n : off + size);
+    for (let i = hay.indexOf(block); i !== -1; i = hay.indexOf(block, i + 1)) {
+      const start = i - off;
+      if (start < 0 || start + n > hay.length || seen.has(start)) continue;
+      seen.add(start);
+      let dist = 0;
+      for (let j = 0; j < n && dist <= k; j++) if (pattern[j] !== hay[start + j]) dist++;
+      if (dist > k) continue;
+      if (!best || dist < best.dist) { best = { at: start, dist }; tied = false; }
+      else if (dist === best.dist && start !== best.at) tied = true;
+    }
+  }
+  return tied ? null : best;
+}
+
 function compare(frag, src) {
   const { sk, idx } = skeleton(frag);
-  const hits = occurrences(src.sk, sk);
-  if (!hits.length) return { found: false };
-  let best = null;
-  for (const h of hits) {
+  const YA = String.fromCharCode(0x064A), ALIF_MAKSURA = String.fromCharCode(0x0649);
+  const differences = at => {
     const drift = [], ortho = [];
     for (let k = 0; k < sk.length; k++) {
-      const a = frag[idx[k]], b = src.text[src.idx[h + k]];
+      const a = frag[idx[k]], b = src.text[src.idx[at + k]];
       if (a === b) continue;
-      // alif maksura / ya is an orthographic variant, not a repair class
-      const variant = (a === 'ى' && b === 'ي') || (a === 'ي' && b === 'ى');
-      (!variant && CLASS.has(a) && CLASS.get(a) === CLASS.get(b) ? drift : ortho)
-        .push({ k, at: idx[k], from: a, to: b, srcAt: src.idx[h + k] });
+      // hamza seat, alif form, ta marbuta and alif maksura / ya are
+      // orthographic variants; no repair pass moves them
+      const variant = (a === ALIF_MAKSURA && b === YA) || (a === YA && b === ALIF_MAKSURA)
+        || (SOFT.has(a) && SOFT.get(a) === SOFT.get(b));
+      (variant ? ortho : drift).push({ k, at: idx[k], from: a, to: b, srcAt: src.idx[at + k] });
     }
-    if (!best || drift.length < best.drift.length) best = { found: true, at: h, drift, ortho, pidx: idx };
+    return { drift, ortho };
+  };
+
+  let best = null;
+  for (const h of occurrences(src.sk, sk)) {
+    const { drift, ortho } = differences(h);
+    if (!best || drift.length < best.drift.length)
+      best = { found: true, at: h, drift, ortho, pidx: idx, substituted: 0 };
     if (!drift.length) break;
   }
-  return best;
+  if (best) return best;
+
+  // Nothing at this skeleton.  The repairs no longer stay inside the classes
+  // the fold folds across — a pass that settles a word by its aya writes
+  // whatever the aya has: a transposition, a two-letter change, a letter from
+  // no class at all — so a repaired passage can carry a skeleton this record
+  // has never seen.  Look for it at the same length with a few positions
+  // substituted.  Same length means no word was added, removed or reordered,
+  // and that is what separates a repair from a reword.
+  const win = relocate(sk, src.sk, MAX_SUBS);
+  if (!win) return { found: false };
+  const { drift, ortho } = differences(win.at);
+  return { found: true, at: win.at, drift, ortho, pidx: idx, substituted: win.dist };
 }
 
 // ------------------------------------------------------------------ modes
@@ -285,11 +337,23 @@ const DECISIONS = decisionFile
   : null;
 
 const tally = { records: 0, anchored: 0, absent: 0, unmatched: 0, short: 0, ortho: 0,
-                agreed: 0, changed: 0, skipped: 0, marked: 0,
-                notes: [], problems: [], open: [] };
+                agreed: 0, changed: 0, skipped: 0, marked: 0, substituted: 0,
+                kept: [], notes: [], problems: [], open: [] };
 
 /** the anchor string for a snippet as it stands now */
-function stamp(text, lessonId, keepFlag) {
+function stamp(text, lessonId, keepFlag, existing, raw) {
+  // Re-anchoring a record whose difference is a handful of substituted
+  // positions would re-fingerprint the damaged snippet and freeze it as the
+  // accepted reading.  Keep the anchor as it is and say so: --sync is what
+  // that case wants.
+  if (existing && existing.state === 'anchored') {
+    const frag0 = existing.start === null ? text : text.slice(existing.start, existing.end);
+    const src0 = lessonField(existing.lesson, existing.which);
+    if (src0 && hash(skeleton(frag0).sk) === existing.fp) {
+      const cmp0 = compare(frag0, src0);
+      if (cmp0.found && cmp0.substituted) { tally.kept.push({ raw }); return raw; }
+    }
+  }
   if (skeleton(text).sk.length < MIN_ANCHOR) return 'short';
   const a = anchorFor(text, lessonId);
   if (!a) {
@@ -329,7 +393,7 @@ for (const target of TARGETS) {
     }
 
     if (MODE === 'anchor') {
-      const v = stamp(text, lessonId, a.flag);
+      const v = stamp(text, lessonId, a.flag, a, rec.sourceAnchor);
       if (rec.sourceAnchor !== v) { rec.sourceAnchor = v; dirty = true; }
       const st = parseAnchor(v);
       if (st.state === 'anchored') { tally.anchored++; if (st.agreed) tally.agreed++; }
@@ -347,7 +411,7 @@ for (const target of TARGETS) {
     if (a.state !== 'anchored') {
       tally[a.state]++;
       if (MODE !== 'check') continue;
-      const now = parseAnchor(stamp(text, lessonId, null));
+      const now = parseAnchor(stamp(text, lessonId, null, null, null));
       if (now.state === 'anchored')
         tally.notes.push(`${target.file}  ${label}  marked "${a.state}" but its passage is now in `
           + `lesson ${now.lesson} ${FIELD[now.which]} — re-anchor with \`${HERE} --anchor --write\``);
@@ -376,10 +440,12 @@ for (const target of TARGETS) {
     const cmp = compare(frag, src);
     if (!cmp.found) {
       if (MODE !== 'check') continue;
-      tally.problems.push({ file: target.file, label, lessonId, kind: 'passage moved',
-        detail: `the passage this snippet copies is no longer in lesson ${a.lesson} ${FIELD[a.which]}\n`
+      tally.problems.push({ file: target.file, label, lessonId, kind: 'passage reworded',
+        detail: `lesson ${a.lesson} ${FIELD[a.which]} no longer holds this passage at any reading of it — `
+          + `words have been added, removed or reordered, not just letters corrected\n`
           + `      snippet begins: ${tidy(frag.slice(0, 60))}`,
-        fix: `if the lesson was reworded on purpose, re-anchor with \`${HERE} --anchor --write\`` });
+        fix: `read the lesson passage first; if it was reworded on purpose, re-anchor with `
+          + `\`${HERE} --anchor --write\`` });
       continue;
     }
     if (cmp.ortho.length) tally.ortho++;
@@ -410,7 +476,17 @@ for (const target of TARGETS) {
       }
       const chars = Array.from(text);
       words.forEach(w => { chars[w.abs] = w.d.to; });
-      rec[target.field] = chars.join('');
+      const fixed = chars.join('');
+      rec[target.field] = fixed;
+      // The snippet now says what the lesson says, so both fingerprints are
+      // restamped here rather than waiting for --anchor: a repair that lands
+      // outside the fold's classes changes the skeleton too, and leaving the
+      // old one behind would read as a reworded passage on the next run.  The
+      // lesson, field and span are kept exactly as they were — this restamps
+      // an anchor, it does not go looking for a new one.
+      const span = a.start === null ? '' : `#${a.start}-${a.end}`;
+      const newFrag = a.start === null ? fixed : fixed.slice(a.start, a.end);
+      rec.sourceAnchor = `${a.which}${a.lesson}#${hash(skeleton(newFrag).sk)}${span}=${hash(newFrag)}`;
       dirty = true; tally.changed++;
       show.forEach(w => console.log(`  ${target.file}  ${label}  ${w.record} -> ${w.lesson}`));
       continue;
@@ -437,10 +513,14 @@ for (const target of TARGETS) {
       .map(w => `        record: ${w.record}    lesson: ${w.lesson}`).join('\n')
       + (show.length > 6 ? `\n        ... and ${show.length - 6} more` : '');
 
+    if (cmp.substituted) tally.substituted++;
+    const how = cmp.substituted
+      ? ` (found at the same length with ${cmp.substituted} position${cmp.substituted > 1 ? 's' : ''} `
+        + `substituted, which is a repair and not a reword)` : '';
     if (proven) {
       tally.problems.push({ file: target.file, label, lessonId, kind: 'record is stale',
         detail: `this snippet has not changed since it agreed with lesson ${a.lesson} `
-          + `${FIELD[a.which]}, so the lesson is what moved:\n${lines}`,
+          + `${FIELD[a.which]}, so the lesson is what moved${how}:\n${lines}`,
         fix: `carry it over with \`${HERE} --sync --write\`\n`
           + `      if the lesson's reading is the wrong one, record that instead: `
           + `\`${HERE} --mark --decisions=FILE --write\` with "${target.file}\t${label}\tlesson"` });
@@ -461,6 +541,10 @@ if (MODE === 'mark') {
   process.exit(0);
 }
 if (MODE === 'anchor') {
+  if (tally.kept.length)
+    console.log(`${tally.kept.length} anchor${tally.kept.length === 1 ? '' : 's'} left as they were: `
+      + `their snippet differs from the lesson at single positions inside words, which is a repair to `
+      + `carry over with \`${HERE} --sync --write\`, not a passage to re-anchor on`);
   console.log(`anchored ${tally.anchored} of ${tally.records} records `
     + `(${tally.agreed} agree with the lesson letter for letter) · `
     + `${tally.absent} source absent · ${tally.unmatched} unmatched · ${tally.short} too short`);
