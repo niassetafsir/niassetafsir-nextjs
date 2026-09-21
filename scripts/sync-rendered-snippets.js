@@ -219,6 +219,43 @@ const flagName = f => (f || '').split(':')[0];
 const flagRef = f => (f || '').split(':')[1] || '';
 
 // ------------------------------------------------------------- comparison
+//
+// Two jobs must not be confused here.
+//
+// Deciding WHAT A PASSAGE SAYS — whether this sentence quotes that aya, which
+// of two readings is the sound one — is not something a similarity score can
+// answer, and this file never tries: a difference it cannot account for is
+// reported for a person to judge, never guessed at.
+//
+// Deciding WHETHER TWO STRINGS ARE THE SAME PASSAGE is a different question,
+// and a bounded edit distance is a fair answer to it.  That is the only job
+// the threshold below does: it decides whether the sentence in the lesson is
+// the same sentence this record copied, so that the letters can then be
+// compared and shown.  It licenses no claim about which letters are right.
+//
+// The rule stopped being "the eight confusion classes", then stopped being
+// "the same length with three positions substituted", because both described
+// the shape repairs happened to take that week rather than what a repair is.
+// What holds across all of them: a repair corrects letters inside words it
+// leaves standing, while a reword adds, removes or reorders words.  So:
+//
+//   * the whole snippet must align against the candidate, end to end;
+//   * the edit distance must be small relative to length — one edit per fifty
+//     letters, never fewer than three;
+//   * no single run of inserted or dropped letters may exceed two, so a
+//     clause can never qualify however small the distance is beside a long
+//     passage;
+//   * exactly one window may fit, or the passage has not been identified.
+//
+// Word order comes free: the alignment preserves it, and a reordering shows up
+// as a large distance.  Word count is guarded by the run cap.  A dropped or
+// restored one-letter word passes as a repair, which is what it is.
+const EDIT_FLOOR = 3;      // always allow three edits
+const EDIT_RATE = 50;      // and one more per fifty letters
+const MAX_RUN = 2;         // a longer run of indels is a clause, not a correction
+const MIN_REALIGN = 24;    // folded letters; shorter than this, nothing is distinctive
+const editBudget = n => Math.max(EDIT_FLOOR, Math.ceil(n / EDIT_RATE));
+
 const tokenRange = (s, i) => {
   let a = i, b = i;
   while (a > 0 && TOKEN.test(s[a - 1])) a--;
@@ -227,55 +264,88 @@ const tokenRange = (s, i) => {
 };
 
 /**
- * The word a difference sits in, on both sides.  footnotesData.json spaces
- * some words internally where the lesson does not, so the record side is read
- * off the skeleton alignment — the span facing the lesson's word — rather than
- * by looking for token boundaries in the snippet, which would return a single
- * letter and compare nonsense.
+ * Global alignment of the whole pattern against hay starting at `start`,
+ * allowing the end to fall anywhere within the budget.  Returns the cost, the
+ * longest run of inserted or dropped letters, and the edit script.
  */
-function alignedWords(frag, cmp, src, d) {
-  const [ts, te] = tokenRange(src.text, d.srcAt);
-  let k0 = d.k, k1 = d.k;
-  while (k0 > 0 && src.idx[cmp.at + k0 - 1] >= ts) k0--;
-  while (k1 < cmp.pidx.length - 1 && cmp.at + k1 + 1 < src.idx.length
-         && src.idx[cmp.at + k1 + 1] <= te) k1++;
-  const cut0 = k0 === 0 && src.idx[cmp.at] > ts;
-  const cut1 = k1 === cmp.pidx.length - 1 && src.idx[cmp.at + k1] < te;
-  return { lesson: src.text.slice(ts, te + 1),
-           record: (cut0 ? '…' : '') + frag.slice(cmp.pidx[k0], cmp.pidx[k1] + 1) + (cut1 ? '…' : ''),
-           partial: cut0 || cut1 };
+function align(pattern, hay, start, budget) {
+  const n = pattern.length;
+  const m = Math.min(hay.length - start, n + budget);
+  if (m < n - budget) return null;
+  const INF = 1e9;
+  const width = m + 1;
+  const D = new Int32Array((n + 1) * width).fill(INF);
+  const at = (i, j) => i * width + j;
+  D[0] = 0;
+  for (let j = 1; j <= Math.min(budget, m); j++) D[at(0, j)] = j;
+  for (let i = 1; i <= n; i++) {
+    const lo = Math.max(0, i - budget), hi = Math.min(m, i + budget);
+    for (let j = lo; j <= hi; j++) {
+      let best = INF;
+      if (j > 0) {
+        const sub = D[at(i - 1, j - 1)];
+        if (sub < INF) best = sub + (pattern[i - 1] === hay[start + j - 1] ? 0 : 1);
+        const ins = D[at(i, j - 1)];                       // a letter the lesson has
+        if (ins + 1 < best) best = ins + 1;
+      }
+      const del = D[at(i - 1, j)];                          // a letter only the record has
+      if (del + 1 < best) best = del + 1;
+      D[at(i, j)] = best;
+    }
+  }
+  let endJ = -1, cost = INF;
+  for (let j = Math.max(0, n - budget); j <= m; j++) {
+    if (D[at(n, j)] < cost) { cost = D[at(n, j)]; endJ = j; }
+  }
+  if (endJ < 0 || cost >= INF) return null;
+
+  const ops = [];
+  let i = n, j = endJ, run = 0, maxRun = 0;
+  while (i > 0 || j > 0) {
+    const here = D[at(i, j)];
+    if (i > 0 && j > 0 && here === D[at(i - 1, j - 1)] + (pattern[i - 1] === hay[start + j - 1] ? 0 : 1)) {
+      ops.push({ op: 'pair', k: i - 1, j: start + j - 1 }); i--; j--; run = 0;
+    } else if (i > 0 && here === D[at(i - 1, j)] + 1) {
+      ops.push({ op: 'del', k: i - 1, j: start + j }); i--; run++;
+    } else if (j > 0 && here === D[at(i, j - 1)] + 1) {
+      ops.push({ op: 'ins', k: i, j: start + j - 1 }); j--; run++;
+    } else break;
+    if (run > maxRun) maxRun = run;
+  }
+  ops.reverse();
+  return { cost, ops, maxRun, at: start, end: start + endJ };
 }
 
-const MAX_SUBS = 3;   // substituted positions still count as a repair
-
 /**
- * Find `pattern` inside `hay` at the SAME LENGTH with at most k positions
- * substituted.  Splitting the pattern into k+1 blocks means at least one block
- * survives untouched however the k substitutions fall, so the candidate
- * offsets are cheap to enumerate and then check.  A tie between two equally
- * close windows is no answer at all, so it returns nothing.
+ * Where this passage now sits in the field, if it still sits there at all.
+ * Candidates come from blocks of the pattern that survived untouched; each is
+ * then aligned in full.  A tie is no answer, so it returns nothing.
  */
-function relocate(pattern, hay, k) {
+function realign(pattern, hay) {
   const n = pattern.length;
-  if (!n || n > hay.length) return null;
-  const blocks = k + 1;
+  if (n < MIN_REALIGN || !hay.length) return null;
+  const budget = editBudget(n);
+  const blocks = budget + 1;
   const size = Math.floor(n / blocks);
-  if (size < 6) return null;                 // too short to place this way
-  const seen = new Set();
-  let best = null, tied = false;
+  if (size < 6) return null;
+  const starts = new Set();
   for (let b = 0; b < blocks; b++) {
     const off = b * size;
     const block = pattern.slice(off, b === blocks - 1 ? n : off + size);
     for (let i = hay.indexOf(block); i !== -1; i = hay.indexOf(block, i + 1)) {
-      const start = i - off;
-      if (start < 0 || start + n > hay.length || seen.has(start)) continue;
-      seen.add(start);
-      let dist = 0;
-      for (let j = 0; j < n && dist <= k; j++) if (pattern[j] !== hay[start + j]) dist++;
-      if (dist > k) continue;
-      if (!best || dist < best.dist) { best = { at: start, dist }; tied = false; }
-      else if (dist === best.dist && start !== best.at) tied = true;
+      for (let d = -budget; d <= budget; d++) {
+        const st = i - off + d;
+        if (st >= 0 && st + n - budget <= hay.length) starts.add(st);
+      }
+      if (starts.size > 400) break;
     }
+  }
+  let best = null, tied = false;
+  for (const st of starts) {
+    const a = align(pattern, hay, st, budget);
+    if (!a || a.cost > budget || a.maxRun > MAX_RUN) continue;
+    if (!best || a.cost < best.cost) { best = a; tied = false; }
+    else if (a.cost === best.cost && (a.end <= best.at || a.at >= best.end)) tied = true;
   }
   return tied ? null : best;
 }
@@ -283,40 +353,117 @@ function relocate(pattern, hay, k) {
 function compare(frag, src) {
   const { sk, idx } = skeleton(frag);
   const YA = String.fromCharCode(0x064A), ALIF_MAKSURA = String.fromCharCode(0x0649);
-  const differences = at => {
-    const drift = [], ortho = [];
-    for (let k = 0; k < sk.length; k++) {
-      const a = frag[idx[k]], b = src.text[src.idx[at + k]];
-      if (a === b) continue;
-      // hamza seat, alif form, ta marbuta and alif maksura / ya are
-      // orthographic variants; no repair pass moves them
-      const variant = (a === ALIF_MAKSURA && b === YA) || (a === YA && b === ALIF_MAKSURA)
-        || (SOFT.has(a) && SOFT.get(a) === SOFT.get(b));
-      (variant ? ortho : drift).push({ k, at: idx[k], from: a, to: b, srcAt: src.idx[at + k] });
+  // hamza seat, alif form, ta marbuta and alif maksura / ya are orthographic
+  // variants; no repair pass moves them
+  const variant = (a, b) => (a === ALIF_MAKSURA && b === YA) || (a === YA && b === ALIF_MAKSURA)
+    || (SOFT.has(a) && SOFT.get(a) === SOFT.get(b));
+
+  const read = ops => {
+    const drift = [], ortho = [], k2j = new Map(), j2k = new Map();
+    for (const o of ops) {
+      if (o.op === 'pair') {
+        k2j.set(o.k, o.j); j2k.set(o.j, o.k);
+        const a = frag[idx[o.k]], b = src.text[src.idx[o.j]];
+        if (a === b) continue;
+        (variant(a, b) ? ortho : drift).push({ kind: 'sub', k: o.k, j: o.j, at: idx[o.k],
+                                              from: a, to: b, srcAt: src.idx[o.j] });
+      } else if (o.op === 'del') {
+        drift.push({ kind: 'del', k: o.k, j: o.j, at: idx[o.k], from: frag[idx[o.k]], to: '',
+                     srcAt: src.idx[Math.min(o.j, src.idx.length - 1)] });
+      } else {
+        drift.push({ kind: 'ins', k: o.k, j: o.j, at: idx[Math.min(o.k, idx.length - 1)],
+                     from: '', to: src.text[src.idx[o.j]], srcAt: src.idx[o.j] });
+      }
     }
-    return { drift, ortho };
+    return { drift, ortho, k2j, j2k };
   };
 
   let best = null;
   for (const h of occurrences(src.sk, sk)) {
-    const { drift, ortho } = differences(h);
-    if (!best || drift.length < best.drift.length)
-      best = { found: true, at: h, drift, ortho, pidx: idx, substituted: 0 };
-    if (!drift.length) break;
+    const ops = [];
+    for (let k = 0; k < sk.length; k++) ops.push({ op: 'pair', k, j: h + k });
+    const r = read(ops);
+    if (!best || r.drift.length < best.drift.length)
+      best = Object.assign({ found: true, at: h, pidx: idx, edits: 0, maxRun: 0 }, r);
+    if (!r.drift.length) break;
   }
   if (best) return best;
 
-  // Nothing at this skeleton.  The repairs no longer stay inside the classes
-  // the fold folds across — a pass that settles a word by its aya writes
-  // whatever the aya has: a transposition, a two-letter change, a letter from
-  // no class at all — so a repaired passage can carry a skeleton this record
-  // has never seen.  Look for it at the same length with a few positions
-  // substituted.  Same length means no word was added, removed or reordered,
-  // and that is what separates a repair from a reword.
-  const win = relocate(sk, src.sk, MAX_SUBS);
+  // Not at this skeleton.  Repairs now insert and drop letters as well as
+  // substitute them, so look for the same passage rather than the same shape.
+  const win = realign(sk, src.sk);
   if (!win) return { found: false };
-  const { drift, ortho } = differences(win.at);
-  return { found: true, at: win.at, drift, ortho, pidx: idx, substituted: win.dist };
+  return Object.assign({ found: true, at: win.at, pidx: idx, edits: win.cost, maxRun: win.maxRun },
+                       read(win.ops));
+}
+
+/**
+ * The word a difference sits in, on both sides.  footnotesData.json spaces
+ * some words internally where the lesson does not, so the record side is read
+ * off the alignment — the span facing the lesson's word — rather than by
+ * looking for token boundaries in the snippet, which would return a single
+ * letter and compare nonsense.
+ */
+function alignedWords(frag, cmp, src, d) {
+  const [ts, te] = tokenRange(src.text, d.srcAt);
+  let j0 = d.j, j1 = d.j;
+  while (j0 > 0 && src.idx[j0 - 1] >= ts) j0--;
+  while (j1 < src.idx.length - 1 && src.idx[j1 + 1] <= te) j1++;
+  const ks = [];
+  for (let j = j0; j <= j1; j++) if (cmp.j2k.has(j)) ks.push(cmp.j2k.get(j));
+  const lesson = src.text.slice(ts, te + 1);
+  if (!ks.length) return { lesson, record: '—', partial: false };
+  const k0 = Math.min(...ks), k1 = Math.max(...ks);
+  const cut0 = k0 === 0 && !cmp.j2k.has(j0);
+  const cut1 = k1 === cmp.pidx.length - 1 && !cmp.j2k.has(j1);
+  return { lesson,
+           record: (cut0 ? '…' : '') + frag.slice(cmp.pidx[k0], cmp.pidx[k1] + 1) + (cut1 ? '…' : ''),
+           partial: cut0 || cut1 };
+}
+
+/**
+ * Rewrite the snippet as the lesson now has it, keeping the snippet's own
+ * spacing and punctuation.  Letters are substituted in place; a letter the
+ * lesson dropped goes with the marks that sat on it; a letter the lesson has
+ * arrives with its marks, after the previous letter and its marks and before
+ * whatever spacing follows.
+ */
+function applyEdits(frag, cmp, src) {
+  const marksAfter = (s, i) => { let j = i + 1; while (j < s.length && MARK.test(s[j])) j++; return j; };
+  const drop = new Map(), put = new Map(), sub = new Map();
+  for (const d of cmp.drift) {
+    if (d.kind === 'sub') sub.set(d.at, d.to);
+    else if (d.kind === 'del') drop.set(d.k, true);
+    else {
+      if (!put.has(d.k)) put.set(d.k, []);
+      put.get(d.k).push(src.text.slice(src.idx[d.j], marksAfter(src.text, src.idx[d.j])));
+    }
+  }
+  let out = '', cursor = 0;
+  for (let k = 0; k < cmp.pidx.length; k++) {
+    const at = cmp.pidx[k];
+    const gapEnd = at;                       // non-letters before this letter
+    let gap = frag.slice(cursor, gapEnd);
+    // Marks at the head of the gap belong to the previous letter and an
+    // inserted letter goes after them.  footnotesData.json puts spaces between
+    // a letter and its own marks ("al-la <fatha> ha"), so the run to step over
+    // is marks and the spacing between them, up to the last mark.
+    let head = 0, seen = 0;
+    for (let q = 0; q < gap.length && (MARK.test(gap[q]) || /\s/.test(gap[q])); q++)
+      if (MARK.test(gap[q])) { seen++; head = q + 1; }
+    out += gap.slice(0, head);
+    if (put.has(k)) out += put.get(k).join('');
+    out += gap.slice(head);
+    const after = marksAfter(frag, at);
+    if (!drop.has(k)) out += (sub.has(at) ? sub.get(at) : frag[at]) + frag.slice(at + 1, after);
+    cursor = after;
+  }
+  let tail = frag.slice(cursor);
+  let head = 0; while (head < tail.length && MARK.test(tail[head])) head++;
+  out += tail.slice(0, head);
+  if (put.has(cmp.pidx.length)) out += put.get(cmp.pidx.length).join('');
+  out += tail.slice(head);
+  return out;
 }
 
 // ------------------------------------------------------------------ modes
@@ -337,21 +484,21 @@ const DECISIONS = decisionFile
   : null;
 
 const tally = { records: 0, anchored: 0, absent: 0, unmatched: 0, short: 0, ortho: 0,
-                agreed: 0, changed: 0, skipped: 0, marked: 0, substituted: 0,
+                agreed: 0, changed: 0, skipped: 0, marked: 0, realigned: 0,
                 kept: [], notes: [], problems: [], open: [] };
 
 /** the anchor string for a snippet as it stands now */
 function stamp(text, lessonId, keepFlag, existing, raw) {
-  // Re-anchoring a record whose difference is a handful of substituted
-  // positions would re-fingerprint the damaged snippet and freeze it as the
-  // accepted reading.  Keep the anchor as it is and say so: --sync is what
-  // that case wants.
+  // Re-anchoring a record whose difference is a handful of corrected letters
+  // would re-fingerprint the damaged snippet and freeze it as the accepted
+  // reading.  Keep the anchor as it is and say so: --sync is what that case
+  // wants.
   if (existing && existing.state === 'anchored') {
     const frag0 = existing.start === null ? text : text.slice(existing.start, existing.end);
     const src0 = lessonField(existing.lesson, existing.which);
     if (src0 && hash(skeleton(frag0).sk) === existing.fp) {
       const cmp0 = compare(frag0, src0);
-      if (cmp0.found && cmp0.substituted) { tally.kept.push({ raw }); return raw; }
+      if (cmp0.found && cmp0.edits) { tally.kept.push({ raw }); return raw; }
     }
   }
   if (skeleton(text).sk.length < MIN_ANCHOR) return 'short';
@@ -441,8 +588,9 @@ for (const target of TARGETS) {
     if (!cmp.found) {
       if (MODE !== 'check') continue;
       tally.problems.push({ file: target.file, label, lessonId, kind: 'passage reworded',
-        detail: `lesson ${a.lesson} ${FIELD[a.which]} no longer holds this passage at any reading of it — `
-          + `words have been added, removed or reordered, not just letters corrected\n`
+        detail: `lesson ${a.lesson} ${FIELD[a.which]} holds no passage close enough to be this one — `
+          + `no window aligns within ${editBudget(skeleton(frag).sk.length)} letter edits without a run of `
+          + `more than ${MAX_RUN}, so words have been added, removed or reordered\n`
           + `      snippet begins: ${tidy(frag.slice(0, 60))}`,
         fix: `read the lesson passage first; if it was reworded on purpose, re-anchor with `
           + `\`${HERE} --anchor --write\`` });
@@ -474,9 +622,9 @@ for (const target of TARGETS) {
         console.log(`  left alone  ${target.file}  ${label} — marked !${a.flag}`);
         continue;
       }
-      const chars = Array.from(text);
-      words.forEach(w => { chars[w.abs] = w.d.to; });
-      const fixed = chars.join('');
+      const newFragment = applyEdits(frag, cmp, src);
+      const fixed = a.start === null ? newFragment
+        : text.slice(0, a.start) + newFragment + text.slice(a.end);
       rec[target.field] = fixed;
       // The snippet now says what the lesson says, so both fingerprints are
       // restamped here rather than waiting for --anchor: a repair that lands
@@ -484,9 +632,11 @@ for (const target of TARGETS) {
       // old one behind would read as a reworded passage on the next run.  The
       // lesson, field and span are kept exactly as they were — this restamps
       // an anchor, it does not go looking for a new one.
-      const span = a.start === null ? '' : `#${a.start}-${a.end}`;
-      const newFrag = a.start === null ? fixed : fixed.slice(a.start, a.end);
-      rec.sourceAnchor = `${a.which}${a.lesson}#${hash(skeleton(newFrag).sk)}${span}=${hash(newFrag)}`;
+      // an inserted or dropped letter moves the end of the span, so it is
+      // recomputed from the rewritten fragment rather than carried over
+      const span = a.start === null ? '' : `#${a.start}-${a.start + newFragment.length}`;
+      rec.sourceAnchor = `${a.which}${a.lesson}#${hash(skeleton(newFragment).sk)}${span}`
+        + `=${hash(newFragment)}`;
       dirty = true; tally.changed++;
       show.forEach(w => console.log(`  ${target.file}  ${label}  ${w.record} -> ${w.lesson}`));
       continue;
@@ -513,10 +663,10 @@ for (const target of TARGETS) {
       .map(w => `        record: ${w.record}    lesson: ${w.lesson}`).join('\n')
       + (show.length > 6 ? `\n        ... and ${show.length - 6} more` : '');
 
-    if (cmp.substituted) tally.substituted++;
-    const how = cmp.substituted
-      ? ` (found at the same length with ${cmp.substituted} position${cmp.substituted > 1 ? 's' : ''} `
-        + `substituted, which is a repair and not a reword)` : '';
+    if (cmp.edits) tally.realigned++;
+    const how = cmp.edits
+      ? ` (the passage is still there: ${cmp.edits} letter${cmp.edits > 1 ? 's' : ''} corrected, `
+        + `inserted or dropped inside words that stand unchanged — a repair, not a reword)` : '';
     if (proven) {
       tally.problems.push({ file: target.file, label, lessonId, kind: 'record is stale',
         detail: `this snippet has not changed since it agreed with lesson ${a.lesson} `

@@ -69,7 +69,11 @@ STILL NOT TOUCHED, and deliberately:
   python3 scripts/repair-quotation-brackets.py --convert --write
 """
 import argparse, json, re, unicodedata
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import repair_anchors as A
 
 DATA = Path(__file__).resolve().parent.parent / 'src' / 'data' / 'lessons'
 BRACKETS = '(){}«»﴿﴾'
@@ -85,11 +89,23 @@ MAX_BARE_RUN = 22
 MIN_MARK_DENSITY = 8      # marks per 24-letter window; below this the span is prose
 DENSITY_WINDOW = 24
 
-# (lesson, byte offset of the '{'). Read individually; in each the ')' closes an
+# The two braces that must NOT become parentheses: in each the ')' closes an
 # earlier '(' because the quotation runs on without a gloss between them.
 #   L10 "(و اتقوا { الأَرْحَامَ)"          -- 'و اتقوا' glosses nothing
 #   L51 "(مِنْ حَيْثُ سَكَنت {مِنْ وَجْدِكُمْ)" -- Q 65:6 is one unbroken phrase
-HAND_EXCLUDED_SITES = {(10, 19981), (51, 36696)}
+# Named by the words around the brace, not by an offset. The L51 site was
+# keyed to offset 36696 and the brace stands at 36694: the exclusion had
+# stopped matching and the span had been converted in spite of it. An
+# exclusion that silently never fires is the worst shape this bug takes,
+# because nothing in the output says so.
+HAND_EXCLUDED = [
+    (10, 19981,
+     ['06280627064406440647', '0648062706460634062f0643', '06280627064406440647', '0648', '0627062a064206480627'],
+     ['0627064406270631062d06270645', '06270646', '062a064206370639064806470627060c', '064806430627064606480627', '064a062a064606270634062f06480646']),
+    (51, 36694,
+     ['0627063306430646064806470646', '0627064406450637064406420627062a', '06450646', '062d064a062b', '063306430646062a'],
+     ['06450646', '0648062c062f06430645', '062706440645063106270647', '062706300627', '063706440642062a']),
+]
 
 MARKS = set('ؘؙؚؐؑؒؓؔؕؖؗ')
 
@@ -131,8 +147,22 @@ def mark_density(s, win=DENSITY_WINDOW):
     return best
 
 
+def resolve_exclusions(body, lesson):
+    """Character offsets of this lesson's hand-excluded braces, found by the
+    words around them.  Raises if one has gone missing or matches twice."""
+    out = set()
+    for les, hint, lead, tail in HAND_EXCLUDED:
+        if les != lesson:
+            continue
+        out.add(A.locate(body, '{', [A.hx(x) for x in lead],
+                         [A.hx(x) for x in tail], A.CONTEXT, hint,
+                         f'L{les} hand-excluded brace'))
+    return out
+
+
 def repair(body, lesson, convert):
     toks = list(TOK.finditer(body))
+    excluded = resolve_exclusions(body, lesson)
     edits, deletions, conversions, skipped = [], [], [], []
     for k, t in enumerate(toks):
         ch = t.group()
@@ -154,7 +184,7 @@ def repair(body, lesson, convert):
             continue
         span = body[t.start():nxt.end()]
         why = None
-        if (lesson, t.start()) in HAND_EXCLUDED_SITES:
+        if t.start() in excluded:
             why = 'hand-excluded: the closer belongs to an earlier opener'
         elif len(span) > MAX_SPAN:
             why = f'span over {MAX_SPAN} chars'
