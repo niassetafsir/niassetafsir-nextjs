@@ -255,7 +255,7 @@ export default async function Page() {
           <li>Andrea Brigaglia, &ldquo;Two Exegetical Works from Twentieth-Century West Africa: Shaykh Abū Bakr Gumi&apos;s <em>Radd al-adhhān</em> and Shaykh Ibrāhīm Niasse&apos;s <em>Fī riyāḍ al-tafsīr</em>,&rdquo; <em>Journal of Qurʾānic Studies</em> 15, no. 3 (2013): 253–266.</li>
           <li>Oludamini Ogunnaike, &ldquo;In the Gardens with Ibrāhīm: An Evaluation of <em>Fī riyāḍ al-tafsīr</em> by Shaykh Ibrāhīm Niasse, a Contemporary, Traditional Tafsīr,&rdquo; <em>Journal of Qurʾānic Studies</em> 20, no. 1 (2018): 28–46.</li>
           <li>Zachary Wright, &ldquo;The Qurʾān and Knowledge of God in West Africa: The Sufi Tafsīr of Shaykh Ibrāhīm Niasse,&rdquo; <em>Islamic Africa</em> 15, no. 1 (2023): 69–97.</li>
-          <li>Amadu Kunateh, &ldquo;Identity Without Being: Personhood in the Tafsīr of Shaykh Ibrāhīm Niasse,&rdquo; Special Issue: Presents and Futures of Islamic Philosophy, <em>Sophia</em> (under review).</li>
+          <li>Amadu Kunateh, &ldquo;Identity without Being: Personhood in the Tafsīr of Shaykh Ibrāhīm Niasse,&rdquo; Special Issue: Presents and Futures of Islamic Philosophy, <em>Sophia</em> 65, no. 3 (2026): 489–510, <a href="https://doi.org/10.1007/s11841-026-01159-0" target="_blank" rel="noopener noreferrer" className="text-gold/60 hover:text-gold transition-colors">doi.org/10.1007/s11841-026-01159-0</a>.</li>
         </ul>
 
         <div className="border border-gold/15 rounded-xl p-4 bg-gold/3">

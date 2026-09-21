@@ -166,7 +166,7 @@ export default async function EditorialConventionsPage() {
         </h2>
         <p className="mb-3 text-justify">
           The English translation is by Amadu Kunateh and currently covers Lessons 1–5; the complete
-          bilingual translation is under review for publication with an academic publisher. It proceeds
+          bilingual translation is under contract for publication. It proceeds
           from a commitment to scholarly precision and readability. The register is formal academic prose
           that preserves the oral cadences of the original — its directness, its rhythmic repetitions,
           and its transitions between legal analysis and spiritual address. Technical terms are retained

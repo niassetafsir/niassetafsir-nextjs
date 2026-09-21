@@ -106,12 +106,11 @@ export const NAV: NavSection[] = [
     labelAr: 'عن المشروع',
     hint: 'The tafsīr, this edition, and how to reach us',
     icon: '⌂',
-    match: ['/about', '/editorial-note', '/translators-note', '/introduction', '/order', '/preorder', '/get-involved'],
+    match: ['/about', '/editorial-note', '/translators-note', '/introduction', '/get-involved'],
     children: [
       { href: '/about', label: 'This edition', hint: 'What it holds, who made it, how to cite it' },
       { href: '/about/tafsir', label: 'The tafsīr', hint: 'Niasse, the tradition, and his two sources' },
       { href: '/translators-note', label: 'Editorial conventions', hint: 'Transliteration, honorifics, rasm' },
-      { href: '/order', label: 'The printed edition', hint: 'Order, and register for the bilingual' },
       { href: '/get-involved', label: 'Get in touch', hint: 'Feedback, corrections, joining' },
     ],
   },

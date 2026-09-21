@@ -29,8 +29,6 @@ const STATIC_ROUTES = [
   '/search',
   '/notes',
   '/get-involved',
-  '/order',
-  '/preorder',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -163,8 +163,8 @@ export default async function AboutPage() {
             The Print Bilingual Edition
           </h2>
           <p className="leading-6">
-            The complete bilingual print edition (Arabic facing English) is currently under review
-            for publication with an academic publisher. It differs from the Arabic compiled
+            The complete bilingual print edition (Arabic facing English) is under contract for
+            publication. It differs from the Arabic compiled
             edition in its organisation: rather than following the ten-volume structure of the
             Arabic edition, the print bilingual edition is organised around the{' '}
             <strong className="text-white/85">seven manzils</strong>, the daily recitation portions
@@ -175,8 +175,6 @@ export default async function AboutPage() {
             This seven-volume structure, each volume corresponding to one manzil, reflects the
             Shaykh&apos;s own relationship to the Qurʾān and provides a framework for the translation
             that is rooted in his practice rather than in the conventions of the printed Arabic edition.
-            Registration for the bilingual edition is on the{' '}
-            <Link href="/order" className="text-gold/70 hover:text-gold transition-colors">printed edition</Link> page.
           </p>
         </div>
 
