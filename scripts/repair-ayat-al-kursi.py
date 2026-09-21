@@ -71,18 +71,26 @@ FIXES = [
 def main(write=False):
     L = json.loads(P.read_text(encoding='utf-8'))
     body = L['arabicBody']
+    done = skipped = 0
     for off, old, idx, repl in sorted(FIXES, reverse=True):
+        new = repl if idx is None else old[:idx] + repl + old[idx + 1:]
+        assert len(new) == len(old)
         here = body[off:off + len(old)]
+        # idempotent: a site already carrying the repair is left alone.  Without
+        # this the script asserted its way to a crash on every run after the
+        # first, because it looked for the damaged form it had itself replaced.
+        if here == new:
+            skipped += 1
+            continue
         assert here == old, (
             f'{off}: found {[hex(ord(c)) for c in here]}, '
             f'expected {[hex(ord(c)) for c in old]} - Lesson 7 has changed'
         )
-        new = repl if idx is None else old[:idx] + repl + old[idx + 1:]
-        assert len(new) == len(old)
         body = body[:off] + new + body[off + len(old):]
+        done += 1
         print(f'  {off:>6}  {old}  ->  {new}')
-    print(f'\n{len(FIXES)} corrections in Lesson 7')
-    if write:
+    print(f'\n{done} corrections in Lesson 7, {skipped} already in place')
+    if write and done:
         L['arabicBody'] = body
         P.write_text(json.dumps(L, ensure_ascii=False), encoding='utf-8')
         print('WRITTEN')

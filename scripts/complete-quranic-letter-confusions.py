@@ -80,16 +80,15 @@ ROOT = Path(__file__).resolve().parent.parent / 'src' / 'data' / 'lessons'
 # lesson -> (offset, word as written by the first pass, word as it must go back,
 #            why)
 REVERTS = {
-    16: [(13075, '062a064e062a065006280639064e', '062a064e06280650064a0639064e',
-          'Q 6:51 SHAFI`, glossed `yashfa`u lahum` -- not Q 5:48 tattabi`')],
+    # Two reverts were removed on 20 September 2026.  Both undid a repair
+    # because the surrounding citation could not be finished inside these
+    # classes; scripts/repair-aya-settled-readings.py finishes both, so the
+    # reverts fired against text they no longer recognised and aborted this
+    # script on lesson 16.  They were:
+    #   16 @13075  SHAFI` -> tabi`a  (Q 6:51; now repaired to SHAFI`)
+    #   45 @16598  fa-li-dhalika -> qa-li-dhalika  (Q 42:15; now FADI`U beside it)
      8: [(12249, '06450646', '0645064a',
           'Q 3:27 `tuliju l-layla FI l-nahar`, glossed `tudkhilu l-layl`')],
-    # this pass put it right and then could not finish the citation: `jadi`u`
-    # beside it needs jim for fa, which is outside these classes, and `jadi`u`
-    # reads as Arabic, so half a repair here hides the other half. Q 42:15 in
-    # the guillemets stays as the scan left it, whole, for AK.
-    45: [(16598, '0641064e064406500630064e064406500643064e', '0642064e064406500630064e064406500643064e',
-          'Q 42:15 re-quotation cannot be finished: `JADI`U` needs jim/fa')],
 }
 
 # lesson -> [(offset, expected word as codepoints, ((index, new codepoint), ...),
