@@ -426,6 +426,8 @@ const LESSON_RANGES: [number, LessonRange][] = Object.entries(
   .map(([k, v]) => [Number(k), v] as [number, LessonRange])
   .sort((a, b) => a[0] - b[0]);
 
+const RANGE_BY_LESSON = new Map<number, LessonRange>(LESSON_RANGES);
+
 const RANGE_WITNESS = 'fi-riyad-tunis-2022';
 
 function withinRange(surah: number, ayah: number, r: LessonRange): boolean {
@@ -612,9 +614,12 @@ export const DERIVATION_LABEL: Record<Derivation, string> = {
 };
 
 export const DERIVATION_NOTE: Record<Derivation, string> = {
+  // No "Lesson N" here. The card that carries this derivation always supplies
+  // its own note with the session named, and this map is what anyone reading it
+  // by key would print instead -- placeholder and all.
   'session-range':
-    'Not found in the text. The session running through this stretch of the muṣḥaf is ' +
-    'Lesson N, so the commentary on this āya is there; where on the page has not been located.',
+    'Not found in the text. One session runs through this stretch of the muṣḥaf and reaches ' +
+    'this āya in sequence; where on its pages has not been located.',
   // What the matcher actually does, which is not what this said. It said five
   // consecutive words falling inside the āya; the floor is three, 45 of the 159
   // prose rows sit exactly there, the run is credited to every āya lying inside
@@ -654,16 +659,65 @@ function dateLabelOf(work: Work, witness: Witness): string {
   return 'undated';
 }
 
+/**
+ * Where a session quotes an āya it does not otherwise treat, and what to call it.
+ *
+ * The fifty-six sessions tile the muṣḥaf and each expounds its own stretch, so a
+ * locus inside the session that reaches the āya in sequence really is sustained
+ * commentary on it. A locus anywhere else is not. Niasse reaches across the
+ * muṣḥaf constantly -- a cross-reference, a grammatical foil, an āya counted
+ * out to make a point about a different one -- and the index now records every
+ * such quotation wherever it falls. All 4,656 derived rows claimed `tafsir`,
+ * so 544 of them printed under "Exegesis of the verse -- Sustained
+ * interpretation of the verse as a verse", with the gold rail, over a passage
+ * expounding something else.
+ *
+ * `prooftext` is the term for it: its heading, "The verse used, not
+ * interpreted", is true of every one of those 544, and it is the only act in
+ * the vocabulary that says the āya is not the object of the commentary. The
+ * grading is by session, not by whether the compiler bracketed the quotation --
+ * 70 of the 544 are bracketed citations that simply fall outside their lesson's
+ * span, and they misdescribe the passage exactly as the unbracketed ones do.
+ *
+ * Only derived rows are graded. The hand-entered links carry acts a reader set
+ * deliberately and are left alone.
+ */
+function crossSessionNote(lessonId: number): string {
+  const r = RANGE_BY_LESSON.get(lessonId);
+  if (!r) return '';
+  const bounds = `${fmt(r.start)}–${fmt(r.end)}`;
+  const span = r.exact
+    ? `Lesson ${lessonId} runs ${bounds}.`
+    : `Lesson ${lessonId} is titled by sūra rather than by āya, and its bounds (${bounds}) are ` +
+      'inferred from where the neighbouring sessions begin, so they are soft at the edges.';
+  return `${span} This āya falls outside it. He quotes it here inside the commentary on ` +
+    'another verse, which is why it is not filed as exegesis of this one.';
+}
+
 /** Resolve every link on a verse into a renderable entry. */
 export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
   const out: VerseEntry[] = [];
-  for (const link of getVerseLinks(surah, ayah)) {
-    const locus = getLocus(link.locusId);
+  const session = sessionForVerse(surah, ayah);
+
+  for (const rawLink of getVerseLinks(surah, ayah)) {
+    const locus = getLocus(rawLink.locusId);
     if (!locus) continue;
     const witness = getWitness(locus.witnessId);
     if (!witness) continue;
     const work = getWork(witness.workId);
     if (!work) continue;
+
+    // See crossSessionNote. A copy, never a mutation: these link objects are
+    // module-level and shared, and a request path must not write to them.
+    const crossSession =
+      witness.id === 'fi-riyad-site-transcription' &&
+      locus.address.lesson !== undefined &&
+      session !== undefined &&
+      locus.address.lesson !== session.lessonId;
+    const link: VerseLink = crossSession
+      ? { ...rawLink, acts: ['prooftext'], note: rawLink.note ?? crossSessionNote(locus.address.lesson as number) }
+      : rawLink;
+
     out.push({
       link,
       locus,
@@ -701,7 +755,6 @@ export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
   //
   // So a locus outside the āya's own session is supplementary. It stays on the
   // page, and the coverage card stays with it.
-  const session = sessionForVerse(surah, ayah);
   const coveredHere = out.some(
     e => e.work.id === 'fi-riyad' && e.locus.address.lesson === session?.lessonId
   );

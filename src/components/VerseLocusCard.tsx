@@ -214,18 +214,26 @@ export default function VerseLocusCard({
                 {locus.editorialNote}
               </p>
             )}
-            {/* Named only for 'unbracketed'. DERIVATION_NOTE['session-range']
-                carries a literal "Lesson N" and is written for a card that
-                always supplies its own note, so reading the map by key would
-                print the placeholder. */}
+            {/* Two separate facts, so two lines rather than one winning.
+                `note` says what the passage is doing with the āya — for a
+                cross-session locus, that the session runs elsewhere and quotes
+                this verse in passing. The derivation says who marked the
+                quotation. A card can need both, and the old `??` dropped the
+                second whenever the first existed.
+
+                Keyed by name, never by link.derivation:
+                DERIVATION_NOTE['session-range'] is written for a card that
+                supplies its own note, and reading the map by key would print
+                its placeholder. */}
             {(link.note || unbracketed) && (
-              <p className="font-english text-[12px] italic mt-3 pt-3 border-t"
+              <div className="font-english text-[12px] italic mt-3 pt-3 border-t space-y-1.5"
                 style={{
                   borderColor: 'rgba(255,255,255,0.08)',
                   color: 'var(--body-faint, rgba(255,255,255,0.38))',
                 }}>
-                {link.note ?? DERIVATION_NOTE.unbracketed}
-              </p>
+                {link.note && <p>{link.note}</p>}
+                {unbracketed && <p>{DERIVATION_NOTE.unbracketed}</p>}
+              </div>
             )}
           </>
         ) : (
