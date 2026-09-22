@@ -7,8 +7,17 @@ in a way that is not orthography, not a canonical variant and not paraphrase.
 2,267 of those are a dot: the printed word and the aya word have the same
 skeleton and differ only in where the dots sit.
 
-This script writes 2102 of them and REVERTS 160 that an earlier version of
+This script writes 2101 of them and REVERTS 160 that an earlier version of
 it wrote and should not have.
+
+ONE ROW WAS DELETED FROM THIS TABLE ON 22 SEPTEMBER 2026
+
+Lesson 19 arabicBody @45922 wrote `min` for `mi` on the collation's attribution
+to Q 2:133.  The paragraph is Q 7:160-163 throughout and the next bracketed
+span is Q 7:163 `wa-yawma la yasbitun`, so the word is `fi` -- mim for fa,
+which is not a dot.  scripts/repair-aya-outside-dot-classes.py now carries that
+site, with the committed `min` listed beside the scan's `mi` as a starting
+form, and this row is gone so that nothing rewrites `fi` on a second pass.
 
 WHY THERE ARE REVERTS
 
@@ -3611,10 +3620,6 @@ ROWS = {
          ['062806390628062f0631', '062806470627', '062706280628', '0627062806280647', '064806280639062806470645'],
          ['0627062806350628062f', '0641062806450627', '0628063306480627', '06280631064306480627', '06450627'],
          5, 1, 47325, '7:164 declared'),
-        ('arabicBody', '06450650064a', '064506500646',
-         ['064806410639', '062806270647062806470627', '0627062f', '06280639062f06480628', '062806390628062f06480628'],
-         ['06270628063306280628', '062806350628062f', '06270628063306450643', '062706280645062706450648063106280628', '06280628063106430647'],
-         5, 1, 45922, '2:133 declared'),
         ('arabicBody', '062a06390628062f06480646', '064a0639062a062f06480646',
          ['06450627', '064806410639', '062806270647062806470627', '0627062f', '06280639062f06480628'],
          ['06450628', '06270628063306280628', '062806350628062f', '06270628063306450643', '062706280645062706450648063106280628'],
