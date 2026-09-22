@@ -308,9 +308,14 @@
         "spanIndex": 5,
         "text": "وَلَئِنْ سَأَلْتَهُم مَنْ خَلَقَ السَّمَوَاتِ وَالأَرْضَ لَيَقُولَنَّ اللَّهُ",
         "match": {
-          "verse": "29:61",
-          "score": 0.88,
-          "type": "fuzzy"
+          "verse": "31:25",
+          "score": 0.58,
+          "type": "ambiguous",
+          "scope": "none",
+          "candidates": [
+            "31:25",
+            "39:38"
+          ]
         }
       },
       {
@@ -611,8 +616,10 @@
         "text": "مَالِكِ يَوْمِ الدِّينِ",
         "match": {
           "verse": "1:4",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.93,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -632,8 +639,13 @@
         "text": "لِلِهِ الْوَاحِدِ اِلْقَهّارِ",
         "match": {
           "verse": "14:48",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.3,
+          "type": "ambiguous",
+          "scope": "none",
+          "candidates": [
+            "14:48",
+            "40:16"
+          ]
         }
       },
       {
@@ -2733,8 +2745,10 @@
         "text": "وَأَنَّهُمُ إِلَيْهِ رَاجِعُونَ",
         "match": {
           "verse": "2:46",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.39,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -3190,10 +3204,10 @@
       {
         "paraIndex": 10,
         "spanIndex": 1,
-        "text": "أتَسْتَبْدِلُونَ ألذِى هُوَ أَدْنيى بِالذِ هُوَ خَيْرَ",
+        "text": "أتَسْتَبْدِلُونَ ألذِى هُوَ أَدْنيى بِالذِي هُوَ خَيْرَ",
         "match": {
           "verse": "2:61",
-          "score": 0.67,
+          "score": 0.83,
           "type": "fuzzy"
         }
       },
@@ -3292,9 +3306,17 @@
         "spanIndex": 2,
         "text": "إِلَّ ألذِينَ ءامَنُوا",
         "match": {
-          "verse": "2:14",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "84:25",
+          "score": 0.31,
+          "type": "ambiguous",
+          "scope": "none",
+          "candidates": [
+            "26:227",
+            "38:24",
+            "84:25",
+            "95:6",
+            "103:3"
+          ]
         }
       },
       {
@@ -3471,8 +3493,9 @@
         "text": "أَنَ اَكْونَ مِنَ الْجَاهِلِينَ",
         "match": {
           "verse": "2:67",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.19,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -3870,9 +3893,10 @@
         "spanIndex": 4,
         "text": "عِندَ أللَّهِ عَهْد",
         "match": {
-          "verse": "9:7",
-          "score": 1,
-          "type": "fuzzy"
+          "verse": "2:80",
+          "score": 0.11,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -5098,7 +5122,7 @@
       {
         "paraIndex": 17,
         "spanIndex": 6,
-        "text": "وَهُوَ مُحْسِ",
+        "text": "وَهُوَ مُحْسِن",
         "match": null
       },
       {
@@ -6056,9 +6080,14 @@
         "spanIndex": 2,
         "text": "وَاسْمَاعِيلَ وَاسْحَق وَيَعْقُوبَ وَالأسْبَاطِ",
         "match": {
-          "verse": "2:136",
-          "score": 0.75,
-          "type": "fuzzy"
+          "verse": "2:140",
+          "score": 0.2,
+          "type": "ambiguous",
+          "scope": "range",
+          "candidates": [
+            "2:136",
+            "2:140"
+          ]
         }
       },
       {
@@ -6301,8 +6330,12 @@
       {
         "paraIndex": 82,
         "spanIndex": 1,
-        "text": "مَنْ يَبِعُ أُرَسُولَ",
-        "match": null
+        "text": "مَنْ يَبِعُ أُلرَسُولَ",
+        "match": {
+          "verse": "2:143",
+          "score": 0.67,
+          "type": "fuzzy"
+        }
       },
       {
         "paraIndex": 82,
@@ -6855,8 +6888,10 @@
         "text": "إِلَّ ألذِينَ تَابُواْ وَأَصْلَحُوا",
         "match": {
           "verse": "2:160",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.33,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -7069,8 +7104,9 @@
         "text": "يُرِيهِم اللَه أَعْمَالَهُمْ",
         "match": {
           "verse": "2:167",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.16,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -8298,8 +8334,9 @@
         "text": "وَاذْكُرُواْ أللَّهَ فِي أَيَّامِ مَعْدُودَاتٍ",
         "match": {
           "verse": "2:203",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.22,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -8802,8 +8839,10 @@
         "text": "وَاللَّهُ يَهْدِى مَنْ يَشَآءً إِلَىٰ صِرَاطٍ مُسْتَقِيمٌ",
         "match": {
           "verse": "2:213",
-          "score": 0.86,
-          "type": "fuzzy"
+          "score": 0.13,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -9750,10 +9789,10 @@
       {
         "paraIndex": 66,
         "spanIndex": 0,
-        "text": "وَلا يَجِلُّ لَهْنَ أَن يُكُتَنْ مَا خَلْقَ اللَّهُ مِ أَرْحَامِهِنَّ",
+        "text": "وَلا يَجِلُّ لَهْنَ أَن يُكُتَمنْ مَا خَلْقَ اللَّهُ مِ أَرْحَامِهِنَّ",
         "match": {
           "verse": "2:228",
-          "score": 0.78,
+          "score": 0.89,
           "type": "fuzzy"
         }
       },
@@ -9806,13 +9845,13 @@
       {
         "paraIndex": 69,
         "spanIndex": 0,
-        "text": "الطَّلَوُ",
+        "text": "الطَّلَٰقُ",
         "match": null
       },
       {
         "paraIndex": 69,
         "spanIndex": 1,
-        "text": "مَرَّتَّيِ",
+        "text": "مَرَّتَٰنِ",
         "match": null
       },
       {
@@ -11287,8 +11326,10 @@
         "text": "لَهُ مَا فِي السَّمَٰوَاتِ وَمَا فِي الأَرْضِ",
         "match": {
           "verse": "2:255",
-          "score": 0.83,
-          "type": "fuzzy"
+          "score": 0.12,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -12441,8 +12482,10 @@
         "text": "إِلاَّا مِنْ بَعْدِ مَا جَآءَهُمْ الْعِلْمُ",
         "match": {
           "verse": "3:19",
-          "score": 0.83,
-          "type": "fuzzy"
+          "score": 0.2,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -13332,10 +13375,10 @@
       {
         "paraIndex": 70,
         "spanIndex": 5,
-        "text": "وَمِ الصَّلِحِيرٌ قَالَتْ رَبِّ أَنَىٰ يَكُونُ لِ وَلَدْ وَلَمْ يَمْسَسْنِ بَشَرّ بتزويج قَالَ",
+        "text": "وَمِ الصَّلِحِيرٌ قَالَتْ رَبِّ أَنَىٰ يَكُونُ لِ وَلَدْ وَلَمْ يَمْسَسْنِي بَشَرّ بتزويج قَالَ",
         "match": {
           "verse": "3:47",
-          "score": 0.67,
+          "score": 0.75,
           "type": "fuzzy"
         }
       },
@@ -13437,7 +13480,7 @@
       {
         "paraIndex": 76,
         "spanIndex": 3,
-        "text": "وَاتَّعْنَا الرَّسُولَ",
+        "text": "وَاتَّبعْنَا الرَّسُولَ",
         "match": null
       },
       {
@@ -14796,9 +14839,14 @@
         "spanIndex": 0,
         "text": "يُسَرِعُونَ فِيِ الْخَيْرَاتٍ",
         "match": {
-          "verse": "3:176",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "23:61",
+          "score": 0.47,
+          "type": "ambiguous",
+          "scope": "none",
+          "candidates": [
+            "21:90",
+            "23:61"
+          ]
         }
       },
       {
@@ -14892,8 +14940,9 @@
         "text": "لاَ يَالُونَكُمْ خَبَّلًا",
         "match": {
           "verse": "3:118",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.1,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -15150,8 +15199,9 @@
         "text": "إِلَّ بُشْرِى لَكُمْ",
         "match": {
           "verse": "3:126",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.13,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -15422,8 +15472,9 @@
         "text": "الذُّنُوبَ إِلاَّا اللَّهُ وَلَمْ يُصِرُّوا",
         "match": {
           "verse": "3:135",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.21,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -16297,9 +16348,11 @@
         "spanIndex": 3,
         "text": "وَيُعَلِمْهُمْ الْكِتَابَ وَالْحِكْمَةَ",
         "match": {
-          "verse": "2:129",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "3:164",
+          "score": 0.17,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -16480,9 +16533,11 @@
         "spanIndex": 4,
         "text": "أَلَّ خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ",
         "match": {
-          "verse": "2:38",
-          "score": 0.83,
-          "type": "fuzzy"
+          "verse": "3:170",
+          "score": 0.27,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       }
     ],
@@ -17418,8 +17473,9 @@
         "text": "وَءَاتُواْ الْيَتَامِىِّ أَمْوَلَهُمْ",
         "match": {
           "verse": "4:2",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.22,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -21257,7 +21313,7 @@
       {
         "paraIndex": 25,
         "spanIndex": 1,
-        "text": "وَخَذُوْ حِدْرَكُمّةٌ إِلّ اللَّهُ أَعَدّ لْكَرِينَ غَدَّاباً مُهِينا",
+        "text": "وَخَذُوْا حِدْرَكُمّةٌ إِلّ اللَّهُ أَعَدّ لْكَرِينَ غَدَّاباً مُهِينا",
         "match": null
       },
       {
@@ -22174,9 +22230,11 @@
         "spanIndex": 4,
         "text": "وَكَانَ أللَّهُ وَاسِعا",
         "match": {
-          "verse": "4:17",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "4:130",
+          "score": 0.29,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -22260,9 +22318,15 @@
         "spanIndex": 4,
         "text": "وَلِلهِ مَا فِي السَّمَوَاتِ وَمَا فِي الارْضِ",
         "match": {
-          "verse": "3:109",
-          "score": 0.83,
-          "type": "fuzzy"
+          "verse": "4:132",
+          "score": 0.66,
+          "type": "ambiguous",
+          "scope": "range",
+          "candidates": [
+            "4:126",
+            "4:131",
+            "4:132"
+          ]
         }
       },
       {
@@ -22309,9 +22373,11 @@
         "spanIndex": 9,
         "text": "لِلهِ مَا فِى السَّمَٰوَاتِ وَمَا فِي الأَرْضِ",
         "match": {
-          "verse": "2:284",
-          "score": 0.83,
-          "type": "fuzzy"
+          "verse": "4:131",
+          "score": 0.19,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -23610,7 +23676,7 @@
       {
         "paraIndex": 63,
         "spanIndex": 0,
-        "text": "يَسْتَجْتُونَكَم في الكلالة فُلِ اللَّهُ يُفْتِيكُمْ مِى الْكَلَةِ",
+        "text": "يَسْتَجْتُونَكَم في الكلالة فُلِ اللَّهُ يُفْتِيكُمْ مِى الْكَللَةِ",
         "match": null
       },
       {
@@ -23844,8 +23910,9 @@
         "text": "إِلَّ مَا ذَكَّيْتُمْ",
         "match": {
           "verse": "5:3",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.03,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -24077,18 +24144,24 @@
       {
         "paraIndex": 95,
         "spanIndex": 6,
-        "text": "إِذَا ءَاتَيْتُمُوهَُّ أُجُورَهُنَّ",
+        "text": "إِذَا ءَاتَيْتُمُوهُنَّ أُجُورَهُنَّ",
         "match": {
           "verse": "5:5",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.09,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
         "paraIndex": 96,
         "spanIndex": 0,
-        "text": "مُحْصِنِيَ غَيْرَ مُسَمِحِينَ",
-        "match": null
+        "text": "مُحْصِنِينَ غَيْرَ مُسَمِحِينَ",
+        "match": {
+          "verse": "4:24",
+          "score": 0.67,
+          "type": "fuzzy"
+        }
       },
       {
         "paraIndex": 96,
@@ -25648,10 +25721,10 @@
       {
         "paraIndex": 44,
         "spanIndex": 1,
-        "text": "وَمَصَدِّقاً لِمَا بَيْنَ يَدَيْه ن أتَوْرية",
+        "text": "وَمَصَدِّقاً لِمَا بَيْنَ يَدَيْه ن ألتَوْرية",
         "match": {
           "verse": "5:46",
-          "score": 0.8,
+          "score": 1,
           "type": "fuzzy"
         }
       },
@@ -26712,10 +26785,10 @@
       {
         "paraIndex": 107,
         "spanIndex": 10,
-        "text": "بَفَدْ حَرَّمَ اللَّهُ عَلَيْهِ الْجَنَّةَ وَمَأْوِيْهَ التَارَوَا للظَّلِينَ مِنَ انصارِ",
+        "text": "بَفَدْ حَرَّمَ اللَّهُ عَلَيْهِ الْجَنَّةَ وَمَأْوِيْهَ التَارَوَا للظَّلِمينَ مِنَ انصارِ",
         "match": {
           "verse": "5:72",
-          "score": 0.7,
+          "score": 0.8,
           "type": "fuzzy"
         }
       },
@@ -27325,7 +27398,7 @@
       {
         "paraIndex": 33,
         "spanIndex": 2,
-        "text": "ثُمَّاتَّقَوْا",
+        "text": "ثُمَّ اتَّقَوْا",
         "match": null
       },
       {
@@ -27528,8 +27601,10 @@
         "text": "مَا عَلَى الرَّسُولِ إِلاَّا الْبَلَغُ",
         "match": {
           "verse": "5:99",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.44,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -28389,8 +28464,10 @@
         "text": "آلذِى خَلَقَ السَّمَوَاتِ وَالأَرْضَ",
         "match": {
           "verse": "6:1",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.29,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -30405,7 +30482,7 @@
       {
         "paraIndex": 66,
         "spanIndex": 9,
-        "text": "كَالذِ إسْتَهْوَتْه",
+        "text": "كَالذِي إسْتَهْوَتْه",
         "match": null
       },
       {
@@ -30912,8 +30989,9 @@
         "text": "أَجْرًا إِنْ هُوَ إِلَّ ذِكْرِى",
         "match": {
           "verse": "6:90",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.23,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -31240,8 +31318,10 @@
         "text": "وَالشَّمْسَ وَالْقَمَرَ حُسْبَانا",
         "match": {
           "verse": "6:96",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.28,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -32010,8 +32090,10 @@
         "text": "صِرَاطُ رَبِّكَ مُسْتَقِيماً",
         "match": {
           "verse": "6:126",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.34,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -32431,8 +32513,9 @@
         "text": "وَمُحَرَّمُ عَلَى أَزْوَاجِنَا",
         "match": {
           "verse": "6:139",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.15,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -32671,8 +32754,9 @@
         "text": "إِلَّ أَنْ يَكُونَ مَيْتَةً",
         "match": {
           "verse": "6:145",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.09,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -33874,8 +33958,9 @@
         "text": "بَدَتْ لَهُمَا سَوْءَاتُهُمَا",
         "match": {
           "verse": "7:22",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.11,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -33944,8 +34029,10 @@
         "text": "ذَلِكَ مِنَ ايَاتِ اللَّهِ لَعَلَّهُمْ يَذَّكِّرُونَ",
         "match": {
           "verse": "7:26",
-          "score": 0.83,
-          "type": "fuzzy"
+          "score": 0.29,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -34693,11 +34780,13 @@
       {
         "paraIndex": 59,
         "spanIndex": 1,
-        "text": "يُغْشِ اِليْلَ النَّهَارَ",
+        "text": "يُغْشِي اِليْلَ النَّهَارَ",
         "match": {
-          "verse": "3:27",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "7:54",
+          "score": 0.09,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -34921,8 +35010,9 @@
         "text": "الآَيَاتِ لِقَوْمٍ يَشْكْرُونَ",
         "match": {
           "verse": "7:58",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.21,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -35366,10 +35456,10 @@
       {
         "paraIndex": 81,
         "spanIndex": 2,
-        "text": "إِنَّكُمْ لَتَاتُونَ أْرِجَالَ شَهْوَةَ صِ دُوبِ النِّسَاءُ بَلَ آنتُمْ قَوْمٌ مُسْرِجُونَ",
+        "text": "إِنَّكُمْ لَتَاتُونَ أْلرِجَالَ شَهْوَةَ صِ دُوبِ النِّسَاءُ بَلَ آنتُمْ قَوْمٌ مُسْرِجُونَ",
         "match": {
           "verse": "7:81",
-          "score": 0.7,
+          "score": 0.8,
           "type": "fuzzy"
         }
       },
@@ -38152,8 +38242,9 @@
         "text": "لِوَقْتِهَا إِلَّ هُوَ",
         "match": {
           "verse": "7:187",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.06,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -39498,9 +39589,10 @@
         "spanIndex": 4,
         "text": "وَنَّة إِلَيْهِ تُحْشَرُونَ",
         "match": {
-          "verse": "2:203",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "8:24",
+          "score": 0.13,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -40124,10 +40216,10 @@
       {
         "paraIndex": 8,
         "spanIndex": 0,
-        "text": "يَأَيُّهَا ألذِيسَ ءامَنُوا إِذَا لَقِيتُمْ مِيَّةً",
+        "text": "يَأَيُّهَا ألذِيسَ ءامَنُوا إِذَا لَقِيتُمْ فِئَةً",
         "match": {
-          "verse": "8:15",
-          "score": 0.67,
+          "verse": "8:45",
+          "score": 0.83,
           "type": "fuzzy"
         }
       },
@@ -40977,8 +41069,9 @@
         "text": "إِلَّ عَلَىٰ قَوْمِ بَيْنَكُمْ وَبَيْنَهُم مِيثَقٌ",
         "match": {
           "verse": "8:72",
-          "score": 0.83,
-          "type": "fuzzy"
+          "score": 0.11,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -41836,9 +41929,11 @@
         "spanIndex": 0,
         "text": "منَ ألذِينَ أوتُوا الْكِتَابَ",
         "match": {
-          "verse": "2:101",
-          "score": 0.75,
-          "type": "fuzzy"
+          "verse": "9:29",
+          "score": 0.14,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -41928,8 +42023,10 @@
         "text": "وَمَا أُمِرُواْ إِلَّ لِيَعْبَدُوَا",
         "match": {
           "verse": "9:31",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.17,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -42035,9 +42132,11 @@
         "spanIndex": 1,
         "text": "أَمْوَلَ النَّاسِ بِالْبَاطِلِ",
         "match": {
-          "verse": "2:188",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "9:34",
+          "score": 0.11,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -43489,10 +43588,10 @@
       {
         "paraIndex": 93,
         "spanIndex": 2,
-        "text": "إِن تَسْتَغْفِرْ لَهُمْ سَبْعِيَ مَرَّةً بَلَنْ يَغْفِرَ اللَّهُ لَهُمْ",
+        "text": "إِن تَسْتَغْفِرْ لَهُمْ سَبْعِينَ مَرَّةً بَلَنْ يَغْفِرَ اللَّهُ لَهُمْ",
         "match": {
           "verse": "9:80",
-          "score": 0.75,
+          "score": 0.88,
           "type": "fuzzy"
         }
       },
@@ -46124,9 +46223,10 @@
         "spanIndex": 6,
         "text": "إِلَّ أَنْ يُهْدِى",
         "match": {
-          "verse": "40:28",
-          "score": 1,
-          "type": "fuzzy"
+          "verse": "10:35",
+          "score": 0.08,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -46985,7 +47085,7 @@
       {
         "paraIndex": 56,
         "spanIndex": 3,
-        "text": "وَتَذْكِيرِ",
+        "text": "وَتَذْكِيرِي",
         "match": null
       },
       {
@@ -48488,8 +48588,9 @@
         "text": "وَنتُمْ لَهَا كَرِهُونَ",
         "match": {
           "verse": "11:28",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.14,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -50011,9 +50112,11 @@
         "spanIndex": 2,
         "text": "كَأَن لَمْ يَغْنَو",
         "match": {
-          "verse": "2:196",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "11:95",
+          "score": 0.24,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -50038,8 +50141,10 @@
         "text": "وَلَقَدْ أَرْسَلْنَا مُوسَىٰ بِآيَاتِنَا وَسُلْطَانٍ مُّبِينٍ",
         "match": {
           "verse": "11:96",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.94,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -50355,8 +50460,13 @@
         "text": "خَلِدِينَ فِيهَا مَا دَامَتِ السَّمَوَاتُ وَالأَرْضُ",
         "match": {
           "verse": "11:107",
-          "score": 0.83,
-          "type": "fuzzy"
+          "score": 0.49,
+          "type": "ambiguous",
+          "scope": "range",
+          "candidates": [
+            "11:107",
+            "11:108"
+          ]
         }
       },
       {
@@ -50958,8 +51068,10 @@
         "text": "وَلِلهِ غَيْبُ السَّمَوَاتِ وَالأَرْضِ",
         "match": {
           "verse": "11:123",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.27,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -50985,9 +51097,11 @@
         "spanIndex": 11,
         "text": "وَمَا رَبُّكَ بِغَافِلٍ عَمَّا تَعْمَلُونَ",
         "match": {
-          "verse": "2:149",
-          "score": 0.8,
-          "type": "fuzzy"
+          "verse": "11:123",
+          "score": 0.28,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -51815,8 +51929,9 @@
         "text": "وَرَاوَدَتْهُ أَلتِّى هُوَ فِى بَيْتِهَا",
         "match": {
           "verse": "12:23",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.22,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -52238,11 +52353,12 @@
       {
         "paraIndex": 97,
         "spanIndex": 9,
-        "text": "فَلَمَّا رَأَيْنَهُ أَكْبَرْنَ",
+        "text": "فَلَمَّا رَأَيْنَهُ أَكْبَرْنَه",
         "match": {
           "verse": "12:31",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.11,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -52296,8 +52412,9 @@
         "text": "فَذَالِكُنَّ ألذِى لُمْتُنَّنِى فِيهِ",
         "match": {
           "verse": "12:32",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.22,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -52306,8 +52423,10 @@
         "text": "وَلَقَدْ رَاوَدتُهُ عَن نَفْسِهِ، فَاسْتَعْصَمٌ",
         "match": {
           "verse": "12:32",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.27,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -52484,8 +52603,9 @@
         "match": {
           "verse": "12:37",
           "score": 0.1,
-          "type": "enclosed",
-          "scope": "none"
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -52679,11 +52799,12 @@
       {
         "paraIndex": 110,
         "spanIndex": 1,
-        "text": "وَقَالَ لِلذِ ظَنّ",
+        "text": "وَقَالَ لِلذِي ظَنّ",
         "match": {
           "verse": "12:42",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.14,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -53292,8 +53413,12 @@
       {
         "paraIndex": 14,
         "spanIndex": 3,
-        "text": "قَدَخَلُواْ عَلَيْهِ فَعَرَهُمْ",
-        "match": null
+        "text": "قَدَخَلُواْ عَلَيْهِ فَعَرَفهُمْ",
+        "match": {
+          "verse": "12:58",
+          "score": 0.67,
+          "type": "fuzzy"
+        }
       },
       {
         "paraIndex": 15,
@@ -55808,8 +55933,9 @@
         "match": {
           "verse": "13:13",
           "score": 0.17,
-          "type": "enclosed",
-          "scope": "none"
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -60539,7 +60665,7 @@
       {
         "paraIndex": 42,
         "spanIndex": 4,
-        "text": "قَالَ أَبَشَرْتُمُونِ",
+        "text": "قَالَ أَبَشَرْتُمُونِي",
         "match": null
       },
       {
@@ -60875,10 +61001,10 @@
       {
         "paraIndex": 62,
         "spanIndex": 1,
-        "text": "وَلَقَدَ اتَيْنَكَ سَبْعاً مِرَ الْمَثَانِ",
+        "text": "وَلَقَدَ اتَيْنَكَ سَبْعاً مِرَ الْمَثَانِي",
         "match": {
           "verse": "15:87",
-          "score": 0.6,
+          "score": 0.8,
           "type": "fuzzy"
         }
       },
@@ -61027,9 +61153,11 @@
         "spanIndex": 0,
         "text": "وَتَعَالِى عَمَّا يُشْرِكُونَ",
         "match": {
-          "verse": "7:190",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "16:1",
+          "score": 0.35,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -61133,9 +61261,11 @@
         "spanIndex": 0,
         "text": "تَعَالِى عَمَّا يَشْرِكُونَ",
         "match": {
-          "verse": "7:190",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "16:3",
+          "score": 0.41,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -62744,9 +62874,11 @@
         "spanIndex": 0,
         "text": "»وَلِلهِ غَيْبٌ السَّمَٰوَاتِ وَالأَرْضِ",
         "match": {
-          "verse": "11:123",
-          "score": 0.75,
-          "type": "fuzzy"
+          "verse": "16:77",
+          "score": 0.26,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
@@ -63254,10 +63386,10 @@
       {
         "paraIndex": 18,
         "spanIndex": 1,
-        "text": "وَلَنَجْزِيَنَّهُمْوَ أَجْرَهُم بِأَحْسَ مَا كَانُواْ يَعْمَلُونَ",
+        "text": "وَلَنَجْزِيَنَّهُمْوَ أَجْرَهُم بِأَحْسَن مَا كَانُواْ يَعْمَلُونَ",
         "match": {
           "verse": "16:96",
-          "score": 0.67,
+          "score": 0.83,
           "type": "fuzzy"
         }
       },
@@ -63364,9 +63496,10 @@
         "spanIndex": 0,
         "text": "إِلَّ مَنْ اكْرِةَ",
         "match": {
-          "verse": "2:49",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "16:106",
+          "score": 0.09,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -63783,8 +63916,9 @@
         "text": "بسْمِ اللَّهِ ٱلرَحْمَنِ الرَّحِيمِ سُبْحَان الذِي أَسْرِى بِعبْدِهِ، لَيْلا",
         "match": {
           "verse": "17:1",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.23,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -66836,9 +66970,11 @@
         "spanIndex": 11,
         "text": "مَن ايَاتِ اللَّهِ",
         "match": {
-          "verse": "2:23",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "18:17",
+          "score": 0.08,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -67442,10 +67578,10 @@
       {
         "paraIndex": 47,
         "spanIndex": 0,
-        "text": "كِلْتَا الْجَنَّتَيْ ءَاتَتْ توتي اكْلَهَا",
+        "text": "كِلْتَا الْجَنَّتَيْن ءَاتَتْ توتي اكْلَهَا",
         "match": {
           "verse": "18:33",
-          "score": 0.6,
+          "score": 0.8,
           "type": "fuzzy"
         }
       },
@@ -68013,8 +68149,14 @@
       {
         "paraIndex": 69,
         "spanIndex": 9,
-        "text": "وَمَا نُرْسِلُ الْمُرْسَلِيَ إِلَّ مُبَشِّرِينَ وَمُنذِرِيَ",
-        "match": null
+        "text": "وَمَا نُرْسِلُ الْمُرْسَلِينَ إِلَّ مُبَشِّرِينَ وَمُنذِرِينَ",
+        "match": {
+          "verse": "18:56",
+          "score": 0.33,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
+        }
       },
       {
         "paraIndex": 70,
@@ -69251,9 +69393,11 @@
         "spanIndex": 4,
         "text": "أَلَّ تُكَلِّمَ النَّاسَ",
         "match": {
-          "verse": "3:41",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "19:10",
+          "score": 0.22,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -70474,13 +70618,13 @@
       {
         "paraIndex": 72,
         "spanIndex": 4,
-        "text": "آن دَعَوْاْ لِلرَّحْمَنِ وَلَداً وَمَا يَنْبَغِ لِلرَّحْمَنِ أَنْ يَتَّخِذَ وَلَدام ما يليق به ذلك إن كُلُّ مَر مِي ٱلسَّمَوَاتِ وَالأَرْضِ إِلَّ ءَاتِ الرَّحْمَنِ عَبْدا",
+        "text": "آن دَعَوْاْ لِلرَّحْمَنِ وَلَداً وَمَا يَنْبَغِي لِلرَّحْمَنِ أَنْ يَتَّخِذَ وَلَدام ما يليق به ذلك إن كُلُّ مَر مِي ٱلسَّمَوَاتِ وَالأَرْضِ إِلَّ ءَاتِ الرَّحْمَنِ عَبْدا",
         "attests": [
           {
             "verse": "19:91",
             "rule": "align",
             "mode": "plain",
-            "run": 5
+            "run": 9
           }
         ],
         "match": null
@@ -70801,10 +70945,10 @@
       {
         "paraIndex": 108,
         "spanIndex": 2,
-        "text": "إِنَّنِيَ أَنَا ألَّهُ لَا إِلَةَ إِلَّ أَنَا بَاعْبُدْنِي وَأَقِمِ الصَّلَة لِذِكْرِى",
+        "text": "إِنَّنِيَ أَنَا ألَّهُ لَا إِلَةَ إِلَّ أَنَا بَاعْبُدْنِي وَأَقِمِ الصَّلَوة لِذِكْرِى",
         "match": {
           "verse": "20:14",
-          "score": 0.67,
+          "score": 0.78,
           "type": "fuzzy"
         }
       },
@@ -70961,9 +71105,12 @@
         "match": {
           "verse": "20:24",
           "score": 0.64,
-          "type": "substring",
+          "type": "ambiguous",
           "scope": "surah",
-          "within": "clause"
+          "candidates": [
+            "20:24",
+            "20:43"
+          ]
         }
       },
       {
@@ -71259,8 +71406,10 @@
         "text": "قَالَ عِلْمُهَا عِندَ رَبِّي فِي كِتَابٌ",
         "match": {
           "verse": "20:52",
-          "score": 0.83,
-          "type": "fuzzy"
+          "score": 0.57,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -71938,8 +72087,12 @@
       {
         "paraIndex": 25,
         "spanIndex": 3,
-        "text": "عَلَيْهِ غَضَيِ مَفَدْ هَوى",
-        "match": null
+        "text": "عَلَيْهِ غَضَبِي مَفَدْ هَوى",
+        "match": {
+          "verse": "20:81",
+          "score": 0.75,
+          "type": "fuzzy"
+        }
       },
       {
         "paraIndex": 25,
@@ -72180,11 +72333,12 @@
       {
         "paraIndex": 41,
         "spanIndex": 14,
-        "text": "لا تَاخُذْ بِلِحْيَتِ",
+        "text": "لا تَاخُذْ بِلِحْيَتِي",
         "match": {
           "verse": "20:94",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.16,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -72437,8 +72591,10 @@
         "text": "إِلَّ مَنَ آذِنَ لَهُ الرَّحْمَنُ",
         "match": {
           "verse": "20:109",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.35,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -73064,8 +73220,9 @@
         "text": "مَنَ اصْحَاب الصِّرَطِ",
         "match": {
           "verse": "20:135",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.24,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -74325,9 +74482,11 @@
         "spanIndex": 0,
         "text": "إِلَ كَبِيرا لَهُمْ",
         "match": {
-          "verse": "17:9",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "21:58",
+          "score": 0.28,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -74813,8 +74972,12 @@
       {
         "paraIndex": 21,
         "spanIndex": 0,
-        "text": "لِسْلَيْمَلَ ألرِّيحَ عَاصِة",
-        "match": null
+        "text": "لِسْلَيْمَلَ ألرِّيحَ عَاصِفة",
+        "match": {
+          "verse": "21:81",
+          "score": 0.67,
+          "type": "fuzzy"
+        }
       },
       {
         "paraIndex": 22,
@@ -76448,8 +76611,9 @@
         "text": "وَاذْكُرُواْ اللَّةَ فِيّ أَيَّامِ مَعْدُودَاتٌ",
         "match": {
           "verse": "2:203",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.22,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -76458,8 +76622,9 @@
         "text": "وَاذْكُرُواْ اللَّةَ فِي أَيَّامٍ مَعْدُودَاتٍ",
         "match": {
           "verse": "2:203",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.22,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -76566,10 +76731,10 @@
       {
         "paraIndex": 108,
         "spanIndex": 0,
-        "text": "الذِينَ إِذَا ذُكِرَ اللَّهُ وَجِلَتْ خافت قُلُوبُهُمْ وَالصَّبِرِيَ عَلَى مَآ أَصَابَهُمْ",
+        "text": "الذِينَ إِذَا ذُكِرَ اللَّهُ وَجِلَتْ خافت قُلُوبُهُمْ وَالصَّبِرِينَ عَلَى مَآ أَصَابَهُمْ",
         "match": {
           "verse": "22:35",
-          "score": 0.82,
+          "score": 0.91,
           "type": "fuzzy"
         }
       },
@@ -76953,7 +77118,7 @@
           "verse": "22:51",
           "score": 0.46,
           "type": "substring",
-          "scope": "none",
+          "scope": "surah",
           "within": "clause"
         }
       },
@@ -77014,8 +77179,12 @@
       {
         "paraIndex": 120,
         "spanIndex": 4,
-        "text": "لِيَجْعَلَ مَا يُلْفِ الشَّيْطَسُ بِتْنَةً لِلذِينَ مِي قُلُوبِهِ مَرَضٌ",
-        "match": null
+        "text": "لِيَجْعَلَ مَا يُلْفِ الشَّيْطَسُ بِتْنَةً لِلذِينَ مِي قُلُوبِهِم مَرَضٌ",
+        "match": {
+          "verse": "22:53",
+          "score": 0.56,
+          "type": "fuzzy"
+        }
       },
       {
         "paraIndex": 120,
@@ -79531,11 +79700,13 @@
       {
         "paraIndex": 73,
         "spanIndex": 4,
-        "text": "حَتَّىّ أَنَوْكُمْ ذِكْرِى",
+        "text": "حَتَّىّ أَنَسوْكُمْ ذِكْرِى",
         "match": {
           "verse": "23:110",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.3,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -80118,9 +80289,11 @@
         "spanIndex": 1,
         "text": "إِلَّ الْبَلَغُ الْمُبِينَ",
         "match": {
-          "verse": "5:92",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "24:54",
+          "score": 0.12,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -82158,9 +82331,11 @@
         "spanIndex": 0,
         "text": "وَجَعَلَ فِيهَا سِرَاجًا",
         "match": {
-          "verse": "13:3",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "25:61",
+          "score": 0.27,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -82594,9 +82769,11 @@
         "spanIndex": 10,
         "text": "تِلْكَ ءَايَتُ اُلْكِتَابِ",
         "match": {
-          "verse": "2:252",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "26:2",
+          "score": 0.71,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -83032,7 +83209,7 @@
           "verse": "26:37",
           "score": 1,
           "type": "substring",
-          "scope": "none",
+          "scope": "surah",
           "within": "clause"
         }
       },
@@ -83115,11 +83292,13 @@
       {
         "paraIndex": 15,
         "spanIndex": 1,
-        "text": "أَلْفَوأمَا أَنتُم مُلْقُونَ",
+        "text": "أَلْقَوا مَا أَنتُم مُلْقُونَ",
         "match": {
-          "verse": "10:80",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "26:43",
+          "score": 0.59,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -85550,8 +85729,10 @@
         "text": "أَنَ اشْكَرَ نِعْمَتَكَ التِيِّ أَنْعَمْتَ عَلَىَّ وَعَلَىٰ وَالِدَىَّ وَأَنَ أَعْمَلَ صَلِحاً تَرْضِيْهُ وَأَدْخِلْنِي بِرَحْمَتِكَ فِي عِبَادِكَ الصَّلِحِينَ",
         "match": {
           "verse": "27:19",
-          "score": 0.94,
-          "type": "fuzzy"
+          "score": 0.72,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -87133,9 +87314,11 @@
         "spanIndex": 8,
         "text": "إنَّ فِي ذَلِكَ لايَاتِ",
         "match": {
-          "verse": "2:196",
-          "score": 0.75,
-          "type": "fuzzy"
+          "verse": "27:86",
+          "score": 0.2,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -87188,8 +87371,9 @@
         "text": "وَكُلُّ اتُوهُ دَاخِرِينٌ",
         "match": {
           "verse": "27:87",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.19,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -87374,9 +87558,11 @@
         "spanIndex": 0,
         "text": "تِلْكَ ءَايَاتُ الْكِتَبِ",
         "match": {
-          "verse": "10:1",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "28:2",
+          "score": 0.71,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -89854,11 +90040,13 @@
       {
         "paraIndex": 27,
         "spanIndex": 2,
-        "text": "وَمَا أَنتُم بِمُعْجِزِيَ",
+        "text": "وَمَا أَنتُم بِمُعْجِزِينَ",
         "match": {
-          "verse": "2:85",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "29:22",
+          "score": 0.21,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -90719,8 +90907,10 @@
         "text": "وَمَا يَجْحَدُ بِآيَاتِنَآ إِلَّ الظَّلِمُونُ",
         "match": {
           "verse": "29:49",
-          "score": 0.6,
-          "type": "fuzzy"
+          "score": 0.39,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -90856,11 +91046,13 @@
       {
         "paraIndex": 61,
         "spanIndex": 2,
-        "text": "وَانَّ جَنَّمَ لَمْحِيطَةٌ بِالْكَفِرِينَ",
+        "text": "وَانَّ جَهنَّمَ لَمْحِيطَةٌ بِالْكَفِرِينَ",
         "match": {
-          "verse": "9:49",
-          "score": 0.75,
-          "type": "fuzzy"
+          "verse": "29:54",
+          "score": 0.57,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -91001,8 +91193,9 @@
         "text": "نِعْمَ أَجْرُ الْعَامِلِينَ",
         "match": {
           "verse": "29:58",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.16,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -91114,10 +91307,10 @@
       {
         "paraIndex": 80,
         "spanIndex": 0,
-        "text": "فَإِذَا رَكِبُوا فِيِ اِلْبُلْكِ دَعَوْا اللَّهَ مُخْلِصِيَ لَهُ الدِّينُ",
+        "text": "فَإِذَا رَكِبُوا فِيِ اِلْبُلْكِ دَعَوْا اللَّهَ مُخْلِصِينَ لَهُ الدِّينُ",
         "match": {
           "verse": "29:65",
-          "score": 0.78,
+          "score": 0.89,
           "type": "fuzzy"
         }
       },
@@ -91620,8 +91813,10 @@
         "text": "وَلَهُ الْحَمْدُ فِى السَّمَوَاتِ وَالأَرْضِ",
         "match": {
           "verse": "30:18",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.61,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -93091,8 +93286,10 @@
         "text": "أللَّه ألذِى خَلَقَ السَّمَٰوَاتِ وَالأَرْضَ وَمَا بَيْنَهُمَا فِي سِتَّةِ أَيَّامِ",
         "match": {
           "verse": "32:4",
-          "score": 0.9,
-          "type": "fuzzy"
+          "score": 0.45,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -93460,9 +93657,11 @@
         "spanIndex": 3,
         "text": "جَزَآاءً بِمَا كَانُواْ يَعْمَلُونَ",
         "match": {
-          "verse": "6:108",
-          "score": 0.75,
-          "type": "fuzzy"
+          "verse": "32:17",
+          "score": 0.38,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -95004,11 +95203,13 @@
       {
         "paraIndex": 30,
         "spanIndex": 0,
-        "text": "وَمَا كَانَ لِمُومٍ",
+        "text": "وَمَا كَانَ لِمُومنٍ",
         "match": {
-          "verse": "2:135",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "33:36",
+          "score": 0.11,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -95873,8 +96074,9 @@
         "text": "عَلَى السَّمَوَاتِ وَالأَرْضِ وَالْجِبَالِ",
         "match": {
           "verse": "33:72",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.25,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -96927,11 +97129,13 @@
       {
         "paraIndex": 127,
         "spanIndex": 3,
-        "text": "قَلِ إِنَّ رَبّهِ يَقْذِفُ بِالْحَقِّ",
+        "text": "قَلِ إِنَّ رَبِّي يَقْذِفُ بِالْحَقِّ",
         "match": {
           "verse": "34:48",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.65,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -97869,8 +98073,10 @@
         "text": "انَ ألذِينَ يَتْلُونَ كِتَابَ أللَّهِ",
         "match": {
           "verse": "35:29",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.28,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -97950,8 +98156,9 @@
         "text": "وَمِنْهُمْ سَابِقُ بِالْخَيْرَاتِ",
         "match": {
           "verse": "35:32",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.16,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -97978,8 +98185,9 @@
         "text": "وَمِنْهُمْ سَابِقْ بِالْخَيْرَاتِ",
         "match": {
           "verse": "35:32",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.16,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -98305,9 +98513,10 @@
         "spanIndex": 0,
         "text": "إِلَّ سُنَّتَ الأَوَّلِينَ",
         "match": {
-          "verse": "8:38",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "35:43",
+          "score": 0.1,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -99029,8 +99238,10 @@
         "text": "سُبْحَنَ ألذِى خَلَقَ الأزْوَاجَ",
         "match": {
           "verse": "36:36",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.32,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -99247,7 +99458,17 @@
         "paraIndex": 73,
         "spanIndex": 1,
         "text": "إِلَّ صَيْحَةً وَاحِدَةً",
-        "match": null
+        "match": {
+          "verse": "36:29",
+          "score": 0.37,
+          "type": "ambiguous",
+          "scope": "surah",
+          "candidates": [
+            "36:29",
+            "36:49",
+            "36:53"
+          ]
+        }
       },
       {
         "paraIndex": 74,
@@ -99993,9 +100214,11 @@
         "spanIndex": 6,
         "text": "وَقَالُواْ إِنْ هَٰذَآ إِلاَّا سِحْرٌ مُبِينٌّ",
         "match": {
-          "verse": "34:43",
-          "score": 0.83,
-          "type": "fuzzy"
+          "verse": "37:15",
+          "score": 0.96,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -100062,8 +100285,10 @@
         "text": "إِلَى صِرَاطِ الْجَحِيم",
         "match": {
           "verse": "37:23",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.44,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -101643,8 +101868,15 @@
         "text": "إِلَّ عِبَادَ اللَّهِ الْمُخْلَصِينَ",
         "match": {
           "verse": "37:40",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.95,
+          "type": "ambiguous",
+          "scope": "surah",
+          "candidates": [
+            "37:40",
+            "37:74",
+            "37:128",
+            "37:160"
+          ]
         }
       },
       {
@@ -102104,9 +102336,11 @@
         "spanIndex": 5,
         "text": "الاَّ صَيْحَة وَاحِدَةَ",
         "match": {
-          "verse": "36:29",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "38:15",
+          "score": 0.33,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -102368,9 +102602,11 @@
         "spanIndex": 1,
         "text": "وَمَا خَلَقْنَا السَّمَاءَ وَالأَرْضَ وَمَا بَيْنَهُمَا بَاطِلًا",
         "match": {
-          "verse": "21:16",
-          "score": 0.83,
-          "type": "fuzzy"
+          "verse": "38:27",
+          "score": 0.48,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -102580,10 +102816,10 @@
       {
         "paraIndex": 82,
         "spanIndex": 4,
-        "text": "قَالَ رَبِّ إغْفِرْ لِ وَهَبْ لِ مُلْكالاَّ يَنْبَغِ لَاحَدٍ مِنْ بَعْدِىّ إِنَّكَ أَنتَ الْوَهَّابٌ",
+        "text": "قَالَ رَبِّ إغْفِرْ لِ وَهَبْ لِ مُلْكالاَّ يَنْبَغِي لَاحَدٍ مِنْ بَعْدِىّ إِنَّكَ أَنتَ الْوَهَّابٌ",
         "match": {
           "verse": "38:35",
-          "score": 0.83,
+          "score": 0.92,
           "type": "fuzzy"
         }
       },
@@ -103390,8 +103626,9 @@
         "text": "وَأَرْضُ اللَّهِ وَاسِعَةُ",
         "match": {
           "verse": "39:10",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.13,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -103466,7 +103703,7 @@
       {
         "paraIndex": 127,
         "spanIndex": 0,
-        "text": "فُلِ إِنِّيَ أُمِرْتُ أَنَ آعْبُدَ اللَّهَ مطْلِصاً لَه لدِسَ وَأمِرْتَ لَاتَ آكُونَ أَوَّلَ الْمُسْلِبِينٌ فَلِ نَّىَ آَخَافَ إِنْ عَصَيْتُ رَبّيِ عَذَابَ يَوْم عَظِيٌ فَلِ لِلَّهَ أَعْبُدُ مُخْلِصاً لَهُو دِينِ",
+        "text": "فُلِ إِنِّيَ أُمِرْتُ أَنَ آعْبُدَ اللَّهَ مطْلِصاً لَه لدِسَ وَأمِرْتَ لَاتَ آكُونَ أَوَّلَ الْمُسْلِبِينٌ فَلِ نَّىَ آَخَافَ إِنْ عَصَيْتُ رَبّيِ عَذَابَ يَوْم عَظِيمٌ فَلِ لِلَّهَ أَعْبُدُ مُخْلِصاً لَهُو دِينِ",
         "match": null
       },
       {
@@ -103960,10 +104197,10 @@
       {
         "paraIndex": 141,
         "spanIndex": 1,
-        "text": "وَيَجْزِيَهُمْ وَ أَجْرَهُم بِأَحْسَ إِلذِى كَانُواْ يَعْمَلُونَ أَلَيْسَ اللَّهُ بِكَافٍ عَبْدَةٌ",
+        "text": "وَيَجْزِيَهُمْ وَ أَجْرَهُم بِأَحْسَن إِلذِى كَانُواْ يَعْمَلُونَ أَلَيْسَ اللَّهُ بِكَافٍ عَبْدَةٌ",
         "match": {
           "verse": "39:35",
-          "score": 0.6,
+          "score": 0.7,
           "type": "fuzzy"
         }
       },
@@ -104280,10 +104517,10 @@
       {
         "paraIndex": 161,
         "spanIndex": 1,
-        "text": "وَبَدَا لَهُمْ سَيِّئَاتُ مَا كَسَبُواْ وَحَاقَ بِهِم مَا كَانُوْ بِدِ يَسْتَهْزِءُونٌ جَإِذَامَسَّ الإنسَنَ",
+        "text": "وَبَدَا لَهُمْ سَيِّئَاتُ مَا كَسَبُواْ وَحَاقَ بِهِم مَا كَانُوْا بِدِ يَسْتَهْزِءُونٌ جَإِذَامَسَّ الإنسَنَ",
         "match": {
           "verse": "39:48",
-          "score": 0.58,
+          "score": 0.67,
           "type": "fuzzy"
         }
       },
@@ -104723,8 +104960,9 @@
         "text": "حَتَّىّ إِذَا جَاءُوهَا فُتِّحَتَ ابْوَابُهَا",
         "match": {
           "verse": "39:71",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.15,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -105426,9 +105664,11 @@
         "spanIndex": 5,
         "text": "وَلَوْ كَرِةَ الْكَافِرُونَ",
         "match": {
-          "verse": "8:8",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "40:14",
+          "score": 0.37,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -106314,7 +106554,7 @@
       {
         "paraIndex": 64,
         "spanIndex": 3,
-        "text": "قَالَوْ جَادْعُواْ",
+        "text": "قَالَوْا جَادْعُواْ",
         "match": null
       },
       {
@@ -107914,9 +108154,11 @@
         "spanIndex": 2,
         "text": "إِلَّ الذِينَ صَبَرْوا",
         "match": {
-          "verse": "7:137",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "41:35",
+          "score": 0.27,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -108354,9 +108596,11 @@
         "spanIndex": 2,
         "text": "وَمَا تَحْمِلُ مِن انثى وَلَاَ تَضَعُ إِلاَّا بِعِلْمِهُ",
         "match": {
-          "verse": "35:11",
-          "score": 0.88,
-          "type": "fuzzy"
+          "verse": "41:47",
+          "score": 0.26,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -108836,9 +109080,10 @@
         "spanIndex": 0,
         "text": "وَمِنَ الانْعَمِ أَزْوَاجاً",
         "match": {
-          "verse": "4:119",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "42:11",
+          "score": 0.17,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -108876,9 +109121,11 @@
         "spanIndex": 1,
         "text": "لَهُ مَقَالِيدُ السَّمَوَاتِ وَالاَرْضِ",
         "match": {
-          "verse": "39:63",
-          "score": 0.75,
-          "type": "fuzzy"
+          "verse": "42:12",
+          "score": 0.36,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -112593,9 +112840,11 @@
         "spanIndex": 0,
         "text": "وَرَزَقْنَٰهُم مِنَ ألطَيَبَاتِ",
         "match": {
-          "verse": "10:93",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "45:16",
+          "score": 0.22,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -112718,8 +112967,10 @@
         "text": "وَخَلَقَ اللَّهُ السَّمَوَاتِ وَالأَرْضَ بِالْحَقِّ",
         "match": {
           "verse": "45:22",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.45,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -113645,9 +113896,11 @@
         "spanIndex": 3,
         "text": "أَنَ اشْكُرَ نِعْمَتَكَ ألتِىِ أَنْعَمْتَ عَلَىَّ وَعَلَىٰ وَالِدَىَّ",
         "match": {
-          "verse": "27:19",
-          "score": 0.88,
-          "type": "fuzzy"
+          "verse": "46:15",
+          "score": 0.17,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -113686,9 +113939,10 @@
         "spanIndex": 0,
         "text": "أَتَعِدَانِنِيَ أَنْ اخْرَجَ",
         "match": {
-          "verse": "12:31",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "46:17",
+          "score": 0.12,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -115692,11 +115946,14 @@
         "spanIndex": 2,
         "text": "مَغْفِرَةً وَأَجْراً عَظِيماً",
         "match": {
-          "verse": "48:29",
-          "score": 0.06,
-          "type": "substring",
+          "verse": "49:3",
+          "score": 0.18,
+          "type": "ambiguous",
           "scope": "surah",
-          "within": "clause"
+          "candidates": [
+            "48:29",
+            "49:3"
+          ]
         }
       },
       {
@@ -115749,8 +116006,9 @@
         "text": "آن تَحْبَطَ أَعْمَالُكُمْ",
         "match": {
           "verse": "49:2",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.13,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -117398,9 +117656,10 @@
         "spanIndex": 2,
         "text": "أَيُّهَا الْمُرْسَلُونُ قَالَواْ إِنَّا أرْسِلْنَ إِلَى قَوْمِ مُجْرِمِينَ",
         "match": {
-          "verse": "15:58",
-          "score": 0.63,
-          "type": "fuzzy"
+          "verse": "51:31-51:32",
+          "score": 0.75,
+          "type": "pair",
+          "scope": "surah"
         }
       },
       {
@@ -117484,9 +117743,12 @@
         "match": {
           "verse": "51:39",
           "score": 0.41,
-          "type": "substring",
-          "scope": "none",
-          "within": "clause"
+          "type": "ambiguous",
+          "scope": "surah",
+          "candidates": [
+            "51:39",
+            "51:52"
+          ]
         }
       },
       {
@@ -117563,7 +117825,7 @@
           "verse": "51:43",
           "score": 0.29,
           "type": "substring",
-          "scope": "none",
+          "scope": "surah",
           "within": "clause"
         }
       },
@@ -118157,7 +118419,7 @@
       {
         "paraIndex": 30,
         "spanIndex": 1,
-        "text": "وَتَّبَعَتُهُمْ ذَرَيَّتُهُم",
+        "text": "وَاتَّبَعَتُهُمْ ذَرَيَّتُهُم",
         "match": null
       },
       {
@@ -121896,7 +122158,7 @@
       {
         "paraIndex": 57,
         "spanIndex": 1,
-        "text": "بَلَوْلَا إِى كُنتُمْ غَيْرَ مَدِينِيَ تَرْجِعُونَهَا",
+        "text": "بَلَوْلَا إِى كُنتُمْ غَيْرَ مَدِينِينَ تَرْجِعُونَهَا",
         "match": null
       },
       {
@@ -122008,8 +122270,10 @@
         "text": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ سَبَّحَ لِلهِ مَا فِي السَّمَٰوَاتِ وَالأَرْضِ",
         "match": {
           "verse": "57:1",
-          "score": 0.83,
-          "type": "fuzzy"
+          "score": 0.62,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -122066,8 +122330,9 @@
         "text": "هُوَ ألذِى خَلَقَ السَّمَوَاتِ وَالأَرْضَ فِي سِتَةِ أَيَّامِ",
         "match": {
           "verse": "57:4",
-          "score": 0.88,
-          "type": "fuzzy"
+          "score": 0.23,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -123014,10 +123279,10 @@
       {
         "paraIndex": 5,
         "spanIndex": 0,
-        "text": "بَصِيَامُ شَهْرَيْنِ مُتَتَابِعَيْ صِ قَبْلِ أَنْ يَتَمَآسَّا جَمَى لَمْ يَسْتَطِعْ",
+        "text": "بَصِيَامُ شَهْرَيْنِ مُتَتَابِعَيْن صِ قَبْلِ أَنْ يَتَمَآسَّا جَمَى لَمْ يَسْتَطِعْ",
         "match": {
           "verse": "58:4",
-          "score": 0.67,
+          "score": 0.78,
           "type": "fuzzy"
         }
       },
@@ -124374,7 +124639,7 @@
       {
         "paraIndex": 123,
         "spanIndex": 0,
-        "text": "إلَيْهِم بالْمَوََّةِ",
+        "text": "إلَيْهِم بالْمَوَدَّةِ",
         "match": null
       },
       {
@@ -125184,7 +125449,7 @@
       65,
       66
     ],
-    "spanCount": 243,
+    "spanCount": 242,
     "spans": [
       {
         "paraIndex": 1,
@@ -125688,8 +125953,10 @@
         "text": "ذَالِكَ بِأَنَّهُمْ ءَامَنُوا",
         "match": {
           "verse": "63:3",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.31,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -125800,9 +126067,11 @@
         "spanIndex": 4,
         "text": "وَاذَا قِيلَ لَهُمْ تَعَلَوْا",
         "match": {
-          "verse": "2:11",
-          "score": 0.75,
-          "type": "fuzzy"
+          "verse": "63:5",
+          "score": 0.23,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -125990,8 +126259,13 @@
         "text": "بِسْمِ اللَّهِ ٱلرَّحْمَنِ الرَحِيمِ يُسَبِّحُ لِلهِ مَا فِى السَّمَوَاتِ وَمَا فِى الأرْضِ",
         "match": {
           "verse": "62:1",
-          "score": 0.86,
-          "type": "fuzzy"
+          "score": 0.57,
+          "type": "ambiguous",
+          "scope": "surah",
+          "candidates": [
+            "62:1",
+            "64:1"
+          ]
         }
       },
       {
@@ -126468,12 +126742,6 @@
           "score": 0.92,
           "type": "fuzzy"
         }
-      },
-      {
-        "paraIndex": 81,
-        "spanIndex": 2,
-        "text": "مِنْ وَجْدِكُمْ",
-        "match": null
       },
       {
         "paraIndex": 82,
@@ -127321,8 +127589,10 @@
         "text": "وَجَعَلْنَهَا رُجُوما لِلشَيَاطِينِ",
         "match": {
           "verse": "67:5",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.29,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -127637,8 +127907,10 @@
         "text": "إِنِ الْكَافِرُونَ إِلاَّ فِي غُرُورٍ",
         "match": {
           "verse": "67:20",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.34,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -131310,9 +131582,11 @@
         "spanIndex": 1,
         "text": "لا إِلَةَ إِلَّ هُوَ",
         "match": {
-          "verse": "2:163",
-          "score": 0.75,
-          "type": "fuzzy"
+          "verse": "73:9",
+          "score": 0.27,
+          "type": "substring",
+          "scope": "surah",
+          "within": "clause"
         }
       },
       {
@@ -131352,7 +131626,7 @@
       {
         "paraIndex": 55,
         "spanIndex": 1,
-        "text": "وَالْمُكَذِّبِيَ",
+        "text": "وَالْمُكَذِّبِينَ",
         "match": null
       },
       {
@@ -131366,9 +131640,11 @@
         "spanIndex": 1,
         "text": "إِنَّ لَدَيْنَآ أَنكَلًا",
         "match": {
-          "verse": "36:53",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "73:12",
+          "score": 0.64,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -131465,8 +131741,10 @@
         "text": "يَجْعَلُ الْوِلْدَانَ شِيباً",
         "match": {
           "verse": "73:17",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.41,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -133403,8 +133681,10 @@
         "text": "وَجَعَلْنَا فِيهَا رَوَاسِىَ شَمِخَتِ",
         "match": {
           "verse": "77:27",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.55,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -133843,9 +134123,11 @@
         "spanIndex": 4,
         "text": "وَأَنزَلْنَا مِنَ الْمُعْصِرَاتِ",
         "match": {
-          "verse": "2:57",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "78:14",
+          "score": 0.68,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -135185,8 +135467,10 @@
         "text": "وَلَّيْلِ إِذَا عَسْعَسَ",
         "match": {
           "verse": "81:17",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.93,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -136730,8 +137014,10 @@
         "text": "صُحْفِ إِبْرَاهِيمَ وَمُوسِى",
         "match": {
           "verse": "87:19",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.94,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -140659,9 +140945,13 @@
             "6:12",
             "10:37",
             "17:99",
+            "18:21",
+            "22:7",
             "32:2",
+            "40:59",
             "42:7",
-            "45:26"
+            "45:26",
+            "45:32"
           ]
         }
       },

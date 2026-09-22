@@ -192,6 +192,74 @@ function normalizeAr(text) {
     .trim();
 }
 
+// --- Alif-blindness in the matching passes ---------------------------------
+//
+// THE PROBLEM. normalizeAr() strips every combining mark, and the dagger alif
+// U+0670 is a combining mark. So the reference text arrives here DEFECTIVELY
+// spelled -- al-Fatiha 1:2 normalizes to "الحمد لله رب العلمين", 2:255 to
+// "ما في السموت" -- while the tafsir prints the same words plene, "العالمين"
+// and "السماوات". The two spellings are the same word and they are not equal
+// strings, so pass 1's containment test could not see through the difference:
+// the aya was invisible to its own citation, and the span either fell through
+// to the fuzzy pass or matched a RIVAL aya that happened to contain its text
+// verbatim. The second outcome is the damaging one, because it prints a verse
+// number that is wrong rather than none at all.
+//
+// The printing is not consistent either -- it writes "العالمين" plene and
+// "هذا" defective against the reference's dagger-alif "هٰذا" -- so there is no
+// side to normalize towards. Ignoring the alif is the only answer that does
+// not pick one.
+//
+// THE RULE. Inside a word of three characters or more, every alif after the
+// first character is dropped. The first character is kept because a
+// word-initial alif carries hamzat al-wasl and the definite article and is
+// never the plene/defective variable; words of one or two characters are left
+// alone because they carry no plene/defective variation either, and because
+// shortening them would move them across the `length > 1` significance filter
+// this file uses everywhere. A word that would fall below two characters is
+// left alone for the same reason. So blinding never changes a word's length
+// from >1 to <=1, which is why every significance count downstream -- 
+// MIN_SPAN_WORDS, the overlap gate, quotedIdentifies(), the straddle test --
+// reads the same number off a blinded string as off a plain one, and the
+// blinded string can be substituted into those tests unchanged.
+//
+// WHAT IT COSTS. Alif is not nothing. `qala`/`qul`, `kitab`/`kutub` and
+// `malik`/`malik` fold together under this rule, and the last of those is a
+// qira'a distinction: Warsh reads "maliki yawmi l-din" at Q 1:4 where Hafs
+// reads "maliki". Blinding cannot tell those apart. That is why the blinded
+// hits are UNIONED with the plain ones and handed to the same scope-narrowing
+// and uniqueness rule that governed pass 1 already: where blinding introduces
+// a rival the lesson's scope cannot settle, the answer is 'ambiguous' and no
+// number prints. Blinding buys coverage and corrected attributions; it pays
+// for them in citations withdrawn into ambiguity, and it pays honestly.
+//
+// Applied to passes 1 and 2 only. Pass 3 was tried blinded and reverted: it
+// takes the best word-overlap score with no uniqueness test, so blinding
+// inflates rivals as readily as the right aya, 159 spans changed their fuzzy
+// verse under it and the new choice was often worse -- Lesson 5's "mawaqit"
+// span is Q 2:189, was reported as Q 2:189, and moved to Q 2:68. The fuzzy
+// tier ships no number, so that bought nothing and cost accuracy.
+//
+// The attestation folds are deliberately
+// NOT blinded: foldLine()'s head guard is position-sensitive -- it leaves a
+// letter of the variable class unfolded at index 0 or behind up to two
+// proclitics -- and deleting a medial alif shifts every later index, so
+// blinding there would silently change which letters are guarded. That is a
+// different change with different risks and it does not belong in this one.
+const ALIF_CHAR = String.fromCharCode(0x0627);
+
+function blindAlifWord(w) {
+  if (w.length < 3) return w;
+  const out = w[0] + w.slice(1).split(ALIF_CHAR).join('');
+  return out.length < 2 ? w : out;
+}
+
+/** The same line with its medial and final alifs dropped. Word boundaries and
+ *  every word's significance under `length > 1` are preserved exactly. */
+function blindAlif(s) {
+  return s.split(' ').map(blindAlifWord).join(' ');
+}
+
 // --- Load verse text, index by surah ---------------------------------------
 
 const verseText = JSON.parse(fs.readFileSync(VERSE_TEXT_FILE, 'utf8'));
@@ -203,7 +271,12 @@ for (const key of Object.keys(verseText)) {
   const entry = verseText[key];
   if (!entry || !entry.ar) continue;
   const norm = normalizeAr(entry.ar);
-  const rec = { key, norm, words: new Set(norm.split(' ').filter(w => w.length > 1)) };
+  const blind = blindAlif(norm);
+  const rec = {
+    key, norm, blind,
+    words: new Set(norm.split(' ').filter(w => w.length > 1)),
+    blindWords: new Set(blind.split(' ').filter(w => w.length > 1)),
+  };
   (versesBySurah[surah] = versesBySurah[surah] || []).push(rec);
   ALL_VERSES.push(rec);
 }
@@ -627,6 +700,44 @@ function narrowToScope(hits, scope) {
   return { hits, scope: 'none' };
 }
 
+/** Is any āya this match id names inside the lesson's declared sūras?
+ *  narrowToScope() cannot answer this: it reports scope 'none' whenever there
+ *  was only one candidate to narrow, so a lone hit looks unscoped whether the
+ *  lesson covers its sūra or not. Pass 2 needs the plain question. */
+function inDeclaredScope(matchId, scope) {
+  if (!scope || !scope.surahs) return false;
+  return versesOf(matchId).some(v => scope.surahs.has(Number(v.split(':')[0])));
+}
+
+/** Pass 2 dropped its score gate deliberately: a clause occurring word-aligned
+ *  in exactly one place in the Qur'an is better evidence than a length ratio.
+ *  Blinding weakens that ground, because it manufactures occurrences out of
+ *  damaged text -- Lesson 2 ¶1 quotes Q 2:6 "inna lladhina kafaru" with the
+ *  nun read as a lam, and blinded that is "illa lladhina kafaru", which sits
+ *  uniquely in Q 40:4, a sura the lesson never touches.
+ *
+ *  What it is NOT safe to gate on is a length ratio. The first draft of this
+ *  used one, and a ratio measures the span against the aya's length, which is
+ *  a fact about the aya. Lesson 34 ¶103 quotes "wa-dhkuru llaha fi ayyamin
+ *  ma`dudat" -- signposted in the prose round it, "wa-qala llahu fi ayati
+ *  l-hajj", sitting verbatim and word-aligned at the head of Q 2:203 and
+ *  nowhere else, and needing blinding only because the reference writes
+ *  `ma`dudat` with a dagger alif. It scored 0.2222 against a long aya and was
+ *  dropped, while the SAME quotation printed in Lesson 6 ¶5 at the same score
+ *  because that lesson declares al-Baqara. One quotation, two lessons, two
+ *  answers, on sura scope alone.
+ *
+ *  So the test is in the unit the rest of this file reasons in. MIN_SPAN_WORDS
+ *  is the floor at which a span identifies anything at all; blinding costs one
+ *  word of evidence, so a blind-only hit the lesson's own scope does not
+ *  corroborate has to clear that floor by one. The Q 40:4 span carries exactly
+ *  three significant words and is withheld; the Q 2:203 span carries five and
+ *  is not. */
+function blindEnclosureHolds(spanNorm, matchId, scope) {
+  if (inDeclaredScope(matchId, scope)) return true;
+  return significantWords(spanNorm) > MIN_SPAN_WORDS;
+}
+
 /** The shape both passes hand back when the clause sits verbatim in more than
  *  one place and the lesson's own scope does not choose between them. The
  *  candidate list is flattened to individual āyāt: build-lesson-ranges.py
@@ -664,12 +775,15 @@ function residueAround(paddedSpan, verseNorm) {
  *  Memoized: the scan is over all 6,236 ayat and only a few dozen ayat ever
  *  reach it. */
 const ayaIsUniqueCache = new Map();
-function ayaIsUniqueString(rec) {
-  let unique = ayaIsUniqueCache.get(rec.key);
+function ayaIsUniqueString(rec, blind) {
+  const cacheKey = `${blind ? 'b' : 'p'}:${rec.key}`;
+  let unique = ayaIsUniqueCache.get(cacheKey);
   if (unique === undefined) {
-    const padded = ` ${rec.norm} `;
-    unique = !ALL_VERSES.some(v => v.key !== rec.key && ` ${v.norm} `.includes(padded));
-    ayaIsUniqueCache.set(rec.key, unique);
+    const text = blind ? rec.blind : rec.norm;
+    const padded = ` ${text} `;
+    unique = !ALL_VERSES.some(v => v.key !== rec.key
+      && ` ${blind ? v.blind : v.norm} `.includes(padded));
+    ayaIsUniqueCache.set(cacheKey, unique);
   }
   return unique;
 }
@@ -716,11 +830,11 @@ const MAX_QUOTED_RESIDUE_WORDS = 1;
  *  fits inside no single aya. It comes back as a pair whose two sides each
  *  carry two significant words, or it comes back as nothing.
  */
-function quotedIdentifies(paddedSpan, c) {
-  const { before, after } = residueAround(paddedSpan, c.norm);
+function quotedIdentifies(paddedSpan, c, blind) {
+  const { before, after } = residueAround(paddedSpan, blind ? c.blind : c.norm);
   if (significantWords(before) > MAX_QUOTED_RESIDUE_WORDS) return false;
   if (significantWords(after) > MAX_QUOTED_RESIDUE_WORDS) return false;
-  return ayaIsUniqueString(c);
+  return ayaIsUniqueString(c, blind);
 }
 
 function findMatch(spanNorm, candidates, scope) {
@@ -761,11 +875,14 @@ function findMatch(spanNorm, candidates, scope) {
   // words, for the same reason the span itself must: one or two words
   // identify nothing.
   const paddedSpan = ` ${spanNorm} `;
+  const spanBlind = blindAlif(spanNorm);
+  const paddedSpanBlind = ` ${spanBlind} `;
   const hits = [];
   for (const c of candidates) {
     if (!c.norm) continue;
     const paddedVerse = ` ${c.norm} `;
-    let overlap, within;
+    const paddedVerseBlind = ` ${c.blind} `;
+    let overlap, within, viaBlind = false;
     if (paddedVerse.includes(paddedSpan)) { overlap = spanNorm; within = 'clause'; }
     else if (paddedSpan.includes(paddedVerse)) {
       // see quotedIdentifies(): a span that merely CONTAINS an aya is
@@ -773,13 +890,25 @@ function findMatch(spanNorm, candidates, scope) {
       // as a weak hit, so it neither ships nor manufactures an
       // ambiguity: where a clause hit also exists it is the sounder
       // reading, and where none does the span belongs to pass 2.
-      if (!quotedIdentifies(paddedSpan, c)) continue;
+      if (!quotedIdentifies(paddedSpan, c, false)) continue;
       overlap = c.norm; within = 'quoted';
+    }
+    else if (paddedVerseBlind.includes(paddedSpanBlind)) {
+      // the same clause, one side spelled plene and the other defective
+      overlap = spanNorm; within = 'clause'; viaBlind = true;
+    }
+    else if (paddedSpanBlind.includes(paddedVerseBlind)) {
+      // the quoted branch, reached under blinding. quotedIdentifies() counts
+      // significant words and blinding preserves those counts, so it is asked
+      // the same question against the blinded pair. A failure here can only
+      // drop a candidate the plain passes never reached.
+      if (!quotedIdentifies(paddedSpanBlind, c, true)) continue;
+      overlap = c.norm; within = 'quoted'; viaBlind = true;
     }
     else continue;
     if (overlap.split(' ').filter(w => w.length > 1).length < MIN_SPAN_WORDS) continue;
     const score = Math.min(spanNorm.length, c.norm.length) / Math.max(spanNorm.length, c.norm.length);
-    hits.push({ verse: c.key, score, within });
+    hits.push({ verse: c.key, score, within, ...(viaBlind ? { blind: true } : {}) });
   }
   if (hits.length) {
     const narrowed = narrowToScope(hits, scope);
@@ -883,15 +1012,27 @@ function findMatch(spanNorm, candidates, scope) {
     const [as, aa] = a.key.split(':').map(Number);
     const [bs, ba] = b.key.split(':').map(Number);
     if (as !== bs || ba !== aa + 1) continue; // must be adjacent verses, same surah
-    const combined = `${a.norm} ${b.norm}`;
-    if (!` ${combined} `.includes(paddedSpan)) continue;
-    const enclosedBy = ` ${a.norm} `.includes(paddedSpan) ? a
-      : ` ${b.norm} `.includes(paddedSpan) ? b
+    // Plain first, blinded only where plain finds nothing, so this pass can
+    // gain candidates but never lose one.
+    const combinedPlain = `${a.norm} ${b.norm}`;
+    const combinedBlind = `${a.blind} ${b.blind}`;
+    let viaBlind2;
+    if (` ${combinedPlain} `.includes(paddedSpan)) viaBlind2 = false;
+    else if (` ${combinedBlind} `.includes(paddedSpanBlind)) viaBlind2 = true;
+    else continue;
+    const combined = viaBlind2 ? combinedBlind : combinedPlain;
+    const spanHere = viaBlind2 ? paddedSpanBlind : paddedSpan;
+    const aHere = viaBlind2 ? a.blind : a.norm;
+    const bHere = viaBlind2 ? b.blind : b.norm;
+    const enclosedBy = ` ${aHere} `.includes(spanHere) ? a
+      : ` ${bHere} `.includes(spanHere) ? b
       : null;
     if (enclosedBy) {
+      const encScore = spanNorm.length / enclosedBy.norm.length;
+      if (viaBlind2 && !blindEnclosureHolds(spanNorm, enclosedBy.key, scope)) continue;
       pairHits.set(enclosedBy.key, {
         verse: enclosedBy.key,
-        score: spanNorm.length / enclosedBy.norm.length,
+        score: encScore,
         enclosed: true,
       });
     } else {
@@ -906,17 +1047,25 @@ function findMatch(spanNorm, candidates, scope) {
       // reason (see the substring pass). Here the test is per side, and lower:
       // two significant words, because a straddle divides a span that has
       // already cleared MIN_SPAN_WORDS as a whole.
-      const boundary = a.norm.split(' ').length;
+      const boundary = aHere.split(' ').length;
       const words = combined.split(' ');
       const at = words.findIndex((_, k) =>
-        ` ${words.slice(k).join(' ')} `.startsWith(paddedSpan.slice(0, -1)));
+        ` ${words.slice(k).join(' ')} `.startsWith(spanHere.slice(0, -1)));
       if (at < 0) continue;
-      const spanLen = spanNorm.split(' ').length;
+      const spanLen = (viaBlind2 ? spanBlind : spanNorm).split(' ').length;
       const left = words.slice(at, boundary).filter(w => w.length > 1).length;
       const right = words.slice(boundary, at + spanLen).filter(w => w.length > 1).length;
       if (left < 2 || right < 2) continue;
       const id = `${a.key}-${b.key}`;
-      pairHits.set(id, { verse: id, score: spanNorm.length / combined.length });
+      // numerator and denominator must be the same spelling. `combined` is the
+      // blinded concatenation on the blind path, so measuring a plain span
+      // against it inflated every blind straddle score by about 13%. Reported
+      // plain against plain, which is what the enclosed branch above does and
+      // what the number means to a reader: how much of the two ayat as the
+      // reference spells them the span as printed covers.
+      const pairScore = spanNorm.length / combinedPlain.length;
+      if (viaBlind2 && !blindEnclosureHolds(spanNorm, id, scope)) continue;
+      pairHits.set(id, { verse: id, score: pairScore });
     }
   }
   if (pairHits.size) {
