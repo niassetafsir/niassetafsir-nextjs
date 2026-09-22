@@ -56,6 +56,7 @@ AR_LO, AR_HI = 0x600, 0x6FF
 
 CONTEXT = 5        # words of lead and of tail stored in an anchor
 NEAR    = 3        # of those, the immediate ones that must nearly all match
+MAXRUN  = 3        # words a single row may cover
 NEED    = 7        # of the (up to) 10 that must match for a candidate to count
 
 
@@ -65,6 +66,40 @@ class AnchorLost(Exception):
 
 class AmbiguousAnchor(Exception):
     """More than one occurrence does.  Never resolved by preference."""
+
+
+# The letters this scan confuses, as ONE equivalence.  Every pass in this repo
+# repairs inside it, so folding it away is what lets one pass's anchors survive
+# another pass repairing the words around them.  Union-find rather than a map
+# per class, because ha' belongs to both {ha',jim} and {ha',kha'} and assigning
+# class by class made the second overwrite the first.
+_CLASSES = [(0x642, 0x641), (0x62D, 0x62C), (0x62D, 0x62E),
+            (0x628, 0x62A, 0x62B, 0x646, 0x64A), (0x644, 0x646),
+            (0x62F, 0x630), (0x631, 0x632), (0x635, 0x636),
+            (0x639, 0x63A), (0x637, 0x638), (0x633, 0x634)]
+_rep = {}
+
+
+def _root(c):
+    _rep.setdefault(c, c)
+    while _rep[c] != c:
+        _rep[c] = _rep[_rep[c]]
+        c = _rep[c]
+    return c
+
+
+for _cl in _CLASSES:
+    _cs = sorted(chr(x) for x in _cl)
+    for _c in _cs[1:]:
+        _a, _b = _root(_cs[0]), _root(_c)
+        if _a != _b:
+            _rep[max(_a, _b)] = min(_a, _b)
+DOTFOLD = {c: _root(c) for c in list(_rep)}
+
+
+def dotfold(s):
+    """A skeleton with the confusable letters collapsed."""
+    return ''.join(DOTFOLD.get(c, c) for c in s)
 
 
 def raw(s):
@@ -179,10 +214,13 @@ def _clears(stored_lead, stored_tail, have_lead, have_tail):
     return s, c, bool(c) and s >= max(min(NEED, c), int(c * 0.7))
 
 
-def _cands(RW, ns, lead, tail, width, pairs=frozenset()):
+def _cands(RW, ns, lead, tail, width, spans=None):
+    """`spans` maps a candidate to how many words it covers, so the tail is
+    read from beyond the whole run and not from inside it."""
+    spans = spans or {}
     out = []
     for n in ns:
-        step = 2 if n in pairs else 1
+        step = spans.get(n, 1)
         hl = RW[max(0, n - width):n]
         ht = RW[n + step:n + step + width]
         s, c, ok = _clears(lead, tail, hl, ht)
@@ -191,7 +229,7 @@ def _cands(RW, ns, lead, tail, width, pairs=frozenset()):
     return out
 
 
-def plan(text, rows, label=''):
+def plan(text, rows, label='', nfold=None):
     """Resolve every row against ONE snapshot of `text`.
 
     rows: [(old, new, lead, tail, width, mult, hint, note)].  Rows sharing an
@@ -201,17 +239,27 @@ def plan(text, rows, label=''):
     hint, note)]."""
     W = words(text)
     RW = [raw(w) for _, w in W]
+    # `nfold` lets a caller compare NEIGHBOURS through a fold of its own.  A
+    # pass that repairs hundreds of words inside one badly damaged span cannot
+    # anchor on their raw skeletons: half the neighbourhood changes when the
+    # pass runs, so an anchor minted before the repair does not match after it,
+    # nor the other way round.  Folding the dots away makes the neighbourhood
+    # invariant under exactly the repairs these passes make.  The TARGET is
+    # still matched literally; this touches only the surrounding words.
+    NF = [nfold(r) for r in RW] if nfold else RW
+    # A row may cover a RUN of adjacent words, and a repair that inserts a
+    # space turns one word into two, so a site has to be findable however many
+    # words it currently occupies.
     occ = {}
     for n, r in enumerate(RW):
-        occ.setdefault(r, []).append(n)
-    # A repair that inserts a space turns one word into two, so the site has
-    # to be findable in either state.  Index adjacent pairs under their
-    # concatenation, and remember how far the pair reaches.
-    pairs = set()
-    for n in range(len(W) - 1):
-        j = RW[n] + RW[n + 1]
-        occ.setdefault(j, []).append(n)
-        pairs.add(n)
+        occ.setdefault(r, []).append((n, 1))
+    for n in range(len(W)):
+        acc = RW[n]
+        for ln in range(2, MAXRUN + 1):
+            if n + ln - 1 >= len(W):
+                break
+            acc = acc + RW[n + ln - 1]
+            occ.setdefault(acc, []).append((n, ln))
     groups = {}
     for r in rows:
         old, new, lead, tail, width, mult, hint, note = r
@@ -220,11 +268,15 @@ def plan(text, rows, label=''):
     for key, grp in groups.items():
         old, new, lead, tail, width = key
         keys = {raw(new), raw(new).replace(' ', '')}
-        keys |= {raw(f) for f in forms(old)}
-        ns = sorted({n for k in keys for n in occ.get(k, [])})
-        pr = {n for n in ns if n < len(RW) - 1 and
-              RW[n] + RW[n + 1] in keys and RW[n] not in keys}
-        scored = _cands(RW, ns, list(lead), list(tail), width, pr)
+        for f in forms(old):
+            r = raw(f)
+            keys |= {r, r.replace(' ', '')}
+        seen_at = {}
+        for k in keys:
+            for n, ln in occ.get(k, []):
+                seen_at[n] = max(seen_at.get(n, 0), ln)
+        ns = sorted(seen_at)
+        scored = _cands(NF, ns, list(lead), list(tail), width, seen_at)
         cand = [n for n, _, _ in scored]
         hints = ', '.join(f'@{r[6]}' for r in grp)
         mults = {r[5] for r in grp}
@@ -245,18 +297,17 @@ def plan(text, rows, label=''):
                 f'widen the anchor.')
         for r, n in zip(sorted(grp, key=lambda x: x[6]), cand):
             start = W[n][0]
-            end = W[n + 1][0] + len(W[n + 1][1]) if n in pairs and \
-                RW[n] + RW[n + 1] in keys and RW[n] not in keys \
-                else start + len(W[n][1])
+            last = min(n + seen_at.get(n, 1) - 1, len(W) - 1)
+            end = W[last][0] + len(W[last][1])
             out.append((start, r[0], r[1], r[6], r[7], end - start))
     return out
 
 
-def apply_rows(text, rows, label=''):
+def apply_rows(text, rows, label='', nfold=None):
     """plan(), then write descending so one edit cannot move the next.
 
     Returns (text, applied, skipped, log)."""
-    steps = plan(text, rows, label)
+    steps = plan(text, rows, label, nfold)
     applied = skipped = 0
     log = []
     for off, old, new, hint, note, span in sorted(steps, key=lambda r: -r[0]):

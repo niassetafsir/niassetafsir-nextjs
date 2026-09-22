@@ -28,6 +28,7 @@ ORDER = [
     'repair-footnote-letter-confusions.py',
     'repair-witnessed-letter-confusions.py',
     'repair-aya-settled-readings.py',
+    'repair-quranic-collation-dotting.py',
     'repair-ayat-al-kursi.py',
     'repair-divine-names.py',
     'repair-quotation-brackets.py',
