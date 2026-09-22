@@ -100,11 +100,11 @@ DENSITY_WINDOW = 24
 # because nothing in the output says so.
 HAND_EXCLUDED = [
     (10, 19981,
-     ['06280627064406440647', '0648062706460634062f0643', '06280627064406440647', '0648', '0627062a064206480627'],
-     ['0627064406270631062d06270645', '06270646', '062a064206370639064806470627060c', '064806430627064606480627', '064a062a064606270634062f06480646']),
+     ['06280627062806280647', '0648062706280633062f0643', '06280627062806280647', '0648', '06270628064106480627'],
+     ['0627062806270631062c06270645', '06270628', '0628064106370639064806470627060c', '064806430627062806480627', '06280628062806270633062f06480628']),
     (51, 36694,
-     ['0627063306430646064806470646', '0627064406450637064406420627062a', '06450646', '062d064a062b', '063306430646062a'],
-     ['06450646', '0648062c062f06430645', '062706440645063106270647', '062706300627', '063706440642062a']),
+     ['0627063306430628064806470628', '06270628064506370628064106270628', '06450628', '062c06280628', '0633064306280628'],
+     ['06450628', '0648062c062f06430645', '062706280645063106270647', '0627062f0627', '0637062806410628']),
 ]
 
 MARKS = set('ؘؙؚؐؑؒؓؔؕؖؗ')
@@ -149,14 +149,19 @@ def mark_density(s, win=DENSITY_WINDOW):
 
 def resolve_exclusions(body, lesson):
     """Character offsets of this lesson's hand-excluded braces, found by the
-    words around them.  Raises if one has gone missing or matches twice."""
+    words around them.  Raises if one has gone missing or matches twice.
+
+    The neighbours are compared through A.dotfold, as every repair pass does.
+    Without it this function compared raw skeletons while the repair passes
+    were rewriting thousands of words in the same two fields, and it resolved
+    by luck rather than by protection."""
     out = set()
     for les, hint, lead, tail in HAND_EXCLUDED:
         if les != lesson:
             continue
         out.add(A.locate(body, '{', [A.hx(x) for x in lead],
                          [A.hx(x) for x in tail], A.CONTEXT, hint,
-                         f'L{les} hand-excluded brace'))
+                         f'L{les} hand-excluded brace', nfold=A.dotfold))
     return out
 
 

@@ -334,11 +334,11 @@ def apply_rows(text, rows, label='', nfold=None):
     return text, applied, skipped, log
 
 
-def locate(text, char, lead, tail, width, hint, label=''):
+def locate(text, char, lead, tail, width, hint, label='', nfold=None):
     """Offset of a single non-letter marker (a brace, a bracket) named by the
     words around it.  Same contract: exactly one, or it raises."""
     W = words(text)
-    RW = [raw(w) for _, w in W]
+    RW = [nfold(raw(w)) if nfold else raw(w) for _, w in W]
     cand = []
     for i, ch in enumerate(text):
         if ch != char:
