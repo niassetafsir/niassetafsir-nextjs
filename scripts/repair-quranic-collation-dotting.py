@@ -7,58 +7,17 @@ in a way that is not orthography, not a canonical variant and not paraphrase.
 2,267 of those are a dot: the printed word and the aya word have the same
 skeleton and differ only in where the dots sit.
 
-This script writes 2102 of them and REVERTS 160 that an earlier version of
+This script writes 2101 of them and REVERTS 160 that an earlier version of
 it wrote and should not have.
 
-ONE SITE IN THIS TABLE WAS WRONG, AND THE ATTRIBUTION IS WHY
+ONE ROW WAS DELETED FROM THIS TABLE ON 22 SEPTEMBER 2026
 
-Lesson 19 arabicBody wrote `min` for the scan's `mi` on the collation's
-attribution of that span to Q 2:133.  The span is Q 7:163, `idh ya`duna FI
-l-sabt`: the paragraph reads Q 7:160-163 in order and the next bracketed span
-is Q 7:163 `wa-yawma la yasbitun`.  The row now writes `fi`, and it accepts the
-committed `min` beside the scan's `mi` as a starting form, so that a tree in
-either state reaches the same place.  Mim for fa is not a dot, which is why the
-`mi`/`fi` pass in repair-aya-settled-readings.py had left the site alone.
-
-The row covers THREE words, not one, because the wrong aya had also HIDDEN a
-repair.  Aligned against Q 2:133 the span produced four verdicts and every one
-of them was an artefact of the attribution:
-
-    printed     against Q 2:133         against Q 7:163
-    ya`dul      qal, 4 apart, grade B   ya`dun -- ONE LETTER, lam for nun
-    ya`tadun    ta`budun, grade A       the compiler's gloss, not Qur'anic
-    mi          min, grade A            fi
-    al-sabt     al-ilahak, 3 apart, B   al-sabt -- identical, no defect at all
-
-So the pass wrote two words that were not damaged, left the one word that was,
-and graded a sound word a defect.  `ya`dul` for `ya`dun` is lam for nun, inside
-the eight classes the earliest scripts declare, and it sat unrepaired only
-because a wrong aya had pushed it into grade B, which is out of every pass's
-scope.  Both words are written together here: a repair that leaves the damaged
-word standing beside the one it fixes is worse than no repair.
-
-That failure is not unique to this site, and it was swept for.  Of the 2,655
-grade-B rows the neighbour rule can evaluate 252 -- the rest are footnotes the
-matcher does not read, or paragraphs with no shipped attribution on both sides.
-It finds the run holding the cited aya at 184 and DENYING it at 68.  Of those
-68: three become a ONE-DOT repair inside the declared classes once the span is
-read against the aya the paragraph brackets, two become two-dot repairs, two are
-sound words the wrong aya had graded a defect, eighteen face a word no dots can
-reach, and the remaining forty-three do not align at all.
-
-The three are not written here, because re-grading a B row means re-deriving it
-from a different aya and that belongs in a pass with the guards on:
-
-    L14 arabicBody @42826  fa-law  -> qalu    Q 5:72, cited as Q 5:17
-    L21 arabicBody @36315  illa    -> inna    Q 9:7,  cited as Q 3:76
-    L51 arabicBody @19977  al-fawm -> al-qawm Q 63:6, cited as Q 2:26
-
-L14 shows why they matter.  The phrase reads `la-qad KABARA lladhIRa FALAW inna
-llaha huwa l-masihu IBRu maryam` for Q 5:72 `la-qad kafara lladhina qalu inna
-llaha huwa l-masihu bnu maryam`.  Four words are damaged.  One of them, `ibru`
-for `ibnu`, was graded A and is repaired; the other three were graded B by the
-same wrong attribution and are not.  Repairing one word of four and leaving the
-rest is the shape of failure this project has had to undo twice.
+Lesson 19 arabicBody @45922 wrote `min` for `mi` on the collation's attribution
+to Q 2:133.  The paragraph is Q 7:160-163 throughout and the next bracketed
+span is Q 7:163 `wa-yawma la yasbitun`, so the word is `fi` -- mim for fa,
+which is not a dot.  scripts/repair-aya-outside-dot-classes.py now carries that
+site, with the committed `min` listed beside the scan's `mi` as a starting
+form, and this row is gone so that nothing rewrites `fi` on a second pass.
 
 WHY THERE ARE REVERTS
 
@@ -3641,10 +3600,6 @@ ROWS = {
          5, 1, 2831, '7:11 declared'),
     ],
    19: [
-        ('arabicBody', '064a064e06390652062f064f06480644064e0020064a0639062a062f06480646002006450650064a|064a064e06390652062f064f06480644064e0020064a0639062a062f064806460020064506500646', '064a064e06390652062f064f06480646064e0020064a0639062a062f06480646002006410650064a',
-         ['0648062706280633062806270645', '06450627', '064806410639', '062806270647062806470627', '0627062f'],
-         ['06270628063306280628', '062806350628062f', '06270628063306450643', '062706280645062706450648063106280628', '06280628063106430647'],
-         5, 1, 45905, '7:163 CORRECTION -- see the docstring'),
         ('arabicBody', '0644064e062a064e0627', '0644064e0646064e0627',
          ['062c062806270628', '06270648', '062c063106270645', '0648062806410648062806480628', '06330628063906410631'],
          ['06450627', '064106390628062806270647', '064806270628', '06280627062806470645', '063906310635'],
