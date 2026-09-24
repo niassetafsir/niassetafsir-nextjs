@@ -5864,6 +5864,11 @@
       "editorial": true
     },
     {
+      "verse": "7:178",
+      "paraIndex": 17,
+      "uncertain": true
+    },
+    {
       "verse": "7:179",
       "paraIndex": 17,
       "uncertain": true
@@ -6046,6 +6051,11 @@
     {
       "verse": "8:11",
       "paraIndex": 78,
+      "uncertain": true
+    },
+    {
+      "verse": "8:12",
+      "paraIndex": 83,
       "uncertain": true
     },
     {
@@ -10491,6 +10501,11 @@
     {
       "verse": "17:91",
       "paraIndex": 195,
+      "uncertain": true
+    },
+    {
+      "verse": "17:92",
+      "paraIndex": 196,
       "uncertain": true
     },
     {
@@ -14998,6 +15013,11 @@
     },
     {
       "verse": "29:22",
+      "paraIndex": 27,
+      "uncertain": true
+    },
+    {
+      "verse": "29:23",
       "paraIndex": 27,
       "uncertain": true
     },
