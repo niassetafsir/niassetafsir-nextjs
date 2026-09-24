@@ -193,66 +193,81 @@ ROOT = Path(__file__).resolve().parent.parent / 'src' / 'data' / 'lessons'
 WRITE = '--write' in sys.argv
 
 
-# A HOLE IN THE HAMZA REFUSAL, FOUND BY AUDIT AFTER THE ROWS WERE MINTED
+# THE HAMZA SEAT, WRITTEN RATHER THAN REFUSED
 #
-# The pass refuses a site where a hamza stands in the printed word or in the
-# aya word: a seat the scan misread as a consonant reads as a letter too many.
-# That refusal was written against the PRINTED word and it does not catch the
-# opposite shape.  A.dotfold collapses the seat `ئ` onto `ي`, so an aya word
-# spelt with a seat -- `al-mala\'ika`, `ula\'ika`, `khaza\'in`, `aba\'ihim` --
-# reaches the comparison already seatless, and the facing letter handed back
-# to the printed word is a bare `ya`.  The row then writes `al-malyika` for
-# `al-mala\'ika`: not the printing, and not a word.
+# The pass refuses a site where a hamza stands in the printed word: a seat the
+# scan misread as a consonant reads there as a letter too many.  That refusal
+# was written against the PRINTED word and it does not catch the opposite
+# shape.  A.dotfold collapses the seat `hamza-on-ya` onto `ya`, and this
+# reference spells many hamzas as a COMBINING mark over the base letter, which
+# any mark-stripping comparison drops along with the vowels.  So an aya word
+# spelt with a seat -- al-mala\'ika, ula\'ika, khaza\'in, aba\'ihim, ustuhzi\'a,
+# imri\'in, quri\'a -- reached the comparison already seatless and the row
+# wrote `al-malyika`: not the printing, and not a word.
 #
-# 39 rows do this, every one of them the same shape.  They are refused here
-# rather than repaired, because writing the seat is a different rule with its
-# own guard and this pass has just been shown to have a hole.  The sites stay
-# damaged and legible as damage, which is the point: `al-mal.bika` is visibly
-# broken, `al-malyika` is not.
+# 44 rows did this.  They were refused for one round and are now written, with
+# the seat.  The warrant is the same as every other row in this pass: the aya
+# is settled by guards A, B and C, the printed letter is a seat-shaped glyph
+# (ba, ta, tha, nun and ya are exactly what OCR returns for a seat), and the
+# target letter is read off the alignment rather than guessed.  What was
+# missing was never evidence; it was a comparison that could see a hamza.
 #
-# Cost of the refusal, stated: lesson 44 @7882 is a run of three words, so
-# refusing it also gives up `dhurriyyatihim` for `dhurri.batihim`, a dot
-# repair that would otherwise have stood.  One site.
-REFUSED_HAMZA_SEAT = {
-    (3, 'arabicBody', 9923),
-    (5, 'arabicBody', 47696),
-    (5, 'arabicBody', 47734),
-    (5, 'arabicFootnotes', 61730),
-    (5, 'arabicFootnotes', 61768),
-    (5, 'arabicFootnotes', 65333),
-    (5, 'arabicFootnotes', 65519),
-    (6, 'arabicBody', 19183),
-    (6, 'arabicFootnotes', 22260),
-    (7, 'arabicBody', 16204),
-    (7, 'arabicBody', 32826),
-    (8, 'arabicBody', 15515),
-    (8, 'arabicBody', 28952),
-    (8, 'arabicFootnotes', 18646),
-    (8, 'arabicFootnotes', 35607),
-    (9, 'arabicBody', 17506),
-    (11, 'arabicFootnotes', 54261),
-    (16, 'arabicFootnotes', 58208),
-    (20, 'arabicBody', 9982),
-    (20, 'arabicBody', 40954),
-    (20, 'arabicFootnotes', 12289),
-    (21, 'arabicBody', 40262),
-    (21, 'arabicFootnotes', 58314),
-    (27, 'arabicFootnotes', 35767),
-    (27, 'arabicFootnotes', 40540),
-    (29, 'arabicBody', 42884),
-    (30, 'arabicBody', 72419),
-    (30, 'arabicBody', 73585),
-    (30, 'arabicBody', 74833),
-    (30, 'arabicFootnotes', 91372),
-    (30, 'arabicFootnotes', 92615),
-    (34, 'arabicBody', 60610),
-    (39, 'arabicBody', 10762),
-    (42, 'arabicBody', 9994),
-    (44, 'arabicBody', 7882),
-    (44, 'arabicBody', 8066),
-    (45, 'arabicBody', 7298),
-    (47, 'arabicBody', 34741),
-    (50, 'arabicBody', 13021),
+# The rewrite touches ONE letter per site and nothing else -- checked by
+# rebuilding every token from its letter/mark groups and asserting the result
+# is byte-identical to the row\'s own `new` outside that letter.  In
+# particular the INITIAL alif is left exactly as the printing has it: bare
+# alif stays bare, `a` with its hamza keeps it.  Alif practice is the
+# printing\'s and a reference is not the authority on it.
+#
+# One site of the class is not here.  Lesson 31 @17528 reads `li-sha\'ihi` for
+# Q 18:23 `li-shay\'in`, where the aya\'s last letter is a standalone hamza and
+# the printing has already lost the word\'s shape.  That is not a seat
+# substitution and it stays in REFUSED_BY_AUDIT.
+SEAT_REWRITE = {
+    (3, 'arabicBody', 9923): '0627064406520645064e064406500651062606500643064e06290650',
+    (5, 'arabicBody', 47734): '0648064e0627064406520645064e064406500651062606500643064e06290650',
+    (5, 'arabicBody', 47696): '0627064806520644064e062606500643064e',
+    (5, 'arabicFootnotes', 65519): '0627064806520644064f062606500643064e00200623064406300650064a0646064e',
+    (5, 'arabicFootnotes', 65333): '0623064806520644064f062606500643064e',
+    (5, 'arabicFootnotes', 61768): '0648064e0627064406520645064e064406500651062606500643064e06290650',
+    (5, 'arabicFootnotes', 61730): '0627064806520644064e062606500643064e',
+    (6, 'arabicBody', 19183): '0648064e0623064e064806520644064f062606500643064e',
+    (6, 'arabicFootnotes', 22260): '0648064e0623064e064806520644064f062606500643064e',
+    (7, 'arabicBody', 32826): '0641064e0623064e064806520644064e062606500643064e',
+    (7, 'arabicBody', 16204): '06230624064406500651062606500643064e',
+    (8, 'arabicBody', 28952): '06270650064406520645064e064406500651062606500643064e0629064f',
+    (8, 'arabicBody', 15515): '0648064e0627064406520645064e064406500651062606500643064e0629064f',
+    (8, 'arabicFootnotes', 35607): '0641064e0646064e0627062f064e062a06520647064f00200627064406520645064e064406500651062606500643064e0629064c',
+    (8, 'arabicFootnotes', 18646): '0648064e0627064406520645064e064406500651062606500643064e0629064f',
+    (9, 'arabicBody', 17506): '0648064e0623064806520644064f062606500643064e',
+    (11, 'arabicFootnotes', 54261): '0641064e06230652064806520644064e062606500643064e00200645064e0639064e00200623064406300650064a0646064e',
+    (15, 'arabicBody', 42257): '062706330652062a064f06470652063206500626064b',
+    (15, 'arabicFootnotes', 51340): '062706330652062a064f06470652063206500626064b',
+    (16, 'arabicFootnotes', 58208): '0641064e064a06520646064e06280651062606520647064f0645',
+    (20, 'arabicBody', 40954): '0627064406520645064e064406500651062606500643064e06290650',
+    (20, 'arabicBody', 9982): '0641064e0627064806520644064e062606500643064e',
+    (20, 'arabicFootnotes', 12289): '0641064e0627064806520644064e062606500643064e',
+    (21, 'arabicBody', 40262): '062806500627064406520643064e064106520631065000200623064806520644064f062606500643064e',
+    (21, 'arabicFootnotes', 58314): '062806500627064406520643064e064106520631065000200623064806520644064f062606500643064e',
+    (27, 'arabicFootnotes', 40540): '0648064e0627064406520645064e06440652062606500643064e0629064f',
+    (27, 'arabicFootnotes', 35767): '0648064e0623064e064806520644064e062606500643064e',
+    (29, 'arabicBody', 42884): '0627064406520645064e064406500651062606500643064e0629064f',
+    (30, 'arabicBody', 74833): '062e064e0632064e0622062606500646064e',
+    (30, 'arabicBody', 73585): '0645064e064406500651062606500643064e0629064c',
+    (30, 'arabicBody', 72419): '0648064e0627064406520645064e06440652062606500643064e06290650',
+    (30, 'arabicFootnotes', 92615): '062e064e0632064e0622062606500646064e',
+    (30, 'arabicFootnotes', 91372): '0645064e064406500651062606500643064e0629064c',
+    (33, 'arabicBody', 49059): '062306330652062a064f06470652063206500626064e',
+    (34, 'arabicBody', 60610): '0627064406520645064e064406500651062606500643064e06290650',
+    (39, 'arabicBody', 10762): '0648064e0623064806520644064f062606500643064e',
+    (40, 'arabicBody', 11051): '062506450652063106500626064d',
+    (42, 'arabicBody', 9994): '0648064e0627064406520645064e0644064e0651062606500643064e0629064f',
+    (44, 'arabicBody', 8066): '06270628064e0622062606500647065006450652',
+    (44, 'arabicBody', 7882): '06270628064e062206260650064706500645065200200648064e0623064e063206520648064e0627062c0650064706500645065200200648064e0630064f063106510650064a0651064e062a06500647065006450652',
+    (45, 'arabicBody', 7298): '0648064e0627064406520645064e064406500651062606500643064e0629064f',
+    (47, 'arabicBody', 34741): '0623064e06480652064406500651062606500643064e',
+    (50, 'arabicBody', 13021): '0648064e0627064406520645064e064406500651062606500643064e0629064f',
+    (54, 'arabicBody', 41812): '0642064f063106500626064e',
 }
 
 
@@ -293,15 +308,10 @@ REFUSED_HAMZA_SEAT = {
 REFUSED_BY_AUDIT = {
     (11, 'arabicBody', 43366),      # li-ma -> li-man; li-ma stands in Q 4:77
     (11, 'arabicFootnotes', 57149), # the same, in the footnotes
-    (15, 'arabicBody', 42257),      # ustuhzi'a: hamza on yeh-barree, Q 6:10
-    (15, 'arabicFootnotes', 51340), # the same, in the footnotes
     (24, 'arabicBody', 37462),      # fal -> qul on a fatha; Q 10:102 fa-hal
     (31, 'arabicBody', 17528),      # li-shay'in: the aya's last letter is hamza
-    (33, 'arabicBody', 49059),      # ustuhzi'a again, Q 6:10
     (36, 'arabicBody', 58389),      # yad'una cited to Q 17:22, which lacks it
-    (40, 'arabicBody', 11051),      # imri'in: hamza below yeh-barree, Q 80:37
     (42, 'arabicBody', 51004),      # fal -> qul on a fatha, Q 37:15-20
-    (54, 'arabicBody', 41812),      # quri'a: hamza on yeh-barree, Q 84:21
 }
 
 # lesson -> [(field, old, new, lead, tail, width, mult, hint, note)]
@@ -6733,19 +6743,21 @@ def main():
     # Plan everything first.  A row that cannot resolve must stop this script
     # before any file is written, not after the lessons before it are on disk.
     planned = []
-    applied = skipped = refused = 0
+    applied = skipped = refused = rewritten = 0
     for lesson in sorted(ROWS):
         path = ROOT / f'{lesson:02d}.json'
         data = json.loads(path.read_text(encoding='utf-8'))
         touched = False
         by_field = {}
         for field, old, new, lead, tail, width, mult, hint, note in ROWS[lesson]:
-            if (lesson, field, hint) in REFUSED_HAMZA_SEAT:
-                refused += 1
-                continue
             if (lesson, field, hint) in REFUSED_BY_AUDIT:
                 refused += 1
                 continue
+            seat = SEAT_REWRITE.get((lesson, field, hint))
+            if seat is not None:
+                # the row as minted stands as a superseded starting form, so a
+                # tree already holding the seatless write is carried forward
+                old, new, rewritten = f'{old}|{new}', seat, rewritten + 1
             by_field.setdefault(field, []).append(
                 ('|'.join(A.hx(x) for x in old.split('|')),
                  A.hx(new), [A.hx(x) for x in lead],
@@ -6770,8 +6782,8 @@ def main():
     verb = 'applied' if WRITE else 'would apply'
     total = sum(len(v) for v in ROWS.values())
     print(f'{verb} {applied} repairs; {skipped} already in place; '
-          f'{refused} refused of {total} rows minted '
-          f'({len(REFUSED_HAMZA_SEAT)} hamza seat, {len(REFUSED_BY_AUDIT)} by audit)')
+          f'{refused} refused of {total} rows minted; '
+          f'{rewritten} written with a hamza seat')
     assert applied + skipped + refused == total, (
         f'{total} rows minted but {applied + skipped + refused} accounted for')
 
