@@ -192,6 +192,118 @@ import repair_anchors as A
 ROOT = Path(__file__).resolve().parent.parent / 'src' / 'data' / 'lessons'
 WRITE = '--write' in sys.argv
 
+
+# A HOLE IN THE HAMZA REFUSAL, FOUND BY AUDIT AFTER THE ROWS WERE MINTED
+#
+# The pass refuses a site where a hamza stands in the printed word or in the
+# aya word: a seat the scan misread as a consonant reads as a letter too many.
+# That refusal was written against the PRINTED word and it does not catch the
+# opposite shape.  A.dotfold collapses the seat `ئ` onto `ي`, so an aya word
+# spelt with a seat -- `al-mala\'ika`, `ula\'ika`, `khaza\'in`, `aba\'ihim` --
+# reaches the comparison already seatless, and the facing letter handed back
+# to the printed word is a bare `ya`.  The row then writes `al-malyika` for
+# `al-mala\'ika`: not the printing, and not a word.
+#
+# 39 rows do this, every one of them the same shape.  They are refused here
+# rather than repaired, because writing the seat is a different rule with its
+# own guard and this pass has just been shown to have a hole.  The sites stay
+# damaged and legible as damage, which is the point: `al-mal.bika` is visibly
+# broken, `al-malyika` is not.
+#
+# Cost of the refusal, stated: lesson 44 @7882 is a run of three words, so
+# refusing it also gives up `dhurriyyatihim` for `dhurri.batihim`, a dot
+# repair that would otherwise have stood.  One site.
+REFUSED_HAMZA_SEAT = {
+    (3, 'arabicBody', 9923),
+    (5, 'arabicBody', 47696),
+    (5, 'arabicBody', 47734),
+    (5, 'arabicFootnotes', 61730),
+    (5, 'arabicFootnotes', 61768),
+    (5, 'arabicFootnotes', 65333),
+    (5, 'arabicFootnotes', 65519),
+    (6, 'arabicBody', 19183),
+    (6, 'arabicFootnotes', 22260),
+    (7, 'arabicBody', 16204),
+    (7, 'arabicBody', 32826),
+    (8, 'arabicBody', 15515),
+    (8, 'arabicBody', 28952),
+    (8, 'arabicFootnotes', 18646),
+    (8, 'arabicFootnotes', 35607),
+    (9, 'arabicBody', 17506),
+    (11, 'arabicFootnotes', 54261),
+    (16, 'arabicFootnotes', 58208),
+    (20, 'arabicBody', 9982),
+    (20, 'arabicBody', 40954),
+    (20, 'arabicFootnotes', 12289),
+    (21, 'arabicBody', 40262),
+    (21, 'arabicFootnotes', 58314),
+    (27, 'arabicFootnotes', 35767),
+    (27, 'arabicFootnotes', 40540),
+    (29, 'arabicBody', 42884),
+    (30, 'arabicBody', 72419),
+    (30, 'arabicBody', 73585),
+    (30, 'arabicBody', 74833),
+    (30, 'arabicFootnotes', 91372),
+    (30, 'arabicFootnotes', 92615),
+    (34, 'arabicBody', 60610),
+    (39, 'arabicBody', 10762),
+    (42, 'arabicBody', 9994),
+    (44, 'arabicBody', 7882),
+    (44, 'arabicBody', 8066),
+    (45, 'arabicBody', 7298),
+    (47, 'arabicBody', 34741),
+    (50, 'arabicBody', 13021),
+}
+
+
+# WHAT EIGHT ADVERSARIAL READINGS OF THE 1,538 FOUND
+#
+# The applied rows were split into eight tranches and read row by row against
+# the cited aya, with the reader told to find wrong writes rather than confirm
+# the pass.  Eleven rows did not survive.  They are refused here.
+#
+# Six more of the hamza class, and the reason the first scan missed them: this
+# reference encodes many hamzas as a COMBINING mark over the base letter --
+# `us\'tuhzi\'a` is yeh-barree + U+0654, `imri\'in` is yeh-barree + U+0655 --
+# and the scan that caught the 39 looked only for the precomposed seats
+# U+0621..U+0626.  A scan that strips marks before comparing strips the hamza
+# with them and reports agreement.  The rule is the same as before: where the
+# aya carries a hamza on a medial or final ya or wa, a bare ya is not the
+# repair.  Rows where the seatless spelling PREDATES the row and the row
+# changed some other letter are left alone -- that damage is not this pass\'s.
+#
+# Two where the pass wrote over a word that was already right.  `li-ma` stands
+# in Q 4:77 -- `rabbana li-ma katabta \'alayna l-qital` -- and so does
+# `li-mani ttaqa`, so inserting the nun turns a correct word into the other
+# one.  Guard C should have called this a tie and refused it; it did not,
+# because it scores candidate AYAT and both readings sit in the same aya.
+#
+# One where the citation does not hold the word at all.  Q 17:22 is
+# `la taj\'al ma\'a llahi ilahan akhara` -- no `yad\'una` anywhere in it.  The
+# letter is almost certainly right and the citation is wrong, which is exactly
+# the case this pass must refuse rather than guess.
+#
+# Two of the `fa-lam`/`qul` ties the neighbour rule settled, refused on the
+# printing\'s own vowels.  `qul` takes a damma.  Where the printing writes
+# fatha and sukun -- `fal` -- the word behind the damage is `fa-hal`, not
+# `qul`: Q 10:102 opens `fa-hal yantazaruna`.  The two rows the printing
+# vowels with a damma (lessons 34 and 36) stand; these two do not.  This is
+# AK\'s 40-site `fal`/`qul` class and the vowel is the only evidence inside
+# the span that speaks to it.
+REFUSED_BY_AUDIT = {
+    (11, 'arabicBody', 43366),      # li-ma -> li-man; li-ma stands in Q 4:77
+    (11, 'arabicFootnotes', 57149), # the same, in the footnotes
+    (15, 'arabicBody', 42257),      # ustuhzi'a: hamza on yeh-barree, Q 6:10
+    (15, 'arabicFootnotes', 51340), # the same, in the footnotes
+    (24, 'arabicBody', 37462),      # fal -> qul on a fatha; Q 10:102 fa-hal
+    (31, 'arabicBody', 17528),      # li-shay'in: the aya's last letter is hamza
+    (33, 'arabicBody', 49059),      # ustuhzi'a again, Q 6:10
+    (36, 'arabicBody', 58389),      # yad'una cited to Q 17:22, which lacks it
+    (40, 'arabicBody', 11051),      # imri'in: hamza below yeh-barree, Q 80:37
+    (42, 'arabicBody', 51004),      # fal -> qul on a fatha, Q 37:15-20
+    (54, 'arabicBody', 41812),      # quri'a: hamza on yeh-barree, Q 84:21
+}
+
 # lesson -> [(field, old, new, lead, tail, width, mult, hint, note)]
 ROWS = {
     1: [
@@ -6621,13 +6733,19 @@ def main():
     # Plan everything first.  A row that cannot resolve must stop this script
     # before any file is written, not after the lessons before it are on disk.
     planned = []
-    applied = skipped = 0
+    applied = skipped = refused = 0
     for lesson in sorted(ROWS):
         path = ROOT / f'{lesson:02d}.json'
         data = json.loads(path.read_text(encoding='utf-8'))
         touched = False
         by_field = {}
         for field, old, new, lead, tail, width, mult, hint, note in ROWS[lesson]:
+            if (lesson, field, hint) in REFUSED_HAMZA_SEAT:
+                refused += 1
+                continue
+            if (lesson, field, hint) in REFUSED_BY_AUDIT:
+                refused += 1
+                continue
             by_field.setdefault(field, []).append(
                 ('|'.join(A.hx(x) for x in old.split('|')),
                  A.hx(new), [A.hx(x) for x in lead],
@@ -6650,7 +6768,12 @@ def main():
         for path, data in planned:
             path.write_text(json.dumps(data, ensure_ascii=False), encoding='utf-8')
     verb = 'applied' if WRITE else 'would apply'
-    print(f'{verb} {applied} repairs; {skipped} already in place')
+    total = sum(len(v) for v in ROWS.values())
+    print(f'{verb} {applied} repairs; {skipped} already in place; '
+          f'{refused} refused of {total} rows minted '
+          f'({len(REFUSED_HAMZA_SEAT)} hamza seat, {len(REFUSED_BY_AUDIT)} by audit)')
+    assert applied + skipped + refused == total, (
+        f'{total} rows minted but {applied + skipped + refused} accounted for')
 
 
 if __name__ == '__main__':
