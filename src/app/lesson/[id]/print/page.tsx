@@ -4,6 +4,7 @@ import DisablePrintWrapper from '@/components/DisablePrintWrapper';
 import { splitArabicCommentary } from '@/lib/arabicCommentary';
 import { injectFootnoteLinks, injectVerseNumbers } from '@/lib/textInject';
 import verseCitations from '@/data/verseCitations.json';
+import verseCitationStatus from '@/data/verseCitationStatus.json';
 
 export async function generateStaticParams() {
   const lessons = await getAllLessons();
@@ -31,6 +32,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
   // edition was pulled for a since-resolved rights question.
   const arabicFull = splitArabicCommentary((lesson as any).arabicBody || lesson.arabicText);
   const lessonCitations = (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
+  const lessonCitationStatus = (verseCitationStatus as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
   const footnoteOrder = (lesson as any).footnoteOrder as string[] | undefined;
   const fnCursor = { i: 0 };
   const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -105,7 +107,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
       <div className="body-ar">
         {arabicFull.paragraphs.map((p, i) => (
           <p key={i} dangerouslySetInnerHTML={{
-            __html: injectFootnoteLinks(injectVerseNumbers(p, lessonCitations?.[String(i)]), lesson.id, footnoteOrder, fnCursor)
+            __html: injectFootnoteLinks(injectVerseNumbers(p, lessonCitations?.[String(i)], lessonCitationStatus?.[String(i)]), lesson.id, footnoteOrder, fnCursor)
           }} />
         ))}
       </div>

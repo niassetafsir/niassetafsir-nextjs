@@ -41,9 +41,11 @@ poem/basmala lines):
 
 **These three must stay byte-identical.** If you touch the citation regex,
 poem filter, or paragraph split in one, apply the same change to all three,
-then re-run `scripts/match-verses.js` and `scripts/build-verse-citations.js`
-to regenerate the JSON, or verse numbers will silently attach to the wrong
-citation.
+then re-run `scripts/match-verses.js`, `scripts/build-verse-citations.js` and
+`scripts/build-citation-status.js` to regenerate the JSON, or verse numbers and
+collation marks will silently attach to the wrong citation. `textInject.ts`
+recounts spanIndex at render time and hands it to BOTH maps, so a drift breaks
+the two together.
 
 ### Confidence tiers
 
@@ -885,9 +887,16 @@ should name is an editorial call.
 
 Run order for anything that touches a lesson body:
 
-    match-verses.js → build-verse-citations.js → add-editorial-verse-index.js --write
+    match-verses.js → build-verse-citations.js → build-citation-status.js
+    → add-editorial-verse-index.js --write
     → build-search-index.js → prune-stale-para-indices.js --write
     → check-citation-neighbours.js
+
+`build-citation-status.js` keys off the SAME (lessonId, paraIndex, spanIndex)
+triple as build-verse-citations.js, and writes what the edition may say about
+the TEXT of each citation — collated, diverges, unplaced — as against the verse
+number, which says which āya it is. It runs in `prebuild` too, so the figures
+on /translators-note and the mark beside each citation cannot drift apart.
 
 As of 19 September: 4,563 checked, 2 flagged, 9 thin spans — all nine
 distinctive phrases rather than errors. The five hand-found cases of 16

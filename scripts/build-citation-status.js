@@ -1,0 +1,137 @@
+#!/usr/bin/env node
+'use strict';
+/**
+ * What the site is entitled to say about each bracketed Qur'anic citation.
+ *
+ * The lessons carry 15,611 bracketed spans. Printing a verse number beside one
+ * is already a claim -- that this passage is that aya -- and build-verse-citations.js
+ * makes it only for the tiers match-verses.js ships. This file makes the OTHER
+ * claim, the one about the TEXT: has the printing been collated against the
+ * mushaf, and did it agree?
+ *
+ * Four states, and the boundary between them is evidence, not confidence:
+ *
+ *   collated   The span is identified at a shipped tier AND its letters sit
+ *              verbatim inside the aya once the printing's own alif, hamza-seat
+ *              and mark practice is folded away. Nothing here is outstanding.
+ *
+ *   diverges   Identified at a shipped tier, and the letters do NOT sit in the
+ *              aya. This is the state that needs a reader. It does not say the
+ *              printing is wrong: a compiler quoting from memory, a partial aya
+ *              and a scan that dropped a letter all land here, and no rule
+ *              reaching only the span can tell them apart.
+ *
+ *   unplaced   Four words or more, and the matcher could not say which aya it
+ *              is -- no match at all, or only a `fuzzy`/`ambiguous` guess it
+ *              declines to ship. Usually the scan damaged the span past
+ *              recognition. Nothing has been collated because there is nothing
+ *              to collate it against.
+ *
+ *   (omitted)  Under four words and unplaced. A two-word lemma the commentary
+ *              is about to gloss is not a citation making a claim, and marking
+ *              7,040 of them would drown the ones that matter. They are counted
+ *              on the about page and left unmarked in the text.
+ *
+ * The key is the triple (lessonId, paraIndex, spanIndex) -- positional, and
+ * computed by match-verses.js's own extraction, so it is the same key
+ * src/lib/textInject.ts recounts at render time. See CLAUDE.md: the regexes,
+ * the poem filter and the paragraph split exist in several files and have to
+ * stay identical, or a marker lands on the wrong citation.
+ *
+ * Run after match-verses.js, beside build-verse-citations.js.
+ */
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = path.join(__dirname, '..');
+const REPORT = path.join(ROOT, 'translation-drafts', 'verse-match-report.json');
+const VERSES = path.join(ROOT, 'src', 'data', 'verse_text.json');
+const OUT = path.join(ROOT, 'src', 'data', 'verseCitationStatus.json');
+
+const SHIPPED_TIERS = new Set(['substring', 'pair', 'enclosed']);
+const MIN_WORDS_TO_MARK = 4;
+
+// Fold what belongs to the printing rather than to the text: vowels and the
+// rest of the marks, the alif family onto one alif, the ya family (including a
+// hamza seat) onto one ya, waw-with-hamza onto waw. What survives is the
+// letter skeleton both copies must share if they are the same words.
+const MARKS = /[ً-ْۖ-ٰۭـࣰ-ࣲٖٕٓٔ]/g;
+function fold(s) {
+  return s
+    .normalize('NFD')
+    .replace(MARKS, '')
+    .replace(/[آأإاٱ]/g, 'ا')
+    .replace(/[ىيےئ]/g, 'ي')
+    .replace(/ؤ/g, 'و')
+    .replace(/ء/g, 'ا')
+    .replace(/[^؀-ۿ ]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+const report = JSON.parse(fs.readFileSync(REPORT, 'utf8'));
+const verses = JSON.parse(fs.readFileSync(VERSES, 'utf8'));
+
+// "2:255" -> that aya. "27:30-27:31" -> both, joined in order, so a span
+// running across the boundary is collated against the text it actually spans.
+// null when any aya named is absent from the reference.
+function referenceText(key) {
+  const parts = String(key).split('-');
+  const texts = [];
+  for (const raw of parts) {
+    const p = raw.trim();
+    if (!verses[p]) return null;
+    texts.push(verses[p].ar);
+  }
+  return texts.join(' ');
+}
+
+const out = {};
+const tally = { collated: 0, diverges: 0, unplaced: 0, omitted: 0, missingRef: 0 };
+
+for (const lessonId of Object.keys(report).sort((a, b) => Number(a) - Number(b))) {
+  for (const s of report[lessonId].spans) {
+    const words = s.text.trim().split(/\s+/).filter(Boolean).length;
+    const placed = s.match && SHIPPED_TIERS.has(s.match.type);
+
+    let status;
+    if (placed) {
+      // A `pair` match names a RANGE -- "27:30-27:31" -- because the span runs
+      // across an aya boundary. Its reference text is the two ayat joined, and
+      // reading the range as a single key is how 421 sound matches came back as
+      // "the reference lacks this aya".
+      const ref = referenceText(s.match.verse);
+      if (ref === null) {
+        // A shipped match naming an aya the reference does not hold is a bug in
+        // the matcher, not a state of the printing. Counted, never rendered.
+        tally.missingRef += 1;
+        continue;
+      }
+      status = fold(ref).includes(fold(s.text)) ? 'collated' : 'diverges';
+    } else if (words >= MIN_WORDS_TO_MARK) {
+      status = 'unplaced';
+    } else {
+      tally.omitted += 1;
+      continue;
+    }
+
+    tally[status] += 1;
+    const L = String(lessonId);
+    const P = String(s.paraIndex);
+    out[L] = out[L] || {};
+    out[L][P] = out[L][P] || {};
+    out[L][P][String(s.spanIndex)] = status;
+  }
+}
+
+fs.writeFileSync(OUT, JSON.stringify(out), 'utf8');
+
+const marked = tally.collated + tally.diverges + tally.unplaced;
+const total = marked + tally.omitted + tally.missingRef;
+console.log(`Wrote citation status for ${Object.keys(out).length} lessons -> src/data/verseCitationStatus.json`);
+console.log(`  ${total} bracketed spans read`);
+console.log(`  collated  ${tally.collated}\tidentified, and the printing agrees with the mushaf`);
+console.log(`  diverges  ${tally.diverges}\tidentified, and it does not -- needs a reading`);
+console.log(`  unplaced  ${tally.unplaced}\t${MIN_WORDS_TO_MARK}+ words the matcher cannot place`);
+console.log(`  unmarked  ${tally.omitted}\tunder ${MIN_WORDS_TO_MARK} words and unplaced: lemmata, not claims`);
+if (tally.missingRef) console.log(`  WARNING   ${tally.missingRef} shipped matches name an aya the reference lacks`);

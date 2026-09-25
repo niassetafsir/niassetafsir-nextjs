@@ -4,6 +4,7 @@ import { SURAH_LIST } from '@/lib/verseRanges';
 import { getLessonIdsForSurah, getAdjacentSurahIds } from '@/lib/surahLessons';
 import SurahReader, { SurahLessonData } from '@/components/SurahReader';
 import verseCitations from '@/data/verseCitations.json';
+import verseCitationStatus from '@/data/verseCitationStatus.json';
 
 export async function generateStaticParams() {
   return SURAH_LIST.map(s => ({ id: String(s.id) }));
@@ -45,6 +46,9 @@ export default async function SurahPage({ params }: { params: { id: string } }) 
       // High-confidence (substring/pair) verse matches for this lesson --
       // see scripts/build-verse-citations.js. paraIndex -> spanIndex -> verse.
       citations: (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(l.id)],
+      // What the edition can say about the TEXT of each of those citations --
+      // see scripts/build-citation-status.js. Same paraIndex -> spanIndex key.
+      citationStatus: (verseCitationStatus as Record<string, Record<string, Record<string, string>>>)[String(l.id)],
     }));
 
   if (lessons.length === 0) notFound();

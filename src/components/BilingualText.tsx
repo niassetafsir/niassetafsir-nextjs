@@ -32,6 +32,11 @@ interface BilingualTextProps {
    *  for the small verse-number badge injectVerseNumbers() appends after a
    *  quoted Qur'anic clause -- see src/data/verseCitations.json. */
   citations?: Record<string, Record<string, string>>;
+  /** paraIndex -> spanIndex -> 'collated' | 'diverges' | 'unplaced': what the
+   *  edition is entitled to say about the TEXT of each bracketed citation, as
+   *  against `citations` above, which says which aya it is. Built by
+   *  scripts/build-citation-status.js -- see src/data/verseCitationStatus.json. */
+  citationStatus?: Record<string, Record<string, string>>;
   englishText: string | null;
   hasEnglish: boolean;
   lessonId?: number;
@@ -123,7 +128,7 @@ function ComingSoonNote({ lang }: { lang: string }) {
   );
 }
 
-export default function BilingualText({ poemLines, arabicParagraphs, citations, englishText, hasEnglish, lessonId, footnoteOrder }: BilingualTextProps) {
+export default function BilingualText({ poemLines, arabicParagraphs, citations, citationStatus, englishText, hasEnglish, lessonId, footnoteOrder }: BilingualTextProps) {
   // Opening on 'bilingual' regardless of whether a translation exists gave 51
   // of 56 lessons a two-column layout in which one column said "English
   // translation forthcoming" -- half the reading width spent on an absence.
@@ -394,7 +399,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                   {block.arabicIndices.map(ai => (
                     <div key={ai} id={`ar-para-${ai}`} dir="rtl" translate="no"
                       className={`font-arabic text-[1.1rem] leading-[2.2] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === ai ? 'bg-gold/15 px-2 -mx-2' : ''}`}
-                      dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(injectVerseNumbers(commentaryParagraphs[ai], citations?.[String(ai)]), lessonId, footnoteOrder, fnCursor) }} />
+                      dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(injectVerseNumbers(commentaryParagraphs[ai], citations?.[String(ai)], citationStatus?.[String(ai)]), lessonId, footnoteOrder, fnCursor) }} />
                   ))}
                   {block.englishIndices.length > 0 ? (
                     <div dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 pl-3">
@@ -481,7 +486,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                        belongs on chrome. The reader already declares its own ink,
                        --body-text, which measures 10.68:1 on the same cream. */
                     style={{ color: 'var(--body-text, rgba(13,31,10,0.88))' }}
-                    dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(injectVerseNumbers(p, citations?.[String(i)]), lessonId, footnoteOrder, fnCursor) }} />
+                    dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(injectVerseNumbers(p, citations?.[String(i)], citationStatus?.[String(i)]), lessonId, footnoteOrder, fnCursor) }} />
                 ))}
               </div>
             </div>
@@ -505,7 +510,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
           {(() => {
             const arCursor = { i: 0 };
             const html = commentaryParagraphs
-              .map((p, i) => `<p class="mb-4 text-justify leading-[2.2]">${injectFootnoteLinks(injectVerseNumbers(p, citations?.[String(i)]), lessonId, footnoteOrder, arCursor)}</p>`)
+              .map((p, i) => `<p class="mb-4 text-justify leading-[2.2]">${injectFootnoteLinks(injectVerseNumbers(p, citations?.[String(i)], citationStatus?.[String(i)]), lessonId, footnoteOrder, arCursor)}</p>`)
               .join('');
             return (
               <div className="mx-auto max-w-[46rem] text-[1.1rem]"

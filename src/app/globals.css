@@ -673,6 +673,44 @@ nav .font-english.text-xs {
 }
 .lesson-reading-page .verse-ref { color: #0d7a5f !important; }
 
+/* Collation mark — what the edition can say about the TEXT of a bracketed
+   citation, as against .verse-ref beside it, which says which aya it is.
+   Built by scripts/build-citation-status.js.
+
+     U+2713  collated — the passage stands in that aya, letter for letter
+     U+2260  diverges — the aya is identified, the printing reads otherwise
+     ?       unplaced — a quotation the scan damaged past identification
+
+   Deliberately quieter than .verse-ref: an apparatus mark on ~8,500 spans has
+   to be findable without competing with the text it annotates, so the two
+   settled states sit low-contrast and only `diverges` — the one a reader
+   should stop at — carries colour. Same superscript idiom, same 400 weight
+   for the same font reason, and unicode-bidi: isolate because a bare ? or ≠
+   would otherwise be re-ordered by the RTL run around it. */
+.cite-status {
+  font-size: 0.6em;
+  vertical-align: super;
+  font-family: var(--font-english);
+  font-weight: 400;
+  font-style: normal;
+  margin-inline-start: 0.15em;
+  unicode-bidi: isolate;
+  cursor: help;
+  color: var(--body-faint, rgba(255,255,255,0.32));
+}
+.cite-status[data-status="diverges"] { color: #C9A84C; opacity: 0.95; }
+.cite-status[data-status="unplaced"] { opacity: 0.6; }
+
+.light .cite-status,
+[data-theme="light"] .cite-status { color: rgba(0,0,0,0.3); }
+.light .cite-status[data-status="diverges"],
+[data-theme="light"] .cite-status[data-status="diverges"] { color: #8a6d1f; }
+.lesson-reading-page .cite-status { color: rgba(0,0,0,0.3); }
+.lesson-reading-page .cite-status[data-status="diverges"] { color: #8a6d1f; }
+
+/* Off by default for print: an apparatus mark is for the screen edition. */
+@media print { .cite-status { display: none; } }
+
 /* Persistent nav — light/dark mode */
 :root {
   --persistent-nav-bg: rgba(10,18,8,0.97);

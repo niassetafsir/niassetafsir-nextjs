@@ -18,6 +18,7 @@ import { SURAH_LIST } from '@/lib/verseRanges';
 import { splitArabicCommentary } from '@/lib/arabicCommentary';
 import { toLessonIndex } from '@/lib/volumes';
 import verseCitations from '@/data/verseCitations.json';
+import verseCitationStatus from '@/data/verseCitationStatus.json';
 import fs from 'fs';
 import path from 'path';
 import ComparativeCommentary from '@/components/ComparativeCommentary';
@@ -129,6 +130,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const lessonIndex = toLessonIndex(lessons);
 
   const lessonCitations = (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
+  const lessonCitationStatus = (verseCitationStatus as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
   const arabicFull = splitArabicCommentary(lesson.arabicBody || lesson.arabicText);
 
   // Top content: breadcrumb and jump tabs
@@ -193,6 +195,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
           poemLines={arabicFull.poemLines}
           arabicParagraphs={arabicFull.paragraphs}
           citations={lessonCitations}
+          citationStatus={lessonCitationStatus}
           englishText={lesson.englishText}
           hasEnglish={lesson.hasEnglish}
           lessonId={lesson.id}

@@ -16,6 +16,9 @@ export interface SurahLessonData {
   /** paraIndex -> spanIndex -> "surah:ayah", high-confidence matches only --
    *  see src/data/verseCitations.json / scripts/build-verse-citations.js. */
   citations?: Record<string, Record<string, string>>;
+  /** paraIndex -> spanIndex -> 'collated' | 'diverges' | 'unplaced' --
+   *  see scripts/build-citation-status.js. */
+  citationStatus?: Record<string, Record<string, string>>;
 }
 
 interface SurahReaderProps {
@@ -95,7 +98,7 @@ function LessonBlock({ lesson }: { lesson: SurahLessonData }) {
           )}
           <div className="space-y-3">
             {arPars.map((p, i) => {
-              const withVerseNums = injectVerseNumbers(p, lesson.citations?.[String(i)]);
+              const withVerseNums = injectVerseNumbers(p, lesson.citations?.[String(i)], lesson.citationStatus?.[String(i)]);
               return (
                 <p key={i}
                   className="font-arabic-sans text-[1.05rem] leading-[2.1] text-justify"

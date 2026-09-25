@@ -93,16 +93,58 @@ export function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrd
 // '.', '{', or '}' inside -- an OCR-mangled bracket pairing with real
 // commentary prose swept up in between) is skipped without incrementing
 // the counter, same as the indexing script dropping it from its output.
-export function injectVerseNumbers(text: string, paraCitations?: Record<string, string>): string {
-  if (!paraCitations || Object.keys(paraCitations).length === 0) return text;
+// What the collation mark says, in the words the reader gets on hover. Built
+// by scripts/build-citation-status.js, which is where the evidence behind each
+// state is set out. A mark is a claim about the TEXT; the verse number beside
+// it is the separate claim about WHICH aya.
+const STATUS_MARK: Record<string, { glyph: string; title: string }> = {
+  collated: {
+    glyph: '\u2713',
+    title: 'Collated: this passage stands in the aya named beside it, letter for letter.',
+  },
+  diverges: {
+    glyph: '\u2260',
+    title:
+      'Diverges: the aya is identified, but the printing does not read as the mushaf does here. '
+      + 'It may be scan damage, or the compiler quoting loosely; it has not been settled.',
+  },
+  unplaced: {
+    glyph: '?',
+    title:
+      'Unplaced: this is a Qur\u2019anic quotation, but the scan has damaged it past the point '
+      + 'where the aya can be identified, so nothing has been collated.',
+  },
+};
+
+export function injectVerseNumbers(
+  text: string,
+  paraCitations?: Record<string, string>,
+  paraStatus?: Record<string, string>,
+): string {
+  const hasCitations = paraCitations && Object.keys(paraCitations).length > 0;
+  const hasStatus = paraStatus && Object.keys(paraStatus).length > 0;
+  // A paragraph may carry a status for a span that has no verse number -- an
+  // unplaced quotation is exactly that case -- so neither map alone may gate
+  // this. Returning early on an empty paraCitations was what made the mark
+  // invisible on every span the matcher had declined.
+  if (!hasCitations && !hasStatus) return text;
 
   let spanIndex = 0;
   const withVerse = (full: string, inner: string) => {
     const span = inner.trim();
     if (/[.{}]/.test(span)) return full;
-    const verse = paraCitations[String(spanIndex)];
+    const key = String(spanIndex);
+    const verse = paraCitations?.[key];
+    const status = paraStatus?.[key];
     spanIndex += 1;
-    return verse ? `${full}<sup class="verse-ref">${verse}</sup>` : full;
+    let out = full;
+    if (verse) out += `<sup class="verse-ref">${verse}</sup>`;
+    const mark = status ? STATUS_MARK[status] : undefined;
+    if (mark) {
+      out += `<sup class="cite-status" data-status="${status}" title="${mark.title}"`
+        + ` aria-label="${mark.title}">${mark.glyph}</sup>`;
+    }
+    return out;
   };
 
   let result = text.replace(/\(([^()]{2,400})\)/g, withVerse);

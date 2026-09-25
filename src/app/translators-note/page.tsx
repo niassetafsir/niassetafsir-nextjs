@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 export default async function EditorialConventionsPage() {
-  const { footnoteCount, footnoteLessons, totalLessons } = await getEditionFacts();
+  const { footnoteCount, footnoteLessons, totalLessons, citations } = await getEditionFacts();
   return (
     <main className="max-w-3xl mx-auto px-4 pb-24 pt-6" dir="ltr">
       <div className="mb-2">
@@ -199,6 +199,56 @@ export default async function EditorialConventionsPage() {
           Technical Arabic terms are given in transliteration on first occurrence with an English
           equivalent in parentheses; thereafter in transliteration only.
         </p>
+
+        <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
+          The Qurʾānic Text, and What the Marks Beside It Mean
+        </h2>
+        <p className="mb-3 text-justify">
+          The edition is set from a scan of the Tunis printing, and scanning damages Arabic in a
+          particular way: it confuses letters that differ only by their dots, and it loses the seat
+          under a hamza. Inside a Qurʾānic quotation that damage is not a typo but a corrupted
+          scriptural text, so every bracketed citation in all {totalLessons} lessons has been read
+          against a reference muṣḥaf in the riwāya of Warsh ʿan Nāfiʿ — the reading this printing
+          follows.
+        </p>
+        <p className="mb-3 text-justify">
+          The reference detects damage; it does not settle orthography. Where the printing and the
+          reference differ over an alif, a hamza seat or a vowel, the printing stands, because those
+          are the printing&rsquo;s own conventions and a digital text is no authority over them. What
+          the reference is used for is the letter skeleton underneath.
+        </p>
+        {citations.total > 0 && (
+          <>
+            <p className="mb-3 text-justify">
+              A small mark after each bracketed citation says how far that reading has been carried,
+              and the marks are not decoration: they are the apparatus. A{' '}
+              <span className="font-english" style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>✓</span>{' '}
+              means the passage stands in the āya named beside it, letter for letter. A{' '}
+              <span className="font-english" style={{ color: '#C9A84C' }}>≠</span>{' '}
+              means the āya is identified and the printing reads otherwise — which may be scan damage,
+              or the compiler quoting from memory, and nothing inside the quotation itself can tell
+              those apart. A{' '}
+              <span className="font-english" style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>?</span>{' '}
+              means the scan has damaged the passage past the point where the āya can be identified at
+              all, so there is nothing to collate it against.
+            </p>
+            <p className="mb-3 text-justify">
+              Of {citations.total.toLocaleString()} bracketed citations,{' '}
+              <strong className="text-white/85">{citations.collated.toLocaleString()}</strong> are
+              collated and agree; <strong className="text-white/85">{citations.diverges.toLocaleString()}</strong>{' '}
+              are identified and diverge; and{' '}
+              <strong className="text-white/85">{citations.unplaced.toLocaleString()}</strong> of four
+              words or more cannot yet be placed. The remaining{' '}
+              {citations.unmarked.toLocaleString()} run under four words — a lemma the commentary is
+              about to gloss rather than a citation making a claim — and carry no mark.
+            </p>
+            <p className="mb-3 text-justify">
+              The divergent and unplaced citations are the edition&rsquo;s open work. They are shown
+              rather than hidden, and they are not silently emended: a reading that cannot be settled
+              on the evidence is left as the printing has it, and marked.
+            </p>
+          </>
+        )}
 
         <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
           Citation

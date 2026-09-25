@@ -181,6 +181,18 @@ export interface EditionFacts {
    *  indexed. Counting the concordance alone gave "twenty" for a page showing
    *  twenty-four. */
   termCount: number;
+  /** How far the Qurʾānic citations have been collated against the muṣḥaf.
+   *  Counted from src/data/verseCitationStatus.json at build time, so the
+   *  page cannot claim a state the corpus has moved past. */
+  citations: {
+    total: number;
+    collated: number;
+    diverges: number;
+    unplaced: number;
+    /** Under four words and unplaced: a lemma the commentary is glossing, not
+     *  a citation making a claim. Marked nowhere, counted here. */
+    unmarked: number;
+  };
 }
 
 /**
@@ -270,6 +282,32 @@ export async function getEditionFacts(): Promise<EditionFacts> {
     /* leave at 0 */
   }
 
+  // What the edition can say about its Qurʾānic citations. Read from the built
+  // status file rather than recounted here, so this figure and the mark beside
+  // each citation in the text can never disagree.
+  const citations = { total: 0, collated: 0, diverges: 0, unplaced: 0, unmarked: 0 };
+  try {
+    const raw = fs.readFileSync(path.join(process.cwd(), 'src/data/verseCitationStatus.json'), 'utf8');
+    const byLesson: Record<string, Record<string, Record<string, string>>> = JSON.parse(raw);
+    for (const paras of Object.values(byLesson)) {
+      for (const spans of Object.values(paras)) {
+        for (const status of Object.values(spans)) {
+          if (status === 'collated') citations.collated += 1;
+          else if (status === 'diverges') citations.diverges += 1;
+          else if (status === 'unplaced') citations.unplaced += 1;
+        }
+      }
+    }
+    const report = JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), 'translation-drafts/verse-match-report.json'), 'utf8')
+    ) as Record<string, { spans: unknown[] }>;
+    citations.total = Object.values(report).reduce((n, l) => n + l.spans.length, 0);
+    citations.unmarked = citations.total
+      - (citations.collated + citations.diverges + citations.unplaced);
+  } catch {
+    /* leave at 0; the page renders this only when total is non-zero */
+  }
+
   return {
     totalLessons: c.totalLessons,
     arabicLessons: c.layers.find(l => l.key === 'arabic')?.count ?? 0,
@@ -287,6 +325,7 @@ export async function getEditionFacts(): Promise<EditionFacts> {
     audioLessons: c.layers.find(l => l.key === 'audio')?.count ?? 0,
     wolofLessons: lessons.filter(l => l.wolofAudioUrl || l.wolofPlaylistId).length,
     quranAudioSurahs,
+    citations,
   };
 }
 
