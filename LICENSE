@@ -1,0 +1,59 @@
+Copyright (c) 2026 Amadu Kunateh
+
+Except where stated otherwise below, everything in this repository — the
+transcribed Arabic text, the English translation, the editorial apparatus, the
+indices and the site that presents them — is licensed under the
+
+    Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+    (CC BY-NC-ND 4.0)
+
+The full legal text is at https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
+and the summary at https://creativecommons.org/licenses/by-nc-nd/4.0/. In short:
+you may copy and redistribute this material in any medium or format, with
+attribution, for non-commercial purposes, and you may not distribute a modified
+version.
+
+Attribution should name the edition and the printing it follows:
+
+    Amadu Kunateh, ed. and trans., Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm of Shaykh
+    Ibrāhīm Niasse: A Digital Scholarly Edition (niassetafsir.org), following the
+    ten-volume Majmaʿ al-Yamāma printing (Tunis, December 2022).
+
+Quotation for scholarship, review, teaching and comment is fair dealing / fair
+use and needs no permission from this licence.
+
+WHAT THIS LICENCE DOES NOT COVER
+
+1. The Qurʾānic text itself, which carries no copyright.
+
+2. The underlying work. Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm is the tafsīr of
+   Shaykh Ibrāhīm Niasse (d. 1975), compiled with footnotes by Muḥammad ibn
+   Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī and printed by Majmaʿ al-Yamāma.
+   This licence covers the transcription, translation, encoding and editorial
+   work in this repository, not rights in the underlying text, which rest with
+   their holders. Publication of the full Arabic commentary here was confirmed
+   by the rights holder on 16 August 2026 (see CLAUDE.md).
+
+3. Third-party texts presented for comparison: Tafsīr al-Jalālayn, Rūḥ al-Bayān,
+   and any other work quoted under its own terms. A translation of al-Jalālayn
+   by Feras Hamza (© 2007 Royal Aal al-Bayt Institute) was removed from the data
+   in August 2026 and is not distributed here.
+
+4. Vendored fonts and libraries, which carry their own licences.
+
+THE SOFTWARE
+
+This licence is deliberately the restrictive default, and it is a poor fit for
+the code — CC BY-NC-ND forbids distributing a modified version, which is most of
+what anyone would do with a Next.js application. If the site's code should be
+reusable, relicense `src/`, `scripts/` and the build configuration under a
+software licence (MIT and AGPL-3.0 being the usual two ends of that choice) and
+leave CC BY-NC-ND over the edition's text. Until then, the terms above stand
+over everything.
+
+NO WARRANTY
+
+This material is provided "as is", without warranty of any kind. The Qurʾānic
+citations are machine-collated against a reference muṣḥaf and carry a status
+mark; the verse numbering is Ḥafṣ-derived over a Warsh text and is a navigation
+aid, not citation-grade. Verify against the printing before citing.

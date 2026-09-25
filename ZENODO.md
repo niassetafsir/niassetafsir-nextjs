@@ -70,8 +70,9 @@ Islamic studies, critical edition, bilingual edition, Arabic text, scholarly pla
 **License:** CC BY-NC-ND 4.0
 (Attribution, Non-commercial, No derivatives)
 
-Note: the repository carries no LICENSE file, so this line is a claim made at deposit and
-nowhere else. Add one before depositing if the terms are settled.
+Matches `LICENSE` in the repository, added 25 September 2026. That file also carries the
+carve-outs -- the Qur'anic text, the underlying tafsir, comparative texts, vendored
+fonts -- and notes that CC BY-NC-ND is a poor fit for the application code.
 
 **Related identifiers:**
 - https://niassetafsir.org (is hosted at)

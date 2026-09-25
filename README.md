@@ -115,4 +115,13 @@ Editorial work that only AK can do: most of the English translation, footnote an
 the majority of lessons, the comparative transcription of the sūra headings, the audio
 sessions, the bilingual paragraph pairing, and the divergent readings that the citation
 audit flagged and refused to settle. `CLAUDE.md` carries the current state of each and the
-reasoning behind the calls already made. There is no LICENSE file in the repository.
+reasoning behind the calls already made.
+
+## Rights
+
+`LICENSE` places the edition -- transcription, translation, apparatus, indices --
+under CC BY-NC-ND 4.0, and says what it does not cover: the Qur'anic text, the
+underlying tafsir, third-party comparative texts, and vendored fonts. It is the
+restrictive default and a poor fit for the application code, which forbids
+distributing a modified version; relicense `src/` and `scripts/` under a software
+licence if the code should be reusable.
