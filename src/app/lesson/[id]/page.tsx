@@ -2,6 +2,7 @@ import { getLesson, getAllLessons } from '@/lib/lessons';
 import { getReadingNotes } from '@/lib/readingNotes';
 import { notFound, redirect } from 'next/navigation';
 import LessonExperience from '@/components/LessonExperience';
+import CitationFeedback from '@/components/CitationFeedback';
 import BilingualText from '@/components/BilingualText';
 import PanelJumpTabs from '@/components/PanelJumpTabs';
 import LessonAudioBar from '@/components/LessonAudioBar';
@@ -169,6 +170,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
 
   // Main content: panels
   const mainContent = (
+    <>
+    <CitationFeedback />
     <LessonExperience
       hasTranslation={!!lesson.hasEnglish}
       tafsir={<>
@@ -279,6 +282,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </>}
     />
+    </>
   );
 
   // Bottom content: navigation

@@ -247,6 +247,14 @@ export default async function EditorialConventionsPage() {
               rather than hidden, and they are not silently emended: a reading that cannot be settled
               on the evidence is left as the printing has it, and marked.
             </p>
+            <p className="mb-3 text-justify">
+              Every mark is also a way in. Click one and you can propose what the passage should read
+              and say on what evidence — a muṣḥaf, a printed edition, a parallel elsewhere in the
+              commentary. Suggestions reach the editor and are weighed one by one; none of them
+              alters the text on its own, and an accepted one is applied with its warrant recorded.
+              Readers who know this material have caught what a rule cannot, and the marks are there
+              partly to make that possible.
+            </p>
           </>
         )}
 

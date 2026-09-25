@@ -120,6 +120,11 @@ export function injectVerseNumbers(
   text: string,
   paraCitations?: Record<string, string>,
   paraStatus?: Record<string, string>,
+  /** Which paragraph of which lesson this is. Present only where a reader can
+   *  act on the mark: it puts the citation's own key on the element, so the
+   *  feedback dialog knows which of the 15,611 spans a click is about without
+   *  re-deriving it from the DOM. Omit it and the marks render inert. */
+  ref?: { lessonId: number; paraIndex: number },
 ): string {
   const hasCitations = paraCitations && Object.keys(paraCitations).length > 0;
   const hasStatus = paraStatus && Object.keys(paraStatus).length > 0;
@@ -133,16 +138,24 @@ export function injectVerseNumbers(
   const withVerse = (full: string, inner: string) => {
     const span = inner.trim();
     if (/[.{}]/.test(span)) return full;
-    const key = String(spanIndex);
-    const verse = paraCitations?.[key];
-    const status = paraStatus?.[key];
+    const key0 = String(spanIndex);
+    const verse = paraCitations?.[key0];
+    const status = paraStatus?.[key0];
     spanIndex += 1;
     let out = full;
     if (verse) out += `<sup class="verse-ref">${verse}</sup>`;
     const mark = status ? STATUS_MARK[status] : undefined;
     if (mark) {
-      out += `<sup class="cite-status" data-status="${status}" title="${mark.title}"`
-        + ` aria-label="${mark.title}">${mark.glyph}</sup>`;
+      // data-cite is the (lesson, paragraph, span) triple the whole apparatus
+      // is keyed on -- see scripts/build-citation-status.js. Emitted only when
+      // the caller supplied a ref, so the print page and any future caller that
+      // has no reader to act on it produce a plain, inert mark.
+      const key = ref ? ` data-cite="${ref.lessonId}:${ref.paraIndex}:${key0}"` : '';
+      const named = verse ? ` data-verse="${verse}"` : '';
+      const hint = ref ? ' Click to suggest a reading.' : '';
+      out += `<sup class="cite-status" data-status="${status}"${key}${named}`
+        + ` title="${mark.title}${hint}" aria-label="${mark.title}${hint}"`
+        + `${ref ? ' role="button" tabindex="0"' : ''}>${mark.glyph}</sup>`;
     }
     return out;
   };

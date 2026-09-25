@@ -708,6 +708,27 @@ nav .font-english.text-xs {
 .lesson-reading-page .cite-status { color: rgba(0,0,0,0.3); }
 .lesson-reading-page .cite-status[data-status="diverges"] { color: #8a6d1f; }
 
+/* A mark carrying data-cite is one a reader can act on: it opens the
+   "suggest a reading" dialog (src/components/CitationFeedback.tsx). Given an
+   affordance rather than left to be discovered -- a pointer, a hover, and a
+   real focus ring, since the mark is reachable by keyboard. The hit area is
+   padded out because a superscript glyph is a small target on a phone. */
+.cite-status[data-cite] {
+  cursor: pointer;
+  padding: 0 0.18em;
+  border-radius: 3px;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+.cite-status[data-cite]:hover {
+  opacity: 1;
+  background: rgba(201,168,76,0.18);
+}
+.cite-status[data-cite]:focus-visible {
+  outline: 2px solid var(--gold, #C9A84C);
+  outline-offset: 1px;
+}
+.lesson-reading-page .cite-status[data-cite]:hover { background: rgba(138,109,31,0.16); }
+
 /* Off by default for print: an apparatus mark is for the screen edition. */
 @media print { .cite-status { display: none; } }
 

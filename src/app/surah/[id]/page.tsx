@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getLesson } from '@/lib/lessons';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { getLessonIdsForSurah, getAdjacentSurahIds } from '@/lib/surahLessons';
+import CitationFeedback from '@/components/CitationFeedback';
 import SurahReader, { SurahLessonData } from '@/components/SurahReader';
 import verseCitations from '@/data/verseCitations.json';
 import verseCitationStatus from '@/data/verseCitationStatus.json';
@@ -58,6 +59,8 @@ export default async function SurahPage({ params }: { params: { id: string } }) 
   const nextMeta = next ? SURAH_LIST.find(s => s.id === next) : null;
 
   return (
+    <>
+    <CitationFeedback />
     <SurahReader
       surahId={surahId}
       nameAr={meta.nameAr}
@@ -67,5 +70,6 @@ export default async function SurahPage({ params }: { params: { id: string } }) 
       prevSurah={prevMeta ? { id: prevMeta.id, nameEn: prevMeta.nameEn } : null}
       nextSurah={nextMeta ? { id: nextMeta.id, nameEn: nextMeta.nameEn } : null}
     />
+    </>
   );
 }

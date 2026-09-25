@@ -98,7 +98,7 @@ function LessonBlock({ lesson }: { lesson: SurahLessonData }) {
           )}
           <div className="space-y-3">
             {arPars.map((p, i) => {
-              const withVerseNums = injectVerseNumbers(p, lesson.citations?.[String(i)], lesson.citationStatus?.[String(i)]);
+              const withVerseNums = injectVerseNumbers(p, lesson.citations?.[String(i)], lesson.citationStatus?.[String(i)], { lessonId: lesson.id, paraIndex: i });
               return (
                 <p key={i}
                   className="font-arabic-sans text-[1.05rem] leading-[2.1] text-justify"
