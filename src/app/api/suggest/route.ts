@@ -70,6 +70,17 @@ function fence(s: string): string {
   return '```\n' + s.replace(/```/g, "'''").trim() + '\n```';
 }
 
+// Whether this deployment can record a suggestion at all. The form asks before
+// the reader types, so that a site without a token offers email as its ORDINARY
+// path rather than as an apology after someone has written a paragraph.
+//
+// This has to be its own route and not a probe POST: the POST validates the
+// citation key first and would answer 400 to an empty body, which a probe would
+// read as "configured".
+export async function GET() {
+  return NextResponse.json({ configured: Boolean(TOKEN) });
+}
+
 export async function POST(request: NextRequest) {
   let body: Record<string, unknown>;
   try {

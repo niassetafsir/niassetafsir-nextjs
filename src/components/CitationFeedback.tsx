@@ -42,6 +42,10 @@ export default function CitationFeedback() {
   const [sending, setSending] = useState(false);
   const [done, setDone] = useState<number | null | 'sent'>(null);
   const [error, setError] = useState<string | null>(null);
+  // null = not asked yet. GET /api/suggest reports whether this deployment can
+  // record a suggestion; asking once, when the dialog opens, lets the form offer
+  // email as its ORDINARY path rather than as the apology after a failure.
+  const [canPost, setCanPost] = useState<boolean | null>(null);
   const firstField = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
@@ -72,6 +76,14 @@ export default function CitationFeedback() {
       document.removeEventListener('keydown', onKey);
     };
   }, []);
+
+  useEffect(() => {
+    if (!target || canPost !== null) return;
+    fetch('/api/suggest')
+      .then(r => r.json())
+      .then(d => setCanPost(Boolean(d?.configured)))
+      .catch(() => setCanPost(false));
+  }, [target, canPost]);
 
   useEffect(() => {
     if (!target) return;
@@ -145,8 +157,13 @@ export default function CitationFeedback() {
         {done !== null ? (
           <div>
             <p className="font-english text-[13px] leading-6 mb-4">
-              Thank you — recorded{typeof done === 'number' ? <> as suggestion #{done}</> : null}. The
-              editor reviews each one by hand; nothing changes in the text until he accepts it.
+              {canPost === false ? (
+                <>Thank you — your mail programme should now be open with the suggestion in it.
+                  Send it and the editor will weigh it by hand.</>
+              ) : (
+                <>Thank you — recorded{typeof done === 'number' ? <> as suggestion #{done}</> : null}. The
+                  editor reviews each one by hand.</>
+              )}{' '}Nothing changes in the text until he accepts it.
             </p>
             <button onClick={() => setTarget(null)}
               className="tap font-english text-[13px] px-4 py-2 rounded-lg font-semibold"
@@ -185,11 +202,24 @@ export default function CitationFeedback() {
             )}
 
             <div className="flex items-center gap-3">
-              <button onClick={submit} disabled={sending || !evidence.trim()}
-                className="tap font-english text-[13px] px-4 py-2 rounded-lg font-semibold disabled:opacity-40"
-                style={{ background: 'var(--gold, #C9A84C)', color: '#12180f' }}>
-                {sending ? 'Sending…' : 'Submit'}
-              </button>
+              {canPost === false ? (
+                <a href={mailto}
+                  onClick={() => setDone('sent')}
+                  className="tap font-english text-[13px] px-4 py-2 rounded-lg font-semibold"
+                  style={{
+                    background: evidence.trim() ? 'var(--gold, #C9A84C)' : 'rgba(201,168,76,0.4)',
+                    color: '#12180f',
+                    pointerEvents: evidence.trim() ? 'auto' : 'none',
+                  }}>
+                  Send by email
+                </a>
+              ) : (
+                <button onClick={submit} disabled={sending || !evidence.trim()}
+                  className="tap font-english text-[13px] px-4 py-2 rounded-lg font-semibold disabled:opacity-40"
+                  style={{ background: 'var(--gold, #C9A84C)', color: '#12180f' }}>
+                  {sending ? 'Sending…' : 'Submit'}
+                </button>
+              )}
               <p className="font-english text-[11px] leading-4 opacity-55">
                 Suggestions are reviewed by the editor. Nothing you send changes the text directly.
               </p>
