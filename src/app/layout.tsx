@@ -58,22 +58,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ar" dir="rtl" translate="no" className="notranslate" suppressHydrationWarning>
       <head>
         {/*
-          Document direction used to be hardcoded rtl and never changed, so the
-          site stayed Arabic-direction even for a reader who picked English or
-          French -- English labels rendered right-to-left, and any horizontal
-          bar read backwards. LangSwitcher stores the choice in localStorage,
-          which the server cannot see, so the default stays Arabic and this
-          runs before first paint to correct it.
-
-          Deliberately a blocking inline script rather than an effect: an
-          effect would flip the direction after the page had already painted,
-          which is a visible reflow of the entire document.
+          There used to be a second bootstrap here, reading a `site-lang` key
+          and flipping the document to ltr for a reader who had chosen English
+          or French. The control that wrote that key was removed from the nav
+          long before -- it was never wired to anything, and it advertised two
+          interface languages the site does not have -- so by 25 September the
+          script could only fire for someone whose browser still held the key
+          from months earlier. It went with the rest of that dead code
+          (LangSwitcher.tsx, src/lib/i18n.ts). A fresh reader was always served
+          the rtl default below and still is; nothing changed for them.
         */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var l=localStorage.getItem('site-lang');if(l&&l!=='ar'){var d=document.documentElement;d.setAttribute('lang',l);d.setAttribute('dir','ltr');}}catch(e){}})();`,
-          }}
-        />
         {/*
           Same treatment for the theme, and for the same reason. globals.css
           declares the dark palette at :root and light under
