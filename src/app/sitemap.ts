@@ -29,6 +29,11 @@ const STATIC_ROUTES = [
   '/search',
   '/notes',
   '/get-involved',
+  // Four pages carrying real content that no crawler could reach: the verse
+  // index and the terms Niasse defines are exactly what a researcher searches
+  // for, and /surah/[id] is the whole commentary re-cut by sura.
+  '/verse',
+  '/term',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

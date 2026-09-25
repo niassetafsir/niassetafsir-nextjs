@@ -692,15 +692,24 @@ replacement.
 the twelve sūras that are Lesson 55's. Both now agree with `lessonRanges.json`
 and `surahLessons.ts`: 55 → 87–111, 56 → 112–114.
 
-### Still open, surfaced by the same audit
+### Closed — re-measured 25 September
 
-- Lesson 56 carries volume-10 back matter from paragraph 100 to the end — 58% of
-  the lesson. The commentary ends at the khatm duʿāʾ; after it come a taqrīẓ, the
-  colophon `تم الكتاب وعم باهر حسن`, and the volume fihris (sūras 62–114,
-  i.e. Lessons 51–56). This predates today's change. It belongs to the volume,
-  not to any lesson body.
-- Paragraphs repeated inside one lesson: L8 (3, 1,258 chars), L13 (1, 292),
-  L22 (1, 306), L30 (2, 1,105).
+Everything this section listed as open had in fact been done, and the note was
+never struck off. A stale worklist costs more than no worklist: a later session
+began cutting Lesson 56's back matter before measuring, and the back matter was
+already gone. Measure first, and strike items off when they close.
+
+- **Lesson 56's volume-10 back matter — gone.** The lesson now runs 80
+  paragraphs and ends on the khatm duʿāʾ, as it should. No colophon
+  (`تم الكتاب`), no `المحتويات` heading, no fihris dot leaders, no taqrīẓ.
+  The paratext is preserved in `src/data/volumeBackMatter.json`, three to five
+  entries for each of volumes 2–5 and 7–10.
+- **Repeated paragraphs — none.** All 56 lessons swept for any paragraph of 200
+  characters or more standing twice in the same lesson: zero, where this
+  section named seven across L8, L13, L22 and L30.
+- **Term-concordance loci pointing past the end of their lesson — none.** All
+  873 loci carry a lesson and a paragraph index that exists, where this section
+  and the audit above it named 62 stale and ~25 drifted.
 
 ## Volume back matter is not commentary — cut 19 September
 
