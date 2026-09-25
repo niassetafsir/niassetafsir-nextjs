@@ -4,8 +4,8 @@
 //
 // History: this module used to be quranicFragments.ts and REDUCED the
 // commentary down to just its literal Qur'anic-verse-citation fragments,
-// out of caution about reproduction rights for the Majmaʿ al-Yamāma 2010
-// revised print edition's specific Arabic commentary text (the bare Qur'an
+// out of caution about reproduction rights for the Majmaʿ al-Yamāma
+// revised print edition (Tunis 2022) and its specific Arabic commentary text (the bare Qur'an
 // quoted inside it carries no such restriction regardless, since Qur'anic
 // text itself isn't copyrightable). AK -- the project's translator/editor,
 // who holds the relevant rights -- confirmed on 2026-08-16 that the full

@@ -1,7 +1,7 @@
 # niassetafsir.org — notes for future sessions
 
 Digital edition of Shaykh Ibrāhīm Niasse's *Fī Riyāḍ al-Tafsīr*, built on the
-revised ten-volume Majmaʿ al-Yamāma print edition (Tunis, 2010), compiled with
+revised ten-volume Majmaʿ al-Yamāma printing (Tunis, December 2022 -- NOT the 2010 six-volume set), compiled with
 footnotes by Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī. Next.js 14
 App Router, deployed on Vercel, no backend database — content lives in
 `src/data/*.json`, generated at build time or by one-off scripts in `scripts/`.

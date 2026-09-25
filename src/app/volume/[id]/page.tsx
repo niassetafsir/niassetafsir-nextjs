@@ -49,7 +49,7 @@ export default async function VolumePage({ params }: { params: { id: string } })
           {volume.rangeLabel}
         </p>
         <p className="font-english text-[10px] mt-1 uppercase tracking-wide" style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
-          Revised 10-vol. compiled Arabic edition (Majmaʿ al-Yamāma, Tunis 2010)
+          Revised 10-vol. compiled Arabic edition (Majmaʿ al-Yamāma, Tunis 2022)
         </p>
       </div>
 

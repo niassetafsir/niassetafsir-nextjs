@@ -2,8 +2,9 @@ import { Lesson } from './types';
 import { getAllLessons } from './lessons';
 
 // Volume → lesson-range table for the revised ten-volume compiled Arabic
-// edition (Majmaʿ al-Yamāma, Tunis 2010), verified against the `volume`
-// field in src/data/lessons/*.json. This is the single source of truth for
+// edition (Majmaʿ al-Yamāma, Tunis 2022 in ten volumes; the 2010
+// printing from the same house is in six, with different pagination), verified
+// against the `volume` field in src/data/lessons/*.json. This is the single source of truth for
 // volume boundaries -- previously this table (or a subset of it) was
 // hand-copied into MobileLessonDrawer.tsx, LessonPageNavigator.tsx, and
 // about/arabic-edition/page.tsx independently. Sūra-range labels below are
