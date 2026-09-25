@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prebuild": "node scripts/build-search-index.js && node scripts/build-citation-status.js && node scripts/sync-rendered-snippets.js",
+    "prebuild": "node scripts/build-search-index.js && node scripts/build-citation-status.js && node scripts/sync-rendered-snippets.js && npm test",
     "start": "next start",
-    "lint": "next lint",
-    "build:search-index": "node scripts/build-search-index.js"
+    "build:search-index": "node scripts/build-search-index.js",
+    "test": "node --test tests/*.test.js",
+    "check": "tsc --noEmit && npm test"
   },
   "dependencies": {
     "fuse.js": "^7.3.0",
