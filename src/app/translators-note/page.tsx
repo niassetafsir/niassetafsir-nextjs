@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getEditionFacts } from '@/lib/coverage';
+import { editorNoteCount } from '@/lib/editorNotes';
 
 /**
  * How the text was made and how to read it: digitisation, the footnote
@@ -29,6 +30,11 @@ export const metadata: Metadata = {
 
 export default async function EditorialConventionsPage() {
   const { footnoteCount, footnoteLessons, totalLessons, citations } = await getEditionFacts();
+  // The page described the editor's notes in the present tense while
+  // editorNotes.json held three bytes. A convention the edition means to
+  // keep is worth stating; a feature the reader will look for and not find
+  // is not. Counted, so the sentence follows the data.
+  const noteCount = editorNoteCount();
   return (
     <main className="max-w-3xl mx-auto px-4 pb-24 pt-6" dir="ltr">
       <div className="mb-2">
@@ -150,6 +156,13 @@ export default async function EditorialConventionsPage() {
           author&apos;s name and marked as absent from the printed edition. Where this edition asks
           you to accept a judgement rather than a citation, it tells you whose.
         </p>
+        {noteCount === 0 && (
+          <p className="mb-3 text-justify">
+            No editor&apos;s note has been published yet. The apparatus and the machinery that keeps
+            the two voices apart are in place; what stands in the edition today is Niasse&apos;s
+            commentary and the compiler&apos;s documentation, and nothing has been added to either.
+          </p>
+        )}
 
         <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
           Verse ranges and volume references

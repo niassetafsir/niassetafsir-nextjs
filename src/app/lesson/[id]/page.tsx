@@ -237,13 +237,12 @@ export default async function LessonPage({ params }: { params: { id: string } })
               Lesson overview · Amadu Kunateh, Founder, Translator & Digital Editor
             </div>
           </div>
-          {lesson.lessonSummary ? (
+          {/* All 56 lessons carry a summary, so the "forthcoming" fallback that
+              used to sit here could never render. A lesson that somehow lacks
+              one now shows nothing rather than a promise. */}
+          {lesson.lessonSummary && (
             <p className="font-english text-sm leading-7" style={{color:'var(--body-text, rgba(255,255,255,0.75))'}}>
               {lesson.lessonSummary}
-            </p>
-          ) : (
-            <p className="font-english text-white/20 italic text-sm text-center py-6">
-              Lesson overview forthcoming.
             </p>
           )}
 
