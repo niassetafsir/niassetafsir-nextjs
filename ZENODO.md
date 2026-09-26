@@ -53,8 +53,8 @@ footnotes classified by genre.
 
 Every Qurʾānic quotation inside the Arabic body is located by comparison against a
 reference muṣḥaf rather than by hand-tagging, and each is marked with what the comparison
-found: of 8,571 quoted spans, 5,499 stand in the printed āya as written, 83 diverge from
-it at one or more letters, and 2,989 could not be placed against the reference and are
+found: of 8,571 quoted spans, 5,558 stand in the printed āya as written, 84 diverge from
+it at one or more letters, and 2,929 could not be placed against the reference and are
 left unmarked. Readers can submit a correction against any marked citation.
 
 Research tools include a verse concordance over 1,079 āyāt, an index of 59 scholars and
