@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { indexedVerses } from '@/lib/corpus';
+import { indexedVerses, definedTerms } from '@/lib/corpus';
 
 const BASE_URL = 'https://niassetafsir.org';
 
@@ -76,5 +76,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  return [...staticEntries, ...lessonEntries, ...volumeEntries, ...verseEntries];
+  // /surah/[id] and /term/[slug] were named in the comment above as pages no
+  // crawler could reach, and then not listed. Both are: every sura resolves to
+  // a lesson, and each defined term has a page of its own.
+  const surahEntries: MetadataRoute.Sitemap = Array.from({ length: 114 }, (_, i) => ({
+    url: `${BASE_URL}/surah/${i + 1}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  const termEntries: MetadataRoute.Sitemap = definedTerms().map(({ term }) => ({
+    url: `${BASE_URL}/term/${term.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...lessonEntries, ...volumeEntries,
+          ...surahEntries, ...termEntries, ...verseEntries];
 }
