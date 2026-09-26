@@ -28,9 +28,32 @@ const N = s => (s || '').normalize('NFD').replace(/[ؐ-؟ً-ٟۖ-ٰۭ]/g, '')
   .replace(/[أإآٱ]/g, 'ا').replace(/ى/g, 'ي').replace(/ة/g, 'ه')
   .replace(/[^ء-ي ]/g, ' ').replace(/\s+/g, ' ').trim();
 
+// Every lesson's paragraphs, normalised once, for the cross-lesson pass.
+const CORPUS = [];
+for (let id = 1; id <= 56; id++) {
+  try { paras(id).forEach((x, i) => CORPUS.push({ lessonId: id, paraIndex: i, text: N(x) })); }
+  catch { /* a lesson file that is not there is not an error here */ }
+}
+
+/** The one paragraph in the whole corpus that holds this context, or null. */
+function searchCorpus(key, form) {
+  const uniq = rows => (rows.length === 1 ? rows[0] : null);
+  const exact = uniq(CORPUS.filter(r => r.text.includes(key)));
+  if (exact && (!form || exact.text.includes(form))) return exact;
+  const w = key.split(' ').filter(x => x.length > 3);
+  for (let len = Math.min(7, w.length); len >= 5; len--) {
+    for (let st = 0; st + len <= w.length; st++) {
+      const run = w.slice(st, st + len).join(' ');
+      const hit = uniq(CORPUS.filter(r => r.text.includes(run)));
+      if (hit && (!form || hit.text.includes(form))) return hit;
+    }
+  }
+  return null;
+}
+
 const T = JSON.parse(fs.readFileSync(FILE, 'utf8'));
 const cache = {};
-let total = 0, already = 0, moved = 0, lost = 0;
+let total = 0, already = 0, moved = 0, lost = 0, relocated = 0;
 const losses = [];
 
 for (const term of T) {
@@ -62,6 +85,32 @@ for (const term of T) {
       }
     }
 
+    // A run of four ordinary words can be a formula rather than the passage.
+    // "ja'alana llahu wa-iyyakum minhum" -- may God place us and you among
+    // them -- is said over any blessing, and matching it anchored a locus
+    // about the soul being taken (qabd ruhihi) to a paragraph about guidance
+    // to the Garden, where the word ruh does not appear at all. So a candidate
+    // paragraph must also contain the term form this occurrence was recorded
+    // against. If it does not, the match is a coincidence of phrasing.
+    if (hits.length === 1) {
+      const form = N(occ.matchedForm || term.arabic || '');
+      if (form && !N(p[hits[0]]).includes(form)) hits = [];
+    }
+
+    // Still nothing in this lesson. The body work moved whole passages between
+    // lessons -- Lesson 56 was lifted out of 55 -- so look across the corpus
+    // before giving up, and move the lesson id too when the text is found.
+    if (hits.length !== 1) {
+      const found = searchCorpus(key, N(occ.matchedForm || term.arabic || ''));
+      if (found) {
+        delete occ.anchorLost;
+        if (found.lessonId !== occ.lessonId) { occ.lessonId = found.lessonId; relocated++; }
+        if (found.paraIndex !== occ.paraIndex) { occ.paraIndex = found.paraIndex; moved++; }
+        else already++;
+        continue;
+      }
+    }
+
     if (hits.length !== 1) {
       // Not findable. Say so in the data rather than leave an index that points
       // at whatever paragraph now happens to sit there. Clamped so nothing
@@ -77,7 +126,7 @@ for (const term of T) {
     occ.paraIndex = hits[0];
   }
 }
-console.log(`${total} loci · ${already} already right · ${moved} re-anchored · ${lost} context not found`);
+console.log(`${total} loci · ${already} already right · ${moved} re-anchored · ${relocated} moved to another lesson · ${lost} context not found`);
 for (const [t, L, i] of losses.slice(0, 8)) console.log(`    lost: ${t}  L${L} ¶${i}`);
 if (process.argv.includes('--write')) {
   fs.writeFileSync(FILE, JSON.stringify(T, null, 2) + '\n');

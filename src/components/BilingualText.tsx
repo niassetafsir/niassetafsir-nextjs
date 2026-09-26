@@ -142,11 +142,38 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    // Scroll to a paragraph, the same way the ?verse= branch below does. A
+    // single scrollIntoView lands on the right element and then loses the
+    // position to a later reflow, so the call is repeated.
+    const goToPara = (idx: number) => {
+      setHighlightedPara(idx);
+      [700, 1100, 1600].forEach(delay => {
+        setTimeout(() => {
+          document.getElementById(`ar-para-${idx}`)
+            ?.scrollIntoView({ behavior: 'instant', block: 'center' });
+        }, delay);
+      });
+    };
+
+    // /glossary sends the reader here with the paragraph it recorded the term
+    // in. It is the exact index, so it is tried first.
+    const paraParam = params.get('para');
+    if (paraParam !== null) {
+      const idx = Number(paraParam);
+      if (Number.isInteger(idx) && idx >= 0 && idx < arabicParagraphs.length) {
+        goToPara(idx);
+        return;
+      }
+    }
+
     const q = params.get('q');
     if (q) {
       const decodedQ = decodeURIComponent(q);
-      /* setHighlightQuery removed */
-      // Normalize Arabic text for matching (strip HTML, diacritics, special chars)
+      // This used to search an empty array -- `const commentaryParagraphsList:
+      // string[] = []` with a comment calling ?q= dead code. It was not dead:
+      // /glossary put a ?q= link on all 873 of its attestations, every one of
+      // which scrolled nowhere and said nothing about why. The paragraphs are
+      // right here in props.
       const normalizeAr = (text: string) => text
         .replace(/<[^>]+>/g, '')
         .replace(/[\u064B-\u065F\u0670\u0671]/g, '')
@@ -155,22 +182,9 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
         .replace(/[\s]+/g, ' ')
         .trim();
       const normQ = normalizeAr(decodedQ).slice(0, 20);
-      // Find matching paragraph index
-      const commentaryParagraphsList: string[] = []; // full text no longer available client-side; ?q= deep link is unused dead code
-      const idx = commentaryParagraphsList.findIndex(p => normalizeAr(p).includes(normQ));
-      if (idx >= 0) {
-        setHighlightedPara(idx);
-        setTimeout(() => {
-          const el = document.getElementById(`ar-para-${idx}`);
-          // instant, not smooth -- smooth scrollIntoView animations were
-          // silently producing zero movement in testing (confirmed even
-          // on a manually-invoked call), likely a compositor/rAF timing
-          // issue. instant is deterministic and has tested reliably 100%
-          // of the time, so it's the safer choice for a critical nav path.
-          el?.scrollIntoView({ behavior: 'instant', block: 'center' });
-        }, 600);
-      }
-      return; // ?q= and ?verse= are mutually exclusive entry points
+      const idx = arabicParagraphs.findIndex(x => normalizeAr(x).includes(normQ));
+      if (idx >= 0) goToPara(idx);
+      return; // ?para=, ?q= and ?verse= are mutually exclusive entry points
     }
     // Arrived from the homepage āyah-jump widget (or any /lesson/N?verse=S:A
     // link) -- scroll to the paragraph if this lesson's verse index has it.

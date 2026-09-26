@@ -211,3 +211,46 @@ test('the bilingual alignment ships only what the audit passed', () => {
   }
   assert.ok(1 in ALIGN, 'Lesson 1 is missing from the alignment');
 });
+
+// Normalisation used by scripts/reanchor-term-concordance.js. Folds the
+// diacritics, the alif seats, alif maqsura and ta marbuta, which is as far as
+// a locus check should go: anything more and a real OCR difference passes.
+const fold = s => (s || '').normalize('NFD')
+  .replace(/[ؐ-؟ً-ٟٖ-ٰۖ-ۭ]/g, '')
+  .replace(/[أإآٱ]/g, 'ا').replace(/ى/g, 'ي').replace(/ة/g, 'ه')
+  .replace(/[^ء-ي ]/g, ' ').replace(/\s+/g, ' ').trim();
+
+test('every term-concordance locus points inside its lesson', () => {
+  const terms = read('public/data/term_concordance.json');
+  const cache = {};
+  for (const t of terms) {
+    for (const occ of t.occurrences || []) {
+      if (typeof occ.paraIndex !== 'number') continue;
+      const ps = cache[occ.lessonId] ||
+        (cache[occ.lessonId] = paragraphs(read(lessonPath(occ.lessonId)).arabicBody));
+      assert.ok(occ.paraIndex >= 0 && occ.paraIndex < ps.length,
+        `${t.term} L${occ.lessonId} ¶${occ.paraIndex}: the lesson has ${ps.length} paragraphs`);
+    }
+  }
+});
+
+test('a term-concordance locus lands on a paragraph holding the term', () => {
+  // Except where the script has said it could not find the context any more:
+  // those carry anchorLost and the glossary sends no ?para= for them. The
+  // check is what stops a locus being anchored by a formula -- "may God place
+  // us and you among them" once anchored a passage about the soul being taken
+  // to a paragraph about guidance, where the word rūḥ does not occur.
+  const terms = read('public/data/term_concordance.json');
+  const cache = {};
+  for (const t of terms) {
+    for (const occ of t.occurrences || []) {
+      if (occ.anchorLost || typeof occ.paraIndex !== 'number') continue;
+      const ps = cache[occ.lessonId] ||
+        (cache[occ.lessonId] = paragraphs(read(lessonPath(occ.lessonId)).arabicBody));
+      const form = fold(occ.matchedForm || t.arabic);
+      if (!form) continue;
+      assert.ok(fold(ps[occ.paraIndex] || '').includes(form),
+        `${t.term} L${occ.lessonId} ¶${occ.paraIndex}: the paragraph does not contain ${occ.matchedForm || t.arabic}`);
+    }
+  }
+});

@@ -28,6 +28,9 @@ interface Occurrence {
   context: string;
   matchedForm: string;
   englishExcerpt?: string;
+  /** scripts/reanchor-term-concordance.js could not find this context in the
+   *  body any more, so paraIndex is not to be trusted and no ?para= is sent. */
+  anchorLost?: boolean;
 }
 
 interface TermEntry {
@@ -378,7 +381,7 @@ export default function TermsPage() {
                     <div key={i} className="border border-white/10 rounded-xl p-4 hover:border-white/20 transition-all">
                       <div className="flex items-center justify-between gap-3 mb-2">
                         <Link
-                          href={`/lesson/${occ.lessonId}?panel=tafsir&q=${encodeURIComponent(occ.context.slice(0, 30))}`}
+                          href={`/lesson/${occ.lessonId}?panel=tafsir${occ.anchorLost ? '' : `&para=${occ.paraIndex}`}&q=${encodeURIComponent(occ.context.slice(0, 30))}`}
                           className="tap font-english text-[11px] text-gold/60 hover:text-gold border border-gold/20 px-2 rounded transition-colors"
                         >
                           Lesson {occ.lessonId} · Vol. {occ.volume}{occ.page ? `, p. ${occ.page}` : ''}
