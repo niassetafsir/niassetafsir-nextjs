@@ -417,7 +417,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
               {alignment.englishOnly.length > 0 && (
                 <div className="px-4 md:px-6 py-4 bg-gold/3">
                   <p className="font-english text-gold/50 text-[10px] uppercase tracking-wide mb-2" dir="ltr">
-                    Additional translated content — Arabic source not yet digitized
+                    Translated beyond the Arabic this lesson file holds
                   </p>
                   {alignment.englishOnly.map((group, gi) => (
                     <div key={gi} dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 italic mb-3">

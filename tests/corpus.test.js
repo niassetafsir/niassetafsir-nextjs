@@ -149,3 +149,65 @@ test('the paragraph split in this test still matches the site’s own', () => {
       `arabicCommentary.ts no longer contains ${needle} — this test's copy of the split has drifted`);
   }
 });
+
+test('the bilingual alignment places every paragraph exactly once', () => {
+  const ALIGN = read('src/data/bilingualAlignment.json');
+  for (const [key, a] of Object.entries(ALIGN)) {
+    const id = Number(key);
+    const L = read(lessonPath(id));
+    const ar = paragraphs(L.arabicBody || L.arabicText);
+    const en = (L.englishText || '').split(/(?=<p[^>]*>)/)
+      .filter(s => s.startsWith('<p'))
+      .filter(m => /<p[^>]*\bclass="[^"]*\ben-para\b[^"]*"/.test(m))
+      .filter(m => m.replace(/<[^>]+>/g, '').trim());
+
+    const arSeen = [], enSeen = [];
+    for (const b of a.blocks) { arSeen.push(...b.arabicIndices); enSeen.push(...b.englishIndices); }
+    for (const g of a.englishOnly) enSeen.push(...g.indices);
+
+    // An alignment that loses a paragraph loses it from the page: the reader
+    // sees a lesson with a hole in it and no sign that anything is missing.
+    assert.equal(arSeen.length, ar.length,
+      `lesson ${id}: ${arSeen.length} Arabic paragraphs placed, ${ar.length} exist`);
+    assert.equal(new Set(arSeen).size, ar.length,
+      `lesson ${id}: an Arabic paragraph is placed twice`);
+    assert.equal(enSeen.length, en.length,
+      `lesson ${id}: ${enSeen.length} English paragraphs placed, ${en.length} exist`);
+    assert.equal(new Set(enSeen).size, en.length,
+      `lesson ${id}: an English paragraph is placed twice`);
+    assert.ok(Math.max(...arSeen) < ar.length && Math.min(...arSeen) >= 0,
+      `lesson ${id}: an Arabic index is out of range`);
+    assert.ok(Math.max(...enSeen) < en.length && Math.min(...enSeen) >= 0,
+      `lesson ${id}: an English index is out of range`);
+  }
+});
+
+test('bilingual blocks run forwards on both sides', () => {
+  const ALIGN = read('src/data/bilingualAlignment.json');
+  for (const [key, a] of Object.entries(ALIGN)) {
+    let lastAr = -1, lastEn = -1;
+    a.blocks.forEach((b, i) => {
+      for (const x of b.arabicIndices) {
+        assert.ok(x > lastAr, `lesson ${key} block ${i}: Arabic ${x} goes back past ${lastAr}`);
+        lastAr = x;
+      }
+      for (const y of b.englishIndices) {
+        assert.ok(y > lastEn, `lesson ${key} block ${i}: English ${y} goes back past ${lastEn}`);
+        lastEn = y;
+      }
+    });
+  }
+});
+
+test('the bilingual alignment ships only what the audit passed', () => {
+  const ALIGN = read('src/data/bilingualAlignment.json');
+  // Lessons 2-5 are refused by scripts/build-bilingual-alignment.js: Lesson 2
+  // drifts in its tail, and 3-5 carry no footnote markers in their English.
+  // A regenerated file that suddenly includes them means the audit stopped
+  // biting, which is worth failing over rather than shipping.
+  for (const id of [2, 3, 4, 5]) {
+    assert.ok(!(id in ALIGN),
+      `lesson ${id} is in the alignment, but the build script refuses it -- re-run the script and read its report`);
+  }
+  assert.ok(1 in ALIGN, 'Lesson 1 is missing from the alignment');
+});

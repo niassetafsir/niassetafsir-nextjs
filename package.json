@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prebuild": "node scripts/build-search-index.js && node scripts/build-citation-status.js && node scripts/sync-rendered-snippets.js && npm test",
+    "prebuild": "node scripts/build-search-index.js && node scripts/build-citation-status.js && node scripts/build-bilingual-alignment.js --write && node scripts/sync-rendered-snippets.js && npm test",
     "start": "next start",
     "build:search-index": "node scripts/build-search-index.js",
     "test": "node --test tests/*.test.js",
