@@ -12487,13 +12487,13 @@
       {
         "paraIndex": 5,
         "spanIndex": 2,
-        "text": "وَالْمسْتَغْهِرِين",
+        "text": "وَالْمسْتَغْفِرِين",
         "match": null
       },
       {
         "paraIndex": 5,
         "spanIndex": 3,
-        "text": "بالاسجار",
+        "text": "بالاسحار",
         "match": null
       },
       {
@@ -12767,7 +12767,7 @@
       {
         "paraIndex": 18,
         "spanIndex": 1,
-        "text": "لاَ رَبْبَ",
+        "text": "لاَ رَيْبَ",
         "match": null
       },
       {
@@ -12779,11 +12779,13 @@
       {
         "paraIndex": 18,
         "spanIndex": 3,
-        "text": "وَوَجِيتُ كُلُّ نَفْسِ",
+        "text": "وَوَفِيتُ كُلُّ نَفْسِ",
         "match": {
-          "verse": "2:281",
-          "score": 0.67,
-          "type": "fuzzy"
+          "verse": "3:25",
+          "score": 0.18,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
