@@ -39,10 +39,29 @@ from difflib import SequenceMatcher
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from extract import read_docx, norm_map, strip_all, MARK
 
-SRC   = '/mnt/user-data/uploads/Verified Lessons - Citations Fixed'
-REPO  = '/tmp/ntfs'
+# Where the verified .docx live and which lessons to rebuild. Both were
+# hardcoded to a container path and to Lessons 1-7 when this ran the first
+# time; they are arguments now, because the same procedure has to run again
+# for every lesson AK verifies. Lesson 8 onward comes from his Google Docs on
+# the FIR Drive, exported to .docx, which carry the same inline footnote
+# references the "Citations Fixed" files did.
+#
+#   python3 scripts/import-verified-apparatus.py --src DIR --lessons 8
+#
+REPO  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LESSON= re.compile(r'[Ll]esson\s*(\d+)')
 WRITE = '--write' in sys.argv
+
+
+def _arg(flag, default=None):
+    return sys.argv[sys.argv.index(flag) + 1] if flag in sys.argv else default
+
+
+SRC = os.path.expanduser(_arg('--src', '/mnt/user-data/uploads/Verified Lessons - Citations Fixed'))
+# Which lessons this run rebuilds. Every other lesson's rows are carried
+# through untouched, so a run for Lesson 8 cannot disturb Lessons 1-7.
+_l = _arg('--lessons')
+ONLY = ({int(x) for x in re.findall(r'\d+', _l)} if _l else {1, 2, 3, 4, 5, 6, 7})
 
 def nkey(s):
     n,_ = norm_map(s)
@@ -99,16 +118,29 @@ def build(lesson, path, old_rows):
         fid  = int(parts[i + 1])
         seq += 1
         na, _ = norm_map(re.sub(r'\[\d+\]', '', acc))
-        probe = na[-45:]
-        pos   = None
-        if len(probe) >= 15:
-            j = nb.find(probe, cursor)
-            if j < 0:
+        pos = None
+        # The 45 normalised characters before the anchor, and if the site's
+        # text disagrees with the document somewhere inside them, shorter
+        # windows after that. The site text has had scan repairs the document
+        # has not -- 435 single words across Lessons 1-8 -- so a window wide
+        # enough to be unique is often wide enough to contain a disagreement.
+        # Shrinking is only safe while the window still names ONE place: a
+        # probe with two hits in the body is refused rather than guessed at,
+        # which is what keeps a note off the wrong sentence.
+        for width in (45, 36, 28, 22, 18):
+            probe = na[-width:]
+            if len(probe) < 15:
+                continue
+            if nb.count(probe) != 1:
+                j = nb.find(probe, cursor)
+                if j < 0 or nb.count(probe, cursor) != 1:
+                    continue
+            else:
                 j = nb.find(probe)
-            if j >= 0:
-                end    = j + len(probe)
-                cursor = end
-                pos    = bidx[min(end, len(bidx) - 1)]
+            end    = j + len(probe)
+            cursor = end
+            pos    = bidx[min(end, len(bidx) - 1)]
+            break
 
         arabic = notes.get(fid, '')
         old    = best_match(arabic)
@@ -128,7 +160,14 @@ def build(lesson, path, old_rows):
             'lessonTitleEn':(old_rows[0].get('lessonTitleEn') if old_rows else None),
             'verseRange':   (old_rows[0].get('verseRange') if old_rows else None),
             'anchored': pos is not None,
+            # Carried like the rest of AK's work. sourceAnchor names the text
+            # it was stamped on, so where he reworded a note it is stale and
+            # scripts/sync-rendered-snippets.js re-stamps it; a row with no
+            # match has none to carry and that script mints it.
+            'voice':        (old or {}).get('voice', 'compiler'),
         }
+        if (old or {}).get('sourceAnchor'):
+            row['sourceAnchor'] = old['sourceAnchor']
         rows.append(row)
         if pos is None:
             unplaced.append(seq)
@@ -147,11 +186,15 @@ def build(lesson, path, old_rows):
 def main():
     fnp  = os.path.join(REPO, 'src/data/footnotesData.json')
     allf = json.load(open(fnp))
-    kept = [r for r in allf if r['lessonId'] > 7]
+    kept = [r for r in allf if r['lessonId'] not in ONLY]
     newrows = []
     print('lesson  notes  placed  unplaced  metadataCarried  oldRows->newRows')
-    for path in sorted(glob.glob(os.path.join(SRC, '*.docx')),
-                       key=lambda p: int(LESSON.search(os.path.basename(p)).group(1))):
+    paths = [p for p in glob.glob(os.path.join(SRC, '*.docx'))
+             if LESSON.search(os.path.basename(p))
+             and int(LESSON.search(os.path.basename(p)).group(1)) in ONLY]
+    if not paths:
+        sys.exit('no .docx in %s for lesson(s) %s' % (SRC, sorted(ONLY)))
+    for path in sorted(paths, key=lambda p: int(LESSON.search(os.path.basename(p)).group(1))):
         n = int(LESSON.search(os.path.basename(path)).group(1))
         old = [r for r in allf if r['lessonId'] == n]
         data, lp, newbody, order, rows, unplaced, carried = build(n, path, old)
@@ -167,8 +210,8 @@ def main():
     if WRITE:
         out = sorted(newrows + kept, key=lambda r: (r['lessonId'], r.get('num') or 0))
         json.dump(out, open(fnp, 'w'), ensure_ascii=False)
-        print('\nWROTE %d rows (%d for lessons 1-7, %d untouched for 8-56)'
-              % (len(out), len(newrows), len(kept)))
+        print('\nWROTE %d rows (%d for lesson(s) %s, %d untouched elsewhere)'
+              % (len(out), len(newrows), sorted(ONLY), len(kept)))
     else:
         print('\ndry run — nothing written. Re-run with --write')
 

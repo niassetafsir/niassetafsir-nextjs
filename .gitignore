@@ -45,3 +45,4 @@ offline-demo/
 .offline-stage/
 public/data/offline/
 public/fonts/
+__pycache__/

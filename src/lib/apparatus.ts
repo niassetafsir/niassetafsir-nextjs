@@ -15,15 +15,23 @@
  * exact position the compiler keyed each note to -- no inference. Every anchor
  * in Lessons 1-6 was located in the site's text, and 56 of 62 in Lesson 7.
  *
+ * Lesson 8 followed in October from AK's Google Doc of the lesson on the FIR
+ * Drive, exported to .docx: 40 notes against the 36 the site had, 33 of them
+ * anchored. Its seven unanchored notes are keyed in the Doc to a 195-word
+ * passage on the siege of Medina that the site's text does not carry, so there
+ * is nothing in the body to key them to until that passage is added.
+ *
  * The rest stay hidden until their documents are verified the same way. A
  * half-wired apparatus in a critical edition is worse than none: a reader who
  * finds three markers in a lesson reasonably concludes there are three notes,
- * when there are seventy-five.
+ * when there are seventy-five. The threshold is not a ratio, it is whether the
+ * unanchored notes are explicable: Lesson 8 ships because its seven are all
+ * one missing passage, not scattered failures to locate.
  *
- * To bring more lessons back: verify the document, run the importer, add the
- * number here.
+ * To bring more lessons back: verify the document, run the importer
+ * (--src DIR --lessons N), add the number here.
  */
-export const VERIFIED_APPARATUS_LESSONS: readonly number[] = [1, 2, 3, 4, 5, 6, 7];
+export const VERIFIED_APPARATUS_LESSONS: readonly number[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
 export function hasApparatus(lessonId: number | undefined | null): boolean {
   return lessonId != null && VERIFIED_APPARATUS_LESSONS.includes(lessonId);
