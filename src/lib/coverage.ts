@@ -128,6 +128,18 @@ export async function getCoverage(): Promise<Coverage> {
         total,
       },
       {
+        // The compiler's notes exist for all 56 lessons in footnotesData.json,
+        // but a lesson shows them only once its markers have been keyed from
+        // AK's verified document -- see src/lib/apparatus.ts. Saying so here
+        // is the same honesty the lesson page already practises when it tells
+        // a reader how many notes it is withholding.
+        key: 'footnotes',
+        label: "The compiler's footnotes",
+        detail: 'Keyed to the passages they annotate, from the verified documents',
+        count: lessons.filter(l => hasApparatus(l.id)).length,
+        total,
+      },
+      {
         key: 'apparatus',
         label: 'Full comparative apparatus',
         detail: 'Jalālayn and Rūḥ al-Bayān in Arabic, verse by verse',
