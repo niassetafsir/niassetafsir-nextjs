@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { getAllLessons } from './lessons';
 import { hasApparatus } from './apparatus';
+import { isReviewed } from './review';
 import { COMPLETE_TRANSLATION_LESSONS, PARTIAL_TRANSLATIONS } from './draftTranslations';
 
 /**
@@ -87,6 +88,16 @@ export async function getCoverage(): Promise<Coverage> {
         label: 'Arabic text of the tafsīr',
         detail: 'Transcribed and proofed from the ten-volume compiled edition',
         count: hasArabic.length,
+        total,
+      },
+      {
+        // Transcribed is not checked. The lesson page says this per lesson;
+        // the homepage should not let a visitor read "56 of 56" above and
+        // infer that all 56 have been read against the volume.
+        key: 'reviewed',
+        label: 'Read against the printed volume',
+        detail: 'Word for word, against the ten-volume Majmaʿ al-Yamāma printing',
+        count: lessons.filter(l => isReviewed(l.id)).length,
         total,
       },
       {

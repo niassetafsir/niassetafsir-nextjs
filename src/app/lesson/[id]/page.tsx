@@ -12,6 +12,7 @@ import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
 import LessonCitations from '@/components/LessonCitations';
 import { hasApparatus } from '@/lib/apparatus';
+import { isReviewed } from '@/lib/review';
 import footnotesData from '@/data/footnotesData.json';
 import LessonReaderLayout from '@/components/LessonReaderLayout';
 import Link from 'next/link';
@@ -175,20 +176,36 @@ export default async function LessonPage({ params }: { params: { id: string } })
     <LessonExperience
       hasTranslation={!!lesson.hasEnglish}
       tafsir={<>
-        {withheldNotes > 0 && (
+        {(withheldNotes > 0 || !isReviewed(lesson.id)) && (
+          /* One box, not two stacked: on Lessons 9-56 both of these are true at
+             once, and a reader meets the state of the lesson in one place. */
           <div className="mb-5 rounded-xl border px-4 py-3" dir="ltr"
             style={{ borderColor: 'rgba(138,109,31,0.28)', background: 'rgba(138,109,31,0.05)' }}>
-            <p className="font-english text-[12.5px] leading-6"
-              style={{ color: 'var(--body-sub, rgba(232,232,224,0.62))' }}>
-              The compiler wrote <strong style={{ fontWeight: 600 }}>{withheldNotes}</strong> footnotes
-              on this lesson. They are not shown yet: their inline markers were placed before the full
-              text of the lesson was recovered, so they cannot reliably be attached to the passages they
-              annotate. The apparatus is being re-checked lesson by lesson against the verified
-              documents — see{' '}
-              <Link href="/translators-note" className="text-gold/70 hover:text-gold transition-colors">
-                Editorial Conventions
-              </Link>.
-            </p>
+            {!isReviewed(lesson.id) && (
+              <p className="font-english text-[12.5px] leading-6"
+                style={{ color: 'var(--body-sub, rgba(232,232,224,0.62))' }}>
+                <strong style={{ fontWeight: 600 }}>This lesson has not yet been read against the
+                printed volume.</strong>{' '}
+                Its Arabic is transcribed from a scan, and the scan of this printing confuses the
+                dotted letters — a fāʾ read as a qāf, a nūn as a rāʾ. The Qurʾānic citations have been
+                repaired against the muṣḥaf, but Niasse&rsquo;s own prose still carries whatever the
+                scan left. Quote it with that in mind.
+              </p>
+            )}
+            {withheldNotes > 0 && (
+              <p className="font-english text-[12.5px] leading-6"
+                style={{ color: 'var(--body-sub, rgba(232,232,224,0.62))',
+                         marginTop: isReviewed(lesson.id) ? 0 : '0.6rem' }}>
+                The compiler wrote <strong style={{ fontWeight: 600 }}>{withheldNotes}</strong> footnotes
+                on this lesson. They are not shown yet: their inline markers were placed before the full
+                text of the lesson was recovered, so they cannot reliably be attached to the passages they
+                annotate. The apparatus is being re-checked lesson by lesson against the verified
+                documents — see{' '}
+                <Link href="/translators-note" className="text-gold/70 hover:text-gold transition-colors">
+                  Editorial Conventions
+                </Link>.
+              </p>
+            )}
           </div>
         )}
         {lesson.openingInvocation && (
