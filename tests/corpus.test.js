@@ -201,15 +201,41 @@ test('bilingual blocks run forwards on both sides', () => {
 
 test('the bilingual alignment ships only what the audit passed', () => {
   const ALIGN = read('src/data/bilingualAlignment.json');
-  // Lessons 2-5 are refused by scripts/build-bilingual-alignment.js: Lesson 2
-  // drifts in its tail, and 3-5 carry no footnote markers in their English.
-  // A regenerated file that suddenly includes them means the audit stopped
-  // biting, which is worth failing over rather than shipping.
-  for (const id of [2, 3, 4, 5]) {
-    assert.ok(!(id in ALIGN),
-      `lesson ${id} is in the alignment, but the build script refuses it -- re-run the script and read its report`);
+  // Until 16 October 2026 this test asserted that lessons 2-5 were ABSENT:
+  // lesson 2 drifted in its tail and 3-5 carried no footnote markers in their
+  // English, so scripts/build-bilingual-alignment.js refused all four. The
+  // English changed, not the audit. Lessons 1-8 now carry a complete verbatim
+  // translation, one English paragraph per Arabic paragraph, with the
+  // compiler's footnote markers in both; the script accepts all eight, each
+  // having passed its name audit AND its shift control -- the check that
+  // deliberately displaces the English by four paragraphs and requires the
+  // audit to reject that alignment, which is what shows the audit
+  // discriminates at all.
+  //
+  // So the guard now runs the other way. Every lesson that HAS English must be
+  // in the alignment, and nothing else may be: a lesson dropping out means the
+  // translation or the markers regressed, and a lesson appearing without
+  // English means the script shipped something it cannot have audited.
+  const withEnglish = [];
+  for (let id = 1; id <= 56; id++) {
+    let lesson;
+    try {
+      lesson = read(`src/data/lessons/${String(id).padStart(2, '0')}.json`);
+    } catch {
+      continue;
+    }
+    if (lesson.hasEnglish && (lesson.englishText || '').trim().length > 200) withEnglish.push(id);
   }
-  assert.ok(1 in ALIGN, 'Lesson 1 is missing from the alignment');
+  assert.ok(withEnglish.length >= 8,
+    `only ${withEnglish.length} lesson(s) carry English -- expected at least the eight that are translated`);
+  for (const id of withEnglish) {
+    assert.ok(id in ALIGN,
+      `lesson ${id} has English but is missing from the alignment -- re-run the script and read its report`);
+  }
+  for (const id of Object.keys(ALIGN)) {
+    assert.ok(withEnglish.includes(Number(id)),
+      `lesson ${id} is in the alignment but carries no English -- the script shipped an alignment it cannot have audited`);
+  }
 });
 
 // Normalisation used by scripts/reanchor-term-concordance.js. Folds the

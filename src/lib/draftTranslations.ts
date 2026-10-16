@@ -1,23 +1,36 @@
 // How far each English translation actually goes.
 //
-// Established 16 September 2026 by aligning each lesson's English against its
-// Arabic paragraph by paragraph. An earlier version of this file was built from
-// character ratios instead, and every one of its three judgements about where a
-// translation stops was wrong in some part. A ratio can tell you that English
-// is missing; it cannot tell you which verse it stops at, and it cannot tell
-// the difference between a translation that ends early and one that ends early
-// AND skips passages in the middle. Two of the three do both.
+// Rewritten 16 October 2026. Lessons 1 to 8 now carry a single English
+// translation of the whole body text: 676 paragraphs against 676 Arabic
+// paragraphs, one to one, 99,195 words, verbatim and clause by clause in one
+// convention. Nothing is passed over and nothing stops early, so the gap
+// bookkeeping this file used to carry is gone.
 //
-// None of this is hidden from the reader by choice. A reader who finds three
-// paragraphs of Lesson 5 and no note concludes the translation is finished and
-// thin; the note tells them where it stops, where the Arabic goes on to, and
-// which verses alongside have no English at all.
+// What replaced what. Until today lessons 1 and 2 carried an English that AK
+// had reviewed word for word, and lessons 3 to 5 a freer draft that stopped
+// partway. That earlier rendering was paraphrastic -- in places fuller than
+// the Arabic it translated, listing names of the Qurʾān in Lesson 1 that the
+// Arabic does not list -- and it stopped at Q 2:34 in Lesson 3, Q 2:71 in
+// Lesson 4 and Q 2:127 in Lesson 5. It is preserved in git history at
+// 91c1087. The translation now in place is verbatim throughout, which is what
+// the print edition requires, but it has NOT been reviewed word for word by
+// AK. That is why every lesson is marked a draft below, lessons 1 and 2
+// included: they have gained consistency and lost a review.
+//
+// The body is complete. The apparatus is not. Each lesson's footnotes remain
+// in Arabic in `arabicFootnotes`, and the body English carries 319 bracketed
+// markers that point into them. Lesson 2 is the exception: ten footnotes were
+// translated and are kept, now gathered as endnotes at the foot of the lesson
+// rather than interleaved. A reader who follows a marker in any other lesson
+// reaches Arabic, so the note below says so rather than leaving them to find
+// out.
 
-/** Reviewed word-for-word against the Arabic by AK. */
-export const COMPLETE_TRANSLATION_LESSONS: number[] = [1, 2];
+/** Reviewed word-for-word against the Arabic by AK. None yet, since the
+ *  verbatim translation replaced the two that had been. */
+export const COMPLETE_TRANSLATION_LESSONS: number[] = [];
 
-/** A first draft, not yet reviewed word-for-word against the Arabic. */
-export const DRAFT_TRANSLATION_LESSONS: number[] = [3, 4, 5];
+/** Complete in coverage, verbatim in method, not yet reviewed by AK. */
+export const DRAFT_TRANSLATION_LESSONS: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
 export interface PartialTranslation {
   /** Where the English stops, in the reader's terms. */
@@ -33,53 +46,17 @@ export interface PartialTranslation {
 }
 
 /**
- * Translations that cover only part of their lesson. Keyed by lesson id.
+ * Translations that cover only part of their lesson, keyed by lesson id.
  *
- * Lesson 3. The English runs from the start to Arabic paragraph 26 and stops
- * there, having translated it in full -- E31 renders the closing clause
- * (`ولكن الثانية شكر لله تبارك وتعالى`) as "the second prostration was an act
- * of thanksgiving". It does not break mid-sentence. Paragraphs 27 to 69 -- 43
- * of 70, beginning with Iblīs's shubha against the command to prostrate --
- * have no English. The Arabic's last Qurʾānic lemma is Q 2:59 (paragraph 65
- * glosses 2:57, 2:58 and 2:59 in turn); paragraphs 66 to 69 carry the
- * wilderness narrative on past it without quoting further.
- *
- * Lesson 4. Arabic paragraphs 14 to 16 have no English: E10 glosses paragraph
- * 13 and then jumps to paragraph 17, taking the Sabbath transgressors with it.
- * Q 2:66 (`فجعلناها نكالا لما بين يديها وما خلفها`) is dropped entirely, and
- * so is the passage that divides the townspeople into three groups -- which is
- * why E10's "a third group" arrives in English with no antecedent.
- *
- * Lesson 5. Two gaps. The first runs from the end of paragraph 27 through the
- * first part of paragraph 29: the ḥadīth `لا تفضلوني على يونس بن متى` and the
- * doctrine built on it, that the human being is khalīfa of God's Essence,
- * attributes and acts. The second runs from the end of paragraph 43 through
- * the first part of paragraph 45 and takes the lemma of Q 2:127 and the whole
- * of Q 2:128 with it. The prayer `ربنا تقبل منا` still reaches the English,
- * but through the Kaʿba narrative at paragraph 53, not through its own gloss.
+ * Empty since 16 October 2026: no lesson's English now stops before its
+ * Arabic does. Kept, with its consumers in coverage.ts and BilingualText.tsx,
+ * because lessons 9 to 56 are still untranslated and the next lesson to be
+ * drafted may well land here first.
  */
-export const PARTIAL_TRANSLATIONS: Record<number, PartialTranslation> = {
-  3: {
-    endsAt: 'Q 2:34, at the close of the angels\' second prostration',
-    arabicEndsAt: 'Q 2:59',
-  },
-  4: {
-    endsAt: 'Q 2:71, in the middle of the narrative of the cow',
-    arabicEndsAt: 'Q 2:105',
-    gaps: [
-      'Q 2:66',
-      'the account of the Sabbath transgressors that divides the town into three groups',
-    ],
-  },
-  5: {
-    endsAt: 'Q 2:127, at the prayer over the building of the Kaʿba',
-    arabicEndsAt: 'Q 2:202',
-    gaps: [
-      'Q 2:128',
-      'the excursus at Q 2:115 on the human being as khalīfa',
-    ],
-  },
-};
+export const PARTIAL_TRANSLATIONS: Record<number, PartialTranslation> = {};
+
+/** Lessons whose footnote apparatus is still only in Arabic. */
+export const UNTRANSLATED_APPARATUS_LESSONS: number[] = [1, 3, 4, 5, 6, 7, 8];
 
 export function isDraftTranslation(lessonId: number): boolean {
   return DRAFT_TRANSLATION_LESSONS.includes(lessonId);
@@ -91,4 +68,8 @@ export function partialTranslation(lessonId: number): PartialTranslation | null 
 
 export function isCompleteTranslation(lessonId: number): boolean {
   return COMPLETE_TRANSLATION_LESSONS.includes(lessonId);
+}
+
+export function hasUntranslatedApparatus(lessonId: number): boolean {
+  return UNTRANSLATED_APPARATUS_LESSONS.includes(lessonId);
 }
