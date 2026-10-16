@@ -38,7 +38,24 @@ def render_para(runs):
         if k == 'q':   out.append('<strong>' + e + '</strong>')
         elif k == 'i': out.append('<em>' + e + '</em>')
         else:          out.append(e)
-    s = ' '.join(out)
+    # Join on the same rule the manuscript build uses, so the site and the
+    # Word files agree. An unconditional ' '.join put a space before every
+    # comma, period and closing guillemet that began its own run.
+    NO_SPACE_BEFORE = set(',.;:?!)]}\u00bb\u201d\u2019%\u2026')
+    NO_SPACE_AFTER  = set('([{\u00ab\u201c\u2018')
+    def visible(piece, first):
+        t = re.sub('<[^>]+>', '', piece)
+        t = html.unescape(t)
+        if not t: return ''
+        return t[0] if first else t[-1]
+    s = ''
+    for i, piece in enumerate(out):
+        if i:
+            nxt = visible(piece, True)
+            prv = visible(s, False)
+            if nxt not in NO_SPACE_BEFORE and prv not in NO_SPACE_AFTER:
+                s += ' '
+        s += piece
     s = re.sub(r'\s+', ' ', s).strip()
     return s
 
