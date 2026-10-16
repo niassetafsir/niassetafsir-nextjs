@@ -270,6 +270,12 @@ HAND_EXCLUDED = {
     # (يَوْمَ يُنَادِيهِمْ …) — exactly as Jalālayn does. Restoring the wāw to the
     # second half would print it twice.
     (38, '28:62–63'),
+    # Lesson 1 opens Sūrat al-Baqara with the basmala followed by أَلَٓمِّٓ, and
+    # the basmala stands only once inside the verse stream, at 27:30. So the
+    # matcher reads the pair as Sulaymān's letter and wants to put أَلَّا where
+    # Q 2:1 belongs. The span is correct as it stands; see
+    # scripts/settle-last-five-citations.py.
+    (1, '27:30'),
 }
 
 SPAN_RE = re.compile(r'\(([^()]*)\)|«([^»]*)»', re.S)

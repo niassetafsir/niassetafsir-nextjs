@@ -745,7 +745,7 @@
       {
         "paraIndex": 67,
         "spanIndex": 0,
-        "text": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ أَلَمّ",
+        "text": "بِسْمِ اِ۬للَّهِ اِ۬لرَّحْمَٰنِ اِ۬لرَّحِيمِ أَلَٓمِّٓۖ",
         "match": null
       },
       {
@@ -3575,11 +3575,13 @@
       {
         "paraIndex": 12,
         "spanIndex": 9,
-        "text": "جَفْلْنَا لَهُمْ كُونُواْ قِرَدَةً خَسِينَ",
+        "text": "فَقُلْنَا لَهُمْ كُونُواْ قِرَدَةً خَٰسِـِٕينَۖ",
         "match": {
           "verse": "2:65",
-          "score": 0.8,
-          "type": "fuzzy"
+          "score": 0.4,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -5005,7 +5007,7 @@
     "surahs": [
       2
     ],
-    "spanCount": 400,
+    "spanCount": 401,
     "spans": [
       {
         "paraIndex": 0,
@@ -7180,8 +7182,20 @@
         "match": null
       },
       {
-        "paraIndex": 98,
-        "spanIndex": 0,
+        "paraIndex": 97,
+        "spanIndex": 7,
+        "text": "لَّآ إِلَٰهَ إِلَّا هُوَۖ اَ۬لرَّحْمَٰنُ اُ۬لرَّحِيمُۖ",
+        "match": {
+          "verse": "2:163",
+          "score": 0.64,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
+        }
+      },
+      {
+        "paraIndex": 97,
+        "spanIndex": 8,
         "text": "إِنَّ مِ خَلْو السَّمَوَتِ وَالأَرْضِ",
         "match": {
           "verse": "2:107",
@@ -7190,13 +7204,13 @@
         }
       },
       {
-        "paraIndex": 99,
+        "paraIndex": 98,
         "spanIndex": 0,
         "text": "وَاخْتِلَك أليْلِ وَالتَّهارِ",
         "match": null
       },
       {
-        "paraIndex": 99,
+        "paraIndex": 98,
         "spanIndex": 1,
         "text": "بِمَا يَنفَعْ النَّاسَ",
         "match": {
@@ -7207,7 +7221,7 @@
         }
       },
       {
-        "paraIndex": 99,
+        "paraIndex": 98,
         "spanIndex": 2,
         "text": "وَمَآ أَنزَلَ اَ۬للَّهُ مِنَ اَ۬لسَّمَآءِ مِن مَّآءࣲ فَأَحْي۪ا بِهِ اِ۬لَارْضَ",
         "match": {
@@ -7218,7 +7232,7 @@
         }
       },
       {
-        "paraIndex": 100,
+        "paraIndex": 99,
         "spanIndex": 0,
         "text": "وَالسَّحَابِ الغيم والْمْسَخُر بَيْنَ السَّمَاءِ وَالأَرْضِ",
         "match": {
@@ -7228,13 +7242,13 @@
         }
       },
       {
-        "paraIndex": 100,
+        "paraIndex": 99,
         "spanIndex": 1,
         "text": "لِقَوْمِ يَعْقِلُونَ",
         "match": null
       },
       {
-        "paraIndex": 100,
+        "paraIndex": 99,
         "spanIndex": 2,
         "text": "وَمِنَ اَ۬لنَّاسِ مَنْ يَّتَّخِذُ مِن دُونِ اِ۬للَّهِ",
         "match": {
@@ -7245,13 +7259,13 @@
         }
       },
       {
-        "paraIndex": 100,
+        "paraIndex": 99,
         "spanIndex": 3,
         "text": "يُحِبُونَهُمْ",
         "match": null
       },
       {
-        "paraIndex": 100,
+        "paraIndex": 99,
         "spanIndex": 4,
         "text": "وَالذِينَ ءَامَنُوٓاْ أَشَدُّ حُبّاࣰ لِّلهِۖ",
         "match": {
@@ -7262,31 +7276,31 @@
         }
       },
       {
-        "paraIndex": 100,
+        "paraIndex": 99,
         "spanIndex": 5,
         "text": "الذين  ظلموا",
         "match": null
       },
       {
-        "paraIndex": 100,
+        "paraIndex": 99,
         "spanIndex": 6,
         "text": "إذْ يَرَوْن",
         "match": null
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 0,
         "text": "الْعَذَابَ",
         "match": null
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 1,
         "text": "أَنَّ ألْقَوَةَ",
         "match": null
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 2,
         "text": "لِلهِ جَمِيعاࣰ وَأَنَّ اَ۬للَّهَ شَدِيدُ اُ۬لْعَذَابِۖ إِذْ تَبَرَّأَ اَ۬لذِينَ اَ۟تُّبِعُواْ",
         "match": {
@@ -7297,13 +7311,13 @@
         }
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 3,
         "text": "مَ ألذِينَ إتَّبَعُوا",
         "match": null
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 4,
         "text": "وَقَالَ اَ۬لذِينَ اَ۪تَّبَعُواْ لَوَ اَنَّ لَنَا كَرَّةࣰ",
         "match": {
@@ -7315,19 +7329,19 @@
         }
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 5,
         "text": "مَنَتَبَرَّا مِنْهُمْ",
         "match": null
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 6,
         "text": "كَذَلِكَ",
         "match": null
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 7,
         "text": "يُرِيهِم اللَه أَعْمَالَهُمْ",
         "match": {
@@ -7338,13 +7352,13 @@
         }
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 8,
         "text": "حَسَرَاتٍ عَلَيْهِمْ وَمَا هُم بِخَرِجِينَ مِنَ أَلنَّارِ يَأَيُّهَا ألنَّاسُ كُلُواْ مِمَّافِي الأَرْضِ حَلَلًا طَيِّباً وَلَا تَتَّبِعُوا خُطْوَاتِ الشَّيْطَرِ",
         "match": null
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 9,
         "text": "إِنَّهُۥ لَكُمْ عَدُوࣱّ مُّبِينࣱۖ",
         "match": {
@@ -7356,7 +7370,7 @@
         }
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 10,
         "text": "إنَّمَا يَامُرُكْم بِالسُّوءِ الإثم وَالْمَحْشَاءِ",
         "match": {
@@ -7366,7 +7380,7 @@
         }
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 11,
         "text": "وَأَن تَقُولُواْ عَلَي اَ۬للَّهِ مَا لَا تَعْلَمُونَۖ",
         "match": {
@@ -7378,7 +7392,7 @@
         }
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 12,
         "text": "وَإِذَا قِيلَ لَهُم",
         "match": {
@@ -7390,7 +7404,7 @@
         }
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 13,
         "text": "قَالوا لا بَلْ نَتَّبِعُ مَآ أَلْعَيْنَا",
         "match": {
@@ -7400,7 +7414,7 @@
         }
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 14,
         "text": "وَلَا يَهْتَدُونَۖ وَمَثَلُ اُ۬لذِينَ كَفَرُواْ",
         "match": {
@@ -7411,13 +7425,13 @@
         }
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 15,
         "text": "كَمَئَلِ إِلذِ يَنْعِوُ",
         "match": null
       },
       {
-        "paraIndex": 101,
+        "paraIndex": 100,
         "spanIndex": 16,
         "text": "بِمَا لَا يَسْمَعُ إِلَّا دُعَآءࣰ وَنِدَآءࣰۖ",
         "match": {
@@ -7429,7 +7443,7 @@
         }
       },
       {
-        "paraIndex": 102,
+        "paraIndex": 101,
         "spanIndex": 0,
         "text": "صُمُّۢ بُكْمٌ عُمْيࣱ فَهُمْ لَا يَعْقِلُونَۖ يَٰٓأَيُّهَا اَ۬لذِينَ ءَامَنُواْ كُلُواْ مِن طَيِّبَٰتِ مَا رَزَقْنَٰكُمْ",
         "match": {
@@ -7440,13 +7454,13 @@
         }
       },
       {
-        "paraIndex": 102,
+        "paraIndex": 101,
         "spanIndex": 1,
         "text": "وَاشْكَرُوا لِلِ",
         "match": null
       },
       {
-        "paraIndex": 102,
+        "paraIndex": 101,
         "spanIndex": 2,
         "text": "إِن كُنتُمُۥٓ إِيَّاهُ تَعْبُدُونَۖ إِنَّمَا حَرَّمَ عَلَيْكُمُ اُ۬لْمَيْتَةَ",
         "match": {
@@ -7457,13 +7471,13 @@
         }
       },
       {
-        "paraIndex": 103,
+        "paraIndex": 102,
         "spanIndex": 0,
         "text": "وَالدَّمَ",
         "match": null
       },
       {
-        "paraIndex": 103,
+        "paraIndex": 102,
         "spanIndex": 1,
         "text": "وَلَحْمَ الْخِنزِيرِ وَمَآ أَهِلَّ بِهِ لِغَيْرِ اللَّهِ",
         "match": {
@@ -7475,19 +7489,19 @@
         }
       },
       {
-        "paraIndex": 103,
+        "paraIndex": 102,
         "spanIndex": 2,
         "text": "فَمَنُ أضْطَرَ",
         "match": null
       },
       {
-        "paraIndex": 103,
+        "paraIndex": 102,
         "spanIndex": 3,
         "text": "غَيْرَ بَاغٍ",
         "match": null
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 0,
         "text": "فَلَآ إِثْمَ عَلَيْهِۖ إِنَّ اَ۬للَّهَ غَفُورࣱ رَّحِيمٌۖ اِنَّ اَ۬لذِينَ يَكْتُمُونَ مَآ أَنزَلَ اَ۬للَّهُ مِنَ اَ۬لْكِتَٰبِ",
         "match": {
@@ -7498,7 +7512,7 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 1,
         "text": "وَيَشْتَرُونَ بِهِ ثَمَنا قَلِيلًا",
         "match": {
@@ -7509,7 +7523,7 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 2,
         "text": "ا۟وْلَٰٓئِكَ مَا يَاكُلُونَ فِے بُطُونِهِمُۥٓ إِلَّا اَ۬لنَّارَ وَلَا يُكَلِّمُهُمُ اُ۬للَّهُ يَوْمَ اَ۬لْقِيَٰمَةِ",
         "match": {
@@ -7521,13 +7535,13 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 3,
         "text": "وَلا يُزَكِّيهِمْ",
         "match": null
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 4,
         "text": "وَلَهُمْ عَذَابٌ اَلِيمٌۖ ا۟وْلَٰٓئِكَ اَ۬لذِينَ اَ۪شْتَرَوُاْ اُ۬لضَّلَٰلَةَ بِالْهُد۪يٰ وَالْعَذَابَ بِالْمَغْفِرَةِ",
         "match": {
@@ -7538,7 +7552,7 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 5,
         "text": "فَمَآ أَصْبَرَهُمْ عَلَي اَ۬لنّ۪ارِۖ",
         "match": {
@@ -7550,7 +7564,7 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 6,
         "text": "ذَلِكَ بِأَنَّ ألَّهِ",
         "match": {
@@ -7560,7 +7574,7 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 7,
         "text": "بِالْحَقِّۖ وَإِنَّ اَ۬لذِينَ اَ۪خْتَلَفُواْ فِے اِ۬لْكِتَٰبِ",
         "match": {
@@ -7572,13 +7586,13 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 8,
         "text": "لَهِى شِفَاوٍ",
         "match": null
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 9,
         "text": "بَعِيدٌ لَيْسَ ألْبِرُّ أَن تُوَلُّواْ وُجُوهَكْمْ",
         "match": {
@@ -7588,7 +7602,7 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 10,
         "text": "قِبَلَ الْمَشْرٍ وَالْمَغْرِبِ",
         "match": {
@@ -7598,13 +7612,13 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 11,
         "text": "وَلَكِرِ الْبِرُّمَنَ امَنَ بِاللَّهِ وَالْيَوْمِ الآخِرِ وَالْمَلِّيِكَةِ وَالْكِتَابِ",
         "match": null
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 12,
         "text": "وَالنَّبِيٓـِٕۧنَ وَءَاتَي اَ۬لْمَالَ عَلَيٰ حُبِّهِۦ",
         "match": {
@@ -7615,13 +7629,13 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 13,
         "text": "ذَوِى الْقُرْبِى",
         "match": null
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 14,
         "text": "وَالْيَتَٰم۪يٰ وَالْمَسَٰكِينَ وَابْنَ اَ۬لسَّبِيلِ",
         "match": {
@@ -7633,13 +7647,13 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 15,
         "text": "وَهِى الرِّقَابِ",
         "match": null
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 16,
         "text": "وَأَقَامَ الصَّلَوْةَ وَءَاتَى الزَّكَوةَ",
         "match": {
@@ -7651,7 +7665,7 @@
         }
       },
       {
-        "paraIndex": 104,
+        "paraIndex": 103,
         "spanIndex": 17,
         "text": "وَالْمُوفُونَ بِعَهْدِهِمْ إِذَا عَهَدْوا",
         "match": {
@@ -7662,19 +7676,19 @@
         }
       },
       {
-        "paraIndex": 105,
+        "paraIndex": 104,
         "spanIndex": 0,
         "text": "وَحِيرَ الْبَأْس",
         "match": null
       },
       {
-        "paraIndex": 106,
+        "paraIndex": 105,
         "spanIndex": 0,
         "text": "الذِينَ صَدَقُوا",
         "match": null
       },
       {
-        "paraIndex": 106,
+        "paraIndex": 105,
         "spanIndex": 1,
         "text": "وَاوْلَيِكَ هُمْ الْمُتَّقُونُ",
         "match": {
@@ -7684,7 +7698,7 @@
         }
       },
       {
-        "paraIndex": 106,
+        "paraIndex": 105,
         "spanIndex": 2,
         "text": "رَبَّهَا ألذِيَ ءَامَنُوا كُتِبَ عَلَيْكُمُ الْقِصَاصُ فِي الْقَتْلَى",
         "match": {
@@ -7694,13 +7708,13 @@
         }
       },
       {
-        "paraIndex": 106,
+        "paraIndex": 105,
         "spanIndex": 3,
         "text": "ألْحُرُّ بِالْحَرِّ",
         "match": null
       },
       {
-        "paraIndex": 107,
+        "paraIndex": 106,
         "spanIndex": 0,
         "text": "وَالْعَبْدُ بِالْعَبْدِ وَالأُنثِىٰ بِالأُنثِىُ جَمَنْ عُصِىَ لَهُو من القاتلين مِنَ أخيه",
         "match": {
@@ -7710,43 +7724,43 @@
         }
       },
       {
-        "paraIndex": 107,
+        "paraIndex": 106,
         "spanIndex": 1,
         "text": "شَيْءٌ جَاتِّبَاعٌ",
         "match": null
       },
       {
-        "paraIndex": 107,
+        "paraIndex": 106,
         "spanIndex": 2,
         "text": "بِالْمَعْرُوبِ",
         "match": null
       },
       {
-        "paraIndex": 107,
+        "paraIndex": 106,
         "spanIndex": 3,
         "text": "وَأَدَاءً",
         "match": null
       },
       {
-        "paraIndex": 107,
+        "paraIndex": 106,
         "spanIndex": 4,
         "text": "الَيْهِ بِإِحْسَنٍ",
         "match": null
       },
       {
-        "paraIndex": 107,
+        "paraIndex": 106,
         "spanIndex": 5,
         "text": "تَخْعِيفٌ صِ رَبِّكُمْ",
         "match": null
       },
       {
-        "paraIndex": 108,
+        "paraIndex": 107,
         "spanIndex": 0,
         "text": "وَرَحْمَةً",
         "match": null
       },
       {
-        "paraIndex": 108,
+        "paraIndex": 107,
         "spanIndex": 1,
         "text": "جَسَ إعْتَدِى بَعْدَ ذَلِكَ",
         "match": {
@@ -7756,19 +7770,19 @@
         }
       },
       {
-        "paraIndex": 108,
+        "paraIndex": 107,
         "spanIndex": 2,
         "text": "يَأَوْلِ الألْبَابِ",
         "match": null
       },
       {
-        "paraIndex": 109,
+        "paraIndex": 108,
         "spanIndex": 0,
         "text": "تَعَلَّكُمْ تَتَقَونَ",
         "match": null
       },
       {
-        "paraIndex": 109,
+        "paraIndex": 108,
         "spanIndex": 1,
         "text": "كُتِبَ عَلَيْكُمُۥٓ إِذَا حَضَرَ أَحَدَكُمُ اُ۬لْمَوْتُ إِن تَرَكَ خَيْراًۖ اِ۬لْوَصِيَّةُ لِلْوَٰلِدَيْنِ وَالَاقْرَبِينَ بِالْمَعْرُوفِۖ",
         "match": {
@@ -7780,7 +7794,7 @@
         }
       },
       {
-        "paraIndex": 110,
+        "paraIndex": 109,
         "spanIndex": 0,
         "text": "حَقّاً عَلَى الْمُتَّقِينَ",
         "match": {
@@ -7792,7 +7806,7 @@
         }
       },
       {
-        "paraIndex": 110,
+        "paraIndex": 109,
         "spanIndex": 1,
         "text": "لا وصية لوارث",
         "match": {
@@ -7802,13 +7816,13 @@
         }
       },
       {
-        "paraIndex": 110,
+        "paraIndex": 109,
         "spanIndex": 2,
         "text": "فَمَنْ بَدَّلَة",
         "match": null
       },
       {
-        "paraIndex": 110,
+        "paraIndex": 109,
         "spanIndex": 3,
         "text": "بَعْدَ مَا سَمِعَهُ",
         "match": {
@@ -7819,7 +7833,7 @@
         }
       },
       {
-        "paraIndex": 110,
+        "paraIndex": 109,
         "spanIndex": 4,
         "text": "بَإِنَّمَا إِنْمُهُو عَلَى ألذِينَ يُبَدِّلُونَةُ د إِنَّ اللَّه سَمِيعُ",
         "match": {
@@ -7829,13 +7843,13 @@
         }
       },
       {
-        "paraIndex": 110,
+        "paraIndex": 109,
         "spanIndex": 5,
         "text": "عَلِيمٌ",
         "match": null
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 0,
         "text": "فَمَنْ خَافَ مِن مُّوصࣲ جَنَفاً",
         "match": {
@@ -7847,19 +7861,19 @@
         }
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 1,
         "text": "أو إِثْما",
         "match": null
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 2,
         "text": "بَأَصْلَحَ بَيْنَهُمْ",
         "match": null
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 3,
         "text": "فَلَآ إِثْمَ عَلَيْهِۖ إِنَّ اَ۬للَّهَ غَفُورࣱ رَّحِيمࣱۖ يَٰٓأَيُّهَا اَ۬لذِينَ ءَامَنُواْ كُتِبَ عَلَيْكُمُ اُ۬لصِّيَامُ كَمَا كُتِبَ عَلَي اَ۬لذِينَ مِن قَبْلِكُمْ",
         "match": {
@@ -7870,7 +7884,7 @@
         }
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 4,
         "text": "قَسَى كَانَ مِنكُم مَرِيضاً أوْ عَلَىٰ سَبَرِ",
         "match": {
@@ -7880,13 +7894,13 @@
         }
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 5,
         "text": "قَعِدَّة",
         "match": null
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 6,
         "text": "وَعَلَى ألذِينَ يُطِيقُونَهُ",
         "match": {
@@ -7897,7 +7911,7 @@
         }
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 7,
         "text": "قَمَر تَطَوَّعَ خَيْرَا",
         "match": {
@@ -7907,13 +7921,13 @@
         }
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 8,
         "text": "بَهُوَ",
         "match": null
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 9,
         "text": "خَيْرلَّةُ وَأَن تَصُومُوا خَيْرٌ لَكُمُوَ",
         "match": {
@@ -7923,7 +7937,7 @@
         }
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 10,
         "text": "إِن كُنتُمْ تَعْلَمُونَ",
         "match": {
@@ -7935,7 +7949,7 @@
         }
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 11,
         "text": "شَهْرُ رَمَضَانَ اَ۬لذِےٓ أُنزِلَ فِيهِ اِ۬لْقُرْءَانُ هُديࣰ لِّلنَّاسِ وَبَيِّنَٰتࣲ مِّنَ اَ۬لْهُد۪يٰ وَالْفُرْقَانِۖ",
         "match": {
@@ -7947,13 +7961,13 @@
         }
       },
       {
-        "paraIndex": 111,
+        "paraIndex": 110,
         "spanIndex": 12,
         "text": "جَمَر شَهِدَ",
         "match": null
       },
       {
-        "paraIndex": 112,
+        "paraIndex": 111,
         "spanIndex": 0,
         "text": "يُرِيدُ اُ۬للَّهُ بِكُمُ اُ۬لْيُسْرَ وَلَا يُرِيدُ بِكُمُ اُ۬لْعُسْرَۖ وَلِتُكْمِلُواْ اُ۬لْعِدَّةَ وَلِتُكَبِّرُواْ اُ۬للَّهَ عَلَيٰ مَا هَد۪يٰكُمْ وَلَعَلَّكُمْ تَشْكُرُونَۖ وَإِذَا سَأَلَكَ عِبَادِے عَنِّے فَإِنِّے قَرِيبٌۖ",
         "match": {
@@ -7964,13 +7978,13 @@
         }
       },
       {
-        "paraIndex": 112,
+        "paraIndex": 111,
         "spanIndex": 1,
         "text": "إِلَى نِسَآئِكُمْ",
         "match": null
       },
       {
-        "paraIndex": 112,
+        "paraIndex": 111,
         "spanIndex": 2,
         "text": "عَلِمَ اَ۬للَّهُ أَنَّكُمْ كُنتُمْ تَخْتَانُونَ أَنفُسَكُمْ",
         "match": {
@@ -7981,7 +7995,7 @@
         }
       },
       {
-        "paraIndex": 112,
+        "paraIndex": 111,
         "spanIndex": 3,
         "text": "أُحِلَّ لَكُمْ لَيْلَةَ اَ۬لصِّيَامِ اِ۬لرَّفَثُ",
         "match": {
@@ -7992,13 +8006,13 @@
         }
       },
       {
-        "paraIndex": 113,
+        "paraIndex": 112,
         "spanIndex": 0,
         "text": "فَتَابَ عَلَيْكُمْ",
         "match": null
       },
       {
-        "paraIndex": 113,
+        "paraIndex": 112,
         "spanIndex": 1,
         "text": "وَعَفَا عَنكُمْۖ فَالَٰنَ بَٰشِرُوهُنَّۖ وَابْتَغُواْ مَا كَتَبَ اَ۬للَّهُ لَكُمْۖ",
         "match": {
@@ -8009,7 +8023,7 @@
         }
       },
       {
-        "paraIndex": 115,
+        "paraIndex": 114,
         "spanIndex": 0,
         "text": "قَمّ أَتِمُواْ ألصِّيَامَ",
         "match": {
@@ -8019,13 +8033,13 @@
         }
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 0,
         "text": "وَتَدْلوا",
         "match": null
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 1,
         "text": "إِلَي اَ۬لْحُكَّامِ لِتَاكُلُواْ فَرِيقاࣰ مِّنَ اَمْوَٰلِ اِ۬لنَّاسِ بِالِاثْمِ وَأَنتُمْ تَعْلَمُونَۖ يَسْـَٔلُونَكَ عَنِ اِ۬لَاهِلَّةِۖ",
         "match": {
@@ -8036,7 +8050,7 @@
         }
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 2,
         "text": "قَلْ هِيَ مَوَاقِيتُ",
         "match": {
@@ -8047,19 +8061,19 @@
         }
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 3,
         "text": "لِلنَّاس",
         "match": null
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 4,
         "text": "وَالْحَجّ",
         "match": null
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 5,
         "text": "وَلَيْسَ ألْيرُبِأَن تَاتَوْا أَلْبَيُوتَ صِ ظُهُورِهَا",
         "match": {
@@ -8069,7 +8083,7 @@
         }
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 6,
         "text": "وَلَٰكِنِ اِ۬لْبِرُّ مَنِ اِ۪تَّق۪يٰۖ",
         "match": {
@@ -8080,7 +8094,7 @@
         }
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 7,
         "text": "وَاتُواْ ألْبَيُوتَ مِنَ آبْوَبِهَا",
         "match": {
@@ -8091,7 +8105,7 @@
         }
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 8,
         "text": "وَاتَّقُواْ اُ۬للَّهَ لَعَلَّكُمْ تُفْلِحُونَۖ",
         "match": {
@@ -8103,7 +8117,7 @@
         }
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 9,
         "text": "وَقَٰتِلُواْ فِے سَبِيلِ اِ۬للَّهِ اِ۬لذِينَ يُقَٰتِلُونَكُمْ",
         "match": {
@@ -8115,7 +8129,7 @@
         }
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 10,
         "text": "وَلَا تَعْتَدُوٓاْۖ إِنَّ اَ۬للَّهَ لَا يُحِبُّ اُ۬لْمُعْتَدِينَۖ وَاقْتُلُوهُمْ حَيْثُ ثَقِفْتُمُوهُمْ",
         "match": {
@@ -8126,7 +8140,7 @@
         }
       },
       {
-        "paraIndex": 117,
+        "paraIndex": 116,
         "spanIndex": 11,
         "text": "[55]وَأَخْرِجُوهُم مِنْ حَيْثُ أَخْرَجُوكُمْ",
         "match": {
@@ -8137,7 +8151,7 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 0,
         "text": "أَتَدَّ مِنَ أَلْقَتْلِ",
         "match": {
@@ -8147,7 +8161,7 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 1,
         "text": "وَلَا تُقَٰتِلُوهُمْ عِندَ اَ۬لْمَسْجِدِ اِ۬لْحَرَامِ حَتَّيٰ يُقَٰتِلُوكُمْ فِيهِۖ فَإِن قَٰتَلُوكُمْ",
         "match": {
@@ -8159,13 +8173,13 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 2,
         "text": "كَذَلِكَ",
         "match": null
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 3,
         "text": "جَزَآءُ اُ۬لْكٰ۪فِرِينَۖ فَإِنِ اِ۪نتَهَوْاْ",
         "match": {
@@ -8176,7 +8190,7 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 4,
         "text": "فَإِنَّ اَ۬للَّهَ غَفُورࣱ رَّحِيمࣱۖ وَقَٰتِلُوهُمْ حَتَّيٰ لَا تَكُونَ",
         "match": {
@@ -8187,13 +8201,13 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 5,
         "text": "بِتْنَةٌ وَيَكُولَ ألدِينُ",
         "match": null
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 6,
         "text": "لِلهُ فَإِنِ إنتَهَوْا",
         "match": {
@@ -8205,7 +8219,7 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 7,
         "text": "لَا تَعْلَمُونَۖ يَسْـَٔلُونَكَ عَنِ اِ۬لشَّهْرِ اِ۬لْحَرَامِ",
         "match": {
@@ -8216,25 +8230,25 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 8,
         "text": "بِالشَّهْرِ الْحَرَامِ",
         "match": null
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 9,
         "text": "وَالْحُرُمَٰتُ",
         "match": null
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 10,
         "text": "فِصَاص",
         "match": null
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 11,
         "text": "جَمَنِ إعْتَدِى عَلَيْكُمْ",
         "match": {
@@ -8244,7 +8258,7 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 12,
         "text": "فَاعْتَدُوا عَلَيْهِ بِمِثْلِ مَا إعْتَدِى عَلَيْكُمْ وَاتَّقُواْ اللَّهَ",
         "match": {
@@ -8256,7 +8270,7 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 13,
         "text": "وَاعْلَمُوٓاْ أَنَّ اَ۬للَّهَ مَعَ اَ۬لْمُتَّقِينَۖ وَأَنفِقُواْ فِے سَبِيلِ اِ۬للَّهِ",
         "match": {
@@ -8267,7 +8281,7 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 14,
         "text": "وَلَا تُلْقُواْ بِأَيْدِيكُمُ",
         "match": {
@@ -8278,13 +8292,13 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 15,
         "text": "إِلَى التَّهْلُكَةِ",
         "match": null
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 16,
         "text": "وَأَحْسِنُوا إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ وَأَتِمُّواْ الْحَجَّ وَالْعُمْرَةَ لِلهِ",
         "match": {
@@ -8295,13 +8309,13 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 17,
         "text": "جَإِنْ احْصِرْتُمْ",
         "match": null
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 18,
         "text": "فَمَا إسْتَيْسَرَ مِنَ الْهَدْيّ",
         "match": {
@@ -8312,7 +8326,7 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 19,
         "text": "وَلا تَحْلِقُواْ رُءُوسَكُمْ حَتَّىٰ يَبْلَغَ الْهَدْىُ",
         "match": {
@@ -8323,7 +8337,7 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 20,
         "text": "مَحِلَّهُۥۖ فَمَن كَانَ مِنكُم مَّرِيضاً اَوْ بِهِۦٓ أَذيࣰ مِّن رَّأْسِهِۦ",
         "match": {
@@ -8334,7 +8348,7 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 21,
         "text": "بَعِدْيَةٌ مِن صِيَامٍ",
         "match": {
@@ -8344,13 +8358,13 @@
         }
       },
       {
-        "paraIndex": 118,
+        "paraIndex": 117,
         "spanIndex": 22,
         "text": "أوْ نُسُكٌ",
         "match": null
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 0,
         "text": "فَإِذَآ أَمِنتُمْ فَمَن تَمَتَّعَ بِالْعُمْرَةِ إِلَي اَ۬لْحَجِّ فَمَا اَ۪سْتَيْسَرَ مِنَ اَ۬لْهَدْيِۖ",
         "match": {
@@ -8361,7 +8375,7 @@
         }
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 1,
         "text": "جَمَى لَمْ يَجِدْ فَصِيَامُ ثَلَثَةِ أَيَّامِ فِي اِلْحَجِّ وَسَبْعَةٍ إِذَا رَجَعْتُمْ إلى وطنكم وتِلْكَ عَشَرَةٌ كَامِلَةٌ",
         "match": {
@@ -8371,13 +8385,13 @@
         }
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 2,
         "text": "ذَلِكَ",
         "match": null
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 3,
         "text": "وَاتَّقُواْ اُ۬للَّهَ وَاعْلَمُوٓاْ أَنَّ اَ۬للَّهَ شَدِيدُ اُ۬لْعِقَابِۖ اِ۬لْحَجُّ أَشْهُرࣱ مَّعْلُومَٰتࣱۖ",
         "match": {
@@ -8388,19 +8402,19 @@
         }
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 4,
         "text": "بِيهَِّ ٱلْحَجِّ",
         "match": null
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 5,
         "text": "وَتَزَوَدُ وا",
         "match": null
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 6,
         "text": "فَإِنَّ خَيْرَ ألزَّادِ",
         "match": {
@@ -8411,25 +8425,25 @@
         }
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 7,
         "text": "التَّفْوى",
         "match": null
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 8,
         "text": "بَصْلًا",
         "match": null
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 9,
         "text": "قَإِذَا أَبَضْتُم",
         "match": null
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 10,
         "text": "وَاذْكُرُوهُ كَمَا هَد۪يٰكُمْ وَإِن كُنتُم مِّن قَبْلِهِۦ",
         "match": {
@@ -8441,7 +8455,7 @@
         }
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 11,
         "text": "لَمِنَ اَ۬لضَّآلِّينَۖ ثُمَّ أَفِيضُواْ",
         "match": {
@@ -8452,7 +8466,7 @@
         }
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 12,
         "text": "مِنْ حَيْثُ أَفَاضَ النَّاسُ",
         "match": {
@@ -8464,13 +8478,13 @@
         }
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 13,
         "text": "وَاسْتَغْفِرُوا أللَّةُ",
         "match": null
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 14,
         "text": "إِنَّ اَ۬للَّهَ غَفُورࣱ رَّحِيمࣱۖ فَإِذَا قَضَيْتُم مَّنَٰسِكَكُمْ",
         "match": {
@@ -8481,19 +8495,19 @@
         }
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 15,
         "text": "بَاذْكُرُوا اللَّة",
         "match": null
       },
       {
-        "paraIndex": 119,
+        "paraIndex": 118,
         "spanIndex": 16,
         "text": "كَذِكْرِكُمُو ءَابَآءَكْمُ و",
         "match": null
       },
       {
-        "paraIndex": 121,
+        "paraIndex": 120,
         "spanIndex": 0,
         "text": "وَمَا لَهُۥ فِے اِ۬لَاخِرَةِ مِنْ خَلَٰقࣲۖ",
         "match": {
@@ -8504,7 +8518,7 @@
         }
       },
       {
-        "paraIndex": 121,
+        "paraIndex": 120,
         "spanIndex": 1,
         "text": "وَمِنْهُم مَّنْ يَّقُولُ رَبَّنَآ ءَاتِنَا فِے اِ۬لدُّنْي۪ا حَسَنَةࣰ",
         "match": {
@@ -8516,7 +8530,7 @@
         }
       },
       {
-        "paraIndex": 122,
+        "paraIndex": 121,
         "spanIndex": 0,
         "text": "وَفِي الآخِرَةِ حَسَنَةَ",
         "match": {
@@ -8527,7 +8541,7 @@
         }
       },
       {
-        "paraIndex": 122,
+        "paraIndex": 121,
         "spanIndex": 1,
         "text": "أولِّئِكَ لَهَمْ نَصِيبٌ",
         "match": {
@@ -8539,13 +8553,13 @@
         }
       },
       {
-        "paraIndex": 122,
+        "paraIndex": 121,
         "spanIndex": 2,
         "text": "مَا كَسَبُوا",
         "match": null
       },
       {
-        "paraIndex": 122,
+        "paraIndex": 121,
         "spanIndex": 3,
         "text": "وَاللَّهُ سَرِيعُ الْحِسَابِ",
         "match": {
@@ -8682,11 +8696,13 @@
       {
         "paraIndex": 8,
         "spanIndex": 0,
-        "text": "وَمِنَ النَاس مَنْ يُعْجِبْكَ قَوْلَهُ  الْحَ الَنِيه",
+        "text": "وَمِنَ اَ۬لنَّاسِ مَنْ يُّعْجِبُكَ قَوْلُهُۥ فِے اِ۬لْحَيَوٰةِ اِ۬لدُّنْي۪ا",
         "match": {
           "verse": "2:204",
-          "score": 0.71,
-          "type": "fuzzy"
+          "score": 0.49,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
         }
       },
       {
@@ -12692,7 +12708,7 @@
     "surahs": [
       3
     ],
-    "spanCount": 221,
+    "spanCount": 222,
     "spans": [
       {
         "paraIndex": 0,
@@ -13137,11 +13153,23 @@
       {
         "paraIndex": 20,
         "spanIndex": 2,
-        "text": "الْمَلْكَ مَن تَشَاء من خلقك ووَتَنزِعُ الْمُلْكَ مِمَّن تَآءَ",
+        "text": "اِ۬لْمُلْكَ مَن تَشَآءُ",
         "match": {
           "verse": "3:26",
-          "score": 0.57,
-          "type": "fuzzy"
+          "score": 0.11,
+          "type": "enclosed",
+          "scope": "none"
+        }
+      },
+      {
+        "paraIndex": 20,
+        "spanIndex": 3,
+        "text": "وَتَنزِعُ اُ۬لْمُلْكَ مِمَّن تَشَآءُ",
+        "match": {
+          "verse": "3:26",
+          "score": 0.17,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
