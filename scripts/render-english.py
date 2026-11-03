@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Render the verbatim English of Lessons 1-8 into each lesson's englishText.
+Render the verbatim English of the translated lessons into englishText.
+
+Which lessons, and from which draft, are given on the command line:
+
+    REPO=$PWD python3 scripts/render-english.py --lessons 9 --write
+
+so that rendering a newly translated lesson does not rewrite the ones already
+on the site.
 
 The four registers of the approved typography map onto the site's existing
 en-para markup:
@@ -23,8 +30,15 @@ the Arabic it translates.
 import io, json, os, re, sys, html
 
 REPO = os.environ['REPO']
-SRC = REPO + '/translation-drafts/lessons-1-8-english.json'
+def arg(flag, default):
+    return sys.argv[sys.argv.index(flag) + 1] if flag in sys.argv else default
+
+SRC = REPO + '/translation-drafts/' + arg('--draft', 'lessons-1-9-english.json')
 EN = json.load(io.open(SRC, encoding='utf-8'))
+LESSONS = [int(x) for x in arg('--lessons', '1-8').replace('-', ' ').split()] \
+          if '-' in arg('--lessons', '1-8') else [int(x) for x in arg('--lessons', '1-8').split(',')]
+if len(LESSONS) == 2 and '-' in arg('--lessons', '1-8'):
+    LESSONS = list(range(LESSONS[0], LESSONS[1] + 1))
 
 def esc(t):
     return html.escape(t, quote=True).replace('&#x27;', '&#x27;')
@@ -61,7 +75,7 @@ def render_para(runs):
 
 DRY = '--write' not in sys.argv
 rows = []
-for L in range(1, 9):
+for L in LESSONS:
     key = str(L)
     paras = EN[key]['paragraphs']
     blocks = []
@@ -73,7 +87,8 @@ for L in range(1, 9):
     path = REPO + '/src/data/lessons/%02d.json' % L
     d = json.load(io.open(path, encoding='utf-8'))
     ar = len([x for x in d['arabicBody'].split('\n') if x.strip()])
-    rows.append((L, ar, len(paras), len(blocks), len(text),
+    live = sum(1 for x in paras if any(t.strip() for t, _ in x['runs']))
+    rows.append((L, ar, live, len(blocks), len(text),
                  len(re.sub('<[^>]+>', '', text).split())))
     if not DRY:
         d['englishText'] = text
