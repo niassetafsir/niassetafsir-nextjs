@@ -2473,7 +2473,7 @@
   "9": [
     {
       "verse": "3:92",
-      "paraIndex": 4,
+      "paraIndex": 2,
       "uncertain": true
     },
     {
@@ -2553,6 +2553,11 @@
     },
     {
       "verse": "3:115",
+      "paraIndex": 50,
+      "uncertain": true
+    },
+    {
+      "verse": "3:117",
       "paraIndex": 50,
       "uncertain": true
     },
@@ -14615,6 +14620,11 @@
     {
       "verse": "26:214",
       "paraIndex": 72,
+      "uncertain": true
+    },
+    {
+      "verse": "26:215",
+      "paraIndex": 76,
       "uncertain": true
     },
     {
