@@ -80,14 +80,23 @@ for L in LESSONS:
     paras = EN[key]['paragraphs']
     blocks = []
     for p in paras:
+        # The site hides the opening invocation and the himma quatrain from the
+        # commentary column, as isPoem does on the Arabic side. They stay in the
+        # draft, and so in the printed volume.
+        if p.get('site') is False: continue
         body = render_para(p['runs'])
         if not body: continue
         blocks.append('<p class="en-para">' + body + '</p>')
     text = '\n'.join(blocks)
     path = REPO + '/src/data/lessons/%02d.json' % L
     d = json.load(io.open(path, encoding='utf-8'))
-    ar = len([x for x in d['arabicBody'].split('\n') if x.strip()])
-    live = sum(1 for x in paras if any(t.strip() for t, _ in x['runs']))
+    # count the Arabic the way the site does: isPoem (in arabicCommentary.ts and
+    # in build-bilingual-alignment.js) keeps the invocation and the himma
+    # quatrain out of the commentary column.
+    HIDE = re.compile('^(\u064a\u0627 ?\u0647\u0645\u0629 \u0627\u0644\u0634\u064a\u062e|\u064a\u0627\u0647\u0645\u0629 \u0627\u0644\u0634\u064a\u062e|\u0644\u0646\u0627 \u0628\u0647\u0632\u0627 \u0627\u0644\u0645\u062d\u0636\u0631|\u0644\u0646\u0627 \u0628\u0647\u0630\u0627 \u0627\u0644\u0645\u062d\u0636\u0631|\u0648\u0644\u062a\u0639\u0637\u0641\u064a \u0628\u0646\u0632\u0631\u0629|\u0648\u0644\u062a\u0639\u0637\u0641\u064a \u0628\u0646\u0638\u0631\u0629|\u062a\u0623\u062a\u064a \u0644\u0646\u0627 \u0628\u0627\u0644\u0638\u0641\u0631|\u064a\u0627 \u0647\u0645\u0629|\u0623\u0639\u0648\u0630 \u0628\u0627\u0644\u0644\u0647|\u0628\u0633\u0645 \u0627\u0644\u0644\u0647|\u0627\u0644\u0644\u0647\u0645 \u0635\u0644)')
+    ar = len([x for x in d['arabicBody'].split('\n')
+              if x.strip() and not HIDE.match(x.strip())])
+    live = sum(1 for x in paras if x.get('site') is not False and any(t.strip() for t, _ in x['runs']))
     rows.append((L, ar, live, len(blocks), len(text),
                  len(re.sub('<[^>]+>', '', text).split())))
     if not DRY:
