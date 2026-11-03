@@ -164,17 +164,18 @@ export default async function AboutPage() {
           </h2>
           <p className="leading-6">
             The complete bilingual print edition (Arabic facing English) is under contract for
-            publication. It differs from the Arabic compiled
-            edition in its organisation: rather than following the ten-volume structure of the
-            Arabic edition, the print bilingual edition is organised around the{' '}
-            <strong className="text-white/85">seven manzils</strong>, the daily recitation portions
-            that Shaykh Ibrāhīm himself enumerated in verse and practised as a weekly cycle of
-            Qurʾānic recitation.
+            publication. It does not follow the ten-volume structure of the Arabic printing. It runs
+            to <strong className="text-white/85">seven volumes</strong>, answering to the seven
+            manzils of the weekly recitation cycle Shaykh Ibrāhīm practised and enumerated in verse.
           </p>
           <p className="leading-6 mt-3">
-            This seven-volume structure, each volume corresponding to one manzil, reflects the
-            Shaykh&apos;s own relationship to the Qurʾān and provides a framework for the translation
-            that is rooted in his practice rather than in the conventions of the printed Arabic edition.
+            The volumes do not reproduce those seven portions. A manzil divides the muṣḥaf for
+            reciting it; Niasse lectured straight through, so five of the seven manzil boundaries fall
+            inside a lesson. The lesson is this work&apos;s own unit and is kept whole, and each volume
+            closes at the end of a sūra instead — that division belongs to the text being commented
+            upon, and the commentary on a given sūra stays in one book. Six of the seven close that
+            way; Volume One stops inside Āl ʿImrān, because no lesson in the opening stretch of the
+            course ends where a sūra ends.
           </p>
         </div>
 

@@ -63,11 +63,10 @@ export default async function EditorialConventionsPage() {
         <p className="mb-3 text-justify">
           The present edition presents the Arabic text of <em>Fī Riyāḍ al-Tafsīr</em> in the Warsh ʿan
           Nāfiʼ rasm, the orthographic standard of North and West Africa in which the tafsīr was
-          delivered, with an English translation on facing pages. The edition is structured in seven
-          volumes, each corresponding to one of the seven manzils, the weekly Qurʾānic recitation cycle
-          that Niasse himself practised and celebrated in verse. He enumerated the opening sūra of each
-          manzil in verse and invoked two of the Qurʾān&apos;s names, al-Furqān (the Criterion) and
-          al-Jamʼ (the Joining):
+          delivered, with an English translation on facing pages. It runs to seven volumes, a number
+          that answers to the seven manzils of the weekly recitation cycle Niasse practised and
+          celebrated in verse — he enumerated the opening sūra of each manzil and invoked two of the
+          Qurʾān&apos;s names, al-Furqān (the Criterion) and al-Jamʼ (the Joining):
         </p>
         <blockquote className="my-4 ml-6 pl-4 border-l-2 border-gold/40 font-english text-sm text-white/75 italic leading-8">
           Al-Fātiḥah, al-Māʾida, Yūnus, al-Isrāʾ,<br />
@@ -76,7 +75,17 @@ export default async function EditorialConventionsPage() {
           completes a full recitation of the Criterion.
         </blockquote>
         <p className="mb-3 text-justify">
-          This structure reflects fidelity to the Shaykh&apos;s own relationship to the Qurʾān.
+          The volumes do not reproduce those seven portions, and it is worth saying why. A manzil
+          divides the muṣḥaf for reciting it over a week; Niasse lectured straight through, so five of
+          the seven manzil boundaries fall inside a lesson rather than between two, and honouring them
+          would mean cutting a lesson in half. The lesson is this work&apos;s own unit and is kept
+          whole. Each volume therefore closes at the end of a sūra — that division belongs to the text
+          being commented upon, and a reader looking for the commentary on a given sūra finds it in one
+          book. Six of the seven close that way. The first cannot: no lesson in the opening stretch of
+          the course ends where a sūra ends, so Volume One stops inside Āl ʿImrān, at the point where
+          Lesson Nine stops.
+        </p>
+        <p className="mb-3 text-justify">
           Qurʾānic audio is presented per verse using the recitation of Maḥmūd Khalīl al-Ḥuṣarī
           (1917–1980) in the Warsh riwāya. The Warsh rasm is the standard of the Qurʾān as recited and
           taught in the Tijānī tradition, and it differs in certain orthographic details from the Ḥafṣ
