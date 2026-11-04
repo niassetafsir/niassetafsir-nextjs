@@ -17,9 +17,9 @@ from docx.oxml import OxmlElement
 from docxfn import Footnotes
 from joinrule import needs_space
 
-EN = json.load(open('/home/claude/merged-1-9-english.json'))
+EN = json.load(open('/home/claude/merged-1-10-english.json'))
 APPARATUS = json.load(open('/home/claude/apparatus.json')) if os.path.exists('/home/claude/apparatus.json') else {}
-OUT = '/home/claude/book3/Fi Riyad al-Tafsir - Lessons 1-9'
+OUT = '/home/claude/book4'
 os.makedirs(OUT, exist_ok=True)
 
 BODY   = 'Garamond'
@@ -36,7 +36,8 @@ NAMES = {1:('Lesson One','Al-Istiʿādha, the Basmala, and Sūrat al-Fātiḥa',
          6:('Lesson Six','Sūrat al-Baqara','Q. 2:203–252'),
          7:('Lesson Seven','Sūrat al-Baqara and Āl ʿImrān','Q. 2:253–3:14'),
          8:('Lesson Eight','Āl ʿImrān','Q. 3:15–91'),
-         9:('Lesson Nine','Āl ʿImrān','Q. 3:92–175')}
+         9:('Lesson Nine','Āl ʿImrān','Q. 3:92–175'),
+         10:('Lesson Ten','Āl ʿImrān and Al-Nisāʾ','Q. 3:176–4:23')}
 MARK = re.compile(r'\[(\d+)\]')
 
 # Seven volumes. Five of the six breaks fall where a sūra ends, which is as many
@@ -51,6 +52,7 @@ MARK = re.compile(r'\[(\d+)\]')
 # split that ignores them. Volume Three carries Hūd through Ibrāhīm at 473 pages,
 # the fattest of the seven. Worth it so a reader is not handed two thirds of a
 # sūra and told to find the rest in the next book.
+ROMAN = {1:'One', 2:'Two', 3:'Three', 4:'Four', 5:'Five', 6:'Six', 7:'Seven'}
 VOLUMES = [(1, 9), (10, 17), (18, 28), (29, 36), (37, 43), (44, 49), (50, 56)]
 
 def volume_of(L):
@@ -207,7 +209,9 @@ def build(L):
                 sep = p.add_run(' '); set_fonts(sep, BODY)
             emit(p, t, k, fn, notes, used)
             prev = t
-    d.save('%s/%02d - %s.docx' % (OUT, L, NAMES[L][0]))
+    sub = '%s/Volume %s' % (OUT, ROMAN[volume_of(L)])
+    os.makedirs(sub, exist_ok=True)
+    d.save('%s/%02d - %s.docx' % (sub, L, NAMES[L][0]))
     marks = sum(len(MARK.findall(t)) for para in EN[str(L)]['paragraphs'] for t, _ in para['runs'])
     printed = sum(1 for para in EN[str(L)]['paragraphs'] if any(t.strip() for t,_ in para['runs']))
     return marks, len(used), printed, len(EN[str(L)]['paragraphs'])
@@ -216,7 +220,7 @@ def build(L):
 if __name__ == '__main__':
     print('%-3s %-7s %-10s %-9s %s' % ('L','marks cut','footnotes','printed','slots'))
     tm = tf = 0
-    for L in range(1, 10):
+    for L in range(1, 11):
         m, u, pr, sl = build(L); tm += m; tf += u
         print('%-3d %-7d %-10d %-9d %d' % (L, m, u, pr, sl))
     print('\n%d of the printing\u2019s marks cut from the page; its apparatus is on the site' % tm)
