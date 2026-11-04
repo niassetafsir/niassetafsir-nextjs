@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Fuse from 'fuse.js';
-import { parseVerseRef } from '@/lib/verseRefQuery';
+import { parseVerseRef, parseSurahName } from '@/lib/verseRefQuery';
 
 interface SearchEntry {
   id: string;
@@ -21,7 +21,14 @@ interface SearchResult {
 }
 
 function stripDiacritics(text: string) {
-  return text.replace(/[\u064B-\u065F\u0670\u0610-\u061A]/g, '');
+  // Both scripts. The Arabic marks were folded here from the start; the
+  // transliteration's were not, so a reader typing 'waqiah' or 'Imran' met
+  // 'Wāqiʿa' and 'ʿImrān' and found nothing.
+  return text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\u064B-\u065F\u0670\u0610-\u061A\u06D6-\u06ED]/g, '')
+    .replace(/[\u02BE\u02BF\u02BC\u02BB]/g, '');
 }
 
 function highlight(text: string, query: string) {
@@ -58,7 +65,9 @@ export default function SearchPage() {
           .filter((e: SearchEntry) => typeof e.text === 'string' && e.text.length > 0)
           .map((e: SearchEntry) => ({
             ...e,
-            textNorm: stripDiacritics(e.text)
+            textNorm: stripDiacritics(
+              [e.text, e.lessonTitle, e.verseRange].filter(Boolean).join('  ')
+            )
           }));
         setEntries(normalizedEntries);
         // Fuzzy index is a fallback only, for typo tolerance -- kept tight
@@ -113,6 +122,10 @@ export default function SearchPage() {
   // by routing rather than by matching. The placeholder has advertised
   // "Q.2:255" since this page was written.
   const verseRef = parseVerseRef(query);
+  // A sūra name is the other thing a reader types that the prose index cannot
+  // answer: 'surah waqiah' is a request for the lesson that treats al-Wāqiʿa,
+  // not for paragraphs containing the word.
+  const surahHit = verseRef ? null : parseSurahName(query);
 
   const filteredResults = results.filter(r => {
     if (filter === 'all') return true;
@@ -172,6 +185,26 @@ export default function SearchPage() {
       </div>
 
       {/* Verse reference */}
+      {surahHit && (
+        <div className="mb-6 border border-gold/30 rounded-xl px-4 py-4" dir="ltr"
+          style={{ background: 'rgba(201,168,76,0.06)' }}>
+          <p className="font-english text-xs uppercase tracking-[0.12em] text-gold/70 mb-2">
+            Sūra
+          </p>
+          <p className="font-english text-white/85 text-sm mb-3">
+            Sūrat {surahHit.meta.nameEn}{' '}
+            <span className="font-arabic text-gold/80" dir="rtl">{surahHit.meta.nameAr}</span>
+            {' · '}{surahHit.meta.ayahCount} āyāt
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Link href={`/surah/${surahHit.surah}`}
+              className="font-english text-xs px-3 py-1.5 rounded-full bg-gold text-bg font-semibold">
+              The commentary on this sūra →
+            </Link>
+          </div>
+        </div>
+      )}
+
       {verseRef && (
         <div className="mb-6 border border-gold/30 rounded-xl px-4 py-4" style={{ background: 'rgba(201,168,76,0.06)' }}>
           <p className="font-english text-xs uppercase tracking-[0.12em] text-gold/70 mb-2">
