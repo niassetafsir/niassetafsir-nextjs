@@ -4,6 +4,7 @@ import SiteNav from "@/components/SiteNav";
 import PersistentNav from "@/components/PersistentNav";
 import ScrollToTop from "@/components/ScrollToTop";
 import SiteFooter from "@/components/SiteFooter";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <PersistentNav />
         {children}
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
