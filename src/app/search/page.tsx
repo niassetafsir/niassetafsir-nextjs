@@ -55,12 +55,21 @@ export default function SearchPage() {
   const [fuse, setFuse] = useState<Fuse<IndexedEntry> | null>(null);
   const [entries, setEntries] = useState<IndexedEntry[]>([]);
   const [filter, setFilter] = useState<'all' | 'arabic' | 'english' | 'jalalayn'>('all');
+  // The index is one fetch, and until now nothing caught its failure: a 404,
+  // a half-written deploy or an offline phone left the page saying "Loading
+  // search index…" for as long as the reader was willing to wait. Readers
+  // reported the search as broken when it had in fact never loaded.
+  const [indexError, setIndexError] = useState<string | null>(null);
 
   // Load index
   useEffect(() => {
     fetch('/data/search-main.json')
-      .then(r => r.json())
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
       .then(data => {
+        if (!data || !Array.isArray(data.entries)) throw new Error('malformed index');
         const normalizedEntries: IndexedEntry[] = data.entries
           .filter((e: SearchEntry) => typeof e.text === 'string' && e.text.length > 0)
           .map((e: SearchEntry) => ({
@@ -80,6 +89,9 @@ export default function SearchPage() {
           includeScore: true,
         });
         setFuse(f);
+      })
+      .catch((err: unknown) => {
+        setIndexError(err instanceof Error ? err.message : 'unknown error');
       });
   }, []);
 
@@ -247,7 +259,9 @@ export default function SearchPage() {
         <div className="text-center py-12">
           <p className="font-english text-white/30 italic">
             {entries.length === 0
-              ? 'Loading search index…'
+              ? indexError
+                ? 'The search index did not load. Reload the page; if it keeps failing, the site needs rebuilding.'
+                : 'Loading search index…'
               : verseRef
               ? `The text index holds prose, not references, so "${query}" matches nothing in it. Use the link above.`
               : `No results found for "${query}"`}
@@ -301,6 +315,8 @@ export default function SearchPage() {
           <p className="font-english text-gold/50 text-sm">
             {entries.length > 0
               ? `Search across 56 lessons · ${entries.length} indexed passages`
+              : indexError
+              ? 'The search index did not load. Reload the page; if it keeps failing, the site needs rebuilding.'
               : 'Loading search index…'}
           </p>
           <p className="font-english text-white/20 text-xs">

@@ -84,7 +84,7 @@ export const NAV: NavSection[] = [
     labelAr: 'البحث',
     hint: 'The apparatus: footnotes, ḥadīth, terms, your saved passages',
     icon: '⊞',
-    match: ['/research', '/footnotes', '/hadith', '/glossary', '/glossary-map', '/notes', '/saved', '/search'],
+    match: ['/research', '/footnotes', '/hadith', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/search'],
     children: [
       { href: '/research', label: 'All tools', hint: 'Everything in one place' },
       // No count in this hint. NAV is a static table consumed by client
@@ -94,7 +94,12 @@ export const NAV: NavSection[] = [
       // /footnotes page states its own total, counted.
       { href: '/footnotes', label: 'Footnotes', hint: 'Compiler citations, classified' },
       { href: '/hadith', label: 'Ḥadīth index', hint: 'By collection' },
-      { href: '/glossary', label: 'Terms', hint: 'In context, and how he connects them' },
+      { href: '/glossary', label: 'Terms in context', hint: 'Where each term occurs, and how he connects them' },
+      // /term answers a different question from /glossary and was reachable
+      // from nothing: /glossary says where a word occurs in the tafsīr, this
+      // says where he stops to define it. An index no menu points at is an
+      // index no reader finds.
+      { href: '/term', label: 'Terms he defines', hint: 'Passages that define a word rather than construe a verse' },
       { href: '/notes', label: 'Research notes', hint: 'Working observations on the text' },
       { href: '/saved', label: 'Saved', hint: 'Passages you have kept, with citations' },
     ],
