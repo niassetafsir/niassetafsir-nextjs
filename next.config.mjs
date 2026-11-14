@@ -46,6 +46,18 @@ const nextConfig = {
       // The vocabulary map is a section of each term's entry in /glossary now,
       // so the relation sits next to the passages that attest the term.
       { source: '/glossary-map', destination: '/glossary', permanent: true },
+      // The compiler's apparatus is served on each lesson page, at the marker
+      // it annotates, attributed to him (AK, 13 and 15 Nov 2026). The
+      // free-standing apparatus and the ḥadīth index built from it are
+      // retired; a link to one lesson's notes lands on that lesson's panel.
+      {
+        source: '/footnotes',
+        has: [{ type: 'query', key: 'lesson', value: '(?<l>\\d+)' }],
+        destination: '/lesson/:l?panel=citations',
+        permanent: true,
+      },
+      { source: '/footnotes', destination: '/research', permanent: true },
+      { source: '/hadith', destination: '/research', permanent: true },
     ];
   },
 };

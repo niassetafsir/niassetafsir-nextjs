@@ -78,10 +78,9 @@ export default async function AboutPage() {
             designed to make this tafsīr accessible, searchable, and analytically usable for academic
             research. It presents the Arabic text of all {facts.arabicLessons} sessions
             {facts.translatedCount > 0 && (
-              <> alongside English for Lesson{facts.translatedCount > 1 ? 's' : ''}{' '}
-              {facts.translatedFirst}{facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''} —
-              {' '}{facts.completeTranslationCount} of them complete and reviewed against the Arabic,
-              the rest in draft or breaking off partway, each saying where it stops</>
+              <> alongside an English translation of Lesson{facts.translatedCount > 1 ? 's' : ''}{' '}
+              {facts.translatedFirst}{facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''},
+              complete but still in draft</>
             )}. <em>Tafsīr al-Jalālayn</em> and <em>Rūḥ al-Bayān</em> run alongside it verse by
             verse{facts.comparativeLessons === 1
               ? ' for al-Fātiḥa (Lesson 1)'
@@ -125,9 +124,8 @@ export default async function AboutPage() {
             presents <strong className="text-white/85">{facts.footnoteCount.toLocaleString()}</strong> of
             these footnotes, spanning {facts.footnoteLessons === facts.totalLessons
               ? `all ${facts.totalLessons}`
-              : `${facts.footnoteLessons} of ${facts.totalLessons}`} lessons, in a searchable index
-            classified by scholar, genre and lesson —{' '}
-            <Link href="/footnotes" className="text-gold/70 hover:text-gold transition-colors">browse it here</Link>.
+              : `${facts.footnoteLessons} of ${facts.totalLessons}`} lessons. Each appears on its lesson
+            page at the marker it annotates, attributed to the compiler.
           </p>
         </div>
 
@@ -160,11 +158,11 @@ export default async function AboutPage() {
 
         <div>
           <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
-            The Print Bilingual Edition
+            The Print Edition
           </h2>
           <p className="leading-6">
-            The complete bilingual print edition (Arabic facing English) is under contract for
-            publication. It does not follow the ten-volume structure of the Arabic printing. It runs
+            The English translation will be published in print. It does not follow the ten-volume
+            structure of the Arabic printing. It runs
             to <strong className="text-white/85">seven volumes</strong>, answering to the seven
             manzils of the weekly recitation cycle Shaykh Ibrāhīm practised and enumerated in verse.
           </p>
@@ -202,8 +200,8 @@ export default async function AboutPage() {
             Who Made It
           </h2>
           <p className="leading-6">
-            <strong className="text-white/85">Amadu Kunateh</strong> is a PhD candidate in Philosophy of
-            Religion and African Studies at Harvard University. He conceived, built, and maintains this
+            <strong className="text-white/85">Amadu Kunateh</strong> is a PhD candidate on the Committee
+            on the Study of Religion at Harvard University. He conceived, built, and maintains this
             edition, and is its sole translator; the digitisation, proofreading, structural design and
             scholarly annotation are his. The work belongs to doctoral research on Niasse&apos;s tafsīr
             conducted since 2022 across both the six-volume compilation and the revised ten-volume recension.
@@ -290,15 +288,15 @@ export default async function AboutPage() {
               <span className="font-english text-white/30 text-xs w-20 shrink-0">April 2025</span>
               <span className="font-english text-white/60 text-sm flex-1">
                 Initial release. All {facts.totalLessons} lessons in Arabic; {facts.translatedCount}{' '}
-                bilingual; the classified apparatus; ḥadīth index; technical terms; full-text search;
-                the verse index.
+                in English; the compiler&apos;s apparatus; technical terms; full-text search; the verse
+                index.
               </span>
             </div>
             <div className="flex items-start gap-4 px-4 py-3">
               <span className="font-english text-white/30 text-sm w-14 shrink-0">v 2.0</span>
               <span className="font-english text-white/30 text-xs w-20 shrink-0">Forthcoming</span>
               <span className="font-english text-white/30 text-sm flex-1">
-                Complete bilingual translation; lesson summaries; footnote translations; the verse
+                Complete English translation; lesson summaries; footnote translations; the verse
                 concordance and scholar index; DOI.
               </span>
             </div>

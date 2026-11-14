@@ -90,18 +90,11 @@ export const NAV: NavSection[] = [
     label: 'Research',
     labelShort: 'Tools',
     labelAr: 'البحث',
-    hint: 'The apparatus: footnotes, ḥadīth, terms, your saved passages',
+    hint: 'Terms, research notes, your saved passages',
     icon: '⊞',
-    match: ['/research', '/footnotes', '/hadith', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/search'],
+    match: ['/research', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/search'],
     children: [
       { href: '/research', label: 'All tools', hint: 'Everything in one place' },
-      // No count in this hint. NAV is a static table consumed by client
-      // components, and the counter lives in coverage.ts, which reads the
-      // filesystem -- so this cannot derive the figure, and a hand-typed one
-      // here would be right only until the apparatus next changes. The
-      // /footnotes page states its own total, counted.
-      { href: '/footnotes', label: 'Footnotes', hint: 'Compiler citations, classified' },
-      { href: '/hadith', label: 'Ḥadīth index', hint: 'By collection' },
       { href: '/glossary', label: 'Terms in context', hint: 'Where each term occurs, and how he connects them' },
       // /term answers a different question from /glossary and was reachable
       // from nothing: /glossary says where a word occurs in the tafsīr, this
@@ -182,7 +175,7 @@ export const MOBILE_BAR: MobileTab[] = [
   { id: 'verse',  href: '/verse',  label: 'Verses', icon: '✦', match: ['/verse'] },
   { id: 'search', href: '/search', label: 'Search', icon: '⌕', match: ['/search'] },
   { id: 'listen', href: '/audio',  label: 'Listen', icon: '♪', match: ['/audio'] },
-  { id: 'more',                    label: 'More',   icon: '⋯', match: ['/research', '/footnotes', '/hadith', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/about', '/translators-note', '/get-involved'] },
+  { id: 'more',                    label: 'More',   icon: '⋯', match: ['/research', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/about', '/translators-note', '/get-involved'] },
 ];
 
 /** The event PersistentNav fires to open SiteNav's menu. They are

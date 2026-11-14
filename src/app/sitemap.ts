@@ -23,8 +23,6 @@ const STATIC_ROUTES = [
   '/about',
   '/about/tafsir',
   '/translators-note',
-  '/footnotes',
-  '/hadith',
   '/glossary',
   '/search',
   '/notes',

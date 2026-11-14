@@ -8,7 +8,7 @@
  * and the repair scripts reach only the ones an āya or the corpus can settle.
  * The rest need the volume open beside the screen.
  *
- * AK has read Lessons 1-8 that way. The other 48 are published as they stand,
+ * AK has read the prose of Lessons 1-9 that way (Lesson 9 on 6 Nov 2026). The other 47 are published as they stand,
  * and the lesson page says so, because a reader who cannot tell a checked text
  * from an unchecked one will quote the unchecked one as though it were
  * established. Hiding them would be worse: the text is no further from the
@@ -17,7 +17,7 @@
  *
  * As each lesson is read, add it here.
  */
-export const REVIEWED_LESSONS: readonly number[] = [1, 2, 3, 4, 5, 6, 7, 8];
+export const REVIEWED_LESSONS: readonly number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export function isReviewed(lessonId: number | undefined | null): boolean {
   return lessonId != null && REVIEWED_LESSONS.includes(lessonId);

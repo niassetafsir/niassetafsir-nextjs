@@ -30,7 +30,7 @@ Proper names: Ibrāhīm, Muḥammad, Ḥawwāʾ, Iblīs, Nūḥ, Jibrīl, ʿUmar
                              The Especially Merciful
     الحمد لله                al-Ḥamdu li-Llāh (The Praise is for Allah)
     الله                     Allah — never "God"
-    صلى الله عليه وسلم / ﷺ   ṣ.a.w.s.   (e.g. "the Prophet, ṣ.a.w.s.")
+    صلى الله عليه وسلم       ﷺ   (e.g. "the Prophet ﷺ") -- AK, 15 Nov 2026
     عليه السلام              upon him be peace
     رضي الله عنه             may Allah be pleased with him
     تبارك وتعالى             Blessed and Exalted

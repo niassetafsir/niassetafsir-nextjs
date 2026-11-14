@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Editorial Conventions | niassetafsir.org',
     description:
-      "Editorial principles, digitisation methodology, and translation conventions for the bilingual edition of Niasse's tafsīr.",
+      "Editorial principles, digitisation methodology, and translation conventions for the digital edition of Niasse's tafsīr.",
   },
 };
 
@@ -50,7 +50,7 @@ export default async function EditorialConventionsPage() {
         </div>
         <p className="font-english text-white font-semibold text-center mt-4">Amadu Kunateh</p>
         <p className="font-english text-white/45 text-sm text-center">
-          PhD Candidate, Philosophy of Religion and African Studies
+          PhD Candidate, Committee on the Study of Religion, Harvard University
         </p>
         <p className="font-english text-gold/50 text-xs mt-3">Edition 1.0 · April 2025</p>
       </div>
@@ -62,11 +62,11 @@ export default async function EditorialConventionsPage() {
         </h2>
         <p className="mb-3 text-justify">
           The present edition presents the Arabic text of <em>Fī Riyāḍ al-Tafsīr</em> in the Warsh ʿan
-          Nāfiʼ rasm, the orthographic standard of North and West Africa in which the tafsīr was
-          delivered, with an English translation on facing pages. It runs to seven volumes, a number
+          Nāfiʿ rasm, the orthographic standard of North and West Africa in which the tafsīr was
+          delivered, with an English translation. The English edition runs to seven volumes, a number
           that answers to the seven manzils of the weekly recitation cycle Niasse practised and
           celebrated in verse — he enumerated the opening sūra of each manzil and invoked two of the
-          Qurʾān&apos;s names, al-Furqān (the Criterion) and al-Jamʼ (the Joining):
+          Qurʾān&apos;s names, al-Furqān (the Criterion) and al-Jamʿ (the Joining):
         </p>
         <blockquote className="my-4 ml-6 pl-4 border-l-2 border-gold/40 font-english text-sm text-white/75 italic leading-8">
           Al-Fātiḥah, al-Māʾida, Yūnus, al-Isrāʾ,<br />
@@ -100,7 +100,8 @@ export default async function EditorialConventionsPage() {
           presents the commentary as continuous Arabic prose with footnotes interspersed throughout each
           lesson section. For readability, this edition separates the body text — Niasse&apos;s
           commentary — from the footnote block, the compiler&apos;s documentary apparatus. The body text
-          appears in the Shaykh&apos;s Tafsīr panel; the footnotes in the Critical Apparatus beside it.
+          appears in the Shaykh&apos;s Tafsīr panel; the compiler&apos;s footnotes open from their markers in
+          it, and are gathered under Citations on the same page.
         </p>
         <p className="mb-3 text-justify">
           The lesson structure follows the compiler&apos;s ten-volume organisation: each lesson
@@ -125,9 +126,8 @@ export default async function EditorialConventionsPage() {
         </h2>
         <p className="mb-3 text-justify">
           The compiler&apos;s footnotes are marked inline in the Arabic text with superscript numbers{' '}
-          <sup className="text-gold/80 text-xs">[n]</sup>. Each marker is a link that opens the
-          corresponding entry in the Critical Apparatus, where the full footnote appears in Arabic with
-          an English citation header. The same markers appear in the translated lessons, where the
+          <sup className="text-gold/80 text-xs">[n]</sup>. Each marker opens the footnote where
+          it stands, in the compiler&apos;s Arabic, attributed to him. The same markers appear in the translated lessons, where the
           translation preserves the footnote numbering of the Arabic source.
         </p>
         <p className="mb-3 text-justify">
@@ -139,8 +139,6 @@ export default async function EditorialConventionsPage() {
             : `${footnoteLessons} of the ${totalLessons} lessons`},{' '}
           {footnoteCount.toLocaleString('en-US')} footnotes in all. The apparatus for the remaining
           lessons is withheld while its inline markers are re-checked against the verified documents.
-          Browse what is published at{' '}
-          <Link href="/footnotes" className="text-gold/70 hover:text-gold transition-colors">Footnotes</Link>.
         </p>
         <p className="mb-3 text-justify">
           The apparatus throughout preserves all of Niasse&apos;s original scholarly citations — to the
@@ -187,8 +185,8 @@ export default async function EditorialConventionsPage() {
           The translation
         </h2>
         <p className="mb-3 text-justify">
-          The English translation is by Amadu Kunateh and currently covers Lessons 1–5; the complete
-          bilingual translation is under contract for publication. It proceeds
+          The English translation is by Amadu Kunateh and currently covers Lessons 1–9; the complete
+          translation will be published in print. It proceeds
           from a commitment to scholarly precision and readability. The register is formal academic prose
           that preserves the oral cadences of the original — its directness, its rhythmic repetitions,
           and its transitions between legal analysis and spiritual address. Technical terms are retained

@@ -115,7 +115,7 @@ function ComingSoonNote({ lang }: { lang: string }) {
     english: {
       title: "English Translation",
       body: "English translation forthcoming.",
-      sub: `Lessons 1–${TRANSLATED_THROUGH} available · Full bilingual print edition in preparation · Amadu Kunateh`,
+      sub: `Lessons 1–${TRANSLATED_THROUGH} available · Complete English translation in preparation · Amadu Kunateh`,
     },
   };
   const msg = msgs[lang] ?? msgs.english;

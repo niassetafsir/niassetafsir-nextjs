@@ -31,24 +31,6 @@ const TOOLS = [
     tier: 'scholar',
   },
   {
-    href: '/footnotes',
-    titleAr: 'الحواشي والمصادر',
-    titleEn: 'Footnotes & Citations',
-    // {footnotes} is substituted at render from src/data/footnotesData.json.
-    // Hardcoded, this read "1,994" while the apparatus held 1,997 -- the card
-    // linking to the footnote index misreported the size of the thing it links
-    // to.
-    desc: '{footnotes} footnotes by the compiler, genre-classified: Hadith, Tafsīr, Theology, Sufism, Fiqh. Lessons {fnLessons} of {totalLessons} so far.',
-    tier: 'scholar',
-  },
-  {
-    href: '/hadith',
-    titleAr: 'فهرس الأحاديث',
-    titleEn: 'Ḥadīth Index',
-    desc: '{hadith} hadith citations indexed by collection — Bukhārī, Muslim, Tirmidhī, and others.',
-    tier: 'scholar',
-  },
-  {
     href: '/glossary',
     titleAr: 'فهرس المصطلحات',
     titleEn: 'Concordance of Terms',
@@ -66,7 +48,7 @@ const TOOLS = [
     href: '/saved',
     titleAr: 'المحفوظات',
     titleEn: 'Saved Passages',
-    desc: 'Anything you have kept, with a Chicago citation generated for each. /bookmarks and /clips were two cards here for one action and now redirect to this page.',
+    desc: 'Anything you have kept, with a Chicago citation generated for each.',
     tier: 'personal',
   },
 ];

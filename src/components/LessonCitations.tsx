@@ -1,6 +1,6 @@
 'use client';
+import { cleanNoteArabic } from '@/lib/noteText';
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import type { EditorNote } from '@/lib/editorNotes';
 
 /**
@@ -154,10 +154,7 @@ export default function LessonCitations({ lessonId }: { lessonId: number }) {
           )}
           <p className="font-english text-xs mb-4" style={{ color: 'rgba(255,255,255,0.35)' }}>
             {compiler.length} footnote{compiler.length !== 1 ? 's' : ''} compiled by Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī for this lesson —
-            numbered as in the physical edition (numbers restart on each printed page).{' '}
-            <Link href={`/footnotes?mode=lesson&lesson=${lessonId}`} className="text-gold/70 hover:text-gold underline">
-              Open full Critical Apparatus view ↗
-            </Link>
+            numbered continuously through the lesson.
           </p>
           <div className="space-y-2">
             {compiler.map(fn => (
@@ -175,12 +172,9 @@ export default function LessonCitations({ lessonId }: { lessonId: number }) {
                   {fn.volRef && (
                     <span className="font-english text-[10px]" style={{ color: 'rgba(255,255,255,0.3)' }}>{fn.volRef}</span>
                   )}
-                  <a href={`/footnotes#${fn.id}`} className="font-english text-[10px] text-gold/50 hover:text-gold ml-auto">
-                    View in apparatus →
-                  </a>
                 </div>
                 <p className="font-arabic text-[13px] leading-6" dir="rtl" style={{ color: 'rgba(255,255,255,0.78)' }}>
-                  {fn.arabic}
+                  {cleanNoteArabic(fn.arabic)}
                 </p>
               </div>
             ))}

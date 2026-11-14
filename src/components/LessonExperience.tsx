@@ -1,5 +1,7 @@
 'use client';
-import { useState, useEffect, type ReactNode } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
+import { cleanNoteArabic } from '@/lib/noteText';
 
 /**
  * LessonExperience — the four ways to read a lesson, offered at the top.
@@ -54,6 +56,8 @@ interface Props {
   hasTranslation?: boolean;
 }
 
+interface NoteRow { id: string; num?: number; displayNum?: number; arabic: string }
+
 export default function LessonExperience({ tafsir, compare, citations, overview, hideCitations, hasTranslation }: Props) {
   const [mode, setMode] = useState<LessonMode>('tafsir');
   const modes = hideCitations ? MODES.filter(m => m.id !== 'citations') : MODES;
@@ -68,27 +72,51 @@ export default function LessonExperience({ tafsir, compare, citations, overview,
     if (p && modes.some(m => m.id === p)) setMode(p as LessonMode);
   }, [hideCitations]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Inline footnote markers were plain links to /footnotes#id, so clicking [1]
-  // mid-sentence navigated the reader out of the lesson -- while the Citations
-  // panel, one tab away on this same page, was already rendering that exact
-  // footnote with id="citepanel-{id}". The target existed; nothing pointed at
-  // it.
+  // The compiler's notes are served where they are anchored (AK, 13 Nov 2026).
+  // A click on [n] opens the note in a card at the marker, in his Arabic and
+  // under his name, and the reader stays in the text. The Citations tab still
+  // gathers the lesson's notes in one place; the card links to it.
   //
-  // Delegated here rather than in BilingualText because the markers are
-  // injected as HTML strings in several places and this component wraps all of
-  // them. Modified clicks are left alone -- cmd, ctrl, shift and middle-click
-  // should still open the apparatus in a tab -- and with JS off the href
-  // behaves exactly as before.
+  // Modified clicks are left alone, and without JS the marker's href opens the
+  // Citations panel at the note (see src/lib/textInject.ts).
+  const notes = useRef<Map<string, NoteRow> | null>(null);
+  const [card, setCard] = useState<{ id: string; top: number; left: number; note?: NoteRow } | null>(null);
+
+  useEffect(() => {
+    if (!card) return;
+    const close = (e: KeyboardEvent) => { if (e.key === 'Escape') setCard(null); };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [card]);
+
   const openFootnote = (e: React.MouseEvent) => {
     if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    const link = (e.target as HTMLElement).closest?.('[data-fn]');
+    const link = (e.target as HTMLElement).closest?.('[data-fn]') as HTMLElement | null;
     const id = link?.getAttribute('data-fn');
-    if (!id) return;
+    if (!link || !id) return;
     e.preventDefault();
+    const r = link.getBoundingClientRect();
+    const width = Math.min(420, window.innerWidth - 24);
+    const left = Math.max(12, Math.min(r.left + r.width / 2 - width / 2, window.innerWidth - width - 12));
+    const top = r.bottom + window.scrollY + 6;
+    const cached = notes.current?.get(id);
+    setCard({ id, top, left, note: cached });
+    if (notes.current) return;
+    const lessonId = Number(id.split('-')[1]);
+    if (!Number.isFinite(lessonId)) return;
+    fetch(`/api/footnotes?lessonId=${lessonId}`)
+      .then(res => res.json())
+      .then((d: { compiler?: NoteRow[] }) => {
+        notes.current = new Map((d.compiler ?? []).map(n => [n.id, n]));
+        setCard(c => (c && c.id === id ? { ...c, note: notes.current!.get(id) } : c));
+      })
+      .catch(() => { notes.current = new Map(); });
+  };
+
+  const showInPanel = (id: string) => {
+    setCard(null);
     setMode('citations');
-    // The panel fetches its footnotes, so the target is not in the DOM yet.
-    // Re-assert rather than firing once -- the same approach the verse
-    // deep-link in BilingualText uses, for the same reason.
+    // The panel fetches its notes, so the target is not in the DOM yet.
     [80, 300, 700, 1200].forEach(delay => {
       setTimeout(() => {
         const el = document.getElementById(`citepanel-${id}`);
@@ -108,6 +136,38 @@ export default function LessonExperience({ tafsir, compare, citations, overview,
 
   return (
     <div dir="ltr" onClick={openFootnote}>
+      {card && typeof document !== 'undefined' && createPortal(
+        <>
+          <div onClick={() => setCard(null)} style={{ position: 'fixed', inset: 0, zIndex: 60 }} aria-hidden />
+          <div role="dialog" aria-label="Compiler's note"
+            style={{ position: 'absolute', top: card.top, left: card.left, width: Math.min(420, window.innerWidth - 24), maxHeight: '60vh', zIndex: 61 }}
+            className="rounded-xl border border-gold/30 bg-bg shadow-2xl p-3 overflow-y-auto"
+            /* A long note scrolls inside the card rather than running off the screen. */
+           >
+            <div className="flex items-center gap-2 mb-1.5" dir="ltr">
+              <span className="font-english text-[11px] text-gold/80">
+                Compiler&apos;s note {card.note?.displayNum ?? card.note?.num ?? card.id.split('-')[2]}
+              </span>
+              <button type="button" onClick={() => setCard(null)} aria-label="Close note"
+                className="ml-auto font-english text-xs text-white/50 hover:text-white/80 px-1">✕</button>
+            </div>
+            {card.note ? (
+              <p className="font-arabic text-[14px] leading-7" dir="rtl" style={{ color: 'rgba(255,255,255,0.85)' }}>
+                {cleanNoteArabic(card.note.arabic)}
+              </p>
+            ) : (
+              <p className="font-english text-xs italic text-white/40">Loading…</p>
+            )}
+            <p className="font-english text-[10px] mt-2" style={{ color: 'rgba(255,255,255,0.4)' }} dir="ltr">
+              Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, in the Majmaʿ al-Yamāma printing ·{' '}
+              <button type="button" onClick={() => showInPanel(card.id)} className="text-gold/70 hover:text-gold underline">
+                all notes on this lesson
+              </button>
+            </p>
+          </div>
+        </>,
+        document.body
+      )}
       {/*
         Two columns on a phone, four across from 640px. A horizontally
         scrolling strip was the alternative and is worse here: with only four

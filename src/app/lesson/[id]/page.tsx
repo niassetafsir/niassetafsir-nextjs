@@ -191,9 +191,9 @@ export default async function LessonPage({ params }: { params: { id: string } })
                 <strong style={{ fontWeight: 600 }}>This lesson has not yet been read against the
                 printed volume.</strong>{' '}
                 Its Arabic is transcribed from a scan, and the scan of this printing confuses the
-                dotted letters — a fāʾ read as a qāf, a nūn as a rāʾ. The Qurʾānic citations have been
-                repaired against the muṣḥaf, but Niasse&rsquo;s own prose still carries whatever the
-                scan left. Quote it with that in mind.
+                dotted letters — a fāʾ read as a qāf, a nūn as a rāʾ. Its Qurʾānic citations are identified
+                against the muṣḥaf, but their wording, like Niasse&rsquo;s own prose, can still carry
+                what the scan left. Quote it with that in mind.
               </p>
             )}
             {withheldNotes > 0 && (

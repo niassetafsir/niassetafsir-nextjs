@@ -1,5 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from '@/components/ThemeToggle';
@@ -98,8 +99,13 @@ function MobileNav() {
         <span className="block w-5 h-0.5 bg-gold/70 rounded-full" />
       </button>
 
-      {open && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 99999, display: 'flex', flexDirection: 'column', background: 'var(--overlay-bg, #1a1008)' }}>
+      {/* The sheet is portalled to <body>. Drawn in place it sat inside the
+          sticky <nav>, whose backdrop-filter -- and the wrapper's translate --
+          make a containing block for fixed descendants, so `inset: 0`
+          measured against the 36px hamburger wrapper rather than the
+          viewport: a menu 44px wide, links 13px wide, one word per line. */}
+      {open && typeof document !== 'undefined' && createPortal(
+        <div role="dialog" aria-modal="true" aria-label="Menu" style={{ position: 'fixed', inset: 0, zIndex: 99999, display: 'flex', flexDirection: 'column', background: 'var(--overlay-bg, #1a1008)' }}>
           <div className="flex items-center justify-between px-5 py-3 border-b"
             style={{ borderColor: 'rgba(201,168,76,0.2)' }}>
             <div>
@@ -163,7 +169,8 @@ function MobileNav() {
             </Link>
             <ThemeToggle />
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
