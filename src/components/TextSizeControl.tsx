@@ -18,26 +18,26 @@ import { useState, useEffect, useCallback } from 'react';
  * descenders and the vowel marks need the room.
  */
 
-const AR = '--reading-ar-size';
-const EN = '--reading-en-size';
+const AR = '--reading-ar-scale';
+const EN = '--reading-en-scale';
 const KEY = 'niassetafsir:reading-size';
 
-// rem for Arabic, px for English: the defaults the reader already shipped
-// with, kept exactly, so an untouched control changes nothing.
-const AR_STEPS = ['0.95rem', '1.05rem', '1.1rem', '1.25rem', '1.4rem', '1.6rem'];
-const EN_STEPS = ['13px', '14px', '15px', '16.5px', '18.5px', '21px'];
+// Factors, not sizes. The middle step is 1 -- an untouched control
+// changes nothing, and whatever base size the theme sets is the one
+// that scales. See the note in globals.css.
+const STEPS = ['0.85', '0.93', '1', '1.12', '1.26', '1.42'];
 const DEFAULT = 2;
 
 type Sizes = { ar: number; en: number };
 
 function clamp(n: number) {
-  return Math.max(0, Math.min(AR_STEPS.length - 1, n));
+  return Math.max(0, Math.min(STEPS.length - 1, n));
 }
 
 function apply({ ar, en }: Sizes) {
   const r = document.documentElement;
-  r.style.setProperty(AR, AR_STEPS[clamp(ar)]);
-  r.style.setProperty(EN, EN_STEPS[clamp(en)]);
+  r.style.setProperty(AR, STEPS[clamp(ar)]);
+  r.style.setProperty(EN, STEPS[clamp(en)]);
 }
 
 export default function TextSizeControl() {
@@ -104,11 +104,11 @@ export default function TextSizeControl() {
         <span className="font-english text-[10px] tabular-nums w-7 text-center"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}
           aria-live="polite">
-          {sizes[which] + 1}/{AR_STEPS.length}
+          {sizes[which] + 1}/{STEPS.length}
         </span>
         <button
           onClick={() => bump(which, 1)}
-          disabled={sizes[which] === AR_STEPS.length - 1}
+          disabled={sizes[which] === STEPS.length - 1}
           aria-label={`Larger ${label.toLowerCase()}`}
           className="tap w-7 h-7 rounded-md font-english text-[15px] leading-none disabled:opacity-30 transition-colors"
           style={{ border: '1px solid rgba(201,168,76,0.35)', color: 'var(--body-text, rgba(232,232,224,0.85))' }}>

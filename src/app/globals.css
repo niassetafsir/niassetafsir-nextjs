@@ -1257,24 +1257,48 @@ body:has(> .lesson-print-page) {
 
 
 /* ── Reader text size ──────────────────────────────────────────────
- * Two custom properties, set on <html> by TextSizeControl and falling
- * back to the sizes the reader shipped with, so a page that never
- * loads the control (or a reader with JavaScript off) renders exactly
- * as before.
+ * The reader's two scripts scale independently, as a FACTOR on the
+ * size the edition already sets rather than an absolute value.
  *
- * Leading is derived from the size with calc rather than fixed,
- * because a leading that suits 15px crowds 21px -- and Arabic needs
- * the room more than English does, which is why the two factors
- * differ. em here resolves against this element's own font-size,
- * which is the variable, so the ratio holds at every step.
+ * It has to be a factor, because the base size is not one number:
+ * light mode deliberately ships larger type than dark
+ * ([data-theme="light"] .font-arabic is 19px against 1.1rem), and a
+ * control that wrote absolute pixels would quietly throw that away
+ * the first time a reader touched it. A factor keeps whichever base
+ * the theme chose and moves it.
+ *
+ * The doubled selectors are specificity, not duplication: the light
+ * rules above are [data-theme="light"] .font-arabic, 0-2-0, and a
+ * bare .reading-ar at 0-1-0 loses to them. This is how the first
+ * version of this control shipped doing nothing at all in light
+ * mode -- the variable was set, the rule was in the stylesheet, and
+ * another rule won.
+ *
+ * Leading is derived rather than fixed: a leading that suits 15px
+ * crowds 21px, Arabic most of all, where the vowel marks need the
+ * room. em resolves against this element's own computed size, so the
+ * constant rem term shrinks as a proportion the larger the type gets,
+ * and the ratio falls where it should -- Arabic 2.18 at the default
+ * step down to 2.07 at the largest, English 1.88 down to 1.80. The
+ * coefficients are chosen so the default step reproduces the leading
+ * the edition already sets, within half a pixel, in both themes:
+ * untouched, the control changes nothing.
  */
-.reading-ar {
-  font-size: var(--reading-ar-size, 1.1rem);
-  line-height: 2.2em;
-  line-height: calc(1.55em + 0.42rem);
+:root {
+  --reading-ar-base: 1.1rem;
+  --reading-en-base: 15px;
 }
-.reading-en {
-  font-size: var(--reading-en-size, 15px);
-  line-height: 1.85em;
-  line-height: calc(1.35em + 0.3rem);
+[data-theme="light"] {
+  --reading-ar-base: 19px;
+  --reading-en-base: 17px;
+}
+.reading-ar,
+[data-theme="light"] .font-arabic.reading-ar {
+  font-size: calc(var(--reading-ar-base) * var(--reading-ar-scale, 1));
+  line-height: calc(1.8em + 0.45rem);
+}
+.reading-en,
+[data-theme="light"] .font-english.reading-en {
+  font-size: calc(var(--reading-en-base) * var(--reading-en-scale, 1));
+  line-height: calc(1.6em + 0.3rem);
 }
