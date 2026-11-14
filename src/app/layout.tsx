@@ -7,11 +7,11 @@ import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: {
-    default: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Edition & Research Platform | niassetafsir.org",
+    default: "Manṭiq al-Fayḍa — The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse | niassetafsir.org",
     template: "%s | niassetafsir.org",
   },
-  description: "A digital edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse. Arabic text, growing English translation, critical apparatus, and scholarly research tools.",
-  keywords: ["Niasse", "tafsir", "tafsīr", "Quran", "West African Islam", "Tijaniyya", "Ibrahim Niasse", "Islamic studies", "Fī Riyāḍ"],
+  description: "Manṭiq al-Fayḍa collects every place Shaykh Ibrāhīm Niasse quotes, comments on, applies or alludes to a Qurʾānic verse — in his tafsīr, treatises, letters, sermons, poems and reported sayings — documented from its source and indexed verse by verse, with Fī Riyāḍ al-Tafsīr in Arabic and English.",
+  keywords: ["Niasse", "tafsir", "tafsīr", "Quran", "West African Islam", "Tijaniyya", "Ibrahim Niasse", "Islamic studies", "Fī Riyāḍ", "Manṭiq al-Fayḍa", "Fayḍa"],
   authors: [{ name: "Amadu Kunateh", url: "https://orcid.org/0009-0002-7839-6474" }],
   creator: "Amadu Kunateh",
   metadataBase: new URL("https://niassetafsir.org"),
@@ -21,19 +21,19 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://niassetafsir.org",
     siteName: "niassetafsir.org",
-    title: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Edition & Research Platform",
+    title: "Manṭiq al-Fayḍa — The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse",
     // No footnote count here. It was "1,994-footnote" while the apparatus held
     // 1,997, and a figure in an Open Graph description is the least visible
     // place a stale number can hide -- it renders in link previews, not on the
     // site, so nobody proofreading a page ever sees it. Pages that want the
     // real total read it from src/data via getEditionFacts().
-    description: "A digital edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse (d. 1975). Arabic text, growing English translation, critical apparatus, and scholarly research tools.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Fī Riyāḍ Tafsīr — niassetafsir.org" }],
+    description: "Manṭiq al-Fayḍa collects every place Shaykh Ibrāhīm Niasse quotes, comments on, applies or alludes to a Qurʾānic verse — in his tafsīr, treatises, letters, sermons, poems and reported sayings — documented from its source and indexed verse by verse, with Fī Riyāḍ al-Tafsīr in Arabic and English.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Manṭiq al-Fayḍa — niassetafsir.org" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm — Digital Edition & Research Platform",
-    description: "A digital edition and research platform for Niasse's tafsīr. Arabic text, growing English translation, critical apparatus.",
+    title: "Manṭiq al-Fayḍa — The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse",
+    description: "Every place Shaykh Ibrāhīm Niasse uses a Qurʾānic verse, across his works, indexed verse by verse.",
     images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },

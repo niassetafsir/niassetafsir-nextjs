@@ -109,9 +109,9 @@ function MobileNav() {
           <div className="flex items-center justify-between px-5 py-3 border-b"
             style={{ borderColor: 'rgba(201,168,76,0.2)' }}>
             <div>
-              <p className="font-arabic text-gold font-bold text-base" dir="rtl" translate="no">في رياض التفسير</p>
+              <p className="font-arabic text-gold font-bold text-base" dir="rtl" translate="no">مَنْطِقُ الفَيْضَة</p>
               <p className="font-english text-[10px]" style={{ color: 'rgba(255,255,255,0.35)' }}>
-                Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
+                Manṭiq al-Fayḍa · The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse
               </p>
             </div>
             <button onClick={() => setOpen(false)}
@@ -229,10 +229,10 @@ export default function SiteNav() {
           <Link href="/" className="flex flex-col items-end min-w-0 hover:opacity-80 transition-opacity group">
             <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl" translate="no"
               style={{ letterSpacing: '-0.01em', textShadow: '0 0 20px rgba(201,168,76,0.3)' }}>
-              في رياض التفسير
+              مَنْطِقُ الفَيْضَة
             </span>
             <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors truncate max-w-full" dir="ltr">
-              Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
+              Manṭiq al-Fayḍa · The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse
             </span>
           </Link>
         </div>
@@ -246,7 +246,7 @@ export default function SiteNav() {
         <Link href="/" className="flex flex-col items-center mx-auto hover:opacity-80 transition-opacity group">
           <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl" translate="no"
             style={{ letterSpacing: '-0.01em', textShadow: '0 0 20px rgba(201,168,76,0.3)' }}>
-            في رياض التفسير
+            مَنْطِقُ الفَيْضَة
           </span>
         </Link>
       </div>

@@ -38,6 +38,8 @@ const LABELS: Record<string, string> = {
   awrad: 'the awrād',
   asanid: 'the asānīd',
   muallafat: 'the collected writings',
+  risala: 'the treatises',
+  biography: 'the letters and licences printed in the biographies of his muqaddams',
 };
 
 export interface GenreReach {

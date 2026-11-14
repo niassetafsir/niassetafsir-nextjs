@@ -46,6 +46,9 @@ export type ExegeticalAct =
   | 'prooftext'  // the verse warrants a claim argued from other authorities
   | 'juristic'   // the verse is the dalīl of a ruling
   | 'poetic'     // the verse as structure -- acrostic, tawassul, ḥurūf
+  | 'application' // the verse brought to bear on a person, an event or a rite
+  | 'allusion'  // its words or images woven into his own sentence, unannounced
+  | 'formula'   // a verse built into a fixed form -- ḥamdala, istirjāʿ, colophon
   | 'lemma';     // quoted only as a heading or recitation cue
 
 /**
@@ -55,7 +58,18 @@ export type ExegeticalAct =
  *  reported -- asserted by a catalogue or a secondary source, not checked
  *              against the text at all
  */
-export type Confidence = 'curated' | 'auto' | 'reported';
+export type Confidence = 'curated' | 'auto' | 'reported' | 'transcribed';
+
+/**
+ * Who is speaking at a locus outside Fī Riyāḍ. The dossiers grade each passage
+ * this way, and a letter in his own hand is not the same evidence as a saying
+ * a disciple remembered forty years later.
+ *  own        -- his own text: autograph, copied from his hand, or dictated and confirmed
+ *  on-behalf  -- written in his name by a scribe (usually ʿAlī Cissé)
+ *  reported   -- a saying of his remembered by a named witness, or paraphrased by an editor
+ *  uncertain  -- the text gives no mark where a quoted author stops and he resumes
+ */
+export type Voice = 'own' | 'on-behalf' | 'reported' | 'uncertain';
 
 /**
  * How a link was arrived at, where naming only how confident we are would
@@ -232,6 +246,15 @@ export interface Locus {
    * the passage is treated as the school's rather than the master's.
    */
   attributedTo?: string;
+  /** See Voice. Absent on the Fī Riyāḍ loci, which are one voice throughout. */
+  voice?: Voice;
+  /**
+   * The author of a commentary he copies into his own work -- al-Rāzī's
+   * Mafātīḥ in Tabṣirat al-anām, al-Bukhārī's chapter headings. These are not
+   * his uses of the verse; they are evidence of what he read, and the verse
+   * page shows them apart, under the name of the author speaking.
+   */
+  copiedFrom?: string;
 }
 
 export interface VerseLink {
@@ -545,6 +568,8 @@ export interface VerseEntry {
   occasion?: Occasion;
   /** False when the words are a student's rather than Shaykh Ibrahim's. */
   isNiasse: boolean;
+  /** True when he is copying another author's commentary. See Locus.copiedFrom. */
+  isCopied: boolean;
   /** Sort key: Gregorian year of composition, or +Infinity if undatable. */
   year: number;
   /** Human-readable date for display. */
@@ -567,7 +592,10 @@ export const ACT_ORDER: ExegeticalAct[] = [
   'gloss',
   'prooftext',
   'juristic',
+  'application',
+  'allusion',
   'poetic',
+  'formula',
   'lemma',
 ];
 
@@ -577,6 +605,9 @@ export const ACT_LABEL: Record<ExegeticalAct, string> = {
   prooftext: 'proof-text',
   juristic: 'juristic',
   poetic: 'poetic',
+  application: 'application',
+  allusion: 'allusion',
+  formula: 'formula',
   lemma: 'lemma',
 };
 
@@ -586,6 +617,9 @@ export const ACT_HEADING: Record<ExegeticalAct, string> = {
   prooftext: 'The verse used, not interpreted',
   juristic: 'The verse as legal proof',
   poetic: 'The verse in verse',
+  application: 'The verse applied',
+  allusion: 'The verse alluded to',
+  formula: 'The verse as formula',
   lemma: 'Quoted as a heading',
 };
 
@@ -600,12 +634,33 @@ export const ACT_BLURB: Record<ExegeticalAct, string> = {
   poetic:
     'The verse as structure — acrostic, tawassul, or the letters themselves — not as an object of interpretation.',
   lemma: 'Quoted as a heading or a recitation cue, without comment.',
+  application:
+    'He brings the verse to bear on a person, an event or a rite — a bereavement, a licence, a ruqya.',
+  allusion:
+    'Its words or images are woven into his own sentence without being announced as a quotation.',
+  formula:
+    'The verse built into a fixed form: the ḥamdala of a letter, the istirjāʿ, a colophon.',
 };
 
 export const CONFIDENCE_LABEL: Record<Confidence, string> = {
   curated: 'verified',
   auto: 'matched, unchecked',
   reported: 'reported',
+  transcribed: 'read from the page, unchecked',
+};
+
+export const VOICE_NOTE: Record<Voice, string> = {
+  own: 'His own text — autograph, copied from his hand, or dictated and confirmed by him.',
+  'on-behalf': 'Written in his name by a scribe, usually ʿAlī Cissé.',
+  reported: 'A saying of his remembered by a named witness, or paraphrased by an editor.',
+  uncertain: 'The printing gives no mark where the quoted author stops; this may be his voice or the source he is copying.',
+};
+
+export const VOICE_LABEL: Record<Voice, string> = {
+  own: 'his own text',
+  'on-behalf': 'written on his behalf',
+  reported: 'reported of him',
+  uncertain: 'speaker uncertain',
 };
 
 export const DERIVATION_LABEL: Record<Derivation, string> = {
@@ -640,6 +695,8 @@ export const CONFIDENCE_NOTE: Record<Confidence, string> = {
     'Produced by the automated citation matcher and never individually checked. A paragraph can cover more than one verse.',
   reported:
     'Asserted by a catalogue or by secondary scholarship, and not verified against the text.',
+  transcribed:
+    'Transcribed from the page image for the dossier of this work and identified verse by verse; not yet checked by the editor.',
 };
 
 /** Best-effort Gregorian year for ordering. Undatable sorts last. */
@@ -726,7 +783,8 @@ export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
       occasion: getOccasion(locus.occasionId ?? witness.occasionId),
       // A locus-level attribution beats the work's, because a collection of
       // his answers can print somebody else's reply to him. See attributedTo.
-      isNiasse: !locus.attributedTo && (work.relation ?? 'self') !== 'student',
+      isNiasse: !locus.attributedTo && !locus.copiedFrom && (work.relation ?? 'self') !== 'student',
+      isCopied: Boolean(locus.copiedFrom),
       year: yearOf(work),
       dateLabel: dateLabelOf(work, witness),
       hasText: Boolean(locus.textAr || locus.textEn) ||
@@ -780,6 +838,7 @@ export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
         work,
         occasion: getOccasion(locus.occasionId ?? witness.occasionId),
         isNiasse: true,
+        isCopied: false,
         year: yearOf(work),
         dateLabel: dateLabelOf(work, witness),
         hasText: false,
@@ -853,7 +912,8 @@ function coverageNote(lessonId: number, r: LessonRange): string {
 export function splitBySpeaker(entries: VerseEntry[]) {
   return {
     niasse: entries.filter(e => e.isNiasse),
-    school: entries.filter(e => !e.isNiasse),
+    school: entries.filter(e => !e.isNiasse && !e.isCopied),
+    copied: entries.filter(e => e.isCopied),
   };
 }
 
@@ -983,6 +1043,7 @@ export function getTermEntries(slug: string): TermEntry[] {
               confidence: l.confidence, rasm: 'unknown' },
       locus, witness, work,
       occasion: getOccasion(locus.occasionId ?? witness.occasionId),
+      isCopied: Boolean(locus.copiedFrom),
       isNiasse: !locus.attributedTo && (work.relation ?? 'self') !== 'student',
       year: yearOf(work),
       dateLabel: dateLabelOf(work, witness),
@@ -997,4 +1058,72 @@ export function definedTerms(): { term: Term; count: number }[] {
   return TERMS
     .map(t => ({ term: t, count: TERMS_RAW.links.filter(l => l.term === t.slug).length }))
     .filter(x => x.count > 0);
+}
+
+// ---------------------------------------------------------------------------
+// By work: what each work in the corpus does with the Qurʾān
+// ---------------------------------------------------------------------------
+// The verse page answers "where does he use this āya". /works answers the
+// other question a reader brings to a collected exegesis: "what does this book
+// do with the Qurʾān". Counts are read off the hand-entered links only. Fī
+// Riyāḍ's thousands of derived rows would drown every other work, and it has
+// its own reader.
+
+export interface WorkSummary {
+  work: Work;
+  /** Distinct āyāt in his own voice. */
+  verses: number;
+  /** Links in his own voice. */
+  uses: number;
+  /** Links to commentaries he copies into the work. */
+  copied: number;
+  /** Passages with Arabic on the site. */
+  withText: number;
+}
+
+export function workSummaries(): WorkSummary[] {
+  const witnessWork = new Map(corpus.witnesses.map(w => [w.id, w.workId]));
+  const lociById = new Map(corpus.loci.map(l => [l.id, l]));
+  const acc = new Map<string, { verses: Set<string>; uses: number; copied: number; text: Set<string> }>();
+  for (const link of corpus.verseLinks) {
+    const locus = lociById.get(link.locusId);
+    if (!locus) continue;
+    const workId = witnessWork.get(locus.witnessId);
+    if (!workId) continue;
+    const a = acc.get(workId) ?? { verses: new Set(), uses: 0, copied: 0, text: new Set() };
+    if (locus.copiedFrom) a.copied++;
+    else {
+      a.uses++;
+      for (let v = link.ayahStart; v <= (link.ayahEnd ?? link.ayahStart); v++) a.verses.add(`${link.surah}:${v}`);
+    }
+    if (locus.textAr || locus.textEn) a.text.add(locus.id);
+    acc.set(workId, a);
+  }
+  return corpus.works.map(work => {
+    const a = acc.get(work.id);
+    return { work, verses: a?.verses.size ?? 0, uses: a?.uses ?? 0, copied: a?.copied ?? 0, withText: a?.text.size ?? 0 };
+  });
+}
+
+/** Every hand-entered link from one work, in Qurʾānic order, resolved. */
+export function workEntries(workId: string): (VerseEntry & { surah: number; ayahStart: number; ayahEnd?: number })[] {
+  const out: (VerseEntry & { surah: number; ayahStart: number; ayahEnd?: number })[] = [];
+  for (const link of corpus.verseLinks) {
+    const locus = getLocus(link.locusId);
+    if (!locus) continue;
+    const witness = getWitness(locus.witnessId);
+    if (!witness || witness.workId !== workId) continue;
+    const work = getWork(workId)!;
+    out.push({
+      link, locus, witness, work,
+      occasion: getOccasion(locus.occasionId ?? witness.occasionId),
+      isNiasse: !locus.attributedTo && !locus.copiedFrom && (work.relation ?? 'self') !== 'student',
+      isCopied: Boolean(locus.copiedFrom),
+      year: yearOf(work),
+      dateLabel: dateLabelOf(work, witness),
+      hasText: Boolean(locus.textAr || locus.textEn),
+      surah: link.surah, ayahStart: link.ayahStart, ayahEnd: link.ayahEnd,
+    });
+  }
+  return out.sort((a, b) => a.surah - b.surah || a.ayahStart - b.ayahStart);
 }

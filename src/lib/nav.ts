@@ -51,20 +51,22 @@ export const NAV: NavSection[] = [
     label: 'By verse',
     labelShort: 'Verses',
     labelAr: 'فهرس الآيات',
-    hint: 'Every place he treats an āya, across the whole corpus',
+    hint: 'Every place he uses an āya, across his works',
     icon: '✦',
-    match: ['/verse'],
+    match: ['/verse', '/works'],
     children: [
       { href: '/verse', label: 'Look up an āya', hint: 'Type 2:255, or browse by sūra' },
-      { href: '/search', label: 'Search the text', hint: 'Arabic and English, all 56 sessions' },
+      { href: '/works', label: 'The works', hint: 'Each work in the corpus and the verses it uses' },
+      { href: '/search', label: 'Search the text', hint: 'Arabic and English' },
     ],
   },
   {
     id: 'read',
     href: '/read',
-    label: 'Read',
-    labelAr: 'القراءة',
-    hint: 'The tafsīr itself — 56 sessions, complete in Arabic',
+    label: 'Fī Riyāḍ al-Tafsīr',
+    labelShort: 'Tafsīr',
+    labelAr: 'في رياض التفسير',
+    hint: 'The 1964 tafsīr — 56 sessions, complete in Arabic, English in progress',
     icon: '◎',
     match: ['/read', '/lesson', '/volume', '/surah'],
     children: [
@@ -110,11 +112,11 @@ export const NAV: NavSection[] = [
     href: '/about',
     label: 'About',
     labelAr: 'عن المشروع',
-    hint: 'The tafsīr, this edition, and how to reach us',
+    hint: 'The project, the tafsīr, and how to reach us',
     icon: '⌂',
     match: ['/about', '/editorial-note', '/translators-note', '/introduction', '/get-involved'],
     children: [
-      { href: '/about', label: 'This edition', hint: 'What it holds, who made it, how to cite it' },
+      { href: '/about', label: 'Manṭiq al-Fayḍa', hint: 'What the project collects, who makes it, how to cite it' },
       { href: '/about/tafsir', label: 'The tafsīr', hint: 'Niasse, the tradition, and his two sources' },
       { href: '/translators-note', label: 'Editorial conventions', hint: 'Transliteration, honorifics, rasm' },
       { href: '/get-involved', label: 'Get in touch', hint: 'Feedback, corrections, joining' },
@@ -171,8 +173,8 @@ export interface MobileTab {
 }
 
 export const MOBILE_BAR: MobileTab[] = [
-  { id: 'read',   href: '/read',   label: 'Read',   icon: '◎', match: ['/read', '/lesson', '/volume', '/surah'] },
-  { id: 'verse',  href: '/verse',  label: 'Verses', icon: '✦', match: ['/verse'] },
+  { id: 'verse',  href: '/verse',  label: 'Verses', icon: '✦', match: ['/verse', '/works'] },
+  { id: 'read',   href: '/read',   label: 'Tafsīr', icon: '◎', match: ['/read', '/lesson', '/volume', '/surah'] },
   { id: 'search', href: '/search', label: 'Search', icon: '⌕', match: ['/search'] },
   { id: 'listen', href: '/audio',  label: 'Listen', icon: '♪', match: ['/audio'] },
   { id: 'more',                    label: 'More',   icon: '⋯', match: ['/research', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/about', '/translators-note', '/get-involved'] },

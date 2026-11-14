@@ -1,3 +1,4 @@
+import { workSummaries } from '@/lib/corpus';
 import Link from 'next/link';
 import { VOLUME_META } from '@/lib/volumes';
 import { getEditionFacts } from '@/lib/coverage';
@@ -22,26 +23,29 @@ import type { Metadata } from 'next';
  */
 
 export const metadata: Metadata = {
-  title: 'About This Edition',
+  title: 'About Manṭiq al-Fayḍa',
   description:
-    'The digital edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse: the Arabic edition it rests on, the people who made it, and how to cite it.',
+    'Manṭiq al-Fayḍa collects the Qurʾānic exegesis of Shaykh Ibrāhīm Niasse across his works, verse by verse, with Fī Riyāḍ al-Tafsīr in Arabic and English: what it holds, who makes it, and how to cite it.',
   openGraph: {
-    title: 'About This Edition | niassetafsir.org',
+    title: 'About Manṭiq al-Fayḍa | niassetafsir.org',
     description:
-      'The digital edition and research platform for Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse.',
+      'The Qurʾānic exegesis of Shaykh Ibrāhīm Niasse, collected across his works and indexed verse by verse.',
   },
 };
 
 export default async function AboutPage() {
   const facts = await getEditionFacts();
+  const others = workSummaries().filter(r => r.work.id !== 'fi-riyad' && r.uses > 0);
+  const indexedWorks = others.length;
+  const otherUses = others.reduce((n, r) => n + r.uses, 0);
 
   return (
     <main className="max-w-2xl mx-auto px-6 pb-24 pt-6" dir="ltr">
       <div className="text-center pb-8 mb-8 border-b border-gold/20">
-        <div className="font-english text-gold text-2xl font-semibold">About This Edition</div>
-        <div className="font-english text-white/30 text-xs mt-1">Edition 1.0 · April 2025</div>
+        <div className="font-arabic text-gold text-2xl" dir="rtl" translate="no">مَنْطِقُ الفَيْضَة</div>
+        <div className="font-english text-gold text-xl font-semibold mt-1">Manṭiq al-Fayḍa</div>
         <div className="font-english text-white/40 text-sm mt-2 italic">
-          Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
+          Majmūʿ al-Tafsīr li-Ṣāḥib al-Fayḍa · The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse
         </div>
       </div>
 
@@ -70,22 +74,41 @@ export default async function AboutPage() {
 
         <div>
           <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
-            Digital Edition &amp; Research Platform
+            The Project
           </h2>
           <p className="leading-6">
-            This site presents two interconnected resources in one: a digital edition and a research
-            platform for <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> by Shaykh Ibrāhīm Niasse (d. 1975),
-            designed to make this tafsīr accessible, searchable, and analytically usable for academic
-            research. It presents the Arabic text of all {facts.arabicLessons} sessions
+            <em>Manṭiq al-Fayḍa</em> collects the Qurʾānic exegesis of Shaykh Ibrāhīm Niasse (d. 1975)
+            wherever it occurs: in his tafsīr, and in his treatises, letters, licences, sermons, fatwās,
+            poems and the sayings his disciples kept. Each work is read for every verse he quotes,
+            comments on, applies or alludes to. Each use is recorded from its source with its page and
+            its Arabic, marked for what he does with the verse, and graded by whose words they are:
+            his own text, written on his behalf, or reported of him. The verse is the key: open an āya
+            and every use of it stands on one page. So far {indexedWorks} works beyond the tafsīr have
+            been read in this way, giving {otherUses} recorded uses of the Qurʾān; the{' '}
+            <Link href="/works" className="text-gold/70 hover:text-gold transition-colors">list of works</Link>{' '}
+            shows which.
+          </p>
+          <p className="leading-6 mt-3">
+            <em>Manṭiq</em> is the word of Q 27:16, <em>ʿullimnā manṭiq al-ṭayr</em>: speech. The title
+            names the way the Fayḍa speaks the Qurʾān.
+          </p>
+          <p className="leading-6 mt-3">
+            The collection serves a question about his exegesis: how he stands to the tradition he read.
+            His uses are set beside the commentaries he taught from — the <em>Jalālayn</em>, al-Ṣāwī&rsquo;s
+            gloss on it, Ismāʿīl Ḥaqqī&rsquo;s <em>Rūḥ al-bayān</em> — and beside those he copied into
+            his own works, as he copies al-Rāzī&rsquo;s <em>Mafātīḥ al-ghayb</em> into <em>Tabṣirat
+            al-anām</em>. Read together, they show where he takes a received reading as it stands, where he
+            qualifies it or departs from it, and where he carries it further.
+          </p>
+          <p className="leading-6 mt-3">
+            <em>Fī Riyāḍ al-Tafsīr</em>, his tafsīr of the whole Qurʾān in {facts.arabicLessons} sessions,
+            is the largest work in the collection and the only one the site carries whole: the Arabic of
+            every session
             {facts.translatedCount > 0 && (
-              <> alongside an English translation of Lesson{facts.translatedCount > 1 ? 's' : ''}{' '}
-              {facts.translatedFirst}{facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''},
-              complete but still in draft</>
-            )}. <em>Tafsīr al-Jalālayn</em> and <em>Rūḥ al-Bayān</em> run alongside it verse by
-            verse{facts.comparativeLessons === 1
-              ? ' for al-Fātiḥa (Lesson 1)'
-              : ` for ${facts.comparativeLessons} of ${facts.totalLessons} lessons`}; the
-            remaining sūras are still being transcribed.
+              <>, with an English translation of Lesson{facts.translatedCount > 1 ? 's' : ''}{' '}
+              {facts.translatedFirst}{facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''} in
+              draft</>
+            )}.
           </p>
           <p className="leading-6 mt-3">
             What the research tools are, and what each is for, is listed on the{' '}

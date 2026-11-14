@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import {
   ACT_LABEL,
+  CONFIDENCE_LABEL,
+  CONFIDENCE_NOTE,
   DERIVATION_LABEL,
   DERIVATION_NOTE,
   PROMPT_LABEL,
   STANCE_LABEL,
+  VOICE_LABEL,
+  VOICE_NOTE,
   type VerseEntry,
 } from '@/lib/corpus';
 
@@ -97,7 +101,13 @@ export default function VerseLocusCard({
           {/* The badge names whoever actually spoke: a locus-level attribution
               first, since a work of the Shaykh's answers can print someone
               else's reply to him, then the work's own author. */}
-          {!entry.isNiasse && (locus.attributedTo || work.author) && (
+          {entry.isCopied && (
+            <span className="font-english text-[11px] px-2 py-0.5 rounded-full border"
+              style={{ borderColor: 'rgba(255,255,255,0.22)', color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
+              {locus.copiedFrom}
+            </span>
+          )}
+          {!entry.isNiasse && !entry.isCopied && (locus.attributedTo || work.author) && (
             <span className="font-english text-[11px] px-2 py-0.5 rounded-full border"
               style={{ borderColor: 'rgba(255,255,255,0.22)', color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
               {locus.attributedTo ?? work.author}
@@ -148,6 +158,12 @@ export default function VerseLocusCard({
           </strong>
           {witness.language && <> · {languageName(witness.language)}</>}
           {address && <> · {address}</>}
+          {locus.voice && (
+            <> · <span title={VOICE_NOTE[locus.voice]} className="cursor-help">{VOICE_LABEL[locus.voice]}</span></>
+          )}
+          {link.confidence === 'transcribed' && (
+            <> · <span title={CONFIDENCE_NOTE.transcribed} className="cursor-help">{CONFIDENCE_LABEL.transcribed}</span></>
+          )}
           {/* A member of a series cannot be found from its own title alone:
               every maḥwar of the Mawsūʿa paginates from 1, so the address is
               only an address once the series and the ordinal are attached. */}
@@ -188,7 +204,7 @@ export default function VerseLocusCard({
           <>
             {ar && (
               <p className="font-arabic text-[17px] leading-[2.05] mb-3 text-right" dir="rtl" translate="no"
-                style={{ color: 'var(--body-text, rgba(255,255,255,0.88))', textAlign: 'right' }}>
+                style={{ color: 'var(--body-text, rgba(255,255,255,0.88))', textAlign: 'right', whiteSpace: 'pre-line' }}>
                 {ar}
                 {excerpt?.truncated && <span style={{ opacity: 0.5 }}> …</span>}
               </p>

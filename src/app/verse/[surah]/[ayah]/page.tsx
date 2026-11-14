@@ -117,7 +117,7 @@ export default async function VersePage({
   if (!meta || !Number.isFinite(ayah) || ayah < 1 || ayah > meta.ayahCount) notFound();
 
   const allEntries = getVerseEntries(surah, ayah);
-  const { niasse: entries, school } = splitBySpeaker(allEntries);
+  const { niasse: entries, school, copied } = splitBySpeaker(allEntries);
   const groups = groupByAct(entries);
   const schoolGroups = groupByAct(school);
   const marks = timelineMarks(entries);
@@ -379,6 +379,26 @@ export default async function VersePage({
           {schoolGroups.map(g => g.entries.map(entry => (
             <VerseLocusCard key={`school-${entry.locus.id}-${entry.link.acts.join('+')}`} entry={entry} />
           )))}
+        </section>
+      )}
+
+      {copied.length > 0 && (
+        <section className="mt-14 pt-8 border-t" style={{ borderColor: 'rgba(201,168,76,0.25)' }}>
+          <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
+            Commentaries he copied
+          </h2>
+          <p className="font-english text-[13px] italic mb-5"
+            style={{ color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
+            Not Shaykh Ibrāhīm&rsquo;s words. Other authors&rsquo; treatment of this verse, which he
+            transcribed into his own works — evidence of what he read and chose to pass on. Each card
+            names the author speaking.
+          </p>
+          {copied
+            .slice()
+            .sort((a, b) => a.year - b.year)
+            .map(entry => (
+              <VerseLocusCard key={`copied-${entry.locus.id}`} entry={entry} />
+            ))}
         </section>
       )}
 

@@ -2,7 +2,6 @@ import Link from 'next/link';
 import HomeSearchBar from '@/components/HomeSearchBar';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { getCoverage, getSpecimen } from '@/lib/coverage';
-import { corpusReachPhrase } from '@/lib/corpusReach';
 
 /**
  * Homepage.
@@ -25,89 +24,72 @@ export default async function HomePage() {
   const coverage = await getCoverage();
   const specimen = await getSpecimen();
   const arabicLayer = coverage.layers.find(l => l.key === 'arabic');
-  // Which genres outside the tafsīr the verse index actually reaches, counted
-  // from corpus.json. Both sentences below used to name "letters", which have
-  // no loci at all, and one named "the recordings", which have none either.
-  const reach = corpusReachPhrase();
   const audio = coverage.layers.find(l => l.key === 'audio');
 
   return (
     <main className="pb-20" dir="ltr">
 
-      {/* ---- Claim ---- */}
+      {/* ---- Claim ----
+          The site is Manṭiq al-Fayḍa: every place Shaykh Ibrāhīm uses a verse,
+          across his works. Fī Riyāḍ al-Tafsīr is the largest of those works and
+          has its own reader below, but it is one work in the corpus, not the
+          corpus. The verse lookup comes first because the āya is the key the
+          whole collection is indexed on. No birth year: the documents give
+          mid-Rajab 1320 (October 1902) against the 1900 of most secondary
+          literature, and the site should not settle that in a subtitle. */}
       <section className="max-w-3xl mx-auto px-5 pt-12 pb-9 text-center">
-        <h1 className="font-arabic text-gold text-3xl sm:text-4xl leading-relaxed mb-2" dir="rtl">
-          فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ
+        <h1 className="font-arabic text-gold text-3xl sm:text-4xl leading-relaxed mb-1" dir="rtl">
+          مَنْطِقُ الفَيْضَة
         </h1>
+        <p className="font-arabic text-gold/70 text-lg mb-1" dir="rtl">مَجْمُوعُ التَّفْسِيرِ لِصَاحِبِ الفَيْضَة</p>
         <p className="font-english text-sm italic mb-7"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-          Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
+          Manṭiq al-Fayḍa · The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse
         </p>
 
-        {/* Who he was, before what the site does.
-          *
-          * This page opened on "Ask what Shaykh Ibrāhīm Niasse said about any
-          * verse of the Qurʾān", which is the right claim for a reader who
-          * already knows the name and useless to one who does not -- and a
-          * reader told us so. Two sentences fix it: what the book is, then
-          * what you can do with it here. Both are short enough to read
-          * before the search box, which is the point of putting them there.
-          */}
         <p className="font-english text-base sm:text-lg leading-relaxed mb-3"
           style={{ color: 'var(--body-text, rgba(232,232,224,0.90))' }}>
-          Shaykh Ibrāhīm Niasse (1900–1975) taught the Qurʾān right through,
-          verse by verse, in {coverage.totalLessons} sessions at Kaolack in Senegal. His
-          students wrote the sessions down, and they were printed in ten volumes
-          as <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> — one of the major works
-          of Qurʾānic commentary to come out of West Africa.
+          Shaykh Ibrāhīm Niasse (d. 1975) of Kaolack in Senegal used the Qurʾān in everything he
+          wrote and said: his tafsīr, and also his treatises, letters, licences, sermons, fatwās,
+          poems, and the sayings his disciples kept.
         </p>
         <p className="font-english text-base leading-relaxed mb-4"
           style={{ color: 'var(--body-sub, rgba(232,232,224,0.70))' }}>
-          All {arabicLayer?.count ?? coverage.totalLessons} are here in Arabic, edited for
-          the first time, with the English translation in progress. Look up any
-          verse and you are told what he said about it — which session, which
-          volume, which page — alongside {reach}.
-        </p>
-        {/* المنار - تونس runs in the printing's own headers; that is the
-            press, not the publisher of this edition, which is Majmaʿ
-            al-Yamāma. Naming the one on the running head would have been
-            the obvious mistake and the wrong citation. */}
-        <p className="font-english text-sm mb-1"
-          style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-          10 volumes · {coverage.totalLessons} majālis · Majmaʿ al-Yamāma, Tunis
+          This site gathers them verse by verse. Look up an āya to see every place he uses it, in
+          the Arabic of its source, marked for what he does with it and whether the words are
+          his own, written on his behalf, or reported of him.
         </p>
 
         <HomeSearchBar ayahCounts={SURAH_LIST.map(s => s.ayahCount)} />
 
         <p className="font-english text-xs mt-3"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-          or{' '}
-          <Link href="/read" className="tap transition-opacity hover:opacity-75"
+          or browse{' '}
+          <Link href="/works" className="tap transition-opacity hover:opacity-75"
             style={{ color: 'var(--gold, #C9A84C)', borderBottom: '1px dotted rgba(138,109,31,0.4)' }}>
-            browse all {coverage.totalLessons} lessons by volume
+            the works
           </Link>
+          {' '}and the verses each one uses
         </p>
       </section>
 
-      {/* ---- The second way in ----
-          Fī Riyāḍ is one book read in order. This is the other axis: an āya,
-          and everywhere in the corpus he treats it. It was reachable only by
-          typing the URL until now, which is why it earns a place above the
-          fold rather than a line in a tools menu. */}
+      {/* ---- Fī Riyāḍ al-Tafsīr ----
+          The largest work in the corpus, and the only one the site carries
+          whole. Its own reader, its own coverage table. */}
       <section className="max-w-3xl mx-auto px-5 pb-9">
-        <Link href="/verse"
+        <Link href="/read"
           className="block rounded-xl border px-5 py-4 transition-colors hover:border-gold/45"
           style={{ borderColor: 'rgba(138,109,31,0.28)', background: 'rgba(138,109,31,0.04)' }}>
-          <p className="font-arabic text-gold text-lg mb-1" dir="rtl">فهرس الآيات القرآنية</p>
+          <p className="font-arabic text-gold text-lg mb-1" dir="rtl">فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ</p>
           <p className="font-english text-[15px] font-semibold mb-1.5"
             style={{ color: 'var(--body-text, rgba(232,232,224,0.9))' }}>
-            Commentary by Verse
+            Fī Riyāḍ al-Tafsīr
           </p>
           <p className="font-english text-[13.5px] leading-relaxed"
             style={{ color: 'var(--body-sub, rgba(232,232,224,0.6))' }}>
-            He commented on the Qurʾān in more than the tafsīr — in {reach}. Look up an āya
-            and see every place it survives, each entry dated and marked for what he is doing
-            with the verse.
+            His tafsīr of the whole Qurʾān, given in {coverage.totalLessons} sessions in Ramaḍān 1383/1964
+            and printed in ten volumes (Majmaʿ al-Yamāma, Tunis). All {arabicLayer?.count ?? coverage.totalLessons} sessions
+            are here in Arabic, with the English translation in progress.
           </p>
         </Link>
       </section>

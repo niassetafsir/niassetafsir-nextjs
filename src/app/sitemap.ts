@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { indexedVerses, definedTerms } from '@/lib/corpus';
+import { indexedVerses, definedTerms, workSummaries } from '@/lib/corpus';
 
 const BASE_URL = 'https://niassetafsir.org';
 
@@ -31,6 +31,7 @@ const STATIC_ROUTES = [
   // index and the terms Niasse defines are exactly what a researcher searches
   // for, and /surah/[id] is the whole commentary re-cut by sura.
   '/verse',
+  '/works',
   '/term',
 ];
 
@@ -92,5 +93,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [...staticEntries, ...lessonEntries, ...volumeEntries,
-          ...surahEntries, ...termEntries, ...verseEntries];
+          ...surahEntries, ...termEntries, ...verseEntries,
+          ...workSummaries()
+            .filter(r => r.uses > 0 && r.work.id !== 'fi-riyad')
+            .map(r => ({ url: `${BASE_URL}/works/${r.work.id}`, changeFrequency: 'monthly' as const, priority: 0.6 }))];
 }
