@@ -75,10 +75,9 @@ function NavDropdown({ section, active }: { section: NavSection; active: boolean
 // ── Mobile full-screen sheet ──────────────────────────────────────
 function MobileNav() {
   const [open, setOpen] = useState(false);
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const pathname = usePathname();
 
-  useEffect(() => { setOpen(false); setExpanded({}); }, [pathname]);
+  useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
     <>
@@ -107,40 +106,38 @@ function MobileNav() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto py-4 px-5" style={{ textAlign: 'left' }}>
+          {/* A flat map, not an accordion.
+            *
+            * Every section used to be a collapsed row you tapped to open,
+            * then tapped again to choose: two taps and a guess about what
+            * was inside, for a site with five sections and sixteen pages in
+            * all. Everything is on screen now, grouped under its section,
+            * and one tap goes where the reader is going. The section name is
+            * a heading rather than a control, so nothing on this screen
+            * does anything except navigate. */}
+          <div className="flex-1 overflow-y-auto py-3 px-5" style={{ textAlign: 'left' }}>
             {NAV.map(section => (
-              <div key={section.id} className="mb-2">
-                <button
-                  onClick={() => setExpanded(prev => ({ ...prev, [section.id]: !prev[section.id] }))}
-                  className="w-full flex items-center justify-between py-2.5 text-left"
+              <div key={section.id} className="mb-4 min-w-0">
+                <Link href={section.href} onClick={() => setOpen(false)}
+                  className="block py-1.5 min-w-0"
                   style={{ borderLeft: '3px solid var(--gold, #C9A84C)', paddingLeft: '10px' }}>
-                  <span className="flex flex-col">
-                    <span className="font-english text-sm font-bold" style={{ color: 'rgba(255,255,255,0.9)' }}>
-                      {section.label}
-                    </span>
-                    <span className="font-english text-[11px]" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                      {section.hint}
-                    </span>
+                  <span className="font-english text-sm font-bold block" style={{ color: 'rgba(255,255,255,0.92)' }}>
+                    {section.label}
                   </span>
-                  <span style={{ color: 'var(--gold, #C9A84C)', fontSize: '12px', marginRight: '4px' }}>
-                    {expanded[section.id] ? '▾' : '▸'}
+                  <span className="font-english text-[11px] block" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                    {section.hint}
                   </span>
-                </button>
-                {expanded[section.id] && (
-                  <div className="space-y-0.5 mt-1 mb-3">
-                    {section.children.map(item => (
-                      <Link key={item.href} href={item.href} onClick={() => setOpen(false)}
-                        className="flex flex-col px-3 py-2.5 rounded-xl hover:bg-gold/8 transition-all border border-transparent hover:border-gold/20 text-left">
-                        <span className="font-english text-sm font-semibold" style={{ color: 'rgba(255,255,255,0.85)' }}>
-                          {item.label}
-                        </span>
-                        <span className="font-english text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                          {item.hint}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                </Link>
+                <div className="mt-1 min-w-0">
+                  {section.children.map(item => (
+                    <Link key={item.href} href={item.href} onClick={() => setOpen(false)}
+                      className="tap flex items-center min-h-[44px] py-1 pl-[13px] min-w-0 rounded-lg hover:bg-gold/8 transition-colors">
+                      <span className="font-english text-[13px] min-w-0" style={{ color: 'rgba(255,255,255,0.72)' }}>
+                        {item.label}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

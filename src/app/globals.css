@@ -1302,3 +1302,21 @@ body:has(> .lesson-print-page) {
   font-size: calc(var(--reading-en-base) * var(--reading-en-scale, 1));
   line-height: calc(1.6em + 0.3rem);
 }
+
+
+/* ── Phones: nothing may push the page sideways ────────────────────
+ * A single element wider than the screen does not just overflow on a
+ * phone -- it widens the layout viewport, and the browser lays the
+ * whole document out at that width. Because this site is RTL the
+ * excess falls on the left, so the page arrives shifted off-screen
+ * and every column looks misaligned. That is one bug presenting as
+ * twenty, and it has now been two of them.
+ *
+ * clip rather than hidden: `overflow: hidden` makes the element a
+ * scroll container, which silently kills `position: sticky` on the
+ * top bar. clip does not.
+ */
+@media (max-width: 767px) {
+  html { overflow-x: clip; }
+  body { overflow-x: clip; max-width: 100%; }
+}

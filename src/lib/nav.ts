@@ -29,6 +29,12 @@ export interface NavSection {
   labelAr: string;
   /** Shown under the label in the desktop dropdown and the mobile sheet. */
   hint: string;
+  /** The bottom bar's label, when the full one is too wide for a fifth of a
+   *  phone. Five tabs at 320px leave 64px each; "By verse" and "Research"
+   *  do not fit, and the published guidance is explicit that a tab label
+   *  must not wrap to a second line and must not be truncated -- so the
+   *  label gets shorter rather than the type. Omitted means `label` fits. */
+  labelShort?: string;
   /** Bottom-bar glyph. Amiri has no outline for these, so they fall back per
    *  glyph to system-ui -- see the font stacks in globals.css. */
   icon: string;
@@ -43,6 +49,7 @@ export const NAV: NavSection[] = [
     id: 'verse',
     href: '/verse',
     label: 'By verse',
+    labelShort: 'Verses',
     labelAr: 'فهرس الآيات',
     hint: 'Every place he treats an āya, across the whole corpus',
     icon: '✦',
@@ -81,6 +88,7 @@ export const NAV: NavSection[] = [
     id: 'research',
     href: '/research',
     label: 'Research',
+    labelShort: 'Tools',
     labelAr: 'البحث',
     hint: 'The apparatus: footnotes, ḥadīth, terms, your saved passages',
     icon: '⊞',

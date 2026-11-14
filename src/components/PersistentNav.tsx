@@ -45,14 +45,20 @@ export default function PersistentNav() {
             /* min-h-[56px] rather than padding alone: this is the primary
                navigation on a phone and every target clears the 44px
                guideline with room for a thumb. */
-            className="flex-1 min-h-[56px] flex flex-col items-center justify-center gap-1 py-2 transition-all"
+            /* min-w-0 is load-bearing. A flex item will not shrink below
+               its content by default, so the five tabs together demanded
+               more than a phone's width, the row grew past the viewport,
+               and -- the page being RTL -- it dragged the whole document
+               sideways. That is the "nav spills over" a reader sees: not
+               the menu misdrawn but the page itself pushed off-screen. */
+            className="flex-1 min-w-0 min-h-[56px] flex flex-col items-center justify-center gap-1 py-2 transition-all"
             style={{
               color: on ? 'var(--gold, #C9A84C)' : 'var(--persistent-nav-text, rgba(255,255,255,0.6))',
               fontWeight: on ? 700 : 600,
             }}>
             <span className="text-base leading-none" aria-hidden>{s.icon}</span>
-            <span className="font-english text-[10px] leading-none tracking-wide text-center px-0.5">
-              {s.label}
+            <span className="font-english text-[10px] leading-none tracking-wide text-center px-0.5 truncate max-w-full">
+              {s.labelShort ?? s.label}
             </span>
           </Link>
         );
