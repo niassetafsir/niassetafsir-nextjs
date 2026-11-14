@@ -150,3 +150,57 @@ export function allNavHrefs(): string[] {
   const all = NAV.flatMap(s => [s.href, ...s.children.map(c => c.href)]);
   return all.filter((h, i) => all.indexOf(h) === i);
 }
+
+/* ── The phone's bottom bar ────────────────────────────────────────
+ * A separate table from NAV, and deliberately so.
+ *
+ * NAV is the site's five sections. A phone bar is not a table of
+ * contents: it is the four or five things a reader does, and those
+ * are not the same list. Search was the clearest case -- the one
+ * destination a reader falls back on when they do not know where a
+ * thing lives, and it sat two taps down inside two different
+ * sections, because it is a tool rather than a section. Here it is a
+ * tab. About, which a reader visits once, is not.
+ *
+ * `more` has no href. It opens the full menu, which holds everything
+ * including the sections this bar leaves out, so nothing becomes
+ * unreachable by being left off. The guidance is 3-5 tabs; this is
+ * five, each with a one-word label that fits a fifth of a 320px
+ * screen without wrapping or truncating.
+ */
+export interface MobileTab {
+  id: string;
+  /** Absent on `more`, which opens the menu instead of navigating. */
+  href?: string;
+  label: string;
+  icon: string;
+  match: string[];
+}
+
+export const MOBILE_BAR: MobileTab[] = [
+  { id: 'read',   href: '/read',   label: 'Read',   icon: '◎', match: ['/read', '/lesson', '/volume', '/surah'] },
+  { id: 'verse',  href: '/verse',  label: 'Verses', icon: '✦', match: ['/verse'] },
+  { id: 'search', href: '/search', label: 'Search', icon: '⌕', match: ['/search'] },
+  { id: 'listen', href: '/audio',  label: 'Listen', icon: '♪', match: ['/audio'] },
+  { id: 'more',                    label: 'More',   icon: '⋯', match: ['/research', '/footnotes', '/hadith', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/about', '/translators-note', '/get-involved'] },
+];
+
+/** The event PersistentNav fires to open SiteNav's menu. They are
+ *  siblings in the layout with no state between them, and a context
+ *  provider for one boolean would be more machinery than the job. */
+export const OPEN_MENU_EVENT = 'niassetafsir:open-menu';
+
+/** Which bottom tab a path lights. Longest prefix wins, as above. */
+export function activeTab(pathname: string): MobileTab | undefined {
+  let best: MobileTab | undefined;
+  let bestLen = -1;
+  for (const t of MOBILE_BAR) {
+    for (const m of t.match) {
+      if ((pathname === m || pathname.startsWith(m + '/')) && m.length > bestLen) {
+        best = t;
+        bestLen = m.length;
+      }
+    }
+  }
+  return best;
+}

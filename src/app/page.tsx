@@ -44,24 +44,37 @@ export default async function HomePage() {
           Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
         </p>
 
-        <p className="font-english text-lg sm:text-xl leading-relaxed mb-4"
+        {/* Who he was, before what the site does.
+          *
+          * This page opened on "Ask what Shaykh Ibrāhīm Niasse said about any
+          * verse of the Qurʾān", which is the right claim for a reader who
+          * already knows the name and useless to one who does not -- and a
+          * reader told us so. Two sentences fix it: what the book is, then
+          * what you can do with it here. Both are short enough to read
+          * before the search box, which is the point of putting them there.
+          */}
+        <p className="font-english text-base sm:text-lg leading-relaxed mb-3"
           style={{ color: 'var(--body-text, rgba(232,232,224,0.90))' }}>
-          Ask what Shaykh Ibrāhīm Niasse said about{' '}
-          <strong style={{ fontWeight: 600, boxShadow: 'inset 0 -0.5em 0 rgba(138,109,31,0.16)' }}>
-            any verse of the Qurʾān
-          </strong>{' '}
-          — and be told which session, which volume, which page, and where he
-          quotes it.
+          Shaykh Ibrāhīm Niasse (1900–1975) taught the Qurʾān right through,
+          verse by verse, in {coverage.totalLessons} sessions at Kaolack in Senegal. His
+          students wrote the sessions down, and they were printed in ten volumes
+          as <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em> — one of the major works
+          of Qurʾānic commentary to come out of West Africa.
         </p>
         <p className="font-english text-base leading-relaxed mb-4"
           style={{ color: 'var(--body-sub, rgba(232,232,224,0.70))' }}>
-          The complete Arabic of his {arabicLayer?.count ?? coverage.totalLessons} sessions,
-          digitally edited for the first time, indexed verse by verse alongside{' '}
-          {reach}. English translation in progress.
+          All {arabicLayer?.count ?? coverage.totalLessons} are here in Arabic, edited for
+          the first time, with the English translation in progress. Look up any
+          verse and you are told what he said about it — which session, which
+          volume, which page — alongside {reach}.
         </p>
-        <p className="font-english text-sm"
+        {/* المنار - تونس runs in the printing's own headers; that is the
+            press, not the publisher of this edition, which is Majmaʿ
+            al-Yamāma. Naming the one on the running head would have been
+            the obvious mistake and the wrong citation. */}
+        <p className="font-english text-sm mb-1"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-          Shaykh Ibrāhīm Niasse (1900–1975) · Kaolack, Senegal · 10 volumes, {coverage.totalLessons} majālis
+          10 volumes · {coverage.totalLessons} majālis · Majmaʿ al-Yamāma, Tunis
         </p>
 
         <HomeSearchBar ayahCounts={SURAH_LIST.map(s => s.ayahCount)} />

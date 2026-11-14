@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from '@/components/ThemeToggle';
-import { NAV, activeSection, type NavSection } from '@/lib/nav';
+import { NAV, OPEN_MENU_EVENT, activeSection, type NavSection } from '@/lib/nav';
 
 /**
  * The top bar.
@@ -78,6 +78,15 @@ function MobileNav() {
   const pathname = usePathname();
 
   useEffect(() => { setOpen(false); }, [pathname]);
+
+  // The bottom bar's "More" tab opens this sheet. The two components are
+  // siblings in the layout with no state between them, and a context
+  // provider for one boolean would be more machinery than the job.
+  useEffect(() => {
+    const show = () => setOpen(true);
+    window.addEventListener(OPEN_MENU_EVENT, show);
+    return () => window.removeEventListener(OPEN_MENU_EVENT, show);
+  }, []);
 
   return (
     <>
