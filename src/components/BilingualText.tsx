@@ -415,8 +415,17 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                       className={`font-arabic text-[1.1rem] leading-[2.2] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === ai ? 'bg-gold/15 px-2 -mx-2' : ''}`}
                       dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(injectVerseNumbers(commentaryParagraphs[ai], citations?.[String(ai)], citationStatus?.[String(ai)], lessonId ? { lessonId, paraIndex: ai } : undefined), lessonId, footnoteOrder, fnCursor) }} />
                   ))}
+                  {/* The translation ran in italic throughout, which did
+                      two kinds of harm. A reader on a screen reads a long
+                      italic passage slower and with more strain than the
+                      same passage in roman -- the complaint that prompted
+                      this. And it cost the edition a distinction it needs:
+                      transliterated Arabic inside the translation is marked
+                      with <em>, so italic-within-italic rendered tafsir and
+                      ta'wil as ordinary English words. Roman body text
+                      gives the terms their italic back. */}
                   {block.englishIndices.length > 0 ? (
-                    <div dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 italic border-l-2 border-gold/20 pl-3">
+                    <div dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 border-l-2 border-gold/20 pl-3">
                       {block.englishIndices.map(ei => (
                         <div key={ei} dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(enParagraphs[ei] || '')) }} />
                       ))}
@@ -434,7 +443,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                     Translated beyond the Arabic this lesson file holds
                   </p>
                   {alignment.englishOnly.map((group, gi) => (
-                    <div key={gi} dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 italic mb-3">
+                    <div key={gi} dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 mb-3">
                       {group.indices.map(ei => (
                         <div key={ei} dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(enParagraphs[ei] || '')) }} />
                       ))}

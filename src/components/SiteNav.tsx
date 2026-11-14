@@ -182,31 +182,43 @@ export default function SiteNav() {
         borderBottom: '1px solid rgba(201,168,76,0.2)',
       }}>
 
-      {/* ── Desktop: 3-column grid ─────────────────────────── */}
-      <div className="hidden md:grid grid-cols-3 items-center px-5 py-2.5">
+      {/* ── Desktop: one flex row ──────────────────────────────
+          This was `grid grid-cols-3`, three rigid thirds. The centre column
+          holds five dropdown buttons and needs 493px; a third of an iPad's
+          820px portrait viewport is 258px, so it overflowed by 235px, and
+          because the document is RTL it overflowed leftward, printing the
+          navigation on top of the title in the corner. Landscape hid it
+          (a third of 1180px is 393px, still short, but the gap closed
+          enough to look intentional), which is why it read as a rotation
+          bug. Thirds were never the right constraint: the bar has one item
+          that must not shrink (the links), one that is fixed (the toggle)
+          and one that can (the title). Flex says exactly that. */}
+      <div className="hidden md:flex items-center justify-between gap-3 px-5 py-2.5">
         {/* "EN · FR · AR" sat here as plain text for months. It was never a
             control -- LangSwitcher is rendered nowhere -- so it advertised two
             languages the site does not have and implied the English on the page
             was the edition's. A reader who pressed it, found nothing, and let
             Chrome translate the page instead got al-Takāthur's ʿayn al-yaqīn
             back as "the eyes of the innocent". */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-none">
           <ThemeToggle />
         </div>
 
-        <div className="flex items-center justify-center gap-1">
+        <div className="flex items-center justify-center gap-1 flex-none">
           {NAV.map(section => (
             <NavDropdown key={section.id} section={section} active={active?.id === section.id} />
           ))}
         </div>
 
-        <div className="flex justify-end">
-          <Link href="/" className="flex flex-col items-end hover:opacity-80 transition-opacity group">
+        {/* The one element allowed to give way. min-w-0 lets it, and the
+            English line truncates rather than pushing the links aside. */}
+        <div className="flex justify-end flex-1 min-w-0">
+          <Link href="/" className="flex flex-col items-end min-w-0 hover:opacity-80 transition-opacity group">
             <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl" translate="no"
               style={{ letterSpacing: '-0.01em', textShadow: '0 0 20px rgba(201,168,76,0.3)' }}>
               في رياض التفسير
             </span>
-            <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors" dir="ltr">
+            <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors truncate max-w-full" dir="ltr">
               Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm
             </span>
           </Link>
