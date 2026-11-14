@@ -6,6 +6,7 @@ import CitationFeedback from '@/components/CitationFeedback';
 import BilingualText from '@/components/BilingualText';
 import PanelJumpTabs from '@/components/PanelJumpTabs';
 import LessonAudioBar from '@/components/LessonAudioBar';
+import TextSizeControl from '@/components/TextSizeControl';
 import OpeningInvocation from '@/components/OpeningInvocation';
 import LessonNav from '@/components/LessonNav';
 import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
@@ -147,6 +148,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
         lessonId={lesson.id}
         lessons={lessonIndex}
         trailing={
+          <span className="flex items-center gap-3">
+          <TextSizeControl />
           <a href="/read"
             className="tap font-english hover:text-gold transition-colors flex items-center gap-1 text-xs"
             style={{color:'var(--body-faint, rgba(232,232,224,0.45))'}}>
@@ -155,6 +158,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
             </svg>
             All Sūrahs
           </a>
+          </span>
         }
       />
       <LessonAudioBar lessonId={lesson.id} />

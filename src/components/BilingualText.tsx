@@ -412,7 +412,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                 <div key={`block-${bi}`} className="px-4 md:px-6 py-4">
                   {block.arabicIndices.map(ai => (
                     <div key={ai} id={`ar-para-${ai}`} dir="rtl" translate="no"
-                      className={`font-arabic text-[1.1rem] leading-[2.2] text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === ai ? 'bg-gold/15 px-2 -mx-2' : ''}`}
+                      className={`font-arabic reading-ar text-text-main text-justify mb-2 transition-colors rounded-sm ${highlightedPara === ai ? 'bg-gold/15 px-2 -mx-2' : ''}`}
                       dangerouslySetInnerHTML={{ __html: injectFootnoteLinks(injectVerseNumbers(commentaryParagraphs[ai], citations?.[String(ai)], citationStatus?.[String(ai)], lessonId ? { lessonId, paraIndex: ai } : undefined), lessonId, footnoteOrder, fnCursor) }} />
                   ))}
                   {/* The translation ran in italic throughout, which did
@@ -425,7 +425,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                       ta'wil as ordinary English words. Roman body text
                       gives the terms their italic back. */}
                   {block.englishIndices.length > 0 ? (
-                    <div dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 border-l-2 border-gold/20 pl-3">
+                    <div dir="ltr" className="font-english reading-en text-white/80 border-l-2 border-gold/20 pl-3">
                       {block.englishIndices.map(ei => (
                         <div key={ei} dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(enParagraphs[ei] || '')) }} />
                       ))}
@@ -443,7 +443,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                     Translated beyond the Arabic this lesson file holds
                   </p>
                   {alignment.englishOnly.map((group, gi) => (
-                    <div key={gi} dir="ltr" className="font-english text-[15px] leading-[1.85] text-white/80 mb-3">
+                    <div key={gi} dir="ltr" className="font-english reading-en text-white/80 mb-3">
                       {group.indices.map(ei => (
                         <div key={ei} dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(enParagraphs[ei] || '')) }} />
                       ))}
@@ -465,7 +465,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                 <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2">English translation</p>
                 {isDraft && <DraftTranslationNotice />}
                 {hasEnglish && enParagraphs.length > 0 ? (
-                  <div className="font-english text-[15px] leading-[1.85] text-white/80">
+                  <div className="font-english reading-en text-white/80">
                     {enParagraphs.map((p, i) => (
                       <div key={i} className="mb-3" dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(p)) }} />
                     ))}
@@ -501,7 +501,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                 <p className="font-english text-gold/60 text-[10px] uppercase tracking-wide mb-2" dir="ltr">Arabic commentary</p>
                 {commentaryParagraphs.map((p, i) => (
                   <div key={i} id={`ar-para-${i}`}
-                    className={`font-arabic text-[1.1rem] leading-[2.2] text-justify mb-3 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
+                    className={`font-arabic reading-ar text-justify mb-3 transition-colors rounded-sm ${highlightedPara === i ? 'bg-gold/15 px-2 -mx-2' : ''}`}
                     /* Was text-gold/90. Gold on the cream reader measures 1.82:1 --
                        WCAG AA wants 4.5 for body text, and this is the body text:
                        three million characters of it, the surface a reader spends

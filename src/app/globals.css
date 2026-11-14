@@ -1254,3 +1254,27 @@ body:has(> .lesson-print-page) {
     align-items: center;
   }
 }
+
+
+/* ── Reader text size ──────────────────────────────────────────────
+ * Two custom properties, set on <html> by TextSizeControl and falling
+ * back to the sizes the reader shipped with, so a page that never
+ * loads the control (or a reader with JavaScript off) renders exactly
+ * as before.
+ *
+ * Leading is derived from the size with calc rather than fixed,
+ * because a leading that suits 15px crowds 21px -- and Arabic needs
+ * the room more than English does, which is why the two factors
+ * differ. em here resolves against this element's own font-size,
+ * which is the variable, so the ratio holds at every step.
+ */
+.reading-ar {
+  font-size: var(--reading-ar-size, 1.1rem);
+  line-height: 2.2em;
+  line-height: calc(1.55em + 0.42rem);
+}
+.reading-en {
+  font-size: var(--reading-en-size, 15px);
+  line-height: 1.85em;
+  line-height: calc(1.35em + 0.3rem);
+}
