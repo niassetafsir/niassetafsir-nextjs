@@ -13,6 +13,8 @@ interface SearchEntry {
   text: string;
   language: string;
   type: string;
+  /** Where the result opens. Defaults to the lesson. */
+  href?: string;
 }
 
 interface SearchResult {
@@ -29,6 +31,17 @@ function stripDiacritics(text: string) {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[\u064B-\u065F\u0670\u0610-\u061A\u06D6-\u06ED]/g, '')
     .replace(/[\u02BE\u02BF\u02BC\u02BB]/g, '');
+}
+
+function escapeHtml(s: string) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+/** Server-marked matches (\u0001…\u0002) in a passage of his commentary. */
+function highlightMarked(text: string) {
+  return escapeHtml(text)
+    .replace(/\u0001/g, '<mark class="bg-gold/30 text-inherit rounded px-0.5">')
+    .replace(/\u0002/g, '</mark>');
 }
 
 function highlight(text: string, query: string) {
@@ -60,6 +73,10 @@ export default function SearchPage() {
   // search index…" for as long as the reader was willing to wait. Readers
   // reported the search as broken when it had in fact never loaded.
   const [indexError, setIndexError] = useState<string | null>(null);
+  // His Arabic prose is searched on the server (see src/lib/arabicSearch.ts):
+  // the whole Arabic book is too heavy to ship to a phone.
+  const [proseHits, setProseHits] = useState<SearchResult[]>([]);
+  const [proseTotal, setProseTotal] = useState(0);
 
   // Load index
   useEffect(() => {
@@ -129,6 +146,35 @@ export default function SearchPage() {
     return () => clearTimeout(timer);
   }, [query, search]);
 
+  useEffect(() => {
+    const q = query.trim();
+    if (!/[\u0600-\u06FF]/.test(q) || q.length < 2) { setProseHits([]); setProseTotal(0); return; }
+    let cancelled = false;
+    const timer = setTimeout(() => {
+      fetch(`/api/search?q=${encodeURIComponent(q)}`)
+        .then(r => (r.ok ? r.json() : { total: 0, hits: [] }))
+        .then((data: { total: number; hits: { lessonId: number; lessonTitle: string; lessonTitleAr: string; verseRange: string; paraIndex: number; snippet: string }[] }) => {
+          if (cancelled) return;
+          setProseTotal(data.total);
+          setProseHits(data.hits.map(h => ({
+            item: {
+              id: `prose-${h.lessonId}-${h.paraIndex}`,
+              lessonId: h.lessonId,
+              lessonTitle: h.lessonTitle,
+              lessonTitleAr: h.lessonTitleAr,
+              verseRange: h.verseRange,
+              text: h.snippet,
+              language: 'ar',
+              type: 'niasse-prose',
+              href: `/lesson/${h.lessonId}#ar-para-${h.paraIndex}`,
+            },
+          })));
+        })
+        .catch(() => { if (!cancelled) { setProseHits([]); setProseTotal(0); } });
+    }, 300);
+    return () => { cancelled = true; clearTimeout(timer); };
+  }, [query]);
+
   // A query like "36:39" can never match the index, which holds prose only.
   // It is still the most precise thing a reader can type, so it gets answered
   // by routing rather than by matching. The placeholder has advertised
@@ -139,7 +185,7 @@ export default function SearchPage() {
   // not for paragraphs containing the word.
   const surahHit = verseRef ? null : parseSurahName(query);
 
-  const filteredResults = results.filter(r => {
+  const filteredResults = proseHits.concat(results).filter(r => {
     if (filter === 'all') return true;
     if (filter === 'arabic') return r.item.language === 'ar';
     if (filter === 'english') return r.item.type === 'niasse-en';
@@ -188,9 +234,10 @@ export default function SearchPage() {
               {f === 'all' ? 'All' : f === 'arabic' ? 'Arabic Text' : f === 'english' ? 'English Translation' : 'Jalālayn'}
             </button>
           ))}
-          {results.length > 0 && (
+          {(results.length > 0 || proseHits.length > 0) && (
             <span className="font-english text-xs text-white/30 self-center ml-2">
               {filteredResults.length} results
+              {proseTotal > proseHits.length && <> · first {proseHits.length} of {proseTotal} passages of his commentary</>}
             </span>
           )}
         </div>
@@ -273,7 +320,7 @@ export default function SearchPage() {
         {filteredResults.map(({ item }) => (
           <Link
             key={item.id}
-            href={`/lesson/${item.lessonId}`}
+            href={item.href ?? `/lesson/${item.lessonId}`}
             className="block border border-gold/15 rounded-xl p-4 hover:border-gold/35 hover:bg-gold/5 transition-all group"
           >
             <div className="flex items-start justify-between gap-3 mb-2">
@@ -292,7 +339,13 @@ export default function SearchPage() {
                     ? 'text-gold/60 border-gold/20'
                     : 'text-white/40 border-white/15'
                 }`}>
-                  {item.type === 'jalalayn' ? 'Jalālayn' : item.language === 'ar' ? 'عربي' : 'EN'}
+                  {item.type === 'jalalayn'
+                    ? 'Jalālayn'
+                    : item.type === 'niasse-prose'
+                    ? 'His commentary'
+                    : item.language === 'ar'
+                    ? 'Qurʾān as quoted'
+                    : 'EN'}
                 </span>
               </div>
             </div>
@@ -301,7 +354,7 @@ export default function SearchPage() {
                 item.language === 'ar' ? 'font-arabic text-text-main text-right' : 'font-english text-white/75'
               }`}
               dir={item.language === 'ar' ? 'rtl' : 'ltr'}
-              dangerouslySetInnerHTML={{ __html: highlight(item.text, query) }}
+              dangerouslySetInnerHTML={{ __html: item.type === 'niasse-prose' ? highlightMarked(item.text) : highlight(item.text, query) }}
             />
             <div className="mt-2 font-english text-xs text-white/25 group-hover:text-gold/50 transition-colors">
               {item.verseRange} →
@@ -320,7 +373,8 @@ export default function SearchPage() {
               : 'Loading search index…'}
           </p>
           <p className="font-english text-white/20 text-xs">
-            Arabic results are Qur'anic citation fragments; English results are full translated passages where available.
+            Type in Arabic to search Shaykh Ibrāhīm&rsquo;s own commentary in all 56 lessons, as well as the
+            Qurʾān he quotes; English searches the translated lessons.
           </p>
         </div>
       )}
