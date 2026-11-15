@@ -81,7 +81,7 @@ export default async function HomePage() {
 
         <p className="font-english text-base leading-relaxed mt-10 mb-1"
           style={{ color: 'var(--body-sub, rgba(232,232,224,0.70))' }}>
-          Or search for a verse, a topic or a term to see what he says about it, wherever he says it.
+          Or search for a verse or a topic, or ask a question in your own words, to see what he and his students say about it, wherever they say it.
         </p>
 
         <div className="mt-4">

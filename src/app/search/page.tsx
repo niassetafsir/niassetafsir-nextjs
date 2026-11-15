@@ -86,7 +86,7 @@ export default async function SearchPage({
   searchParams: { q?: string; show?: string; mode?: string };
 }) {
   const q = (searchParams.q ?? '').trim();
-  const show = (['verses', 'tafsir', 'works'] as const).find(s => s === searchParams.show);
+  const show = (['verses', 'tafsir', 'works', 'students'] as const).find(s => s === searchParams.show);
   const r = await siteSearch(q, show);
   if (r.verseRef) redirect(`/verse/${r.verseRef.surah}/${r.verseRef.ayah}`);
 
@@ -96,7 +96,7 @@ export default async function SearchPage({
   const wordCount = q.split(/\s+/).filter(Boolean).length;
   const byMeaning = !!q && !r.surah && (searchParams.mode === 'meaning' || wordCount >= 4);
   const m: MeaningResults | null = byMeaning ? await meaningSearch(q) : null;
-  const meaningCount = m ? m.verses.length + m.tafsir.length + m.works.length : 0;
+  const meaningCount = m ? m.verses.length + m.tafsir.length + m.works.length + m.students.length : 0;
 
   const ayahCounts = SURAH_LIST.map(s => s.ayahCount);
   const verseCount = r.versesTotal + (r.surah ? 1 : 0);
@@ -104,21 +104,22 @@ export default async function SearchPage({
   // An English word that names a topic or term has an Arabic form, and the
   // Arabic reaches all 56 lessons where the English reaches the translated ones.
   const arabicForm = r.topics[0]?.termAr ?? r.terms[0]?.ar ?? '';
-  const nothing = q && verseCount + r.topics.length + r.terms.length + saysCount + meaningCount === 0;
+  const nothing = q && verseCount + r.topics.length + r.terms.length + saysCount + r.studentsTotal + meaningCount === 0;
 
   const jump = [
-    { id: 'meaning', label: 'By meaning', n: meaningCount },
+    { id: 'meaning', label: 'On your question', n: meaningCount },
     { id: 'verses', label: 'Verses', n: verseCount },
     { id: 'topics', label: 'Topics', n: r.topics.length },
     { id: 'terms', label: 'Terms', n: r.terms.length },
     { id: 'says', label: 'What he says', n: saysCount },
+    { id: 'students', label: 'His students', n: r.studentsTotal },
   ].filter(j => j.n > 0);
 
   return (
     <main className="max-w-3xl mx-auto px-5 pb-24 pt-8" dir="ltr">
       <h1 className="font-english text-2xl font-semibold text-center mb-1" style={{ color: TEXT }}>Search</h1>
       <p className="font-english text-sm text-center mb-6" style={{ color: FAINT }}>
-        A verse, a topic, a term, or a question in your own words
+        A verse, a topic, or a question in your own words
       </p>
 
       <SearchForm ayahCounts={ayahCounts} initial={q} autoFocus={!q} key={q} />
@@ -163,18 +164,19 @@ export default async function SearchPage({
       {/* ---- By meaning ---- */}
       {m && (
         <section className="mt-8">
-          <SectionHead id="meaning" label="By meaning" count={meaningCount} />
+          <SectionHead id="meaning" label="Passages on your question" count={meaningCount} />
           {!m.available && (
-            <Hint>Search by meaning is not switched on yet. The results below match your words.</Hint>
+            <Hint>Questions in your own words are not switched on yet. The results below match your words.</Hint>
           )}
           {m.available && m.error && (
-            <Hint>Search by meaning could not run just now. The results below match your words.</Hint>
+            <Hint>Your question could not be searched just now. The results below match your words.</Hint>
           )}
           {m.available && !m.error && m.expansion && (
             <>
               <Hint>
-                Passages that speak to your question, though they may not use your words. Each is his
-                own text; open it to read it in place.
+                Passages that speak to your question, though they may not use your words, from his
+                tafsīr, his other works and his students’ commentaries. Each is the text itself; open it
+                to read it in place.
               </Hint>
               <p className="font-english text-[12.5px] -mt-2 mb-4 leading-relaxed" style={{ color: FAINT }}>
                 Looked for:{' '}
@@ -210,9 +212,18 @@ export default async function SearchPage({
           {m.works.length > 0 && (
             <div className="mb-6">
               <h3 className="font-english text-[13px] uppercase tracking-[0.1em] font-semibold mb-2" style={{ color: SUB }}>
-                In his other works
+                Beyond Fī Riyāḍ al-Tafsīr
               </h3>
               <ul className="space-y-2">{m.works.map((p, i) => <Passage key={i} p={p} />)}</ul>
+            </div>
+          )}
+
+          {m.students.length > 0 && (
+            <div className="mb-6">
+              <h3 className="font-english text-[13px] uppercase tracking-[0.1em] font-semibold mb-2" style={{ color: SUB }}>
+                Commentaries of his students
+              </h3>
+              <ul className="space-y-2">{m.students.map((p, i) => <Passage key={i} p={p} />)}</ul>
             </div>
           )}
 
@@ -226,7 +237,7 @@ export default async function SearchPage({
         <p className="font-english text-sm text-center mt-6" style={{ color: SUB }}>
           Not finding it?{' '}
           <Link href={`/search?q=${encodeURIComponent(q)}&mode=meaning`} style={{ color: GOLD }} className="py-1 inline-block">
-            Search by meaning →
+            Ask in your own words →
           </Link>
         </p>
       )}
@@ -321,7 +332,7 @@ export default async function SearchPage({
       {saysCount > 0 && (
         <section className="mt-10">
           <SectionHead id="says" label="What he says" count={saysCount} />
-          <Hint>Passages where these words occur in Shaykh Ibrāhīm’s own text.</Hint>
+          <Hint>Passages where these words occur in Shaykh Ibrāhīm’s own text: his tafsīr, then his other works.</Hint>
           {arabicForm && !/[\u0600-\u06FF]/.test(q) && (
             <Link href={`/search?q=${encodeURIComponent(arabicForm)}`}
               className="inline-block font-english text-sm font-medium -mt-2 mb-4 py-1 transition-opacity hover:opacity-75"
@@ -343,13 +354,23 @@ export default async function SearchPage({
           {r.worksTotal > 0 && (
             <div id="works" className="scroll-mt-24">
               <h3 className="font-english text-[13px] uppercase tracking-[0.1em] font-semibold mb-2" style={{ color: SUB }}>
-                In his other works <span className="normal-case tracking-normal font-normal tabular-nums" style={{ color: FAINT }}>· {r.worksTotal}</span>
+                Beyond Fī Riyāḍ al-Tafsīr <span className="normal-case tracking-normal font-normal tabular-nums" style={{ color: FAINT }}>· {r.worksTotal}</span>
               </h3>
               <ul className="space-y-2">{r.works.map((p, i) => <Passage key={i} p={p} />)}</ul>
-              <More q={q} section="works" shown={r.works.length} total={r.worksTotal} noun="passages in his other works" />
+              <More q={q} section="works" shown={r.works.length} total={r.worksTotal} noun="passages beyond Fī Riyāḍ al-Tafsīr" />
             </div>
           )}
 
+        </section>
+      )}
+
+      {/* ---- His students ---- */}
+      {r.studentsTotal > 0 && (
+        <section className="mt-10">
+          <SectionHead id="students" label="Commentaries of his students" count={r.studentsTotal} />
+          <Hint>How scholars of the Fayḍa who learned from him explain the same verses. These are their words, not his.</Hint>
+          <ul className="space-y-2">{r.students.map((p, i) => <Passage key={i} p={p} />)}</ul>
+          <More q={q} section="students" shown={r.students.length} total={r.studentsTotal} noun="passages by his students" />
         </section>
       )}
 

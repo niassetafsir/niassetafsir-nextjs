@@ -193,9 +193,9 @@ export function englishIndex(): Promise<EnPara[]> {
 
 interface CorpusLocus {
   id: string; witnessId: string; address: { raw: string };
-  textAr?: string; textEn?: string; copiedFrom?: string; attributedTo?: string;
+  textAr?: string; textEn?: string; copiedFrom?: string; attributedTo?: string; voice?: string;
 }
-interface CorpusWork { id: string; titleTranslit: string }
+interface CorpusWork { id: string; titleTranslit: string; relation?: string }
 interface CorpusWitness { id: string; workId: string }
 interface CorpusLink { locusId: string; surah: number; ayahStart: number; acts: string[] }
 
@@ -203,6 +203,7 @@ const C = corpus as unknown as {
   works: CorpusWork[]; witnesses: CorpusWitness[]; loci: CorpusLocus[]; verseLinks: CorpusLink[];
 };
 const WORK_OF = new Map(C.witnesses.map(w => [w.id, w.workId]));
+const STUDENT_WORK = new Set(C.works.filter(w => w.relation === 'student').map(w => w.id));
 export const WORK_TITLE = new Map(C.works.map(w => [w.id, w.titleTranslit]));
 export const FIRST_LINK = new Map<string, CorpusLink>();
 for (const l of C.verseLinks) if (isShownLink(l) && !FIRST_LINK.has(l.locusId)) FIRST_LINK.set(l.locusId, l);
@@ -217,13 +218,17 @@ export const WORK_PASSAGES = C.loci
   .filter(x => x.work && x.work !== 'fi-riyad' && FIRST_LINK.has(x.l.id))
   .map(({ l, work }) => ({
     l, work,
+    // The site's three paths: his tafsīr, his other works, and his students'
+    // commentaries. A student's own words (al-Mishrī in Qanābil) are the third
+    // path; what a student reports Shaykh Ibrāhīm saying stays with his works.
+    student: STUDENT_WORK.has(work) && l.voice !== 'reported',
     arF: l.textAr ? foldAr(l.textAr) : '',
     enF: l.textEn ? ' ' + foldEn(l.textEn) + ' ' : '',
   }));
 
 // ---------------------------------------------------------------- the search
 
-export type Section = 'verses' | 'tafsir' | 'works';
+export type Section = 'verses' | 'tafsir' | 'works' | 'students';
 
 export interface SearchResults {
   query: string;
@@ -239,6 +244,9 @@ export interface SearchResults {
   tafsirTotal: number;
   works: PassageHit[];
   worksTotal: number;
+  /** The commentaries of his students: their words, not his. */
+  students: PassageHit[];
+  studentsTotal: number;
 }
 
 const SHORT = 8;
@@ -248,7 +256,7 @@ export async function siteSearch(raw: string, expand?: Section): Promise<SearchR
   const query = raw.trim().slice(0, 120);
   const empty: SearchResults = {
     query, verseRef: null, surah: null, verses: [], versesTotal: 0, topics: [], terms: [],
-    tafsir: [], tafsirTotal: 0, works: [], worksTotal: 0,
+    tafsir: [], tafsirTotal: 0, works: [], worksTotal: 0, students: [], studentsTotal: 0,
   };
   if (!query) return empty;
 
@@ -310,9 +318,9 @@ export async function siteSearch(raw: string, expand?: Section): Promise<SearchR
     }));
   }
 
-  const workMatches = WORK_PASSAGES.filter(x =>
+  const passageMatches = WORK_PASSAGES.filter(x =>
     arabic ? allWords(x.arF, words) : words.every(w => x.enF.includes(' ' + w)));
-  const works: PassageHit[] = workMatches.slice(0, limit('works')).map(({ l, work }) => {
+  const toHit = ({ l, work }: (typeof WORK_PASSAGES)[number]): PassageHit => {
     const link = FIRST_LINK.get(l.id)!;
     const useAr = arabic ? !!l.textAr : !l.textEn;
     const text = (useAr ? l.textAr : l.textEn) ?? '';
@@ -323,7 +331,11 @@ export async function siteSearch(raw: string, expand?: Section): Promise<SearchR
       arabic: useAr,
       href: `/verse/${link.surah}/${link.ayahStart}`,
     };
-  });
+  };
+  const workMatches = passageMatches.filter(x => !x.student);
+  const studentMatches = passageMatches.filter(x => x.student);
+  const works = workMatches.slice(0, limit('works')).map(toHit);
+  const students = studentMatches.slice(0, limit('students')).map(toHit);
 
   return {
     query,
@@ -337,5 +349,7 @@ export async function siteSearch(raw: string, expand?: Section): Promise<SearchR
     tafsirTotal,
     works,
     worksTotal: workMatches.length,
+    students,
+    studentsTotal: studentMatches.length,
   };
 }

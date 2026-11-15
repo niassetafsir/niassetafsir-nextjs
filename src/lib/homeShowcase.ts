@@ -47,13 +47,13 @@ const PICKS: {
   locus: string; kind: string; short: string;
   arFrom?: string; enFrom?: string; lessonPara?: [number, number];
   /** Text given here rather than read from the locus: the Lesson 16 comment
-   *  runs across two of the edition's paragraphs (¶118–119). The English is
+   *  runs across two of the edition's paragraphs (¶106–107). The English is
    *  AK's, from the Volume Two translation. */
   ar?: string; en?: string; where?: string; href?: string;
 }[] = [
   {
-    locus: 'firiyad-L16-p118', kind: 'Tafsīr', short: 'Fī Riyāḍ al-Tafsīr (1964)',
-    where: 'Lesson 16, vol. 3', href: '/lesson/16#ar-para-117',
+    locus: 'firiyad-L16-p106', kind: 'Tafsīr', short: 'Fī Riyāḍ al-Tafsīr (1964)',
+    where: 'Lesson 16, vol. 3', href: '/lesson/16#ar-para-105',
     ar: '(لا تُدْرِكُهُ الابْصَرُ) لا تراه الإدراك غير الرؤية يرى الإنسان شيئا ولا يدركه (وَهُوَ يُدْرِكُ الاَبْصَرَ) يراها ويدركها كما نعلمه ولا ندركه، نراه ولا ندركه',
     en: '«The sights do not grasp Him» — they do not see Him. Grasping is other than seeing: a man sees a thing and does not grasp it — «and He grasps the sights» — He sees them and grasps them. Just as we know Him and do not grasp Him, we see Him and do not grasp Him.',
   },

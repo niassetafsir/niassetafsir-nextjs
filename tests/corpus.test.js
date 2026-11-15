@@ -228,15 +228,7 @@ test('the bilingual alignment ships only what the audit passed', () => {
   }
   assert.ok(withEnglish.length >= 8,
     `only ${withEnglish.length} lesson(s) carry English -- expected at least the eight that are translated`);
-  // Lessons 10 and 16 (Volume Two, 15 Nov 2026) show their English beside the
-  // Arabic without a paragraph alignment: Lesson 10's draft renumbered its
-  // paragraphs after dropping the apparatus, and Lesson 16's names an Arabic
-  // paragraph past the end of the site's text (its printing transposes
-  // ¶¶26-28). The script refuses both rather than guess; this is that refusal,
-  // recorded, not a regression.
-  const SIDE_BY_SIDE = new Set([10, 16]);
   for (const id of withEnglish) {
-    if (SIDE_BY_SIDE.has(id)) continue;
     assert.ok(id in ALIGN,
       `lesson ${id} has English but is missing from the alignment -- re-run the script and read its report`);
   }

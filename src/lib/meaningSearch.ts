@@ -42,6 +42,7 @@ export interface MeaningResults {
   verses: VerseHit[];
   tafsir: PassageHit[];
   works: PassageHit[];
+  students: PassageHit[];
 }
 
 const MODEL = process.env.ANTHROPIC_MODEL || 'claude-haiku-5-5';
@@ -157,7 +158,7 @@ function rank<T>(items: T[], text: (x: T) => string, phrases: Phrase[], limit: n
 
 export async function meaningSearch(raw: string, limit = 12): Promise<MeaningResults> {
   const q = raw.trim().slice(0, 300);
-  const none: MeaningResults = { available: true, expansion: null, verses: [], tafsir: [], works: [] };
+  const none: MeaningResults = { available: true, expansion: null, verses: [], tafsir: [], works: [], students: [] };
   if (!q) return none;
   if (!process.env.ANTHROPIC_API_KEY) return { ...none, available: false };
 
@@ -204,9 +205,10 @@ export async function meaningSearch(raw: string, limit = 12): Promise<MeaningRes
       href: `/lesson/${x.lessonId}`,
     }));
 
-  // His other works.
-  const wArPhrases = weigh(exp.arabic, foldAr, WORK_PASSAGES.map(w => w.arF), false);
-  const works = rank(WORK_PASSAGES.filter(w => w.arF), w => w.arF, wArPhrases, 6).map(({ x, words }) => {
+  // His other works, and his students' commentaries, ranked apart.
+  const withAr = WORK_PASSAGES.filter(w => w.arF);
+  const wArPhrases = weigh(exp.arabic, foldAr, withAr.map(w => w.arF), false);
+  const toHit = ({ x, words }: { x: (typeof WORK_PASSAGES)[number]; words: string[] }): PassageHit => {
     const link = FIRST_LINK.get(x.l.id)!;
     return {
       source: WORK_TITLE.get(x.work) ?? x.work,
@@ -215,12 +217,14 @@ export async function meaningSearch(raw: string, limit = 12): Promise<MeaningRes
       arabic: true,
       href: `/verse/${link.surah}/${link.ayahStart}`,
     };
-  });
+  };
+  const works = rank(withAr.filter(w => !w.student), w => w.arF, wArPhrases, 6).map(toHit);
+  const students = rank(withAr.filter(w => w.student), w => w.arF, wArPhrases, 4).map(toHit);
 
   const tafsir: PassageHit[] = [
     ...arHits.map(({ _lesson, _para, ...h }) => h),
     ...enHits,
   ];
 
-  return { available: true, expansion: exp, verses, tafsir, works };
+  return { available: true, expansion: exp, verses, tafsir, works, students };
 }
