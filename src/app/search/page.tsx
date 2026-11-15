@@ -4,6 +4,7 @@ import SearchForm from '@/components/SearchForm';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { siteSearch, MARK_OPEN, MARK_CLOSE, type Section, type PassageHit } from '@/lib/siteSearch';
 import { meaningSearch, type MeaningResults } from '@/lib/meaningSearch';
+import AskPanel from '@/components/AskPanel';
 
 /**
  * One results page for the whole site.
@@ -160,6 +161,9 @@ export default async function SearchPage({
           ))}
         </nav>
       )}
+
+      {/* ---- Ask the Tafsīr: the answer in his words, fetched after load ---- */}
+      {m && m.available && !m.error && <AskPanel q={q} key={q} />}
 
       {/* ---- By meaning ---- */}
       {m && (

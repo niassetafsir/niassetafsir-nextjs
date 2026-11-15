@@ -72,7 +72,7 @@ function clean(xs: unknown, max: number): string[] {
   return out;
 }
 
-async function expand(q: string): Promise<Expansion> {
+export async function expand(q: string): Promise<Expansion> {
   const key = q.toLowerCase();
   const hit = CACHE.get(key);
   if (hit) return hit;
@@ -115,7 +115,7 @@ async function expand(q: string): Promise<Expansion> {
 
 // ---------------------------------------------------------------- ranking
 
-interface Phrase { text: string; words: string[]; weight: number }
+export interface Phrase { text: string; words: string[]; weight: number }
 
 /** Each phrase folded as the paragraphs are, and matched as a whole: "في أي
  *  شأن" must occur as written, not as three common words scattered through a
@@ -123,7 +123,7 @@ interface Phrase { text: string; words: string[]; weight: number }
  *  paragraphs tells more than one in thousands. Phrases found nowhere, or in
  *  more than a fifth of the paragraphs, are dropped, as are one-word phrases
  *  under three letters. */
-function weigh(phrases: string[], fold: (s: string) => string, docs: string[], pad: boolean): Phrase[] {
+export function weigh(phrases: string[], fold: (s: string) => string, docs: string[], pad: boolean): Phrase[] {
   const N = docs.length || 1;
   const out: Phrase[] = [];
   for (const p of phrases) {
@@ -139,7 +139,7 @@ function weigh(phrases: string[], fold: (s: string) => string, docs: string[], p
   return out;
 }
 
-function rank<T>(items: T[], text: (x: T) => string, phrases: Phrase[], limit: number) {
+export function rank<T>(items: T[], text: (x: T) => string, phrases: Phrase[], limit: number) {
   const scored: { x: T; score: number; words: string[] }[] = [];
   for (const x of items) {
     const d = text(x);
