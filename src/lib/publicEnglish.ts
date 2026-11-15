@@ -12,13 +12,15 @@
 import data from '@/data/translations.json';
 
 type Entry = { en: string; status: 'draft' | 'verified' };
-const T = data as unknown as { verifiedWorks: string[]; passages: Record<string, Entry> };
+// publishDrafts (AK, 15 Nov 2026: "live now, no label"): drafts show as they
+// are while he verifies; status still records which ones he has checked.
+const T = data as unknown as { verifiedWorks: string[]; publishDrafts?: boolean; passages: Record<string, Entry> };
 const VERIFIED_WORKS = new Set(T.verifiedWorks);
 
 export function publicEnglish(locusId: string, workId: string | undefined, textEn: string | undefined): string | undefined {
   if (!workId || workId === 'fi-riyad') return textEn;
   const t = T.passages[locusId];
-  if (t && t.status === 'verified' && t.en) return t.en;
+  if (t && t.en && (t.status === 'verified' || T.publishDrafts)) return t.en;
   if (VERIFIED_WORKS.has(workId)) return textEn;
   return undefined;
 }

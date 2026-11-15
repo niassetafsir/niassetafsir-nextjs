@@ -1,8 +1,9 @@
 {
- "_note": "English for passages outside Fī Riyāḍ al-Tafsīr. A passage shows English on the site only when its entry here is status 'verified' (checked by AK), or when its work is in verifiedWorks (AK's own translation). Everything else shows in Arabic only. Drafts sit here as status 'draft' until AK verifies them. Fī Riyāḍ al-Tafsīr is not governed by this file.",
+ "_note": "English for passages outside Fī Riyāḍ al-Tafsīr. A passage shows English on the site only when its entry here is status 'verified' (checked by AK), or when its work is in verifiedWorks (AK's own translation). Everything else shows in Arabic only. Drafts sit here as status 'draft' until AK verifies them. Fī Riyāḍ al-Tafsīr is not governed by this file. publishDrafts true (AK, 15 Nov 2026): drafts are public too, without a label, while AK verifies; 'status' records which he has checked.",
  "verifiedWorks": [
   "mawsua-5-fatawa-ajwiba"
  ],
+ "publishDrafts": true,
  "passages": {
   "kashif-110": {
    "en": "When he hears someone claim witnessing (mushāhada) of the Real (al-Ḥaqq), he says: Allah the Exalted said: «Sight does not perceive Him» (Q. 6:103). But the one who witnesses does not claim perception, nor does he see [with] the eyes [?].",
