@@ -89,7 +89,10 @@ d['verseLinks']=[k for k in d['verseLinks'] if k['locusId'] not in _qnew]+_q['ve
 # The site carries Shaykh Ibrāhīm's own words only (AK, 15 Nov 2026). Passages he
 # copies from other authors stay in the Word dossiers and the additions files,
 # not on the verse pages.
-_copied={l['id'] for l in d['loci'] if 'copiedFrom' in l}
+# Passages whose speaker the readers could not settle (inside or outside a
+# quotation) stay off the site until AK checks them against the page; they
+# remain in the additions files and the dossiers (AK, 15 Nov 2026).
+_copied={l['id'] for l in d['loci'] if 'copiedFrom' in l or l.get('voice')=='uncertain'}
 d['loci']=[l for l in d['loci'] if l['id'] not in _copied]
 d['verseLinks']=[k for k in d['verseLinks'] if k['locusId'] not in _copied]
 # Public notes on the work pages: a plain description of each book, nothing
