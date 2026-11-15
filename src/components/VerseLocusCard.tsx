@@ -80,24 +80,26 @@ export default function VerseLocusCard({
       }}
       dir="ltr"
     >
-      {/* header */}
+      {/* The passage leads; the book it comes from is a citation at the foot
+          of the card, not a heading. This is a site of verses, and a reader
+          should meet what he says before where it was printed. The header
+          stays only for what changes how the passage is read: the question a
+          fatwā answers, and whose words these are when they are not his. */}
+      {(locus.question || entry.isCopied || (!entry.isNiasse && (locus.attributedTo || work.author)) || link.stance) && (
       <div className="px-4 pt-3.5 pb-3 border-b" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
         <div className="flex items-baseline gap-2 flex-wrap">
-          {/* The heading is what he says about this āya, not where it was
-              printed. A fatwā is a reply, so its heading is the question it
-              answers; the work and section drop to the provenance line below,
-              which is where a citation belongs. Loci with no question — the
-              Fī Riyāḍ sessions above all — keep the work as the heading. */}
+          {locus.question && (
           <h3 className="font-english text-[15px] font-semibold"
             style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
-            {locus.question ? locus.question.en : (work.titleTranslit ?? work.id)}
-            {locus.question?.editorial && (
+            {locus.question.en}
+            {locus.question.editorial && (
               <span className="font-english text-[11px] font-normal italic"
                 style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
                 {' '}— editorial summary; the printing states no question here
               </span>
             )}
           </h3>
+          )}
           {/* The badge names whoever actually spoke: a locus-level attribution
               first, since a work of the Shaykh's answers can print someone
               else's reply to him, then the work's own author. */}
@@ -113,12 +115,6 @@ export default function VerseLocusCard({
               {locus.attributedTo ?? work.author}
             </span>
           )}
-          {work.titleAr && !locus.question && (
-            <span className="font-arabic text-[14px]" dir="rtl" translate="no"
-              style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
-              {work.titleAr}
-            </span>
-          )}
         </div>
 
         {locus.question?.ar && (
@@ -127,36 +123,6 @@ export default function VerseLocusCard({
             {locus.question.ar}
           </p>
         )}
-
-        <p className="font-english text-[11.5px] mt-1.5 leading-relaxed"
-          style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-          {locus.question && <>{work.titleTranslit ?? work.id} · </>}
-          <strong className="font-semibold"
-            style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
-            {entry.dateLabel}
-          </strong>
-          {address && <> · {address}</>}
-          {locus.voice && (
-            <> · <span title={VOICE_NOTE[locus.voice]} className="cursor-help">{VOICE_LABEL[locus.voice]}</span></>
-          )}
-          {/* A member of a series cannot be found from its own title alone:
-              every maḥwar of the Mawsūʿa paginates from 1, so the address is
-              only an address once the series and the ordinal are attached. */}
-          {work.series && (
-            <> · {work.series}
-              {work.seriesIndex !== undefined && <>, maḥwar {work.seriesIndex}</>}
-              {work.seriesPart !== undefined && <>/{work.seriesPart}</>}
-            </>
-          )}
-          {witness.medium === 'audio' && <> · audio</>}
-          {work.compiler && <> · compiled by {shorten(work.compiler)}</>}
-          {/* The Qanābil is quoted from Nardella and Wood-Smith's English, which
-              is theirs and has to be named where it is read. Suppressed when it
-              would only repeat the compiler line, as it does for the Mawsūʿa. */}
-          {witness.editor && witness.editor !== work.compiler && (
-            <> · {shorten(witness.editor)}</>
-          )}
-        </p>
         {link.stance && (
           <p className="font-english text-[11.5px] mt-1"
             style={{ color: 'var(--gold-light, #E8D4A0)' }}>
@@ -165,6 +131,7 @@ export default function VerseLocusCard({
           </p>
         )}
       </div>
+      )}
 
       {/* body — four states, and all four are shown rather than hidden */}
       <div className="px-4 py-4">
@@ -240,6 +207,35 @@ export default function VerseLocusCard({
           </div>
         )}
       </div>
+
+      {/* citation */}
+      <p className="px-4 pb-3.5 -mt-1 font-english text-[11.5px] leading-relaxed"
+        style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
+        —{' '}
+        <Link href={work.id === 'fi-riyad' ? (lessonHref ?? '/read') : `/works/${work.id}`} className="italic hover:text-gold"
+          style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
+          {work.titleTranslit ?? work.id}
+        </Link>
+        {entry.dateLabel && <>, {entry.dateLabel}</>}
+        {address && <>, {address}</>}
+        {locus.voice && (
+          <> · <span title={VOICE_NOTE[locus.voice]} className="cursor-help">{VOICE_LABEL[locus.voice]}</span></>
+        )}
+        {/* A member of a series cannot be found from its own title alone:
+            every maḥwar of the Mawsūʿa paginates from 1, so the address is
+            only an address once the series and the ordinal are attached. */}
+        {work.series && (
+          <> · {work.series}
+            {work.seriesIndex !== undefined && <>, maḥwar {work.seriesIndex}</>}
+            {work.seriesPart !== undefined && <>/{work.seriesPart}</>}
+          </>
+        )}
+        {witness.medium === 'audio' && <> · audio</>}
+        {work.compiler && <> · compiled by {shorten(work.compiler)}</>}
+        {witness.editor && witness.editor !== work.compiler && (
+          <> · {shorten(witness.editor)}</>
+        )}
+      </p>
     </article>
   );
 }

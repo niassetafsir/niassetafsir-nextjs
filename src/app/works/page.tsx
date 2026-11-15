@@ -2,9 +2,9 @@ import Link from 'next/link';
 import { workSummaries } from '@/lib/corpus';
 
 export const metadata = {
-  title: 'The Works',
+  title: 'Sources',
   description:
-    "The works in which Shaykh Ibrāhīm Niasse uses the Qurʾān — tafsīr, treatises, letters, fatwās, sermons, poems — and how far each has been indexed verse by verse.",
+    "The books, letters, sermons and poems from which Shaykh Ibrāhīm Niasse's Qurʾānic commentary on this site is drawn.",
 };
 
 // The catalogue side of the corpus. /verse is keyed on the āya; this is keyed
@@ -24,18 +24,17 @@ export default function WorksPage() {
   const pending = rows.filter(r => !(r.uses > 0 || r.work.id === 'fi-riyad'));
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
-      <p className="font-arabic text-gold text-lg mb-0.5" dir="rtl">المؤلفات</p>
+      <p className="font-arabic text-gold text-lg mb-0.5" dir="rtl">المصادر</p>
       <h1 className="font-english font-semibold text-base mb-1"
         style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
-        The Works
+        Sources
       </h1>
       <p className="font-english text-[13px] leading-relaxed mb-8"
         style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-        Shaykh Ibrāhīm used the Qurʾān in everything he wrote and said, not only in his tafsīr. Each
-        work below is read for every verse he quotes, comments on, applies or alludes to; each use
-        is recorded with its page, its Arabic, and whether the words are his own, written on his
-        behalf, or reported of him. Commentaries he copied into his own works are listed under the
-        author speaking.
+        This site is arranged by verse. Shaykh Ibrāhīm comments on the Qurʾān outside his tafsīr
+        too, in letters, sermons, travelogues and poems, so each book below has been read for the
+        passages where he interprets, quotes or applies a verse, and only those passages are on the
+        site. Each one appears on its verse page, cited to the book and page it comes from.
       </p>
 
       <ul className="space-y-3 mb-12">

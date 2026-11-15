@@ -53,10 +53,9 @@ export const NAV: NavSection[] = [
     labelAr: 'فهرس الآيات',
     hint: 'Every place he uses an āya, across his works',
     icon: '✦',
-    match: ['/verse', '/works'],
+    match: ['/verse'],
     children: [
       { href: '/verse', label: 'Look up an āya', hint: 'Type 2:255, or browse by sūra' },
-      { href: '/works', label: 'The works', hint: 'Each work in the corpus and the verses it uses' },
       { href: '/search', label: 'Search the text', hint: 'Arabic and English' },
     ],
   },
@@ -115,10 +114,11 @@ export const NAV: NavSection[] = [
     labelAr: 'عن المشروع',
     hint: 'The project, the tafsīr, and how to reach us',
     icon: '⌂',
-    match: ['/about', '/editorial-note', '/translators-note', '/introduction', '/get-involved'],
+    match: ['/about', '/works', '/editorial-note', '/translators-note', '/introduction', '/get-involved'],
     children: [
       { href: '/about', label: 'Manṭiq al-Fayḍa', hint: 'What the project collects, who makes it, how to cite it' },
       { href: '/about/tafsir', label: 'The tafsīr', hint: 'Shaykh Ibrāhīm, the tradition, and his two sources' },
+      { href: '/works', label: 'Sources', hint: 'The books and letters his commentary is drawn from' },
       { href: '/translators-note', label: 'Editorial conventions', hint: 'Transliteration, honorifics, rasm' },
       { href: '/get-involved', label: 'Get in touch', hint: 'Feedback, corrections, joining' },
     ],
@@ -174,11 +174,11 @@ export interface MobileTab {
 }
 
 export const MOBILE_BAR: MobileTab[] = [
-  { id: 'verse',  href: '/verse',  label: 'Verses', icon: '✦', match: ['/verse', '/works'] },
+  { id: 'verse',  href: '/verse',  label: 'Verses', icon: '✦', match: ['/verse'] },
   { id: 'read',   href: '/read',   label: 'Tafsīr', icon: '◎', match: ['/read', '/lesson', '/volume', '/surah'] },
   { id: 'search', href: '/search', label: 'Search', icon: '⌕', match: ['/search'] },
   { id: 'listen', href: '/audio',  label: 'Listen', icon: '♪', match: ['/audio'] },
-  { id: 'more',                    label: 'More',   icon: '⋯', match: ['/research', '/topics', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/about', '/translators-note', '/get-involved'] },
+  { id: 'more',                    label: 'More',   icon: '⋯', match: ['/research', '/topics', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/about', '/works', '/translators-note', '/get-involved'] },
 ];
 
 /** The event PersistentNav fires to open SiteNav's menu. They are

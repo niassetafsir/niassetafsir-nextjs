@@ -57,7 +57,7 @@ export default function WorkPage({ params }: { params: { id: string } }) {
 
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
-      <p className="font-english text-[12px] mb-3"><Link href="/works" className="text-gold/70 hover:text-gold">← The works</Link></p>
+      <p className="font-english text-[12px] mb-3"><Link href="/works" className="text-gold/70 hover:text-gold">← Sources</Link></p>
       {work.titleAr && <p className="font-arabic text-gold text-lg mb-0.5" dir="rtl" translate="no">{work.titleAr}</p>}
       <h1 className="font-english font-semibold text-base mb-1" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
         <em>{work.titleTranslit}</em>

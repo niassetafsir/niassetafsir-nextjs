@@ -65,11 +65,10 @@ export default async function HomePage() {
         <p className="font-english text-xs mt-3"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
           or browse{' '}
-          <Link href="/works" className="tap transition-opacity hover:opacity-75"
+          <Link href="/topics" className="tap transition-opacity hover:opacity-75"
             style={{ color: 'var(--gold, #C9A84C)', borderBottom: '1px dotted rgba(138,109,31,0.4)' }}>
-            the works
+            by topic
           </Link>
-          {' '}and the verses each one uses
         </p>
       </section>
 

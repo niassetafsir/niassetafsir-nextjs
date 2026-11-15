@@ -226,7 +226,7 @@ export default async function VersePage({
 
         <h1 className="font-english text-[20px] font-semibold leading-snug mb-3.5"
           style={{ color: 'var(--body-text, rgba(255,255,255,0.92))' }}>
-          Q {surah}:{ayah} in the works of Shaykh Ibrāhīm Niasse
+          Shaykh Ibrāhīm Niasse on Q {surah}:{ayah}
         </h1>
 
         {text?.ar && (

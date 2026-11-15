@@ -85,7 +85,7 @@ export default async function AboutPage() {
             his own text, written on his behalf, or reported of him. The verse is the key: open an āya
             and every use of it stands on one page. So far {indexedWorks} works beyond the tafsīr have
             been read in this way, giving {otherUses} recorded uses of the Qurʾān; the{' '}
-            <Link href="/works" className="text-gold/70 hover:text-gold transition-colors">list of works</Link>{' '}
+            <Link href="/works" className="text-gold/70 hover:text-gold transition-colors">list of sources</Link>{' '}
             shows which.
           </p>
           <p className="leading-6 mt-3">
