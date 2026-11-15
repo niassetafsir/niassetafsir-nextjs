@@ -67,7 +67,7 @@ function markWords(text: string, words: string[], arabic: boolean): string {
 
 /** A passage of about `width` characters that opens just before the first
  *  match, so the matched words sit in what the reader sees. */
-function excerpt(text: string, words: string[], arabic: boolean, width = 260): string {
+export function excerpt(text: string, words: string[], arabic: boolean, width = 260): string {
   const toks = text.split(/\s+/).filter(Boolean);
   const hit = toks.findIndex(t => {
     const f = arabic ? foldAr(t) : foldEn(t);
@@ -92,7 +92,7 @@ export interface VerseHit {
 
 export interface SurahHit { surah: number; nameEn: string; nameAr: string; ayahCount: number }
 
-const VERSES = Object.entries(verseText as Record<string, { ar: string; en: string }>)
+export const VERSES = Object.entries(verseText as Record<string, { ar: string; en: string }>)
   .map(([k, v]) => {
     const [s, a] = k.split(':').map(Number);
     return { surah: s, ayah: a, ar: v.ar, en: v.en, arF: foldAr(v.ar), enF: ' ' + foldEn(v.en) + ' ' };
@@ -101,7 +101,7 @@ const VERSES = Object.entries(verseText as Record<string, { ar: string; en: stri
 
 const surahName = (n: number) => SURAH_LIST.find(s => s.id === n)?.nameEn ?? `Sūra ${n}`;
 
-function toVerseHit(v: (typeof VERSES)[number]): VerseHit {
+export function toVerseHit(v: (typeof VERSES)[number]): VerseHit {
   return { surah: v.surah, ayah: v.ayah, surahName: surahName(v.surah), ar: v.ar, en: v.en };
 }
 
@@ -164,10 +164,10 @@ export interface PassageHit {
   href: string;
 }
 
-interface EnPara { lessonId: number; title: string; range: string; text: string; norm: string }
+export interface EnPara { lessonId: number; title: string; range: string; text: string; norm: string }
 
 let EN_INDEX: Promise<EnPara[]> | null = null;
-function englishIndex(): Promise<EnPara[]> {
+export function englishIndex(): Promise<EnPara[]> {
   if (!EN_INDEX) {
     EN_INDEX = getAllLessons().then(lessons => {
       const out: EnPara[] = [];
@@ -203,15 +203,15 @@ const C = corpus as unknown as {
   works: CorpusWork[]; witnesses: CorpusWitness[]; loci: CorpusLocus[]; verseLinks: CorpusLink[];
 };
 const WORK_OF = new Map(C.witnesses.map(w => [w.id, w.workId]));
-const WORK_TITLE = new Map(C.works.map(w => [w.id, w.titleTranslit]));
-const FIRST_LINK = new Map<string, CorpusLink>();
+export const WORK_TITLE = new Map(C.works.map(w => [w.id, w.titleTranslit]));
+export const FIRST_LINK = new Map<string, CorpusLink>();
 for (const l of C.verseLinks) if (isShownLink(l) && !FIRST_LINK.has(l.locusId)) FIRST_LINK.set(l.locusId, l);
 
 /** His other works: every transcribed passage outside Fī Riyāḍ, in his own
  *  voice. Passages he copies from another author (al-Rāzī in Tabṣirat al-anām)
  *  and replies signed by someone else are left out: this search answers
  *  "what does he say". */
-const WORK_PASSAGES = C.loci
+export const WORK_PASSAGES = C.loci
   .filter(l => (l.textAr || l.textEn) && !l.copiedFrom && !l.attributedTo)
   .map(l => ({ l: { ...l, textEn: publicEnglish(l.id, WORK_OF.get(l.witnessId), l.textEn) }, work: WORK_OF.get(l.witnessId) ?? '' }))
   .filter(x => x.work && x.work !== 'fi-riyad' && FIRST_LINK.has(x.l.id))

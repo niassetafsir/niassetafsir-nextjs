@@ -30,7 +30,7 @@ export function normalizeArabic(s: string): string {
     .trim();
 }
 
-interface Para {
+export interface Para {
   lessonId: number;
   lessonTitle: string;
   lessonTitleAr: string;
@@ -41,6 +41,12 @@ interface Para {
 }
 
 let INDEX: Promise<Para[]> | null = null;
+
+/** Every commentary paragraph of the 56 lessons, folded. Shared with
+ *  meaningSearch, which ranks the same paragraphs by many phrases at once. */
+export function arabicParagraphs(): Promise<Para[]> {
+  return index();
+}
 
 function index(): Promise<Para[]> {
   if (!INDEX) {

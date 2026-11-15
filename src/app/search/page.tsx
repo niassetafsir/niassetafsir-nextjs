@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import SearchForm from '@/components/SearchForm';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { siteSearch, MARK_OPEN, MARK_CLOSE, type Section, type PassageHit } from '@/lib/siteSearch';
+import { meaningSearch, type MeaningResults } from '@/lib/meaningSearch';
 
 /**
  * One results page for the whole site.
@@ -82,12 +83,20 @@ function Passage({ p }: { p: PassageHit }) {
 export default async function SearchPage({
   searchParams,
 }: {
-  searchParams: { q?: string; show?: string };
+  searchParams: { q?: string; show?: string; mode?: string };
 }) {
   const q = (searchParams.q ?? '').trim();
   const show = (['verses', 'tafsir', 'works'] as const).find(s => s === searchParams.show);
   const r = await siteSearch(q, show);
   if (r.verseRef) redirect(`/verse/${r.verseRef.surah}/${r.verseRef.ayah}`);
+
+  // Search by meaning runs when the reader asks for it, or when the query reads
+  // like a question or a description (four words or more), which keyword
+  // matching rarely answers. A sūra name or a single term never triggers it.
+  const wordCount = q.split(/\s+/).filter(Boolean).length;
+  const byMeaning = !!q && !r.surah && (searchParams.mode === 'meaning' || wordCount >= 4);
+  const m: MeaningResults | null = byMeaning ? await meaningSearch(q) : null;
+  const meaningCount = m ? m.verses.length + m.tafsir.length + m.works.length : 0;
 
   const ayahCounts = SURAH_LIST.map(s => s.ayahCount);
   const verseCount = r.versesTotal + (r.surah ? 1 : 0);
@@ -95,9 +104,10 @@ export default async function SearchPage({
   // An English word that names a topic or term has an Arabic form, and the
   // Arabic reaches all 56 lessons where the English reaches the translated ones.
   const arabicForm = r.topics[0]?.termAr ?? r.terms[0]?.ar ?? '';
-  const nothing = q && verseCount + r.topics.length + r.terms.length + saysCount === 0;
+  const nothing = q && verseCount + r.topics.length + r.terms.length + saysCount + meaningCount === 0;
 
   const jump = [
+    { id: 'meaning', label: 'By meaning', n: meaningCount },
     { id: 'verses', label: 'Verses', n: verseCount },
     { id: 'topics', label: 'Topics', n: r.topics.length },
     { id: 'terms', label: 'Terms', n: r.terms.length },
@@ -108,7 +118,7 @@ export default async function SearchPage({
     <main className="max-w-3xl mx-auto px-5 pb-24 pt-8" dir="ltr">
       <h1 className="font-english text-2xl font-semibold text-center mb-1" style={{ color: TEXT }}>Search</h1>
       <p className="font-english text-sm text-center mb-6" style={{ color: FAINT }}>
-        A verse, a topic or a term, in Arabic or English
+        A verse, a topic, a term, or a question in your own words
       </p>
 
       <SearchForm ayahCounts={ayahCounts} initial={q} autoFocus={!q} key={q} />
@@ -116,7 +126,7 @@ export default async function SearchPage({
       {!q && (
         <p className="font-english text-sm text-center mt-6" style={{ color: SUB }}>
           Try{' '}
-          {[['2:255', '2:255'], ['al-Kahf', 'al-Kahf'], ['nafs', 'nafs'], ['التوحيد', 'التوحيد'], ['mercy', 'mercy']].map(([label, term], i) => (
+          {[['2:255', '2:255'], ['al-Kahf', 'al-Kahf'], ['nafs', 'nafs'], ['التوحيد', 'التوحيد'], ['mercy', 'mercy'], ['What does he say about polygamy?', 'What does he say about polygamy?']].map(([label, term], i) => (
             <span key={term}>
               {i > 0 && ' · '}
               <Link href={term === '2:255' ? '/verse/2/255' : `/search?q=${encodeURIComponent(term)}`}
@@ -148,6 +158,77 @@ export default async function SearchPage({
             </a>
           ))}
         </nav>
+      )}
+
+      {/* ---- By meaning ---- */}
+      {m && (
+        <section className="mt-8">
+          <SectionHead id="meaning" label="By meaning" count={meaningCount} />
+          {!m.available && (
+            <Hint>Search by meaning is not switched on yet. The results below match your words.</Hint>
+          )}
+          {m.available && m.error && (
+            <Hint>Search by meaning could not run just now. The results below match your words.</Hint>
+          )}
+          {m.available && !m.error && m.expansion && (
+            <>
+              <Hint>
+                Passages that speak to your question, though they may not use your words. Each is his
+                own text; open it to read it in place.
+              </Hint>
+              <p className="font-english text-[12.5px] -mt-2 mb-4 leading-relaxed" style={{ color: FAINT }}>
+                Looked for:{' '}
+                <span className="font-arabic text-[15px]" dir="rtl">{m.expansion.arabic.join(' · ')}</span>
+                {m.expansion.english.length > 0 && <> · {m.expansion.english.join(' · ')}</>}
+              </p>
+            </>
+          )}
+
+          {m.verses.length > 0 && (
+            <ul className="flex flex-wrap gap-2 mb-4">
+              {m.verses.map(v => (
+                <li key={`${v.surah}:${v.ayah}`}>
+                  <Link href={`/verse/${v.surah}/${v.ayah}`}
+                    className="inline-block font-english text-sm rounded-full border px-3.5 py-1.5 transition-colors hover:border-gold/60"
+                    style={{ borderColor: LINE, color: GOLD }}>
+                    Q. {v.surah}:{v.ayah} <span style={{ color: FAINT }}>· {v.surahName}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {m.tafsir.length > 0 && (
+            <div className="mb-6">
+              <h3 className="font-english text-[13px] uppercase tracking-[0.1em] font-semibold mb-2" style={{ color: SUB }}>
+                In Fī Riyāḍ al-Tafsīr
+              </h3>
+              <ul className="space-y-2">{m.tafsir.map((p, i) => <Passage key={i} p={p} />)}</ul>
+            </div>
+          )}
+
+          {m.works.length > 0 && (
+            <div className="mb-6">
+              <h3 className="font-english text-[13px] uppercase tracking-[0.1em] font-semibold mb-2" style={{ color: SUB }}>
+                In his other works
+              </h3>
+              <ul className="space-y-2">{m.works.map((p, i) => <Passage key={i} p={p} />)}</ul>
+            </div>
+          )}
+
+          {m.available && !m.error && meaningCount === 0 && (
+            <Hint>Nothing in his text answers to this question.</Hint>
+          )}
+        </section>
+      )}
+
+      {q && !m && !r.surah && (
+        <p className="font-english text-sm text-center mt-6" style={{ color: SUB }}>
+          Not finding it?{' '}
+          <Link href={`/search?q=${encodeURIComponent(q)}&mode=meaning`} style={{ color: GOLD }} className="py-1 inline-block">
+            Search by meaning →
+          </Link>
+        </p>
       )}
 
       {/* ---- Verses ---- */}
