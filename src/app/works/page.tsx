@@ -70,7 +70,7 @@ export default function WorksPage() {
                 ].filter(Boolean).map(s => `${s} · `).join('')}
                 {work.id === 'fi-riyad'
                   ? 'the tafsīr: 56 sessions, read in its own reader'
-                  : <>{uses} {uses === 1 ? 'use' : 'uses'} of {verses} {verses === 1 ? 'āya' : 'āyāt'}</>}
+                  : <>{verses} {verses === 1 ? 'verse' : 'verses'}</>}
               </span>
             </Link>
           </li>
@@ -82,9 +82,9 @@ export default function WorksPage() {
 
       {pending.length > 0 && (
         <>
-          <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">Not yet indexed</h2>
+          <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">Still to come</h2>
           <p className="font-english text-[13px] italic mb-4" style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-            Known works whose Qurʾānic usage has not yet been read in.
+            Works whose verses are not yet on the site.
           </p>
           <ul className="font-english text-[13.5px] space-y-1 mb-10" style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
             {pending.map(({ work }) => (

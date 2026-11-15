@@ -280,21 +280,9 @@ export async function siteSearch(raw: string, expand?: Section): Promise<SearchR
     .filter(t => termMatches(query, t.term, t.termAr, t.title, t.slug))
     .map(t => ({ slug: t.slug, title: t.title, term: t.term, termAr: t.termAr, question: t.question }));
 
+  // The term indexes (/term, /glossary) are off the public site for now
+  // (AK, 15 Nov 2026), so search no longer offers them as results.
   const terms: TermHit[] = [];
-  for (const t of TERMS) {
-    if (termMatches(query, t.translit, t.ar, t.en ?? '', t.slug)) {
-      terms.push({ label: t.translit, ar: t.ar, gloss: t.en ?? '', href: `/term/${t.slug}` });
-    }
-  }
-  for (const c of await concordance()) {
-    if (!termMatches(query, c.term, c.arabic)) continue;
-    if (terms.some(t => foldEn(t.label) === foldEn(c.term) || foldAr(t.ar) === foldAr(c.arabic))) continue;
-    terms.push({
-      label: c.term, ar: c.arabic, gloss: '',
-      href: `/glossary?term=${encodeURIComponent(glossaryKey(c.term))}`,
-      count: c.occurrenceCount,
-    });
-  }
 
   // What he says: the tafsīr, Arabic or English, and the other works.
   let tafsir: PassageHit[] = [];

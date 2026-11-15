@@ -52,15 +52,17 @@ interface Props {
    *  -- see src/lib/apparatus.ts. Offering the tab and then showing a panel
    *  with three of seventy-five notes in it is the misleading case. */
   hideCitations?: boolean;
+  /** No Jalālayn or Rūḥ al-Bayān text for this lesson: no Comparison tab. */
+  hideCompare?: boolean;
   /** True only for the five lessons that actually carry English. */
   hasTranslation?: boolean;
 }
 
 interface NoteRow { id: string; num?: number; displayNum?: number; arabic: string }
 
-export default function LessonExperience({ tafsir, compare, citations, overview, hideCitations, hasTranslation }: Props) {
+export default function LessonExperience({ tafsir, compare, citations, overview, hideCitations, hideCompare, hasTranslation }: Props) {
   const [mode, setMode] = useState<LessonMode>('tafsir');
-  const modes = hideCitations ? MODES.filter(m => m.id !== 'citations') : MODES;
+  const modes = MODES.filter(m => !(hideCitations && m.id === 'citations') && !(hideCompare && m.id === 'compare'));
 
   // Read the deep link on the client only -- the server has no query string
   // during static generation, and reading it during render would be a
@@ -131,7 +133,7 @@ export default function LessonExperience({ tafsir, compare, citations, overview,
 
   const body =
     mode === 'tafsir' ? tafsir :
-    mode === 'compare' ? compare :
+    mode === 'compare' && !hideCompare ? compare :
     mode === 'citations' && !hideCitations ? citations : overview;
 
   return (

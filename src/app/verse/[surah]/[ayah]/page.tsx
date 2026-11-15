@@ -61,6 +61,19 @@ const MAX_LESSON_READS = 6;
  */
 const SNIPPET_CHARS = 900;
 
+/**
+ * A paragraph in the transcription can open on the tail of the previous
+ * sentence ("مشربهم. وهذه الآية …"). When the paragraph before it does not
+ * close on a sentence mark, drop that tail so the excerpt opens where a
+ * sentence does.
+ */
+function startAtSentence(raw: string | undefined, prev: string | undefined): string | undefined {
+  if (!raw || !prev) return raw;
+  if (/[.!؟:»"”)\]]\s*$/.test(prev.trim())) return raw;
+  const m = raw.slice(0, 160).match(/[.!؟:]\s+/);
+  return m && m.index !== undefined ? raw.slice(m.index + m[0].length) : raw;
+}
+
 /** Cut at the last word break so a snippet never ends inside a word. */
 function trimToWord(s: string, max: number): string {
   if (s.length <= max) return s;
@@ -179,7 +192,7 @@ export default async function VersePage({
     }
 
     const paras = commentaryParagraphs(body);
-    const raw = paras[para];
+    const raw = startAtSentence(paras[para], paras[para - 1]);
     if (!raw) continue;
     const truncated = raw.length > SNIPPET_CHARS;
     excerpts.set(e.locus.id, {
@@ -286,13 +299,26 @@ export default async function VersePage({
           <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-4">
             {ACT_HEADING[group.act]}
           </h2>
-          {group.entries.map(entry => (
-            <VerseLocusCard
-              key={`${entry.locus.id}-${entry.link.acts.join('+')}`}
-              entry={entry}
-              excerpt={excerpts.get(entry.locus.id)}
-            />
-          ))}
+          {group.entries.map((entry, i) => {
+            // A run of passages from the same lesson or page carries one
+            // citation and one link, printed under its last passage.
+            const place = (e: typeof entry) =>
+              `${e.work.id}|${e.locus.address.lesson ?? e.locus.address.raw ?? e.locus.id}`;
+            const next = group.entries[i + 1];
+            const sameAsNext = next !== undefined && place(next) === place(entry);
+            let start = i;
+            while (start > 0 && place(group.entries[start - 1]) === place(entry)) start--;
+            const ex = excerpts.get(entry.locus.id);
+            const firstHref = excerpts.get(group.entries[start].locus.id)?.href;
+            return (
+              <VerseLocusCard
+                key={`${entry.locus.id}-${entry.link.acts.join('+')}`}
+                entry={entry}
+                excerpt={ex && firstHref ? { ...ex, href: firstHref } : ex}
+                hideCitation={sameAsNext}
+              />
+            );
+          })}
         </section>
       ))}
 

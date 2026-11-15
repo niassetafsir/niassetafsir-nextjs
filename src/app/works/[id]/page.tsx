@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getWork, workEntries, workSummaries, ACT_LABEL, VOICE_LABEL } from '@/lib/corpus';
+import { getWork, workEntries, workSummaries, VOICE_LABEL } from '@/lib/corpus';
 
 export function generateStaticParams() {
   return workSummaries().filter(r => r.uses > 0 && r.work.id !== 'fi-riyad').map(r => ({ id: r.work.id }));
@@ -26,19 +26,30 @@ export default function WorkPage({ params }: { params: { id: string } }) {
   const all = workEntries(work.id);
   if (all.length === 0) notFound();
   const own = all.filter(e => !e.isCopied);
-  const copied = all.filter(e => e.isCopied);
 
-  const Row = ({ e }: { e: (typeof all)[number] }) => (
+  // One row per passage. A passage that runs over several verses (the
+  // Fātiḥa's opening verses in a ḥamdala) is one row, not one per verse; a
+  // locus with no text yet is left off until it has some.
+  type Entry = (typeof all)[number];
+  const rows: { e: Entry; refs: string[] }[] = [];
+  for (const e of own) {
+    if (!e.locus.textAr && !e.locus.textEn) continue;
+    const last = rows[rows.length - 1];
+    if (last && last.e.locus.id === e.locus.id) last.refs.push(ref(e.surah, e.ayahStart, e.ayahEnd));
+    else rows.push({ e, refs: [ref(e.surah, e.ayahStart, e.ayahEnd)] });
+  }
+
+  const Row = ({ e, refs }: { e: Entry; refs: string[] }) => (
     <li className="py-3 border-b" style={{ borderColor: 'rgba(255,255,255,0.07)' }}>
       <div className="flex items-baseline gap-3 flex-wrap">
         <Link href={`/verse/${e.surah}/${e.ayahStart}`} className="font-english text-[14px] font-semibold text-gold/90 hover:text-gold underline-offset-2 hover:underline">
-          Q {ref(e.surah, e.ayahStart, e.ayahEnd)}
+          Q {refs.length > 1 && refs.every(r => r.startsWith(`${e.surah}:`))
+            ? `${refs[0]}–${refs[refs.length - 1].split(':')[1]}`
+            : refs.join(', ')}
         </Link>
-        <span className="font-english text-[11.5px]" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-          {e.locus.address.raw}
-          {' · '}{e.link.acts.map(a => ACT_LABEL[a]).join(' · ')}
-          {e.locus.voice && <> · {VOICE_LABEL[e.locus.voice]}</>}
-          {e.locus.copiedFrom && <> · {e.locus.copiedFrom}</>}
+        <span className="font-english text-[12px]" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
+          {(e.locus.address.raw ?? '').replace(/\s*\(PDF[^)]*\)/g, '')}
+          {e.locus.voice && e.locus.voice !== 'own' && <> · {VOICE_LABEL[e.locus.voice]}</>}
         </span>
       </div>
       {e.locus.textAr && (
@@ -72,24 +83,12 @@ export default function WorkPage({ params }: { params: { id: string } }) {
       )}
 
       <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
-        His uses of the Qurʾān · {own.length}
+        The verses · {rows.length}
       </h2>
       <p className="font-english text-[12.5px] italic mb-3" style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-        In Qurʾānic order. The Arabic is read from the page image; the English summarises how he uses the verse and is not a translation.
+        In Qurʾānic order.
       </p>
-      <ul className="mb-12">{own.map(e => <Row key={`${e.locus.id}-${e.surah}-${e.ayahStart}`} e={e} />)}</ul>
-
-      {copied.length > 0 && (
-        <>
-          <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
-            In the commentaries he copied · {copied.length}
-          </h2>
-          <p className="font-english text-[12.5px] italic mb-3" style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-            Verses inside the material he transcribes from other authors, under the name of the author speaking.
-          </p>
-          <ul>{copied.map(e => <Row key={`${e.locus.id}-${e.surah}-${e.ayahStart}`} e={e} />)}</ul>
-        </>
-      )}
+      <ul className="mb-12">{rows.map(r => <Row key={`${r.e.locus.id}-${r.refs[0]}`} e={r.e} refs={r.refs} />)}</ul>
     </main>
   );
 }

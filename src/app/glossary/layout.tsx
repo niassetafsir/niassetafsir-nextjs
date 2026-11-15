@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+// Off the public site for now (AK, 15 Nov 2026): linked from nowhere, not indexed.
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: "Concordance of Terms",
   description: "Textual concordance of key theological and Sufi terms as they appear in Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm by Shaykh Ibrāhīm Niasse.",
   openGraph: {

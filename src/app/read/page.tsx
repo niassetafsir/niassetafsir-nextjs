@@ -2,7 +2,8 @@ import { getVolumeIndex } from '@/lib/volumes';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { getLessonIdsForSurah } from '@/lib/surahLessons';
 import ReadTableOfContents from '@/components/ReadTableOfContents';
-import EditionCoverage from '@/components/EditionCoverage';
+import Link from 'next/link';
+import { getEditionFacts } from '@/lib/coverage';
 
 // Full table of contents, styled after usul.ai's expandable reader outline.
 // This page (and VolumeLessonTree, which it shares with the desktop sidebar
@@ -15,6 +16,7 @@ import EditionCoverage from '@/components/EditionCoverage';
 // this page just reads the real data.
 export default async function ReadPage() {
   const volumes = await getVolumeIndex();
+  const facts = await getEditionFacts();
   const suras = SURAH_LIST.map(s => ({
     ...s,
     lessonIds: getLessonIdsForSurah(s.id),
@@ -33,10 +35,17 @@ export default async function ReadPage() {
           style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
           Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm · 10 volumes · 56 lessons · Shaykh Ibrāhīm Niasse
         </p>
+        <p className="font-english text-[13px] leading-relaxed mt-2"
+          style={{color:'var(--body-sub, rgba(255,255,255,0.7))'}}>
+          All {facts.arabicLessons} lessons in Arabic
+          {facts.translatedCount > 0 && facts.translatedFirst !== null && facts.translatedLast !== null && (
+            <>; English for Lessons {facts.translatedFirst}–{facts.translatedLast}</>
+          )}
+          ; <Link href="/audio" className="text-gold/80 hover:text-gold underline">recordings</Link> for {facts.audioLessons}.
+        </p>
       </div>
 
       <ReadTableOfContents volumes={volumes} suras={suras} />
-      <EditionCoverage />
     </main>
   );
 }

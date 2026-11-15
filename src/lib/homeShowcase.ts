@@ -69,7 +69,7 @@ export async function showcaseCards(): Promise<ShowcaseCard[]> {
     out.push({
       kind: p.kind,
       title: p.short,
-      where: locus.address.raw ?? '',
+      where: (locus.address.raw ?? '').replace(/\s*\(PDF[^)]*\)/g, ''),
       ar: cut(from(ar, p.arFrom), 110),
       en: cut(from(en, p.enFrom), 130),
       href: `/verse/${SHOWCASE_VERSE.surah}/${SHOWCASE_VERSE.ayah}`,

@@ -36,6 +36,17 @@ function NavDropdown({ section, active, alignRight = false }: { section: NavSect
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
+  if (section.children.length === 0) {
+    return (
+      <Link href={section.href} aria-current={active ? 'page' : undefined}
+        className={`flex items-center font-english text-sm px-3 py-1.5 rounded-md transition-all ${
+          active ? 'bg-gold/15 text-gold' : 'text-white/55 hover:text-white/80 hover:bg-white/5'
+        }`}>
+        {section.label}
+      </Link>
+    );
+  }
+
   return (
     <div ref={ref} className="relative">
       <button
@@ -234,6 +245,12 @@ export default function SiteNav() {
         </div>
 
         <div className="flex items-center gap-2 flex-none">
+          <Link href="/search" aria-label="Search"
+            className="flex items-center justify-center w-8 h-8 rounded-md text-white/55 hover:text-white/80 hover:bg-white/5 transition-all">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round">
+              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+            </svg>
+          </Link>
           <ThemeToggle />
         </div>
       </div>

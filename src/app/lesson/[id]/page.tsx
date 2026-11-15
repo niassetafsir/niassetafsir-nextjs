@@ -188,26 +188,16 @@ export default async function LessonPage({ params }: { params: { id: string } })
             {!isReviewed(lesson.id) && (
               <p className="font-english text-[12.5px] leading-6"
                 style={{ color: 'var(--body-sub, rgba(232,232,224,0.62))' }}>
-                <strong style={{ fontWeight: 600 }}>This lesson has not yet been read against the
-                printed volume.</strong>{' '}
-                Its Arabic is transcribed from a scan, and the scan of this printing confuses the
-                dotted letters — a fāʾ read as a qāf, a nūn as a rāʾ. Its Qurʾānic citations are identified
-                against the muṣḥaf, but their wording, like Shaykh Ibrāhīm&rsquo;s own prose, can still carry
-                what the scan left. Quote it with that in mind.
+                Not yet checked against the printed volume. The Arabic is transcribed from a scan and
+                may still carry its misreadings; quote it with that in mind.
               </p>
             )}
             {withheldNotes > 0 && (
               <p className="font-english text-[12.5px] leading-6"
                 style={{ color: 'var(--body-sub, rgba(232,232,224,0.62))',
                          marginTop: isReviewed(lesson.id) ? 0 : '0.6rem' }}>
-                The compiler wrote <strong style={{ fontWeight: 600 }}>{withheldNotes}</strong> footnotes
-                on this lesson. They are not shown yet: their inline markers were placed before the full
-                text of the lesson was recovered, so they cannot reliably be attached to the passages they
-                annotate. The apparatus is being re-checked lesson by lesson against the verified
-                documents — see{' '}
-                <Link href="/translators-note" className="text-gold/70 hover:text-gold transition-colors">
-                  Editorial Conventions
-                </Link>.
+                The compiler&rsquo;s {withheldNotes} footnotes on this lesson will appear once they are
+                checked against the text.
               </p>
             )}
           </div>
@@ -243,6 +233,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         </div>
       </>}
       hideCitations={!hasApparatus(lesson.id)}
+      hideCompare={!jalalaynArabicText && !ruhArabicText}
       citations={<>
         <LessonCitations lessonId={lesson.id} />
       </>}

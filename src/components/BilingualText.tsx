@@ -290,61 +290,10 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
         </div>
       )}
 
-      {/* Verse jump bar — Jalālayn-style per-ayah navigation, only shown once
-          this lesson has a built verse index (see src/lib/verseIndex.ts).
-
-          Grouped by sūra, and it has to be. A lesson can cross a sūra boundary,
-          and the chip carries only the āya number, so Lesson 1 (Q 1:1–2:5)
-          rendered as "1 2 3 4 5 6 7 1 2 3 4 5" -- twelve identical chips, two
-          of them labelled 1, with nothing to say the sequence restarts or what
-          it restarts into. Runs are contiguous because VERSE_INDEX is ordered
-          by position in the commentary, so a plain fold over the list gives the
-          groups; it does not assume one run per sūra. */}
-      {verseGroups.length > 0 && (
-        <div
-          dir="ltr"
-          className="flex gap-1 overflow-x-auto px-3 py-2 border-b items-center"
-          style={{ borderColor: 'rgba(13,31,10,0.1)', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}
-        >
-          {verseGroups.map((group, gi) => (
-            <div key={`${group.surah}-${gi}`} className="flex gap-1 items-center flex-shrink-0">
-              {gi > 0 && (
-                <span aria-hidden className="flex-shrink-0 self-stretch mx-1.5 border-l"
-                  style={{ borderColor: 'rgba(138,109,31,0.25)' }} />
-              )}
-              <span className="font-english text-[10px] flex-shrink-0 self-center pr-1 whitespace-nowrap"
-                style={{ color: 'rgba(138,109,31,0.75)' }}>
-                {group.name}
-              </span>
-              {group.entries.map(entry => (
-                <button
-                  key={entry.verse}
-                  onClick={() => jumpToVerse(entry.paraIndex)}
-                  className="font-english text-[10px] flex-shrink-0 px-1.5 py-0.5 rounded border transition-colors"
-                  style={{
-                    borderColor: 'rgba(138,109,31,0.3)',
-                    color: '#8a6d1f',
-                    opacity: entry.uncertain ? 0.55 : 1,
-                    // A quotation the printing brackets and one this project
-                    // read off a five-word run are different claims, so the
-                    // border says which. Dotted = we identified it.
-                    borderStyle: entry.editorial ? 'dotted' : 'solid',
-                  }}
-                  title={
-                    entry.editorial
-                      ? `Q. ${entry.verse} — quoted without parentheses in the printing; identified here`
-                      : entry.uncertain
-                        ? `Q. ${entry.verse} — approximate match`
-                        : `Jump to Q. ${entry.verse}`
-                  }
-                >
-                  {entry.verse.split(':')[1]}
-                </button>
-              ))}
-            </div>
-          ))}
-        </div>
-      )}
+      {/* The verse jump bar that stood here listed every Qurʾānic citation in
+          the lesson as unlabelled chips (Al-Naḥl 44, Al-Rūm 47 …). It read as
+          clutter, not navigation, and is gone; a verse's own page gathers
+          what he says on it. */}
 
       {/* Opening poem / invocation — displayed full-width, centered, before columns */}
       {poemLines.length > 0 && (showBilingual || view === 'arabic') && (

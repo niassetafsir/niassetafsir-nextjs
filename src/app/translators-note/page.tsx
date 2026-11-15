@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getEditionFacts } from '@/lib/coverage';
-import { editorNoteCount } from '@/lib/editorNotes';
 
 /**
  * How the text was made and how to read it: digitisation, the footnote
@@ -20,7 +19,7 @@ import { editorNoteCount } from '@/lib/editorNotes';
 export const metadata: Metadata = {
   title: 'Editorial Conventions',
   description:
-    "Editorial principles for the digital edition of Shaykh Ibrāhīm's tafsīr: digitisation, footnote markers, verse ranges, transliteration, honorifics, the Warsh rasm, and the translation choices.",
+    "How to read the text on niassetafsir.org: the Arabic, whose words are whose, translation and summary, transliteration, and the marks beside a Qurʾānic quotation.",
   openGraph: {
     title: 'Editorial Conventions | niassetafsir.org',
     description:
@@ -29,12 +28,7 @@ export const metadata: Metadata = {
 };
 
 export default async function EditorialConventionsPage() {
-  const { footnoteCount, footnoteLessons, totalLessons, citations } = await getEditionFacts();
-  // The page described the editor's notes in the present tense while
-  // editorNotes.json held three bytes. A convention the edition means to
-  // keep is worth stating; a feature the reader will look for and not find
-  // is not. Counted, so the sentence follows the data.
-  const noteCount = editorNoteCount();
+  const { translatedFirst, translatedLast, translatedCount } = await getEditionFacts();
   return (
     <main className="max-w-3xl mx-auto px-4 pb-24 pt-6" dir="ltr">
       <div className="mb-2">
@@ -43,238 +37,65 @@ export default async function EditorialConventionsPage() {
         </Link>
       </div>
 
-      <div className="text-center pb-8 mb-8 border-b border-gold/20">
+      <div className="text-center pb-6 mb-6 border-b border-gold/20">
         <h1 className="font-english text-gold text-2xl font-semibold italic">Editorial Conventions</h1>
-        <div className="font-english text-white/50 text-sm mt-2">
-          How this text was made, and how to read it
-        </div>
-        <p className="font-english text-white font-semibold text-center mt-4">Amadu Kunateh</p>
-        <p className="font-english text-white/45 text-sm text-center">
-          PhD Candidate, Committee on the Study of Religion, Harvard University
-        </p>
-        <p className="font-english text-gold/50 text-xs mt-3">Edition 1.0 · April 2025</p>
+        <div className="font-english text-white/50 text-sm mt-2">How to read the text on this site</div>
       </div>
 
       <div className="font-english text-white/75 text-base leading-relaxed">
 
-        <h2 className="font-english text-gold text-xl font-semibold mt-4 mb-4 pb-3 border-b border-gold/20">
-          Structure and method
-        </h2>
-        <p className="mb-3 text-justify">
-          The present edition presents the Arabic text of <em>Fī Riyāḍ al-Tafsīr</em> in the Warsh ʿan
-          Nāfiʿ rasm, the orthographic standard of North and West Africa in which the tafsīr was
-          delivered, with an English translation. The English edition runs to seven volumes, a number
-          that answers to the seven manzils of the weekly recitation cycle Shaykh Ibrāhīm practised and
-          celebrated in verse — he enumerated the opening sūra of each manzil and invoked two of the
-          Qurʾān&apos;s names, al-Furqān (the Criterion) and al-Jamʿ (the Joining):
+        <h2 className="font-english text-gold text-lg font-semibold mt-9 mb-3 pb-2 border-b border-gold/20">The Arabic</h2>
+        <p className="mb-3">
+          <em>Fī Riyāḍ al-Tafsīr</em> is given in the revised ten-volume edition that Muḥammad ibn
+          Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī compiled from the 1964 recordings, lesson by lesson
+          as he delivered it. Volume and page references cite that edition. The Qurʾān is in the
+          riwāya of Warsh ʿan Nāfiʿ, the reading of North and West Africa, and the Arabic is left as the
+          printing has it.
         </p>
-        <blockquote className="my-4 ml-6 pl-4 border-l-2 border-gold/40 font-english text-sm text-white/75 italic leading-8">
-          Al-Fātiḥah, al-Māʾida, Yūnus, al-Isrāʾ,<br />
-          al-Shuʿarāʾ, al-Ṣāffāt, Qāf, thus it is clarified.<br />
-          He who joins the Criterion with the Joining<br />
-          completes a full recitation of the Criterion.
-        </blockquote>
-        <p className="mb-3 text-justify">
-          The volumes do not reproduce those seven portions, and it is worth saying why. A manzil
-          divides the muṣḥaf for reciting it over a week; Shaykh Ibrāhīm lectured straight through, so five of
-          the seven manzil boundaries fall inside a lesson rather than between two, and honouring them
-          would mean cutting a lesson in half. The lesson is this work&apos;s own unit and is kept
-          whole. Each volume therefore closes at the end of a sūra — that division belongs to the text
-          being commented upon, and a reader looking for the commentary on a given sūra finds it in one
-          book. Six of the seven close that way. The first cannot: no lesson in the opening stretch of
-          the course ends where a sūra ends, so Volume One stops inside Āl ʿImrān, at the point where
-          Lesson Nine stops.
-        </p>
-        <p className="mb-3 text-justify">
-          Qurʾānic audio is presented per verse using the recitation of Maḥmūd Khalīl al-Ḥuṣarī
-          (1917–1980) in the Warsh riwāya. The Warsh rasm is the standard of the Qurʾān as recited and
-          taught in the Tijānī tradition, and it differs in certain orthographic details from the Ḥafṣ
-          rasm more familiar to readers outside it.
+        <p className="mb-3">
+          Passages from his other works are read from the page of the edition named beside them.
         </p>
 
-        <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
-          Digitisation and display
-        </h2>
-        <p className="mb-3 text-justify">
-          The Arabic text was digitised from the printed ten-volume edition. The compiled edition
-          presents the commentary as continuous Arabic prose with footnotes interspersed throughout each
-          lesson section. For readability, this edition separates the body text — Shaykh Ibrāhīm&apos;s
-          commentary — from the footnote block, the compiler&apos;s documentary apparatus. The body text
-          appears in the Shaykh&apos;s Tafsīr panel; the compiler&apos;s footnotes open from their markers in
-          it, and are gathered under Citations on the same page.
-        </p>
-        <p className="mb-3 text-justify">
-          The lesson structure follows the compiler&apos;s ten-volume organisation: each lesson
-          corresponds to a session of oral delivery. The site presents all fifty-six lessons, covering
-          the Qurʾān from al-Fātiḥa through al-Nās (Q. 1:1–114:6).
+        <h2 className="font-english text-gold text-lg font-semibold mt-9 mb-3 pb-2 border-b border-gold/20">Whose words</h2>
+        <p className="mb-3">
+          The commentary is Shaykh Ibrāhīm&apos;s. The footnotes on a lesson are the compiler&apos;s,
+          and open from their markers <sup className="text-gold/80 text-xs">[n]</sup> under his name.
+          On a verse page, the commentaries of his students stand below his words and are marked as
+          theirs; where a student reports what Shaykh Ibrāhīm said, that report stands with his own.
         </p>
 
-        <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
-          Footnote markers
-        </h2>
-        <p className="mb-3 text-justify">
-          The compiler&apos;s footnotes are marked inline in the Arabic text with superscript numbers{' '}
-          <sup className="text-gold/80 text-xs">[n]</sup>. Each marker opens the footnote where
-          it stands, in the compiler&apos;s Arabic, attributed to him. The same markers appear in the translated lessons, where the
-          translation preserves the footnote numbering of the Arabic source.
+        <h2 className="font-english text-gold text-lg font-semibold mt-9 mb-3 pb-2 border-b border-gold/20">Translation and summary</h2>
+        <p className="mb-3">
+          The English of <em>Fī Riyāḍ al-Tafsīr</em> is a translation by Amadu Kunateh
+          {translatedCount > 0 && translatedFirst !== null && translatedLast !== null && (
+            <>, so far for Lessons {translatedFirst}–{translatedLast}</>
+          )}. Elsewhere, English marked <span className="text-[12px] uppercase tracking-[0.08em]" style={{ opacity: 0.7 }}>In brief</span>{' '}
+          sums up how he uses a verse and is not a translation.
         </p>
-        <p className="mb-3 text-justify">
-          The apparatus has been classified by subject genre — Hadith Sciences, Tafsīr, Theology,
-          Sufism, Fiqh, Linguistics, History — a classification not present in the printed Arabic text
-          and an original editorial contribution of this digital edition. It covers{' '}
-          {footnoteLessons === totalLessons
-            ? `all ${totalLessons} lessons`
-            : `${footnoteLessons} of the ${totalLessons} lessons`},{' '}
-          {footnoteCount.toLocaleString('en-US')} footnotes in all. The apparatus for the remaining
-          lessons is withheld while its inline markers are re-checked against the verified documents.
-        </p>
-        <p className="mb-3 text-justify">
-          The apparatus throughout preserves all of Shaykh Ibrāhīm&apos;s original scholarly citations — to the
-          hadith collections, to al-Suyūṭī&apos;s <em>al-Itqān</em>, to al-Ghazālī, to Ibn ʿArabī —
-          traced to their canonical sources.
+        <p className="mb-3">
+          Three choices recur. The Basmala reads &ldquo;By Allāh&apos;s Name, The Entirely Merciful,
+          The Especially Merciful,&rdquo; keeping the distinction between al-Raḥmān and al-Raḥīm that
+          he draws at length. <em>ʿAbd</em> is &ldquo;slave.&rdquo; <em>Al-ḥamdu lillāh</em> is
+          &ldquo;The Praise is for God.&rdquo;
         </p>
 
-        <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
-          Three voices
-        </h2>
-        <p className="mb-3 text-justify">
-          Three people speak on a lesson page, and the edition keeps them apart. The commentary is
-          Shaykh Ibrāhīm&apos;s. The footnotes are Muḥammad ibn al-Shaykh&apos;s, and they are documentary:
-          they record where a ḥadīth comes from, in which collection, at which number, on which page.
-          The editor&apos;s notes are the present editor&apos;s, and they are interpretive: they place
-          a passage in the debate it addresses, name the position Shaykh Ibrāhīm is answering, or identify a
-          source he alludes to without naming it.
-        </p>
-        <p className="mb-3 text-justify">
-          The two apparatuses are never merged. The editor&apos;s notes stand above the
-          compiler&apos;s in the Critical Apparatus panel, ruled in gold, each carrying its
-          author&apos;s name and marked as absent from the printed edition. Where this edition asks
-          you to accept a judgement rather than a citation, it tells you whose.
-        </p>
-        {noteCount === 0 && (
-          <p className="mb-3 text-justify">
-            No editor&apos;s note has been published yet. The apparatus and the machinery that keeps
-            the two voices apart are in place; what stands in the edition today is Shaykh Ibrāhīm&apos;s
-            commentary and the compiler&apos;s documentation, and nothing has been added to either.
-          </p>
-        )}
-
-        <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
-          Verse ranges and volume references
-        </h2>
-        <p className="mb-3 text-justify">
-          The verse range given for each lesson (Q. 2:6–25, for instance) has been verified against the
-          ten-volume structural document prepared for this edition and, for Volumes 1–5 (Lessons 1–30),
-          against the physical printed volumes. Volume and page references cite the ten-volume compiled
-          edition, and page numbers are given for all ten volumes.
+        <h2 className="font-english text-gold text-lg font-semibold mt-9 mb-3 pb-2 border-b border-gold/20">Transliteration and references</h2>
+        <p className="mb-3">
+          Transliteration follows IJMES. In the English, ﷺ follows the Prophet&apos;s name whatever
+          form the Arabic gives, and the Arabic is left as printed. Qurʾānic references read Q. sūra:āya.
         </p>
 
-        <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
-          The translation
-        </h2>
-        <p className="mb-3 text-justify">
-          The English translation is by Amadu Kunateh and currently covers Lessons 1–9; the complete
-          translation will be published in print. It proceeds
-          from a commitment to scholarly precision and readability. The register is formal academic prose
-          that preserves the oral cadences of the original — its directness, its rhythmic repetitions,
-          and its transitions between legal analysis and spiritual address. Technical terms are retained
-          in Arabic on first occurrence, with English equivalents in parentheses, and thereafter used in
-          transliteration.
+        <h2 className="font-english text-gold text-lg font-semibold mt-9 mb-3 pb-2 border-b border-gold/20">The marks beside a Qurʾānic quotation</h2>
+        <p className="mb-3">
+          The Arabic was transcribed from a scan, which can confuse letters that differ only by their
+          dots. Every quotation in the lessons has been read against a Warsh muṣḥaf, and a small mark
+          says what that showed:{' '}
+          <span style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>✓</span> the quotation matches the āya
+          named;{' '}
+          <span style={{ color: '#C9A84C' }}>≠</span> the āya is identified but the printing reads otherwise;{' '}
+          <span style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>?</span> the passage is too damaged to
+          identify. Nothing is silently corrected. Click a mark to suggest a reading.
         </p>
-        <p className="mb-3 text-justify">
-          Three translation choices warrant explicit statement. First, the Basmala is rendered
-          &ldquo;By Allāh&apos;s Name, The Entirely Merciful, The Especially Merciful,&rdquo; preserving
-          the theological distinction between al-Raḥmān and al-Raḥīm that Shaykh Ibrāhīm himself elaborates at
-          length. Second, <em>ʿabd</em> is translated &ldquo;slave&rdquo; throughout, as the more precise
-          rendering of the term&apos;s theological weight — the relationship of complete ontological
-          submission that <em>ʿabd</em> carries in Shaykh Ibrāhīm&apos;s usage. Third, <em>al-ḥamdu lillāh</em>{' '}
-          is rendered as two words, &ldquo;al-ḥamdu lillāh (The Praise is for God),&rdquo; preserving
-          both the Arabic formula and its syntactic structure.
-        </p>
-
-        <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
-          Transliteration and honorifics
-        </h2>
-        <p className="mb-3 text-justify">
-          Arabic transliteration follows IJMES conventions throughout. Following the name of the Prophet,
-          the ligature ﷺ (ṣallā Allāhu ʿalayhi wa-sallam, &ldquo;may Allāh&apos;s peace and blessings be
-          upon him&rdquo;) stands in the English text for whatever form the Arabic gives; the Arabic
-          itself is left exactly as the compiled edition prints it, whether spelled out or contracted,
-          and is not emended to match. Following the names of Companions and recognized saints, r.a.
-          (raḍiya Allāhu ʿanhu/ʿanhā, &ldquo;may Allāh be pleased with him/her&rdquo;) is retained in
-          abbreviated form. <em>ʿAlayhi al-salām</em>, after the names of prophets other than Muḥammad,
-          is left as the Arabic has it. Qurʾānic citations are given as Q. followed by chapter and verse.
-          Technical Arabic terms are given in transliteration on first occurrence with an English
-          equivalent in parentheses; thereafter in transliteration only.
-        </p>
-
-        <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
-          The Qurʾānic Text, and What the Marks Beside It Mean
-        </h2>
-        <p className="mb-3 text-justify">
-          The edition is set from a scan of the Tunis printing, and scanning damages Arabic in a
-          particular way: it confuses letters that differ only by their dots, and it loses the seat
-          under a hamza. Inside a Qurʾānic quotation that damage is not a typo but a corrupted
-          scriptural text, so every bracketed citation in all {totalLessons} lessons has been read
-          against a reference muṣḥaf in the riwāya of Warsh ʿan Nāfiʿ — the reading this printing
-          follows.
-        </p>
-        <p className="mb-3 text-justify">
-          The reference detects damage; it does not settle orthography. Where the printing and the
-          reference differ over an alif, a hamza seat or a vowel, the printing stands, because those
-          are the printing&rsquo;s own conventions and a digital text is no authority over them. What
-          the reference is used for is the letter skeleton underneath.
-        </p>
-        {citations.total > 0 && (
-          <>
-            <p className="mb-3 text-justify">
-              A small mark after each bracketed citation says how far that reading has been carried,
-              and the marks are not decoration: they are the apparatus. A{' '}
-              <span className="font-english" style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>✓</span>{' '}
-              means the passage stands in the āya named beside it, letter for letter. A{' '}
-              <span className="font-english" style={{ color: '#C9A84C' }}>≠</span>{' '}
-              means the āya is identified and the printing reads otherwise — which may be scan damage,
-              or the compiler quoting from memory, and nothing inside the quotation itself can tell
-              those apart. A{' '}
-              <span className="font-english" style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>?</span>{' '}
-              means the scan has damaged the passage past the point where the āya can be identified at
-              all, so there is nothing to collate it against.
-            </p>
-            <p className="mb-3 text-justify">
-              Of {citations.total.toLocaleString()} bracketed citations,{' '}
-              <strong className="text-white/85">{citations.collated.toLocaleString()}</strong> are
-              collated and agree; <strong className="text-white/85">{citations.diverges.toLocaleString()}</strong>{' '}
-              are identified and diverge; and{' '}
-              <strong className="text-white/85">{citations.unplaced.toLocaleString()}</strong> of four
-              words or more cannot yet be placed. The remaining{' '}
-              {citations.unmarked.toLocaleString()} run under four words — a lemma the commentary is
-              about to gloss rather than a citation making a claim — and carry no mark.
-            </p>
-            <p className="mb-3 text-justify">
-              The divergent and unplaced citations are the edition&rsquo;s open work. They are shown
-              rather than hidden, and they are not silently emended: a reading that cannot be settled
-              on the evidence is left as the printing has it, and marked.
-            </p>
-            <p className="mb-3 text-justify">
-              Every mark is also a way in. Click one and you can propose what the passage should read
-              and say on what evidence — a muṣḥaf, a printed edition, a parallel elsewhere in the
-              commentary. Suggestions reach the editor and are weighed one by one; none of them
-              alters the text on its own, and an accepted one is applied with its warrant recorded.
-              Readers who know this material have caught what a rule cannot, and the marks are there
-              partly to make that possible.
-            </p>
-          </>
-        )}
-
-        <h2 className="font-english text-gold text-xl font-semibold mt-10 mb-4 pb-3 border-b border-gold/20">
-          Citation
-        </h2>
-        <p className="mb-3 text-justify">
-          How to cite this edition, its copyright, and its version history are on the{' '}
-          <Link href="/about" className="text-gold/70 hover:text-gold transition-colors">About</Link> page.
-          Any passage you save on the site carries its own citation.
-        </p>
-        {/* Acknowledgements section withheld pending final publication */}
       </div>
 
       <div className="mt-12 pt-6 border-t border-gold/15 text-center">

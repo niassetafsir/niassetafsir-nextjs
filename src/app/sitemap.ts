@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { indexedVerses, definedTerms, workSummaries } from '@/lib/corpus';
+import { indexedVerses, workSummaries } from '@/lib/corpus';
 
 const BASE_URL = 'https://niassetafsir.org';
 
@@ -19,13 +19,9 @@ const STATIC_ROUTES = [
   '',
   '/read',
   '/audio',
-  '/research',
   '/about',
-  '/about/tafsir',
   '/translators-note',
-  '/glossary',
   '/search',
-  '/notes',
   '/get-involved',
   // Four pages carrying real content that no crawler could reach: the verse
   // index and the terms Niasse defines are exactly what a researcher searches
@@ -39,7 +35,6 @@ const STATIC_ROUTES = [
   '/topics/ruh',
   '/topics/qalb',
   '/topics/marifa',
-  '/term',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -92,15 +87,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const termEntries: MetadataRoute.Sitemap = definedTerms().map(({ term }) => ({
-    url: `${BASE_URL}/term/${term.slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
+
 
   return [...staticEntries, ...lessonEntries, ...volumeEntries,
-          ...surahEntries, ...termEntries, ...verseEntries,
+          ...surahEntries, ...verseEntries,
           ...workSummaries()
             .filter(r => r.uses > 0 && r.work.id !== 'fi-riyad')
             .map(r => ({ url: `${BASE_URL}/works/${r.work.id}`, changeFrequency: 'monthly' as const, priority: 0.6 }))];

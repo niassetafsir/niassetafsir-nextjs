@@ -27,9 +27,13 @@ export function shortTitle(work: { id: string; titleTranslit?: string | null }):
 export default function VerseLocusCard({
   entry,
   excerpt,
+  hideCitation = false,
 }: {
   entry: VerseEntry;
   excerpt?: LocusExcerpt;
+  /** Set on every passage of a run from the same lesson or page but the
+   *  last, so the citation and the link are printed once for the run. */
+  hideCitation?: boolean;
 }) {
   const { link, locus, witness, work } = entry;
   const inSession = link.derivation === 'session-range';
@@ -110,7 +114,7 @@ export default function VerseLocusCard({
                 {excerpt?.truncated && <span style={{ opacity: 0.5 }}> …</span>}
               </p>
             )}
-            {excerpt?.href && (
+            {excerpt?.href && !hideCitation && (
               <Link href={excerpt.href}
                 className="inline-block mt-3 font-english text-[12px] text-gold/70 hover:text-gold underline">
                 Read in context →
@@ -130,7 +134,7 @@ export default function VerseLocusCard({
         )}
       </div>
 
-      <p className="px-4 pb-3.5 -mt-1 font-english text-[12px]"
+      {!hideCitation && <p className="px-4 pb-3.5 -mt-1 font-english text-[12px]"
         style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
         <Link href={titleHref} className="italic hover:text-gold" style={{ color: 'var(--body-faint, rgba(255,255,255,0.6))' }}>
           {shortTitle(work)}
@@ -138,7 +142,7 @@ export default function VerseLocusCard({
         {date && <>, {date}</>}
         {where && <>, {where}</>}
         {witness.medium === 'audio' && <> (audio)</>}
-      </p>
+      </p>}
     </article>
   );
 }

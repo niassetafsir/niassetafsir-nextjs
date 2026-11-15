@@ -35,7 +35,7 @@ export default function StudentsPage() {
         </p>
       ) : (
       <ul className="space-y-3">
-        {rows.map(({ work, verses, uses }) => (
+        {rows.map(({ work, verses }) => (
           <li key={work.id}>
             <Link href={`/works/${work.id}`}
               className="block rounded-lg border px-4 py-3 hover:border-gold/50 transition-colors"
@@ -50,7 +50,7 @@ export default function StudentsPage() {
               <span className="block font-english text-[12px] mt-1" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
                 {[work.author, [work.composed?.hijri, work.composed?.gregorian].filter(Boolean).join(' / ')]
                   .filter(Boolean).map(s => `${s} · `).join('')}
-                {uses} {uses === 1 ? 'passage' : 'passages'} on {verses} {verses === 1 ? 'āya' : 'āyāt'}
+                {verses} {verses === 1 ? 'verse' : 'verses'}
               </span>
             </Link>
           </li>
