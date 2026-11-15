@@ -162,7 +162,7 @@ export default function TermsPage() {
           Technical Terms
         </h1>
         <p className="font-english text-sm mt-2 leading-6" style={{ color: 'var(--body-sub, rgba(255,255,255,0.5))' }}>
-          Where each term occurs in Niasse&apos;s text, in context and linked to the passage, and
+          Where each term occurs in Shaykh Ibrāhīm&apos;s text, in context and linked to the passage, and
           how he connects the terms to one another. Interpretive definitions are reserved for the
           forthcoming scholarly edition.
         </p>
@@ -222,7 +222,7 @@ export default function TermsPage() {
             <div className="border border-white/8 rounded-xl p-8 text-center">
               <div className="font-arabic text-gold/30 text-3xl mb-3" dir="rtl">المصطلحات</div>
               <p className="font-english text-sm" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                Select a term to see how Niasse uses it
+                Select a term to see how Shaykh Ibrāhīm uses it
               </p>
             </div>
           ) : (
@@ -271,7 +271,7 @@ export default function TermsPage() {
                   <div className="flex items-center justify-between gap-3 mb-3">
                     <p className="font-english text-[11px] font-semibold tracking-wide uppercase"
                       style={{ color: 'rgba(255,255,255,0.45)' }}>
-                      How Niasse connects it
+                      How Shaykh Ibrāhīm connects it
                     </p>
                     {/* "Show pending" toggles unconfirmed edges in the term
                         graph — a decision about what has been verified, which

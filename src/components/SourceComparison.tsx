@@ -39,7 +39,7 @@ export default function SourceComparison({ entries }: { entries: ComparisonEntry
       <p className="font-english text-[13px] italic mb-5" style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
         His reading beside the Jalālayn, al-Ṣāwī&rsquo;s gloss and Ismāʿīl Ḥaqqī&rsquo;s <em>Rūḥ al-bayān</em>, with
         a ruling on how he stands to each. A working comparison from a dissertation in progress; al-Ṣāwī is
-        reported only where Niasse or his editor quotes him.
+        reported only where Shaykh Ibrāhīm or his editor quotes him.
       </p>
       {entries.map(e => {
         const rulings = ORDER.map(src => ({ src, r: e.rulings.filter(x => x.source === src) })).filter(x => x.r.length);
@@ -64,7 +64,7 @@ export default function SourceComparison({ entries }: { entries: ComparisonEntry
             ) : (
               <details className="mt-2">
                 <summary className="font-english text-[12.5px] text-gold/80 cursor-pointer">The comparison</summary>
-                <Block label="Niasse" text={e.niasse} />
+                <Block label="Shaykh Ibrāhīm" text={e.niasse} />
                 <Block label="Jalālayn" text={e.jalalayn} />
                 <Block label="al-Ṣāwī" text={e.sawi} />
                 <Block label="Rūḥ al-bayān" text={e.ruhAlBayan} />

@@ -77,7 +77,7 @@ const BLUE = '#1d4ed8';
 const RUH = '#7c2d12';
 
 const SOURCES: { id: SourceId; ar: string; en: string; colour: string }[] = [
-  { id: 'niasse', ar: 'الشيخ إبراهيم نياس', en: 'Niasse', colour: GOLD },
+  { id: 'niasse', ar: 'الشيخ إبراهيم نياس', en: 'Shaykh Ibrāhīm', colour: GOLD },
   { id: 'jalalayn', ar: 'تفسير الجلالين', en: 'Jalālayn', colour: BLUE },
   { id: 'ruh', ar: 'روح البيان', en: 'Rūḥ al-Bayān', colour: RUH },
 ];

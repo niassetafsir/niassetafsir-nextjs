@@ -192,7 +192,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
                 printed volume.</strong>{' '}
                 Its Arabic is transcribed from a scan, and the scan of this printing confuses the
                 dotted letters — a fāʾ read as a qāf, a nūn as a rāʾ. Its Qurʾānic citations are identified
-                against the muṣḥaf, but their wording, like Niasse&rsquo;s own prose, can still carry
+                against the muṣḥaf, but their wording, like Shaykh Ibrāhīm&rsquo;s own prose, can still carry
                 what the scan left. Quote it with that in mind.
               </p>
             )}

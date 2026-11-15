@@ -154,7 +154,7 @@ export default function SearchPage() {
           البحث في التفسير
         </h1>
         <p className="font-english text-white/50 text-sm text-center mb-6">
-          Search across Niasse&apos;s tafsīr text and Tafsīr al-Jalālayn
+          Search across Shaykh Ibrāhīm&apos;s tafsīr text and Tafsīr al-Jalālayn
         </p>
 
         {/* Search input */}

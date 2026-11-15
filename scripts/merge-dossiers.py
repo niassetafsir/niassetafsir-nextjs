@@ -45,5 +45,10 @@ if 'tabsira-typescript' not in wits:
     d['witnesses'].append({"id":"tabsira-typescript","workId":"tabsirat-al-anam","medium":"digital","language":"ar","year":"2012","addressScheme":"pdf-page","isBase":True})
 if 'rijal-tunis-2012' not in wits:
     d['witnesses'].append({"id":"rijal-tunis-2012","workId":"rijal-wa-adwar","medium":"print","language":"ar","year":"2012","publisher":"Majmaʿ al-Yamāma","place":"Tunis","addressScheme":"printed-page","isBase":True})
+# Naming policy: never bare "Niasse" on the site (scripts/name-policy.py).
+import importlib.util
+_spec = importlib.util.spec_from_file_location('name_policy', 'scripts/name-policy.py')
+_np = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_np)
+d = _np.walk(d)
 json.dump(d,open(P,'w'),ensure_ascii=False,indent=2)
 print(len(d['works']),len(d['witnesses']),len(d['loci']),len(d['verseLinks']))

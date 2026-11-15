@@ -126,7 +126,7 @@
       "from": "fanāʾ",
       "to": "baqāʾ",
       "relation": "completed-by",
-      "note": "Niasse: 'fanaʾuhu ʿayn al-baqāʾ' — his annihilation was identical to subsistence",
+      "note": "Shaykh Ibrāhīm: 'fanaʾuhu ʿayn al-baqāʾ' — his annihilation was identical to subsistence",
       "source": "fn-10-3",
       "confirmed": true
     },
@@ -134,7 +134,7 @@
       "from": "rūḥ",
       "to": "ʿaql",
       "relation": "is-superior-to",
-      "note": "Niasse L27: 'al-rūḥ huwa al-sulṭān, al-ʿaql huwa al-wazīr, al-qalb huwa al-muftī'",
+      "note": "Shaykh Ibrāhīm L27: 'al-rūḥ huwa al-sulṭān, al-ʿaql huwa al-wazīr, al-qalb huwa al-muftī'",
       "source": "L27 body",
       "confirmed": true
     },
@@ -142,7 +142,7 @@
       "from": "ʿaql",
       "to": "qalb",
       "relation": "is-superior-to",
-      "note": "Niasse L27: same hierarchy — rūḥ > ʿaql > qalb",
+      "note": "Shaykh Ibrāhīm L27: same hierarchy — rūḥ > ʿaql > qalb",
       "source": "L27 body",
       "confirmed": true
     },
@@ -150,7 +150,7 @@
       "from": "qalb",
       "to": "nafs",
       "relation": "is-superior-to",
-      "note": "Niasse L18: four vestments — nafs, qalb, rūḥ, sirr (ascending)",
+      "note": "Shaykh Ibrāhīm L18: four vestments — nafs, qalb, rūḥ, sirr (ascending)",
       "source": "fn-18-1",
       "confirmed": true
     },
@@ -158,7 +158,7 @@
       "from": "maʿrifa",
       "to": "rūḥ",
       "relation": "is-spirit-of",
-      "note": "Niasse L16: 'al-maʿrifa rūḥ al-ʿaql, wa-l-ʿaql rūḥ al-jasad'",
+      "note": "Shaykh Ibrāhīm L16: 'al-maʿrifa rūḥ al-ʿaql, wa-l-ʿaql rūḥ al-jasad'",
       "source": "L16 body",
       "confirmed": true
     },
@@ -182,7 +182,7 @@
       "from": "ḥaqīqa-muḥammadiyya",
       "to": "tajallī",
       "relation": "is-first-instance-of",
-      "note": "Niasse L13: 'tujulliya fī al-ḥaqīqa al-muḥammadiyya fa-hiya awwal tajallī'",
+      "note": "Shaykh Ibrāhīm L13: 'tujulliya fī al-ḥaqīqa al-muḥammadiyya fa-hiya awwal tajallī'",
       "source": "L13 body",
       "confirmed": true
     },
@@ -206,14 +206,14 @@
       "from": "fanāʾ",
       "to": "maʿrifa",
       "relation": "PENDING",
-      "note": "[AK to confirm: does fanāʾ precede or follow maʿrifa in Niasse's system?]",
+      "note": "[AK to confirm: does fanāʾ precede or follow maʿrifa in Shaykh Ibrāhīm's system?]",
       "confirmed": false
     },
     {
       "from": "sirr",
       "to": "fanāʾ",
       "relation": "PENDING",
-      "note": "[AK to confirm: is sirr the locus where fanāʾ occurs in Niasse's usage?]",
+      "note": "[AK to confirm: is sirr the locus where fanāʾ occurs in Shaykh Ibrāhīm's usage?]",
       "confirmed": false
     },
     {
@@ -227,7 +227,7 @@
       "from": "tawḥīd",
       "to": "fanāʾ",
       "relation": "PENDING",
-      "note": "[AK to confirm: Niasse L12 suggests tawḥīd ḥaqīqī is attained through fanāʾ]",
+      "note": "[AK to confirm: Shaykh Ibrāhīm L12 suggests tawḥīd ḥaqīqī is attained through fanāʾ]",
       "confirmed": false
     },
     {
@@ -271,7 +271,7 @@
         "tawḥīd al-khāṣṣa",
         "tawḥīd khāṣṣ al-khāṣṣa"
       ],
-      "source": "Niasse on tawḥīd for masses, elite, elite of elite",
+      "source": "Shaykh Ibrāhīm on tawḥīd for masses, elite, elite of elite",
       "confirmed": true
     }
   ]

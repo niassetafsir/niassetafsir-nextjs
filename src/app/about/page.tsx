@@ -57,7 +57,7 @@ export default async function AboutPage() {
           style={{ borderColor: 'rgba(138,109,31,0.25)' }}>
           <p className="font-english text-sm font-semibold" style={{ color: 'rgba(255,255,255,0.85)' }}>The Tafsīr</p>
           <p className="font-english text-xs mt-1 leading-5" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Niasse, the West African exegetical tradition, and the two commentaries he read alongside it
+            Shaykh Ibrāhīm, the West African exegetical tradition, and the two commentaries he read alongside it
           </p>
         </Link>
         <Link href="/translators-note"
@@ -126,7 +126,7 @@ export default async function AboutPage() {
             The Arabic text is drawn from the <strong className="text-white/85">revised ten-volume compiled
             edition</strong> of Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, who transcribed,
             verified, and annotated the tafsīr from the original cassette recordings of Shaykh Ibrāhīm
-            Niasse&apos;s oral delivery in Arabic in 1383 AH (c. 1963–64), with editorial corrections made
+            Shaykh Ibrāhīm&apos;s oral delivery in Arabic in 1383 AH (c. 1963–64), with editorial corrections made
             for this digital edition.
           </p>
           <p className="leading-6 mt-3">
@@ -191,7 +191,7 @@ export default async function AboutPage() {
           </p>
           <p className="leading-6 mt-3">
             The volumes do not reproduce those seven portions. A manzil divides the muṣḥaf for
-            reciting it; Niasse lectured straight through, so five of the seven manzil boundaries fall
+            reciting it; Shaykh Ibrāhīm lectured straight through, so five of the seven manzil boundaries fall
             inside a lesson. The lesson is this work&apos;s own unit and is kept whole, and each volume
             closes at the end of a sūra instead — that division belongs to the text being commented
             upon, and the commentary on a given sūra stays in one book. Six of the seven close that
@@ -226,7 +226,7 @@ export default async function AboutPage() {
             <strong className="text-white/85">Amadu Kunateh</strong> is a PhD candidate on the Committee
             on the Study of Religion at Harvard University. He conceived, built, and maintains this
             edition, and is its sole translator; the digitisation, proofreading, structural design and
-            scholarly annotation are his. The work belongs to doctoral research on Niasse&apos;s tafsīr
+            scholarly annotation are his. The work belongs to doctoral research on Shaykh Ibrāhīm&apos;s tafsīr
             conducted since 2022 across both the six-volume compilation and the revised ten-volume recension.
           </p>
           <p className="leading-6 mt-3">
@@ -238,10 +238,10 @@ export default async function AboutPage() {
             <Link href="/glossary" className="text-gold/70 hover:text-gold transition-colors">Technical Terms</Link>.
           </p>
           <p className="leading-6 mt-3">
-            A third, the Scholar Index, maps Niasse&apos;s intellectual interlocutors — the figures he names,
+            A third, the Scholar Index, maps Shaykh Ibrāhīm&apos;s intellectual interlocutors — the figures he names,
             invokes, and positions himself in relation to within his own oral commentary — as distinct from
             the compiler&apos;s documentation of his sources. It answers the question <em>with whom does
-            Niasse think?</em> No printed edition of this tafsīr undertakes that mapping. It is withheld from
+            Shaykh Ibrāhīm think?</em> No printed edition of this tafsīr undertakes that mapping. It is withheld from
             the site pending the companion article.
           </p>
           <p className="leading-6 mt-3">

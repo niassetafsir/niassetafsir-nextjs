@@ -20,11 +20,11 @@ import { editorNoteCount } from '@/lib/editorNotes';
 export const metadata: Metadata = {
   title: 'Editorial Conventions',
   description:
-    "Editorial principles for the digital edition of Niasse's tafsīr: digitisation, footnote markers, verse ranges, transliteration, honorifics, the Warsh rasm, and the translation choices.",
+    "Editorial principles for the digital edition of Shaykh Ibrāhīm's tafsīr: digitisation, footnote markers, verse ranges, transliteration, honorifics, the Warsh rasm, and the translation choices.",
   openGraph: {
     title: 'Editorial Conventions | niassetafsir.org',
     description:
-      "Editorial principles, digitisation methodology, and translation conventions for the digital edition of Niasse's tafsīr.",
+      "Editorial principles, digitisation methodology, and translation conventions for the digital edition of Shaykh Ibrāhīm's tafsīr.",
   },
 };
 
@@ -64,7 +64,7 @@ export default async function EditorialConventionsPage() {
           The present edition presents the Arabic text of <em>Fī Riyāḍ al-Tafsīr</em> in the Warsh ʿan
           Nāfiʿ rasm, the orthographic standard of North and West Africa in which the tafsīr was
           delivered, with an English translation. The English edition runs to seven volumes, a number
-          that answers to the seven manzils of the weekly recitation cycle Niasse practised and
+          that answers to the seven manzils of the weekly recitation cycle Shaykh Ibrāhīm practised and
           celebrated in verse — he enumerated the opening sūra of each manzil and invoked two of the
           Qurʾān&apos;s names, al-Furqān (the Criterion) and al-Jamʿ (the Joining):
         </p>
@@ -76,7 +76,7 @@ export default async function EditorialConventionsPage() {
         </blockquote>
         <p className="mb-3 text-justify">
           The volumes do not reproduce those seven portions, and it is worth saying why. A manzil
-          divides the muṣḥaf for reciting it over a week; Niasse lectured straight through, so five of
+          divides the muṣḥaf for reciting it over a week; Shaykh Ibrāhīm lectured straight through, so five of
           the seven manzil boundaries fall inside a lesson rather than between two, and honouring them
           would mean cutting a lesson in half. The lesson is this work&apos;s own unit and is kept
           whole. Each volume therefore closes at the end of a sūra — that division belongs to the text
@@ -98,7 +98,7 @@ export default async function EditorialConventionsPage() {
         <p className="mb-3 text-justify">
           The Arabic text was digitised from the printed ten-volume edition. The compiled edition
           presents the commentary as continuous Arabic prose with footnotes interspersed throughout each
-          lesson section. For readability, this edition separates the body text — Niasse&apos;s
+          lesson section. For readability, this edition separates the body text — Shaykh Ibrāhīm&apos;s
           commentary — from the footnote block, the compiler&apos;s documentary apparatus. The body text
           appears in the Shaykh&apos;s Tafsīr panel; the compiler&apos;s footnotes open from their markers in
           it, and are gathered under Citations on the same page.
@@ -114,7 +114,7 @@ export default async function EditorialConventionsPage() {
           <em>Maqāyīs al-lugha</em>, and Lane. Two limits are worth stating plainly rather than
           leaving to be inferred. The first is scope: roots are supplied for the Qurʾānic text only,
           from a morphologically annotated corpus, and a word with no underline is one this edition
-          is not offering to gloss. Niasse&apos;s own commentary carries no such annotation and is
+          is not offering to gloss. Shaykh Ibrāhīm&apos;s own commentary carries no such annotation and is
           deliberately untouched — automatic root extraction on unvocalised prose is accurate enough
           to be useful and not accurate enough for a critical edition. The second is authority: the
           digitised lexica name no printed edition, so the panel gives work and headword but never a
@@ -141,7 +141,7 @@ export default async function EditorialConventionsPage() {
           lessons is withheld while its inline markers are re-checked against the verified documents.
         </p>
         <p className="mb-3 text-justify">
-          The apparatus throughout preserves all of Niasse&apos;s original scholarly citations — to the
+          The apparatus throughout preserves all of Shaykh Ibrāhīm&apos;s original scholarly citations — to the
           hadith collections, to al-Suyūṭī&apos;s <em>al-Itqān</em>, to al-Ghazālī, to Ibn ʿArabī —
           traced to their canonical sources.
         </p>
@@ -151,10 +151,10 @@ export default async function EditorialConventionsPage() {
         </h2>
         <p className="mb-3 text-justify">
           Three people speak on a lesson page, and the edition keeps them apart. The commentary is
-          Niasse&apos;s. The footnotes are Muḥammad ibn al-Shaykh&apos;s, and they are documentary:
+          Shaykh Ibrāhīm&apos;s. The footnotes are Muḥammad ibn al-Shaykh&apos;s, and they are documentary:
           they record where a ḥadīth comes from, in which collection, at which number, on which page.
           The editor&apos;s notes are the present editor&apos;s, and they are interpretive: they place
-          a passage in the debate it addresses, name the position Niasse is answering, or identify a
+          a passage in the debate it addresses, name the position Shaykh Ibrāhīm is answering, or identify a
           source he alludes to without naming it.
         </p>
         <p className="mb-3 text-justify">
@@ -166,7 +166,7 @@ export default async function EditorialConventionsPage() {
         {noteCount === 0 && (
           <p className="mb-3 text-justify">
             No editor&apos;s note has been published yet. The apparatus and the machinery that keeps
-            the two voices apart are in place; what stands in the edition today is Niasse&apos;s
+            the two voices apart are in place; what stands in the edition today is Shaykh Ibrāhīm&apos;s
             commentary and the compiler&apos;s documentation, and nothing has been added to either.
           </p>
         )}
@@ -196,10 +196,10 @@ export default async function EditorialConventionsPage() {
         <p className="mb-3 text-justify">
           Three translation choices warrant explicit statement. First, the Basmala is rendered
           &ldquo;By Allāh&apos;s Name, The Entirely Merciful, The Especially Merciful,&rdquo; preserving
-          the theological distinction between al-Raḥmān and al-Raḥīm that Niasse himself elaborates at
+          the theological distinction between al-Raḥmān and al-Raḥīm that Shaykh Ibrāhīm himself elaborates at
           length. Second, <em>ʿabd</em> is translated &ldquo;slave&rdquo; throughout, as the more precise
           rendering of the term&apos;s theological weight — the relationship of complete ontological
-          submission that <em>ʿabd</em> carries in Niasse&apos;s usage. Third, <em>al-ḥamdu lillāh</em>{' '}
+          submission that <em>ʿabd</em> carries in Shaykh Ibrāhīm&apos;s usage. Third, <em>al-ḥamdu lillāh</em>{' '}
           is rendered as two words, &ldquo;al-ḥamdu lillāh (The Praise is for God),&rdquo; preserving
           both the Arabic formula and its syntactic structure.
         </p>

@@ -117,7 +117,7 @@ export const NAV: NavSection[] = [
     match: ['/about', '/editorial-note', '/translators-note', '/introduction', '/get-involved'],
     children: [
       { href: '/about', label: 'Manṭiq al-Fayḍa', hint: 'What the project collects, who makes it, how to cite it' },
-      { href: '/about/tafsir', label: 'The tafsīr', hint: 'Niasse, the tradition, and his two sources' },
+      { href: '/about/tafsir', label: 'The tafsīr', hint: 'Shaykh Ibrāhīm, the tradition, and his two sources' },
       { href: '/translators-note', label: 'Editorial conventions', hint: 'Transliteration, honorifics, rasm' },
       { href: '/get-involved', label: 'Get in touch', hint: 'Feedback, corrections, joining' },
     ],
