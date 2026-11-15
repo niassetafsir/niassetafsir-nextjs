@@ -250,9 +250,8 @@ export interface SearchResults {
 }
 
 const SHORT = 8;
-const LONG = 200;
 
-export async function siteSearch(raw: string, expand?: Section): Promise<SearchResults> {
+export async function siteSearch(raw: string, expand?: Section, page = 1): Promise<SearchResults> {
   const query = raw.trim().slice(0, 120);
   const empty: SearchResults = {
     query, verseRef: null, surah: null, verses: [], versesTotal: 0, topics: [], terms: [],
@@ -261,7 +260,11 @@ export async function siteSearch(raw: string, expand?: Section): Promise<SearchR
   if (!query) return empty;
 
   const arabic = isArabic(query);
-  const limit = (s: Section) => (expand === s ? LONG : SHORT);
+  // A section opened in full is read a page at a time (25), not as one list
+  // of up to 200: a long scroll on a phone and a heavy page on a data plan.
+  const PAGE = 25;
+  const from = (s: Section) => (expand === s ? (Math.max(1, page) - 1) * PAGE : 0);
+  const to = (s: Section) => (expand === s ? Math.max(1, page) * PAGE : SHORT);
 
   // A reference names one verse, and that is the whole answer.
   const ref = parseVerseRef(query);
@@ -297,9 +300,9 @@ export async function siteSearch(raw: string, expand?: Section): Promise<SearchR
   let tafsir: PassageHit[] = [];
   let tafsirTotal = 0;
   if (arabic) {
-    const r = await searchArabic(query, limit('tafsir'));
+    const r = await searchArabic(query, to('tafsir'));
     tafsirTotal = r.total;
-    tafsir = r.hits.map(h => ({
+    tafsir = r.hits.slice(from('tafsir')).map(h => ({
       source: `Lesson ${h.lessonId}`,
       where: h.lessonTitle || h.verseRange,
       snippet: h.snippet,
@@ -309,7 +312,7 @@ export async function siteSearch(raw: string, expand?: Section): Promise<SearchR
   } else {
     const paras = (await englishIndex()).filter(p => words.every(w => p.norm.includes(' ' + w)));
     tafsirTotal = paras.length;
-    tafsir = paras.slice(0, limit('tafsir')).map(p => ({
+    tafsir = paras.slice(from('tafsir'), to('tafsir')).map(p => ({
       source: `Lesson ${p.lessonId}`,
       where: p.title || p.range,
       snippet: excerpt(p.text, words, false),
@@ -334,14 +337,14 @@ export async function siteSearch(raw: string, expand?: Section): Promise<SearchR
   };
   const workMatches = passageMatches.filter(x => !x.student);
   const studentMatches = passageMatches.filter(x => x.student);
-  const works = workMatches.slice(0, limit('works')).map(toHit);
-  const students = studentMatches.slice(0, limit('students')).map(toHit);
+  const works = workMatches.slice(from('works'), to('works')).map(toHit);
+  const students = studentMatches.slice(from('students'), to('students')).map(toHit);
 
   return {
     query,
     verseRef: null,
     surah,
-    verses: verseMatches.slice(0, limit('verses')).map(toVerseHit),
+    verses: verseMatches.slice(from('verses'), to('verses')).map(toVerseHit),
     versesTotal: verseMatches.length,
     topics,
     terms,

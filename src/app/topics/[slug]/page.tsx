@@ -37,10 +37,13 @@ export default function TopicPage({ params }: { params: { slug: string } }) {
       </ul>
 
       <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-4">In his words</h2>
-      <ol className="space-y-8">
+      <ol className="space-y-4">
         {t.passages.map((p, i) => (
-          <li key={i} className="pt-5 border-t" style={{ borderColor: 'rgba(255,255,255,0.10)' }}>
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+          <li key={i} className="pt-4 border-t" style={{ borderColor: 'rgba(255,255,255,0.10)' }}>
+            {/* Each passage folds to its title, so the page reads as a list of
+                what he says before it reads as the passages themselves. */}
+            <details open={i === 0} className="group">
+            <summary className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2 cursor-pointer list-none">
               <h3 className="font-english text-[15.5px] font-semibold" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
                 <span className="text-gold">{i + 1}.</span> {p.title}
               </h3>
@@ -49,7 +52,8 @@ export default function TopicPage({ params }: { params: { slug: string } }) {
                 <Link href={`/lesson/${p.lesson}`} className="hover:text-gold underline-offset-2 hover:underline">Lesson {p.lesson}</Link> ·{' '}
                 <Link href={`/verse/${p.verse[0]}/${p.verse[1]}`} className="hover:text-gold underline-offset-2 hover:underline">Q {p.verse[0]}:{p.verse[1]}</Link>
               </span>
-            </div>
+              <span className="ml-auto font-english text-[13px] text-gold/70 transition-transform group-open:rotate-90">›</span>
+            </summary>
             <p className="font-arabic text-[19px] leading-[2] text-right mb-2" dir="rtl" lang="ar" translate="no"
               style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
               {p.ar}
@@ -58,6 +62,7 @@ export default function TopicPage({ params }: { params: { slug: string } }) {
             {p.note && (
               <p className="font-english text-[13px] italic leading-relaxed mt-2" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>{p.note}</p>
             )}
+            </details>
           </li>
         ))}
       </ol>

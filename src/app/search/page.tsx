@@ -51,7 +51,21 @@ function Hint({ children }: { children: React.ReactNode }) {
   return <p className="font-english text-[13px] mb-4" style={{ color: FAINT }}>{children}</p>;
 }
 
-function More({ q, section, shown, total, noun }: { q: string; section: Section; shown: number; total: number; noun: string }) {
+function More({ q, section, shown, total, noun, open, page }: { q: string; section: Section; shown: number; total: number; noun: string; open?: boolean; page?: number }) {
+  if (open) {
+    // The section is open: 25 to a page, with plain links back and forth.
+    const pages = Math.ceil(total / 25);
+    const p = page ?? 1;
+    if (pages <= 1) return null;
+    const href = (n: number) => `/search?q=${encodeURIComponent(q)}&show=${section}&page=${n}#${section}`;
+    return (
+      <div className="flex items-center gap-4 font-english text-sm mt-3" dir="ltr">
+        {p > 1 ? <Link href={href(p - 1)} style={{ color: GOLD }}>← Previous</Link> : <span />}
+        <span style={{ color: FAINT }}>Page {p} of {pages}</span>
+        {p < pages ? <Link href={href(p + 1)} style={{ color: GOLD }}>Next →</Link> : <span />}
+      </div>
+    );
+  }
   if (total <= shown) return null;
   return (
     <Link href={`/search?q=${encodeURIComponent(q)}&show=${section}#${section}`}
@@ -84,11 +98,12 @@ function Passage({ p }: { p: PassageHit }) {
 export default async function SearchPage({
   searchParams,
 }: {
-  searchParams: { q?: string; show?: string; mode?: string };
+  searchParams: { q?: string; show?: string; mode?: string; page?: string };
 }) {
   const q = (searchParams.q ?? '').trim();
   const show = (['verses', 'tafsir', 'works', 'students'] as const).find(s => s === searchParams.show);
-  const r = await siteSearch(q, show);
+  const page = Math.max(1, Number(searchParams.page) || 1);
+  const r = await siteSearch(q, show, page);
   if (r.verseRef) redirect(`/verse/${r.verseRef.surah}/${r.verseRef.ayah}`);
 
   // Search by meaning runs when the reader asks for it, or when the query reads
@@ -278,7 +293,7 @@ export default async function SearchPage({
               </li>
             ))}
           </ul>
-          <More q={q} section="verses" shown={r.verses.length} total={r.versesTotal} noun="verses" />
+          <More q={q} section="verses" shown={r.verses.length} total={r.versesTotal} noun="verses" open={show === "verses"} page={page} />
         </section>
       )}
 
@@ -351,7 +366,7 @@ export default async function SearchPage({
                 In Fī Riyāḍ al-Tafsīr <span className="normal-case tracking-normal font-normal tabular-nums" style={{ color: FAINT }}>· {r.tafsirTotal}</span>
               </h3>
               <ul className="space-y-2">{r.tafsir.map((p, i) => <Passage key={i} p={p} />)}</ul>
-              <More q={q} section="tafsir" shown={r.tafsir.length} total={r.tafsirTotal} noun="passages in the tafsīr" />
+              <More q={q} section="tafsir" shown={r.tafsir.length} total={r.tafsirTotal} noun="passages in the tafsīr" open={show === "tafsir"} page={page} />
             </div>
           )}
 
@@ -361,7 +376,7 @@ export default async function SearchPage({
                 Beyond Fī Riyāḍ al-Tafsīr <span className="normal-case tracking-normal font-normal tabular-nums" style={{ color: FAINT }}>· {r.worksTotal}</span>
               </h3>
               <ul className="space-y-2">{r.works.map((p, i) => <Passage key={i} p={p} />)}</ul>
-              <More q={q} section="works" shown={r.works.length} total={r.worksTotal} noun="passages beyond Fī Riyāḍ al-Tafsīr" />
+              <More q={q} section="works" shown={r.works.length} total={r.worksTotal} noun="passages beyond Fī Riyāḍ al-Tafsīr" open={show === "works"} page={page} />
             </div>
           )}
 
@@ -374,7 +389,7 @@ export default async function SearchPage({
           <SectionHead id="students" label="Commentaries of his students" count={r.studentsTotal} />
           <Hint>How scholars of the Fayḍa who learned from him explain the same verses. These are their words, not his.</Hint>
           <ul className="space-y-2">{r.students.map((p, i) => <Passage key={i} p={p} />)}</ul>
-          <More q={q} section="students" shown={r.students.length} total={r.studentsTotal} noun="passages by his students" />
+          <More q={q} section="students" shown={r.students.length} total={r.studentsTotal} noun="passages by his students" open={show === "students"} page={page} />
         </section>
       )}
 

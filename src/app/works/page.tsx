@@ -3,6 +3,7 @@ import { workSummaries, workEntries } from '@/lib/corpus';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { shortTitle } from '@/components/VerseLocusCard';
 import WorksTabs from '@/components/WorksTabs';
+import SuraJump from '@/components/SuraJump';
 import { KIND_OF, KIND_ORDER } from '@/lib/homeShowcase';
 
 export const metadata = {
@@ -69,18 +70,24 @@ export default function WorksPage() {
         bySura={
         <div>
           <p className="font-english text-[12.5px] mb-4" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-            {verseCount} verses in {suras.length} sūras. Each opens its verse page.
+            {verseCount} verses in {suras.length} sūras. Open a sūra to see its verses; each opens its verse page.
           </p>
-          <div className="space-y-5">
+          <SuraJump suras={suras.map(s => ({ id: s.id, name: s.nameEn, count: s.verses.length }))} />
+          <div className="divide-y" style={{ borderColor: 'rgba(201,168,76,0.18)' }}>
             {suras.map(s => (
-              <section key={s.id}>
-                <h2 className="font-english text-[13px] font-semibold mb-1.5 flex items-baseline gap-2"
+              <details key={s.id} id={`sura-${s.id}`} className="group py-1 scroll-mt-24">
+                <summary className="flex items-baseline gap-2 py-2 cursor-pointer list-none font-english text-[14px]"
                   style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
-                  <span className="text-gold/70 tabular-nums">{s.id}</span> Sūrat {s.nameEn}
-                  <span className="font-arabic text-[14px] font-normal" dir="rtl" translate="no"
+                  <span className="text-gold/70 tabular-nums w-7 shrink-0">{s.id}</span>
+                  <span className="font-semibold">Sūrat {s.nameEn}</span>
+                  <span className="font-arabic text-[14px]" dir="rtl" translate="no"
                     style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>{s.nameAr}</span>
-                </h2>
-                <ul className="border-l pl-3 space-y-1" style={{ borderColor: 'rgba(201,168,76,0.25)' }}>
+                  <span className="ml-auto text-[12px] tabular-nums" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
+                    {s.verses.length} {s.verses.length === 1 ? 'verse' : 'verses'}
+                    <span className="inline-block ml-2 transition-transform group-open:rotate-90">›</span>
+                  </span>
+                </summary>
+                <ul className="border-l pl-3 ml-7 mb-3 space-y-1" style={{ borderColor: 'rgba(201,168,76,0.25)' }}>
                   {s.verses.map(v => (
                     <li key={v.ayah} className="font-english text-[13px] leading-relaxed">
                       <Link href={`/verse/${v.surah}/${v.ayah}`} className="font-semibold text-gold/90 hover:text-gold hover:underline tabular-nums">
@@ -92,7 +99,7 @@ export default function WorksPage() {
                     </li>
                   ))}
                 </ul>
-              </section>
+              </details>
             ))}
           </div>
         </div>

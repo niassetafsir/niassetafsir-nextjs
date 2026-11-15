@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { SURAH_LIST } from '@/lib/verseRanges';
+import SuraJump from '@/components/SuraJump';
 import { getWork, workEntries, workSummaries, VOICE_LABEL } from '@/lib/corpus';
 
 export function generateStaticParams() {
@@ -88,7 +90,38 @@ export default function WorkPage({ params }: { params: { id: string } }) {
       <p className="font-english text-[12.5px] italic mb-3" style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
         In Qurʾānic order.
       </p>
-      <ul className="mb-12">{rows.map(r => <Row key={`${r.e.locus.id}-${r.refs[0]}`} e={r.e} refs={r.refs} />)}</ul>
+      {(() => {
+        // Grouped by sūra and folded, so a long book is a short page on a
+        // phone: open the sūra you want. A short book is shown open.
+        const groups = new Map<number, typeof rows>();
+        for (const r of rows) {
+          const g = groups.get(r.e.surah) ?? [];
+          g.push(r); groups.set(r.e.surah, g);
+        }
+        const openAll = rows.length <= 12;
+        const list = Array.from(groups.entries()).map(([id, g]) => ({ meta: SURAH_LIST.find(x => x.id === id)!, g }));
+        return (
+          <>
+            {!openAll && <SuraJump suras={list.map(({ meta, g }) => ({ id: meta.id, name: meta.nameEn, count: g.length }))} />}
+            <div className="mb-12 divide-y" style={{ borderColor: 'rgba(201,168,76,0.18)' }}>
+              {list.map(({ meta, g }) => (
+                <details key={meta.id} id={`sura-${meta.id}`} open={openAll} className="group scroll-mt-24">
+                  <summary className="flex items-baseline gap-2 py-2.5 cursor-pointer list-none font-english text-[14px]"
+                    style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
+                    <span className="text-gold/70 tabular-nums w-7 shrink-0">{meta.id}</span>
+                    <span className="font-semibold">Sūrat {meta.nameEn}</span>
+                    <span className="ml-auto text-[12px] tabular-nums" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
+                      {g.length}
+                      <span className="inline-block ml-2 transition-transform group-open:rotate-90">›</span>
+                    </span>
+                  </summary>
+                  <ul>{g.map(r => <Row key={`${r.e.locus.id}-${r.refs[0]}`} e={r.e} refs={r.refs} />)}</ul>
+                </details>
+              ))}
+            </div>
+          </>
+        );
+      })()}
     </main>
   );
 }

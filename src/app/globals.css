@@ -1346,3 +1346,6 @@ input.site-search-input,
   border: 0 !important;
   box-shadow: none !important;
 }
+
+/* Collapsible sūra lists: the arrow is drawn in the summary itself. */
+summary::-webkit-details-marker { display: none; }
