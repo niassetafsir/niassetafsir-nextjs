@@ -1,0 +1,2269 @@
+{
+ "loci": [
+  {
+   "id": "rihlat-001",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 18 (PDF 22)"
+   },
+   "textAr": "ولو تكلّفت لجئت لكل عمل عملته بدليله من السنة ، وما توفيقى إلّا بالله",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Opening of al-Riḥla al-Ḥijāziyya al-ūlā (1355): he says he could cite a Sunna proof for every act, then closes the preface with Shuʿayb's formula.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-002",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 18 (PDF 22)"
+   },
+   "textAr": "وصليت ركعتين يوم الخميس التاسع من شوال بالتاريخ صدره وقرأت فى الأولى الفاتحة وقل يأيها الكافرون وفى الثانية الفاتحة والإخلاص ، وإن وردت رواية أنهما بالفلق والناس",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Departure rites, Thursday 9 Shawwāl: he names the suras he recited in the two-rakʿa travel prayer and notes the variant report prescribing al-Falaq and al-Nās.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-003",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 18 (PDF 22)"
+   },
+   "textAr": "وسلّمت وقرأت آية الكرسى وسورة لإيلاف قريش ودعوت بالدعاء الوارد",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "After the travel prayer he recited Āyat al-Kursī and Sūrat Quraysh (traditionally read for safety on journeys), then the travel supplication.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-004",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 19 (PDF 23)"
+   },
+   "textAr": "وارزقنى من الخير أكثر ممّا أطلب واصرف عنّى كلّ شرّ، ربّ اشرح لى صدرى ويسّر لى أمرى",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "The travel supplication he recited after the prayer includes Mūsā's prayer for an opened breast and an easy task.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-006",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 19 (PDF 23)"
+   },
+   "textAr": "وحين استويت على ظهره قلت : \"سبحان الذى سخّر لنا هذا وما كنّا له مقرنين وإنّا إلى ربّنا لمنقلبون\"",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Mounting his horse to leave Kaolack, he recites the riding verse, which the Qur'an itself prescribes for when one is settled on the mount's back ('litastawū ʿalā ẓuhūrihi').",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-007",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 19 (PDF 23)"
+   },
+   "textAr": "\"سبحانك اللّهمّ إنّى ظلمت نفسى فاغفر لى إنّه لا يغفر الذنوب إلّا أنت\"",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Riding supplication after the takbīr: it combines Mūsā's 'rabbi innī ẓalamtu nafsī fa-ghfir lī' with 'wa-man yaghfiru l-dhunūba illā llāh'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-010",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 20 (PDF 25)"
+   },
+   "textAr": "وركبت البابور وقلت : ﴿بسم الله مجراها ومرساها إن ربّى لغفور رحيم﴾ ﴿وما قدروا الله حقّ قدره﴾ الآية",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Boarding the train (al-bābūr) from Kaolack to Dakar, he recites Nūḥ's embarkation verse and 'wa-mā qadarū llāha ḥaqqa qadrih', the pair recommended in hadith as protection from drowning.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-011",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 21 (PDF 26)"
+   },
+   "textAr": "دخلنا فى الباخرة المسماة بـ (كنادا) وقت الزوال وقرأنا هناك الآى المتقدمة أعنى قوله تعالى : ﴿وقل اركبوا فيها بسم الله مجراها ومرساها إنّ ربّى لغفور رحيم﴾ ﴿وما قدروا الله حقّ قدره﴾ الآية",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Wednesday mid-Shawwāl (30 December), boarding the steamer Canada at Dakar, he repeats the embarkation verses, now with the opening of 11:41.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-012",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 21 (PDF 26)"
+   },
+   "textAr": "« اللّهمّ لك الحمد ، ذهبت عن جميع أحبابى وذهبوا عنّى ، قاصدا إليك والفضل والمنّة لك ، اللّهمّ تقبّل منّا إنّك أنت السميع العليم »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "As the ship leaves Dakar for Casablanca, a supplication 'comes to him' (warada ʿalayya); it closes with Ibrāhīm and Ismāʿīl's prayer at the Kaʿba ('rabbanā taqabbal minnā ...'), fitting a journey to the House.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-013",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 21 (PDF 26)"
+   },
+   "textAr": "فرأيت رجالا حسان الوجوه لم أعرف منهم إلّا الشيخ التجانى رضي الله عنه ووالدى رحمه الله تعالى عليه ، فشبك أصابعه بأصابعى وقال : اقرأ : ﴿إنّ الله لا يستحيى﴾ إلى آخر ﴿وإذ أنجيناكم﴾ فقرأت إلى حزب ﴿وإذا لقوا﴾",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Seasick on Friday at sea, he dreams of handsome men, among them al-Tijānī and his father. Al-Tijānī interlaces fingers with him and orders him to recite from 'inna llāha lā yastaḥyī' (2:26); he recites up to the ḥizb marker 'wa-idhā laqū' (2:76).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-014",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 22 (PDF 27)"
+   },
+   "textAr": "ولم نزل بحمد الله نسير فى صحّة وعافية ونعم من الله ضافية والبحر رهوّ والجوّ صحوّ إلى أن ألقت كنادا مراسيها بلسبا لمّاس عاصمة إسبانيا",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Voyage on the Canada: after the dream the sea was 'rahw' (calm), the Qur'anic hapax from 'wa-truki l-baḥra rahwan', until the ship anchored at Las Palmas.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-015",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 24 (PDF 30)"
+   },
+   "textAr": "السلام عليك يا من هدى الله بك العباد ، وأصلح البلاد . وهدى بك إلى سبيل الرشاد",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Fez, visiting al-Tijānī's tomb: his salutations to the 'hidden pole' include 'he through whom God guided to the path of right conduct' (cf. 'ahdikum sabīla l-rashād').",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-016",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 24 (PDF 30)"
+   },
+   "textAr": "السلام عليك منّى ومن والدى وما ولد ومن أصحابى وأهلى وأولادى ومن تعلّق بنا",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Same salutation at al-Tijānī's tomb: he greets on behalf of 'my father and what he begot', echoing 'wa-wālidin wa-mā walad'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-018",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 28 (PDF 34)"
+   },
+   "textAr": "ودعونا الله عنده وفاضت العينان بالدموع وغلبنى البكاء حتى دهشت",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Farewell visit to al-Tijānī's tomb after reciting his creed: his eyes overflowed with tears (cf. 'tarā aʿyunahum tafīḍu mina l-damʿ').",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-020",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 30 (PDF 36)"
+   },
+   "textAr": "وركبنا فيها قبيل الغروب ليلة الخميس لليلة بقيت من شوّال فقلت : بسم الله مجراها ومرساها ، وسخّر الله لنا هذا البحر العظيم ذا الخطر الجسيم فلا ميد ولا تهويم",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Boarding the English steamer Hoult at Tangier for Jeddah: he recites 11:41 and adds that God subjected this great sea to them (cf. 'allāhu lladhī sakhkhara lakumu l-baḥr', 'subḥāna lladhī sakhkhara lanā hādhā'), so there was no pitching.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-021",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 33 (PDF 40)"
+   },
+   "textAr": "وعملنا بمقتضى آية ﴿يأيها الذين آمنوا إذا ناجيتم الرسول..﴾ وإن كانت منسوخة لأنها إنما نسخ وجوبها",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Medina, at the Prophet's grave (Bāb al-Muwājaha): he gives charity before greeting the Prophet under the verse of the najwā. The verse is abrogated, but only its obligation was abrogated, so acting on it remains recommended.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-022",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 34 (PDF 41)"
+   },
+   "textAr": "ثم قلنا ما قال الله تعالى ﴿ولو أنهم إذ ظلموا أنفسهم جاءوك فاستغفروا الله واستغفر لهم الرسول لوجدوا الله توّابا رحيما﴾",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Medina, at the grave after greeting the Prophet and the caliphs: he recites the verse of coming to the Prophet to seek forgiveness, the standard ziyāra verse, and applies it to his own visit.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-023",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 34 (PDF 41)"
+   },
+   "textAr": "ودعونا لأنفسنا ولوالدينا وإخواننا والمتعلّقين بنا ولجميع المؤمنين والمؤمنات والمسلمين والمسلمات",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "At the grave in Medina he prays for himself, his parents and all believers, following Nūḥ's prayer 'rabbi ghfir lī wa-li-wālidayya ... wa-li-l-muʾminīna wa-l-muʾmināt'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-024",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 34 (PDF 41)"
+   },
+   "textAr": "والقائمين الركّع السجود * من ابتدا وآخر الوجود",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Rajaz supplication composed at the grave: he invokes God by the Prophet, the Ḥujra, the Rawḍa and 'those who stand, bow and prostrate', the phrase from the command to Ibrāhīm to purify the House.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-025",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 34 (PDF 41)"
+   },
+   "textAr": "وأحد وشهداء أحده * وآل بيت راكعين سجّد",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Same supplication poem: the Prophet's household 'bowing, prostrating', echoing 'tarāhum rukkaʿan sujjadan'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-026",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 34 (PDF 41)"
+   },
+   "textAr": "وأعط ذا العبيد ما يروم * بل أعطينه فوق ما يسوم / واغفر له ربّ ووالديه * ونسله ومن نمى إليه",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Same poem: he asks forgiveness for himself and his parents, following 'rabbi ghfir lī wa-li-wālidayya'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-027",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 35 (PDF 42)"
+   },
+   "textAr": "ولتعلين كلمة الإسلام * ألّف قلوب أهله الأعلام",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Same supplication poem: 'unite the hearts of its people' (cf. 'wa-allafa bayna qulūbihim').",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-028",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 35 (PDF 42)"
+   },
+   "textAr": "فى كلّ أقطار البلاد يا لطيف * ولتعلين كلمة الإسلام",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Same poem: he asks that 'the word of Islam be raised high', echoing 'wa-kalimatu llāhi hiya l-ʿulyā'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-033",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 35 (PDF 42)"
+   },
+   "textAr": "ومكّن الإيمان والإحسانا * ونجّنا البأساء والضرّاء",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Same poem: 'save us from hardship and affliction', using the Qur'anic pair al-baʾsāʾ wa-l-ḍarrāʾ.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-034",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 36 (PDF 43)"
+   },
+   "textAr": "وفيها رأينا طاقة الكشف التى انكشفت له منها الكعبة حين أراد تحويل القبلة ، ومبرك الناقة ، ومحلّ نزول الآية ، كلّ ذلك معلم",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Visiting Qubāʾ: he sees the window through which the Kaʿba was disclosed to the Prophet when the qibla was changed, and 'the place where the verse was revealed', meaning the qibla verse 'qad narā taqalluba wajhika fī l-samāʾ'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-037",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 45 (PDF 53)"
+   },
+   "textAr": "وجعلنا ذلك يوم الثلاثاء وهو اليوم الثاني فتعجّل المتعجّلون وبقينا نحن بلا تعجّل ولله الحمد",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Ḥijāz riḥla, Minā: on the second of the tashrīq days others left early; Niasse stayed, using the vocabulary of 'fa-man taʿajjala fī yawmayn ... wa-man taʾakhkhara'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-038",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 45 (PDF 53)"
+   },
+   "textAr": "وزرنا مغارة جلس فيها النبيّ ﷺ وأنزلت عليه سورة المرسلات فيها، ومسجداً نزلت فيه سورة الكوثر، ومحلّ نزول الكبش الذي فدي به إسماعيل",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Ḥijāz riḥla, Minā: sites visited, including the place where the ram 'by which Ismāʿīl was ransomed' came down.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-039",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 46 (PDF 54)"
+   },
+   "textAr": "جازاهما الله خيراً وجازى سلطان كنو، سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ .",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Ḥijāz riḥla, Mecca: thanking his companions (al-Ḥājj Maʿbad, al-Amīn b. Abī Bakr) and the Emir of Kano for their service, he closes with the travel verse.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-040",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 46 (PDF 54)"
+   },
+   "textAr": "والحمد لله الذى أرانا مناسكنا، والحمد لله الذى هدانا لهذا وما كنا لنهتدى لولا أن هدانا الله، وإن تعدّوا نعمة الله لا تحصوها .",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Ḥijāz riḥla, Mecca: after completing the ʿumra from al-Tanʿīm and all the manāsik, he gives thanks in Qur'anic phrases.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-043",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 51 (PDF 59)"
+   },
+   "textAr": "أراني بطور اليوم صرت مقيماً ⊛ أفوز بسرٍّ جاء فيه كليما",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Ḥijāz riḥla, return voyage: at the quarantine of al-Ṭūr (Sinai) he hopes to win the secret that Mūsā the Interlocutor received there.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-046",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 64 (PDF 72)"
+   },
+   "textAr": "- وعدم لباس حلة الأمن من مكر الله تعالى .",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "'Ḥikāya': listing the conditions of the Tijāniyya for questioners, Niasse includes not feeling safe from God's ruse.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-047",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 65 (PDF 73)"
+   },
+   "textAr": "وهى من عرف معانى القرآن ظاهراً وألقى سمعه عند تلاوته كأنّه يسمعه من الله يقصه عليه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad al-Tijānī in ʿAlī Ḥarāzim, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "rihlat-048",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 66 (PDF 74)"
+   },
+   "textAr": "يشهد له قوله سبحانه وتعالى : ﴿ ومن أظلم ممّن ذكّر بآيات ربّه ﴾ إلى قوله ﴿ فلن يهتدوا إذاً أبداً ﴾",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad al-Tijānī in ʿAlī Ḥarāzim, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "rihlat-049",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 66 (PDF 74)"
+   },
+   "textAr": "وقوله سبحانه وتعالى ﴿ ويلٌ لكلّ أفّاكٍ أثيم ﴾ إلى قوله ﴿ ولهم عذابٌ عظيم ﴾",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad al-Tijānī in ʿAlī Ḥarāzim, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "rihlat-050",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 66 (PDF 74)"
+   },
+   "textAr": "وقوله تعالى ﴿ قل يا أهل الكتاب لستم على شئٍ حتّى تقيموا التوراة والإنجيل ﴾ الآية",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad al-Tijānī in ʿAlī Ḥarāzim, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "rihlat-051",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 66 (PDF 74)"
+   },
+   "textAr": "وكلّ من يحفظ القرآن ولم يتمّ بحدوده فقد اتّخذه هزؤاً . وقال الله تعالى ﴿ وإذا طلّقتم النساء فبلغن أجلهنّ ﴾ إلى قوله ﴿ ولا تتّخذوا آيات الله هزواً ﴾",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad al-Tijānī in ʿAlī Ḥarāzim, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "rihlat-052",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 67 (PDF 75)"
+   },
+   "textAr": "وأراد ﷺ أن يصدق عليهم الوعيد الذى فى الآية، قال تعالى : ﴿ أفتؤمنون ببعض الكتاب وتكفرون ببعض ﴾ إلى قوله ﴿ أشدّ العذاب ﴾",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad al-Tijānī in ʿAlī Ḥarāzim, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "rihlat-053",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 67 (PDF 75)"
+   },
+   "textAr": "وقوله سبحانه وتعالى ﴿ ومن أعرض عن ذكرى ... ﴾ إلى قوله ﴿ وكذلك اليوم تنسى ﴾ فمن ترك العمل بالقرآن فقد نسيه والوعيد ثابت عليه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad al-Tijānī in ʿAlī Ḥarāzim, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "rihlat-054",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 68 (PDF 76)"
+   },
+   "textAr": "فكلّ من صلّى عليه ربّه وصلّت عليه الملائكة فهو من أهل السعادة",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad al-Tijānī in ʿAlī Ḥarāzim, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "rihlat-055",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 72 (PDF 80)"
+   },
+   "textAr": "القاعدة العشرون التفضيل باختيار الربّ تعالى لمن يشاء على من يشاء ولما يشاء على ما يشاء ... وكاختصاص سليمان عليه السلام بالملك العظيم ، ونوح عليه السلام بتعمير المئين من السنين ، وآدم عليه السلام بكونه أبا البشر",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Qarāfī, al-Furūq"
+  },
+  {
+   "id": "rihlat-056",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 73 (PDF 81)"
+   },
+   "textAr": "فإن قيل أيّهما أفضل قراءة (تبت) أم سورة (الكافرون) أو الإشتغال بالباقيات الصالحات وهى : سبحان الله والحمد لله ولا إله إلا الله والله أكبر ولا حول ولا قوّة إلا بالله العلىّ العظيم ، مع أنّ الباقيات الصالحات متعلّقة بالله وهى ثناء عليه ، و(تبّت) متعلّقة بأبى لهب و(الكافرون) بالكفار",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "ʿIzz al-Dīn b. ʿAbd al-Salām, Qawāʿid al-aḥkām"
+  },
+  {
+   "id": "rihlat-057",
+   "witnessId": "rihla-hijaziyya-majmu",
+   "address": {
+    "raw": "p. 77 (PDF 85)"
+   },
+   "textAr": "رزقنا الله وسائر أحبابنا الصدق فى العبودية والقيام بحقوق الربوبية، والعود الى الحرمين الشريفين المرّة بعد المرّة ويتولانا ويتولاهم فهو يتولّى الصالحين .",
+   "transcriptionStatus": "draft",
+   "voice": "uncertain",
+   "textEn": "End of the Ḥijāz riḥla: closing prayer for return to the two Ḥarams, ending with 7:196.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-058",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 80 (PDF 90)"
+   },
+   "textAr": "حمدًا لمن علّمنا في البقره ... أحكام حجّ البيت حين ذكره",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Opening line of Nayl al-mafāz: he praises God for teaching the rules of the ḥajj in Sūrat al-Baqara, setting the poem up as a ḥajj journey.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-059",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 80 (PDF 90)"
+   },
+   "textAr": "وآله القادة للأخيار ... ما كوّر الليل على النهار",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Opening taṣliya of Nayl al-mafāz: blessings on the Prophet's family 'as long as the night is wrapped over the day'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-061",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 83 (PDF 93)"
+   },
+   "textAr": "طرنا إلى لغوس نتلوا الذكرا ... سبحان من أنزله من أسرى / بعبده ليلًا من الحرام ... للمسجد الأقصى بلا منام",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Section السفر إلى لغوس: flying to Lagos reciting the dhikr, he glorifies the One who sent it down, who carried His servant by night from the Sacred Mosque to the Furthest Mosque.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-064",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 88 (PDF 98)"
+   },
+   "textAr": "وجئتُ قصرَ الرّوم إنّ الرّوما ... قد غُلبت وعوض لن تقوما",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Section السفر من كنو إلى روما: arriving in Rome (seat of the Pope) he says Rome 'has been defeated' and will never rise again.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-067",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 90 (PDF 100)"
+   },
+   "textAr": "وقد سعيتُ من صفا لمروه ... معي الجماعة أنلت الخلوه",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Section الوصول إلى مكة: he performs the saʿy between al-Ṣafā and al-Marwa with his group.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-070",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 91 (PDF 101)"
+   },
+   "textAr": "وجدتُ أنسًا وتقضّى المجلس ... وفيه كلّ ما اشتهته الأنفس",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "In Mecca, describing a gathering with al-ʿAlawī/al-Kattānī hosts: the session held 'all that souls desire', borrowing the description of Paradise.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-071",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 92 (PDF 102)"
+   },
+   "textAr": "نزل ربّي ليباهي الملا ... بملإ الحجّ وحين نزلا / قال أفيضوا فالذنوب غُفرت ... لكلّكم كذا العيوب سُترت",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Section الوقوف بعرفه: versifying the ḥadīth of God descending on ʿArafa to boast of the pilgrims ('shuʿthan ghubran'), he has God say 'Pour forth, your sins are forgiven'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-072",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 93 (PDF 103)"
+   },
+   "textAr": "ودُكّت الجبال إذ ناجيتُ ... وجئتُه وإنّني ما جئتُ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Still at ʿArafa: in intimate converse with God the mountains 'were crushed', casting his experience in terms of Moses at Sinai (جعله دكا).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-076",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 95 (PDF 105)"
+   },
+   "textAr": "عليه صلّى الله ربّه الكريم ... مقدار قدره وخلقه العظيم",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Section العمرة بعد الحج: closing taṣliya on the Prophet 'in the measure of his rank and his mighty character'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-077",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 98 (PDF 108)"
+   },
+   "textAr": "والضّعفاء ما عليهم حرج ... أحرى متى عن حسّهم قد خرجوا",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "In Medina he explains why he neither fasted nor prayed his vowed devotions: the weak bear no blame, still less those taken out of their senses (by the encounter with the Prophet); he will make them up at home.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-078",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 98 (PDF 108)"
+   },
+   "textAr": "ودُكّ طوري ثمّ إذ ناجاني ... فصرتُ موسى وهو قد صافاني",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "At the Prophet's tomb in Medina: 'my mountain was crushed when He spoke to me in confidence, and I became Moses', modelling his visit on Moses at Sinai.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-079",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 99 (PDF 109)"
+   },
+   "textAr": "لم يبق للمرض عين أو أثر ... سبحان من يبعث في لمح البصر",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Section الرجوع إلى جدة: his illness vanishes overnight; he glorifies God who acts 'in the twinkling of an eye'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-080",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 101 (PDF 111)"
+   },
+   "textAr": "عاشوا معافين جميعًا بكنو ... وبعد ذا في علّيّين سكنوا",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Section السفر من كنو إلى كولخ: prayer that his Kano companions live in health and then dwell in ʿIlliyyūn.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-081",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 101 (PDF 111)"
+   },
+   "textAr": "ركبتُ آئبًا لربّي تائبا ... إلى بلادي راغبًا وراهبا",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Leaving Kano for Kaolack he travels home 'returning, repenting', in hope and fear.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-082",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 102 (PDF 112)"
+   },
+   "textAr": "رأيتُ صالحًا وجا العبّاس ... وجاءني من كلّ فجّ ناس",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Section المرور بلغوس آئبا: people come to him in Lagos 'from every mountain pass', the phrase used of pilgrims coming to the House.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-083",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 102 (PDF 112)"
+   },
+   "textAr": "جاءوا إلى الدّخول في الطّريقه ... فوجًا وفوجًا أسلموا حقيقه",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Section الوصول لأنكرا (Accra): people enter the Tijāniyya in troops, recasting entry into the ṭarīqa as entry into the dīn.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-084",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 104 (PDF 114)"
+   },
+   "textAr": "كذا نساءٌ مسلماتٌ مؤمناتْ ... وطيّباتٌ حافظاتٌ ذاكراتْ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Closing prayer of Nayl al-mafāz: may God gather him, his men, and his women followers with Ibn Sālim (al-Tijānī).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-085",
+   "witnessId": "nayl-al-mafaz-majmu",
+   "address": {
+    "raw": "p. 104 (PDF 114)"
+   },
+   "textAr": "وجاه جدّه النّبي إلياس ... خير الأنام مهلك الخنّاس / عليه صلّى الله بالإيناس ... والآل والصّحب شفا الوسواس",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Final lines of Nayl al-mafāz: the Prophet as 'destroyer of the slinking one', and his family and Companions as 'the cure of the whisperer'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-087",
+   "witnessId": "rihla-ghannariyya-majmu",
+   "address": {
+    "raw": "p. 109 (PDF 120)"
+   },
+   "textAr": "لكنّما النّساء إن أقمنا ... وسط الخباء الدّهر لم يُلمنا / وقرن في بيوتكنّ نزلا ... في عصره الطّيب قول من علا / ... فسودةٌ بقت إلى الموت فما ... حجّت ولا غزت وأبدت حكما",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Kanāriyya: after naming Maryam, her sister and Zaynab, he says women who stay in their tents are blameless, citing God's word 'And stay in your houses', revealed in the Prophet's time, and Sawda's never travelling again.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-090",
+   "witnessId": "rihla-ghannariyya-majmu",
+   "address": {
+    "raw": "p. 112 (PDF 123)"
+   },
+   "textAr": "أسأله التّوفيق لي ولكم ... فلا عمًى أو صممٌ أو بكم",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Kanāriyya, his counsel to the brethren at the graves to hold to dhikr and the sunna: he asks for success so that none be blind, deaf or dumb.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-093",
+   "witnessId": "rihla-ghannariyya-majmu",
+   "address": {
+    "raw": "p. 119 (PDF 129)"
+   },
+   "textAr": "رجعتُ بعد ذاك للجرّار ... وفيضه كالصّيّب المدرار",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Kanāriyya: returning to al-Jarrār, whose (the shaykh's) outpouring is 'like an abundant rain-cloud'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-096",
+   "witnessId": "rihla-ghannariyya-majmu",
+   "address": {
+    "raw": "p. 126 (PDF 138)"
+   },
+   "textAr": "أَسْأَلُهُ مِنْ فَضْلِهِ الْعَظِيمِ ... وَبِاسْمِهِ اللَّطِيفِ وَالْكَرِيمِ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Sierra Leone section: he prays that the Tijānī fayḍa spread over the land, asking God 'of His bounty'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-097",
+   "witnessId": "rihla-ghannariyya-majmu",
+   "address": {
+    "raw": "p. 127 (PDF 139)"
+   },
+   "textAr": "وَدَخَلَ الْأَفْواجُ فِي الطَّرِيقَهْ ... وَوَجَدُوا الْخَيْرَ عَلَى الْحَقِيقَهْ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Sierra Leone section: after he preached the kalimat al-tawḥīd, people entered the Tarīqa in throngs, echoing people entering God's religion afwājan.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-100",
+   "witnessId": "rihla-ghannariyya-majmu",
+   "address": {
+    "raw": "p. 129 (PDF 141)"
+   },
+   "textAr": "قَوّانِي الْمَنّانُ فِي الْأَسْفارِ ... فَلَسْتُ مُحْتاجًا إِلَى إِفْطارِ / فِي رَمَضانَ غائِبًا وَحاضِرا ... وَإِنْ مَرِضْتُ أَوْ أَجِدْ سائِرا",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Return to Kamash, Sierra Leone: God strengthens him so he does not need the concession to break the Ramadan fast, whether resident, travelling or ill — the dispensation of 2:184–185 that he declines to use.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-103",
+   "witnessId": "rihla-ghannariyya-majmu",
+   "address": {
+    "raw": "p. 133 (PDF 145)"
+   },
+   "textAr": "رَجَعْتُ مِنْ أَنْكَرا لِلْعِيالِ ... لَوْلاهُمُ اتَّسَعَ لِي مَجالِي / لِخِدْمَةِ الْإِسْلامِ، إِنَّ يَوْمًا ... فِي الْقُطْرِ ذا كَأَلْفٍ، خَلِّ اللَّوْما",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Leaving Sierra Leone: he returned from Ankara(?) for his family's sake; otherwise he would stay to serve Islam, for one day in this country is like a thousand — reworking 'inna yawman ʿinda rabbika ka-alfi sana'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-107",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "PDF p. 148"
+   },
+   "textAr": "الحمد لله وكفى وسلام على عباده الذين اصطفى",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Opening of the prose preface to Nafaḥāt al-Malik al-Ghanī (Conakry/Bamako journey, Dhū al-Ḥijja 1366).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-108",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 138 (PDF 149)"
+   },
+   "textAr": "حَمْدًا لِمَنْ فِي ذِكْرِهِ قُلْ سِيرُوا ... فِي الْأَرْضِ مَنْ سَرَى لَهُ الْبَشِيرُ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Opening verse of Nafaḥāt al-Malik al-Ghanī: he praises God whose Revelation says 'Say: travel through the land', grounding his siyāḥa; the next lines say permission for the journey came.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-110",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 140 (PDF 151)"
+   },
+   "textAr": "ساقَنِي اللَّطِيفُ نَحْوَ كَنْكَنْ ... وَالرَّبُّ أَعْطانِي مَقامَ كُنْ كُنْ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt, journey to Kankan: he says God gave him 'the station of Be!', the creative command, punning on the place name Kankan.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-111",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 141 (PDF 152)"
+   },
+   "textAr": "وَبِنْتُهُ الزَّهْرا حَلِيلَتِي تَرَى ... قُرَّةَ عَيْنٍ فِي الْبَنِينَ وَأَرَى",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt: prayer for the family of his deceased khalīfa (whose daughter al-Zahrāʾ is his wife), that she see comfort of the eye in her sons.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-112",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 141 (PDF 152)"
+   },
+   "textAr": "رَحَلْتُ نَحْوَ سِكَّرِ السَّوْداءِ ... ثُمَّ إِلَى بَمَكْ بِالْمَساءِ / لَمْ أَدْرِ هَلْ لَفْظَتُها لَفْظُ سَقَرْ ... سُبْحانَ مَنْ جَعَلَ فِي الْأَسْما الْعِبَرْ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt: travelling to Sikasso ('سكر'), he wonders whether its name is the word saqar (Hell), playing on 'wa-mā adrāka mā saqar'; God puts lessons in names.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-116",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 143 (PDF 154)"
+   },
+   "textAr": "قَدْ خَصَّنِي بِالْعِلْمِ وَالتَّصْرِيفِ ... إِنْ قُلْتُ كُنْ يَكُنْ بِلا تَسْوِيفِ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt, Bamako: he claims taṣrīf, so that if he says 'Be' it is, without delay.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-117",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 143 (PDF 154)"
+   },
+   "textAr": "لَكِنَّنِي اتَّخَذْتُهُ وَكِيلا ... تَأَدُّبًا فَاخْتارَنِي خَلِيلا / وَقُلْتُ لا إِلَهَ إِلّا اللّهُ ... مُحَمَّدٌ أَرْسَلَهُ الْإِلَهُ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt, Bamako: although he has power of taṣrīf, out of adab he takes God as his trustee, as 73:9 commands ('lā ilāha illā huwa fa-ttakhidhhu wakīlā').",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-118",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 143 (PDF 154)"
+   },
+   "textAr": "لَكِنَّنِي اتَّخَذْتُهُ وَكِيلا ... تَأَدُّبًا فَاخْتارَنِي خَلِيلا",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Same line: God chose him as khalīl, the Qur'anic epithet of his namesake Ibrāhīm.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-119",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 143 (PDF 154)"
+   },
+   "textAr": "فَفاضَ مِنِّي سِرُّهُ فَلا أَحَدْ ... يَقْصِدُنِي ما عَرَفَ اللّهَ الصَّمَدْ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt, Bamako: no one comes to him without coming to know God, al-Ṣamad.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-121",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 145 (PDF 156)"
+   },
+   "textAr": "وَالْعَبْدُ ذا بُلِي بِشُهْرَةٍ خَشِي ... مِنْ مَكْرِ رَبِّهِ لِذاكَ يَخْتَشِي",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt: afflicted with fame, he fears God's makr, echoing 'fa-lā yaʾmanu makra Allāh illā al-qawm al-khāsirūn'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-122",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 145 (PDF 156)"
+   },
+   "textAr": "وَما أَذِنْتُ لِلنِّسا فِي الْخَلْوَةِ ... ساعَةَ زَوْرِهِنَّ وَقْتَ الْجَلْوَةِ / سِوَى الْحَلائِلِ أَوِ الْمَحارِمِ ... أَوْ ما مَلَكَتْ بَعْدَ ذِي مِنْ خادِمِ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt: women who served and visited him were never admitted privately, except wives, maḥrams and those 'their right hands possess', using the categories of 24:31 (and ḥalāʾil of 4:23).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-125",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 146 (PDF 157)"
+   },
+   "textAr": "وَجِئْتُ كِنْدِيا وَبِتُّ عِنْدَها ... نِعْمَةُ رَبِّي لا أُطِيقُ عَدَّها",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt, Kindia: God's blessing there is beyond counting.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-126",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 146 (PDF 157)"
+   },
+   "textAr": "وَعِنْدَها خَلِيفَتِي أَتانِي ... نَعْيُ وَفاتِهِ وَقَدْ أَشْجانِي / إِنّا لِلّهِ إِنّا إِلَيْهِ نَرْجِعُ ... فَلْتَرْضَ عَنْهُ وَالشَّتِيتُ تَجْمَعُ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt, Conakry: news of his khalīfa's death reaches him; he pronounces the istirjāʿ.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-127",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 146 (PDF 157)"
+   },
+   "textAr": "تَأْوِيلُ رُؤْيايَ الَّتِي رَأَيْتُ ... بِكُلِّ فِعْلِ خالِقِي رَضِيتُ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt: the khalīfa's death was the interpretation of a dream he had seen (p.152: he saw his beloved moving to the higher barzakh), echoing Yūsuf's 'hādhā taʾwīlu ruʾyāya'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-128",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 147 (PDF 158)"
+   },
+   "textAr": "ذَكَّرْتُهُمْ ذِكْرَى تُزِيلُ الرَّيْنا ... تُجْلِي الصَّدا وَقَدْ تُزِيلُ الْغَيْنا",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt, Gambia (Fodikoriya?): his reminder removes the rayn (the 'rust' of 83:14) from hearts; 'dhakkir fa-inna al-dhikrā' (51:55) behind the first half.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-129",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 147 (PDF 158)"
+   },
+   "textAr": "قَدْ أَكْثَرُوا الصَّلاةَ وَالتَّسْلِيما ... عَلَى نَبِيٍّ لَمْ يَزَلْ رَحِيما",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt: the people of Sūs(?) love the Prophet and multiply blessings on him; the Prophet is 'raḥīm' (cf. 9:128).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-130",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 148 (PDF 159)"
+   },
+   "textAr": "طِفْلٌ بِهِ والِدُهُ أَوْصانِي ... وَذاكَ أَمْرٌ طالَما أَضْنانِي / بَلَغْتُها مِنْ بَعْدِ شِقِّ النَّفْسِ ... أَيْقَنْتُ أَنْ لا حَظَّ لِي فِي نَفْسِي",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt: he reached Sierra Leone (Kambia) only with great hardship, travelling to return a child entrusted to him.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-133",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 150 (PDF 161)"
+   },
+   "textAr": "وَالْعَبْدُ لا حَوْلٌ وَلا قُوَّةَ لَهْ ... فَوَّضْتُ أَمْرِي لِلْوَلِيِّ ما أَعْدَلَهْ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt, Sierra Leone: he entrusts his affair to God, as in 'wa-ufawwiḍu amrī ilā Allāh'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-137",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 152 (PDF 163)"
+   },
+   "textAr": "قَدْ سُرَّ بِي حِينَ رَأَيْتُهُ وَقَدْ ... سُرِرْتُ أَيْضًا إِنَّهُ بابُ الْمَدَدْ / نَصْرٌ مِنَ اللّهِ وَفَتْحٌ يَقْرُبُ ... فِيهِ هُوَ تارِيخُ مَنْ يُرَقِّبُ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt, Kaolack: meeting a descendant of Abū Ṭālib on 'this night'; he says 'naṣrun min Allāhi wa-fatḥun' is the date (tārīkh) for whoever watches for it.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-138",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 153 (PDF 164)"
+   },
+   "textAr": "حَصَّنْتُهُمْ بِالْحَيِّ وَالْقَيُّومِ ... يَحْفَظُهُمْ كَيْ يُدْرِكُوا مَرُومِي",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt: he fortifies his sons and relatives with the names al-Ḥayy al-Qayyūm.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-139",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 154 (PDF 165)"
+   },
+   "textAr": "أَيَّدَهُ اللّهُ بِنَصْرِهِ فَهُو ... شَيْخٌ تَقِيٌّ صالِحٌ وَيَفْقَهُ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Nafaḥāt: prayer for a muqaddam he appointed in Dunk(?).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-143",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 161 (PDF 171)"
+   },
+   "textAr": "وَهَبْ لَنا ذُرِّيَّةً مُبارَكَهْ ... تَكُونُ لِلّهِ بِلا مُشارَكَهْ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Closing prayer of Nafaḥāt: for blessed offspring devoted to God alone, echoing Zakariyyā's 'hab lī min ladunka dhurriyyatan ṭayyiba'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-145",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 161 (PDF 171)"
+   },
+   "textAr": "بِالْمُصْطَفَى الشَّفِيعِ يَوْمَ الْمَحْشَرِ ... خَيْرِ الْوَرَى مَنْ قَدْ حُبِي بِالْكَوْثَرِ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Closing tawassul of Nafaḥāt through the Prophet, who was granted al-Kawthar.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-146",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 161 (PDF 171)"
+   },
+   "textAr": "الحمد لله رب العالمين",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Closing ḥamdala at the end of Nafaḥāt, before the dating note.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-147",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 161 (PDF 171)"
+   },
+   "textAr": "وقعت الرحلة آخر ليلة من ذي الحجة عام ١٣٦٦ﻫ، أزكى الصلاة والسلام لصاحبها، ولن يجعل الله للكافرين على المؤمنين سبيلا، وانتهت بالرجوع الى مدين آخر يوم من صفر ١٣٦٧ (فيه نصر من الله وفتح قريب) والحمد لله الذي بنعمته وجلاله تتم الصالحات اهـ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Prose dating note at the end of Nafaḥāt: the journey began on the last night of Dhū al-Ḥijja 1366; the verse is inserted after the date, apparently as a motto or chronogram for the departure.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "rihlat-148",
+   "witnessId": "rihla-kunakiriyya-majmu",
+   "address": {
+    "raw": "p. 161 (PDF 171)"
+   },
+   "textAr": "وانتهت بالرجوع الى مدين آخر يوم من صفر ١٣٦٧ (فيه نصر من الله وفتح قريب)",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Same dating note: the return to Madīna on the last day of Ṣafar 1367 — 'in it, help from God and a near victory'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  }
+ ],
+ "verseLinks": [
+  {
+   "locusId": "rihlat-001",
+   "surah": 11,
+   "ayahStart": 88,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-002",
+   "surah": 109,
+   "ayahStart": 1,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 6,
+   "note": "Recitation by sura name, not quotation."
+  },
+  {
+   "locusId": "rihlat-002",
+   "surah": 112,
+   "ayahStart": 1,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 4,
+   "note": "Recitation by sura name, not quotation."
+  },
+  {
+   "locusId": "rihlat-002",
+   "surah": 113,
+   "ayahStart": 1,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 5,
+   "note": "Recitation by sura name, not quotation."
+  },
+  {
+   "locusId": "rihlat-002",
+   "surah": 114,
+   "ayahStart": 1,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 6,
+   "note": "Recitation by sura name, not quotation."
+  },
+  {
+   "locusId": "rihlat-002",
+   "surah": 1,
+   "ayahStart": 1,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 7,
+   "note": "Recitation by sura name, not quotation."
+  },
+  {
+   "locusId": "rihlat-003",
+   "surah": 2,
+   "ayahStart": 255,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Recitation by name."
+  },
+  {
+   "locusId": "rihlat-003",
+   "surah": 106,
+   "ayahStart": 1,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 4,
+   "note": "Recitation by name."
+  },
+  {
+   "locusId": "rihlat-004",
+   "surah": 20,
+   "ayahStart": 25,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 26,
+   "note": "Same text on duplicate PDF 24."
+  },
+  {
+   "locusId": "rihlat-006",
+   "surah": 43,
+   "ayahStart": 13,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 14,
+   "note": "'istawaytu ʿalā ẓahrihi' also echoes 43:13."
+  },
+  {
+   "locusId": "rihlat-007",
+   "surah": 28,
+   "ayahStart": 16,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Prophetic riding duʿāʾ built from Qur'anic phrases; 21:87 ('subḥānaka innī kuntu mina l-ẓālimīn') is a weaker echo."
+  },
+  {
+   "locusId": "rihlat-010",
+   "surah": 11,
+   "ayahStart": 41,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'wa-mā qadarū llāha ḥaqqa qadrihi' occurs at 6:91, 22:74 and 39:67; the ship-boarding hadith uses 39:67 (al-Zumar). 'al-bābūr' here is the train to Dakar."
+  },
+  {
+   "locusId": "rihlat-010",
+   "surah": 39,
+   "ayahStart": 67,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'wa-mā qadarū llāha ḥaqqa qadrihi' occurs at 6:91, 22:74 and 39:67; the ship-boarding hadith uses 39:67 (al-Zumar). 'al-bābūr' here is the train to Dakar."
+  },
+  {
+   "locusId": "rihlat-011",
+   "surah": 11,
+   "ayahStart": 41,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Printed 'وقل' with a handwritten correction 'وقال' above it; the muṣḥaf reads 'وقال اركبوا'. 6:91/22:74 are alternatives for the second verse."
+  },
+  {
+   "locusId": "rihlat-011",
+   "surah": 39,
+   "ayahStart": 67,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Printed 'وقل' with a handwritten correction 'وقال' above it; the muṣḥaf reads 'وقال اركبوا'. 6:91/22:74 are alternatives for the second verse."
+  },
+  {
+   "locusId": "rihlat-012",
+   "surah": 2,
+   "ayahStart": 127,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'rabbanā' replaced by 'allāhumma'."
+  },
+  {
+   "locusId": "rihlat-013",
+   "surah": 2,
+   "ayahStart": 26,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Text runs onto PDF 27 (﴿وإذا لقوا﴾). Verse span is inferred from the incipits: 'wa-idh anjaynākum' could be 2:49 or 2:50 (wa-idh faraqnā) or 7:141. 'wa-idhā laqū' occurs at 2:14 and 2:76; 2:76 fits a passage read forward from 2:26, but under the Warsh/Maghribi division ḥizb 2 starts at 2:75 (afa-taṭmaʿūn), so check. Speaker could be classed 'other' (al-Tijānī in the dream) for the command."
+  },
+  {
+   "locusId": "rihlat-014",
+   "surah": 44,
+   "ayahStart": 24,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Same text on duplicate PDF 28. Las Palmas is called the 'capital of Spain'."
+  },
+  {
+   "locusId": "rihlat-015",
+   "surah": 40,
+   "ayahStart": 38,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-016",
+   "surah": 90,
+   "ayahStart": 3,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-018",
+   "surah": 5,
+   "ayahStart": 83,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-020",
+   "surah": 11,
+   "ayahStart": 41,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "11:41 certain; 45:12/43:13 probable; 'mayd' recalls 'an tamīda bikum' (16:15), possible only. Same text on duplicate PDF 37."
+  },
+  {
+   "locusId": "rihlat-020",
+   "surah": 45,
+   "ayahStart": 12,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "11:41 certain; 45:12/43:13 probable; 'mayd' recalls 'an tamīda bikum' (16:15), possible only. Same text on duplicate PDF 37."
+  },
+  {
+   "locusId": "rihlat-020",
+   "surah": 43,
+   "ayahStart": 13,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "11:41 certain; 45:12/43:13 probable; 'mayd' recalls 'an tamīda bikum' (16:15), possible only. Same text on duplicate PDF 37."
+  },
+  {
+   "locusId": "rihlat-020",
+   "surah": 16,
+   "ayahStart": 15,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "11:41 certain; 45:12/43:13 probable; 'mayd' recalls 'an tamīda bikum' (16:15), possible only. Same text on duplicate PDF 37."
+  },
+  {
+   "locusId": "rihlat-021",
+   "surah": 58,
+   "ayahStart": 12,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Abrogating verse 58:13 implied, not quoted."
+  },
+  {
+   "locusId": "rihlat-021",
+   "surah": 58,
+   "ayahStart": 13,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Abrogating verse 58:13 implied, not quoted."
+  },
+  {
+   "locusId": "rihlat-022",
+   "surah": 4,
+   "ayahStart": 64,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-023",
+   "surah": 71,
+   "ayahStart": 28,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Common duʿāʾ pattern."
+  },
+  {
+   "locusId": "rihlat-024",
+   "surah": 22,
+   "ayahStart": 26,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "The muṣḥaf has 'wa-l-qāʾimīna wa-l-rukkaʿi l-sujūd'; the 'wa' before al-rukkaʿ is dropped."
+  },
+  {
+   "locusId": "rihlat-025",
+   "surah": 48,
+   "ayahStart": 29,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-026",
+   "surah": 71,
+   "ayahStart": 28,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-027",
+   "surah": 8,
+   "ayahStart": 63,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-028",
+   "surah": 9,
+   "ayahStart": 40,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-033",
+   "surah": 2,
+   "ayahStart": 214,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Fixed Qur'anic pair occurring in several verses."
+  },
+  {
+   "locusId": "rihlat-034",
+   "surah": 2,
+   "ayahStart": 144,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "The verse is named, not quoted. The qibla change is usually placed at Masjid al-Qiblatayn, not Qubāʾ; the identification follows the context."
+  },
+  {
+   "locusId": "rihlat-037",
+   "surah": 2,
+   "ayahStart": 203,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Fiqh term derived from 2:203; no direct quotation."
+  },
+  {
+   "locusId": "rihlat-038",
+   "surah": 37,
+   "ayahStart": 107,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Allusion to 37:107 in wording 'fudiya bihi'. Same sentence names the revelation sites of Sūrat al-Mursalāt and Sūrat al-Kawthar (references to suras, no wording)."
+  },
+  {
+   "locusId": "rihlat-039",
+   "surah": 43,
+   "ayahStart": 13,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-040",
+   "surah": 7,
+   "ayahStart": 43,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'لا تحصوها' is identical in 14:34 and 16:18 (list both). 'أرانا مناسكنا' echoes 2:128 'وأرنا مناسكنا' — add 2:128 as possible."
+  },
+  {
+   "locusId": "rihlat-040",
+   "surah": 14,
+   "ayahStart": 34,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'لا تحصوها' is identical in 14:34 and 16:18 (list both). 'أرانا مناسكنا' echoes 2:128 'وأرنا مناسكنا' — add 2:128 as possible."
+  },
+  {
+   "locusId": "rihlat-040",
+   "surah": 16,
+   "ayahStart": 18,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'لا تحصوها' is identical in 14:34 and 16:18 (list both). 'أرانا مناسكنا' echoes 2:128 'وأرنا مناسكنا' — add 2:128 as possible."
+  },
+  {
+   "locusId": "rihlat-040",
+   "surah": 2,
+   "ayahStart": 128,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'لا تحصوها' is identical in 14:34 and 16:18 (list both). 'أرانا مناسكنا' echoes 2:128 'وأرنا مناسكنا' — add 2:128 as possible."
+  },
+  {
+   "locusId": "rihlat-043",
+   "surah": 4,
+   "ayahStart": 164,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Mūsā at al-Ṭūr; 'kalīm' from 4:164 (wa-kallama llāhu mūsā taklīman). Specific verse uncertain."
+  },
+  {
+   "locusId": "rihlat-046",
+   "surah": 7,
+   "ayahStart": 99,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Echoes 7:99 (a-fa-aminū makra llāhi fa-lā yaʾmanu makra llāhi illā l-qawmu l-khāsirūn)."
+  },
+  {
+   "locusId": "rihlat-047",
+   "surah": 50,
+   "ayahStart": 37,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Recurs PDF 74 (printed 66): 'ويلقى سمعه عند تلاوته معتقداً أنّ الله يتلوا عليه'."
+  },
+  {
+   "locusId": "rihlat-048",
+   "surah": 18,
+   "ayahStart": 57,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Opening also matches 32:22, but the ending 'fa-lan yahtadū idhan abadan' fixes 18:57."
+  },
+  {
+   "locusId": "rihlat-049",
+   "surah": 45,
+   "ayahStart": 7,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 10,
+   "note": "Range from 45:7 to 'wa-lahum ʿadhābun ʿaẓīm' at 45:10."
+  },
+  {
+   "locusId": "rihlat-050",
+   "surah": 5,
+   "ayahStart": 68,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-051",
+   "surah": 2,
+   "ayahStart": 231,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Printed 'يتمّ' probably for 'يقم'. 'هزؤاً' in the application and 'هزواً' in the quotation as printed."
+  },
+  {
+   "locusId": "rihlat-052",
+   "surah": 2,
+   "ayahStart": 85,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "The ḥadīth wording 'يؤمنون ببعض الكتاب ويكفرون ببعض' (PDF 74–75) is itself an adaptation of 2:85."
+  },
+  {
+   "locusId": "rihlat-053",
+   "surah": 20,
+   "ayahStart": 124,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 126
+  },
+  {
+   "locusId": "rihlat-054",
+   "surah": 33,
+   "ayahStart": 43,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Pairing of God's and the angels' ṣalāt recalls 33:43 (huwa lladhī yuṣallī ʿalaykum wa-malāʾikatuhu); the immediate source is the ḥadīth of tenfold blessing."
+  },
+  {
+   "locusId": "rihlat-055",
+   "surah": 29,
+   "ayahStart": 14,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Nūḥ's lifespan from 29:14; Sulaymān's kingdom 38:35 (cf. 4:54 mulkan ʿaẓīman); divine choice 28:68. Reading 'المئين' uncertain."
+  },
+  {
+   "locusId": "rihlat-056",
+   "surah": 18,
+   "ayahStart": 46,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Qur'anic term al-bāqiyāt al-ṣāliḥāt (18:46, 19:76) glossed; suras 111 and 109 named and characterised (no verse wording). Continues onto PDF 82."
+  },
+  {
+   "locusId": "rihlat-057",
+   "surah": 7,
+   "ayahStart": 196,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Muṣḥaf: 'وهو يتولّى الصالحين'; printed 'فهو'. Speaker uncertain because the tadhyīl may be the compiler's."
+  },
+  {
+   "locusId": "rihlat-058",
+   "surah": 2,
+   "ayahStart": 196,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 203,
+   "note": "Points to the ḥajj passage of al-Baqara (2:196-203) rather than one verse; the wording 'ḥijju al-bayti' is from 3:97 (Āl ʿImrān), not al-Baqara."
+  },
+  {
+   "locusId": "rihlat-059",
+   "surah": 39,
+   "ayahStart": 5,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Muṣḥaf: يُكَوِّرُ اللَّيْلَ عَلَى النَّهَارِ; turned into a perfect verb in a 'mā dāma' formula."
+  },
+  {
+   "locusId": "rihlat-061",
+   "surah": 17,
+   "ayahStart": 1,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'بلا منام' adds the claim that the Isrāʾ was waking, not in sleep."
+  },
+  {
+   "locusId": "rihlat-064",
+   "surah": 30,
+   "ayahStart": 2,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Reverses the verse's sense: 30:2-3 announces Byzantine defeat followed by victory; here the defeat is final. Reading of 'وعوض' (= never) as printed."
+  },
+  {
+   "locusId": "rihlat-067",
+   "surah": 2,
+   "ayahStart": 158,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Ritual place names that come from 2:158; allusion rather than quotation."
+  },
+  {
+   "locusId": "rihlat-070",
+   "surah": 43,
+   "ayahStart": 71,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Muṣḥaf: وَفِيهَا مَا تَشْتَهِيهِ الْأَنفُسُ; printed with past tense اشتهته."
+  },
+  {
+   "locusId": "rihlat-071",
+   "surah": 2,
+   "ayahStart": 199,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Frame is a ḥadīth (nuzūl/mubāhāt on ʿArafa); the imperative أفيضوا echoes ثم أفيضوا (2:199) / فإذا أفضتم (2:198)."
+  },
+  {
+   "locusId": "rihlat-072",
+   "surah": 7,
+   "ayahStart": 143,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Wording closer to 69:14 (فدكّتا) and 89:21 (دكّت الأرض); the munājāt context points to 7:143. Compare PDF 108."
+  },
+  {
+   "locusId": "rihlat-076",
+   "surah": 68,
+   "ayahStart": 4,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Echo of وإنك لعلى خلق عظيم."
+  },
+  {
+   "locusId": "rihlat-077",
+   "surah": 9,
+   "ayahStart": 91,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Muṣḥaf: ليس على الضعفاء ولا على المرضى ... حرج; applied to a mystic's ecstatic state."
+  },
+  {
+   "locusId": "rihlat-078",
+   "surah": 7,
+   "ayahStart": 143,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Also echoes 19:52 (وقرّبناه نجيا) for ناجاني."
+  },
+  {
+   "locusId": "rihlat-079",
+   "surah": 54,
+   "ayahStart": 50,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Muṣḥaf: كلمح بالبصر (54:50) / كلمح البصر (16:77)."
+  },
+  {
+   "locusId": "rihlat-080",
+   "surah": 83,
+   "ayahStart": 18,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "ayahEnd": 19
+  },
+  {
+   "locusId": "rihlat-081",
+   "surah": 21,
+   "ayahStart": 90,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Muṣḥaf: ويدعوننا رغبا ورهبا; here participles. The آئبون تائبون pair is ḥadīth, excluded."
+  },
+  {
+   "locusId": "rihlat-082",
+   "surah": 22,
+   "ayahStart": 27,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Muṣḥaf: يأتين من كلّ فجّ عميق."
+  },
+  {
+   "locusId": "rihlat-083",
+   "surah": 110,
+   "ayahStart": 2,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Continues on PDF 113 with الحاجّ هارون أتوا أفواجا, same echo."
+  },
+  {
+   "locusId": "rihlat-084",
+   "surah": 33,
+   "ayahStart": 35,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Epithet list from 33:35 (also 66:5 مسلمات مؤمنات; 24:26 الطيبات)."
+  },
+  {
+   "locusId": "rihlat-085",
+   "surah": 114,
+   "ayahStart": 4,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "The two halves of 114:4 split across rhyme words."
+  },
+  {
+   "locusId": "rihlat-087",
+   "surah": 33,
+   "ayahStart": 33,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Explicitly marked as divine speech (قول من علا). The Sawda report is ḥadīth."
+  },
+  {
+   "locusId": "rihlat-090",
+   "surah": 2,
+   "ayahStart": 18,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Order differs from the muṣḥaf (صم بكم عمي). Printed page inferred."
+  },
+  {
+   "locusId": "rihlat-093",
+   "surah": 2,
+   "ayahStart": 19,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Combines كصيّب من السماء (2:19) and السماء عليهم مدرارا (6:6; 11:52; 71:11)."
+  },
+  {
+   "locusId": "rihlat-096",
+   "surah": 4,
+   "ayahStart": 32,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Combines 'wa-sʾalū Allāha min faḍlihi' (4:32) with 'dhū al-faḍl al-ʿaẓīm' (2:105 and elsewhere)."
+  },
+  {
+   "locusId": "rihlat-097",
+   "surah": 110,
+   "ayahStart": 2,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-100",
+   "surah": 2,
+   "ayahStart": 184,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Allusion by content (the sick/traveller exemption), not by verbatim wording."
+  },
+  {
+   "locusId": "rihlat-103",
+   "surah": 22,
+   "ayahStart": 47,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Place name 'أنكرا' reading uncertain."
+  },
+  {
+   "locusId": "rihlat-107",
+   "surah": 27,
+   "ayahStart": 59,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'wa-kafā' is added to the Qur'anic wording. Page unnumbered (printed c.136–137)."
+  },
+  {
+   "locusId": "rihlat-108",
+   "surah": 29,
+   "ayahStart": 20,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Wording 'qul sīrū fī al-arḍ' is exact but occurs in 6:11, 27:69, 29:20, 30:42; 29:20 listed first arbitrarily."
+  },
+  {
+   "locusId": "rihlat-110",
+   "surah": 36,
+   "ayahStart": 82,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Pun Kankan / kun kun."
+  },
+  {
+   "locusId": "rihlat-111",
+   "surah": 25,
+   "ayahStart": 74,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'qurrat ʿayn' also common idiom."
+  },
+  {
+   "locusId": "rihlat-112",
+   "surah": 74,
+   "ayahStart": 26,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Place name reading 'سكر السوداء' (Sikasso) is my interpretation."
+  },
+  {
+   "locusId": "rihlat-116",
+   "surah": 36,
+   "ayahStart": 82,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-117",
+   "surah": 73,
+   "ayahStart": 9,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Shahāda in the next line reinforces 73:9 but the Qur'an has 'lā ilāha illā huwa'."
+  },
+  {
+   "locusId": "rihlat-118",
+   "surah": 4,
+   "ayahStart": 125,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-119",
+   "surah": 112,
+   "ayahStart": 2,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'ahad' here means 'anyone', so the link to 112:1/4 is verbal only."
+  },
+  {
+   "locusId": "rihlat-121",
+   "surah": 7,
+   "ayahStart": 99,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-122",
+   "surah": 24,
+   "ayahStart": 31,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "The footnote below (al-murājiʿ) on adult suckling is other and contains no verse; its last line is cut off."
+  },
+  {
+   "locusId": "rihlat-125",
+   "surah": 14,
+   "ayahStart": 34,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-126",
+   "surah": 2,
+   "ayahStart": 156,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Adapted to metre: 'إنا إليه نرجع' for Qur'anic 'وإنا إليه راجعون'."
+  },
+  {
+   "locusId": "rihlat-127",
+   "surah": 12,
+   "ayahStart": 100,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-128",
+   "surah": 83,
+   "ayahStart": 14,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Place name reading uncertain. 'ghayn' is from ḥadīth."
+  },
+  {
+   "locusId": "rihlat-129",
+   "surah": 33,
+   "ayahStart": 56,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-130",
+   "surah": 16,
+   "ayahStart": 7,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-133",
+   "surah": 40,
+   "ayahStart": 44,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Printed page inferred."
+  },
+  {
+   "locusId": "rihlat-137",
+   "surah": 61,
+   "ayahStart": 13,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'يقرب' for Qur'anic 'قريب' (metre). Appears to be a chronogram, but Mashriqī abjad of the Qur'anic phrase = 1302, not 1366/1367; purpose unclear. Printed page inferred."
+  },
+  {
+   "locusId": "rihlat-138",
+   "surah": 2,
+   "ayahStart": 255,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Printed page inferred."
+  },
+  {
+   "locusId": "rihlat-139",
+   "surah": 8,
+   "ayahStart": 62,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Printed page inferred."
+  },
+  {
+   "locusId": "rihlat-143",
+   "surah": 3,
+   "ayahStart": 38,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Duplicate scan p.172."
+  },
+  {
+   "locusId": "rihlat-145",
+   "surah": 108,
+   "ayahStart": 1,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "rihlat-146",
+   "surah": 1,
+   "ayahStart": 2,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Could be the scribe's closing; set off on its own line."
+  },
+  {
+   "locusId": "rihlat-147",
+   "surah": 4,
+   "ayahStart": 141,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Speaker probably Niasse (uses his term 'Madīn' for Kaolack/Madina), but the note could be the compiler's. Mashriqī abjad of the verse = 1120, so not a straightforward chronogram for 1366."
+  },
+  {
+   "locusId": "rihlat-148",
+   "surah": 61,
+   "ayahStart": 13,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Parenthesised; may be a chronogram (cf. p.163 'فيه هو تاريخ'), but Mashriqī abjad = 1302. Speaker as previous entry."
+  }
+ ]
+}

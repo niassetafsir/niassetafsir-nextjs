@@ -8,7 +8,11 @@ import json, re
 P='src/data/corpus.json'
 d=json.load(open(P))
 add=json.load(open('scripts/data/corpus-additions-dossiers.json'))
-WITS={'rijal-tunis-2012','tabsira-typescript'}
+# Majmūʿ riḥalāt (the four travelogues), dossier of 15 Nov 2026: certain and
+# probable uses only; the 'possible' allusions stay in the Word dossier.
+_r=json.load(open('scripts/data/corpus-additions-rihlat.json'))
+add['loci']+=_r['loci']; add['verseLinks']+=_r['verseLinks']
+WITS={'rijal-tunis-2012','tabsira-typescript','rihla-hijaziyya-majmu','nayl-al-mafaz-majmu','rihla-ghannariyya-majmu','rihla-kunakiriyya-majmu'}
 d['loci']=[l for l in d['loci'] if l['witnessId'] not in WITS]
 ids={l['id'] for l in add['loci']}
 d['verseLinks']=[k for k in d['verseLinks'] if k['locusId'] not in ids]
@@ -45,6 +49,16 @@ if 'tabsira-typescript' not in wits:
     d['witnesses'].append({"id":"tabsira-typescript","workId":"tabsirat-al-anam","medium":"digital","language":"ar","year":"2012","addressScheme":"pdf-page","isBase":True})
 if 'rijal-tunis-2012' not in wits:
     d['witnesses'].append({"id":"rijal-tunis-2012","workId":"rijal-wa-adwar","medium":"print","language":"ar","year":"2012","publisher":"Majmaʿ al-Yamāma","place":"Tunis","addressScheme":"printed-page","isBase":True})
+RIHLA_WITNESSES={'rihla-hijaziyya':'rihla-hijaziyya-majmu','nayl-al-mafaz':'nayl-al-mafaz-majmu',
+  'rihla-ghannariyya':'rihla-ghannariyya-majmu','rihla-kunakiriyya':'rihla-kunakiriyya-majmu'}
+if 'nayl-al-mafaz' not in {w['id'] for w in d['works']}:
+    d['works'].append({"id":"nayl-al-mafaz","titleAr":"نيل المفاز بالعود إلى الحجاز","titleTranslit":"Nayl al-mafāz bi-l-ʿawd ilā l-Ḥijāz","titleEn":"Attaining the Prize by Returning to the Ḥijāz","genre":"rihla","attestation":"A","byNiasse":True,"composed":{"hijri":"1370","gregorian":"1951","certainty":"attested"},"exegeticalRegister":["poetic","allusion"],"publish":True,"author":"Ibrāhīm Niasse","relation":"self","note":"His second pilgrimage, by Lagos, Kano, Rome and Cairo, in rajaz. In the Majmūʿ riḥalāt."})
+for w in d['works']:
+    if w['id'] in RIHLA_WITNESSES: w['publish']=True
+wids={w['id'] for w in d['witnesses']}
+for work,wit in RIHLA_WITNESSES.items():
+    if wit not in wids:
+        d['witnesses'].append({"id":wit,"workId":work,"medium":"print","language":"ar","addressScheme":"printed-page (PDF page in parentheses)","isBase":True,"editor":"Majmūʿ riḥalāt al-Shaykh Ibrāhīm (scribal colophons Jeddah, Shaʿbān 1413/1993)"})
 # Naming policy: never bare "Niasse" on the site (scripts/name-policy.py).
 import importlib.util
 _spec = importlib.util.spec_from_file_location('name_policy', 'scripts/name-policy.py')
