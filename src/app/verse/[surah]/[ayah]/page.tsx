@@ -23,6 +23,8 @@ import { fatwaVerseExcerpt } from '@/lib/fatwaVerseExcerpts';
 import VersePicker from '@/components/VersePicker';
 import RootPanel from '@/components/RootPanel';
 import verseRootsData from '@/data/verseRoots.json';
+import SourceComparison from '@/components/SourceComparison';
+import { comparisonsForVerse } from '@/lib/sourceComparison';
 
 // /verse/[surah]/[ayah] -- every place in the corpus where Shaykh Ibrāhīm
 // engages this verse.
@@ -121,6 +123,7 @@ export default async function VersePage({
   const groups = groupByAct(entries);
   const schoolGroups = groupByAct(school);
   const marks = timelineMarks(entries);
+  const comparisons = comparisonsForVerse(surah, ayah);
   const text = VERSES[`${surah}:${ayah}`];
   const rendering = RENDERINGS[`${surah}:${ayah}`];
 
@@ -364,6 +367,8 @@ export default async function VersePage({
           ))}
         </section>
       ))}
+
+      {comparisons.length > 0 && <SourceComparison entries={comparisons} />}
 
       {schoolGroups.length > 0 && (
         <section className="mt-14 pt-8 border-t" style={{ borderColor: 'rgba(201,168,76,0.25)' }}>
