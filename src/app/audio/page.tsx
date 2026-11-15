@@ -141,10 +141,6 @@ export default function ListenPage() {
             </audio>
           </div>
 
-          <p className="font-english text-xs text-center italic mt-4"
-            style={{color:'var(--body-faint, rgba(255,255,255,0.3))'}}>
-            Sūras 19–114 · Recordings forthcoming
-          </p>
         </div>
       )}
 

@@ -14,8 +14,6 @@ import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
 import LessonCitations from '@/components/LessonCitations';
 import { hasApparatus } from '@/lib/apparatus';
-import { isReviewed } from '@/lib/review';
-import footnotesData from '@/data/footnotesData.json';
 import LessonReaderLayout from '@/components/LessonReaderLayout';
 import Link from 'next/link';
 import { SURAH_LIST } from '@/lib/verseRanges';
@@ -165,13 +163,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
     </>
   );
 
-  // How many of the compiler's notes exist for this lesson but are not yet
-  // published. Said out loud on the page: a reader who sees no footnotes and no
-  // Citations tab would otherwise conclude the compiler annotated nothing here,
-  // when he may have written seventy-five notes on it.
-  const withheldNotes = hasApparatus(lesson.id)
-    ? 0
-    : (footnotesData as { lessonId: number }[]).filter(f => f.lessonId === lesson.id).length;
 
   // Main content: panels
   const mainContent = (
@@ -180,28 +171,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
     <LessonExperience
       hasTranslation={!!lesson.hasEnglish}
       tafsir={<>
-        {(withheldNotes > 0 || !isReviewed(lesson.id)) && (
-          /* One box, not two stacked: on Lessons 9-56 both of these are true at
-             once, and a reader meets the state of the lesson in one place. */
-          <div className="mb-5 rounded-xl border px-4 py-3 text-left" dir="ltr"
-            style={{ borderColor: 'rgba(138,109,31,0.28)', background: 'rgba(138,109,31,0.05)' }}>
-            {!isReviewed(lesson.id) && (
-              <p className="font-english text-[12.5px] leading-6"
-                style={{ color: 'var(--body-sub, rgba(232,232,224,0.62))', textAlign: 'left' }}>
-                Not yet checked against the printed volume. The Arabic is transcribed from a scan and
-                may still carry its misreadings; quote it with that in mind.
-              </p>
-            )}
-            {withheldNotes > 0 && (
-              <p className="font-english text-[12.5px] leading-6"
-                style={{ color: 'var(--body-sub, rgba(232,232,224,0.62))',
-                         marginTop: isReviewed(lesson.id) ? 0 : '0.6rem', textAlign: 'left' }}>
-                The compiler&rsquo;s {withheldNotes} footnotes on this lesson will appear once they are
-                checked against the text.
-              </p>
-            )}
-          </div>
-        )}
         {lesson.openingInvocation && (
           <OpeningInvocation html={(lesson as any).openingInvocation} />
         )}

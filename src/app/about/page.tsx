@@ -156,7 +156,7 @@ export default async function AboutPage() {
             </p>
           </div>
           <p className="leading-6 mt-3 text-white/50 text-xs">
-            A DOI will be assigned on publication to Zenodo and will appear here when available. Any passage
+            Any passage
             you save on this site carries its own citation; see{' '}
             <Link href="/saved" className="text-gold/70 hover:text-gold transition-colors">Saved</Link>.
           </p>

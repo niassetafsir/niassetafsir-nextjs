@@ -100,12 +100,6 @@ export default function VerseLocusCard({
                 {excerpt?.truncated && <span style={{ opacity: 0.5 }}> …</span>}
               </p>
             )}
-            {!en && locus.editorialNote === 'English translation in preparation.' && (
-              <p className="font-english text-[12.5px] italic"
-                style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
-                English translation in preparation.
-              </p>
-            )}
             {en && (
               <p className="font-english text-[15px] leading-relaxed"
                 style={{ color: 'var(--body-faint, rgba(255,255,255,0.68))' }}>
@@ -124,7 +118,6 @@ export default function VerseLocusCard({
         ) : (
           <p className="font-english text-[13.5px] leading-relaxed"
             style={{ color: 'var(--body-faint, rgba(255,255,255,0.6))' }}>
-            {inSession && link.note ? link.note : 'The passage has not yet been added here.'}{' '}
             {lessonHref && (
               <Link href={lessonHref} className="text-gold/70 hover:text-gold underline">
                 Read Lesson {lessonId} →

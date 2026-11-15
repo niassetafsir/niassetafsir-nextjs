@@ -116,9 +116,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
       <div className="body-en">
         {lesson.hasEnglish && lesson.englishText ? (
           <div dangerouslySetInnerHTML={{ __html: lesson.englishText }} />
-        ) : (
-          <p className="no-en">English translation forthcoming — Amadu Kunateh, translator and editor.</p>
-        )}
+        ) : null}
       </div>
 
       <div className="citation-block">

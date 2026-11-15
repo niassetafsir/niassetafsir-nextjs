@@ -262,9 +262,6 @@ export default async function VersePage({
             <p className="font-english text-[11.5px] mt-1.5"
               style={{ color: 'var(--gold-light, #E8D4A0)' }}>
               Rendered by {TRANSLATOR}
-              {rendering.note && (
-                <span title={rendering.note} className="cursor-help"> · why</span>
-              )}
             </p>
             {text?.en && (
               <p className="font-english text-[12.5px] italic mt-2"

@@ -80,19 +80,6 @@ export default function WorksPage() {
         );
       })}
 
-      {pending.length > 0 && (
-        <>
-          <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">Still to come</h2>
-          <p className="font-english text-[13px] italic mb-4" style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-            Works whose verses are not yet on the site.
-          </p>
-          <ul className="font-english text-[13.5px] space-y-1 mb-10" style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
-            {pending.map(({ work }) => (
-              <li key={work.id}><em>{work.titleTranslit ?? work.id}</em>{work.composed?.gregorian && <> ({work.composed.gregorian})</>}</li>
-            ))}
-          </ul>
-        </>
-      )}
     </main>
   );
 }

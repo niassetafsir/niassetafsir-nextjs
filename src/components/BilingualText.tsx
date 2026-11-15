@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import ArabicWordTool from '@/components/ArabicWordTool';
 import type { LessonAlignment } from '@/lib/bilingualAlignment';
-import { isDraftTranslation, partialTranslation } from '@/lib/draftTranslations';
 import type { VerseIndexEntry } from '@/lib/verseIndex';
 import { isPoem, highlightEnVerses, stripEnFootnotes, injectFootnoteLinks, injectVerseNumbers } from '@/lib/textInject';
 
@@ -50,7 +49,7 @@ interface BilingualTextProps {
 function DraftTranslationNotice() {
   return (
     <p className="font-english text-[11px] italic mb-3" dir="ltr" style={{ color: 'rgba(180,140,40,0.85)' }}>
-      Draft Under Review — Feedback Welcomed
+      Draft translation
     </p>
   );
 }
@@ -97,23 +96,6 @@ function TabBtn({ label, active, onClick }: { label: string; active: boolean; on
   );
 }
 
-function ComingSoonNote({ lang }: { lang: string }) {
-  const msgs: Record<string, { title: string; body: string; sub?: string }> = {
-    english: {
-      title: "English Translation",
-      body: "English translation forthcoming.",
-      sub: `Lessons 1–${TRANSLATED_THROUGH} available · Complete English translation in preparation · Amadu Kunateh`,
-    },
-  };
-  const msg = msgs[lang] ?? msgs.english;
-  return (
-    <div className="text-center py-8 px-4">
-      <div className="font-english text-gold/60 font-semibold text-base mb-3">{msg.title}</div>
-      <p className="font-english text-white/50 italic text-sm mb-3">{msg.body}</p>
-      {msg.sub && <p className="font-english text-white/25 text-xs leading-5 max-w-md mx-auto">{msg.sub}</p>}
-    </div>
-  );
-}
 
 export default function BilingualText({ poemLines, arabicParagraphs, citations, citationStatus, englishText, hasEnglish, lessonId, footnoteOrder, alignment, verseEntries = [] }: BilingualTextProps) {
   // Opening on 'bilingual' regardless of whether a translation exists gave 51
@@ -222,8 +204,8 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
     });
   }
 
-  const isDraft = lessonId ? isDraftTranslation(lessonId) : false;
-  const partial = lessonId ? partialTranslation(lessonId) : null;
+  // Every English translation on the site is a draft, and says so.
+  const isDraft = true;
 
   // What this lesson actually has, rather than what the project intends to
   // have. `hasEnglish` alone is not enough: several lessons carry the flag with
@@ -292,6 +274,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
           {(() => { fnCursor.i = 0; return null; })()}
           {alignment ? (
             <>
+              <div className="px-4 md:px-6 pt-3" dir="ltr"><DraftTranslationNotice /></div>
               {alignment.blocks.map((block, bi) => (
                 <div key={`block-${bi}`} className="px-4 md:px-6 py-4">
                   {block.arabicIndices.map(ai => (
@@ -314,18 +297,11 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                         <div key={ei} dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(enParagraphs[ei] || '')) }} />
                       ))}
                     </div>
-                  ) : block.arabicIndices.length > 0 ? (
-                    <p className="font-english text-white/20 text-xs italic pl-3" dir="ltr">
-                      English translation forthcoming.
-                    </p>
                   ) : null}
                 </div>
               ))}
               {alignment.englishOnly.length > 0 && (
                 <div className="px-4 md:px-6 py-4 bg-gold/3">
-                  <p className="font-english text-gold/50 text-[10px] uppercase tracking-wide mb-2" dir="ltr">
-                    Translated beyond the Arabic this lesson file holds
-                  </p>
                   {alignment.englishOnly.map((group, gi) => (
                     <div key={gi} dir="ltr" className="font-english reading-en text-white/80 mb-3">
                       {group.indices.map(ei => (
@@ -353,32 +329,8 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
                     {enParagraphs.map((p, i) => (
                       <div key={i} className="mb-3" dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(p)) }} />
                     ))}
-                    {/* Where a translation stops short, say so at the point it
-                        stops. Without this the reader takes the last paragraph
-                        for the end of the lesson. */}
-                    {partial && (
-                      <p className="font-english text-[13px] italic mt-4 pt-3 border-t"
-                        style={{ borderColor: 'rgba(201,168,76,0.25)', color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-                        The translation breaks off here, at {partial.endsAt}. The Arabic
-                        alongside continues to {partial.arabicEndsAt}.
-                        {partial.gaps && partial.gaps.length > 0 && (
-                          <> Above this point the English also passes over{' '}
-                            {partial.gaps.map((g, i) => (
-                              <span key={i}>
-                                {i > 0 && (i === partial.gaps!.length - 1 ? ' and ' : ', ')}
-                                {g}
-                              </span>
-                            ))}, which the Arabic commentates.
-                          </>
-                        )}
-                      </p>
-                    )}
                   </div>
-                ) : (
-                  <p className="font-english text-white/20 text-xs italic">
-                    English translation forthcoming.
-                  </p>
-                )}
+                ) : null}
               </div>
               {/* Arabic box -- full commentary text, paragraph by paragraph. */}
               <div className="border rounded-lg p-4" style={{ borderColor: 'rgba(13,31,10,0.12)' }} dir="rtl" translate="no">
@@ -437,9 +389,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
               {isDraft && <DraftTranslationNotice />}
               <div className="font-english text-[16px] leading-[2.0]" style={{color:'var(--body-text, rgba(255,255,255,0.88))', textAlign:'left'}} dangerouslySetInnerHTML={{ __html: highlightEnVerses(stripEnFootnotes(englishText || '')) }} />
             </>
-          ) : (
-            <ComingSoonNote lang="english" />
-          )}
+          ) : null}
         </div>
       )}
 
