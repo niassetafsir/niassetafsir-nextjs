@@ -1,0 +1,162 @@
+{
+  "_note": "Topic pages: what Shaykh Ibrāhīm says on one subject, in his own words from Fī Riyāḍ al-Tafsīr, each passage with volume, page, lesson and verse. Built 7 Nov 2026 from verified passages (artifacts 'Niasse on the Self' and 'Niasse on the Secret'); no dissertation material. Arabic checked against src/data/lessons by tests/topics.test.js.",
+  "topics": [
+    {
+      "slug": "nafs",
+      "term": "nafs",
+      "termAr": "النفس",
+      "title": "The self",
+      "question": "What does Shaykh Ibrāhīm say about the self (nafs)?",
+      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the self (nafs) as the lowest of five inner subtleties: self, heart, intellect, spirit and secret. The self belongs to the body and pulls toward the earth, while the spirit pulls toward God. God raises the self through seven ranks, from the self that commands evil to the perfected self, and He does it from within the person's own secret (sirr).",
+      "points": [
+        ["Lowest of five.", "Every servant has a self, heart, intellect, spirit and secret; beyond the secret is God."],
+        ["Tied to the body.", "The self is the body's side of the person; it and the spirit are always at war."],
+        ["Seven ranks.", "Commanding, blaming, inspired, tranquil, well-pleased, well-pleasing, perfected."],
+        ["Moved from within.", "God sends a prompter and an inspiration to the self “from its own secret.”"],
+        ["Its work is the sharīʿa.", "The self drinks from acts of worship and struggle, and is clothed by keeping the law."]
+      ],
+      "passages": [
+        {
+          "title": "The five subtleties of every servant",
+          "volume": 6, "page": "74", "lesson": 32, "verse": [20, 7],
+          "ar": "كذلك كل عبد له نفس وله قلب وله عقل وله روح وله سر، والسر وأخفى من السر هو الله.",
+          "en": "Likewise every servant has a self (nafs), a heart (qalb), an intellect (ʿaql), a spirit (rūḥ) and a secret (sirr). And what is more hidden than the secret is God."
+        },
+        {
+          "title": "The self and the spirit at war",
+          "volume": 5, "page": "198", "lesson": 30, "verse": [17, 85],
+          "ar": "لما كان هذا الروح هو أصل الموجودات وهذا الروح من حضرة الله تبارك وتعالى، لهذا تجد الإنسان روحه ونفسه في حرب دائما. النفس البدن، الجسد من هذا التراب ولا يحب إلا الرجوع إليه، والروح من تلك الحضرة المقدسة ولا يريد إلا الرجوع إليها. فيتحاربان دائما: إذا غلب الروح على النفس رجع العبد إلى حضرة مولاه تبارك وتعالى، وإذا غلبت النفس رجع أسفل سافلين.",
+          "en": "Since this spirit (rūḥ) is the root of existing things, and this spirit is from the Presence (ḥaḍra) of God, you find that a person's spirit and self (nafs) are always at war. The self is the body (badan): the body is from this earth and loves only to return to it, and the spirit is from that holy Presence and wants only to return to it. So the two fight without end. When the spirit overcomes the self, the servant returns to the Presence of his Master; when the self overcomes, he returns to the lowest of the low."
+        },
+        {
+          "title": "The seven ranks of the self",
+          "volume": 10, "page": "119–120", "lesson": 53, "verse": [75, 2],
+          "ar": "النفس سبعة أقسام كما جاء في القرآن. الأولى: النفس الأمارة بالسوء، هذه نفس الكفار والعصاة. فإذا أراد الله بالإنسان خيرا أرسل لها باعثا من سرها يلومها إذا قصرت في الطاعة أو إذا ارتكبت معصية، فتصير النفس الأمارة تتقلب لوامة … فإذا أراد بها خيرا زائدا بعث لها من سرها إلهاما يلهمها على الخير، هذه النفس الملهمة … فإذا استمرت على ذلك اطمأنت على الخير وتباعدت عن كل شر، صارت نفسا مطمئنة … لا تكون مرضية إلا بعد أن كانت راضية … هذه ستة أقسام، فترجع كاملة تصل إلى الكمال.",
+          "en": "The self (nafs) has seven divisions, as the Qurʾān states. The first is the self that commands evil (al-ammāra bi-l-sūʾ): the self of unbelievers and sinners. When God wills good for a person, He sends it a prompter (bāʿith) from its own secret (sirr) that blames it when it falls short in obedience or commits a sin, and the commanding self turns into a blaming self (lawwāma) … When He wills it further good, He sends it from its secret an inspiration (ilhām) toward the good: this is the inspired self (mulhama) … When it persists in that, it becomes tranquil in the good and distant from every evil, a tranquil self (muṭmaʾinna) … It is not well-pleasing (marḍiyya) until it has first been well-pleased (rāḍiya) … These are six divisions, and it returns perfect (kāmila), reaching perfection (kamāl)."
+        },
+        {
+          "title": "What the self drinks from",
+          "volume": 1, "page": "99", "lesson": 4, "verse": [2, 60],
+          "ar": "مشرب النفس العبادات والمجاهدات، ومشرب القلب الخوف والرجاء، ومشرب العقل القبض والبسط، ومشرب الروح مشاهدة الجمال والجلال، ومشرب السر الأنس والهيبة.",
+          "en": "The drinking-place (mashrab) of the self is acts of worship and spiritual struggle (al-ʿibādāt wa-l-mujāhadāt); of the heart, fear and hope; of the intellect, contraction and expansion; of the spirit, witnessing beauty and majesty; of the secret, intimacy and awe.",
+          "note": "Shaykh Ibrāhīm reads the twelve springs struck from the rock by Mūsā as the twelve faculties of the person, with the spirit as Mūsā seeking water for them."
+        },
+        {
+          "title": "The garment of the self",
+          "volume": 3, "page": "200", "lesson": 18, "verse": [7, 26],
+          "ar": "الله تبارك وتعالى كسا عباده الصالحين لباسا، لباس النفس ولباس القلب ولباس الروح ولباس السر. لباس النفس: العمل بالشريعة، امتثال الأمر واجتناب النهي، يستر عورة مخالفة أمر الله.",
+          "en": "God clothed His righteous servants with a garment: a garment for the self, the heart, the spirit and the secret. The garment of the self is acting by the sharīʿa, obeying the command and avoiding the prohibition; it covers the shame of disobeying God's command."
+        },
+        {
+          "title": "Why a bad deed counts once",
+          "volume": 3, "page": "186", "lesson": 17, "verse": [6, 160],
+          "ar": "والحكمة في ذلك أن شخص الإنسان نفس وقلب وروح وسر، كما أن مراتب الأعداد عند أهل الحساب أربع مراتب … فمن عمل سيئة هذا من باب النفس وهو باب الآحاد، سيئة مثلها … ومن جاء بالحسنة هذا من باب القلب فله عشر أمثالها.",
+          "en": "The wisdom in this is that the human person is a self, a heart, a spirit and a secret, just as the ranks of number for the reckoners are four … Whoever does a bad deed, that is from the door of the self, the door of units: one bad deed like it … Whoever brings a good deed, that is from the door of the heart, so he has ten like it."
+        },
+        {
+          "title": "How the self enters Islam",
+          "volume": 1, "page": "173", "lesson": 6, "verse": [2, 208],
+          "ar": "هذا دخول النفس، والقلب يتخلى عن جميع الأخلاق الذميمة ويتحلى بجميع الأخلاق الحميدة، والروح يترك الالتفات إلى غير الله تبارك وتعالى، والسر يفنى في ذات الله تبارك وتعالى ولا يرى غيره.",
+          "en": "This is the entry of the self. The heart empties itself of every blameworthy trait and adorns itself with every praiseworthy one; the spirit stops turning to anything other than God; and the secret passes away (yafnā) in the Essence of God and sees nothing else."
+        },
+        {
+          "title": "The self's desire is met in knowing God",
+          "volume": 10, "page": "232", "lesson": 56, "verse": [112, 1],
+          "ar": "والإنسان فيه شيئان: فيه عقل وفيه نفس، عقله له مطلب ونفسه لها مطلب. العقل مطلبه أن يجد أمينا يستودع عنده جميع ما يملك من الحسنات، والنفس تحتاج لغني جواد تعلق عليه أطماعها … إذاً من عرف الله وجد مراده.",
+          "en": "The human has two things in him: an intellect (ʿaql) and a self (nafs). His intellect has a demand and his self has a demand. The intellect seeks a trustee with whom to deposit all the good deeds it owns; the self needs a rich and generous One on whom to hang its hopes … So whoever knows God (ʿarafa Allāh) finds what he seeks."
+        }
+      ],
+      "related": ["sirr"]
+    },
+    {
+      "slug": "sirr",
+      "term": "sirr",
+      "termAr": "السر",
+      "title": "The secret",
+      "question": "What does Shaykh Ibrāhīm say about the secret (sirr)?",
+      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the secret (sirr) as the innermost of the subtleties that make up a person — self, heart, intellect, spirit, secret — with God beyond it. He defines it by what it will not look at: its godfearing bars it from seeing anything but God, and its humility is that nothing other than God is there. It is also where a person's change begins, since God sends the self both its reproach and its inspiration from its own secret. The Prophet's secret is his alone, and among others the secret is entrusted only to one fit to carry it.",
+      "points": [
+        ["Innermost, counted either way.", "Read inward from the self — self, heart, intellect, spirit, secret — it comes last. Read in the order God clothes the Muḥammadan Reality — secret, spirit, intellect, heart, self — it comes first. Either way it is the one nearest God."],
+        ["Not one fixed scheme.", "He counts five of these subtleties in one place and four in another, leaving the intellect out. What holds across them is the secret's position, not the number."],
+        ["Defined by what it will not see.", "Its godfearing bars it from seeing anything but God; its humility is that nothing else is there."],
+        ["It moves the self.", "The prompter that blames, and the inspiration toward the good, are sent to the self from its own secret."],
+        ["The Prophet's is his own.", "Others drink from his self, heart, intellect and spirit; his secret belongs to him alone."],
+        ["Not given to everyone.", "The secret is entrusted only to one fit to carry it."]
+      ],
+      "passages": [
+        {
+          "title": "The five subtleties, and what lies beyond",
+          "volume": 6, "page": "74", "lesson": 32, "verse": [20, 7],
+          "ar": "كذلك كل عبد له نفس وله قلب وله عقل وله روح وله سر، والسر وأخفَى من السر هو الله",
+          "en": "Likewise every servant has a self (nafs), a heart (qalb), an intellect (ʿaql), a spirit (rūḥ) and a secret (sirr). And the secret, and what is more hidden than the secret — that is God."
+        },
+        {
+          "title": "The Prophet's secret is his alone",
+          "volume": 6, "page": "74", "lesson": 32, "verse": [20, 7],
+          "ar": "والأقطاب والأنبياء والمرسلون مشربهم روحه صلى اللّه عليه وسلم، سره خاص به، (لي وقت مع اللّه لا يسعني فيه ملك مقرب ولا نبي مرسل)",
+          "en": "The poles (aqṭāb), the prophets and the messengers drink from his spirit (rūḥ); his secret (sirr) is his alone — ⟨I have a time with God in which no angel brought near nor prophet sent can contain me.⟩",
+          "note": "Here Shaykh Ibrāhīm names the five presences (ḥaḍarāt) of the Prophet from the innermost outward — secret, spirit, intellect, heart, self — the reverse of the order in passage 1. He sets them beside the five realms, nāsūt, malakūt, jabarūt, lāhūt and hāhūt, which he names in the opposite direction. The righteous drink from his self, those after them from his heart, those after them from his intellect."
+        },
+        {
+          "title": "A remembrance the angels do not see",
+          "volume": 6, "page": "42", "lesson": 32, "verse": [19, 3],
+          "ar": "أو نداء لا يكون خفيا إلا إذا كان ذكر السر الذي لا يطلع عليه الملائكة فكان خفيا",
+          "en": "Or: a call is not hidden (khafī) unless it is the remembrance of the secret (sirr), which the angels do not look upon — and so it was hidden.",
+          "note": "On Zakariyyā calling upon his Lord «a hidden call»."
+        },
+        {
+          "title": "What the secret drinks from",
+          "volume": 1, "page": "99", "lesson": 4, "verse": [2, 60],
+          "ar": "فلما ضرب حجر وجود العبد بعصا لا إله إلا اللّٰه انفجرت اثنتا عشرة عينا قد علم كل أناس مشربهم: مشرب النفس العبادات والمجاهدات، ومشرب القلب الخوف والرجاء، ومشرب العقل القبض والبسط، ومشرب الروح مشاهدة الجمال والجلال، ومشرب السر الأنس والهيبة",
+          "en": "When the rock of the servant's existence was struck with the staff of lā ilāha illa'Llāh, twelve springs burst from it, and «every people knew its drinking-place»: the drinking-place (mashrab) of the self is acts of worship and spiritual struggle; of the heart, fear and hope; of the intellect, contraction and expansion; of the spirit, witnessing beauty and majesty; and of the secret, intimacy and awe (al-uns wa-l-hayba).",
+          "note": "Shaykh Ibrāhīm reads the twelve springs struck from the rock for Mūsā as the twelve faculties of the person, with the spirit as Mūsā seeking water for them."
+        },
+        {
+          "title": "The garment of the secret",
+          "volume": 3, "page": "200", "lesson": 18, "verse": [7, 26],
+          "ar": "اللّٰه تبارك وتعالى كسا عباده الصالحين لباسا، لباس النفس ولباس القلب ولباس الروح ولباس السر، لباس النفس: العمل بالشريعة، امتثال الأمر واجتناب النهي يستر عورة مخالفة أمر الله. ولباس القلب التقوى أيضا وهو تقوى يمنع العبد من الاشتغال بغير الله. ولباس الروح التقوى أيضا ولكن لباس يمنعه من الالتفات إلى غير اللّٰه تبارك وتعالى. ولباس السر التقوى ولكن تقوى يحجزه عن رؤية ما سوى اللّٰه تبارك وتعالى",
+          "en": "God clothed His righteous servants with a garment: a garment for the self, for the heart, for the spirit and for the secret. The garment of the self is acting by the sharīʿa, obeying the command and avoiding the prohibition; it covers the shame of disobeying God's command. The garment of the heart is godfearing (taqwā) too, a godfearing that keeps the servant from occupying himself with any but God. The garment of the spirit is godfearing as well, but a garment that keeps him from turning to any but God. And the garment of the secret is a godfearing that bars him from seeing anything other than God."
+        },
+        {
+          "title": "Its humility: that nothing but God is there",
+          "volume": 6, "page": "168", "lesson": 35, "verse": [23, 2],
+          "ar": "وبقي خشوع الباطن، خشوع الباطن الذكر والحضور مع اللّٰه وعدم التفكر في سوى اللّه، وخشوع الروح عدم الالتفات إلى غير الله، وخشوع السر عدم وجود ما سوى اللّٰه تبارك وتعالى",
+          "en": "What remains is the humility of the inward. The humility (khushūʿ) of the inward is remembrance and presence with God, and not thinking on any but God; the humility of the spirit is not turning to any but God; and the humility of the secret is that nothing other than God is there at all."
+        },
+        {
+          "title": "Where it goes when a person enters Islam entirely",
+          "volume": 1, "page": "174", "lesson": 6, "verse": [2, 208],
+          "ar": "هذا دخول النفس، والقلب يتخلى عن جميع الأخلاق الذميمة ويتحلى بجميع الأخلاق الحميدة، والروح يترك الإلتفات إلى غير اللّٰه تبارك وتعالى، والسر يفنى في ذات اللّٰه تبارك وتعالى ولا يرى غيره",
+          "en": "This is the entry of the self. The heart empties itself of every blameworthy trait and adorns itself with every praiseworthy one; the spirit stops turning to anything other than God; and the secret passes away (yafnā) in the Essence of God and sees nothing else."
+        },
+        {
+          "title": "Remembrance must reach it",
+          "volume": 4, "page": "52–53", "lesson": 21, "verse": [8, 47],
+          "ar": "فهو مفتاح الولاية، فمن أعطي الذكر لم يحرم الولاية، ولابد من الذكر باللسان أولا ثم بالقلب ثم بالروح والسر حتى يصل إلى المطلوب فيكون ذكرا وذاكرا ومذكورا لم يبق إلا الله",
+          "en": "It is the key of sainthood (walāya): whoever is given remembrance (dhikr) is not denied sainthood. Remembrance must be on the tongue first, then in the heart, then in the spirit and the secret, until he arrives at what is sought and becomes remembrance, rememberer and Remembered — nothing remaining but God."
+        },
+        {
+          "title": "It is what moves the self",
+          "volume": 10, "page": "119", "lesson": 53, "verse": [75, 2],
+          "ar": "فإذا أراد اللّٰه بالإنسان خيرا أرسل لها باعثا من سرها يلومها إذا قصرت في الطاعة أو إذا ارتكبت معصية فتصير النفس الأمارة تتقلب لوامة دخلت في حيز الخير واستحقت أن أقسم اللّٰه بها … فإذا أراد بها خيرا زائدا بعث لها من سرها إلهاما يلهمها على الخير",
+          "en": "When God wills good for a person, He sends the self a prompter (bāʿith) from its own secret that blames it when it falls short in obedience or commits a sin; the commanding self turns over into a blaming self, enters the bounds of the good, and becomes worthy of God's swearing by it … And when He wills it further good, He sends it from its secret an inspiration (ilhām) toward the good."
+        },
+        {
+          "title": "It is given only to one fit to carry it",
+          "volume": 9, "page": "73", "lesson": 47, "verse": [48, 26],
+          "ar": "إن اللّه تبارك وتعالى عرف من كان أهلا لهذا السر الأكبر وهم الصحابة فألزمهم هذه الكلمة. من هنا أخذ الشيوخ أن السر لا يعطى إلا لمن يستحقه، من كان أهلا له",
+          "en": "God knew who was fit for this greatest secret (al-sirr al-akbar) — and they were the Companions — so He bound them to this word. From here the shaykhs took it that the secret is given only to one who deserves it, to one who is fit for it.",
+          "note": "The word is the shahāda. Commenting on «He bound them to the word of godfearing», Shaykh Ibrāhīm glosses it as lā ilāha illa'Llāh, Muḥammad rasūl Allāh — called the word of godfearing because it is its cause; it is truthfulness, the word of sincerity, the goodly word, the word of oneness. That is what he here calls the greatest secret."
+        },
+        {
+          "title": "And how fitness is measured",
+          "volume": 9, "page": "74", "lesson": 47, "verse": [48, 26],
+          "ar": "صار الشيخ يضحك يقول له: من لم يكن أهلا لأن يحمل عصفورا كيف يحمل سرا؟",
+          "en": "The shaykh began to laugh and said to him: one who is not fit to carry a sparrow — how shall he carry a secret?",
+          "note": "The disciple had been given a covered bowl and told not to look into it. He looked, and the sparrow flew."
+        }
+      ],
+      "related": ["nafs"]
+    }
+  ]
+}

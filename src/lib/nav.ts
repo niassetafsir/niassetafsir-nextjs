@@ -94,9 +94,10 @@ export const NAV: NavSection[] = [
     labelAr: 'البحث',
     hint: 'Terms, research notes, your saved passages',
     icon: '⊞',
-    match: ['/research', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/search'],
+    match: ['/research', '/glossary', '/glossary-map', '/term', '/topics', '/notes', '/saved', '/search'],
     children: [
       { href: '/research', label: 'All tools', hint: 'Everything in one place' },
+      { href: '/topics', label: 'Topics', hint: 'What he says on one subject, in his own words' },
       { href: '/glossary', label: 'Terms in context', hint: 'Where each term occurs, and how he connects them' },
       // /term answers a different question from /glossary and was reachable
       // from nothing: /glossary says where a word occurs in the tafsīr, this
@@ -177,7 +178,7 @@ export const MOBILE_BAR: MobileTab[] = [
   { id: 'read',   href: '/read',   label: 'Tafsīr', icon: '◎', match: ['/read', '/lesson', '/volume', '/surah'] },
   { id: 'search', href: '/search', label: 'Search', icon: '⌕', match: ['/search'] },
   { id: 'listen', href: '/audio',  label: 'Listen', icon: '♪', match: ['/audio'] },
-  { id: 'more',                    label: 'More',   icon: '⋯', match: ['/research', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/about', '/translators-note', '/get-involved'] },
+  { id: 'more',                    label: 'More',   icon: '⋯', match: ['/research', '/topics', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/about', '/translators-note', '/get-involved'] },
 ];
 
 /** The event PersistentNav fires to open SiteNav's menu. They are
