@@ -1,7 +1,14 @@
 import Link from 'next/link';
 import SearchForm from '@/components/SearchForm';
 import { SURAH_LIST } from '@/lib/verseRanges';
-import { getCoverage, getSpecimen } from '@/lib/coverage';
+import { getCoverage } from '@/lib/coverage';
+import { showcaseCards, worksByKind, corpusCounts, SHOWCASE_VERSE } from '@/lib/homeShowcase';
+
+const FAINT = 'var(--body-faint, rgba(232,232,224,0.45))';
+const SUB = 'var(--body-sub, rgba(232,232,224,0.70))';
+const TEXT = 'var(--body-text, rgba(232,232,224,0.90))';
+const GOLD = 'var(--gold, #C9A84C)';
+const LINE = 'rgba(138,109,31,0.22)';
 
 /**
  * Homepage.
@@ -22,9 +29,9 @@ import { getCoverage, getSpecimen } from '@/lib/coverage';
 
 export default async function HomePage() {
   const coverage = await getCoverage();
-  const specimen = await getSpecimen();
-  const arabicLayer = coverage.layers.find(l => l.key === 'arabic');
-  const audio = coverage.layers.find(l => l.key === 'audio');
+  const cards = await showcaseCards();
+  const kinds = worksByKind();
+  const counts = corpusCounts();
 
   return (
     <main className="pb-20" dir="ltr">
@@ -72,140 +79,82 @@ export default async function HomePage() {
         </p>
       </section>
 
-      {/* ---- Fī Riyāḍ al-Tafsīr ----
-          The largest work in the corpus, and the only one the site carries
-          whole. Its own reader, its own coverage table. */}
-      <section className="max-w-3xl mx-auto px-5 pb-9">
-        <Link href="/read"
-          className="block rounded-xl border px-5 py-4 transition-colors hover:border-gold/45"
-          style={{ borderColor: 'rgba(138,109,31,0.28)', background: 'rgba(138,109,31,0.04)' }}>
-          <p className="font-arabic text-gold text-lg mb-1" dir="rtl">فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ</p>
-          <p className="font-english text-[15px] font-semibold mb-1.5"
-            style={{ color: 'var(--body-text, rgba(232,232,224,0.9))' }}>
-            Fī Riyāḍ al-Tafsīr
-          </p>
-          <p className="font-english text-[13.5px] leading-relaxed"
-            style={{ color: 'var(--body-sub, rgba(232,232,224,0.6))' }}>
-            His tafsīr of the whole Qurʾān, given in {coverage.totalLessons} sessions in Ramaḍān 1383/1964
-            and printed in ten volumes (Majmaʿ al-Yamāma, Tunis). All {arabicLayer?.count ?? coverage.totalLessons} sessions
-            are here in Arabic, with the English translation in progress.
-          </p>
-        </Link>
-      </section>
-
-      {/* ---- The text itself ---- */}
-      {specimen && (
-        <section className="max-w-5xl mx-auto px-5">
+      {/* ---- One verse, three works ----
+          What a search returns, shown rather than described: Āyat al-Kursī
+          as he expounds it, recites it and versifies it. Read from the corpus
+          at build time (src/lib/homeShowcase.ts). */}
+      {cards.length > 0 && (
+        <section className="max-w-3xl mx-auto px-5 pb-12">
           <p className="font-english text-center text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-1"
-            style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-            From the opening of the tafsīr
+            style={{ color: FAINT }}>
+            One verse, across his works
           </p>
-          <p className="font-english text-center text-xs mb-5"
-            style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-            Lesson 1 · Al-Istiʿādha, Basmala, and Sūrat al-Fātiḥa · Q. 1:1–2:5
+          <p className="font-english text-center text-sm mb-5" style={{ color: SUB }}>
+            {SHOWCASE_VERSE.name} · Q. {SHOWCASE_VERSE.surah}:{SHOWCASE_VERSE.ayah}
           </p>
-
-          <div className="rounded-xl overflow-hidden"
-            style={{ border: '1px solid rgba(138,109,31,0.22)', background: 'rgba(138,109,31,0.035)' }}>
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="px-6 py-6 font-arabic text-lg leading-[2.1]" dir="rtl"
-                style={{
-                  color: 'var(--body-text, rgba(232,232,224,0.90))',
-                  borderBottom: '1px solid rgba(138,109,31,0.15)',
-                }}>
-                {specimen.arabic.map((p, i) => <p key={i} className="mb-4 last:mb-0">{p}</p>)}
-              </div>
-              <div className="px-6 py-6 font-english text-[15px] leading-[1.85]"
-                style={{ color: 'var(--body-text, rgba(232,232,224,0.82))' }}>
-                {specimen.english.map((p, i) => <p key={i} className="mb-4 last:mb-0">{p}</p>)}
-              </div>
-            </div>
-            <div className="text-center py-3"
-              style={{ borderTop: '1px solid rgba(138,109,31,0.18)', background: 'rgba(138,109,31,0.05)' }}>
-              <Link href="/lesson/1"
-                className="tap font-english text-sm font-medium transition-opacity hover:opacity-75"
-                style={{ color: 'var(--gold, #C9A84C)' }}>
-                Continue reading Lesson 1 →
-              </Link>
-            </div>
-          </div>
-
-          <p className="font-english text-center text-xs mt-3"
-            style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-            Lesson 1 also carries <em>Tafsīr al-Jalālayn</em> and <em>Rūḥ al-Bayān</em> verse by verse.
+          <ul className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {cards.map(c => (
+              <li key={c.title}>
+                <Link href={c.href}
+                  className="flex flex-col h-full rounded-xl border px-4 py-4 transition-colors hover:border-gold/50"
+                  style={{ borderColor: LINE, background: 'rgba(138,109,31,0.04)' }}>
+                  <span className="font-english text-[10.5px] uppercase tracking-[0.12em] font-semibold mb-1"
+                    style={{ color: GOLD }}>{c.kind}</span>
+                  <span className="font-english text-[14px] font-semibold leading-snug" style={{ color: TEXT }}>{c.title}</span>
+                  <span className="font-english text-[12px] mb-3" style={{ color: FAINT }}>{c.where}</span>
+                  <span className="font-arabic text-[16px] leading-[1.95] mb-2" dir="rtl" lang="ar" style={{ color: TEXT }}>{c.ar}</span>
+                  {c.en && (
+                    <span className="font-english text-[13px] leading-relaxed mt-auto" style={{ color: SUB }}>{c.en}</span>
+                  )}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="text-center mt-4">
+            <Link href={`/verse/${SHOWCASE_VERSE.surah}/${SHOWCASE_VERSE.ayah}`}
+              className="font-english text-sm font-medium py-2 inline-block transition-opacity hover:opacity-75"
+              style={{ color: GOLD }}>
+              Everything he says on {SHOWCASE_VERSE.name} →
+            </Link>
           </p>
         </section>
       )}
 
-      {/* ---- Coverage ---- */}
-      <section className="max-w-3xl mx-auto px-5 mt-14">
-        <p className="font-english text-center text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-1"
-          style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-          State of the edition
+      {/* ---- His works ---- */}
+      <section className="max-w-3xl mx-auto px-5 pb-10 text-center">
+        <p className="font-english text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-3"
+          style={{ color: FAINT }}>
+          His works
         </p>
-        <p className="font-english text-center text-xs mb-5"
-          style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-          Counted from the edition files at build time
+        <ul className="flex flex-wrap justify-center gap-2 mb-4">
+          {kinds.map(k => (
+            <li key={k.kind}>
+              <Link href="/works"
+                className="inline-block font-english text-sm rounded-full border px-3.5 py-1.5 transition-colors hover:border-gold/60"
+                style={{ borderColor: LINE, color: SUB }}>
+                {k.kind} <span className="tabular-nums" style={{ color: FAINT }}>{k.works}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <p className="font-english text-sm leading-relaxed" style={{ color: SUB }}>
+          {counts.works} works catalogued. The whole Qurʾān in his tafsīr, and so far {counts.verses} verses
+          in {counts.passages} passages from {counts.worksWithPassages} of his other works, with more added as they are transcribed.
         </p>
+      </section>
 
-        <table className="w-full font-english text-sm" style={{ borderCollapse: 'collapse' }}>
-          <tbody>
-            {coverage.layers.map(layer => {
-              const pct = layer.total ? (layer.count / layer.total) * 100 : 0;
-              const complete = layer.total > 0 && layer.count === layer.total;
-              return (
-                <tr key={layer.key} style={{ borderBottom: '1px solid rgba(138,109,31,0.18)' }}>
-                  <td className="py-3 pr-3 align-middle">
-                    <div style={{
-                      color: 'var(--body-text, rgba(232,232,224,0.90))',
-                      fontWeight: complete ? 600 : 400,
-                    }}>
-                      {layer.label}
-                    </div>
-                    <div className="text-xs mt-0.5"
-                      style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-                      {layer.detail}
-                    </div>
-                  </td>
-                  <td className="py-3 px-3 align-middle hidden sm:table-cell" style={{ width: 180 }}>
-                    <div style={{ height: 7, borderRadius: 99, background: 'rgba(128,128,128,0.22)', overflow: 'hidden' }}>
-                      <div style={{
-                        width: `${pct}%`,
-                        height: '100%',
-                        borderRadius: 99,
-                        background: complete ? 'var(--complete, #7bb661)' : 'var(--gold, #C9A84C)',
-                      }} />
-                    </div>
-                  </td>
-                  <td className="py-3 pl-3 text-right align-middle whitespace-nowrap"
-                    style={{
-                      width: 90,
-                      fontVariantNumeric: 'tabular-nums',
-                      fontWeight: 600,
-                      color: complete ? 'var(--complete, #7bb661)' : 'var(--body-text, rgba(232,232,224,0.85))',
-                    }}>
-                    {layer.count} / {layer.total}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-
-        <p className="font-english text-xs italic mt-4"
-          style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-          The Arabic edition is complete and citable. Everything below it is in progress,
-          and each lesson page marks which layers are present.
+      {/* ---- The tafsīr ----
+          The largest work and the only one carried whole: one line, not a
+          card, an extract and a table. Its edition table is on /read. */}
+      <section className="max-w-3xl mx-auto px-5 text-center">
+        <Link href="/read"
+          className="font-english text-[15px] font-medium py-2 inline-block transition-opacity hover:opacity-75"
+          style={{ color: GOLD }}>
+          Read Fī Riyāḍ al-Tafsīr, his 1964 tafsīr of the whole Qurʾān →
+        </Link>
+        <p className="font-english text-xs" style={{ color: FAINT }}>
+          {coverage.totalLessons} sessions, all in Arabic, with the English translation in progress
         </p>
-
-        {audio && audio.detail.includes('Wolof') && audio.count > 0 && (
-          <p className="font-english text-sm mt-5 text-center">
-            <Link href="/audio" className="transition-opacity hover:opacity-75"
-              style={{ color: 'var(--gold, #C9A84C)', borderBottom: '1px dotted rgba(138,109,31,0.4)' }}>
-              Recorded in Arabic and Wolof for {audio.count} lessons →
-            </Link>
-          </p>
-        )}
       </section>
     </main>
   );

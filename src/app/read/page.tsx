@@ -2,6 +2,7 @@ import { getVolumeIndex } from '@/lib/volumes';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { getLessonIdsForSurah } from '@/lib/surahLessons';
 import ReadTableOfContents from '@/components/ReadTableOfContents';
+import EditionCoverage from '@/components/EditionCoverage';
 
 // Full table of contents, styled after usul.ai's expandable reader outline.
 // This page (and VolumeLessonTree, which it shares with the desktop sidebar
@@ -35,6 +36,7 @@ export default async function ReadPage() {
       </div>
 
       <ReadTableOfContents volumes={volumes} suras={suras} />
+      <EditionCoverage />
     </main>
   );
 }
