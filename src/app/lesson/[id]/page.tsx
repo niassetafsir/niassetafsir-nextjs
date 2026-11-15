@@ -1,6 +1,7 @@
 import { getLesson, getAllLessons } from '@/lib/lessons';
 import { notFound, redirect } from 'next/navigation';
 import LessonExperience from '@/components/LessonExperience';
+import lessonRangesData from '@/data/lessonRanges.json';
 import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
 import { VERSE_INDEX } from '@/lib/verseIndex';
 import BilingualText from '@/components/BilingualText';
@@ -19,7 +20,6 @@ import { SURAH_LIST } from '@/lib/verseRanges';
 import { splitArabicCommentary } from '@/lib/arabicCommentary';
 import { toLessonIndex } from '@/lib/volumes';
 import verseCitations from '@/data/verseCitations.json';
-import verseCitationStatus from '@/data/verseCitationStatus.json';
 import fs from 'fs';
 import path from 'path';
 import ComparativeCommentary from '@/components/ComparativeCommentary';
@@ -28,6 +28,27 @@ import { getNiasseVerseExcerpts, getNiasseUnits } from '@/lib/niasseVerseExcerpt
 export async function generateStaticParams() {
   const lessons = await getAllLessons();
   return lessons.map(l => ({ id: String(l.id) }));
+}
+
+
+// The comparison texts are kept one file per sūra, and the panel only ever
+// shows the verses of this lesson. Sending the whole file put all of
+// al-Baqara's Jalālayn (270 KB) into every al-Baqara lesson page. Keep the
+// [s:v] blocks inside the lesson's range.
+const LESSON_RANGES = lessonRangesData as unknown as Record<string, { start: [number, number]; end: [number, number] }>;
+function sliceToLesson(text: string, lessonId: number): string {
+  const r = LESSON_RANGES[String(lessonId)];
+  if (!r) return text;
+  const key = (s: number, v: number) => s * 1000 + v;
+  const lo = key(r.start[0], r.start[1]);
+  const hi = key(r.end[0], r.end[1]);
+  const parts = text.split(/(?=\[\d+:\d+\])/);
+  return parts.filter(part => {
+    const m = part.match(/^\[(\d+):(\d+)\]/);
+    if (!m) return false;
+    const k = key(Number(m[1]), Number(m[2]));
+    return k >= lo && k <= hi;
+  }).join('');
 }
 
 export default async function LessonPage({ params }: { params: { id: string } }) {
@@ -72,7 +93,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
     ? path.join(process.cwd(), 'src/data/jalalaynArabic', String(jalalaynSuraId).padStart(2, '0') + '.txt')
     : null;
   const jalalaynArabicText = jalalaynArPath && fs.existsSync(jalalaynArPath)
-    ? fs.readFileSync(jalalaynArPath, 'utf-8')
+    ? sliceToLesson(fs.readFileSync(jalalaynArPath, 'utf-8'), lesson.id)
     : null;
 
   // Our own English Jalālayn, translated from the Arabic above for this
@@ -84,7 +105,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
     ? path.join(process.cwd(), 'src/data/jalalaynEnglish', String(jalalaynSuraId).padStart(2, '0') + '.txt')
     : null;
   const jalalaynEnglishText = jalalaynEnPath && fs.existsSync(jalalaynEnPath)
-    ? fs.readFileSync(jalalaynEnPath, 'utf-8')
+    ? sliceToLesson(fs.readFileSync(jalalaynEnPath, 'utf-8'), lesson.id)
     : null;
 
   // Real Arabic Rūḥ al-Bayān text, transcribed from Usul.ai (see
@@ -94,7 +115,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
     ? path.join(process.cwd(), 'src/data/ruhAlBayanArabic', String(jalalaynSuraId).padStart(2, '0') + '.txt')
     : null;
   const ruhArabicText = ruhArPath && fs.existsSync(ruhArPath)
-    ? fs.readFileSync(ruhArPath, 'utf-8')
+    ? sliceToLesson(fs.readFileSync(ruhArPath, 'utf-8'), lesson.id)
     : null;
 
   // Per-verse Niasse (Arabic + English) excerpts for the Jalālayn/Rūḥ
@@ -130,7 +151,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const lessonIndex = toLessonIndex(lessons);
 
   const lessonCitations = (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
-  const lessonCitationStatus = (verseCitationStatus as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
   const arabicFull = splitArabicCommentary(lesson.arabicBody || lesson.arabicText);
 
   // Top content: breadcrumb and jump tabs
@@ -176,7 +196,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
           poemLines={arabicFull.poemLines}
           arabicParagraphs={arabicFull.paragraphs}
           citations={lessonCitations}
-          citationStatus={lessonCitationStatus}
           englishText={lesson.englishText}
           hasEnglish={lesson.hasEnglish}
           lessonId={lesson.id}

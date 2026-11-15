@@ -82,7 +82,6 @@ const SOURCES: { id: SourceId; ar: string; en: string; colour: string }[] = [
   { id: 'ruh', ar: 'روح البيان', en: 'Rūḥ al-Bayān', colour: RUH },
 ];
 
-const commas = (n: number) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 /** Split "[1:1]\ntext\n[1:2]\ntext" into a key -> body map. */
 function parseByVerse(text: string | null | undefined): Record<string, string> {
@@ -139,7 +138,6 @@ function SourceControls({
 
       {SOURCES.map(s => {
         const on = active.has(s.id);
-        const n = counts[s.id];
         return (
           <button key={s.id} onClick={() => toggle(s.id)} aria-pressed={on}
             className="font-english text-[11.5px] px-3 py-1.5 rounded-full transition-all flex items-center gap-2"
@@ -150,11 +148,6 @@ function SourceControls({
               fontWeight: on ? 600 : 400,
             }}>
             {lang === 'ar' ? <span className="font-arabic-sans" dir="rtl" translate="no">{s.ar}</span> : s.en}
-            {n > 0 && (
-              <span className="text-[9.5px]" style={{ opacity: on ? 0.8 : 0.6 }}>
-                {commas(n)}
-              </span>
-            )}
           </button>
         );
       })}
@@ -203,11 +196,6 @@ function Column({
         <span className="font-english text-[10.5px]" style={{ color: tint + '0.75)' }}>{s.en}</span>
         {subtitle && (
           <span className="font-english text-[9.5px]" style={{ color: tint + '0.6)' }}>· {subtitle}</span>
-        )}
-        {chars > 0 && (
-          <span className="font-english text-[9.5px] ml-auto" style={{ color: tint + '0.6)' }}>
-            {commas(chars)} chars
-          </span>
         )}
       </div>
       <div
@@ -353,9 +341,8 @@ export default function ComparativeCommentary({
     const u = units[Math.min(unitIdx, units.length - 1)];
     const unitVerses = u.verses.filter(k => jalAr[k] || ruh[k]);
     const niasseText = lang === 'ar' ? u.ar : u.en;
-    const paraNote = lang === 'ar'
-      ? (u.arParas.length ? `¶${u.arParas[0]}–${u.arParas[u.arParas.length - 1]}` : undefined)
-      : (u.enParas.length ? `¶${u.enParas[0]}–${u.enParas[u.enParas.length - 1]}` : undefined);
+    // Paragraph numbers are working references; the column names its verses.
+    const paraNote = u.label;
 
     const counts: Record<SourceId, number> = {
       niasse: niasseText?.length || 0,
@@ -392,7 +379,7 @@ export default function ComparativeCommentary({
             ← Previous
           </button>
           <span className="font-english text-[11px] text-center" style={{ color: 'rgba(13,31,10,0.6)' }}>
-            Unit <strong style={{ color: '#0D1F0A' }}>{unitIdx + 1}</strong> of <strong style={{ color: '#0D1F0A' }}>{units.length}</strong> · {u.label}
+            Part <strong style={{ color: '#0D1F0A' }}>{unitIdx + 1}</strong> of <strong style={{ color: '#0D1F0A' }}>{units.length}</strong> · {u.label}
           </span>
           <button onClick={() => setUnitIdx(i => Math.min(units.length - 1, i + 1))} disabled={unitIdx === units.length - 1}
             className="font-english text-xs px-3 py-1 rounded-lg transition-all"
