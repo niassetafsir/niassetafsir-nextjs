@@ -1,5 +1,8 @@
 import Link from 'next/link';
-import { workSummaries } from '@/lib/corpus';
+import { workSummaries, workEntries } from '@/lib/corpus';
+import { SURAH_LIST } from '@/lib/verseRanges';
+import { shortTitle } from '@/components/VerseLocusCard';
+import WorksTabs from '@/components/WorksTabs';
 import { KIND_OF, KIND_ORDER } from '@/lib/homeShowcase';
 
 export const metadata = {
@@ -23,6 +26,28 @@ export default function WorksPage() {
     .sort((a, b) => b.uses - a.uses || (a.work.titleTranslit ?? '').localeCompare(b.work.titleTranslit ?? ''));
   const indexed = rows.filter(r => r.uses > 0 || r.work.id === 'fi-riyad');
   const pending = rows.filter(r => !(r.uses > 0 || r.work.id === 'fi-riyad') && r.work.relation !== 'student');
+  // By sūra: every verse he quotes, explains or applies outside the tafsīr,
+  // with the works it appears in. His words only (a student's report of him
+  // counts; a student's own reading does not).
+  const verseWorks = new Map<string, { surah: number; ayah: number; works: Map<string, string> }>();
+  for (const { work } of indexed) {
+    if (work.id === 'fi-riyad') continue;
+    for (const e of workEntries(work.id)) {
+      if (!e.isNiasse || !e.hasText) continue;
+      for (let ayah = e.ayahStart; ayah <= (e.ayahEnd ?? e.ayahStart); ayah++) {
+        const k = `${e.surah}:${ayah}`;
+        const v = verseWorks.get(k) ?? { surah: e.surah, ayah, works: new Map() };
+        v.works.set(work.id, shortTitle(work));
+        verseWorks.set(k, v);
+      }
+    }
+  }
+  const suras = SURAH_LIST.map(s => ({
+    ...s,
+    verses: Array.from(verseWorks.values()).filter(v => v.surah === s.id).sort((a, b) => a.ayah - b.ayah),
+  })).filter(s => s.verses.length > 0);
+  const verseCount = verseWorks.size;
+
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
       <p className="font-arabic text-gold text-lg mb-0.5" dir="rtl">تفسيره في سائر آثاره</p>
@@ -35,11 +60,44 @@ export default function WorksPage() {
         <Link href="/read" className="text-gold/80 hover:text-gold underline">Fī Riyāḍ al-Tafsīr</Link>, the
         1964 Arabic sessions on the whole Qurʾān, is one path into his tafsīr. This is the other: his
         explanation of verses wherever else it survives, in other registers of language and of genre.
-        Each work below has been read for the passages where he explains, quotes or applies a verse,
+        Each of his works here has been read for the passages where he explains, quotes or applies a verse,
         and each passage stands on its verse page with the book and page it comes from. Other tafsīr
         sessions, including those he gave in Wolof, will join them as they are found and transcribed.
       </p>
 
+      <WorksTabs
+        bySura={
+        <div>
+          <p className="font-english text-[12.5px] mb-4" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
+            {verseCount} verses in {suras.length} sūras. Each opens its verse page.
+          </p>
+          <div className="space-y-5">
+            {suras.map(s => (
+              <section key={s.id}>
+                <h2 className="font-english text-[13px] font-semibold mb-1.5 flex items-baseline gap-2"
+                  style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
+                  <span className="text-gold/70 tabular-nums">{s.id}</span> Sūrat {s.nameEn}
+                  <span className="font-arabic text-[14px] font-normal" dir="rtl" translate="no"
+                    style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>{s.nameAr}</span>
+                </h2>
+                <ul className="border-l pl-3 space-y-1" style={{ borderColor: 'rgba(201,168,76,0.25)' }}>
+                  {s.verses.map(v => (
+                    <li key={v.ayah} className="font-english text-[13px] leading-relaxed">
+                      <Link href={`/verse/${v.surah}/${v.ayah}`} className="font-semibold text-gold/90 hover:text-gold hover:underline tabular-nums">
+                        Q {v.surah}:{v.ayah}
+                      </Link>
+                      <span style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
+                        {' · '}{Array.from(v.works.values()).map((t, i) => <span key={t}>{i > 0 && ', '}<em>{t}</em></span>)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </div>
+        }
+        byWork={<>
       {KIND_ORDER.concat(['Other']).map(kind => {
         const kindOf = (w: { genre?: string }) => KIND_OF[w.genre ?? ''] ?? 'Other';
         const group = indexed.filter(r => r.work.id !== 'fi-riyad' && r.work.relation !== 'student' && kindOf(r.work) === kind);
@@ -80,6 +138,8 @@ export default function WorksPage() {
         );
       })}
 
+        </>}
+      />
     </main>
   );
 }
