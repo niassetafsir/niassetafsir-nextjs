@@ -72,6 +72,20 @@ wids={w['id'] for w in d['witnesses']}
 for wit,work in (('kashif-casablanca-1353','kashif'),('tadhyil-casablanca-1353','tadhyil-kashif')):
     if wit not in wids:
         d['witnesses'].append({"id":wit,"workId":work,"medium":"print","language":"ar","year":"1353/1934–35","place":"Casablanca","addressScheme":"printed-page (PDF page in parentheses)","isBase":True,"editor":"First edition, printed for al-Sharīf Sīdī Muḥammad Būṭālib of Kaolack; Princeton University Library copy"})
+# al-Mishrī's al-Qanābil al-yadawiyya, read through from the Arabic column (15 Nov 2026):
+# the 32 records cut from the English gain their Arabic and page, one verse is
+# corrected (the English cites 3:8, the Arabic is 3:7), al-Mishrī's other uses are
+# added, and Shaykh Ibrāhīm's words he reports come in as 'reported'.
+_q=json.load(open('scripts/data/corpus-additions-qanabil.json'))
+for l in d['loci']:
+    if l['id'] in _q['update']: l.update(_q['update'][l['id']])
+_qold={l['id'] for l in d['loci'] if l['witnessId']=='qanabil-nardella-woodsmith'}
+for k in d['verseLinks']:
+    if k['locusId'] in _qold and [k['surah'],k['ayahStart']]==_q['relink']['from']:
+        k['surah'],k['ayahStart']=_q['relink']['to']
+_qnew={l['id'] for l in _q['loci']}
+d['loci']=[l for l in d['loci'] if l['id'] not in _qnew]+_q['loci']
+d['verseLinks']=[k for k in d['verseLinks'] if k['locusId'] not in _qnew]+_q['verseLinks']
 # The site carries Shaykh Ibrāhīm's own words only (AK, 15 Nov 2026). Passages he
 # copies from other authors stay in the Word dossiers and the additions files,
 # not on the verse pages.

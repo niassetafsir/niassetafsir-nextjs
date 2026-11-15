@@ -783,7 +783,7 @@ export function getVerseEntries(surah: number, ayah: number): VerseEntry[] {
       occasion: getOccasion(locus.occasionId ?? witness.occasionId),
       // A locus-level attribution beats the work's, because a collection of
       // his answers can print somebody else's reply to him. See attributedTo.
-      isNiasse: !locus.attributedTo && !locus.copiedFrom && (work.relation ?? 'self') !== 'student',
+      isNiasse: !locus.attributedTo && !locus.copiedFrom && ((work.relation ?? 'self') !== 'student' || locus.voice === 'reported'),
       isCopied: Boolean(locus.copiedFrom),
       year: yearOf(work),
       dateLabel: dateLabelOf(work, witness),
@@ -1044,7 +1044,7 @@ export function getTermEntries(slug: string): TermEntry[] {
       locus, witness, work,
       occasion: getOccasion(locus.occasionId ?? witness.occasionId),
       isCopied: Boolean(locus.copiedFrom),
-      isNiasse: !locus.attributedTo && (work.relation ?? 'self') !== 'student',
+      isNiasse: !locus.attributedTo && ((work.relation ?? 'self') !== 'student' || locus.voice === 'reported'),
       year: yearOf(work),
       dateLabel: dateLabelOf(work, witness),
       hasText: Boolean(locus.textAr || locus.textEn),
@@ -1117,7 +1117,7 @@ export function workEntries(workId: string): (VerseEntry & { surah: number; ayah
     out.push({
       link, locus, witness, work,
       occasion: getOccasion(locus.occasionId ?? witness.occasionId),
-      isNiasse: !locus.attributedTo && !locus.copiedFrom && (work.relation ?? 'self') !== 'student',
+      isNiasse: !locus.attributedTo && !locus.copiedFrom && ((work.relation ?? 'self') !== 'student' || locus.voice === 'reported'),
       isCopied: Boolean(locus.copiedFrom),
       year: yearOf(work),
       dateLabel: dateLabelOf(work, witness),
