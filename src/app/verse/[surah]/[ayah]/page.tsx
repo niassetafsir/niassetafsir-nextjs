@@ -305,10 +305,6 @@ export default async function VersePage({
           <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-4">
             {ACT_HEADING[group.act]}
           </h2>
-          <p className="font-english text-[13px] italic mb-5"
-            style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-            {ACT_BLURB[group.act]}
-          </p>
           {group.entries.map(entry => (
             <VerseLocusCard
               key={`${entry.locus.id}-${entry.link.acts.join('+')}`}

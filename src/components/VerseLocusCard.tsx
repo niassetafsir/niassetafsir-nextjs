@@ -119,18 +119,6 @@ export default function VerseLocusCard({
               {work.titleAr}
             </span>
           )}
-
-          <span className="ml-auto flex flex-wrap gap-1.5">
-            <span className="font-english text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border"
-              style={{
-                borderColor: isPrimary ? 'rgba(201,168,76,0.5)' : 'rgba(255,255,255,0.2)',
-                color: isPrimary
-                  ? 'var(--gold-light, #E8D4A0)'
-                  : 'var(--body-faint, rgba(255,255,255,0.5))',
-              }}>
-              {link.acts.map(a => ACT_LABEL[a]).join(' · ')}
-            </span>
-          </span>
         </div>
 
         {locus.question?.ar && (
