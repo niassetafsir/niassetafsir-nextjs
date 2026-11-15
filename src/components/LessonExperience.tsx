@@ -176,10 +176,12 @@ export default function LessonExperience({ tafsir, compare, citations, overview,
         options, anything off-screen is an option the reader never learns
         exists, and the whole point is that all four are visible at once.
       */}
+      {/* One slim row of tabs. They were four cards, each with Arabic, English
+          and a hint line: some 100px of chrome above the text on every lesson. */}
       <div
         role="tablist"
         aria-label="Choose how to read this lesson"
-        className={`grid grid-cols-2 gap-1.5 mb-4 ${hideCitations ? 'sm:grid-cols-3' : 'sm:grid-cols-4'}`}
+        className="flex flex-wrap gap-1.5 mb-4"
       >
         {modes.map(m => {
           const on = mode === m.id;
@@ -188,26 +190,16 @@ export default function LessonExperience({ tafsir, compare, citations, overview,
               key={m.id}
               role="tab"
               aria-selected={on}
+              title={m.id === 'tafsir' && hasTranslation ? 'Shaykh Ibrāhīm, with translation' : m.hint}
               onClick={() => setMode(m.id)}
-              className="rounded-lg px-3 py-2.5 text-left transition-colors"
+              className="font-english text-[13px] font-semibold rounded-full px-3.5 py-1.5 transition-colors"
               style={{
                 border: '1px solid ' + (on ? 'var(--gold, #C9A84C)' : 'rgba(138,109,31,0.28)'),
                 background: on ? 'var(--gold, #C9A84C)' : 'transparent',
                 color: on ? '#0D1F0A' : 'var(--body-text, rgba(232,232,224,0.85))',
               }}
             >
-              <span className="font-arabic-sans block text-[13px] font-bold leading-tight" dir="rtl" translate="no">
-                {m.ar}
-              </span>
-              <span className="font-english block text-[12.5px] font-semibold leading-tight mt-0.5">
-                {m.en}
-              </span>
-              <span
-                className="font-english hidden sm:block text-[10px] leading-tight mt-1"
-                style={{ color: on ? 'rgba(13,31,10,0.65)' : 'var(--body-faint, rgba(232,232,224,0.45))' }}
-              >
-                {m.id === 'tafsir' && hasTranslation ? 'Shaykh Ibrāhīm, with translation' : m.hint}
-              </span>
+              {m.en}
             </button>
           );
         })}

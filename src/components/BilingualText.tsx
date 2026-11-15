@@ -1,10 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
 import ArabicWordTool from '@/components/ArabicWordTool';
-import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
+import type { LessonAlignment } from '@/lib/bilingualAlignment';
 import { isDraftTranslation, partialTranslation } from '@/lib/draftTranslations';
-import { VERSE_INDEX } from '@/lib/verseIndex';
-import { SURAH_LIST } from '@/lib/verseRanges';
+import type { VerseIndexEntry } from '@/lib/verseIndex';
 import { isPoem, highlightEnVerses, stripEnFootnotes, injectFootnoteLinks, injectVerseNumbers } from '@/lib/textInject';
 
 // Re-exported for existing consumers (e.g. SurahReader.tsx imports these
@@ -41,6 +40,11 @@ interface BilingualTextProps {
   hasEnglish: boolean;
   lessonId?: number;
   footnoteOrder?: string[];
+  /** This lesson's paragraph alignment and verse index, sliced on the server.
+   *  Importing the whole-corpus tables here put every lesson's data -- some
+   *  370 KB -- into the script of every lesson page. */
+  alignment?: LessonAlignment;
+  verseEntries?: VerseIndexEntry[];
 }
 
 function DraftTranslationNotice() {
@@ -111,7 +115,7 @@ function ComingSoonNote({ lang }: { lang: string }) {
   );
 }
 
-export default function BilingualText({ poemLines, arabicParagraphs, citations, citationStatus, englishText, hasEnglish, lessonId, footnoteOrder }: BilingualTextProps) {
+export default function BilingualText({ poemLines, arabicParagraphs, citations, citationStatus, englishText, hasEnglish, lessonId, footnoteOrder, alignment, verseEntries = [] }: BilingualTextProps) {
   // Opening on 'bilingual' regardless of whether a translation exists gave 51
   // of 56 lessons a two-column layout in which one column said "English
   // translation forthcoming" -- half the reading width spent on an absence.
@@ -173,7 +177,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
     // link) -- scroll to the paragraph if this lesson's verse index has it.
     const verseParam = params.get('verse');
     if (verseParam && lessonId) {
-      const entry = (VERSE_INDEX[lessonId] || []).find(v => v.verse === verseParam);
+      const entry = verseEntries.find(v => v.verse === verseParam);
       if (entry) {
         setHighlightedPara(entry.paraIndex);
         // Re-assert the scroll a few times over ~1.5s rather than firing once.
@@ -218,10 +222,8 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
     });
   }
 
-  const alignment = lessonId ? BILINGUAL_ALIGNMENT[lessonId] : undefined;
   const isDraft = lessonId ? isDraftTranslation(lessonId) : false;
   const partial = lessonId ? partialTranslation(lessonId) : null;
-  const verseEntries = lessonId ? (VERSE_INDEX[lessonId] || []) : [];
 
   // What this lesson actually has, rather than what the project intends to
   // have. `hasEnglish` alone is not enough: several lessons carry the flag with
@@ -229,35 +231,6 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
   // forthcoming" ended up behind a chip that claimed a translation.
   const hasTranslation = hasEnglish && (englishText || '').trim().length > 200;
   const langTabs = LANG_TABS.filter(t => t.id === 'arabic' || hasTranslation);
-
-  // Fold the flat index into contiguous same-sūra runs, so the jump bar can
-  // label each one. A new group opens whenever the sūra changes, which keeps
-  // a lesson that returns to an earlier sūra honest rather than merging two
-  // separate passes into one heading.
-  const verseGroups = verseEntries.reduce<
-    { surah: number; name: string; entries: typeof verseEntries }[]
-  >((groups, entry) => {
-    const surah = Number(entry.verse.split(':')[0]);
-    const last = groups[groups.length - 1];
-    if (last && last.surah === surah) {
-      last.entries.push(entry);
-    } else {
-      groups.push({
-        surah,
-        name: SURAH_LIST.find(s => s.id === surah)?.nameEn ?? `Sūra ${surah}`,
-        entries: [entry],
-      });
-    }
-    return groups;
-  }, []);
-
-  const jumpToVerse = (paraIndex: number) => {
-    if (view !== 'bilingual' && view !== 'arabic') setView('bilingual');
-    setHighlightedPara(paraIndex);
-    setTimeout(() => {
-      document.getElementById(`ar-para-${paraIndex}`)?.scrollIntoView({ behavior: 'instant', block: 'center' });
-    }, view === 'bilingual' || view === 'arabic' ? 0 : 100);
-  };
 
   const showBilingual = view === 'bilingual';
 

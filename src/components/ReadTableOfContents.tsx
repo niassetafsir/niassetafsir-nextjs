@@ -39,7 +39,7 @@ export default function ReadTableOfContents({ volumes, suras }: ReadTableOfConte
         <button onClick={() => setShowSuras(!showSuras)}
           className="w-full flex items-center justify-between px-4 py-3 font-english text-sm font-semibold transition-all"
           style={{background:'var(--panel-header-bg, rgba(13,20,10,0.95))', color:'rgba(201,168,76,0.85)'}}>
-          <span>Jump to Sūrah (continuous reading view)</span>
+          <span>By sūra</span>
           <span className="text-xs">{showSuras ? '▲' : '▸'}</span>
         </button>
         {showSuras && (

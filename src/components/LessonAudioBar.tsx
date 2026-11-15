@@ -43,15 +43,9 @@ export default function LessonAudioBar({ lessonId }: LessonAudioBarProps) {
   const audio = suraNum ? AUDIO_MAP[suraNum] : null;
 
   if (!audio) {
-    return (
-      <div className="flex items-center justify-between px-4 py-2 text-xs font-english"
-        style={{
-          borderBottom: '1px solid rgba(13,31,10,0.1)',
-          color: 'rgba(13,31,10,0.4)',
-        }}>
-        <span>Audio for this lesson forthcoming</span>
-      </div>
-    );
+    // No recording for this lesson: no row. A bar that only says so is
+    // a line of chrome above the text with nothing to press.
+    return null;
   }
 
   return (

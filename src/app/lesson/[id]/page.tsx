@@ -1,7 +1,8 @@
 import { getLesson, getAllLessons } from '@/lib/lessons';
-import { getReadingNotes } from '@/lib/readingNotes';
 import { notFound, redirect } from 'next/navigation';
 import LessonExperience from '@/components/LessonExperience';
+import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
+import { VERSE_INDEX } from '@/lib/verseIndex';
 import CitationFeedback from '@/components/CitationFeedback';
 import BilingualText from '@/components/BilingualText';
 import PanelJumpTabs from '@/components/PanelJumpTabs';
@@ -52,7 +53,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
   // way.
   const lessons = await getAllLessons();
 
-  const readingNotes = getReadingNotes(Number(params.id));
   const usulBaseUrl = 'https://usul.ai/t/ruh-bayan';
 
   // Jalālayn -- Royal Aal al-Bayt Institute's altafsir.com (tTafsirNo=74 is
@@ -156,7 +156,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="m15 18-6-6 6-6"/>
             </svg>
-            All Sūrahs
+            Contents
           </a>
           </span>
         }
@@ -183,11 +183,11 @@ export default async function LessonPage({ params }: { params: { id: string } })
         {(withheldNotes > 0 || !isReviewed(lesson.id)) && (
           /* One box, not two stacked: on Lessons 9-56 both of these are true at
              once, and a reader meets the state of the lesson in one place. */
-          <div className="mb-5 rounded-xl border px-4 py-3" dir="ltr"
+          <div className="mb-5 rounded-xl border px-4 py-3 text-left" dir="ltr"
             style={{ borderColor: 'rgba(138,109,31,0.28)', background: 'rgba(138,109,31,0.05)' }}>
             {!isReviewed(lesson.id) && (
               <p className="font-english text-[12.5px] leading-6"
-                style={{ color: 'var(--body-sub, rgba(232,232,224,0.62))' }}>
+                style={{ color: 'var(--body-sub, rgba(232,232,224,0.62))', textAlign: 'left' }}>
                 Not yet checked against the printed volume. The Arabic is transcribed from a scan and
                 may still carry its misreadings; quote it with that in mind.
               </p>
@@ -195,7 +195,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
             {withheldNotes > 0 && (
               <p className="font-english text-[12.5px] leading-6"
                 style={{ color: 'var(--body-sub, rgba(232,232,224,0.62))',
-                         marginTop: isReviewed(lesson.id) ? 0 : '0.6rem' }}>
+                         marginTop: isReviewed(lesson.id) ? 0 : '0.6rem', textAlign: 'left' }}>
                 The compiler&rsquo;s {withheldNotes} footnotes on this lesson will appear once they are
                 checked against the text.
               </p>
@@ -214,6 +214,8 @@ export default async function LessonPage({ params }: { params: { id: string } })
           hasEnglish={lesson.hasEnglish}
           lessonId={lesson.id}
           footnoteOrder={hasApparatus(lesson.id) ? (lesson as any).footnoteOrder : undefined}
+          alignment={BILINGUAL_ALIGNMENT[lesson.id]}
+          verseEntries={VERSE_INDEX[lesson.id] ?? []}
         />
       </>}
       compare={<>
@@ -246,7 +248,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         <div className="p-5" dir="ltr">
           <div className="mb-3 pb-3 border-b border-gold/15">
             <div className="font-english text-white/40 text-xs italic">
-              Lesson overview · Amadu Kunateh, Founder, Translator & Digital Editor
+              Lesson overview
             </div>
           </div>
           {/* All 56 lessons carry a summary, so the "forthcoming" fallback that
@@ -258,38 +260,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
             </p>
           )}
 
-          {readingNotes.length > 0 && (
-            <div className="mt-6 pt-5 border-t border-gold/15">
-              <div className="font-english text-white/40 text-xs italic mb-4">
-                Research notes · working observations, not settled positions
-              </div>
-              <div className="space-y-6">
-                {readingNotes.map(note => (
-                  <article key={note.id}>
-                    <h3 className="font-english text-sm font-semibold mb-1"
-                      style={{color:'var(--body-text, rgba(255,255,255,0.9))'}}>
-                      {note.title}
-                    </h3>
-                    <div className="font-english text-xs mb-2" style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
-                      {new Date(note.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
-                    </div>
-                    <div className="font-english text-sm leading-7"
-                      style={{color:'var(--body-sub, rgba(255,255,255,0.75))'}}
-                      dangerouslySetInnerHTML={{ __html: note.body }} />
-                    <div className="flex gap-2 flex-wrap mt-3">
-                      {note.tags.map(tag => (
-                        <span key={tag} className="font-english text-[10px] px-2 py-0.5 rounded"
-                          style={{ background: 'rgba(201,168,76,0.10)', color: 'rgba(138,109,31,0.85)',
-                                   border: '1px solid rgba(201,168,76,0.20)' }}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </>}
     />
