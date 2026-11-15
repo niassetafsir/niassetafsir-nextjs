@@ -58,6 +58,7 @@ export default function LessonAudioBar({ lessonId }: LessonAudioBarProps) {
     <div style={{borderBottom: '1px solid rgba(13,31,10,0.1)'}}>
       {/* Toggle row */}
       <button
+        dir="ltr"
         onClick={() => setExpanded(!expanded)}
         className="w-full flex items-center justify-between px-4 py-2 transition-all font-english text-xs"
         style={{

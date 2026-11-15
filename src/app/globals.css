@@ -1229,8 +1229,14 @@ body:has(> .lesson-print-page) {
   }
   /* Chips and icon buttons: give them width too, and centre what is inside
      now that the box is taller than the label. */
-  button:not(.w-full):not([class*="flex-1"]),
-  [role="tab"] {
+  /* :not([class*="hidden"]) is load-bearing. This rule's specificity (0-2-1)
+     beat Tailwind's `hidden`, `md:hidden` and `sm:hidden` (0-1-0), so on any
+     touch screen it switched those buttons back on: the desktop annotations
+     rail appeared down the side of phones, and on an iPad the hamburger sat
+     beside the full desktop menu. A button that says when it is hidden keeps
+     its own display rules. */
+  button:not(.w-full):not([class*="flex-1"]):not([class*="hidden"]),
+  [role="tab"]:not([class*="hidden"]) {
     min-width: 44px;
     display: inline-flex;
     align-items: center;
@@ -1242,6 +1248,14 @@ body:has(> .lesson-print-page) {
   button.text-left {
     justify-content: flex-start;
     text-align: left;
+  }
+  /* A tab card holds stacked lines (Arabic name, English name, hint). The
+     chip rule above makes it inline-flex, which is a ROW, and on a phone the
+     two names ran together as "التفسيرTafsīr". */
+  [role="tab"].text-left {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
   }
 
   /* Standalone links opt in by name. There is no CSS test for "this <a> is a

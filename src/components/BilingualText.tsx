@@ -68,32 +68,15 @@ function DraftTranslationNotice() {
    transcription is the thing in preparation; the recordings are on "Listen while
    reading" and /audio, where they belong. */
 const LANG_TABS: { id: View; label: string }[] = [
-  { id: 'arabic',  label: 'عربي' },
+  { id: 'arabic',  label: 'Arabic' },
   { id: 'english', label: 'English' },
 ];
-
-const PLANNED_LANGS = ['Français', 'Wolof', 'Hausa'] as const;
 
 /** Highest lesson number with a substantive English translation. Drives both
  *  the status line and the ComingSoonNote, so the two cannot drift apart --
  *  the note read "Lessons 1–2 available" while five lessons had a translation.
  *  Update as the translation advances. */
-const TRANSLATED_THROUGH = 5;
-
-/** A language named but not yet readable. Deliberately not a <button>: it has
- *  no action, so it gets no affordance, no hover, no focus ring and no place in
- *  the tab order. Screen readers get the same distinction the eye does. */
-function PlannedLang({ label, title }: { label: string; title: string }) {
-  return (
-    <span
-      title={title}
-      className="font-english text-xs px-3 py-1 rounded-full border border-dashed cursor-default"
-      style={{ borderColor: 'rgba(138,109,31,0.28)', color: 'rgba(138,109,31,0.6)' }}
-    >
-      {label}
-    </span>
-  );
-}
+const TRANSLATED_THROUGH = 9;
 
 function TabBtn({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
   return (
@@ -280,53 +263,32 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
 
   return (
     <div>
-      {/* Controls — sticky just below PanelJumpTabs so it stays reachable while reading */}
-      <div
-        className="p-3 border-b space-y-2 sticky z-30"
-        dir="ltr"
-        style={{
-          top: '46px',
-          background: 'rgba(245,237,214,0.97)',
-          backdropFilter: 'blur(6px)',
-          WebkitBackdropFilter: 'blur(6px)',
-          borderColor: 'rgba(13,31,10,0.1)',
-        }}
-      >
-        {/* The Layout row held a single button labelled "Arabic + English" with
-            nothing to switch to, on every lesson. It appears now only when
-            there is in fact a second column to lay out. */}
-        {hasTranslation && (
-          <div className="flex gap-2 flex-wrap items-center">
-            <span className="font-english text-xs text-white/30">Layout:</span>
-            <TabBtn label="Arabic + English" active={showBilingual} onClick={() => setView('bilingual')} />
-          </div>
-        )}
-        {/* Readable languages first, as buttons. Then the ones this edition
-            intends, as labels -- dashed outline, no hover, no tab stop. The
-            reader can see the whole plan and can also see, without clicking,
-            which parts of it exist. */}
-        <div className="flex gap-1.5 flex-wrap items-center">
-          <span className="font-english text-xs text-white/30">Language:</span>
+      {/* One row, and only where there is a choice: Arabic and English
+          together, or either alone. Lessons without a translation show no row
+          at all -- a lone "Arabic" button switches nothing. The planned
+          languages (French, Wolof, Hausa) were greyed chips on every lesson;
+          they announced intentions and did nothing, so they are gone from the
+          reading page. Sticky from tablet up only: on a phone a pinned control
+          bar ate a fifth of the screen over the text. */}
+      {hasTranslation && (
+        <div
+          className="px-3 py-2 border-b md:sticky z-30 flex gap-1.5 flex-wrap items-center"
+          dir="ltr"
+          style={{
+            top: '46px',
+            background: 'rgba(245,237,214,0.97)',
+            backdropFilter: 'blur(6px)',
+            WebkitBackdropFilter: 'blur(6px)',
+            borderColor: 'rgba(13,31,10,0.1)',
+          }}
+        >
+          <span className="font-english text-xs text-white/30 mr-1">Show:</span>
+          <TabBtn label="Arabic + English" active={showBilingual} onClick={() => setView('bilingual')} />
           {langTabs.map(tab => (
             <TabBtn key={tab.id} label={tab.label} active={view === tab.id} onClick={() => setView(tab.id as View)} />
           ))}
-          {!hasTranslation && (
-            <PlannedLang
-              label="English"
-              title={`English translation in progress — lessons 1–${TRANSLATED_THROUGH} are done`}
-            />
-          )}
-          {PLANNED_LANGS.map(label => (
-            <PlannedLang key={label} label={label}
-              title={label === 'Wolof'
-                ? 'Delivered in Wolof; the recordings are under “Listen while reading”. Written transcription in preparation.'
-                : `${label} translation in preparation`} />
-          ))}
-          <span className="font-english text-[11px] pl-1" style={{ color: 'rgba(138,109,31,0.55)' }}>
-            dashed = in preparation
-          </span>
         </div>
-      </div>
+      )}
 
       {/* Verse jump bar — Jalālayn-style per-ayah navigation, only shown once
           this lesson has a built verse index (see src/lib/verseIndex.ts).

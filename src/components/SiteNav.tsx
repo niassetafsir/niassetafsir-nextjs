@@ -24,7 +24,7 @@ import { NAV, OPEN_MENU_EVENT, activeSection, type NavSection } from '@/lib/nav'
  */
 
 // ── One dropdown ──────────────────────────────────────────────────
-function NavDropdown({ section, active }: { section: NavSection; active: boolean }) {
+function NavDropdown({ section, active, alignRight = false }: { section: NavSection; active: boolean; alignRight?: boolean }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -55,7 +55,8 @@ function NavDropdown({ section, active }: { section: NavSection; active: boolean
         </svg>
       </button>
       {open && (
-        <div className="absolute top-full left-0 mt-1 w-60 bg-bg border border-gold/20 rounded-xl shadow-2xl z-50 overflow-hidden">
+        // The last two sections open leftward so their panel stays on screen.
+        <div dir="ltr" className={`absolute top-full ${alignRight ? 'right-0' : 'left-0'} mt-1 w-64 bg-bg border border-gold/20 rounded-xl shadow-2xl z-50 overflow-hidden text-left font-english`}>
           {section.children.map(item => (
             <Link key={item.href} href={item.href} onClick={() => setOpen(false)}
               className="flex flex-col px-4 py-2.5 hover:bg-gold/8 transition-colors border-b border-white/5 last:border-0">
@@ -105,7 +106,7 @@ function MobileNav() {
           measured against the 36px hamburger wrapper rather than the
           viewport: a menu 44px wide, links 13px wide, one word per line. */}
       {open && typeof document !== 'undefined' && createPortal(
-        <div role="dialog" aria-modal="true" aria-label="Menu" style={{ position: 'fixed', inset: 0, zIndex: 99999, display: 'flex', flexDirection: 'column', background: 'var(--overlay-bg, #1a1008)' }}>
+        <div role="dialog" aria-modal="true" aria-label="Menu" dir="ltr" style={{ position: 'fixed', inset: 0, zIndex: 99999, display: 'flex', flexDirection: 'column', background: 'var(--overlay-bg, #1a1008)' }}>
           <div className="flex items-center justify-between px-5 py-3 border-b"
             style={{ borderColor: 'rgba(201,168,76,0.2)' }}>
             <div>
@@ -146,7 +147,7 @@ function MobileNav() {
                 <div className="mt-1 min-w-0">
                   {section.children.map(item => (
                     <Link key={item.href} href={item.href} onClick={() => setOpen(false)}
-                      className="tap flex items-center min-h-[44px] py-1 pl-[13px] min-w-0 rounded-lg hover:bg-gold/8 transition-colors">
+                      className="flex w-full items-center min-h-[44px] py-1 pl-[13px] min-w-0 rounded-lg hover:bg-gold/8 transition-colors">
                       <span className="font-english text-[13px] min-w-0" style={{ color: 'rgba(255,255,255,0.72)' }}>
                         {item.label}
                       </span>
@@ -206,35 +207,34 @@ export default function SiteNav() {
           bug. Thirds were never the right constraint: the bar has one item
           that must not shrink (the links), one that is fixed (the toggle)
           and one that can (the title). Flex says exactly that. */}
-      <div className="hidden md:flex items-center justify-between gap-3 px-5 py-2.5">
-        {/* "EN · FR · AR" sat here as plain text for months. It was never a
-            control -- LangSwitcher is rendered nowhere -- so it advertised two
-            languages the site does not have and implied the English on the page
-            was the edition's. A reader who pressed it, found nothing, and let
-            Chrome translate the page instead got al-Takāthur's ʿayn al-yaqīn
-            back as "the eyes of the innocent". */}
-        <div className="flex items-center gap-2 flex-none">
-          <ThemeToggle />
-        </div>
-
-        <div className="flex items-center justify-center gap-1 flex-none">
-          {NAV.map(section => (
-            <NavDropdown key={section.id} section={section} active={active?.id === section.id} />
-          ))}
-        </div>
-
-        {/* The one element allowed to give way. min-w-0 lets it, and the
-            English line truncates rather than pushing the links aside. */}
-        <div className="flex justify-end flex-1 min-w-0">
-          <Link href="/" className="flex flex-col items-end min-w-0 hover:opacity-80 transition-opacity group">
+      {/* Left to right, as an English reader scans: the title, then the
+          sections in NAV order (By verse first), then the theme toggle. The
+          page is dir="rtl" for the Arabic, so this row says dir="ltr" or the
+          sections print backwards, About first. The title is the one item
+          allowed to give way: min-w-0 lets its English line truncate rather
+          than push the sections off the bar on a tablet. */}
+      <div dir="ltr" className="hidden md:flex items-center justify-between gap-3 px-5 py-2.5">
+        <div className="flex flex-1 min-w-0">
+          <Link href="/" className="flex flex-col items-start min-w-0 hover:opacity-80 transition-opacity group">
             <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl" translate="no"
               style={{ letterSpacing: '-0.01em', textShadow: '0 0 20px rgba(201,168,76,0.3)' }}>
               مَنْطِقُ الفَيْضَة
             </span>
-            <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors truncate max-w-full" dir="ltr">
+            <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors truncate max-w-full">
               Manṭiq al-Fayḍa · The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse
             </span>
           </Link>
+        </div>
+
+        <div className="flex items-center gap-1 flex-none">
+          {NAV.map((section, i) => (
+            <NavDropdown key={section.id} section={section} active={active?.id === section.id}
+              alignRight={i >= NAV.length - 2} />
+          ))}
+        </div>
+
+        <div className="flex items-center gap-2 flex-none">
+          <ThemeToggle />
         </div>
       </div>
 
