@@ -612,14 +612,14 @@ export const ACT_LABEL: Record<ExegeticalAct, string> = {
 };
 
 export const ACT_HEADING: Record<ExegeticalAct, string> = {
-  tafsir: 'Exegesis of the verse',
+  tafsir: 'What he says about it',
   gloss: 'Glossed in passing',
-  prooftext: 'The verse used, not interpreted',
-  juristic: 'The verse as legal proof',
-  poetic: 'The verse in verse',
-  application: 'The verse applied',
-  allusion: 'The verse alluded to',
-  formula: 'The verse as formula',
+  prooftext: 'Where he quotes it',
+  juristic: 'As legal proof',
+  application: 'Where he applies it',
+  allusion: 'Where he alludes to it',
+  poetic: 'In his poetry',
+  formula: 'As a set formula',
   lemma: 'Quoted as a heading',
 };
 

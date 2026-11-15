@@ -7,17 +7,14 @@ import { EDITION_LABEL, formatRef, lessonRef, suraRef } from '@/lib/edition';
 import verseText from '@/data/verse_text.json';
 import verseTranslation from '@/data/verseTranslation.json';
 import {
-  ACT_BLURB,
   ACT_HEADING,
   crossCorpusVerses,
   getVerseEntries,
   groupByAct,
   splitBySpeaker,
-  timelineMarks,
   type VerseEntry,
   CORPUS_VERSE_LINKS,
 } from '@/lib/corpus';
-import VerseCorpusTimeline from '@/components/VerseCorpusTimeline';
 import VerseLocusCard, { type LocusExcerpt } from '@/components/VerseLocusCard';
 import { fatwaVerseExcerpt } from '@/lib/fatwaVerseExcerpts';
 import VersePicker from '@/components/VersePicker';
@@ -122,7 +119,6 @@ export default async function VersePage({
   const { niasse: entries, school, copied } = splitBySpeaker(allEntries);
   const groups = groupByAct(entries);
   const schoolGroups = groupByAct(school);
-  const marks = timelineMarks(entries);
   const comparisons = comparisonsForVerse(surah, ayah);
   const text = VERSES[`${surah}:${ayah}`];
   const rendering = RENDERINGS[`${surah}:${ayah}`];
@@ -213,10 +209,6 @@ export default async function VersePage({
   // lesson, and every locus past MAX_LESSON_READS, carry hasText and show an
   // empty box, so counting them said "9 of 9 text available" over six snippets
   // and three blanks. Mirror VerseLocusCard's own test instead.
-  const loaded = entries.filter(e => {
-    const x = excerpts.get(e.locus.id);
-    return Boolean(x?.ar || x?.en || e.locus.textAr || e.locus.textEn);
-  }).length;
 
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
@@ -288,17 +280,6 @@ export default async function VersePage({
           )
         )}
 
-        <p className="font-english text-[13px] leading-relaxed mt-5"
-          style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
-          Shaykh Ibrāhīm Niasse (d. 1975) read the whole Qurʾān aloud at Medina Baye over
-          fifty-six sessions between ẓuhr and ʿaṣr in Ramaḍān 1383/1964, and his students wrote
-          those sessions down as <em>Fī Riyāḍ al-Tafsīr</em>. He comes back to the same āya elsewhere
-          — in the fatwās, the <em>Ḥikam</em>, the poetry — decades apart.{' '}
-          <Link href="/about/tafsir" className="text-gold/80 hover:text-gold underline">
-            About the tafsīr →
-          </Link>
-        </p>
-
         {printed && (
           <p className="font-english text-[12px] mt-4"
             style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
@@ -308,20 +289,6 @@ export default async function VersePage({
           </p>
         )}
 
-        <p className="font-english text-[11.5px] mt-4 pl-2.5 border-l-2 leading-relaxed"
-          style={{
-            borderColor: 'rgba(201,168,76,0.3)',
-            color: 'var(--body-faint, rgba(255,255,255,0.35))',
-          }}>
-          The āya above is Warsh ʿan Nāfiʿ, the rasm of the printed edition. The root behind each
-          underlined word comes from a Ḥafṣ ʿan ʿĀṣim corpus, realigned to this Warsh text
-          word by word; 125 of the 6,236 āyāt differ in word count between the two riwāyāt, and
-          those were aligned rather than assumed. A word carries no underline where the corpus
-          supplies no root. Lexicon entries are a reading aid and carry no page reference; the
-          edition does not cite them. Page references elsewhere on this site follow the ten-volume
-          Tunis 2022 printing this site was transcribed from; published scholarship on this text
-          cites the six-volume Tunis 2010 printing, whose pagination is different.
-        </p>
       </div>
 
       {/* Both branches that used to stand here — "No locus recorded for this
@@ -331,27 +298,11 @@ export default async function VersePage({
           no gaps, and that entry is always his, so allEntries and entries were
           never empty for any of the 6,236. The copy they carried now sits on
           the coverage card in VerseLocusCard, where a reader will see it. */}
-      {/* ── summary ──────────────────────────────────── */}
-      {entries.length > 0 && (
-      <div className="flex flex-wrap gap-x-9 gap-y-3 mb-9">
-        <Stat n={String(entries.length)} label={entries.length === 1 ? 'locus' : 'loci in the corpus'} />
-        <Stat n={String(groups.length)} label={groups.length === 1 ? 'act' : 'distinct acts'} />
-        {marks.length > 1 && (
-          <Stat
-            n={`${marks[0].year} – ${marks[marks.length - 1].year}`}
-            label="attested span"
-          />
-        )}
-        <Stat n={`${loaded} of ${entries.length}`} label="text available" />
-      </div>
-      )}
-
-      <VerseCorpusTimeline marks={marks} />
 
       {/* ── the acts ──────────────────────────────────────── */}
       {groups.map(group => (
         <section key={group.act} className="mb-10">
-          <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
+          <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-4">
             {ACT_HEADING[group.act]}
           </h2>
           <p className="font-english text-[13px] italic mb-5"
@@ -407,20 +358,6 @@ export default async function VersePage({
         </section>
       )}
 
-      <p className="font-english text-[12.5px] leading-relaxed pt-6 border-t"
-        style={{
-          borderColor: 'rgba(255,255,255,0.10)',
-          color: 'var(--body-faint, rgba(255,255,255,0.4))',
-        }}>
-        Entries are grouped by what Shaykh Ibrāhīm is <em>doing</em> with the verse, then ordered
-        oldest first inside each group, so the same words can be seen carrying different work
-        across a career. Every entry names the witness it comes from. Passages that are known
-        but not yet available are listed rather than hidden.
-        {' '}Beyond <em>Fī Riyāḍ al-Tafsīr</em>, {OTHER_WORK_VERSES} āyāt have so far been indexed
-        from his other writings — the <em>Ḥikam</em>, the fatwās, <em>Kāshif al-Ilbās</em>, the
-        <em>Qanābīl</em>, the <em>Tafsīr Maʿānī</em> cassettes. A verse with nothing under this
-        heading has not been searched in them and found wanting; it has not been searched.
-      </p>
 
       <NeighbourNav surah={surah} ayah={ayah} max={meta.ayahCount} />
 

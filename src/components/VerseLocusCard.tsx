@@ -130,15 +130,6 @@ export default function VerseLocusCard({
               }}>
               {link.acts.map(a => ACT_LABEL[a]).join(' · ')}
             </span>
-            {unbracketed && (
-              <span className="font-english text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full"
-                style={{
-                  border: '1px dotted rgba(255,255,255,0.3)',
-                  color: 'var(--body-faint, rgba(255,255,255,0.5))',
-                }}>
-                {DERIVATION_LABEL.unbracketed}
-              </span>
-            )}
           </span>
         </div>
 
@@ -156,13 +147,9 @@ export default function VerseLocusCard({
             style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
             {entry.dateLabel}
           </strong>
-          {witness.language && <> · {languageName(witness.language)}</>}
           {address && <> · {address}</>}
           {locus.voice && (
             <> · <span title={VOICE_NOTE[locus.voice]} className="cursor-help">{VOICE_LABEL[locus.voice]}</span></>
-          )}
-          {link.confidence === 'transcribed' && (
-            <> · <span title={CONFIDENCE_NOTE.transcribed} className="cursor-help">{CONFIDENCE_LABEL.transcribed}</span></>
           )}
           {/* A member of a series cannot be found from its own title alone:
               every maḥwar of the Mawsūʿa paginates from 1, so the address is
@@ -174,19 +161,12 @@ export default function VerseLocusCard({
             </>
           )}
           {witness.medium === 'audio' && <> · audio</>}
-          {link.rasm !== 'unknown' && <> · numbered by {link.rasm === 'warsh' ? 'Warsh' : 'Ḥafṣ'}</>}
-          {excerpt?.printedRef && <> · lesson opens at {excerpt.printedRef}</>}
           {work.compiler && <> · compiled by {shorten(work.compiler)}</>}
           {/* The Qanābil is quoted from Nardella and Wood-Smith's English, which
               is theirs and has to be named where it is read. Suppressed when it
               would only repeat the compiler line, as it does for the Mawsūʿa. */}
           {witness.editor && witness.editor !== work.compiler && (
             <> · {shorten(witness.editor)}</>
-          )}
-          {entry.occasion && entry.occasion.prompt !== 'unknown' && (
-            <> · <span title={entry.occasion.note ?? ''} className="cursor-help">
-              {PROMPT_LABEL[entry.occasion.prompt]}
-            </span></>
           )}
         </p>
         {link.stance && (
@@ -241,15 +221,11 @@ export default function VerseLocusCard({
                 DERIVATION_NOTE['session-range'] is written for a card that
                 supplies its own note, and reading the map by key would print
                 its placeholder. */}
-            {(link.note || unbracketed) && (
-              <div className="font-english text-[12px] italic mt-3 pt-3 border-t space-y-1.5"
-                style={{
-                  borderColor: 'rgba(255,255,255,0.08)',
-                  color: 'var(--body-faint, rgba(255,255,255,0.38))',
-                }}>
-                {link.note && <p>{link.note}</p>}
-                {unbracketed && <p>{DERIVATION_NOTE.unbracketed}</p>}
-              </div>
+            {link.note && witness.id !== 'fi-riyad-site-transcription' && (
+              <p className="font-english text-[12px] italic mt-3 pt-3 border-t leading-relaxed"
+                style={{ borderColor: 'rgba(255,255,255,0.08)', color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
+                {link.note}
+              </p>
             )}
           </>
         ) : (
@@ -267,15 +243,6 @@ export default function VerseLocusCard({
               {link.note ??
                 'This locus is recorded because the attribution is attested, not because the text is available here.'}
             </p>
-            {inSession && (
-              <p className="font-english text-[12.5px] leading-relaxed mt-2.5"
-                style={{ color: 'var(--body-faint, rgba(255,255,255,0.42))' }}>
-                Most of Shaykh Ibrāhīm&rsquo;s Qurʾānic commentary is oral. Sixty-two cassettes
-                of Wolof exegesis covering the whole Qurʾān have never been transcribed, and this
-                index reaches only what the written sessions quote. An absence here belongs to the
-                index, not to the corpus.
-              </p>
-            )}
             {lessonHref && (
               <Link href={lessonHref}
                 className="inline-block mt-3 font-english text-[12px] text-gold/70 hover:text-gold underline">
