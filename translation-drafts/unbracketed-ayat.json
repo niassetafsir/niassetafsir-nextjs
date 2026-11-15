@@ -576,118 +576,104 @@
   {
     "lesson": 6,
     "paraIndex": 3,
-    "verse": "25:23",
-    "anchor": "وَقَدِمْنَآ إِلَىٰ مَا عَمِلُواْ مِنْ",
-    "at": 24
-  },
-  {
-    "lesson": 6,
-    "paraIndex": 3,
-    "verse": "25:23",
-    "anchor": "إِلَىٰ مَا عَمِلُواْ مِنْ عَمَلٍ",
-    "at": 213
-  },
-  {
-    "lesson": 6,
-    "paraIndex": 5,
     "verse": "2:204",
     "anchor": "الدَّنْيِا وَيَشْهِدُ أَللَّهَ عَلَىٰ مَا",
     "at": 598
   },
   {
     "lesson": 6,
-    "paraIndex": 5,
+    "paraIndex": 3,
     "verse": "2:204",
     "anchor": "فِي قَلْبِهِ وَهُوَ أَلَدُّ الْخِصَامِ",
     "at": 640
   },
   {
     "lesson": 6,
-    "paraIndex": 12,
+    "paraIndex": 9,
     "verse": "9:111",
     "anchor": "إِنَّ أللَّةَ ٱَشْتَرِىٰ مِنَ الْمُومِنِينَ",
     "at": 189
   },
   {
     "lesson": 6,
-    "paraIndex": 14,
+    "paraIndex": 11,
     "verse": "2:209",
     "anchor": "مِنْ بَعْدِ مَا جَآءَتْكُمُ الْبَيِّنَتُ",
     "at": 620
   },
   {
     "lesson": 6,
-    "paraIndex": 16,
+    "paraIndex": 13,
     "verse": "4:145",
     "anchor": "في الدرك الأسفل من النار",
     "at": 424
   },
   {
     "lesson": 6,
-    "paraIndex": 38,
+    "paraIndex": 35,
     "verse": "4:43",
     "anchor": "لا تَقْرَبُواْ ألصَّلَوْةَ وَأَنتُمْ سَكَرِىٰ",
     "at": 96
   },
   {
     "lesson": 6,
-    "paraIndex": 39,
+    "paraIndex": 36,
     "verse": "5:90",
     "anchor": "ءَامَنُوَاْ إِنَّمَا ألْخَمْرُ وَالْمَيْسِرُ وَالأَنصَابِ",
     "at": 234
   },
   {
     "lesson": 6,
-    "paraIndex": 39,
+    "paraIndex": 36,
     "verse": "5:90",
     "anchor": "وَالأَزْلَمَ رِجْسٌ مِنْ عَمَلِ الشَّيْطَن",
     "at": 292
   },
   {
     "lesson": 6,
-    "paraIndex": 51,
+    "paraIndex": 48,
     "verse": "4:10",
     "anchor": "إِنَّ ألذِينَ يَاكْلُونَ أَمْوَلَ اليَتَمِى",
     "at": 79
   },
   {
     "lesson": 6,
-    "paraIndex": 51,
+    "paraIndex": 48,
     "verse": "4:10",
     "anchor": "ظَلْماً إِنَّمَا يَاكُلُونَ فِي بُطَونِهِمْ",
     "at": 123
   },
   {
     "lesson": 6,
-    "paraIndex": 81,
+    "paraIndex": 78,
     "verse": "2:232",
     "anchor": "يُوعَظُ بِهِ مَن كَانَ مِنكُمْ",
     "at": 64
   },
   {
     "lesson": 6,
-    "paraIndex": 82,
+    "paraIndex": 79,
     "verse": "2:233",
     "anchor": "لِمَنَ ارَادَ أَنْ يَتمَّ الرّضَعَةَ",
     "at": 159
   },
   {
     "lesson": 6,
-    "paraIndex": 86,
+    "paraIndex": 82,
     "verse": "2:235",
     "anchor": "وَاعْلَمُوَا أَنَّ أللَّهَ يَعْلَمْ مَا",
     "at": 335
   },
   {
     "lesson": 6,
-    "paraIndex": 110,
+    "paraIndex": 106,
     "verse": "2:261",
     "anchor": "أَمْوَلَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ",
     "at": 86
   },
   {
     "lesson": 6,
-    "paraIndex": 111,
+    "paraIndex": 107,
     "verse": "2:246",
     "anchor": "مِنْ بَنِيِ إِسْرَآءِيلَ مِنْ بَعْدِ",
     "at": 180
@@ -918,511 +904,462 @@
   },
   {
     "lesson": 7,
-    "paraIndex": 33,
+    "paraIndex": 32,
     "verse": "2:259",
     "anchor": "يُحْي هَذِهِ اللَّهُ بَعْدَ مَوْتِهَا",
     "at": 477
   },
   {
     "lesson": 7,
-    "paraIndex": 33,
+    "paraIndex": 32,
     "verse": "2:259",
     "anchor": "اللّه مائة عام ثم بعثه",
     "at": 786
   },
   {
     "lesson": 7,
-    "paraIndex": 33,
+    "paraIndex": 32,
     "verse": "2:259",
     "anchor": "قَالَ بَل لَّبِثْتَ مِائَةَ عَامٍ",
     "at": 1085
   },
   {
     "lesson": 7,
-    "paraIndex": 33,
+    "paraIndex": 32,
     "verse": "2:259",
     "anchor": "مائة عام فَانظرِ إِلَى طَعَامِكَ",
     "at": 1146
   },
   {
     "lesson": 7,
-    "paraIndex": 35,
+    "paraIndex": 34,
     "verse": "2:259",
     "anchor": "فأماته اللّٰه مائة عام ثم",
     "at": 318
   },
   {
     "lesson": 7,
-    "paraIndex": 37,
+    "paraIndex": 36,
     "verse": "2:259",
     "anchor": "يُحْيِ هَذِهِ اللَّهُ بَعْدَ مَوْتِهَا",
     "at": 74
   },
   {
     "lesson": 7,
-    "paraIndex": 37,
+    "paraIndex": 36,
     "verse": "2:260",
     "anchor": "قَالَ إِبْرَهِيمٌ رَبِّ أَرِنِي كَيْفَ",
     "at": 226
   },
   {
     "lesson": 7,
-    "paraIndex": 40,
+    "paraIndex": 39,
     "verse": "13:28",
     "anchor": "بذكر اللّه أَلا بِذِكْرِ اللَّهِ",
     "at": 163
   },
   {
     "lesson": 7,
-    "paraIndex": 40,
+    "paraIndex": 39,
     "verse": "2:260",
     "anchor": "قَالَ فَخُذَ أَرْبَعَةً مِنَ الطَّيْرِ",
     "at": 385
   },
   {
     "lesson": 7,
-    "paraIndex": 40,
+    "paraIndex": 39,
     "verse": "2:260",
     "anchor": "ثُمَّ اجْعَلْ عَلَى كُلِّ جَبَلٍ",
     "at": 543
   },
   {
     "lesson": 7,
-    "paraIndex": 40,
+    "paraIndex": 39,
     "verse": "2:260",
     "anchor": "مِنْهُنَّ جُزْءاً ثُمَّ آَدْعُهُنَّ يَاتِينَكَ",
     "at": 592
   },
   {
     "lesson": 7,
-    "paraIndex": 40,
+    "paraIndex": 39,
     "verse": "2:260",
     "anchor": "وَاعْلَمَ آنَّ اللَّهَ عَزِيزٌ حَكِيم",
     "at": 656
   },
   {
     "lesson": 7,
-    "paraIndex": 42,
+    "paraIndex": 41,
     "verse": "2:261",
     "anchor": "مَثَلْ ألذِين يُنفِقُونَ أَمْوَلَهُمْ فِي",
     "at": 29
   },
   {
     "lesson": 7,
-    "paraIndex": 42,
+    "paraIndex": 41,
     "verse": "2:261",
     "anchor": "سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ آنْبَتَتْ",
     "at": 71
   },
   {
     "lesson": 7,
-    "paraIndex": 42,
+    "paraIndex": 41,
     "verse": "2:261",
     "anchor": "سَبْعَ سَنَابِلَ فِي كُلِّ سُنْبْلَةٍ",
     "at": 114
   },
   {
     "lesson": 7,
-    "paraIndex": 44,
+    "paraIndex": 43,
     "verse": "2:261",
     "anchor": "واللهُ يُضَعِفْ لِمَنْ يَشَآءُ وَاللَّهُ",
     "at": 32
   },
   {
     "lesson": 7,
-    "paraIndex": 44,
+    "paraIndex": 43,
     "verse": "2:262",
     "anchor": "أَمْوَلَهُمْ فِى سَبِيلِ اللهِ ثُمَّ",
     "at": 115
   },
   {
     "lesson": 7,
-    "paraIndex": 44,
+    "paraIndex": 43,
     "verse": "2:263",
     "anchor": "خَيْرٌ مِن صَدَقَةِ يَتْبَعُهَا أَذىً",
     "at": 459
   },
   {
     "lesson": 7,
-    "paraIndex": 44,
+    "paraIndex": 43,
     "verse": "2:264",
     "anchor": "يَأَيَّهَا ألذِينَ ءَامَنُواْ لَا تَبْطِلُوا",
     "at": 590
   },
   {
     "lesson": 7,
-    "paraIndex": 44,
+    "paraIndex": 43,
     "verse": "2:264",
     "anchor": "وَلا يُومِنُ بِاللَّهِ وَالْيَوْمِ الأَخِرِ",
     "at": 747
   },
   {
     "lesson": 7,
-    "paraIndex": 45,
+    "paraIndex": 44,
     "verse": "2:265",
     "anchor": "مَرْضَاتِ اللَّهِ وَتَثْبِيتاً مِنَ انفُسِهِمْ",
     "at": 216
   },
   {
     "lesson": 7,
-    "paraIndex": 45,
+    "paraIndex": 44,
     "verse": "2:265",
     "anchor": "ضِعْفَين فَإِن لَمْ يُصِبْهَا وَابِلٌ",
     "at": 402
   },
   {
     "lesson": 7,
-    "paraIndex": 46,
+    "paraIndex": 45,
     "verse": "2:266",
     "anchor": "مِن نَّخِيلٍ وَأَعْنَبِ تَجْرِى مِن",
     "at": 51
   },
   {
     "lesson": 7,
-    "paraIndex": 47,
+    "paraIndex": 46,
     "verse": "2:267",
     "anchor": "وَمِمَّا أَخْرَجْنَا لَكُم مِنَ الأرْضِ",
     "at": 490
   },
   {
     "lesson": 7,
-    "paraIndex": 49,
+    "paraIndex": 48,
     "verse": "2:269",
     "anchor": "مَنْ يَشَآءٌ وَمَنْ يُوتَ الْحِكْمَةَ",
     "at": 197
   },
   {
     "lesson": 7,
-    "paraIndex": 50,
+    "paraIndex": 49,
     "verse": "2:271",
     "anchor": "وَتُوتُوهَا الْفُقَرَآءَ فَهْوَ خَيْرُ لَكُمْ",
     "at": 71
   },
   {
     "lesson": 7,
-    "paraIndex": 52,
+    "paraIndex": 51,
     "verse": "2:272",
     "anchor": "وَمَا تُنفِقُونَ إِلاَّ اِبْتِغَآءَ وَجْهِ",
     "at": 781
   },
   {
     "lesson": 7,
-    "paraIndex": 52,
+    "paraIndex": 51,
     "verse": "2:272",
     "anchor": "وَمَا تُنفِقُواْ مِنْ خَيْرٍ يُوَفَّ",
     "at": 846
   },
   {
     "lesson": 7,
-    "paraIndex": 53,
+    "paraIndex": 52,
     "verse": "2:273",
     "anchor": "للفقراء الذِينَ أُحْصِرُواْ فِي سَبِيلِ",
     "at": 8
   },
   {
     "lesson": 7,
-    "paraIndex": 55,
+    "paraIndex": 54,
     "verse": "2:273",
     "anchor": "وَمَا تُنفِقُواْ مِنْ خَيْرٍ فَإِنَّ",
     "at": 122
   },
   {
     "lesson": 7,
-    "paraIndex": 55,
+    "paraIndex": 54,
     "verse": "2:274",
     "anchor": "أَمْوَلَهُم بِاليْلِ وَالنَّهارِ سِرّاً وَعَلَـٰنِيَةَ",
     "at": 213
   },
   {
     "lesson": 7,
-    "paraIndex": 55,
+    "paraIndex": 54,
     "verse": "2:274",
     "anchor": "ألذِين يُنفِقُونَ أمْوَلَهُم بِاليْلِ وَالنَّهارِ",
     "at": 449
   },
   {
     "lesson": 7,
-    "paraIndex": 55,
+    "paraIndex": 54,
     "verse": "2:274",
     "anchor": "وَعَلَـٰنِيَةَ فَلَهُمُ أَجْرُهَمْ عِندَ رَبِّهِمْ",
     "at": 506
   },
   {
     "lesson": 7,
-    "paraIndex": 56,
+    "paraIndex": 55,
     "verse": "2:275",
     "anchor": "وَأَحَلَّ اللهُ الْبَيْعَ وَحَرَّمَ الرِّبَوْا",
     "at": 82
   },
   {
     "lesson": 7,
-    "paraIndex": 58,
+    "paraIndex": 57,
     "verse": "2:276",
     "anchor": "وَاللَّهُ لا يُحِبُّ كُلَّ كَفّارٍ",
     "at": 335
   },
   {
     "lesson": 7,
-    "paraIndex": 58,
+    "paraIndex": 57,
     "verse": "2:277",
     "anchor": "اَلذِين ءَامَنُواْ وَعَمِلُواْ الصِّلِحَتِ وَأَقَامُواْ",
     "at": 421
   },
   {
     "lesson": 7,
-    "paraIndex": 58,
+    "paraIndex": 57,
     "verse": "2:277",
     "anchor": "الصَّلَوةَ وَءَاتَوُا الزَّكَوةَ لَهُمُ أَجْرُهُمْ",
     "at": 477
   },
   {
     "lesson": 7,
-    "paraIndex": 58,
+    "paraIndex": 57,
     "verse": "2:278",
     "anchor": "الذِينَ ءَامَنُواْ اتَّقُوا اللَّهَ وَذَرُوا",
     "at": 614
   },
   {
     "lesson": 7,
-    "paraIndex": 58,
+    "paraIndex": 57,
     "verse": "2:278",
     "anchor": "مَا بَقِىَ مِنَ الرِّبَوَاْ إِن",
     "at": 668
   },
   {
     "lesson": 7,
-    "paraIndex": 59,
+    "paraIndex": 58,
     "verse": "2:281",
     "anchor": "وَاتَّقُواْ يَوْماً تُرْجَعُونَ فِيهِ إِلَى",
     "at": 15
   },
   {
     "lesson": 7,
-    "paraIndex": 63,
+    "paraIndex": 62,
     "verse": "2:285",
     "anchor": "بِمَآ أُنزِلَ إِلَيْهِ مِن رَبِّهِ",
     "at": 54
   },
   {
     "lesson": 7,
-    "paraIndex": 71,
+    "paraIndex": 70,
     "verse": "2:255",
     "anchor": "هو الحي القيوم لا تأخذه",
     "at": 196
   },
   {
     "lesson": 7,
-    "paraIndex": 74,
+    "paraIndex": 73,
     "verse": "3:7",
     "anchor": "ألذِى أَنزَلَ عَلَيْكَ الْكِتَبَ مِنْهُ",
     "at": 225
   },
   {
     "lesson": 7,
-    "paraIndex": 74,
+    "paraIndex": 73,
     "verse": "3:7",
     "anchor": "ءَايَتٌ مُحْكَمَتّ هُنَّ اُمُّ الْكِتَبِ",
     "at": 265
   },
   {
     "lesson": 7,
-    "paraIndex": 77,
+    "paraIndex": 76,
     "verse": "6:144",
     "anchor": "الإبل اثنين ومن البقر اثنين",
     "at": 496
   },
   {
     "lesson": 7,
-    "paraIndex": 77,
+    "paraIndex": 76,
     "verse": "6:143",
     "anchor": "الضأن اثنين ومن المعز اثنين",
     "at": 528
   },
   {
     "lesson": 7,
-    "paraIndex": 81,
+    "paraIndex": 80,
     "verse": "3:7",
     "anchor": "مِنْ عِنْدِ رَبِّنَا وَمَا يَذَّكَّرُ",
     "at": 37
   },
   {
     "lesson": 7,
-    "paraIndex": 82,
+    "paraIndex": 81,
     "verse": "3:7",
     "anchor": "به كل من عند ربنا",
     "at": 18
   },
   {
     "lesson": 8,
-    "paraIndex": 9,
+    "paraIndex": 8,
     "verse": "3:19",
     "anchor": "وَمَا إَخْتَلَف ألذِينَ أُوتُواْ الْكِتَبَ",
     "at": 595
   },
   {
     "lesson": 8,
-    "paraIndex": 14,
+    "paraIndex": 13,
     "verse": "3:24",
     "anchor": "وَغَرَّهُمْ فِي دِينِهِم مَا كَانُواْ",
     "at": 319
   },
   {
     "lesson": 8,
-    "paraIndex": 20,
+    "paraIndex": 19,
     "verse": "99:8",
     "anchor": "وَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرَآ",
     "at": 118
   },
   {
     "lesson": 8,
-    "paraIndex": 37,
+    "paraIndex": 33,
     "verse": "3:29",
     "anchor": "وَمَا فِي الاَرْضِ وَاللَهُ عَلَىٰ",
     "at": 277
   },
   {
     "lesson": 8,
-    "paraIndex": 37,
+    "paraIndex": 33,
     "verse": "3:30",
     "anchor": "سُوْءِ تَوَدَّ لَوْ آنَّ بَيْنَهَا",
     "at": 461
   },
   {
     "lesson": 8,
-    "paraIndex": 40,
-    "verse": "2:166",
-    "anchor": "إِذْ تَبَرَّأَ الذِينَ اتُّبِعُوا مِنَ",
-    "at": 538
-  },
-  {
-    "lesson": 8,
-    "paraIndex": 40,
-    "verse": "19:59",
-    "anchor": "مِنْ بَعْدِهِمْ خَلْفٌ آضَاعُواْ الصَّلَوْةَ",
-    "at": 908
-  },
-  {
-    "lesson": 8,
-    "paraIndex": 60,
+    "paraIndex": 50,
     "verse": "3:37",
     "anchor": "كُلَّمَا دَخَلَ عَلَيْهَا زَكَرِيَّآءُ الْمِحْرَابَ",
     "at": 352
   },
   {
     "lesson": 8,
-    "paraIndex": 60,
+    "paraIndex": 50,
     "verse": "3:37",
     "anchor": "أنى لك هذا قالت هو",
     "at": 1222
   },
   {
     "lesson": 8,
-    "paraIndex": 63,
-    "verse": "3:37",
-    "anchor": "هو من عند اللّٰه إن",
-    "at": 233
-  },
-  {
-    "lesson": 8,
-    "paraIndex": 63,
-    "verse": "3:37",
-    "anchor": "اللّٰه يرزق من يشاء بغير",
-    "at": 253
-  },
-  {
-    "lesson": 8,
-    "paraIndex": 63,
-    "verse": "3:37",
-    "anchor": "قالت هو من عند اللّه",
-    "at": 399
-  },
-  {
-    "lesson": 8,
-    "paraIndex": 63,
-    "verse": "3:37",
-    "anchor": "إن اللّه يرزق من يشاء",
-    "at": 420
-  },
-  {
-    "lesson": 8,
-    "paraIndex": 65,
-    "verse": "3:39",
-    "anchor": "أَنَّ أللَّهَ يُبَشِّرُكَ بِيَحْيِى مُصَدِّقاً",
-    "at": 382
-  },
-  {
-    "lesson": 8,
-    "paraIndex": 77,
+    "paraIndex": 62,
     "verse": "3:45",
     "anchor": "يَمَرْيَمُ إِنَّ اللَّهَ يُبَشِّرُكِ بِكَلِمَةٍ",
     "at": 7
   },
   {
     "lesson": 8,
-    "paraIndex": 82,
+    "paraIndex": 67,
     "verse": "3:50",
     "anchor": "بَيْنَ يَدَىَّ مِنَ التَّوْرِيَةِ وَلِاحِلَّ",
     "at": 49
   },
   {
     "lesson": 8,
-    "paraIndex": 82,
+    "paraIndex": 67,
     "verse": "3:50",
     "anchor": "لَكْم بَعْضَ الذِي حُرِمْ عَلَيْكُمْ",
     "at": 94
   },
   {
     "lesson": 8,
-    "paraIndex": 83,
+    "paraIndex": 68,
     "verse": "3:55",
     "anchor": "إِذْ قَالَ أللَّهُ يَعِيسِىَّ إِنِّي",
     "at": 652
   },
   {
     "lesson": 8,
-    "paraIndex": 83,
+    "paraIndex": 68,
     "verse": "3:61",
     "anchor": "نَدْعُ أَبْنَآءَنَا وَأَبْنَآءَكُمْ وَنِسَآءَنَا وَنِسَآءَكُمْ",
     "at": 1686
   },
   {
     "lesson": 8,
-    "paraIndex": 84,
+    "paraIndex": 69,
     "verse": "3:62",
     "anchor": "أللَّةُ وَإِنَّ اللَّةَ لَهُوَ الْعَزِيزُ",
     "at": 534
   },
   {
     "lesson": 8,
-    "paraIndex": 85,
+    "paraIndex": 70,
     "verse": "3:65",
     "anchor": "وَمَا انْزِلَتِ التَّوْرِيَةُ وَالإنجِيلُ إِلاَّ",
     "at": 458
   },
   {
     "lesson": 8,
-    "paraIndex": 85,
+    "paraIndex": 70,
     "verse": "3:66",
     "anchor": "تُحَاجُّونَ فِيمَا لَيْسَ لَكْم بِهِ",
     "at": 807
   },
   {
     "lesson": 8,
-    "paraIndex": 85,
+    "paraIndex": 70,
     "verse": "3:67",
     "anchor": "مَا كَانَ إِبْرَهِيمُ يَهُودِيّاً وَلَا",
     "at": 923
   },
   {
     "lesson": 8,
-    "paraIndex": 87,
+    "paraIndex": 72,
     "verse": "3:71",
     "anchor": "الْكِتَٰبِ لِمَ تَلْبِسُونَ ألْحَقَّ بِالْبَطِلِ",
     "at": 334
   },
   {
     "lesson": 8,
-    "paraIndex": 90,
+    "paraIndex": 75,
     "verse": "3:73",
     "anchor": "أَحَدٌ مَثْلَ مَا أوتِيتُمُ أَوْ",
     "at": 154
@@ -1689,76 +1626,62 @@
   {
     "lesson": 11,
     "paraIndex": 27,
-    "verse": "5:19",
-    "anchor": "ما جاءنا من بشير ولا",
-    "at": 38
-  },
-  {
-    "lesson": 11,
-    "paraIndex": 27,
-    "verse": "71:1",
-    "anchor": "إنا أرسلنا نوحا إلى قومه",
-    "at": 196
-  },
-  {
-    "lesson": 11,
-    "paraIndex": 29,
     "verse": "2:143",
     "anchor": "أمة وسطا لتكونوا شهداء على",
     "at": 213
   },
   {
     "lesson": 11,
-    "paraIndex": 29,
+    "paraIndex": 27,
     "verse": "2:143",
     "anchor": "الناس ويكون الرسول عليكم شهيدا",
     "at": 240
   },
   {
     "lesson": 11,
-    "paraIndex": 33,
+    "paraIndex": 31,
     "verse": "4:42",
     "anchor": "وَعَصَوَأْ ألرَسُولَ لَوْ تَسَّوَي بِهِمْ",
     "at": 68
   },
   {
     "lesson": 11,
-    "paraIndex": 34,
+    "paraIndex": 32,
     "verse": "6:23",
     "anchor": "وَاللَهِ رَبِّنَا مَا كُنَّا مُشْرِكِينَ",
     "at": 226
   },
   {
     "lesson": 11,
-    "paraIndex": 34,
+    "paraIndex": 32,
     "verse": "6:23",
     "anchor": "وَاللَّهِ رَبِّنَا مَا كُنَّا مُشْرِكِينَ",
     "at": 412
   },
   {
     "lesson": 11,
-    "paraIndex": 35,
+    "paraIndex": 33,
     "verse": "98:1",
     "anchor": "لم يكن الذين كفروا من",
     "at": 1
   },
   {
     "lesson": 11,
-    "paraIndex": 38,
+    "paraIndex": 36,
     "verse": "4:41",
     "anchor": "فكيف إذا جئنا من كل",
     "at": 37
   },
   {
     "lesson": 11,
-    "paraIndex": 50,
+    "paraIndex": 47,
     "verse": "25:68",
     "anchor": "لا يَدْعُونَ مَعَ اللَّهِ إِلَها",
     "at": 11
   },
   {
     "lesson": 11,
-    "paraIndex": 77,
+    "paraIndex": 74,
     "verse": "4:60",
     "anchor": "آلَم تَرَ إِلَى الذِينَ يَزْعُمُونَ",
     "at": 150
