@@ -72,6 +72,12 @@ wids={w['id'] for w in d['witnesses']}
 for wit,work in (('kashif-casablanca-1353','kashif'),('tadhyil-casablanca-1353','tadhyil-kashif')):
     if wit not in wids:
         d['witnesses'].append({"id":wit,"workId":work,"medium":"print","language":"ar","year":"1353/1934–35","place":"Casablanca","addressScheme":"printed-page (PDF page in parentheses)","isBase":True,"editor":"First edition, printed for al-Sharīf Sīdī Muḥammad Būṭālib of Kaolack; Princeton University Library copy"})
+# The site carries Shaykh Ibrāhīm's own words only (AK, 15 Nov 2026). Passages he
+# copies from other authors stay in the Word dossiers and the additions files,
+# not on the verse pages.
+_copied={l['id'] for l in d['loci'] if 'copiedFrom' in l}
+d['loci']=[l for l in d['loci'] if l['id'] not in _copied]
+d['verseLinks']=[k for k in d['verseLinks'] if k['locusId'] not in _copied]
 # Naming policy: never bare "Niasse" on the site (scripts/name-policy.py).
 import importlib.util
 _spec = importlib.util.spec_from_file_location('name_policy', 'scripts/name-policy.py')
