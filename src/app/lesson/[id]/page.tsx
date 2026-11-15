@@ -51,6 +51,33 @@ function sliceToLesson(text: string, lessonId: number): string {
   }).join('');
 }
 
+
+// The lesson's own verses, in order, each at the first paragraph that takes it
+// up: the "Go to verse" menu. Verses quoted from elsewhere are left out.
+function jumpVersesFor(lessonId: number): { verse: string; paraIndex: number }[] {
+  const r = LESSON_RANGES[String(lessonId)];
+  if (!r) return [];
+  const key = (s: number, a: number) => s * 1000 + a;
+  const lo = key(r.start[0], r.start[1]), hi = key(r.end[0], r.end[1]);
+  const first = new Map<string, number>();
+  for (const e of VERSE_INDEX[lessonId] ?? []) {
+    // "2:38-39" names a run; the menu lists its first verse.
+    const m = e.verse.match(/^(\d+):(\d+)/);
+    if (!m) continue;
+    const s = Number(m[1]), a = Number(m[2]);
+    const k = key(s, a);
+    if (k < lo || k > hi) continue;
+    const v = `${s}:${a}`;
+    if (!first.has(v) || e.paraIndex < (first.get(v) as number)) first.set(v, e.paraIndex);
+  }
+  return Array.from(first.entries())
+    .map(([verse, paraIndex]) => ({ verse, paraIndex }))
+    .sort((x, y) => {
+      const [xs, xa] = x.verse.split(':').map(Number); const [ys, ya] = y.verse.split(':').map(Number);
+      return key(xs, xa) - key(ys, ya);
+    });
+}
+
 export default async function LessonPage({ params }: { params: { id: string } }) {
   // 57.json was a 128-character placeholder duplicating Lesson 56's own sūras
   // (Al-Ikhlas / Al-Falaq / Al-Nas) and has been deleted. While it existed, its
@@ -202,6 +229,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
           footnoteOrder={hasApparatus(lesson.id) ? (lesson as any).footnoteOrder : undefined}
           alignment={BILINGUAL_ALIGNMENT[lesson.id]}
           verseEntries={VERSE_INDEX[lesson.id] ?? []}
+          jumpVerses={jumpVersesFor(lesson.id)}
         />
       </>}
       compare={<>

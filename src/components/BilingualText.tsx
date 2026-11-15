@@ -44,6 +44,9 @@ interface BilingualTextProps {
    *  370 KB -- into the script of every lesson page. */
   alignment?: LessonAlignment;
   verseEntries?: VerseIndexEntry[];
+  /** This lesson's own verses, each with the paragraph where he takes it up:
+   *  the "Go to verse" menu. */
+  jumpVerses?: { verse: string; paraIndex: number }[];
 }
 
 function DraftTranslationNotice() {
@@ -97,7 +100,7 @@ function TabBtn({ label, active, onClick }: { label: string; active: boolean; on
 }
 
 
-export default function BilingualText({ poemLines, arabicParagraphs, citations, citationStatus, englishText, hasEnglish, lessonId, footnoteOrder, alignment, verseEntries = [] }: BilingualTextProps) {
+export default function BilingualText({ poemLines, arabicParagraphs, citations, citationStatus, englishText, hasEnglish, lessonId, footnoteOrder, alignment, verseEntries = [], jumpVerses = [] }: BilingualTextProps) {
   // Opening on 'bilingual' regardless of whether a translation exists gave 51
   // of 56 lessons a two-column layout in which one column said "English
   // translation forthcoming" -- half the reading width spent on an absence.
@@ -225,7 +228,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
           they announced intentions and did nothing, so they are gone from the
           reading page. Sticky from tablet up only: on a phone a pinned control
           bar ate a fifth of the screen over the text. */}
-      {hasTranslation && (
+      {(hasTranslation || jumpVerses.length > 1) && (
         <div
           className="px-3 py-2 border-b md:sticky z-30 flex gap-1.5 flex-wrap items-center"
           dir="ltr"
@@ -237,11 +240,35 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
             borderColor: 'rgba(13,31,10,0.1)',
           }}
         >
+          {hasTranslation && (<>
           <span className="font-english text-xs text-white/30 mr-1">Show:</span>
           <TabBtn label="Arabic + English" active={showBilingual} onClick={() => setView('bilingual')} />
           {langTabs.map(tab => (
             <TabBtn key={tab.id} label={tab.label} active={view === tab.id} onClick={() => setView(tab.id as View)} />
           ))}
+          </>)}
+          {/* A long lesson runs to a hundred screens on a phone: jump to the
+              verse you want instead of scrolling for it. */}
+          {jumpVerses.length > 1 && (
+            <label className="ml-auto flex items-center gap-1.5 font-english text-xs" style={{ color: 'rgba(13,31,10,0.6)' }}>
+              Go to verse
+              <select
+                defaultValue=""
+                onChange={e => {
+                  const para = Number(e.target.value);
+                  if (view === 'english') setView('bilingual');
+                  setHighlightedPara(para);
+                  setTimeout(() => {
+                    document.getElementById(`ar-para-${para}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }, view === 'english' ? 120 : 0);
+                }}
+                className="font-english text-xs rounded-md border px-1.5 py-1"
+                style={{ borderColor: 'rgba(138,109,31,0.35)', background: 'rgba(255,255,255,0.6)', color: '#0D1F0A' }}>
+                <option value="" disabled>Q …</option>
+                {jumpVerses.map(v => <option key={v.verse} value={v.paraIndex}>Q {v.verse}</option>)}
+              </select>
+            </label>
+          )}
         </div>
       )}
 
