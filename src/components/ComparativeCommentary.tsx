@@ -229,10 +229,9 @@ function Body({ text, lang }: { text: string; lang: Lang }) {
   );
 }
 
-function Missing({ what }: { what: string }) {
-  return (
-    <p className="font-english text-[12px] italic" dir="ltr" style={{ color: 'rgba(13,31,10,0.45)' }}>{what}</p>
-  );
+// An empty column says nothing on the public site: no "not yet" notes.
+function Missing(_props: { what: string }) {
+  return null;
 }
 
 /** A run of [verse] blocks inside one column. */

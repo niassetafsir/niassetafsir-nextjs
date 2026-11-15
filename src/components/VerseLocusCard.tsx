@@ -44,6 +44,9 @@ export default function VerseLocusCard({
   const hasBody = Boolean(ar || en);
   const isSummary = Boolean(locus.editorialNote && /summary/i.test(locus.editorialNote));
 
+  // A passage with no text and no lesson to point to has nothing to show.
+  if (!hasBody && !lessonHref) return null;
+
   // Who is speaking, only when it is not plainly him.
   const speaker =
     entry.isNiasse
@@ -59,7 +62,7 @@ export default function VerseLocusCard({
   // Citation: title, date, place in the book.
   const where = lessonId !== undefined
     ? `Lesson ${lessonId}${excerpt?.printedRef ? `, ${excerpt.printedRef}` : ''}`
-    : (locus.address.raw ?? '').replace(/\s*\(PDF[^)]*\)/g, '');
+    : (locus.address.raw ?? '').replace(/\s*\(PDF[^)]*\)/g, '').replace(/\s*[—-]\s*page not yet resolved/i, '');
   const date = work.composed?.hijri
     ? [work.composed.hijri, work.composed.gregorian].filter(Boolean).join('/')
     : null;

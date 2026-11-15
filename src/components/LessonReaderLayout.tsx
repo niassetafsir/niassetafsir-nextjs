@@ -52,19 +52,6 @@ export default function LessonReaderLayout({
         * If this ever goes back to <style>{`...`}</style>, no apostrophe may
         * appear anywhere inside it -- including in a comment. */}
       <style dangerouslySetInnerHTML={{ __html: `
-        /*
-         * The reader is a paper surface: cream in both themes, deliberately,
-         * because a long Arabic text is read here and the site's dark chrome
-         * is navigation rather than reading.
-         *
-         * That means the theme variables must be re-declared locally. The
-         * global :root now carries dark-theme ink (light text), which is right
-         * everywhere except inside this cream slab, where it renders pale text
-         * on pale paper. Scoping them here makes the reader self-consistent
-         * regardless of which theme the rest of the site is in, and any
-         * component dropped inside it inherits the correct ink without knowing
-         * anything about themes.
-         */
         .lesson-reader-layout {
           min-height: calc(100vh - 56px);
           display: flex;
@@ -77,8 +64,6 @@ export default function LessonReaderLayout({
           --sticky-bg: rgba(245, 237, 214, 0.97);
           color: rgba(13, 31, 10, 0.88);
         }
-
-        /* Horizontal metadata bar */
         .lesson-reader-meta-bar {
           display: flex;
           align-items: center;
@@ -89,28 +74,22 @@ export default function LessonReaderLayout({
           border-bottom: 1px solid rgba(139, 109, 31, 0.15);
           padding: 0.75rem 2rem;
         }
-
         .lesson-reader-meta-item {
           display: flex;
           align-items: baseline;
           gap: 0.4rem;
         }
-
-        /* Arabic labels: no uppercasing or letter-spacing, both of which
-         * are Latin-script conventions that damage Arabic letterforms. */
         .lesson-reader-meta-label {
           font-family: 'IBM Plex Sans Arabic', 'Amiri', sans-serif;
           font-size: 12px;
           color: rgba(13, 31, 10, 0.42);
           font-weight: 600;
         }
-
         .lesson-reader-meta-value {
           font-size: 13px;
           line-height: 1.4;
           color: rgba(13, 31, 10, 0.75);
         }
-
         .lesson-reader-meta-value.arabic {
           font-family: 'Amiri', 'IBM Plex Sans Arabic', serif;
           font-size: 15px;
@@ -118,29 +97,17 @@ export default function LessonReaderLayout({
           color: #8a6d1f;
           font-weight: 500;
         }
-
         .lesson-reader-meta-value.english {
           font-size: 13px;
           color: rgba(13, 31, 10, 0.6);
           font-style: italic;
         }
-
         .lesson-reader-meta-divider {
           width: 1px;
           height: 24px;
           background: rgba(139, 109, 31, 0.15);
           flex-shrink: 0;
         }
-
-        /* Main content area.
-         *
-         * Capped rather than truly full-width. 8df246f widened this from
-         * 700px to 960px deliberately; removing the cap entirely gives the
-         * English column a measure well past 120 characters on a wide
-         * display, which is worse than the sidebar layout it replaces. The
-         * cap is raised to 1280px instead, which is what the bilingual
-         * Arabic/English grid actually needs now that the 260px sidebar is
-         * no longer taking that space. */
         .lesson-reader-main {
           flex: 1;
           width: 100%;
@@ -150,62 +117,44 @@ export default function LessonReaderLayout({
           display: flex;
           flex-direction: column;
         }
-
-        /* Breadcrumbs and lesson navigation share main's cap so they stay
-         * flush with the text column on wide displays. */
         .lesson-reader-gutter {
           width: 100%;
           max-width: 1280px;
           margin: 0 auto;
           padding: 0 2rem;
         }
-
         .lesson-reader-body {
           flex: 1;
           font-size: 16px;
           line-height: 1.95;
           color: rgba(13, 31, 10, 0.85);
         }
-
         .lesson-reader-body p {
           margin-bottom: 1.2rem;
           text-align: justify;
         }
-
         .lesson-reader-body a {
           color: #8a6d1f;
           text-decoration: none;
           border-bottom: 1px dotted rgba(138, 109, 31, 0.3);
           transition: all 0.2s ease;
         }
-
         .lesson-reader-body a:hover {
           border-bottom-color: #8a6d1f;
           color: #6b5a1a;
         }
-
-        /* Responsive: tablet.
-         *
-         * Restored -- the sidebar-era file had a 1024px breakpoint and the
-         * meta-bar rewrite dropped it, leaving a jump straight from desktop
-         * to 640px. Between those widths the bar still wraps acceptably via
-         * flex-wrap, but 2rem of side padding is too tight for the body. */
         @media (max-width: 1024px) {
           .lesson-reader-meta-bar {
             gap: 1.25rem;
             padding: 0.75rem 1.5rem;
           }
-
           .lesson-reader-main {
             padding: 1.25rem 1.5rem;
           }
-
           .lesson-reader-gutter {
             padding: 0 1.5rem;
           }
         }
-
-        /* Responsive: mobile */
         @media (max-width: 640px) {
           .lesson-reader-meta-bar {
             flex-direction: column;
@@ -213,31 +162,24 @@ export default function LessonReaderLayout({
             padding: 0.75rem 1rem;
             align-items: flex-start;
           }
-
           .lesson-reader-meta-divider {
             display: none;
           }
-
           .lesson-reader-main {
             padding: 1rem;
           }
-
           .lesson-reader-gutter {
             padding: 0 1rem;
           }
-
           .lesson-reader-body {
             font-size: 15px;
             line-height: 1.8;
           }
         }
-
-        /* Print media */
         @media print {
           .lesson-reader-meta-bar {
             display: none;
           }
-
           .lesson-reader-main,
           .lesson-reader-gutter {
             padding: 0;

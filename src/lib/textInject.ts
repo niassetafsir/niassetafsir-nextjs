@@ -96,6 +96,7 @@ export function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrd
 // by scripts/build-citation-status.js, which is where the evidence behind each
 // state is set out. A mark is a claim about the TEXT; the verse number beside
 // it is the separate claim about WHICH aya.
+const SHOW_STATUS_MARKS = false;
 const STATUS_MARK: Record<string, { glyph: string; title: string }> = {
   collated: {
     glyph: '\u2713',
@@ -143,7 +144,9 @@ export function injectVerseNumbers(
     spanIndex += 1;
     let out = full;
     if (verse) out += `<sup class="verse-ref">${verse}</sup>`;
-    const mark = status ? STATUS_MARK[status] : undefined;
+    // The collation marks (✓ ≠ ?) were the edition's working apparatus; the
+    // public site shows the verse reference only (AK, 15 Nov 2026).
+    const mark = SHOW_STATUS_MARKS && status ? STATUS_MARK[status] : undefined;
     if (mark) {
       // data-cite is the (lesson, paragraph, span) triple the whole apparatus
       // is keyed on -- see scripts/build-citation-status.js. Emitted only when

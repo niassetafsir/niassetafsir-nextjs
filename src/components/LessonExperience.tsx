@@ -40,7 +40,7 @@ const MODES: { id: LessonMode; en: string; ar: string; hint: string }[] = [
   { id: 'tafsir',    en: 'Tafsīr',     ar: 'التفسير',        hint: 'Shaykh Ibrāhīm' },
   { id: 'compare',   en: 'Comparison', ar: 'المقارنة',       hint: 'Jalālayn & Rūḥ al-Bayān' },
   { id: 'citations', en: 'Citations',  ar: 'الحواشي',        hint: 'Sources and footnotes' },
-  { id: 'overview',  en: 'Overview',   ar: 'نظرة عامة',      hint: 'Editor’s introduction' },
+  { id: 'overview',  en: 'Overview',   ar: 'نظرة عامة',      hint: 'What the lesson covers' },
 ];
 
 interface Props {

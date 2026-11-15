@@ -48,7 +48,7 @@ export default function WorkPage({ params }: { params: { id: string } }) {
             : refs.join(', ')}
         </Link>
         <span className="font-english text-[12px]" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-          {(e.locus.address.raw ?? '').replace(/\s*\(PDF[^)]*\)/g, '')}
+          {(e.locus.address.raw ?? '').replace(/\s*\(PDF[^)]*\)/g, '').replace(/\s*[—-]\s*page not yet resolved/i, '')}
           {e.locus.voice && e.locus.voice !== 'own' && <> · {VOICE_LABEL[e.locus.voice]}</>}
         </span>
       </div>

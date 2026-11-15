@@ -92,6 +92,20 @@ d['verseLinks']=[k for k in d['verseLinks'] if k['locusId'] not in _qnew]+_q['ve
 _copied={l['id'] for l in d['loci'] if 'copiedFrom' in l}
 d['loci']=[l for l in d['loci'] if l['id'] not in _copied]
 d['verseLinks']=[k for k in d['verseLinks'] if k['locusId'] not in _copied]
+# Public notes on the work pages: a plain description of each book, nothing
+# about how it was read or indexed (AK, 15 Nov 2026). Working notes stay in
+# the dossiers.
+PUBLIC_NOTES={
+ 'qanabil-yadawiyya':"Al-Mishrī's defence of the Sufi path, unpublished and circulating as a typescript.",
+ 'mawsua-5-fatawa-ajwiba':"His answers to questions put to him, each opening \u201cwaqaftu \u02bfal\u0101 su\u02be\u0101lika \u02bfan\u2026\u201d",
+ 'nayl-al-mafaz':"His second pilgrimage, by Lagos, Kano, Rome and Cairo, in rajaz. In the Majm\u016b\u02bf ri\u1e25al\u0101t.",
+ 'tadhyil-kashif':"His supplement to K\u0101shif al-ilb\u0101s: on tarbiya, the Tij\u0101n\u012b wird and wa\u1e93\u012bfa, \u1e62al\u0101t al-F\u0101ti\u1e25, the vision of God, and the sha\u1e6da\u1e25\u0101t of the majdh\u016bbs. Finished at Kaos, 8 Mu\u1e25arram 1351.",
+ 'tabsirat-al-anam':"A treatise against claiming religious leadership by descent, completed at Kaolack in 1366.",
+ 'rijal-wa-adwar':"Notices of Shaykh Ibr\u0101h\u012bm's muqaddams, with his letters, ij\u0101zas, taqd\u012bms, poems and wa\u1e63iyya, and sayings reported of him.",
+}
+for w in d['works']:
+    if w['id'] in PUBLIC_NOTES: w['note']=PUBLIC_NOTES[w['id']]
+    else: w.pop('note',None)
 # Naming policy: never bare "Niasse" on the site (scripts/name-policy.py).
 import importlib.util
 _spec = importlib.util.spec_from_file_location('name_policy', 'scripts/name-policy.py')

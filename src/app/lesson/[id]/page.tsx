@@ -3,7 +3,6 @@ import { notFound, redirect } from 'next/navigation';
 import LessonExperience from '@/components/LessonExperience';
 import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
 import { VERSE_INDEX } from '@/lib/verseIndex';
-import CitationFeedback from '@/components/CitationFeedback';
 import BilingualText from '@/components/BilingualText';
 import PanelJumpTabs from '@/components/PanelJumpTabs';
 import LessonAudioBar from '@/components/LessonAudioBar';
@@ -167,7 +166,6 @@ export default async function LessonPage({ params }: { params: { id: string } })
   // Main content: panels
   const mainContent = (
     <>
-    <CitationFeedback />
     <LessonExperience
       hasTranslation={!!lesson.hasEnglish}
       tafsir={<>

@@ -480,7 +480,7 @@
         "prooftext"
       ],
       "publish": true,
-      "note": "Unpublished manuscript, circulating as a bilingual typescript. Quoted here by permission; the English is Nardella and Wood-Smith's and is excerpted under citation, not reprinted."
+      "note": "Al-Mishrī's defence of the Sufi path, unpublished and circulating as a typescript."
     },
     {
       "id": "mawsua-1-asanid",
@@ -498,8 +498,7 @@
       "relation": "compiler",
       "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
       "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
-      "seriesIndex": 1,
-      "note": "Chains — the ijāzāt and riwāya-lists. Verse citation here will be formulaic where it occurs at all."
+      "seriesIndex": 1
     },
     {
       "id": "mawsua-2-rasail-fardiyya",
@@ -517,8 +516,7 @@
       "relation": "compiler",
       "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
       "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
-      "seriesIndex": 2,
-      "note": "Letters to named individuals. A. L. Finch’s eleven citations at \"vol. 2, p. 5\" most likely fall here — see the dossier."
+      "seriesIndex": 2
     },
     {
       "id": "mawsua-3-rasail-jamaiyya",
@@ -536,8 +534,7 @@
       "relation": "compiler",
       "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
       "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
-      "seriesIndex": 3,
-      "note": "Circular letters, indexed by addressee rather than by title. The fihris runs to p. 339 and the body to at least p. 264; one letter is addressed to \"al-sayyidayn Sīdī al-Shaykhān wa-Sīdī Muḥammad al-Mishrī\" at p. 183."
+      "seriesIndex": 3
     },
     {
       "id": "mawsua-4-khutab-dakhiliyya",
@@ -555,8 +552,7 @@
       "relation": "compiler",
       "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
       "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
-      "seriesIndex": 4,
-      "note": "Addresses delivered inside the community."
+      "seriesIndex": 4
     },
     {
       "id": "mawsua-5-fatawa-ajwiba",
@@ -575,7 +571,7 @@
       "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
       "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
       "seriesIndex": 5,
-      "note": "Numbered responsa, each opening \"waqaftu ʿalā suʾālika ʿan…\". The densest verse-bearing axis so far examined."
+      "note": "His answers to questions put to him, each opening “waqaftu ʿalā suʾālika ʿan…”"
     },
     {
       "id": "mawsua-6-adhkar",
@@ -593,8 +589,7 @@
       "relation": "compiler",
       "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
       "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
-      "seriesIndex": 6,
-      "note": "Litanies, protective formulae, healing prescriptions. Qurʾānic material here is operative rather than exegetical — the act type will usually be lemma, not tafsīr."
+      "seriesIndex": 6
     },
     {
       "id": "mawsua-7-faaliyyat-kharijiyya",
@@ -612,8 +607,7 @@
       "relation": "compiler",
       "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
       "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
-      "seriesIndex": 7,
-      "note": "His public activity outside the community — conference addresses, delegations, the international appearances."
+      "seriesIndex": 7
     },
     {
       "id": "mawsua-8-muallafat",
@@ -632,7 +626,6 @@
       "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
       "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
       "seriesIndex": 8,
-      "note": "Reprints of the treatises. NOT an independent work: its contents are further witnesses to titles already catalogued here (Kāshif al-ilbās, Rūḥ al-adab, and the rest). Photographed cover reads al-juzʾ al-thānī, so the axis runs to at least two parts. Catalogued to keep the series complete and citable; its loci belong to the treatises, not to this entry.",
       "seriesPart": 2
     },
     {
@@ -651,8 +644,7 @@
       "relation": "compiler",
       "series": "Mawsūʿat al-āthār al-nathriyya li-ṣāḥib al-fayḍa al-Tijāniyya",
       "seriesAr": "موسوعة الآثار النثرية لصاحب الفيضة التجانية",
-      "seriesIndex": 9,
-      "note": "Miscellany — sayings, anecdotes, uncollected fragments."
+      "seriesIndex": 9
     },
     {
       "id": "nayl-al-mafaz",
@@ -697,7 +689,7 @@
       "publish": true,
       "author": "Ibrāhīm Niasse",
       "relation": "self",
-      "note": "His supplement to Kāshif al-ilbās: on tarbiya, the Tijānī wird and waẓīfa, Ṣalāt al-Fātiḥ, the vision of God, the shaṭaḥāt of the majdhūbs. Finished at Kaos, 8 Muḥarram 1351. Most of its verses sit inside passages he quotes (al-Yūsī, Rūḥ al-bayān, Ibn ʿArabī, Ibn Ḥajar)."
+      "note": "His supplement to Kāshif al-ilbās: on tarbiya, the Tijānī wird and waẓīfa, Ṣalāt al-Fātiḥ, the vision of God, and the shaṭaḥāt of the majdhūbs. Finished at Kaos, 8 Muḥarram 1351."
     },
     {
       "id": "tabsirat-al-anam",
@@ -720,7 +712,7 @@
       "publish": true,
       "author": "Ibrāhīm Niasse",
       "relation": "self",
-      "note": "A treatise against claiming religious leadership by descent. Most of it transcribes other authors — al-Rāzī's Mafātīḥ al-ghayb on Q 2:31 fills pp. 13–28; his own verse use is the opening khuṭba, the catena opening Faṣl 1, and the colophon (Kaolack, 1366)."
+      "note": "A treatise against claiming religious leadership by descent, completed at Kaolack in 1366."
     },
     {
       "id": "rijal-wa-adwar",
@@ -744,7 +736,7 @@
       "author": "Ibrāhīm Niasse",
       "compiler": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
       "relation": "compiler",
-      "note": "Notices of Shaykh Ibrāhīm's muqaddams, reproducing his letters, ijāzas, taqdīms, poems and waṣiyya, and sayings reported of him. Entries here are his words only; the editor's own uses of verses are not indexed."
+      "note": "Notices of Shaykh Ibrāhīm's muqaddams, with his letters, ijāzas, taqdīms, poems and waṣiyya, and sayings reported of him."
     }
   ],
   "witnesses": [

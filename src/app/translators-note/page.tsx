@@ -19,7 +19,7 @@ import { getEditionFacts } from '@/lib/coverage';
 export const metadata: Metadata = {
   title: 'Editorial Conventions',
   description:
-    "How to read the text on niassetafsir.org: the Arabic, whose words are whose, translation and summary, transliteration, and the marks beside a Qurʾānic quotation.",
+    "How to read the text on niassetafsir.org: the Arabic, whose words are whose, translation and summary, and transliteration.",
   openGraph: {
     title: 'Editorial Conventions | niassetafsir.org',
     description:
@@ -82,20 +82,10 @@ export default async function EditorialConventionsPage() {
         <h2 className="font-english text-gold text-lg font-semibold mt-9 mb-3 pb-2 border-b border-gold/20">Transliteration and references</h2>
         <p className="mb-3">
           Transliteration follows IJMES. In the English, ﷺ follows the Prophet&apos;s name whatever
-          form the Arabic gives, and the Arabic is left as printed. Qurʾānic references read Q. sūra:āya.
+          form the Arabic gives, and the Arabic is left as printed. Qurʾānic references read Q. sūra:āya;
+          in the Arabic, a small number after a quotation names the āya it comes from.
         </p>
 
-        <h2 className="font-english text-gold text-lg font-semibold mt-9 mb-3 pb-2 border-b border-gold/20">The marks beside a Qurʾānic quotation</h2>
-        <p className="mb-3">
-          The Arabic was transcribed from a scan, which can confuse letters that differ only by their
-          dots. Every quotation in the lessons has been read against a Warsh muṣḥaf, and a small mark
-          says what that showed:{' '}
-          <span style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>✓</span> the quotation matches the āya
-          named;{' '}
-          <span style={{ color: '#C9A84C' }}>≠</span> the āya is identified but the printing reads otherwise;{' '}
-          <span style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>?</span> the passage is too damaged to
-          identify. Nothing is silently corrected. Click a mark to suggest a reading.
-        </p>
       </div>
 
       <div className="mt-12 pt-6 border-t border-gold/15 text-center">
