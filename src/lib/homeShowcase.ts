@@ -3,7 +3,7 @@
 // are read from the data at build time.
 //
 // The example is commentary only (AK, 15 Nov 2026: "a scholarly site, not
-// devotional practice"): Q. 6:103, «Sight does not perceive Him», on whether
+// devotional practice"): Q. 6:103, «The sights do not grasp Him», on whether
 // Allah is seen. The 1964 tafsīr distinguishes perception (idrāk) from seeing;
 // Kāshif al-ilbās (1931) answers the denier who cites the verse against the
 // masters' witnessing, and argues that a saint's karāma can particularise its
@@ -16,7 +16,7 @@ import { getLesson } from '@/lib/lessons';
 import { commentaryParagraphs } from '@/lib/niasseVerseExcerpt';
 import { isShownLink } from '@/lib/scholarlyActs';
 
-export const SHOWCASE_VERSE = { surah: 6, ayah: 103, name: '«Sight does not perceive Him»' };
+export const SHOWCASE_VERSE = { surah: 6, ayah: 103, name: '«The sights do not grasp Him»' };
 
 export interface ShowcaseCard {
   /** "Tafsīr", "Treatise" — the kind of work. */
@@ -47,15 +47,15 @@ const PICKS: {
   locus: string; kind: string; short: string;
   arFrom?: string; enFrom?: string; lessonPara?: [number, number];
   /** Text given here rather than read from the locus: the Lesson 16 comment
-   *  runs across two of the edition's paragraphs, and Lesson 16 has no
-   *  English on the site yet, so the English is the draft translation. */
+   *  runs across two of the edition's paragraphs (¶118–119). The English is
+   *  AK's, from the Volume Two translation. */
   ar?: string; en?: string; where?: string; href?: string;
 }[] = [
   {
     locus: 'firiyad-L16-p118', kind: 'Tafsīr', short: 'Fī Riyāḍ al-Tafsīr (1964)',
     where: 'Lesson 16, vol. 3', href: '/lesson/16#ar-para-117',
     ar: '(لا تُدْرِكُهُ الابْصَرُ) لا تراه الإدراك غير الرؤية يرى الإنسان شيئا ولا يدركه (وَهُوَ يُدْرِكُ الاَبْصَرَ) يراها ويدركها كما نعلمه ولا ندركه، نراه ولا ندركه',
-    en: '«Sight does not perceive Him»: it does not see Him. Perception (idrāk) is other than seeing: a person sees a thing and does not perceive it. «But He perceives [all] sight» (Q. 6:103): He sees it and perceives it. Just as we know Him and do not comprehend Him, we see Him and do not comprehend Him.',
+    en: '«The sights do not grasp Him» — they do not see Him. Grasping is other than seeing: a man sees a thing and does not grasp it — «and He grasps the sights» — He sees them and grasps them. Just as we know Him and do not grasp Him, we see Him and do not grasp Him.',
   },
   { locus: 'kashif-110', kind: 'Treatise', short: 'Kāshif al-ilbās (1931)' },
   { locus: 'kashif-112', kind: 'Treatise', short: 'Kāshif al-ilbās (1931)' },

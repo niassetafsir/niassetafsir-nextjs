@@ -80,7 +80,7 @@ const LANG_TABS: { id: View; label: string }[] = [
  *  the status line and the ComingSoonNote, so the two cannot drift apart --
  *  the note read "Lessons 1–2 available" while five lessons had a translation.
  *  Update as the translation advances. */
-const TRANSLATED_THROUGH = 9;
+const TRANSLATED_THROUGH = 17;
 
 function TabBtn({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
   return (

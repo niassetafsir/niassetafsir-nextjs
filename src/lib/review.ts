@@ -17,7 +17,7 @@
  *
  * As each lesson is read, add it here.
  */
-export const REVIEWED_LESSONS: readonly number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+export const REVIEWED_LESSONS: readonly number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 
 export function isReviewed(lessonId: number | undefined | null): boolean {
   return lessonId != null && REVIEWED_LESSONS.includes(lessonId);

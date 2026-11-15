@@ -184,6 +184,51 @@ const NAME_PAIRS = [
   [/Zamzam/i, /زمزم/],
 ];
 
+
+/**
+ * Lessons 10-17 (Volume Two) carry no footnote markers in their English: the
+ * volume prints no apparatus. Their draft records, for each English paragraph,
+ * the Arabic paragraph it translates (`n`, 0-based, the site's own commentary
+ * paragraphs). The translator supplied that pairing paragraph by paragraph,
+ * so it is evidence of the same kind as a footnote anchor. Arabic paragraphs
+ * with no English are the printing's apparatus, which the volume does not
+ * translate. The same invariants, name audit and shifted control apply.
+ */
+const EXPLICIT_DRAFT = path.join(ROOT, 'translation-drafts/lessons-10-17-english.json');
+function explicitAlignment(id, ar, en) {
+  if (!fs.existsSync(EXPLICIT_DRAFT)) return null;
+  const draft = JSON.parse(fs.readFileSync(EXPLICIT_DRAFT, 'utf8'))[String(id)];
+  if (!draft) return null;
+  const ns = draft.paragraphs
+    .filter(p => p.site !== false && p.runs.some(([t]) => t.trim()))
+    .map(p => p.n);
+  if (ns.length !== en.length) return { refused: `explicit pairing: ${ns.length} paragraphs in the draft, ${en.length} on the site` };
+  if (ns.some(n => typeof n !== 'number' || n < 0 || n >= ar.length)) return { refused: 'explicit pairing names an Arabic paragraph the site does not have' };
+  for (let k = 1; k < ns.length; k++) if (ns[k] <= ns[k - 1]) return { refused: `explicit pairing is not in order at English ${k}` };
+  const blocks = [];
+  for (let i = 0, j = 0; i < ar.length; i++) {
+    if (j < ns.length && ns[j] === i) {
+      blocks.push({ arabicIndices: [i], englishIndices: [j], note: 'Paired by the translator (Volume Two draft).' });
+      j++;
+    } else {
+      blocks.push({ arabicIndices: [i], englishIndices: [], note: 'The printing\u2019s apparatus here; the volume does not translate it.' });
+    }
+  }
+  const audit = nameAudit(blocks, ar, en);
+  return {
+    arParagraphs: ar, enParagraphs: en,
+    alignment: { blocks, englishOnly: [] },
+    stats: {
+      arabicParagraphs: ar.length, englishParagraphs: en.length, anchors: 0, explicit: true,
+      blocks: blocks.length,
+      oneToOne: blocks.filter(b => b.englishIndices.length === 1).length,
+      untranslated: blocks.filter(b => !b.englishIndices.length).length,
+      nameTest: audit.summary, nameDistances: audit.distances,
+    },
+    audit,
+  };
+}
+
 function buildLesson(id, lesson) {
   const ar = arabicParagraphs(lesson.arabicBody || lesson.arabicText);
   const en = englishParagraphs(lesson.englishText);
@@ -203,7 +248,11 @@ function buildLesson(id, lesson) {
     }
     anchors.push({ n, ar: arAt[0], en: enAt[0] });
   }
-  if (!anchors.length) return { refused: 'no footnote marker occurs exactly once on both sides' };
+  if (!anchors.length) {
+    const explicit = explicitAlignment(id, ar, en);
+    if (explicit) return explicit;
+    return { refused: 'no footnote marker occurs exactly once on both sides' };
+  }
 
   const kept = monotone(anchors);
   const outOfOrder = anchors.filter(a => !kept.includes(a));
