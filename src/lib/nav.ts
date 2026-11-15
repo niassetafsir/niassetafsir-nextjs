@@ -56,7 +56,7 @@ export const NAV: NavSection[] = [
     match: ['/verse'],
     children: [
       { href: '/verse', label: 'Look up an āya', hint: 'Type 2:255, or browse by sūra' },
-      { href: '/search', label: 'Search the text', hint: 'Arabic and English' },
+      { href: '/search', label: 'Search', hint: 'Verses, topics, terms' },
     ],
   },
   {

@@ -1334,3 +1334,15 @@ body:has(> .lesson-print-page) {
   html { overflow-x: clip; }
   body { overflow-x: clip; max-width: 100%; }
 }
+
+/* Matched words on /search. */
+mark.search-mark { background: rgba(201,168,76,0.30); color: inherit; border-radius: 3px; padding: 0 2px; }
+
+/* The site search box: the input sits inside a styled wrapper, so it draws
+   no box of its own in either theme. */
+input.site-search-input,
+[data-theme="light"] input.site-search-input {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}

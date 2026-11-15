@@ -99,11 +99,23 @@ export default function TermsPage() {
   const [selected, setSelected] = useState<string | null>(null);
   const [search, setSearch] = useState('');
   const [showPending, setShowPending] = useState(false);
+  const [fromUrl, setFromUrl] = useState(false);
 
   useEffect(() => {
     fetch('/data/term_concordance.json').then(r => r.json()).then(setConcordance).catch(() => setConcordance([]));
     fetch('/data/glossary_graph.json').then(r => r.json()).then(setGraph).catch(() => setGraph(null));
+    // /search links a term here as ?term=<key>; open that entry.
+    const t = new URLSearchParams(window.location.search).get('term');
+    if (t) { setSelected(key(t)); setFromUrl(true); }
   }, []);
+
+  // On a phone the entry sits below the list of terms: bring it into view.
+  useEffect(() => {
+    if (fromUrl && concordance) {
+      document.getElementById('term-detail')?.scrollIntoView({ block: 'start' });
+      setFromUrl(false);
+    }
+  }, [fromUrl, concordance]);
 
   if (!concordance) return (
     <main className="max-w-5xl mx-auto px-4 py-12 text-center">
@@ -217,7 +229,7 @@ export default function TermsPage() {
         </div>
 
         {/* ── the term ──────────────────────────────────────── */}
-        <div className="md:col-span-2">
+        <div id="term-detail" className="md:col-span-2 scroll-mt-24">
           {!term ? (
             <div className="border border-white/8 rounded-xl p-8 text-center">
               <div className="font-arabic text-gold/30 text-3xl mb-3" dir="rtl">المصطلحات</div>

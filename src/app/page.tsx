@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import HomeSearchBar from '@/components/HomeSearchBar';
+import SearchForm from '@/components/SearchForm';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { getCoverage, getSpecimen } from '@/lib/coverage';
 
@@ -55,12 +55,12 @@ export default async function HomePage() {
         </p>
         <p className="font-english text-base leading-relaxed mb-4"
           style={{ color: 'var(--body-sub, rgba(232,232,224,0.70))' }}>
-          This site gathers them verse by verse. Look up an āya to see every place he uses it, in
-          the Arabic of its source, marked for what he does with it and whether the words are
-          his own, written on his behalf, or reported of him.
+          Search for a verse, a topic or a term to see what he says about it, wherever he says it.
         </p>
 
-        <HomeSearchBar ayahCounts={SURAH_LIST.map(s => s.ayahCount)} />
+        <div className="mt-7">
+          <SearchForm ayahCounts={SURAH_LIST.map(s => s.ayahCount)} />
+        </div>
 
         <p className="font-english text-xs mt-3"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
