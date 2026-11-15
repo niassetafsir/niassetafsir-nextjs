@@ -97,16 +97,17 @@ export default async function AboutPage() {
             of the community&rsquo;s life after him, in the teaching of men and women alike (Hill 2018,
             2019). His tafsīr is where the Fayḍa&rsquo;s teaching on God, the human being and the path
             is worked out verse by verse, and the history of the Fayḍa can be told from it (Kunateh
-            2026; Kunateh, dissertation in progress).
+            2026; Kunateh, forthcoming).
           </p>
           <ul className="mt-4 space-y-1.5 text-[12.5px] leading-5" style={{ color: 'rgba(255,255,255,0.55)' }}>
             <li>Brigaglia, Andrea. &ldquo;The Fayda Tijaniyya of Ibrāhīm Nyass: Genesis and Implications of a Sufi Doctrine.&rdquo; <em>Islam et sociétés au sud du Sahara</em> 14–15 (2000–2001): 41–56.</li>
             <li>Brigaglia, Andrea. &ldquo;Learning, Gnosis and Exegesis: Public Tafsīr and Sufi Revival in the City of Kano (Northern Nigeria), 1950–1970.&rdquo; <em>Die Welt des Islams</em> 49, no. 3/4 (2009): 334–66.</li>
             <li>de Diego González, Antonio. <em>Ley y gnosis: Historia intelectual de la ṭarīqa Tijāniyya</em>. Granada: Editorial Universidad de Granada, 2020.</li>
             <li>Hill, Joseph. <em>Wrapping Authority: Women Islamic Leaders in a Sufi Movement in Dakar, Senegal</em>. Toronto: University of Toronto Press, 2018.</li>
-            <li>Hill, Joseph. &ldquo;Women Who Are Men: Shaykha Maryam Niasse and the Qurʾān in Dakar.&rdquo; In <em>Approaches to the Qurʾān in Sub-Saharan Africa</em>. Oxford: Oxford University Press, 2019.</li>
+            <li>Hill, Joseph. &ldquo;Women Who Are Men: Shaykha Maryam Niasse and the Qurʾān in Dakar.&rdquo; In <em>Approaches to the Qurʾān in Sub-Saharan Africa</em>, edited by Zulfikar Hirji. Oxford: Oxford University Press, 2019.</li>
             <li>Kunateh, Amadu. &ldquo;Identity without Being: Personhood in the Tafsīr of Shaykh Ibrāhīm Niasse.&rdquo; <em>Sophia</em> 65, no. 3 (2026): 489–510.</li>
-            <li>Ogunnaike, Oludamini. &ldquo;In the Gardens with Ibrahim: An Evaluation of <em>Fī riyāḍ al-tafsīr</em> by Shaykh Ibrahim Niasse, a Contemporary, Traditional Tafsīr.&rdquo; <em>Journal of Qur&rsquo;anic Studies</em> 20 (2018). doi:10.3366/jqs.2018.0319.</li>
+            <li>Kunateh, Amadu. &ldquo;Leaders of Knowledge: Rethinking Islamic Erudition in Twentieth-Century West Africa through Shaykh Ibrāhīm Niasse&rsquo;s <em>Fī Riyāḍ al-Tafsīr</em>.&rdquo; PhD diss., Harvard University, forthcoming.</li>
+            <li>Ogunnaike, Oludamini. &ldquo;In the Gardens with Ibrahim: An Evaluation of <em>Fī riyāḍ al-tafsīr</em> by Shaykh Ibrahim Niasse, a Contemporary, Traditional Tafsīr.&rdquo; <em>Journal of Qur&rsquo;anic Studies</em> 20, no. 1 (2018). doi:10.3366/jqs.2018.0319.</li>
             <li>Seesemann, Rüdiger. <em>The Divine Flood: Ibrāhīm Niasse and the Roots of a Twentieth-Century Sufi Revival</em>. New York: Oxford University Press, 2011.</li>
             <li>Wright, Zachary Valentine. <em>Living Knowledge in West African Islam: The Sufi Community of Ibrāhīm Niasse</em>. Leiden: Brill, 2015.</li>
             <li>Wright, Zachary Valentine. &ldquo;The Qurʾān and Knowledge of God in West Africa: The Sufi Tafsīr of Shaykh Ibrāhīm Niasse.&rdquo; <em>Islamic Africa</em> 15, no. 1 (2024): 69–97.</li>
