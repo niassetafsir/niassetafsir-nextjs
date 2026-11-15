@@ -1,22 +1,25 @@
-// What the homepage shows under the search box: one verse as he uses it in
-// three works, his works by kind, and the size of the corpus. Everything is
-// read from the data at build time; nothing here is a hand-typed number.
+// What the homepage shows under the search box: one verse as he comments on
+// it in two works, his works by kind, and the size of the corpus. The counts
+// are read from the data at build time.
 //
-// The verse is Āyat al-Kursī (Q. 2:255) because it is the one verse every
-// reader knows and because the corpus already holds it in three kinds of
-// writing: exegesis in the 1964 tafsīr, a devotional litany in Rijāl wa-adwār,
-// and verse in the Conakry riḥla. If any of the three loci disappears from the
-// corpus, that card drops out rather than breaking the page.
+// The example is commentary only (AK, 15 Nov 2026: "a scholarly site, not
+// devotional practice"): Q. 6:103, «Sight does not perceive Him», on whether
+// Allah is seen. The 1964 tafsīr distinguishes perception (idrāk) from seeing;
+// Kāshif al-ilbās (1931) answers the denier who cites the verse against the
+// masters' witnessing, and argues that a saint's karāma can particularise its
+// general statement. If a locus disappears from the corpus, its card drops out
+// rather than breaking the page.
 
 import corpus from '@/data/corpus.json';
 import { getLocus, getWitness, getWork, workSummaries } from '@/lib/corpus';
 import { getLesson } from '@/lib/lessons';
 import { commentaryParagraphs } from '@/lib/niasseVerseExcerpt';
+import { isShownLink } from '@/lib/scholarlyActs';
 
-export const SHOWCASE_VERSE = { surah: 2, ayah: 255, name: 'Āyat al-Kursī' };
+export const SHOWCASE_VERSE = { surah: 6, ayah: 103, name: '«Sight does not perceive Him»' };
 
 export interface ShowcaseCard {
-  /** "Tafsīr", "Litany", "Poem" — what he does with the verse here. */
+  /** "Tafsīr", "Treatise" — the kind of work. */
   kind: string;
   title: string;
   where: string;
@@ -40,10 +43,22 @@ function from(s: string, anchor?: string): string {
   return i >= 0 ? s.slice(i) : s;
 }
 
-const PICKS: { locus: string; kind: string; short: string; arFrom?: string; enFrom?: string; lessonPara?: [number, number] }[] = [
-  { locus: 'firiyad-L7-p20', kind: 'Tafsīr', short: 'Fī Riyāḍ al-Tafsīr', lessonPara: [7, 20], arFrom: 'وهذه الآية', enFrom: 'This āya contains' },
-  { locus: 'rijal-008', kind: 'Litany', short: 'Rijāl wa-adwār' },
-  { locus: 'rihlat-138', kind: 'Poem', short: 'Nafaḥāt al-Malik al-Ghanī (the Conakry journey)' },
+const PICKS: {
+  locus: string; kind: string; short: string;
+  arFrom?: string; enFrom?: string; lessonPara?: [number, number];
+  /** Text given here rather than read from the locus: the Lesson 16 comment
+   *  runs across two of the edition's paragraphs, and Lesson 16 has no
+   *  English on the site yet, so the English is the draft translation. */
+  ar?: string; en?: string; where?: string; href?: string;
+}[] = [
+  {
+    locus: 'firiyad-L16-p118', kind: 'Tafsīr', short: 'Fī Riyāḍ al-Tafsīr (1964)',
+    where: 'Lesson 16, vol. 3', href: '/lesson/16#ar-para-117',
+    ar: '(لا تُدْرِكُهُ الابْصَرُ) لا تراه الإدراك غير الرؤية يرى الإنسان شيئا ولا يدركه (وَهُوَ يُدْرِكُ الاَبْصَرَ) يراها ويدركها كما نعلمه ولا ندركه، نراه ولا ندركه',
+    en: '«Sight does not perceive Him»: it does not see Him. Perception (idrāk) is other than seeing: a person sees a thing and does not perceive it. «But He perceives [all] sight» (Q. 6:103): He sees it and perceives it. Just as we know Him and do not comprehend Him, we see Him and do not comprehend Him.',
+  },
+  { locus: 'kashif-110', kind: 'Treatise', short: 'Kāshif al-ilbās (1931)' },
+  { locus: 'kashif-112', kind: 'Treatise', short: 'Kāshif al-ilbās (1931)' },
 ];
 
 export async function showcaseCards(): Promise<ShowcaseCard[]> {
@@ -54,8 +69,8 @@ export async function showcaseCards(): Promise<ShowcaseCard[]> {
     const work = witness && getWork(witness.workId);
     if (!locus || !work) continue;
 
-    let ar = locus.textAr ?? '';
-    let en = locus.textEn ?? '';
+    let ar = p.ar ?? locus.textAr ?? '';
+    let en = p.en ?? locus.textEn ?? '';
     if (p.lessonPara) {
       const lesson = await getLesson(p.lessonPara[0]);
       const body = lesson?.arabicBody || lesson?.arabicText || '';
@@ -69,10 +84,10 @@ export async function showcaseCards(): Promise<ShowcaseCard[]> {
     out.push({
       kind: p.kind,
       title: p.short,
-      where: (locus.address.raw ?? '').replace(/\s*\(PDF[^)]*\)/g, ''),
-      ar: cut(from(ar, p.arFrom), 110),
-      en: cut(from(en, p.enFrom), 130),
-      href: `/verse/${SHOWCASE_VERSE.surah}/${SHOWCASE_VERSE.ayah}`,
+      where: p.where ?? (locus.address.raw ?? '').replace(/\s*\(PDF[^)]*\)/g, ''),
+      ar: cut(from(ar, p.arFrom), 220),
+      en: cut(from(en, p.enFrom), 300),
+      href: p.href ?? `/verse/${SHOWCASE_VERSE.surah}/${SHOWCASE_VERSE.ayah}`,
     });
   }
   return out;
@@ -90,10 +105,9 @@ export const KIND_OF: Record<string, string> = {
   letters: 'Letters', rasail: 'Letters',
   'sufi-doctrine': 'Treatises', esoteric: 'Treatises', polemic: 'Treatises',
   risala: 'Treatises', muallafat: 'Treatises',
-  awrad: 'Litanies',
   biography: 'Sayings and accounts', nawadir: 'Sayings and accounts', asanid: 'Sayings and accounts',
 };
-export const KIND_ORDER = ['Tafsīr', 'Treatises', 'Fatwās', 'Letters', 'Sermons', 'Journeys', 'Poems', 'Litanies', 'Sayings and accounts'];
+export const KIND_ORDER = ['Tafsīr', 'Treatises', 'Fatwās', 'Letters', 'Sermons', 'Journeys', 'Poems', 'Sayings and accounts'];
 
 export interface WorkKind { kind: string; works: number }
 
@@ -115,11 +129,12 @@ export function corpusCounts() {
   const C = corpus as unknown as {
     witnesses: { id: string; workId: string }[];
     loci: { id: string; witnessId: string; textAr?: string; textEn?: string; copiedFrom?: string }[];
-    verseLinks: { locusId: string; surah: number; ayahStart: number; ayahEnd?: number }[];
+    verseLinks: { locusId: string; surah: number; ayahStart: number; ayahEnd?: number; acts: string[] }[];
   };
   const workOf = new Map(C.witnesses.map(w => [w.id, w.workId]));
   const loci = new Map(C.loci.map(l => [l.id, l]));
   for (const v of C.verseLinks) {
+    if (!isShownLink(v)) continue;
     const l = loci.get(v.locusId);
     if (!l || l.copiedFrom || workOf.get(l.witnessId) === 'fi-riyad') continue;
     for (let a = v.ayahStart; a <= (v.ayahEnd ?? v.ayahStart); a++) verses.add(`${v.surah}:${a}`);

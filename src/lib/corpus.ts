@@ -36,6 +36,7 @@
 
 import corpusRaw from '@/data/corpus.json';
 import { publicEnglish, publicNote } from '@/lib/publicEnglish';
+import { isShownLink } from '@/lib/scholarlyActs';
 import lessonRangesRaw from '@/data/lessonRanges.json';
 import termsRaw from '@/data/terms.json';
 import { VERSE_INDEX } from '@/lib/verseIndex';
@@ -523,9 +524,13 @@ function keyOf(surah: number, ayah: number) {
  * "across the corpus" that shows only Fī Riyāḍ reads as a claim that the other
  * works were searched and had nothing. They were not searched.
  */
-export const CORPUS_VERSE_LINKS: VerseLink[] = corpus.verseLinks;
+// Only the uses the site shows: commentary and argument, not recitation,
+// formulae or rites (src/lib/scholarlyActs.ts).
+const SHOWN_LINKS: VerseLink[] = corpus.verseLinks.filter(isShownLink);
 
-for (const link of corpus.verseLinks.concat(DERIVED_LINKS)) {
+export const CORPUS_VERSE_LINKS: VerseLink[] = SHOWN_LINKS;
+
+for (const link of SHOWN_LINKS.concat(DERIVED_LINKS)) {
   const end = link.ayahEnd ?? link.ayahStart;
   for (let a = link.ayahStart; a <= end; a++) {
     const k = keyOf(link.surah, a);
@@ -1072,7 +1077,7 @@ export function workSummaries(): WorkSummary[] {
   const witnessWork = new Map(corpus.witnesses.map(w => [w.id, w.workId]));
   const lociById = new Map(corpus.loci.map(l => [l.id, l]));
   const acc = new Map<string, { verses: Set<string>; uses: number; copied: number; text: Set<string> }>();
-  for (const link of corpus.verseLinks) {
+  for (const link of SHOWN_LINKS) {
     const locus = lociById.get(link.locusId);
     if (!locus) continue;
     const workId = witnessWork.get(locus.witnessId);
@@ -1095,7 +1100,7 @@ export function workSummaries(): WorkSummary[] {
 /** Every hand-entered link from one work, in Qurʾānic order, resolved. */
 export function workEntries(workId: string): (VerseEntry & { surah: number; ayahStart: number; ayahEnd?: number })[] {
   const out: (VerseEntry & { surah: number; ayahStart: number; ayahEnd?: number })[] = [];
-  for (const link of corpus.verseLinks) {
+  for (const link of SHOWN_LINKS) {
     const locus = getLocus(link.locusId);
     if (!locus) continue;
     const witness = getWitness(locus.witnessId);

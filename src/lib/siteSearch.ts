@@ -21,6 +21,7 @@ import { parseVerseRef, parseSurahName } from '@/lib/verseRefQuery';
 import { normalizeArabic, searchArabic, MARK_OPEN, MARK_CLOSE } from '@/lib/arabicSearch';
 import { getAllLessons } from '@/lib/lessons';
 import { publicEnglish } from '@/lib/publicEnglish';
+import { isShownLink } from '@/lib/scholarlyActs';
 
 export { MARK_OPEN, MARK_CLOSE };
 
@@ -196,7 +197,7 @@ interface CorpusLocus {
 }
 interface CorpusWork { id: string; titleTranslit: string }
 interface CorpusWitness { id: string; workId: string }
-interface CorpusLink { locusId: string; surah: number; ayahStart: number }
+interface CorpusLink { locusId: string; surah: number; ayahStart: number; acts: string[] }
 
 const C = corpus as unknown as {
   works: CorpusWork[]; witnesses: CorpusWitness[]; loci: CorpusLocus[]; verseLinks: CorpusLink[];
@@ -204,7 +205,7 @@ const C = corpus as unknown as {
 const WORK_OF = new Map(C.witnesses.map(w => [w.id, w.workId]));
 const WORK_TITLE = new Map(C.works.map(w => [w.id, w.titleTranslit]));
 const FIRST_LINK = new Map<string, CorpusLink>();
-for (const l of C.verseLinks) if (!FIRST_LINK.has(l.locusId)) FIRST_LINK.set(l.locusId, l);
+for (const l of C.verseLinks) if (isShownLink(l) && !FIRST_LINK.has(l.locusId)) FIRST_LINK.set(l.locusId, l);
 
 /** His other works: every transcribed passage outside Fī Riyāḍ, in his own
  *  voice. Passages he copies from another author (al-Rāzī in Tabṣirat al-anām)
