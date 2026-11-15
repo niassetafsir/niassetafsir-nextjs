@@ -4773,6 +4773,28 @@
       "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
     },
     {
+      "id": "kashif-085",
+      "witnessId": "kashif-casablanca-1353",
+      "address": {
+        "raw": "p. 61 (PDF 81)"
+      },
+      "textAr": "قال الله تعالى « قل هذه سبيلي أدعوا إلى الله على بصيرة انا ومن اتبعني » الآية",
+      "transcriptionStatus": "draft",
+      "textEn": "After al-Junayd's saying that whoever has not heard ḥadīth, sat with the jurists and taken his manners from the well-mannered corrupts those who follow him, he adds the verse: following goes with insight.",
+      "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+    },
+    {
+      "id": "kashif-086",
+      "witnessId": "kashif-casablanca-1353",
+      "address": {
+        "raw": "p. 61 (PDF 81)"
+      },
+      "textAr": "وقال عز من قائل « ولا تتبعوا السبل فتفرق بكم عن سبيله » الآية فافهم",
+      "transcriptionStatus": "draft",
+      "textEn": "Diverging paths lead away from God's path; following one guide keeps to it.",
+      "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+    },
+    {
       "id": "kashif-087",
       "witnessId": "kashif-casablanca-1353",
       "address": {
@@ -10124,6 +10146,28 @@
       "confidence": "transcribed",
       "rasm": "unknown",
       "note": "«ومن آناء الليل فسبح وأطراف النهار» (20:130); «آناء الليل» also 3:113. Set phrase."
+    },
+    {
+      "locusId": "kashif-085",
+      "surah": 12,
+      "ayahStart": 108,
+      "acts": [
+        "prooftext"
+      ],
+      "confidence": "transcribed",
+      "rasm": "unknown",
+      "note": "No closing «اه»; the Zarrūq citation may run to «فافهم» or may have ended earlier, leaving the verses to Shaykh Ibrāhīm."
+    },
+    {
+      "locusId": "kashif-086",
+      "surah": 6,
+      "ayahStart": 153,
+      "acts": [
+        "prooftext"
+      ],
+      "confidence": "transcribed",
+      "rasm": "unknown",
+      "note": "Same boundary doubt."
     },
     {
       "locusId": "kashif-087",
