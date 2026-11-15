@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import SearchForm from '@/components/SearchForm';
 import { SURAH_LIST } from '@/lib/verseRanges';
-import { getCoverage } from '@/lib/coverage';
-import { showcaseCards, worksByKind, corpusCounts, SHOWCASE_VERSE } from '@/lib/homeShowcase';
+import { showcaseCards, SHOWCASE_VERSE } from '@/lib/homeShowcase';
 
 const FAINT = 'var(--body-faint, rgba(232,232,224,0.45))';
 const SUB = 'var(--body-sub, rgba(232,232,224,0.70))';
@@ -28,10 +27,7 @@ const LINE = 'rgba(138,109,31,0.22)';
  */
 
 export default async function HomePage() {
-  const coverage = await getCoverage();
   const cards = await showcaseCards();
-  const kinds = worksByKind();
-  const counts = corpusCounts();
 
   return (
     <main className="pb-20" dir="ltr">
@@ -49,26 +45,46 @@ export default async function HomePage() {
           مَنْطِقُ الفَيْضَة
         </h1>
         <p className="font-arabic text-gold/70 text-lg mb-1" dir="rtl">مَجْمُوعُ التَّفْسِيرِ لِصَاحِبِ الفَيْضَة</p>
-        <p className="font-english text-sm italic mb-7"
+        <p className="font-english text-sm italic mb-8"
           style={{ color: 'var(--body-faint, rgba(232,232,224,0.45))' }}>
-          Manṭiq al-Fayḍa · The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse
+          Manṭiq al-Fayḍa · The Collected Tafsīr of Ṣāḥib al-Fayḍa, Shaykh Ibrāhīm Niasse
         </p>
 
-        <p className="font-english text-base sm:text-lg leading-relaxed mb-3"
+        <p className="font-english text-base sm:text-lg leading-relaxed mb-8"
           style={{ color: 'var(--body-text, rgba(232,232,224,0.90))' }}>
-          The tafsīr of Shaykh Ibrāhīm Niasse (d. 1975), <em>ṣāḥib al-fayḍa</em>, by three paths:{' '}
-          <Link href="/read" className="text-gold hover:opacity-80">Fī Riyāḍ al-Tafsīr</Link>, his 1964
-          Arabic sessions on the whole Qurʾān;{' '}
-          <Link href="/works" className="text-gold hover:opacity-80">beyond it</Link>, his explanation of
-          verses in his other sessions, letters, sermons, poems and journeys; and the{' '}
-          <Link href="/students" className="text-gold hover:opacity-80">commentaries of his students</Link>.
-        </p>
-        <p className="font-english text-base leading-relaxed mb-4"
-          style={{ color: 'var(--body-sub, rgba(232,232,224,0.70))' }}>
-          Search for a verse, a topic or a term to see what he says about it, wherever he says it.
+          Shaykh Ibrāhīm Niasse (d. 1975) explained the Qurʾān across his whole life: in the
+          mosque, in his writings, on his journeys. This site gathers that explanation verse by
+          verse, along three paths.
         </p>
 
-        <div className="mt-7">
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-3 text-left">
+          {[
+            { href: '/read', ar: 'فِي رِيَاضِ التَّفْسِير', en: 'Fī Riyāḍ al-Tafsīr',
+              body: 'His Arabic sessions of 1964 on the whole Qurʾān, read lesson by lesson.' },
+            { href: '/works', ar: 'تَفْسِيرُهُ فِي سَائِرِ آثَارِه', en: 'Beyond Fī Riyāḍ al-Tafsīr',
+              body: 'His explanation of verses in other sessions, letters, sermons, treatises, poems and journeys.' },
+            { href: '/students', ar: 'تَفَاسِيرُ تَلَامِذَتِه', en: 'Commentaries of his students',
+              body: 'How scholars of the Fayḍa who learned from him explain the same verses.' },
+          ].map(p => (
+            <li key={p.href}>
+              <Link href={p.href}
+                className="flex flex-col h-full rounded-xl border px-4 py-4 transition-colors hover:border-gold/60"
+                style={{ borderColor: LINE, background: 'rgba(138,109,31,0.05)' }}>
+                <span className="font-arabic text-gold text-lg leading-relaxed text-right" dir="rtl" lang="ar">{p.ar}</span>
+                <span className="font-english text-[15px] font-semibold mb-1.5" style={{ color: TEXT }}>{p.en}</span>
+                <span className="font-english text-[13px] leading-relaxed" style={{ color: SUB }}>{p.body}</span>
+                <span className="font-english text-[13px] font-medium mt-auto pt-3" style={{ color: GOLD }}>Enter →</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <p className="font-english text-base leading-relaxed mt-10 mb-1"
+          style={{ color: 'var(--body-sub, rgba(232,232,224,0.70))' }}>
+          Or search for a verse, a topic or a term to see what he says about it, wherever he says it.
+        </p>
+
+        <div className="mt-4">
           <SearchForm ayahCounts={SURAH_LIST.map(s => s.ayahCount)} />
         </div>
 
@@ -123,42 +139,6 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* ---- His works ---- */}
-      <section className="max-w-3xl mx-auto px-5 pb-10 text-center">
-        <p className="font-english text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-3"
-          style={{ color: FAINT }}>
-          Beyond Fī Riyāḍ al-Tafsīr
-        </p>
-        <ul className="flex flex-wrap justify-center gap-2 mb-4">
-          {kinds.map(k => (
-            <li key={k.kind}>
-              <Link href="/works"
-                className="inline-block font-english text-sm rounded-full border px-3.5 py-1.5 transition-colors hover:border-gold/60"
-                style={{ borderColor: LINE, color: SUB }}>
-                {k.kind} <span className="tabular-nums" style={{ color: FAINT }}>{k.works}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <p className="font-english text-sm leading-relaxed" style={{ color: SUB }}>
-          {counts.works} works catalogued. The whole Qurʾān in his tafsīr, and so far {counts.verses} verses
-          in {counts.passages} passages from {counts.worksWithPassages} of his other works, with more added as they are transcribed.
-        </p>
-      </section>
-
-      {/* ---- The tafsīr ----
-          The largest work and the only one carried whole: one line, not a
-          card, an extract and a table. Its edition table is on /read. */}
-      <section className="max-w-3xl mx-auto px-5 text-center">
-        <Link href="/read"
-          className="font-english text-[15px] font-medium py-2 inline-block transition-opacity hover:opacity-75"
-          style={{ color: GOLD }}>
-          Read Fī Riyāḍ al-Tafsīr, his 1964 tafsīr of the whole Qurʾān →
-        </Link>
-        <p className="font-english text-xs" style={{ color: FAINT }}>
-          {coverage.totalLessons} sessions, all in Arabic, with the English translation in progress
-        </p>
-      </section>
     </main>
   );
 }

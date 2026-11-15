@@ -7,7 +7,7 @@ import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: {
-    default: "Manṭiq al-Fayḍa — The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse | niassetafsir.org",
+    default: "Manṭiq al-Fayḍa — The Collected Tafsīr of Ṣāḥib al-Fayḍa, Shaykh Ibrāhīm Niasse | niassetafsir.org",
     template: "%s | niassetafsir.org",
   },
   description: "Manṭiq al-Fayḍa collects every place Shaykh Ibrāhīm Niasse quotes, comments on, applies or alludes to a Qurʾānic verse — in his tafsīr, treatises, letters, sermons, poems and reported sayings — documented from its source and indexed verse by verse, with Fī Riyāḍ al-Tafsīr in Arabic and English.",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://niassetafsir.org",
     siteName: "niassetafsir.org",
-    title: "Manṭiq al-Fayḍa — The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse",
+    title: "Manṭiq al-Fayḍa — The Collected Tafsīr of Ṣāḥib al-Fayḍa, Shaykh Ibrāhīm Niasse",
     // No footnote count here. It was "1,994-footnote" while the apparatus held
     // 1,997, and a figure in an Open Graph description is the least visible
     // place a stale number can hide -- it renders in link previews, not on the
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manṭiq al-Fayḍa — The Qurʾānic Exegesis of Shaykh Ibrāhīm Niasse",
+    title: "Manṭiq al-Fayḍa — The Collected Tafsīr of Ṣāḥib al-Fayḍa, Shaykh Ibrāhīm Niasse",
     description: "Every place Shaykh Ibrāhīm Niasse uses a Qurʾānic verse, across his works, indexed verse by verse.",
     images: ["/og-image.png"],
   },
