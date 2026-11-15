@@ -20,6 +20,7 @@ import { SURAH_LIST } from '@/lib/verseRanges';
 import { parseVerseRef, parseSurahName } from '@/lib/verseRefQuery';
 import { normalizeArabic, searchArabic, MARK_OPEN, MARK_CLOSE } from '@/lib/arabicSearch';
 import { getAllLessons } from '@/lib/lessons';
+import { publicEnglish } from '@/lib/publicEnglish';
 
 export { MARK_OPEN, MARK_CLOSE };
 
@@ -211,7 +212,7 @@ for (const l of C.verseLinks) if (!FIRST_LINK.has(l.locusId)) FIRST_LINK.set(l.l
  *  "what does he say". */
 const WORK_PASSAGES = C.loci
   .filter(l => (l.textAr || l.textEn) && !l.copiedFrom && !l.attributedTo)
-  .map(l => ({ l, work: WORK_OF.get(l.witnessId) ?? '' }))
+  .map(l => ({ l: { ...l, textEn: publicEnglish(l.id, WORK_OF.get(l.witnessId), l.textEn) }, work: WORK_OF.get(l.witnessId) ?? '' }))
   .filter(x => x.work && x.work !== 'fi-riyad' && FIRST_LINK.has(x.l.id))
   .map(({ l, work }) => ({
     l, work,

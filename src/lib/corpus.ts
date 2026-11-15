@@ -35,6 +35,7 @@
 // src/lib/volumes.ts for why this matters on this site.
 
 import corpusRaw from '@/data/corpus.json';
+import { publicEnglish, publicNote } from '@/lib/publicEnglish';
 import lessonRangesRaw from '@/data/lessonRanges.json';
 import termsRaw from '@/data/terms.json';
 import { VERSE_INDEX } from '@/lib/verseIndex';
@@ -484,8 +485,16 @@ const COVERAGE_LOCI: Locus[] = LESSON_RANGES.map(([lessonId, r]) => ({
   transcriptionStatus: 'none',
 }));
 
+// Outside Fī Riyāḍ, English shows only once AK has verified it (see
+// src/lib/publicEnglish.ts); until then the passage is Arabic only.
+const PUBLIC_LOCI: Locus[] = corpus.loci.map(l => {
+  const en = publicEnglish(l.id, WITNESSES.get(l.witnessId)?.workId, l.textEn);
+  const note = publicNote(l.editorialNote, Boolean(en));
+  return en === l.textEn && note === l.editorialNote ? l : { ...l, textEn: en, editorialNote: note };
+});
+
 const ALL_LOCI = new Map<string, Locus>(
-  corpus.loci
+  PUBLIC_LOCI
     .concat(DERIVED_LOCI)
     .concat(COVERAGE_LOCI)
     .map(l => [l.id, l] as [string, Locus])
