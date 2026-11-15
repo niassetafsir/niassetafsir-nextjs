@@ -1,0 +1,5869 @@
+{
+ "loci": [
+  {
+   "id": "kashif-001",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 2 (PDF 22)"
+   },
+   "textAr": "الحمد لله رب العالمين الرحمن الرحيم ملك يوم الدين من أفاض على أوليائه بحور الانوار",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Opening ḥamdala of the book: the Fātiḥa's first verses run on into a description of God pouring lights on His saints.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-002",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 2 (PDF 22)"
+   },
+   "textAr": "واختصهم بصفاء الاحوال والاسرار، وشغلهم بذكره بالعشى والابكار",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "The khuṭba: God occupied His saints with His remembrance 'at evening and dawn', the times of glorification in 40:55 and 3:41.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-003",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 2 (PDF 22)"
+   },
+   "textAr": "وعلى آله وصحابته الهادين المهتدين، والتابعين وتابعيهم باحسان إلى يوم الدين",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Taṣliya extended to the Companions and those who followed them 'in excellence'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-004",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 2 (PDF 22)"
+   },
+   "textAr": "فتصاممت عنهم ملياً، وإن كان ما يأتون به شيئاً فرياً، لكوني من جملة حزب الفيضة",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse explains he long ignored the deniers of the fayḍa even though their charge was 'a monstrous thing', Maryam's accusers' phrase turned back on the accusers.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-005",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 7 (PDF 27)"
+   },
+   "textAr": "وقد سئل رسول الله صلى الله عليه وسلم عن قوله تعالى «عليكم انفسكم» الآية فقال إذا رأيت شحاً مطاعاً وهوى متبعاً وإعجاب كل ذي رأي برأيه فعليك بخويصة نفسك",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Zarrūq, Taʾsīs al-qawāʿid (citing the Prophetic ḥadīth on the verse)"
+  },
+  {
+   "id": "kashif-006",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 10 (PDF 30)"
+   },
+   "textAr": "والاحاديث النبوية فيها اشارات وتصريحات في التبشير بهذه الطائفة الظاهرين على الحق ولم تخص بزمان دون زمان ولامكان دون مكان قال تعالى «وممن خلقنا امة يهدون بالحق وبه يعدلون»",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "After his «قلت» (end of PDF 29) Niasse argues that true tarbiya never ceased; the verse proves a guided group exists in every age. He then quotes al-Ṣāwī's gloss on al-Jalāl («وهم امة محمد») linking the verse to the ḥadīth «لا تزال طائفة من امتي ظاهرين على الحق».",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-007",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 10 (PDF 30)"
+   },
+   "textAr": "وانظر البغية، وقال تعالى «ثلة من الاولين وثلة من الآخرين» وروى ابن عباس قال رسول الله صلى الله عليه وسلم (الثلتان من امتي)",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse argues that excellence is not confined to the first generations: both 'throngs', early and late, belong to the umma (Ibn ʿAbbās ḥadīth).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-008",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 11 (PDF 31)"
+   },
+   "textAr": "انظر بعين الانصاف تجد له تمام الوراثة حتى صارت في الامة الثلتان ثلة لجده وهم أصحاب رسول الله صلى الله عليه وسلم وثلة له وهم أصحابه رضى الله عنه",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse draws out al-Tijānī's gloss: the two throngs are the Prophet's Companions and al-Tijānī's companions, proof of al-Tijānī's complete inheritance.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-009",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 11 (PDF 31)"
+   },
+   "textAr": "النظر للازمنة والاشخاص لا من حيث أصل شرعي أمر جاهلي حيث قال الكفار «لولا نزل هذا القرآن على رجل من القريتين عظيم» فرد الله تعالى عليهم بقوله «اهم يقسمون رحمت ربك» الآية",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Zarrūq, Taʾsīs al-qawāʿid"
+  },
+  {
+   "id": "kashif-010",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 11 (PDF 31)"
+   },
+   "textAr": "وقالوا «إنا وجدنا آباءنا على امة وإنا على آثارهم مقتدون» فرد الله تعالى عليهم بقوله «قل اولو جئتكم بأهدى مما وجدتم عليه آباءكم» الآية",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Zarrūq, Taʾsīs al-qawāʿid"
+  },
+  {
+   "id": "kashif-011",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 14 (PDF 34)"
+   },
+   "textAr": "(الخامس) أنه منقول من صفة المسجد النبوي الذي كان منزلا لاهل الصفة لان الصوفي تبع لهم فيما أثبت الله لهم من الوصف حيث قال «واصبر نفسك مع الذين يدعون ربهم بالغداة والعشي يريدون وجهه»",
+   "transcriptionStatus": "draft",
+   "voice": "uncertain",
+   "textEn": "Fifth derivation of 'ṣūfī': from the ṣuffa, whose people God described in 18:28; 'this is the root to which every view returns'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-012",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 16 (PDF 36)"
+   },
+   "textAr": "(قلت) ولا سبيل إلى هذا بدون مصاحبة شيخ مرشد كامل قال تعالى «يا أيها الذين آمنوا اتقوا الله وابتغوا اليه الوسيلة» والوسائل إلى الله كثيرة",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "After al-Tijānī's definition of Sufism, Niasse argues that it cannot be reached without a perfect guiding shaykh; the 'means' commanded in 5:35 are many.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-013",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 16 (PDF 36)"
+   },
+   "textAr": "منها متابعة النبي في أقواله وأفعاله كما قال تعالى (قل ان كنتم تحبون الله فاتبعوني يحببكم الله) وفي الحديث (فإذا أحببته كنته) وذلك باب المعرفة",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "First 'means': following the Prophet, which wins God's love; joined to the nawāfil ḥadīth as the gate of gnosis.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-014",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 16 (PDF 36)"
+   },
+   "textAr": "ومنها مصاحبة العارف الواصل كما قال تعالى «واتبع سبيل من اناب إلي»",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Second 'means': companionship of the realised gnostic, read into 'follow the way of him who turns to Me'.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-015",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 16 (PDF 36)"
+   },
+   "textAr": "ومنها ملازمة الاذكار قال الله تعالى «واصبر نفسك مع الذين يدعون ربهم بالغداة والعشي يريدون وجهه» ومعلوم عند اهل الطريقة أن الذكر الذي ينفع صاحبه هو الماخوذ من المشايخ الكاملين",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Third 'means': constant dhikr, with the gloss that only dhikr taken from perfect shaykhs benefits; leads into the transmission (talqīn) of litanies.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-016",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 18 (PDF 38)"
+   },
+   "textAr": "ومن تهاون بالمشايخ وفرط في العقود والعهود كان ذلك سبباً لزيغه وخرق سفينة دينه قال الله تعالى «يا أيها الذين آمنوا أوفوا بالعقود»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Mukhtār al-Kuntī"
+  },
+  {
+   "id": "kashif-017",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 18 (PDF 38)"
+   },
+   "textAr": "وقال «كبر مقتاً عند الله أن تقولوا ما لا تفعلون»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Mukhtār al-Kuntī"
+  },
+  {
+   "id": "kashif-018",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 18 (PDF 38)"
+   },
+   "textAr": "وقال سبحانه «من المومنين رجال صدقوا ماعاهدوا الله عليه فمنهم من قضى نحبه ومنهم من ينتظر وما بدلوا تبديلا ليجزي الله الصادقين بصدقهم» الآية ولهذا المعنى كان النبي صلى الله عليه وسلم لا يفعل فعلا من افعال الخير إلا أثبته ودام عليه … وهذه الآيات هى اصول الاوراد",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Mukhtār al-Kuntī"
+  },
+  {
+   "id": "kashif-019",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 18 (PDF 38)"
+   },
+   "textAr": "ولنقدم كلام العلامة النووي رحمه الله في الاذكار ونص كلامه: فصل قال الله تعالى «إن المسلمين والمسلمات» إلى قوله تعالى «والذاكرين الله كثيراً والذاكرات أعد الله لهم مغفرة وأجراً عظيماً»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Nawawī, al-Adhkār"
+  },
+  {
+   "id": "kashif-020",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 19 (PDF 39)"
+   },
+   "textAr": "وقال مجاهد لا يكون من الذاكرين الله كثيراً والذاكرات حتى يذكر الله قائماً وقاعداً ومضطجعاً",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Mujāhid, via al-Wāḥidī, in al-Nawawī, al-Adhkār"
+  },
+  {
+   "id": "kashif-021",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 19 (PDF 39)"
+   },
+   "textAr": "التزام اللازم للملزوم موصل اليه فمن ثم فضل الذكر غيره إذا ما اردت ان يلزمك فالزم ملزوميته وقد قال الله تعالى «فاذكروني اذكركم» ولا اعظم من هذه الكرامة",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Zarrūq, Taʾsīs al-qawāʿid"
+  },
+  {
+   "id": "kashif-022",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 19 (PDF 39)"
+   },
+   "textAr": "وجعل لكل شيء حداً ووقتاً الا ذكره تعالى إذ قال (ذكراً كثيراً. وقياماً وقعوداً. وكذكركم آباءكم او اشد ذكراً)",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Zarrūq, Taʾsīs al-qawāʿid"
+  },
+  {
+   "id": "kashif-023",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 19 (PDF 39)"
+   },
+   "textAr": "إذ قال (ذكراً كثيراً. وقياماً وقعوداً. وكذكركم آباءكم او اشد ذكراً)",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Zarrūq, Taʾsīs al-qawāʿid"
+  },
+  {
+   "id": "kashif-024",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 19 (PDF 39)"
+   },
+   "textAr": "إذ قال (ذكراً كثيراً. وقياماً وقعوداً. وكذكركم آباءكم او اشد ذكراً)",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Zarrūq, Taʾsīs al-qawāʿid"
+  },
+  {
+   "id": "kashif-025",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 21 (PDF 41)"
+   },
+   "textAr": "وفضائل الذكر اكثر من أن تحصى ولو لم يرد فيه إلا قوله تعالى في كتابه العزيز «فاذكروني أذكركم» وقوله عز وجل فيما يرويه عنه رسول الله صلى الله عليه وسلم «أنا عند ظن عبدي بي …» لكان في ذلك اكتفاء وغنية",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Qushayrī (as cited inside Ibn ʿAbbād, Sharḥ al-Ḥikam)"
+  },
+  {
+   "id": "kashif-026",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 22 (PDF 42)"
+   },
+   "textAr": "وهى مرتبة العارفين المحققين من الاولياء قال الله تعالى «واذكر ربك اذا نسيت» اي اذا نسيت ما دون الله عند ذلك تكون ذاكراً لله وفى هذا المقام ينقطع ذكر اللسان",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn ʿAbbād, Sharḥ al-Ḥikam"
+  },
+  {
+   "id": "kashif-027",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 23 (PDF 43)"
+   },
+   "textAr": "فلذلك يخرج الذكر من غير تكلف وتنبعث الاعمال بالطاعات نشاطاً ولذة من غير كلال «ذلك فضل الله يوتيه من يشاء والله ذو الفضل العظيم . إن الله مع الذين اتقوا والذين هم محسنون»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Abū l-ʿAbbās Ibn al-Bannāʾ (on Abū l-ʿIzz Ibn Muẓaffar's al-Asrār al-ʿaqliyya), cited in Ibn ʿAbbād, Sharḥ al-Ḥikam"
+  },
+  {
+   "id": "kashif-028",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 23 (PDF 43)"
+   },
+   "textAr": "وقد وصف الله قلب ام موسى عليه السلام بمعنى ذلك في قوله الحق «وأصبح فؤاد ام موسى فارغاً» أي فارغاً من كل شيء إلا من ذكر موسى فكادت أن تبدي به من غير قصد منها لذكره … صبراً بما ربط الله على قلبها لتكون من المومنين بما اوحي اليها من قبل في شأن موسى وبأنه من المرسلين",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn al-Bannāʾ, cited in Ibn ʿAbbād, Sharḥ al-Ḥikam"
+  },
+  {
+   "id": "kashif-029",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 23 (PDF 43)"
+   },
+   "textAr": "وهذه المعالم والمراقي لا يعرف حقائقها إلا السالكون وجداناً والعلماء ايماناً وتصديقاً فإياك والتكذيب بآيات الله فتكون من الصم البكم في الظلمات",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn al-Bannāʾ, cited in Ibn ʿAbbād, Sharḥ al-Ḥikam"
+  },
+  {
+   "id": "kashif-030",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 24 (PDF 44)"
+   },
+   "textAr": "فقد افهمناك ما اراده بالفناء فدع عنك الغيبة والتكذيب بما لم تحط به قال تعالى «بل كذبوا بما لم يحيطوا بعلمه»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ghazālī, Jawāhir al-Qurʾān (fifth section), as quoted in al-Yadālī, Sharḥ Khātimat al-taṣawwuf"
+  },
+  {
+   "id": "kashif-031",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 24 (PDF 44)"
+   },
+   "textAr": "وقال «واذ لم يهتدوا به فسيقولون هذا افك قديم» اه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ghazālī, Jawāhir al-Qurʾān, via al-Yadālī"
+  },
+  {
+   "id": "kashif-032",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 30 (PDF 50)"
+   },
+   "textAr": "ومن ذلك الجهر بالذكر والدعاء فدليله من ذكرني فى ملا ذكرته فى ملا خير منه قيل ومن ادلته «كذكركم آباءكم او اشد ذكراً»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Zarrūq, Taʾsīs al-qawāʿid"
+  },
+  {
+   "id": "kashif-033",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 31 (PDF 51)"
+   },
+   "textAr": "فإن ذكر الجماعة اكثر تاثيراً في رفع الحجب لكون الحق تعالى شبه القلوب بالحجارة ومعلوم ان الحجر لا ينكسر إلا بقوة جماعة فكذلك قساوة القلب لا تزول إلا بذكر جماعة",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "ʿAlī al-Khawwāṣ, cited by ʿUmar al-Fūtī, Rimāḥ"
+  },
+  {
+   "id": "kashif-034",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 34 (PDF 54)"
+   },
+   "textAr": "وفيه قال مالك بن انس يستحب الاكثار من قراءة القرآن وتلاوته فقد اثنى الله تعالى على من كان دأبه تلاوة القرآن بقوله «يتلون آيات الله آناء الليل»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Mukhtār al-Kuntī, Tadhyīl on al-Kawkab (citing Mālik b. Anas)"
+  },
+  {
+   "id": "kashif-035",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 36 (PDF 56)"
+   },
+   "textAr": "لا خير في قراءة لا تدبر فيها لان بالتدبر تنشرح الصدور وتستنير القلوب قال الله تعالى «كتاب انزلناه اليك مبارك ليدبروا آياته»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Kuntī, Tadhyīl on al-Kawkab"
+  },
+  {
+   "id": "kashif-036",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 36 (PDF 56)"
+   },
+   "textAr": "وقال «افلا يتدبرون القرآن» وصفة ذلك ان يشغل قلبه بالتفكر في معنى ما يلفظ به",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Kuntī, Tadhyīl on al-Kawkab"
+  },
+  {
+   "id": "kashif-037",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 37 (PDF 57)"
+   },
+   "textAr": "وفيه (ويسن الترتيل) في قراءة القرآن كما يدل عليه قوله تعالى «ورتل القرآن ترتيلا»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Kuntī, Tadhyīl on al-Kawkab"
+  },
+  {
+   "id": "kashif-038",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 58)"
+   },
+   "textAr": "أن الشيخ رضى الله عنه قال : (تاتي فيضة على أصحابى حتى يدخل الناس في طريقتنا أفواجاً افواجاً تاتى هذه الفيضة والناس في غاية مايكونون عليه من الضيق والشدة)",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī"
+  },
+  {
+   "id": "kashif-039",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 39 (PDF 59)"
+   },
+   "textAr": "(منها السؤال الثالث) عن قول الشيخ رضى الله عنه تاتي فيضة على أصحابى حتى يدخل الناس في طريقتنا أفواجاً افواجاً … لان الشيخ قال يدخل الناس في طريقتنا افواجاً ولم يخص بلداً ولا إقليماً",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī's saying as cited in Aḥmad b. Muḥammad al-ʿAlawī's question to ʿUmar al-Fūtī, and in al-ʿArabī b. al-Sāʾiḥ's additions to al-Fūtī's answers"
+  },
+  {
+   "id": "kashif-040",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 39 (PDF 59)"
+   },
+   "textAr": "وان تكون في الجنة أزيد من عشرين الف طريق تتفرع بفروع كثيرة إلى قيام الساعة لا تنقطع ابداً حتي يرث الله الارض ومن عليها وهو خير الوارثين",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī, in ʿAlī Ḥarāzim Barrāda, Risālat al-faḍl wa-l-imtinān"
+  },
+  {
+   "id": "kashif-041",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 40 (PDF 60)"
+   },
+   "textAr": "(قلت) قد دخل الناس في الطريقة افواجاً ولعل نسخ الطرق إذا لم يبق في طريقة واحدة منها من يصلح للتربية",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse answers Ibn al-Sāʾiḥ: the throngs have now entered, and 'the abrogation of the paths' may mean that no other ṭarīqa still has a shaykh fit for tarbiya.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-042",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 40 (PDF 60)"
+   },
+   "textAr": "والذي وقع من كثرة الفتح في أصحاب الشيخ والمعرفة بالله والاستغراق في الله برفض كل ما سواه ما وقع في طريقتنا قط فيما أعلم منذ بروزها إلى يومنا هذا وذلك فضل الله يوتيه من يشاء والله ذو الفضل العظيم",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse attributes the unprecedented openings among his followers to divine grace.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-043",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 40 (PDF 60)"
+   },
+   "textAr": "(وأما الدلائل من الكتاب) فقد قال تعالى «ما ننسخ من آية او ننسها نات بخير منها او مثلها»",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "First Qurʾānic 'indication' for the fayḍa: God replaces what He abrogates with something better, applied to the succession of paths.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-044",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 40 (PDF 60)"
+   },
+   "textAr": "وقال تعالى «فسوف ياتي الله بقوم يحبهم ويحبونه» الآية",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Second indication: God will bring a people He loves and who love Him, read as the people of the fayḍa.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-045",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 40 (PDF 60)"
+   },
+   "textAr": "وقال «فقد وكلنا بها قوماً ليسوا بها بكافرين»",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Third indication: God entrusts the message to a new people when others reject it.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-046",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 40 (PDF 60)"
+   },
+   "textAr": "وقال «وآخرين منهم لما يلحقوا بهم»",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Fourth indication: later believers 'who have not yet joined them', the late-comers of the umma.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-047",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 40 (PDF 60)"
+   },
+   "textAr": "وقال «إذا جاء نصر الله والفتح» الخ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Fifth indication: Sūrat al-Naṣr, cited to the end («الخ»), whose 'throngs' (110:2) match al-Tijānī's prophecy.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-048",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 40 (PDF 60)"
+   },
+   "textAr": "وقال «ويخلق ما لا تعلمون» فهنا إشارات لمن نور الله بصيرته تؤيد ما تقدم واليك استخراجه وسلم تسلم",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Sixth indication: God creates what you do not know, i.e. new graces unforeseen; Niasse leaves the reader to draw out the hints.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-049",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 47 (PDF 67)"
+   },
+   "textAr": "(وهؤلاء الذين) وقعت فيهم هذه الفيضة وشغلهم دائماً الله ورسوله والشيخ التجاني … وهم القائمون بتعمير زواياه بذكر الله آناء الليل واطراف النهار بالذكر والصلاة على قدوتهم العظمى",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse describes the people of the fayḍa filling al-Tijānī's zāwiyas with dhikr night and day, in contrast to the heedless who are Tijānīs only in name.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-050",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 48 (PDF 68)"
+   },
+   "textAr": "فمن ثم كان اهل هذه الطريق مبتلين بالانكار بتسليط الخلق عليهم … فمن اراد ذلك فليوطن نفسه على الشدة «إن الله يدافع عن الذين آمنوا . ومن يتوكل على الله فهو حسبه» فافهم (وفي الرماح)",
+   "transcriptionStatus": "draft",
+   "voice": "uncertain",
+   "textEn": "The people of this path are tested by denial as prophets and saints are tested; whoever seeks it must brace for hardship, trusting that God defends believers and suffices those who rely on Him.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-051",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 48 (PDF 68)"
+   },
+   "textAr": "(قال زروق) ما ظهرت حقيقة قط في الوجود إلا قوبلت بدعوى مثلها وإدخال ماليس منها عليها ووجود تكذيبها كل ذلك ليظهر فضل الاستيثار بها وتبيين حقيقتها بانتفاء معارضيها «فينسخ الله ما يلقي الشيطان ثم يحكم الله آياته»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Zarrūq (Qawāʿid al-taṣawwuf)"
+  },
+  {
+   "id": "kashif-052",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 49 (PDF 69)"
+   },
+   "textAr": "لما علم الله تعالى ما ذا يقول الناس في أنبيائه واصفيائه من الزور والبهتان قضى على قوم بالشقاء والعياذ بالله تعالى فجعلوا له زوجة وولداً وقالوا يد الله مغلولة ونحو ذلك",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Abū l-Ḥasan al-Shādhilī, reported by al-Shaʿrānī, within al-Fūtī's Rimāḥ"
+  },
+  {
+   "id": "kashif-053",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 49 (PDF 69)"
+   },
+   "textAr": "وفي ( عرائس البيان ) عند قوله تعالى « فالذين هاجروا واخرجوا من ديارهم واوذوا في سبيلي » ان القوم إذا لم يذوقوا مرارة إيذاء المنكرين لم يبلغوا حقائق الالتجاء إلى الله تعالى والفرار اليه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Rūzbihān al-Baqlī, ʿArāʾis al-bayān, cited within al-Fūtī's Rimāḥ"
+  },
+  {
+   "id": "kashif-054",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 49 (PDF 69)"
+   },
+   "textAr": "وهذه سنة الله تعالى قد جرت على أهل سلوك طريق المعارف والكواشف وقال الله تعالى « ولن تجد لسنت الله تبديلا »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Junayd's saying followed by comment, within al-Fūtī's Rimāḥ (possibly still al-Baqlī)"
+  },
+  {
+   "id": "kashif-055",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 49 (PDF 69)"
+   },
+   "textAr": "فاعلم أن الرجل مبتلى على حسب دينه كما تقدم ذكره فلكل نبي وصديق عدو فقد كان لآدم إبليس ولداود جالوت",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Fūtī, Rimāḥ"
+  },
+  {
+   "id": "kashif-056",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 50 (PDF 70)"
+   },
+   "textAr": "وللاصفياء والاولياء أعداء في عصر الصحابة إلى وقتنا هذا يوذونهم ويتكلمون فيهم بسوء ودليل هذا كله قوله تعالى « وجعلنا بعضكم لبعض فتنة »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Abū ʿAlī al-Khawwāṣ  / al-Fūtī, Rimāḥ (al-Shaʿrānī's list)"
+  },
+  {
+   "id": "kashif-057",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 51 (PDF 71)"
+   },
+   "textAr": "فاحتالوا له بأن كتبوا سورة الاخلاص في ورقة وخاطوا عليها نعلا ... وقالوا لنائب حلب إن النسفي كتب قل هو الله أحد وجعلها طباق نعله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Shaʿrānī's list of persecuted saints, within al-Fūtī's Rimāḥ"
+  },
+  {
+   "id": "kashif-058",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 52 (PDF 72)"
+   },
+   "textAr": "فقضى على قوم اعرض عنهم بالشقاء فنسبوا له زوجة وولداً وفقراً وجعلوه مغلول اليدين",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Abū l-Ḥasan al-Shādhilī, second version, within al-Fūtī's Rimāḥ"
+  },
+  {
+   "id": "kashif-059",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 55 (PDF 75)"
+   },
+   "textAr": "(قلت) قال تعالى : «وانزلنا اليك الكتاب تبياناً لكل شيء»",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "After al-Shaʿrānī on the hidden sciences drawn from the Qurʾān, Niasse argues the Book contains everything, so the masters' dhawq sciences rest on it.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-060",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 55 (PDF 75)"
+   },
+   "textAr": "وقال تعالى « ما فرطنا في الكتاب من شيء »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Same argument: nothing is omitted from the Book.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-061",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 55 (PDF 75)"
+   },
+   "textAr": "وقال تعالى « ويخلق ما لا تعلمون »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Same argument: God creates what the ordinary knower does not know, so unfamiliar sciences are not to be denied.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-062",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 56 (PDF 76)"
+   },
+   "textAr": "(قال جعفر الصادق) لما قرب الحبيب من الحبيب غاية القرب نالته غاية الهيبة فلاطفه الحق غاية الملاطفة إذ يقول «فأوحى إلى عبده ما أوحى» أي فكان ما كان وجرى ما جرى",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Jaʿfar al-Ṣādiq (Sufi tafsīr), in a block apparently from Sīdī al-Mukhtār al-Kuntī's Tadhyīl"
+  },
+  {
+   "id": "kashif-063",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 56 (PDF 76)"
+   },
+   "textAr": "أوحى الله تعالى اليه (يا محمد تم شرفك) قال يارب بنسبتي اليك بالعبودية قال الله تعالى « سبحان الذى اسرى بعبده » فسماه الله تعالى بهذا الاسراء عبداً",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Abū l-Qāsim Sulaymān al-Anṣārī, reported by Fakhr al-Dīn al-Rāzī from his father; within the Kuntī block"
+  },
+  {
+   "id": "kashif-064",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "( قلت) قال الله تعالى « فأينما تولوا فثم وجه الله »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Opens Niasse's catena of verses (pp. 57–58) behind the masters' unspoken secrets: God's face everywhere, the Real and the void, the Prophet's identification with God's act.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-065",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « وقل جاء الحق وزهق الباطل إن الباطل كان زهوقاً »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena: the Real against the void (other-than-God as bāṭil).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-066",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « بل نقذف بالحق على الباطل فيدمغه فإذا هو زاهق »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena: same theme.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-067",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « ذلك بأن الله هو الحق وأن ما تدعون من دونه الباطل »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena: God alone is the Real, all else void.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-068",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « ذلك بأنه إذا دعي الله وحده كفرتم وإن يشرك به تومنوا »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena: those who reject God's oneness.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-069",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « هو الاول والآخر والظاهر والباطن وهو بكل شيء عليم »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena: God as First, Last, Manifest, Hidden.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-070",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « سنريهم آياتنا في الآفاق وفي أنفسهم حتي يتبين لهم أنه الحق »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena: signs in horizons and selves.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-071",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « الرحمن على العرش استوى »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-072",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « قل ان كان للرحمن ولد فأنا أول العابدين »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-073",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « من يطع الرسول فقد اطاع الله »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena: obedience to the Prophet is obedience to God (the Prophet's identification with the divine act).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-074",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « إن الذين يبايعونك إنما يبايعون الله يد الله فوق أيديهم »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena: same theme.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-075",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « وما رميت إذ رميت ولكن الله رمى »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena: same theme.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-076",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « قل ان كنتم تحبون الله فاتبعوني يحببكم الله »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-077",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « وآمنوا بما نزل على محمد وهو الحق »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-078",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى« وكفى بالله شهيداً محمد رسول الله » الآية",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-079",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « ومن يطع الله والرسول فاولئك مع الذين أنعم الله عليهم من النبيئين والصديقين والشهداء والصالحين وحسن اولئك رفيقاً »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-080",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « والذي جاء بالصدق وصدق به اولئك هم المتقون »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-081",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 77)"
+   },
+   "textAr": "وقال تعالى « وكأي من آية في السماوات والارض يمرون عليها وهم عنها معرضون »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Catena.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-082",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 58 (PDF 78)"
+   },
+   "textAr": "وقال تعالى « وفي أنفسكم أفلا تبصرون »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Last verse of the catena, followed by «كنت كنزا» and other hadiths; Niasse says these verses and hadiths hold secrets not to be divulged.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-083",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 58 (PDF 78)"
+   },
+   "textAr": "(والثاني) الصلاة على النبي آناء الليل واطراف النهار بنية امتثال الامر والتعظيم والاجلال والمحبة",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "The second pole of Tijānī training: blessing the Prophet through night and day.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-084",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 60 (PDF 80)"
+   },
+   "textAr": "فتكون تربيته بطريق الاستفاضة من أحدهما أو منهما معاً « ذلك فضل الله يوتيه من يشاء والله ذو الفضل العظيم »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-ʿArabī b. al-Sāʾiḥ, al-Jawāb al-shāfī (cited as in the Bughya)"
+  },
+  {
+   "id": "kashif-085",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 61 (PDF 81)"
+   },
+   "textAr": "وقال الجنيد رحمه الله من لم يسمع الحديث ويجالس الفقهاء وياخذ أدبه عن المتأدبين أفسد من اتبعه قال الله تعالى « قل هذه سبيلي أدعوا إلى الله على بصيرة انا ومن اتبعني » الآية",
+   "transcriptionStatus": "draft",
+   "voice": "uncertain",
+   "textEn": "Opening and light depend on following a qualified exemplar; the verse ties following to insight.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-086",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 61 (PDF 81)"
+   },
+   "textAr": "وقال عز من قائل « ولا تتبعوا السبل فتفرق بكم عن سبيله » الآية فافهم",
+   "transcriptionStatus": "draft",
+   "voice": "uncertain",
+   "textEn": "Same argument: diverging paths lead away from God's path.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-087",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 62 (PDF 82)"
+   },
+   "textAr": "فلتعلموا بأن ما يشاء * إلهنا يكون لا تشاؤوا",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse's counsel to his peers: God's will prevails, not yours.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-088",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 62 (PDF 82)"
+   },
+   "textAr": "عليكم بالنفوس إذا اهتديتم * فما ضر المرشد ذو الضلال",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse's poem: tend your own souls; one who strays cannot harm the rightly guided.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-089",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 62 (PDF 82)"
+   },
+   "textAr": "وإن تمرر بلغو كن كريما * فما نقص الكلام اخا الكمال",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Same poem: pass by idle talk with dignity.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-090",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 65 (PDF 85)"
+   },
+   "textAr": "ويؤيد هذا الكلام قوله تعالى « كلا انهم عن ربهم يومئذ لمحجوبون ثم انهم لصالوا الجحيم »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse confirms al-Ghazālī: veiling from God precedes and entails the Fire, so denial of saints risks an evil end.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-091",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 65 (PDF 85)"
+   },
+   "textAr": "ومهما حصل الحجاب نزل العذاب اذ نار الله الموقدة لا تاخذ الا المحجوبين عنه اه منه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ghazālī, Iḥyāʾ ʿulūm al-dīn (on sūʾ al-khātima)"
+  },
+  {
+   "id": "kashif-092",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 66 (PDF 86)"
+   },
+   "textAr": "وما عليه علماء الآخرة والكرام البررة الذين يدعون ربهم بالغداة والعشي يريدون وجهه هو الطريق المعوج السقيم",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Fūtī, Rimāḥ"
+  },
+  {
+   "id": "kashif-093",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 66 (PDF 86)"
+   },
+   "textAr": "ومنها الداء العضال الذي صد اليهود عن اتباع سيد الوجود صلى الله عليه وسلم لخوف سقوط رياستهم وهو الحسد قال تعالى «أم يحسدون الناس على ما آتاهم الله من فضله»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Fūtī, Rimāḥ"
+  },
+  {
+   "id": "kashif-094",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 66 (PDF 86)"
+   },
+   "textAr": "وقال «الم تر الى الذين اوتوا نصيباً» الآية",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Fūtī, Rimāḥ"
+  },
+  {
+   "id": "kashif-095",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 67 (PDF 87)"
+   },
+   "textAr": "فمن اطلق لسانه فيهم بالثلب ابتلاه الله قبل موته بموت القلب « فليحذر الذين يخالفون عن امره ان تصيبهم فتنة او يصيبهم عذاب اليم »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Abū Yazīd al-Bisṭāmī, in al-Kuntī's Tadhyīl"
+  },
+  {
+   "id": "kashif-096",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 68 (PDF 88)"
+   },
+   "textAr": "فرأوا الاعراض عن الجاهلين من اخلاق المومنين امتثالا لقوله تعالى « وأعرض عن الجاهلين »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ghazālī, quoted in al-Kuntī's Tadhyīl"
+  },
+  {
+   "id": "kashif-097",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 68 (PDF 88)"
+   },
+   "textAr": "حتى انه إذا قال للشيء كن كان لتكوين المكون تعالى كما قال شيخنا الجيلي رضي الله عنه: وأمري بأمر الله ان قلت كن يكن * وكل بأمر الله فاحكم بقدرتي",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Kuntī, Tadhyīl, citing a verse of ʿAbd al-Qādir al-Jīlānī"
+  },
+  {
+   "id": "kashif-098",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 69 (PDF 89)"
+   },
+   "textAr": "« فلا تعلم نفس ما اخفي لهم من قرة اعين جزاء » خرقوا لله من انفسهم العوائد فخرقت لهم العوائد",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Nawawī, in al-Kuntī's Tadhyīl"
+  },
+  {
+   "id": "kashif-099",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 69 (PDF 89)"
+   },
+   "textAr": "كيف ينظر الانوار من تراكمت على عين بصيرته الظلمات والاكدار قال تعالى « كلا بل ران على قلوبهم ما كانوا يكسبون »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Shaykh al-Islām al-Makhzūmī, in al-Kuntī's Tadhyīl"
+  },
+  {
+   "id": "kashif-100",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 69 (PDF 89)"
+   },
+   "textAr": "وقال في وصف الحال « ظلمات بعضها فوق بعض اذا اخرج يده لم يكد يراها ومن لم يجعل الله له نوراً فما له من نور »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Makhzūmī, in al-Kuntī's Tadhyīl"
+  },
+  {
+   "id": "kashif-101",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 74 (PDF 94)"
+   },
+   "textAr": "ولم يدر ان الزهر الوان والنخل صنوان وغير صنوان تسقى بماء واحد ونفضل بعضها على بعض في الاكل إن في ذلك لآيات لقوم يعقلون",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad b. al-Mubārak narrating, al-Dhahab al-ibrīz"
+  },
+  {
+   "id": "kashif-102",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 77 (PDF 97)"
+   },
+   "textAr": "وانما يعوزك وجود الصدق في طلبهم جد صدقاً تجد مرشداً وتجد ذلك في آيتين من كتاب الله تعالى قال الله تعالى «أمن يجيب المضطر إذا دعاه»",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn ʿAṭāʾ Allāh, Laṭāʾif al-minan, via Ibn ʿAbbād via Mayyāra"
+  },
+  {
+   "id": "kashif-103",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 77 (PDF 97)"
+   },
+   "textAr": "وقال سبحانه « فلو صدقوا الله لكان خيراً لهم » فلو اضطررت إلى من يوصلك إلى الله اضطرار الظمآن إلى الماء",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn ʿAṭāʾ Allāh, Laṭāʾif al-minan, via Ibn ʿAbbād via Mayyāra"
+  },
+  {
+   "id": "kashif-104",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 78 (PDF 98)"
+   },
+   "textAr": "وطريق النظر في هذا ما قدمناه من كون الناس خلقوا لعبادة الله والتوجه الى الحضرة الالهية بالاعراض عن كل ما سواها",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "kashif-105",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 79 (PDF 99)"
+   },
+   "textAr": "وعلم انه لا ملجأ له من الله ولا منجا إن قام مع نفسه متبعاً لهواها معرضاً عن الله تعالى فإنه بهذا النظر يجب عليه طلب الشيخ الكامل",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "kashif-106",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 81 (PDF 101)"
+   },
+   "textAr": "واصرارهم على الدواهي المهلكات العظام من الكبائر الفاحشة التي لا عقبى لصاحبها الا دار البوار",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "kashif-107",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 84 (PDF 104)"
+   },
+   "textAr": "إذ الشيخ وارث الرسول ونائبه والله تعالى يقول « وإن احد من المشركين استجارك فأجره حتي يسمع كلام الله »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "probably Sīdī al-Mukhtār al-Kuntī"
+  },
+  {
+   "id": "kashif-108",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 84 (PDF 104)"
+   },
+   "textAr": "وقوله « وما ينطق عن الهوى » وهذا كله دفعاً لتوهم المجاز وإثباتاً لحكم الحقيقة",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "probably al-Kuntī, as above"
+  },
+  {
+   "id": "kashif-109",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 85 (PDF 105)"
+   },
+   "textAr": "إذ هو تعالى لا يوصل اليهم إلا من اراد أن يوصله اليه فلا يصل اليه إلا من اتصل بهم ولا يحجب عنهم إلا من حجب بهم « سنت الله التي قد خلت من قبل ولن تجد لسنت الله تبديلا »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Kuntī"
+  },
+  {
+   "id": "kashif-110",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 86 (PDF 106)"
+   },
+   "textAr": "وإذا سمع احداً يدعي مشاهدة الحق يقول قال الله تعالى « لا تدركه الابصار » والمشاهد لا يدعي الادراك ولا يرى الابصار",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Opening of the faṣl on the vision claimed by the masters: the denier cites 6:103, but the witness claims no perception by sight and sees nothing besides his object.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-111",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 86 (PDF 106)"
+   },
+   "textAr": "وربما احتج المنكر بقوله تعالى « لن تراني » الآية واعلم ان قوله تراني وقوله فسوف تراني لا معارضة بينهما فافهم",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse reconciles «You will not see me» with «then you will see me» in the same verse.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-112",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 87 (PDF 107)"
+   },
+   "textAr": "وقوله « لا تدركه الابصار » عموم يقبل التخصيص وكرامة الولي تخصص العلوم القطعية فكيف بالعموم الظني",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Even granting the claim is to see God, 6:103 is a general statement that a saint's karāma can particularise.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-113",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 88 (PDF 108)"
+   },
+   "textAr": "عند قوله تعالى « لا تدركه الابصار » قال الجلال أي لا تراه وهذا مخصوص برؤية المومنين له في الآخرة ... وقيل المراد قوله « لا تدركه الابصار » جمع بصر",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad al-Ṣāwī, Ḥāshiya ʿalā l-Jalālayn (quoting Jalāl al-Dīn al-Maḥallī)"
+  },
+  {
+   "id": "kashif-114",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 88 (PDF 108)"
+   },
+   "textAr": "وهذا مخصوص برؤية المومنين له في الآخرة لقوله تعالى « وجوه يومئذ ناضرة إلى ربها ناظرة »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ṣāwī / al-Jalālayn"
+  },
+  {
+   "id": "kashif-115",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 88 (PDF 108)"
+   },
+   "textAr": "والعقلية منها ان الله علق رؤيته على استقرار الجبل وهو جائز والمعلق على الجائز جائز ومنها لو كانت الرؤية ممتنعة لما سألها موسى",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ṣāwī, Ḥāshiya ʿalā l-Jalālayn"
+  },
+  {
+   "id": "kashif-116",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 89 (PDF 109)"
+   },
+   "textAr": "قال (الامام الرازي) الظاهر والباطن اسمان مقترنان لا يصح إطلاقهما إلا على الله تعالى ... وقد فسره النبي صلى الله عليه وسلم ... (أنت الظاهر فليس فوقك شيء وأنت الباطن فليس دونك شيء) اه من الكوكب",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Fakhr al-Dīn al-Rāzī, cited in Sīdī al-Mukhtār al-Kuntī's al-Kawkab al-waqqād"
+  },
+  {
+   "id": "kashif-117",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 90 (PDF 110)"
+   },
+   "textAr": "وقوله تعالى « لا تدركه الابصار » فيه تاويلات وهو عموم يقبل التخصيص وأخبار الولي الموثوق بدينه المبرز في عدالته يصلح لتقوية بعض التاويلات",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Qarāfī (al-Furūq), via al-Ubbī, Ikmāl al-ikmāl"
+  },
+  {
+   "id": "kashif-118",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 91 (PDF 111)"
+   },
+   "textAr": "أن كلام المجاذيب مبني على أساس متين وكلهم عند ذي العرش مكين ومعبر عن نور قلب مبين",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse's conclusion: the ecstatics' words rest on firm ground and each is established with the Lord of the Throne.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-119",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 91 (PDF 111)"
+   },
+   "textAr": "وما يلفظ من قول الا لديه رقيب عتيد",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Warning to the denier: every word is recorded.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-120",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 93 (PDF 113)"
+   },
+   "textAr": "فلا يمضي يسير من الزمان إلا وتبين انه من المصطفين الاخيار",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Whoever receives the wird soon appears among the chosen.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-121",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 93 (PDF 113)"
+   },
+   "textAr": "فيتعين على كل من عرف هذا الفضل الجزيل ان يتنافس في هذا الورد الجليل",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Everyone aware of this grace should vie for the wird.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-122",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 97 (PDF 117)"
+   },
+   "textAr": "وذلك يستمد من حضرة الاطلاق ويمده بوسع ربوبيته « وفي ذلك فليتنافس المتنافسون »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse (after «قلت»): he and his master draw from one shoreless sea fed by the Absolute; the verse invites rivalry for it.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-123",
+   "witnessId": "kashif-casablanca-1353",
+   "address": {
+    "raw": "p. 98 (PDF 118)"
+   },
+   "textAr": "وينظمنا في سلك الختم الكريم « يوم لا ينفع مال ولا بنون إلا من اتى الله بقلب سليم »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Closing prayer before the colophon: that the book be accepted and its author counted among the Seal's followers on the Day of Judgement.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-124",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 2 (PDF 120)"
+   },
+   "textAr": "والله أسئل ان يقبل لنا وعلينا في البدء والختام فهو المبدئ المعيد الغفور الودود ذوالعرش المجيد فعال لما يريد .",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse's opening prayer for the Tadhyīl strings together the divine attributes of al-Burūj 85:13–16 as epithets of God.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-125",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 2 (PDF 120)"
+   },
+   "textAr": "فيقول معاصروه « ما هذا إلا بشر مثلكم ياكل مما تاكلون منه ويشرب مما تشربون» لاسيا القراء المنتسبون لفضيلة رسم العلوم",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Mukhtār al-Kuntī, Junnat al-murīd, as transmitted in al-Jaysh (al-Jaysh al-kafīl)"
+  },
+  {
+   "id": "kashif-126",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 3 (PDF 121)"
+   },
+   "textAr": "فلب لا قشر له مبتذل فاسد وقشر لا لب له تحته باطل كاسد وإلى ذلك تشير آية « وما امروا إلا ليعبدوا الله مخلصين له الدين » فأخبر عز وجل بقصر التعبد على إمحاض العبودية بالاخلاص",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Mukhtār al-Kuntī, Junnat al-murīd, as transmitted in al-Jaysh (al-Jaysh al-kafīl)"
+  },
+  {
+   "id": "kashif-127",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 4 (PDF 122)"
+   },
+   "textAr": "الشكر باب الله وهو أقرب الابواب اليه ولذا قعد الشيطان عليه قال تعالى حكاية عنه « لاقعدن لهم صراطك المستقيم )",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī (saying), reported by the author quoted after al-Dhahab al-ibrīz — probably the author of al-Jaysh"
+  },
+  {
+   "id": "kashif-128",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 5 (PDF 123)"
+   },
+   "textAr": "وفي ( روح البيان في تفسير القرآن ) ... عند قوله تبارك وتعالى « وممن خلقنا امة يهدون بالحق وبه يعدلون » ما نصه : وعنه عليه الصلاة والسلام ( إن من امتي قوماً على الحق حتى ينزل عيسى )",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-129",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 5 (PDF 123)"
+   },
+   "textAr": "فإذا انتقل انشقت السماء وكورت الشمس وانكدرت النجوم ونشرت الصحف وسيرت الجبال وزلزلت الارض وجاءت القيامة انتهى كلامه في الفكوك .",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ṣadr al-Dīn al-Qūnawī, al-Fukūk, quoted in Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-130",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 6 (PDF 124)"
+   },
+   "textAr": "فإنهم ماذهبوا حقيقة وانما هم ككنز صاحب الجدار ... لكنهم والله في هذه الاعصار ككنز صاحب الجدار",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Abū l-Mawāhib al-Tūnisī, Waṣāyā and Qawānīn ḥikam al-ishrāq"
+  },
+  {
+   "id": "kashif-131",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 8 (PDF 126)"
+   },
+   "textAr": "قال ( ابو عبد الله الحكيم ) من الله تعالى على هذه الامة فقال « كنتم خير امة اخرجت للناس »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥakīm al-Tirmidhī, Nawādir al-uṣūl (aṣl 122)"
+  },
+  {
+   "id": "kashif-132",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 8 (PDF 126)"
+   },
+   "textAr": "وقال تعالى « وكذلك جعلناكم امة وسطاً » اي عدلا لا يميل إلى إفراط ولا إلى نقصان فالميزان لسانه في وسطه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥakīm al-Tirmidhī, Nawādir al-uṣūl"
+  },
+  {
+   "id": "kashif-133",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 8 (PDF 126)"
+   },
+   "textAr": "فجعلت اوائل هذه الامة ككفتي الميزان يستويان لانهم يهدون بالحق وبه يعدلون",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥakīm al-Tirmidhī, Nawādir al-uṣūl"
+  },
+  {
+   "id": "kashif-134",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 8 (PDF 126)"
+   },
+   "textAr": "بل كانوا منقادين لهم محبين كما وصفهم الله تعالى في كتابه « اتخذوا احبارهم ورهبانهم اربابا من دون الله »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-135",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 9 (PDF 127)"
+   },
+   "textAr": "ولكنكم ماجفت ارجلكم من البحر حتى قلتم لنبيكم اجعل لنا إلهاً كما لهم آلهة وهذا من الاجوبة المسكتة",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "ʿAlī b. Abī Ṭālib's answer to a Jew, quoted in Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-136",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 10 (PDF 128)"
+   },
+   "textAr": "وقال ( في روح البيان ) عند قوله تعالى « اطيعوا الله واطيعوا الرسول واولي الامر منكم » ثم اعلم بأن المراد بأولي الامر في الحقيقة المشايخ الواصلون ومن بيده امر التربية",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Rūḥ al-bayān, citing Najm al-Dīn Kubrā, al-Taʾwīlāt (al-najmiyya)"
+  },
+  {
+   "id": "kashif-137",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 11 (PDF 129)"
+   },
+   "textAr": "( قلت ) وليس علماء السوء عبيد الاهواء مراداً بهذا فهم شر من تظل السماء .",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse adds that the 'those in authority' of 4:59, read as shaykhs, does not include venal scholars who serve their passions.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-138",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 11 (PDF 129)"
+   },
+   "textAr": "قال في ( روح البيان ) عند قوله تعالى « قل يا أهل الكتاب لم تصدون عن سبيل الله » واعلم أن ظاهر الخطاب مع أهل الكتاب وباطنه مع علماء السوء الذين يبيعون الدين بالدنيا",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-139",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 11 (PDF 129)"
+   },
+   "textAr": "والله شهيد على ما يعملون حاضر معهم ناظر إلى نياتهم في أعمال الخير والشر فيجازيهم بها",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-140",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 11 (PDF 129)"
+   },
+   "textAr": "وقد وصى الله المومنين بقوله « يا أيها الذين آمنوا » الآية حتى لا يرتدوا عن طرق الهداية بعد الايمان بالاتباع بسيرتهم وهواهم",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-141",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 11 (PDF 129)"
+   },
+   "textAr": "قال تعالى « ولا تتبعوا أهواء قوم قد ضلوا من قبل وأضلوا كثيراً وضلوا عن سواء السبيل »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-142",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 12 (PDF 130)"
+   },
+   "textAr": "ويعتصم بالله بالانقطاع عما سواه ويتمسك بالتوحيد الحقيقي حتى يهتدي إلى الصراط المستقيم فمن انقطع اليه بالفناء في الوحدة كان صراطه صراط الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-143",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 12 (PDF 130)"
+   },
+   "textAr": "وقال ايضاً عند قوله تعالى « ولتكن منكم امة يدعون الى الخير » الآية ما نصه : والاشارة بالآية الى أن الامة التي يدعون الى الخير بالافعال دون الاقوال هم الذين يامرون بالمعروف وينهون عن المنكر واولئك هم المفلحون",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-144",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 13 (PDF 131)"
+   },
+   "textAr": "وكفى شرفاً لعلم القوم قول موسى عليه السلام للخضر « هل اتبعك على أن تعلمني مما علمت رشداً » وهذا أعظم دليل على وجوب طلب علم الحقيقة",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Muḥammad al-Maghribī al-Shādhilī (saying), reported in Jawāhir al-maʿānī"
+  },
+  {
+   "id": "kashif-145",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 14 (PDF 132)"
+   },
+   "textAr": "أخذتم علمكم عن علماء الرسوم ميت عن ميت وأخذنا علمنا عن الحي الذي لا يموت",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Abū Yazīd al-Basṭāmī, cited in Ibn ʿArabī's letter to al-Rāzī"
+  },
+  {
+   "id": "kashif-146",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 17 (PDF 135)"
+   },
+   "textAr": "أما تذكر سحرة فرعون ما كانت مدتهم إلا لحظة حيث راوا معجزة موسى قالوا آمنا برب العالمين فأبصروا الطريق وقطعوه حقه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-147",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 17 (PDF 135)"
+   },
+   "textAr": "فإنه « لا يسئل عما يفعل وهم يسئلون . ذلك تقدير العزيز العليم .",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-148",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 17 (PDF 135)"
+   },
+   "textAr": "وأن الفضل بيد الله يوتيه من يشاء والله ذو الفضل العظيم » اللهم اجعلنا ممن سبقت له العناية",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-149",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 17 (PDF 135)"
+   },
+   "textAr": "أخذ العلم والعمل عن المشايخ أتم من أخذه دونهم « بل هو آيات بينات في صدور الذين اوتوا العلم .",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad Zarrūq, Taʾsīs al-qawāʿid"
+  },
+  {
+   "id": "kashif-150",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 17 (PDF 135)"
+   },
+   "textAr": "واتبع سبيل من اناب إلي » فلزمت المشيخة سيما والصحابة أخذوه عنه عليه الصلاة والسلام",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad Zarrūq, Taʾsīs al-qawāʿid"
+  },
+  {
+   "id": "kashif-151",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 18 (PDF 136)"
+   },
+   "textAr": "وقال (الشيخ الصاوي) في حاشيته عند قوله تعالى « ولا تعجل بالقرآن من قبل ان يقضى اليك وحيه» ما نصه : المعنى لا تتعجل بقراءة ما القاه عليك جبريل في قلبك حتى يقرأه عليك",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ṣāwī, Ḥāshiya (on Tafsīr al-Jalālayn)"
+  },
+  {
+   "id": "kashif-152",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 18 (PDF 136)"
+   },
+   "textAr": "وهذا معنى قوله تعالى « لا تحرك به لسانك لتعجل به إن علينا جمعه وقرآنه فإذا قرأناه فاتبع قرآنه ثم إن علينا بيانه »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ṣāwī, Ḥāshiya"
+  },
+  {
+   "id": "kashif-153",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 19 (PDF 137)"
+   },
+   "textAr": "وهو امتثال قول رب العالمين في سورة النحل « فإذا قرأت القرآن فاستعذ بالله من الشيطان الرجيم» فالاستعاذة مقدمة على القراءة عند عامة المسلمين",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-154",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 21 (PDF 139)"
+   },
+   "textAr": "( قلت ) والسر في افتتاح وردنا بالاستعاذة ان الله اعلمنا ان الشيطان عدو لنا وأمرنا ان نتخذه عدواً قال تعالى « ان الشيطان لكم عدو فاتخذوه عدواً » وكيفية اتخاذ العدو عدواً هو دوام الاحتراز منه بالتحصن",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse explains why the Tijānī wird opens with the istiʿādha: God commands taking Satan as an enemy, and seeking refuge puts the reciter in a fortress before the rest of the wird empties and adorns the heart.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-155",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 23 (PDF 141)"
+   },
+   "textAr": "( وأما الفاتحة ) فناهيك من فضلها أنها ام القرآن والسبع المثاني .",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse opens the Fātiḥa section of the wird by naming it with its Qurʾānic and prophetic titles.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-156",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 24 (PDF 142)"
+   },
+   "textAr": "قال الفناري وذلك لما علم ان اولها الى قوله تعالى « ملك يوم الدين » إشارة إلى العقائد المبدئية المتعلقة بالالهيات ذاتاً وصفة وفعلا",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Fanārī, cited after al-Tafsīr al-kabīr, within the Rūḥ al-bayān passage"
+  },
+  {
+   "id": "kashif-157",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 24 (PDF 142)"
+   },
+   "textAr": "واوسطها من قوله « إياك نعبد وإياك نستعين » إلى اقسام الاحكام الرابطة بين الحق والعبد من العبادات",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Fanārī, within the Rūḥ al-bayān passage"
+  },
+  {
+   "id": "kashif-158",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 24 (PDF 142)"
+   },
+   "textAr": "و آخرها إلى طلب المومنين وجوه الهداية المرتبة على الايمان المشار اليه في القسم الاول والاسلام المشار اليه في القسم الثاني وهي وجوه الاحسان",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Fanārī, within the Rūḥ al-bayān passage"
+  },
+  {
+   "id": "kashif-159",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 24 (PDF 142)"
+   },
+   "textAr": "وفي الحديث ( الداعي والمؤمن شريكان ) يعني به قوله تعالى « قال قد اجيبت دعوتكما »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-160",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 25 (PDF 143)"
+   },
+   "textAr": "ثم ( استغفروا الله مائة مرة ) قال تعالى « وان استغفروا ربكم »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse grounds the hundred istighfār of the wird in the Qurʾānic command to seek the Lord's forgiveness.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-161",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 25 (PDF 143)"
+   },
+   "textAr": "قال رسول الله صلى الله عليه وسلم ( انزل الله تعالى علي امانين لامتي : وما كان الله ليعذبهم وانت فيهم وما كان الله معذبهم وهم يستغفرون . فإذا مضيت تركت فيهم الاستغفار )",
+   "transcriptionStatus": "draft",
+   "voice": "uncertain",
+   "textEn": "The two safeguards against punishment: the Prophet's presence and istighfār, which outlives him.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-162",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 25 (PDF 143)"
+   },
+   "textAr": "( اتاني آت من ربي فقال ومن يعمل سوءاً او يظلم نفسه ثم يستغفر الله يجد الله غفوراً رحيما",
+   "transcriptionStatus": "draft",
+   "voice": "uncertain",
+   "textEn": "4:110 brought by an angel as good news after 4:123 had distressed the Companions.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-163",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 25 (PDF 143)"
+   },
+   "textAr": "وقد كانت شقت عليهم الآية التي قبلها من يعمل سوءاً يجز به",
+   "transcriptionStatus": "draft",
+   "voice": "uncertain",
+   "textEn": "The earlier verse on requital had distressed the Companions.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-164",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 25 (PDF 143)"
+   },
+   "textAr": "واعتبر استغفار النبي صلى الله عليه وسلم بعد البشارة واليقين بمغفرة ما تقدم من ذنبه وما تأخر",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Abū l-Ḥasan al-Shādhilī, cited in al-Kawkab al-wahhāj"
+  },
+  {
+   "id": "kashif-165",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 26 (PDF 144)"
+   },
+   "textAr": "وروى ابن جرير وابن المنذر عن ابن عباس في قوله تعالى « ومن يعمل سوءاً او يظلم نفسه ثم يستغفر الله » قال أخبر الله تعالى عباده بحلمه وعفوه وكرمه",
+   "transcriptionStatus": "draft",
+   "voice": "uncertain",
+   "textEn": "Ibn ʿAbbās: whoever sins and seeks forgiveness finds God forgiving even if his sins exceed heaven and earth.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-166",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 27 (PDF 145)"
+   },
+   "textAr": "إلى غير ذلك مما هو مشهور « والله يقول الحق وهو يهدى السبيل » اه",
+   "transcriptionStatus": "draft",
+   "voice": "uncertain",
+   "textEn": "Formula closing the list of istighfār ḥadīths.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-167",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 27 (PDF 145)"
+   },
+   "textAr": "ثم ( اللهم صل على سيدنا محمد الفاتح ) الخ مائة مرة وقال تعالى « إن الله وملائكته يصلون على النبيء ياايها الذين آمنوا صلوا عليه وسلموا تسليماً",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse grounds the hundred ṣalāt al-fātiḥ of the wird in 33:56.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-168",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 27 (PDF 145)"
+   },
+   "textAr": "وفي روح البيان عند هذه الآية بعد كلام قال سهل بن عبد الله التستري قدس سره الصلاة على محمد افضل العبادات لان الله تولاها هو وملائكته ثم امر بها المومنين",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Sahl al-Tustarī, quoted in Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-169",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 30 (PDF 148)"
+   },
+   "textAr": "فلا تلتفت لتكذيب مكذب ولا لقدح قادح فيها فإن الفضل بيد الله يوتيه من يشاء فإن لله سبحانه وتعالى فضلا خارجاً عن دائرة القياس",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī, letter to ʿAlī Ḥarāzim in Jawāhir al-maʿānī, cited via Sukayrij, al-Kawkab al-wahhāj"
+  },
+  {
+   "id": "kashif-170",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 30 (PDF 148)"
+   },
+   "textAr": "ويكفيك قوله سبحانه « ويخلق ما لا تعلمون »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī, letter to ʿAlī Ḥarāzim in Jawāhir al-maʿānī, cited via Sukayrij, al-Kawkab al-wahhāj"
+  },
+  {
+   "id": "kashif-171",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 31 (PDF 149)"
+   },
+   "textAr": "ثم « سبحان ربك رب العزة عما يصفون وسلام على المرسلين والحمد لله رب العالمين »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse names the closing tasbīḥ of the wird, which is 37:180–182 verbatim.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-172",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 31 (PDF 149)"
+   },
+   "textAr": "قال الله تعالى « سبحوه بكرة وأصيلا »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Prooftext for the wird's tasbīḥ.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-173",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 31 (PDF 149)"
+   },
+   "textAr": "فصرف همته في التوجه إلى الله تعالى بها والاقبال على الله بشأنها « فلا تعلم نفس ما اخفي لهم من قرة أعين »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī, letter to ʿAlī Ḥarāzim in Jawāhir al-maʿānī, cited via Sukayrij, al-Kawkab al-wahhāj"
+  },
+  {
+   "id": "kashif-174",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 31 (PDF 149)"
+   },
+   "textAr": "وعن علي رضي الله تعالى عنه ( من أحب أن يكتال بالمكيال الاوفى من الاجر يوم القيامة فليكن آخر كلامه من مجلسه سبحان ربك رب العزة عما يصفون ) الخ",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "ʿAlī (saying), in Rūḥ al-bayān; Ḥaqqī then calls it 'the verse mentioned'"
+  },
+  {
+   "id": "kashif-175",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 31 (PDF 149)"
+   },
+   "textAr": "فعلى العاقل ان لا يغفل في مجلسه بل يذكر ربه لانسه ويختمه بما هو من باب التخلية والتحلية والتصفية والتجلية « وآخر دعواهم ان الحمد لله رب العالمين » اه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī al-Brūsawī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-176",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 32 (PDF 150)"
+   },
+   "textAr": "قال يابن أخي ذكرت الجاهلية وجهلها فضاقت علي الدنيا بما رحبت",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-ʿAbbās, in the ḥadīth of ṣalāt al-tasbīḥ (al-Ṭabarānī, Abū Nuʿaym), cited by Niasse"
+  },
+  {
+   "id": "kashif-177",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 34 (PDF 152)"
+   },
+   "textAr": "( لا إله إلا الله ) مائة مرة قال تعالى « واذكروا الله كثيراً »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Prooftext for the hundredfold tahlīl.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-178",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 34 (PDF 152)"
+   },
+   "textAr": "وقد امر الله عباده أن يعتقدوها وقال تعالى « فاعلم انه لا إله إلا الله »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Aḥmad Sukayrij, al-Kawkab al-wahhāj"
+  },
+  {
+   "id": "kashif-179",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 37 (PDF 155)"
+   },
+   "textAr": "( الاسم الاول ) كلمة التوحيد كما مر من قوله تعالى « وإلهكم إله واحد لا إله الا هو »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-180",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 37 (PDF 155)"
+   },
+   "textAr": "كلمة الاسلام كلمة الايمان كلمة الاحسان من قوله تعالى « ليس على الذين آمنوا وعملوا الصالحات جناح فيما طعموا . الى المحسنين » فقوله تعالى « اذا ما اتقوا وآمنوا » قالوا لا اله الا الله في مقام الاسلام « ثم اتقوا وآمنوا » قالوا لا اله الا الله في مقام الايمان « ثم اتقوا واحسنوا » قالوا لا اله الا الله في مقام الاحسان",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-181",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 37 (PDF 155)"
+   },
+   "textAr": "وقوله تعالى « ان احسنتم احسنتم لانفسكم »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-182",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 37 (PDF 155)"
+   },
+   "textAr": "وقوله تعالى « للذين احسنوا » قيل الاحسان قول لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-183",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 37 (PDF 155)"
+   },
+   "textAr": "( الاسم الخامس ) كلمة السواء من قوله تعالى « قل يا اهل الكتاب تعالوا الى كلمة سواء بيننا وبينكم » قيل هي لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-184",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 37 (PDF 155)"
+   },
+   "textAr": "( السادس ) كلمة العهد من قوله تعالى « الا من اتخذ عند الرحمن عهداً » قيل هو لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-185",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 37 (PDF 155)"
+   },
+   "textAr": "( السابع ) كلمة العدل من قوله تعالى « ان الله يامر بالعدل » روي عن ابن عباس رضي الله عنهما ان العدل قول لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-186",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 37 (PDF 155)"
+   },
+   "textAr": "( الثامن ) كلمة الحق من قوله تعالى « ولا يملك الذين يدعون من دونه الشفاعة الا من شهد بالحق » اي قال لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-187",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 37 (PDF 155)"
+   },
+   "textAr": "( التاسع ) كلمة الاخلاص من قوله تعالى « وما امروا الا ليعبدوا الله مخلصين له الدين » اي ليوحدوا بلا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-188",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( العاشر ) كلمة الصدق من قوله تعالى « والذي جاء بالصدق وصدق به » قيل هو لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-189",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( الحادي عشر ) كلمة الاستقامة من قوله تعالى « إن الذين قالوا ربنا الله ثم استقاموا » قيل هو لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-190",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( الثاني عشر ) كلمة التقوى من قوله تعالى « وألزمهم كلمة التقوى » قيل هي لا إله إلا الله لانها تقي صاحبها من الكفر أو من النار",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-191",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( الثالث عشر ) الكلمة الطيبة من قوله تعالى « ومثل كلمة طيبة » قيل هي لا إله إلا الله لانها تظهر من القلب وأصلها ثابت فيه وهو المعرفة",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-192",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( الرابع عشر ) الكلمة الباقية من قوله تعالى في قصة ابراهيم ... « وجعلها كلمة باقية في عقبه » قيل هي لا إله إلا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-193",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "لانها إشارة إلى براءته مما يعبدون من دون الله وقوله « إلا الذي فطرني فإنه سيهدين » وذلك مضمون لا إله إلا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-194",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( الخامس عشر ) الكلمة العليا من قوله « وكلمة الله هي العليا » أي لا إله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-195",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( السادس عشر ) القول الثابت من قوله تعالى « يثبت الله الذين آمنوا بالقول الثابت في الحياة الدنيا وفي الآخرة » هو لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-196",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( السابع عشر ) القول الطيب من قوله تعالى « وهدوا الى الطيب من القول » هو لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-197",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( الثامن عشر ) الصواب من قوله تعالى « الا من اذن له الرحمن وقال صواباً » أي بأن كان قال لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-198",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( التاسع عشر ) الدين الخالص أي لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-199",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( العشرون ) المثل الاعلى قيل هو لا اله الا الله والمراد به لغة الوصف الاعلى",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-200",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( الحادي والعشرون ) العروة الوثقى من قوله تعالى « فقد استمسك بالعروة الوثقى » قيل لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-201",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( الثاني والعشرون ) دعوة الحق من قوله تعالى « له دعوة الحق » قيل هو لا اله الا الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-202",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 38 (PDF 156)"
+   },
+   "textAr": "( الثالث والعشرون ) مقاليد السماوات والارض من قوله تعالى « له مقاليد السماوات والارض » . روى ابن عباس رضي الله عنهما هي لا اله الا الله والمقاليد المفاتيح",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-203",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 39 (PDF 157)"
+   },
+   "textAr": "وهو المسمى الاعلى من قوله « سبح اسم ربك الاعلى » فالتهليل عشر الذكر وهو زكاته",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn ʿArabī, al-Futūḥāt al-makkiyya"
+  },
+  {
+   "id": "kashif-204",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 40 (PDF 158)"
+   },
+   "textAr": "ومراتب الزلفى أربع وهي مراتب النبيئين والصديقين والشهداء والصالحين",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Ḥasan b. Masʿūd al-Yūsī, Minhāj al-khalāṣ min kalimat al-ikhlāṣ"
+  },
+  {
+   "id": "kashif-205",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 42 (PDF 160)"
+   },
+   "textAr": "وفي هذا القدر كفاية والله الموفق للصواب واليه سبحانه المرجع والمآب . ثم « ان الله وملائكته يصلون على النبيء يا أيها الذين آمنوا صلوا عليه وسلموا تسليما .",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse returns to the order of the wird, which closes with 33:56 recited as a formula.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-206",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 42 (PDF 160)"
+   },
+   "textAr": "سبحان ربك رب العزة عما يصفون وسلام على المرسلين والحمد لله رب العالمين » وقد تقدم الكلام على الصلاة على النبي صلى الله عليه وسلم وعلى التسبيح",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Closing formula of the wird, already discussed on p.149.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-207",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 42 (PDF 160)"
+   },
+   "textAr": "ثم ( استغفر الله العظيم الذي لا إله إلا هو الحي القيوم ) ثلاثين مرة",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "The istighfār formula of the Tijānī waẓīfa, which Niasse goes on to justify against the longer ḥadīth version with «وأتوب اليه».",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-208",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 44 (PDF 162)"
+   },
+   "textAr": "وصلاة الألف مجرد تجل وإمداد بصفات وصلاة لام الألف مجرد قيام صفة على الموصوف وصلاة الهاء مجرد غيبة واستغراق فسبحان ربك رب العزة عما يصفون",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Letter-by-letter mystical commentary on Ṣalāt al-Fātiḥ (alif, lām-alif, hāʾ of «اللهم»); the verse closes the analysis by declaring God beyond every description just given.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-209",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 44 (PDF 162)"
+   },
+   "textAr": "ثم ( سبحان ربك ) الخ وقد تقدم . ثم ( لا إله إلا الله ) مائة مرة وقد تقدم",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Running through the elements of the wazīfa: the closing «سبحان ربك رب العزة …» formula is listed as the next item, with a back-reference to its earlier discussion.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-210",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 46 (PDF 164)"
+   },
+   "textAr": "فوحد الإنسان بلا إله إلا الله فجعل خليفة في جوهرة الكمال فانتهت الوظيفة إن الله وملائكته الخ",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "«قلت يوما لبعض أحبائي»: Niasse reads the order of the wazīfa as a spiritual ascent (istighfār, ṣalāt, haylala, Jawharat al-kamāl) that ends with the recitation of 33:56.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-211",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 49 (PDF 167)"
+   },
+   "textAr": "( وأما ذكر الهيللة ) بعد العصر يوم الجمعة فكيفيتها الاستعاذة والبسملة والفاتحة مرة واستغفار الوظيفة ثلاثا وصلاة الفاتح ثلاثا ثم « إن الله وملائكته » الخ مرة",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "The order of the Friday-afternoon haylala: al-Fātiḥa is recited once at its opening.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-212",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 49 (PDF 167)"
+   },
+   "textAr": "وصلاة الفاتح ثلاثا ثم « إن الله وملائكته » الخ مرة ثم لا إله إلا الله إلى غروب الشمس",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "33:56 recited once in the Friday haylala before the open-ended «لا إله إلا الله» until sunset.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-213",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 49 (PDF 167)"
+   },
+   "textAr": "فاستغرقوا في بحار شهواتهم وقبيح اعتقاداتهم وإراداتهم وهم مع ذلك يحسبون أنهم يحسنون صنعا أو يحكمون وضعا",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn Ḥajar al-Haytamī, Fatāwā"
+  },
+  {
+   "id": "kashif-214",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 50 (PDF 168)"
+   },
+   "textAr": "وقال الله تعالى في حق يوم الجمعة « فإذا قضيت الصلاة فانتشروا في الارض وابتغوا من فضل الله واذكروا الله كثيرا لعلكم تفلحون »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Scriptural warrant for the collective Friday dhikr after the prayer (the haylala).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-215",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 50 (PDF 168)"
+   },
+   "textAr": "فلا يطعن في أذكار القوم إلا جاهل أو معاند « وإذ لم يهتدوا به فسيقولون هذا إفك قديم »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Critics of the non-obligatory Tijānī awrād are cast as the unbelievers who call revelation an old lie.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-216",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 50 (PDF 168)"
+   },
+   "textAr": "وكان اجتماعهم يوم الجمعة بعد صلاتها فقد يهتدى اليه من قول الله سبحانه « فإذا قضيت الصلاة فانتشروا في الارض وابتغوا من فضل الله واذكروا الله كثيرا لعلكم تفلحون » اه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Wansharīsī, Jāmiʿ al-Miʿyār"
+  },
+  {
+   "id": "kashif-217",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 51 (PDF 169)"
+   },
+   "textAr": "إذا كان رسول الله صلى الله عليه وسلم أمر أن يسئل ربه الزيادة من العلم فما ظنكم بغيره",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "ʿAlī al-Khawwāṣ, reported by al-Shaʿrānī, Laṭāʾif al-minan"
+  },
+  {
+   "id": "kashif-218",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 52 (PDF 170)"
+   },
+   "textAr": "وكان ( السري السقطي ) يقول لا فرق بين قول العبد إن الله خلقني ورزقني وصورني وعلمني العلم والقرآن وجعلني مباركا وبين أن يقول أنا ولي الله وأنا من العلماء العاملين",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Sarī al-Saqaṭī, reported by al-Shaʿrānī, Laṭāʾif al-minan"
+  },
+  {
+   "id": "kashif-219",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 52 (PDF 170)"
+   },
+   "textAr": "وذلك لأن كل مؤمن ولي لله تعالى « الله ولي الذين آمنوا يخرجهم من الظلمات الى النور »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Shaʿrānī, Laṭāʾif al-minan (explaining a saying of al-Sarī al-Saqaṭī)"
+  },
+  {
+   "id": "kashif-220",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 53 (PDF 171)"
+   },
+   "textAr": "قال ورأيت ( بخط الشيخ جلال الدين في كتابه التحدث بالنعمة ) ما نصه : أنا أعلم خلق الله الآن قلما وفما",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Shaʿrānī, Laṭāʾif al-minan (quoting al-Suyūṭī)"
+  },
+  {
+   "id": "kashif-221",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 53 (PDF 171)"
+   },
+   "textAr": "وعلى ذلك حمل العلماء قوله تعالى في بني إسرائيل « وأني فضلتكم على العالمين » وقالوا لا يدخل في ذلك الانبياء ولا الملائكة",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Suyūṭī, al-Taḥadduth bi-niʿmat Allāh, via al-Shaʿrānī, Laṭāʾif al-minan"
+  },
+  {
+   "id": "kashif-222",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 54 (PDF 172)"
+   },
+   "textAr": "وقد مدح الله تعالى الذين يستمعون القول فيتبعون أحسنه بقوله « أولئك الذين هداهم الله وأولئك هم أولوا الألباب » اه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Shaʿrānī, Laṭāʾif al-minan"
+  },
+  {
+   "id": "kashif-223",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 55 (PDF 173)"
+   },
+   "textAr": "قال الأئمة ولم ينسب الله تعالى المحاربة لأحد من العصاة إلا للمنكرين على أوليائه وآكلي الربى",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn Ḥajar al-Haytamī, Fatāwā"
+  },
+  {
+   "id": "kashif-224",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 56 (PDF 174)"
+   },
+   "textAr": "ثالثها أنهم قد يؤمرون تعريفا لجاهل أو شكرا وتحدثا بنعمة الله كما وقع للشيخ عبد القادر",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn Ḥajar al-Haytamī, Fatāwā"
+  },
+  {
+   "id": "kashif-225",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 57 (PDF 175)"
+   },
+   "textAr": "قال له هل تحفظ شيئا من القرآن قال لا إلا قوله « ربما يود الذين كفروا لو كانوا مسلمين »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn Ḥajar al-Haytamī, Fatāwā (story of Ibn Abī ʿAṣrūn, Ibn al-Saqqāʾ and the Ghawth)"
+  },
+  {
+   "id": "kashif-226",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 59 (PDF 177)"
+   },
+   "textAr": "فلا تظن أن سؤال موسى رؤية ربه أنه فاقد للرؤية التي كانت حالة أبي بكر الصديق … هذه الرؤية ما هي الرؤية التي طلبها موسى من ربه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn ʿArabī, al-Futūḥāt al-makkiyya, ch. 331"
+  },
+  {
+   "id": "kashif-227",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 59 (PDF 177)"
+   },
+   "textAr": "كما أعطاه الشهود بانخراق العادة في قولهم عندهم فقالوا أنا الله وإني أنا الله لا إله إلا أنا فاعبدون كأبي يزيد",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn ʿArabī, al-Futūḥāt al-makkiyya, ch. 331"
+  },
+  {
+   "id": "kashif-228",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 60 (PDF 178)"
+   },
+   "textAr": "فقال رأى ما لا يطيق لأنه تجلى له من حيث أنا فلم يطقه كما صعق موسى",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn ʿArabī, al-Futūḥāt al-makkiyya"
+  },
+  {
+   "id": "kashif-229",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 60 (PDF 178)"
+   },
+   "textAr": "وفي ( روح البيان ) عند قوله « الله لا إله إلا هو » الجملة خبر للمبتدأ وهو الجلالة والمعنى أنه المستحق للعبادة لا غير",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-230",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 61 (PDF 179)"
+   },
+   "textAr": "قال ( ابن الشيخ في حواشي سورة الإخلاص ) لفظ هو إشارة إلى مقام المقربين وهم الذين نظروا إلى ماهيات الأشياء وحقائقها من حيث هي هي فلا جرم ما رأوا موجودا سوى الله",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn al-Shaykh (Shaykhzāde), Ḥawāshī on Sūrat al-Ikhlāṣ, via Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-231",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 63 (PDF 181)"
+   },
+   "textAr": "ولما تجلى من أحب تكرما * وأشهدني ذاك الجناب المعظما / تعرف لي حتى تيقنت أنني * أراه بعيني جهرة لا توهما / وفي كل حال أجتليه ولم يزل * على طور قلبي حيث كنت مكلما",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "ʿIzz al-Dīn b. ʿAbd al-Salām, Ḥall al-rumūz (verses quoted within his text)"
+  },
+  {
+   "id": "kashif-232",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 68 (PDF 186)"
+   },
+   "textAr": "وقال ( الامام الشعراني في الدرر ) سألت أخي أفضل الدين رضي الله عنه عن قوله تعالى عن موسى عليه السلام « قال رب أرني أنظر إليك قال لن تراني » كيف سأل الرؤية في الدنيا",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Shaʿrānī, al-Durar (question to Afḍal al-Dīn)"
+  },
+  {
+   "id": "kashif-233",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 69 (PDF 187)"
+   },
+   "textAr": "فإن موسى عليه السلام ما رأى ربه تعالى حتى خر صعقا ميتا … ولذلك قال تبت إليك … فقلت له إن الله عز وجل أحال موسى في الرؤية على الجبل وذكر عن نفسه تعالى أنه تجلى للجبل لا لموسى … فكان الدك للجبل والصعق لموسى",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Afḍal al-Dīn (citing Ibn ʿArabī) in al-Shaʿrānī, al-Durar"
+  },
+  {
+   "id": "kashif-234",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 70 (PDF 188)"
+   },
+   "textAr": "فالمراد حجاب دائما بينك وبينه مانع من وصول الرؤية إليه وصدق الله تعالى في قوله لموسى « لن تراني » فإن الأعين لا تصل إلا إلى الرداء",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Afḍal al-Dīn in al-Shaʿrānī, al-Durar"
+  },
+  {
+   "id": "kashif-235",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 71 (PDF 189)"
+   },
+   "textAr": "واعلم أن الله لا يستحيل عليه شيء إلا أن يكون له شريك تعالى عن ذلك علوا كبيرا",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse («قلت»): calling vision impossible for anyone but the Seal of Prophets misuses the term; only a partner for God is truly impossible.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-236",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 72 (PDF 190)"
+   },
+   "textAr": "وفي ( الجواهر الحسان ) عند قوله تعالى « وآخرين منهم لما يلحقوا بهم » وقد سئل رسول الله صلى الله عليه وسلم ( من الآخرون فأخذ بيد سلمان فقال لو كان الدين في الثريا لناله رجال من هؤلاء )",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Thaʿālibī, al-Jawāhir al-ḥisān"
+  },
+  {
+   "id": "kashif-237",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 73 (PDF 191)"
+   },
+   "textAr": "فانظر رحمك الله كيف خص ذلك بقوم سلمان وليس بالمجلس أسود غيره علمت أن السود لربما كان فيهم الخبر",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Niasse draws his own conclusion from the hadith-exegesis of 62:3: the promise reaches Black peoples too.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-238",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 73 (PDF 191)"
+   },
+   "textAr": "وفي ( روح البيان ) عند الآية المتقدم ذكرها وروى سهل بن سعد الساعدي أن النبي عليه السلام قال ( رأيتني أسقي غنما سودا ثم أتبعتها غنما عفرا … )",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-239",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 73 (PDF 191)"
+   },
+   "textAr": "من أسرار علم وزرائه الذين استوزرهم الله له قوله « وكان حقا علينا نصر المؤمنين »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn ʿArabī, al-Futūḥāt al-makkiyya, ch. 366 (on the Mahdī's viziers)"
+  },
+  {
+   "id": "kashif-240",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 73 (PDF 191)"
+   },
+   "textAr": "وهم على أقدام رجال من الصحابة « صدقوا ما عاهدوا الله عليه » وهم من الأعاجم",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ibn ʿArabī, al-Futūḥāt al-makkiyya, ch. 366"
+  },
+  {
+   "id": "kashif-241",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 73 (PDF 191)"
+   },
+   "textAr": "وفي ( روح البيان ) عند قوله تعالى « إن أكرمكم عند الله أتقاكم » تعليل للنهي عن التفاخر بالأنساب المستفاد من الكلام بطريق الاستئناف التحقيقي كأن قيل إن الأكرم عنده تعالى هو الأتقى وإن كان عبدا حبشيا أسود مثل بلال",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-242",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 74 (PDF 192)"
+   },
+   "textAr": "فنزلت الآية « إن الله عليم » بكم وبأعمالكم « خبير » ببواطن أحوالكم … المفاضلة بين الخلق عند الله لنسبهم لا لنسبتهم فهم من حيث النسبة واحدة ومن حيث النسب متفاضلون « إن أكرمكم عند الله أتقاكم »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-243",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 75 (PDF 193)"
+   },
+   "textAr": "لكان الشرف لإبليس على آدم في قوله « خلقتني من نار وخلقته من طين »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Ismāʿīl Ḥaqqī, Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-244",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 75 (PDF 193)"
+   },
+   "textAr": "وقال الناس كلهم من تراب وأكرمهم عند الله أتقاهم … إني رفعت نسبي وأبيتم إلا أنسابكم قلت « إن أكرمكم عند الله أتقاكم » وأبيتم أنتم فقلتم لا بل فلان بن فلان",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "Rūḥ al-bayān (saying of Jesus; hadith of Abū Hurayra from Kashf al-asrār)"
+  },
+  {
+   "id": "kashif-245",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 75 (PDF 193)"
+   },
+   "textAr": "قال في ( التأويلات النجمية ) يشير لقوله تعالى « يا أيها الناس إنا خلقناكم من ذكر وأنثى » إلى خلق القلوب أنها خلقت من ذكر وهو الروح وأنثى وهي النفس « وجعلناكم شعوبا وقبائل » … « لتعارفوا » أي لتتعارف أصحاب القلوب وأرباب النفوس",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Taʾwīlāt al-najmiyya (Najm al-Dīn Kubrā school), via Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-246",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 76 (PDF 194)"
+   },
+   "textAr": "اعلم أن التأنيث لا يمنع اللحوق بعباد الله المصطفين الأخيار",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Opening thesis of the chapter on women: femininity is no bar to joining the chosen elect («وإنهم عندنا لمن المصطفين الأخيار»).",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-247",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 76 (PDF 194)"
+   },
+   "textAr": "فالله تبارك وتعالى ما ذكر الرجال في مقام من المقامات إلا وقرن ذكرهم بذكر النساء كقوله تعالى « إن المسلمين والمسلمات » إلى قوله « والذاكرين الله كثيرا والذاكرات أعد الله لهم مغفرة وأجرا عظيما »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "God pairs women with men in every station; every rank below messengership, prophethood and quṭbāniyya is open to women.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-248",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 76 (PDF 194)"
+   },
+   "textAr": "وانظر إلى ما ورد في القرآن العزيز الذي « لا يأتيه الباطل من بين يديه ولا من خلفه » من ذكر مريم والتنويه بها",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Epithet of the Qurʾān introducing its praise of Maryam.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-249",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 76 (PDF 194)"
+   },
+   "textAr": "والحق أنها صديقة إذ النبوءة لا تتأتى إلا من الرجال بدليل قوله تعالى « وأمه صديقة »",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Maryam is a ṣiddīqa, not a prophet; so every station from ṣiddīqiyya downward is open to women.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  },
+  {
+   "id": "kashif-250",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 76 (PDF 194)"
+   },
+   "textAr": "فعند ذلك تصلح للتفاخر والمباهات بها كما قال تعالى « إن أكرمكم عند الله أتقاكم » وقال عليه السلام الكرم التقوى",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Taʾwīlāt al-najmiyya, via Rūḥ al-bayān"
+  },
+  {
+   "id": "kashif-251",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 76 (PDF 194)"
+   },
+   "textAr": "وفي ( جواهر المعاني ) وسألته رضي الله عنه عن معنى قوله تبارك وتعالى « وإذ قالت الملائكة يا مريم إن الله اصطفاك وطهرك واصطفاك على نساء العالمين »",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "ʿAlī Ḥarāzim's question to al-Tijānī, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "kashif-252",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 77 (PDF 195)"
+   },
+   "textAr": "وعن قوله تعالى « وأوحينا إلى أم موسى » الآية هل كلام الملائكة يستلزم نبوتها وكذلك الوحي لأم موسى هل يستلزم نبوتها أم لا",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "ʿAlī Ḥarāzim's question to al-Tijānī, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "kashif-253",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 77 (PDF 195)"
+   },
+   "textAr": "اعلم أن نبوة السيدة مريم واحتجاج القائل بها بقوله تعالى « وإذ قالت الملائكة » الآية وكذلك القول بنبوة أم موسى تمسكا بقوله « وأوحينا إلى أم موسى » فكل هذه الأقاويل باطلة",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "kashif-254",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 78 (PDF 196)"
+   },
+   "textAr": "وحيث كان الأمر هكذا فلا نسبة بين فاطمة وعائشة . قال سبحانه وتعالى « إن أكرمكم عند الله أتقاكم » وليس في خلق الله عز وجل كله … من يتأتى منه أن يصل إلى مقدار ألف جزء من تقوى قطب الأقطاب",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Tijānī, Jawāhir al-maʿānī"
+  },
+  {
+   "id": "kashif-255",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 81 (PDF 199)"
+   },
+   "textAr": "وبدا له من بعد ما اندمل الهوى * برق تألق موهنا لمعانه … فبدا لينظر كيف لاح فلم يطق * نظرا إليه وصده سبحانه",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "the qawwāl in al-Junayd's company, via Ibn ʿArabī, al-Futūḥāt al-makkiyya"
+  },
+  {
+   "id": "kashif-256",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 81 (PDF 199)"
+   },
+   "textAr": "فقال بأي نية تصيحون فقال بنية إجابة العبودية الربوبية لما قال الله تعالى للأرواح « ألست بربكم قالوا بلى شهدنا » قال فما هذا الصوت قال نداء أزلي",
+   "transcriptionStatus": "draft",
+   "copiedFrom": "al-Junayd (answering a monk), reported by Jaʿfar al-Khuldī, via Ibn ʿArabī, al-Futūḥāt al-makkiyya"
+  },
+  {
+   "id": "kashif-257",
+   "witnessId": "tadhyil-casablanca-1353",
+   "address": {
+    "raw": "p. 82 (PDF 200)"
+   },
+   "textAr": "وكان الفراغ منه ثامن يوم من المحرم الحرام عام ١٣٥١ ببلدة كوس ( سبحان ربك رب العزة عما يصفون وسلام على المرسلين والحمد لله رب العالمين )",
+   "transcriptionStatus": "draft",
+   "voice": "own",
+   "textEn": "Colophon closing the Tadhyīl with the last three verses of al-Ṣāffāt.",
+   "editorialNote": "The English is a summary of how he uses the verse here, not a translation of the passage."
+  }
+ ],
+ "verseLinks": [
+  {
+   "locusId": "kashif-001",
+   "surah": 1,
+   "ayahStart": 2,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "ملك without alif (as in the Warsh reading Niasse learned; Ḥafṣ مالك)."
+  },
+  {
+   "locusId": "kashif-001",
+   "surah": 1,
+   "ayahStart": 3,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "ملك without alif (as in the Warsh reading Niasse learned; Ḥafṣ مالك)."
+  },
+  {
+   "locusId": "kashif-001",
+   "surah": 1,
+   "ayahStart": 4,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "ملك without alif (as in the Warsh reading Niasse learned; Ḥafṣ مالك)."
+  },
+  {
+   "locusId": "kashif-002",
+   "surah": 40,
+   "ayahStart": 55,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Rhymed formula; identical phrase in both verses."
+  },
+  {
+   "locusId": "kashif-003",
+   "surah": 9,
+   "ayahStart": 100,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Standard taṣliya formula built on «والذين اتبعوهم بإحسان»."
+  },
+  {
+   "locusId": "kashif-004",
+   "surah": 19,
+   "ayahStart": 27,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "«ملياً» may echo 19:46 (واهجرني مليا), same sūra. «حزب الفيضة» plays on «حزب الله»."
+  },
+  {
+   "locusId": "kashif-005",
+   "surah": 5,
+   "ayahStart": 105,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-006",
+   "surah": 7,
+   "ayahStart": 181,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Al-Ṣāwī's commentary on the same verse follows immediately (quoted); treated as one entry."
+  },
+  {
+   "locusId": "kashif-007",
+   "surah": 56,
+   "ayahStart": 39,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Follows an Ibn ʿArabī remark («قال محي الدين بن العربي الحاتمي … انظر الفتوحات … عنقاء مغرب») with Niasse's own pointers «انظر»; the boundary of the Ibn ʿArabī paraphrase is not marked, but the «وقال تعالى» belongs to the chain of Niasse's references. Not 56:13–14 (which pairs ثلة with وقليل)."
+  },
+  {
+   "locusId": "kashif-007",
+   "surah": 56,
+   "ayahStart": 40,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Follows an Ibn ʿArabī remark («قال محي الدين بن العربي الحاتمي … انظر الفتوحات … عنقاء مغرب») with Niasse's own pointers «انظر»; the boundary of the Ibn ʿArabī paraphrase is not marked, but the «وقال تعالى» belongs to the chain of Niasse's references. Not 56:13–14 (which pairs ثلة with وقليل)."
+  },
+  {
+   "locusId": "kashif-008",
+   "surah": 56,
+   "ayahStart": 39,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Same page and argument as the preceding entry but a different speaker; kept separate deliberately."
+  },
+  {
+   "locusId": "kashif-008",
+   "surah": 56,
+   "ayahStart": 40,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Same page and argument as the preceding entry but a different speaker; kept separate deliberately."
+  },
+  {
+   "locusId": "kashif-009",
+   "surah": 43,
+   "ayahStart": 31,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-009",
+   "surah": 43,
+   "ayahStart": 32,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-010",
+   "surah": 43,
+   "ayahStart": 23,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-010",
+   "surah": 43,
+   "ayahStart": 24,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-011",
+   "surah": 18,
+   "ayahStart": 28,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Niasse interrupts the Īqāẓ list after the fourth item with «(قلت) وهذا الوجه هو أوجه الاوجه عندي», then «(الخامس)» resumes; no «اه» marks where the Īqāẓ text ends, so the fifth item may be the quoted list resumed or Niasse continuing it."
+  },
+  {
+   "locusId": "kashif-012",
+   "surah": 5,
+   "ayahStart": 35,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-013",
+   "surah": 3,
+   "ayahStart": 31,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Print uses round brackets here, not guillemets."
+  },
+  {
+   "locusId": "kashif-014",
+   "surah": 31,
+   "ayahStart": 15,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-015",
+   "surah": 18,
+   "ayahStart": 28,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Same verse used two pages earlier (PDF 34) for the etymology of ṣūfī."
+  },
+  {
+   "locusId": "kashif-016",
+   "surah": 5,
+   "ayahStart": 1,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-017",
+   "surah": 61,
+   "ayahStart": 3,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-018",
+   "surah": 33,
+   "ayahStart": 23,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-018",
+   "surah": 33,
+   "ayahStart": 24,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-019",
+   "surah": 33,
+   "ayahStart": 35,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-020",
+   "surah": 33,
+   "ayahStart": 35,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-020",
+   "surah": 3,
+   "ayahStart": 191,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-021",
+   "surah": 2,
+   "ayahStart": 152,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-022",
+   "surah": 33,
+   "ayahStart": 41,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-023",
+   "surah": 4,
+   "ayahStart": 103,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-024",
+   "surah": 2,
+   "ayahStart": 200,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-025",
+   "surah": 2,
+   "ayahStart": 152,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-026",
+   "surah": 18,
+   "ayahStart": 24,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-027",
+   "surah": 57,
+   "ayahStart": 21,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-027",
+   "surah": 62,
+   "ayahStart": 4,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-027",
+   "surah": 16,
+   "ayahStart": 128,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-028",
+   "surah": 28,
+   "ayahStart": 10,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-028",
+   "surah": 28,
+   "ayahStart": 7,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-029",
+   "surah": 6,
+   "ayahStart": 39,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-030",
+   "surah": 10,
+   "ayahStart": 39,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-031",
+   "surah": 46,
+   "ayahStart": 11,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-032",
+   "surah": 2,
+   "ayahStart": 200,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-033",
+   "surah": 2,
+   "ayahStart": 74,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-034",
+   "surah": 3,
+   "ayahStart": 113,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-035",
+   "surah": 38,
+   "ayahStart": 29,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-036",
+   "surah": 47,
+   "ayahStart": 24,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-036",
+   "surah": 4,
+   "ayahStart": 82,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-037",
+   "surah": 73,
+   "ayahStart": 4,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-038",
+   "surah": 110,
+   "ayahStart": 2,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-039",
+   "surah": 110,
+   "ayahStart": 2,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-040",
+   "surah": 19,
+   "ayahStart": 40,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-041",
+   "surah": 110,
+   "ayahStart": 2,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Prepares the 2:106 prooftext lower on the page (نسخ)."
+  },
+  {
+   "locusId": "kashif-042",
+   "surah": 57,
+   "ayahStart": 21,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Identical in 57:21 and 62:4 (62:4 follows the 62:3 prooftext Niasse quotes lower on the page)."
+  },
+  {
+   "locusId": "kashif-042",
+   "surah": 62,
+   "ayahStart": 4,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Identical in 57:21 and 62:4 (62:4 follows the 62:3 prooftext Niasse quotes lower on the page)."
+  },
+  {
+   "locusId": "kashif-043",
+   "surah": 2,
+   "ayahStart": 106,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Niasse says these are «إشارات لمن نور الله بصيرته», not literal proofs."
+  },
+  {
+   "locusId": "kashif-044",
+   "surah": 5,
+   "ayahStart": 54,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-045",
+   "surah": 6,
+   "ayahStart": 89,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Verse quoted from mid-verse."
+  },
+  {
+   "locusId": "kashif-046",
+   "surah": 62,
+   "ayahStart": 3,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-047",
+   "surah": 110,
+   "ayahStart": 1,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "«الخ» signals the whole sūra (110:1–3)."
+  },
+  {
+   "locusId": "kashif-048",
+   "surah": 16,
+   "ayahStart": 8,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-049",
+   "surah": 20,
+   "ayahStart": 130,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-050",
+   "surah": 22,
+   "ayahStart": 38,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "No «اه» after the Zarrūq quotation; «فافهم» before «(وفي الرماح)» may be Niasse's close, so the two verses may belong to Zarrūq's text or to Niasse's comment. 22:38 echoes Niasse's own khuṭba (PDF 22)."
+  },
+  {
+   "locusId": "kashif-050",
+   "surah": 65,
+   "ayahStart": 3,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "No «اه» after the Zarrūq quotation; «فافهم» before «(وفي الرماح)» may be Niasse's close, so the two verses may belong to Zarrūq's text or to Niasse's comment. 22:38 echoes Niasse's own khuṭba (PDF 22)."
+  },
+  {
+   "locusId": "kashif-051",
+   "surah": 22,
+   "ayahStart": 52,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-052",
+   "surah": 5,
+   "ayahStart": 64,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-053",
+   "surah": 3,
+   "ayahStart": 195,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-054",
+   "surah": 33,
+   "ayahStart": 62,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-055",
+   "surah": 6,
+   "ayahStart": 112,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-056",
+   "surah": 25,
+   "ayahStart": 20,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-057",
+   "surah": 112,
+   "ayahStart": 1,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-058",
+   "surah": 5,
+   "ayahStart": 64,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-059",
+   "surah": 16,
+   "ayahStart": 89,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Muṣḥaf: «ونزلنا عليك الكتاب تبيانا لكل شيء»; print «وانزلنا اليك»."
+  },
+  {
+   "locusId": "kashif-060",
+   "surah": 6,
+   "ayahStart": 38,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-061",
+   "surah": 16,
+   "ayahStart": 8,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-062",
+   "surah": 53,
+   "ayahStart": 10,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-063",
+   "surah": 17,
+   "ayahStart": 1,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-064",
+   "surah": 2,
+   "ayahStart": 115,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "One entry per verse for the catena; the catena ends with 51:21 on p. 58 before hadiths."
+  },
+  {
+   "locusId": "kashif-065",
+   "surah": 17,
+   "ayahStart": 81,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-066",
+   "surah": 21,
+   "ayahStart": 18,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-067",
+   "surah": 31,
+   "ayahStart": 30,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Lacks «هو» before «الباطل», so 31:30 rather than 22:62. Print «تدعون» (Ḥafṣ «يدعون»; tā is the Nāfiʿ reading)."
+  },
+  {
+   "locusId": "kashif-068",
+   "surah": 40,
+   "ayahStart": 12,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Muṣḥaf «ذلكم»; print «ذلك»."
+  },
+  {
+   "locusId": "kashif-069",
+   "surah": 57,
+   "ayahStart": 3,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-070",
+   "surah": 41,
+   "ayahStart": 53,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-071",
+   "surah": 20,
+   "ayahStart": 5,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-072",
+   "surah": 43,
+   "ayahStart": 81,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-073",
+   "surah": 4,
+   "ayahStart": 80,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-074",
+   "surah": 48,
+   "ayahStart": 10,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-075",
+   "surah": 8,
+   "ayahStart": 17,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-076",
+   "surah": 3,
+   "ayahStart": 31,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-077",
+   "surah": 47,
+   "ayahStart": 2,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-078",
+   "surah": 48,
+   "ayahStart": 28,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Joins the end of 48:28 to the start of 48:29."
+  },
+  {
+   "locusId": "kashif-078",
+   "surah": 48,
+   "ayahStart": 29,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Joins the end of 48:28 to the start of 48:29."
+  },
+  {
+   "locusId": "kashif-079",
+   "surah": 4,
+   "ayahStart": 69,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Print «النبيئين» with hamza (Nāfiʿ spelling); Ḥafṣ «النبيين»."
+  },
+  {
+   "locusId": "kashif-080",
+   "surah": 39,
+   "ayahStart": 33,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-081",
+   "surah": 12,
+   "ayahStart": 105,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Print «وكأي» for «وكأين»."
+  },
+  {
+   "locusId": "kashif-082",
+   "surah": 51,
+   "ayahStart": 21,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Verse begins at the foot of p. 57 («وقال تعالى « وفي») and ends on p. 58."
+  },
+  {
+   "locusId": "kashif-083",
+   "surah": 20,
+   "ayahStart": 130,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "«ومن آناء الليل فسبح وأطراف النهار» (20:130); «آناء الليل» also 3:113. Set phrase."
+  },
+  {
+   "locusId": "kashif-084",
+   "surah": 57,
+   "ayahStart": 21,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-084",
+   "surah": 62,
+   "ayahStart": 4,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-085",
+   "surah": 12,
+   "ayahStart": 108,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "No closing «اه»; the Zarrūq citation may run to «فافهم» or may have ended earlier, leaving the verses to Niasse."
+  },
+  {
+   "locusId": "kashif-086",
+   "surah": 6,
+   "ayahStart": 153,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Same boundary doubt."
+  },
+  {
+   "locusId": "kashif-087",
+   "surah": 76,
+   "ayahStart": 30,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Paraphrase of «وما تشاءون إلا أن يشاء الله»."
+  },
+  {
+   "locusId": "kashif-088",
+   "surah": 5,
+   "ayahStart": 105,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Versified 5:105 «عليكم أنفسكم لا يضركم من ضل إذا اهتديتم»."
+  },
+  {
+   "locusId": "kashif-089",
+   "surah": 25,
+   "ayahStart": 72,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "From «وإذا مروا باللغو مروا كراما»."
+  },
+  {
+   "locusId": "kashif-090",
+   "surah": 83,
+   "ayahStart": 15,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-090",
+   "surah": 83,
+   "ayahStart": 16,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-091",
+   "surah": 104,
+   "ayahStart": 6,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-092",
+   "surah": 6,
+   "ayahStart": 52,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-092",
+   "surah": 18,
+   "ayahStart": 28,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-093",
+   "surah": 4,
+   "ayahStart": 54,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-094",
+   "surah": 4,
+   "ayahStart": 51,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-095",
+   "surah": 24,
+   "ayahStart": 63,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-096",
+   "surah": 7,
+   "ayahStart": 199,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-097",
+   "surah": 36,
+   "ayahStart": 82,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-098",
+   "surah": 32,
+   "ayahStart": 17,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-099",
+   "surah": 83,
+   "ayahStart": 14,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-100",
+   "surah": 24,
+   "ayahStart": 40,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-101",
+   "surah": 13,
+   "ayahStart": 4,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-102",
+   "surah": 27,
+   "ayahStart": 62,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-103",
+   "surah": 47,
+   "ayahStart": 21,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-104",
+   "surah": 51,
+   "ayahStart": 56,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-105",
+   "surah": 9,
+   "ayahStart": 118,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-106",
+   "surah": 14,
+   "ayahStart": 28,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-107",
+   "surah": 9,
+   "ayahStart": 6,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-108",
+   "surah": 53,
+   "ayahStart": 3,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-109",
+   "surah": 48,
+   "ayahStart": 23,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-110",
+   "surah": 6,
+   "ayahStart": 103,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Cited twice on the page in one argument."
+  },
+  {
+   "locusId": "kashif-111",
+   "surah": 7,
+   "ayahStart": 143,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-112",
+   "surah": 6,
+   "ayahStart": 103,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-113",
+   "surah": 6,
+   "ayahStart": 103,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-114",
+   "surah": 75,
+   "ayahStart": 22,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-114",
+   "surah": 75,
+   "ayahStart": 23,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-115",
+   "surah": 7,
+   "ayahStart": 143,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-116",
+   "surah": 57,
+   "ayahStart": 3,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-117",
+   "surah": 6,
+   "ayahStart": 103,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-118",
+   "surah": 81,
+   "ayahStart": 20,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Phrase of 81:20, transferred from Jibrīl to the majādhīb."
+  },
+  {
+   "locusId": "kashif-119",
+   "surah": 50,
+   "ayahStart": 18,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Unmarked. Muṣḥaf «ما يلفظ»; print adds «و»."
+  },
+  {
+   "locusId": "kashif-120",
+   "surah": 38,
+   "ayahStart": 47,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Phrase of 38:47."
+  },
+  {
+   "locusId": "kashif-121",
+   "surah": 83,
+   "ayahStart": 26,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Echo of «وفي ذلك فليتنافس المتنافسون», which Niasse quotes outright on p. 97."
+  },
+  {
+   "locusId": "kashif-122",
+   "surah": 83,
+   "ayahStart": 26,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-123",
+   "surah": 26,
+   "ayahStart": 88,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-123",
+   "surah": 26,
+   "ayahStart": 89,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-124",
+   "surah": 85,
+   "ayahStart": 13,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Print turns the verbs of 85:13 (يبدئ ويعيد) into the names المبدئ المعيد; 85:14–16 wording kept (فعال لما يريد)."
+  },
+  {
+   "locusId": "kashif-125",
+   "surah": 23,
+   "ayahStart": 33,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-126",
+   "surah": 98,
+   "ayahStart": 5,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-127",
+   "surah": 7,
+   "ayahStart": 16,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-128",
+   "surah": 7,
+   "ayahStart": 181,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-129",
+   "surah": 84,
+   "ayahStart": 1,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-130",
+   "surah": 18,
+   "ayahStart": 82,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-131",
+   "surah": 3,
+   "ayahStart": 110,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-132",
+   "surah": 2,
+   "ayahStart": 143,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-133",
+   "surah": 7,
+   "ayahStart": 181,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-134",
+   "surah": 9,
+   "ayahStart": 31,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-135",
+   "surah": 7,
+   "ayahStart": 138,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-136",
+   "surah": 4,
+   "ayahStart": 59,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-137",
+   "surah": 4,
+   "ayahStart": 59,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "No Qurʾānic words; refers back to the 4:59 gloss just quoted."
+  },
+  {
+   "locusId": "kashif-138",
+   "surah": 3,
+   "ayahStart": 99,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-139",
+   "surah": 3,
+   "ayahStart": 98,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-140",
+   "surah": 3,
+   "ayahStart": 100,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-141",
+   "surah": 5,
+   "ayahStart": 77,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-142",
+   "surah": 3,
+   "ayahStart": 101,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-143",
+   "surah": 3,
+   "ayahStart": 104,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-144",
+   "surah": 18,
+   "ayahStart": 66,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-145",
+   "surah": 25,
+   "ayahStart": 58,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-146",
+   "surah": 7,
+   "ayahStart": 121,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-147",
+   "surah": 21,
+   "ayahStart": 23,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-148",
+   "surah": 57,
+   "ayahStart": 29,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-149",
+   "surah": 29,
+   "ayahStart": 49,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-150",
+   "surah": 31,
+   "ayahStart": 15,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-151",
+   "surah": 20,
+   "ayahStart": 114,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-152",
+   "surah": 75,
+   "ayahStart": 16,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-152",
+   "surah": 75,
+   "ayahStart": 17,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-152",
+   "surah": 75,
+   "ayahStart": 18,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-152",
+   "surah": 75,
+   "ayahStart": 19,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-153",
+   "surah": 16,
+   "ayahStart": 98,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-154",
+   "surah": 35,
+   "ayahStart": 6,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-155",
+   "surah": 15,
+   "ayahStart": 87,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "«السبع المثاني» echoes 15:87 (سبعا من المثاني); «أم القرآن» is ḥadīth usage."
+  },
+  {
+   "locusId": "kashif-156",
+   "surah": 1,
+   "ayahStart": 2,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-156",
+   "surah": 1,
+   "ayahStart": 3,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-156",
+   "surah": 1,
+   "ayahStart": 4,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-157",
+   "surah": 1,
+   "ayahStart": 5,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-158",
+   "surah": 1,
+   "ayahStart": 6,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-159",
+   "surah": 10,
+   "ayahStart": 89,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-160",
+   "surah": 11,
+   "ayahStart": 3,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "«وأن» marks 11:3; 11:52 and 11:90 read «ويا قوم استغفروا ربكم» / «واستغفروا ربكم»."
+  },
+  {
+   "locusId": "kashif-161",
+   "surah": 8,
+   "ayahStart": 33,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Quotation boundary unclear: the al-Kawkab passage closes «اه» before «وقد جاء في فضل الاستغفار آيات قرآنية وأحاديث نبوية», yet this ḥadīth run closes with another «اه» on p.145, so the run may be Niasse's compilation or a second extract."
+  },
+  {
+   "locusId": "kashif-162",
+   "surah": 4,
+   "ayahStart": 110,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Same boundary problem as 8:33 entry."
+  },
+  {
+   "locusId": "kashif-163",
+   "surah": 4,
+   "ayahStart": 123,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "'التي قبلها': 4:123 precedes 4:110 in revelation order per the report, not in muṣḥaf order."
+  },
+  {
+   "locusId": "kashif-164",
+   "surah": 48,
+   "ayahStart": 2,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-165",
+   "surah": 4,
+   "ayahStart": 110,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Quotation boundary uncertain; see 8:33."
+  },
+  {
+   "locusId": "kashif-166",
+   "surah": 33,
+   "ayahStart": 4,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Stands before «اه», so probably belongs to the quoted source."
+  },
+  {
+   "locusId": "kashif-167",
+   "surah": 33,
+   "ayahStart": 56,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Print «النبيء» with hamza (Nāfiʿ spelling); closing guillemet missing."
+  },
+  {
+   "locusId": "kashif-168",
+   "surah": 33,
+   "ayahStart": 56,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-169",
+   "surah": 57,
+   "ayahStart": 29,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-170",
+   "surah": 16,
+   "ayahStart": 8,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-171",
+   "surah": 37,
+   "ayahStart": 180,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-171",
+   "surah": 37,
+   "ayahStart": 181,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-171",
+   "surah": 37,
+   "ayahStart": 182,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-172",
+   "surah": 33,
+   "ayahStart": 42,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-173",
+   "surah": 32,
+   "ayahStart": 17,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-174",
+   "surah": 37,
+   "ayahStart": 180,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-175",
+   "surah": 10,
+   "ayahStart": 10,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-176",
+   "surah": 9,
+   "ayahStart": 25,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-177",
+   "surah": 8,
+   "ayahStart": 45,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Exact in 8:45 and 62:10; 33:41 reads «اذكروا الله ذكرا كثيرا»."
+  },
+  {
+   "locusId": "kashif-178",
+   "surah": 47,
+   "ayahStart": 19,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-179",
+   "surah": 2,
+   "ayahStart": 163,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-180",
+   "surah": 5,
+   "ayahStart": 93,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-181",
+   "surah": 17,
+   "ayahStart": 7,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-182",
+   "surah": 10,
+   "ayahStart": 26,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-183",
+   "surah": 3,
+   "ayahStart": 64,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-184",
+   "surah": 19,
+   "ayahStart": 87,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-185",
+   "surah": 16,
+   "ayahStart": 90,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-186",
+   "surah": 43,
+   "ayahStart": 86,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-187",
+   "surah": 98,
+   "ayahStart": 5,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-188",
+   "surah": 39,
+   "ayahStart": 33,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-189",
+   "surah": 41,
+   "ayahStart": 30,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-189",
+   "surah": 46,
+   "ayahStart": 13,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-190",
+   "surah": 48,
+   "ayahStart": 26,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-191",
+   "surah": 14,
+   "ayahStart": 24,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-192",
+   "surah": 43,
+   "ayahStart": 28,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-193",
+   "surah": 43,
+   "ayahStart": 26,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-193",
+   "surah": 43,
+   "ayahStart": 27,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-194",
+   "surah": 9,
+   "ayahStart": 40,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-195",
+   "surah": 14,
+   "ayahStart": 27,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-196",
+   "surah": 22,
+   "ayahStart": 24,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-197",
+   "surah": 78,
+   "ayahStart": 38,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-198",
+   "surah": 39,
+   "ayahStart": 3,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-199",
+   "surah": 16,
+   "ayahStart": 60,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-200",
+   "surah": 2,
+   "ayahStart": 256,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-200",
+   "surah": 31,
+   "ayahStart": 22,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-201",
+   "surah": 13,
+   "ayahStart": 14,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-202",
+   "surah": 39,
+   "ayahStart": 63,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-202",
+   "surah": 42,
+   "ayahStart": 12,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-203",
+   "surah": 87,
+   "ayahStart": 1,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-204",
+   "surah": 4,
+   "ayahStart": 69,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-205",
+   "surah": 33,
+   "ayahStart": 56,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-206",
+   "surah": 37,
+   "ayahStart": 180,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-206",
+   "surah": 37,
+   "ayahStart": 181,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-206",
+   "surah": 37,
+   "ayahStart": 182,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-207",
+   "surah": 2,
+   "ayahStart": 255,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Qurʾānic wording embedded in a formula (2:255, 3:2). Repeated in the ḥadīth of Ibn Masʿūd on the same page."
+  },
+  {
+   "locusId": "kashif-208",
+   "surah": 37,
+   "ayahStart": 180,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Quotation boundary: introduced «ولا بأس أن نورد هنا بعض ما ورد عليّ من شرحها ونصه» — «ما ورد عليّ» (and the index, PDF 209: «بعض ما ورد علي من شرح الفاتح») points to Niasse's own inspired commentary, but «ونصه» could signal a quoted text. Muṣḥaf has «سبحان» without فـ."
+  },
+  {
+   "locusId": "kashif-209",
+   "surah": 37,
+   "ayahStart": 180,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Only the incipit is printed with «الخ»; the full recitation is 37:180–182."
+  },
+  {
+   "locusId": "kashif-209",
+   "surah": 37,
+   "ayahStart": 181,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Only the incipit is printed with «الخ»; the full recitation is 37:180–182."
+  },
+  {
+   "locusId": "kashif-209",
+   "surah": 37,
+   "ayahStart": 182,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Only the incipit is printed with «الخ»; the full recitation is 37:180–182."
+  },
+  {
+   "locusId": "kashif-210",
+   "surah": 33,
+   "ayahStart": 56,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-211",
+   "surah": 1,
+   "ayahStart": 1,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Sura named, not quoted."
+  },
+  {
+   "locusId": "kashif-211",
+   "surah": 1,
+   "ayahStart": 2,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Sura named, not quoted."
+  },
+  {
+   "locusId": "kashif-211",
+   "surah": 1,
+   "ayahStart": 3,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Sura named, not quoted."
+  },
+  {
+   "locusId": "kashif-211",
+   "surah": 1,
+   "ayahStart": 4,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Sura named, not quoted."
+  },
+  {
+   "locusId": "kashif-211",
+   "surah": 1,
+   "ayahStart": 5,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Sura named, not quoted."
+  },
+  {
+   "locusId": "kashif-211",
+   "surah": 1,
+   "ayahStart": 6,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Sura named, not quoted."
+  },
+  {
+   "locusId": "kashif-211",
+   "surah": 1,
+   "ayahStart": 7,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Sura named, not quoted."
+  },
+  {
+   "locusId": "kashif-212",
+   "surah": 33,
+   "ayahStart": 56,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-213",
+   "surah": 18,
+   "ayahStart": 104,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-214",
+   "surah": 62,
+   "ayahStart": 10,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-215",
+   "surah": 46,
+   "ayahStart": 11,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-216",
+   "surah": 62,
+   "ayahStart": 10,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-217",
+   "surah": 20,
+   "ayahStart": 114,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-218",
+   "surah": 19,
+   "ayahStart": 31,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-219",
+   "surah": 2,
+   "ayahStart": 257,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-220",
+   "surah": 93,
+   "ayahStart": 11,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-221",
+   "surah": 2,
+   "ayahStart": 47,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-221",
+   "surah": 2,
+   "ayahStart": 122,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-222",
+   "surah": 39,
+   "ayahStart": 18,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-223",
+   "surah": 2,
+   "ayahStart": 279,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-224",
+   "surah": 93,
+   "ayahStart": 11,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-225",
+   "surah": 15,
+   "ayahStart": 2,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-226",
+   "surah": 7,
+   "ayahStart": 143,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-227",
+   "surah": 20,
+   "ayahStart": 14,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-228",
+   "surah": 7,
+   "ayahStart": 143,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-229",
+   "surah": 2,
+   "ayahStart": 255,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-230",
+   "surah": 112,
+   "ayahStart": 1,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-231",
+   "surah": 7,
+   "ayahStart": 143,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-232",
+   "surah": 7,
+   "ayahStart": 143,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-233",
+   "surah": 7,
+   "ayahStart": 143,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-234",
+   "surah": 7,
+   "ayahStart": 143,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-235",
+   "surah": 17,
+   "ayahStart": 43,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Muṣḥaf 17:43 «سبحانه وتعالى عما يقولون علوا كبيرا». «أن يكون له شريك» echoes 17:111 «ولم يكن له شريك في الملك» (possible)."
+  },
+  {
+   "locusId": "kashif-235",
+   "surah": 17,
+   "ayahStart": 111,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Muṣḥaf 17:43 «سبحانه وتعالى عما يقولون علوا كبيرا». «أن يكون له شريك» echoes 17:111 «ولم يكن له شريك في الملك» (possible)."
+  },
+  {
+   "locusId": "kashif-236",
+   "surah": 62,
+   "ayahStart": 3,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-237",
+   "surah": 62,
+   "ayahStart": 3,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Verse not re-quoted; application of the preceding lemma. Reading «الخبر» uncertain (perhaps «الخير»)."
+  },
+  {
+   "locusId": "kashif-238",
+   "surah": 62,
+   "ayahStart": 3,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-239",
+   "surah": 30,
+   "ayahStart": 47,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-240",
+   "surah": 33,
+   "ayahStart": 23,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-241",
+   "surah": 49,
+   "ayahStart": 13,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-242",
+   "surah": 49,
+   "ayahStart": 13,
+   "acts": [
+    "gloss"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-243",
+   "surah": 7,
+   "ayahStart": 12,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-243",
+   "surah": 38,
+   "ayahStart": 76,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-244",
+   "surah": 49,
+   "ayahStart": 13,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-245",
+   "surah": 49,
+   "ayahStart": 13,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-246",
+   "surah": 38,
+   "ayahStart": 47,
+   "acts": [
+    "allusion"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Exact Qurʾānic phrase."
+  },
+  {
+   "locusId": "kashif-247",
+   "surah": 33,
+   "ayahStart": 35,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "The following list «المؤمنات التقيات الطاهرات الصالحات القانتات الطيبات» also echoes 66:5 and 4:34."
+  },
+  {
+   "locusId": "kashif-248",
+   "surah": 41,
+   "ayahStart": 42,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown",
+   "note": "Also «القرآن العزيز» echoes 41:41 «وإنه لكتاب عزيز»."
+  },
+  {
+   "locusId": "kashif-249",
+   "surah": 5,
+   "ayahStart": 75,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-250",
+   "surah": 49,
+   "ayahStart": 13,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-251",
+   "surah": 3,
+   "ayahStart": 42,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-252",
+   "surah": 28,
+   "ayahStart": 7,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-253",
+   "surah": 3,
+   "ayahStart": 42,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-253",
+   "surah": 28,
+   "ayahStart": 7,
+   "acts": [
+    "tafsir"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-254",
+   "surah": 49,
+   "ayahStart": 13,
+   "acts": [
+    "prooftext"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-255",
+   "surah": 7,
+   "ayahStart": 143,
+   "acts": [
+    "poetic"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-256",
+   "surah": 7,
+   "ayahStart": 172,
+   "acts": [
+    "application"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-257",
+   "surah": 37,
+   "ayahStart": 180,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-257",
+   "surah": 37,
+   "ayahStart": 181,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  },
+  {
+   "locusId": "kashif-257",
+   "surah": 37,
+   "ayahStart": 182,
+   "acts": [
+    "formula"
+   ],
+   "confidence": "transcribed",
+   "rasm": "unknown"
+  }
+ ]
+}

@@ -12,9 +12,14 @@ add=json.load(open('scripts/data/corpus-additions-dossiers.json'))
 # probable uses only; the 'possible' allusions stay in the Word dossier.
 _r=json.load(open('scripts/data/corpus-additions-rihlat.json'))
 add['loci']+=_r['loci']; add['verseLinks']+=_r['verseLinks']
-WITS={'rijal-tunis-2012','tabsira-typescript','rihla-hijaziyya-majmu','nayl-al-mafaz-majmu','rihla-ghannariyya-majmu','rihla-kunakiriyya-majmu'}
+# Kāshif al-ilbās and its Tadhyīl (Casablanca 1353 print), dossier of 15 Nov 2026:
+# certain and probable uses in his voice, plus the commentaries he copies, labelled
+# with the author speaking. Kept apart from source_name() below, whose short
+# labels (e.g. 'Ibn Ḥajar' -> Fatḥ al-bārī) would mislabel this book's sources.
+_k=json.load(open('scripts/data/corpus-additions-kashif.json'))
+WITS={'kashif-casablanca-1353','tadhyil-casablanca-1353','rijal-tunis-2012','tabsira-typescript','rihla-hijaziyya-majmu','nayl-al-mafaz-majmu','rihla-ghannariyya-majmu','rihla-kunakiriyya-majmu'}
 d['loci']=[l for l in d['loci'] if l['witnessId'] not in WITS]
-ids={l['id'] for l in add['loci']}
+ids={l['id'] for l in add['loci']+_k['loci']}
 d['verseLinks']=[k for k in d['verseLinks'] if k['locusId'] not in ids]
 for l in add['loci']:
     if 'raw' in l['address']: l['address']['raw']=l['address']['raw'].replace('--','–')
@@ -37,7 +42,7 @@ def source_name(raw):
     return name
 for l in add['loci']:
     if 'copiedFrom' in l: l['copiedFrom']=source_name(l['copiedFrom'])
-d['loci']+=add['loci']; d['verseLinks']+=add['verseLinks']
+d['loci']+=add['loci']+_k['loci']; d['verseLinks']+=add['verseLinks']+_k['verseLinks']
 d['works']=[w for w in d['works'] if w['id'] not in ('tabsirat-al-anam','rijal-wa-adwar')]
 works={w['id'] for w in d['works']}
 if 'tabsirat-al-anam' not in works:
@@ -59,6 +64,14 @@ wids={w['id'] for w in d['witnesses']}
 for work,wit in RIHLA_WITNESSES.items():
     if wit not in wids:
         d['witnesses'].append({"id":wit,"workId":work,"medium":"print","language":"ar","addressScheme":"printed-page (PDF page in parentheses)","isBase":True,"editor":"Majmūʿ riḥalāt al-Shaykh Ibrāhīm (scribal colophons Jeddah, Shaʿbān 1413/1993)"})
+for w in d['works']:
+    if w['id']=='kashif': w['publish']=True
+if 'tadhyil-kashif' not in {w['id'] for w in d['works']}:
+    d['works'].append({"id":"tadhyil-kashif","titleAr":"تذييل كاشف الإلباس عن فيضة الختم أبي العباس","titleTranslit":"Tadhyīl Kāshif al-ilbās","titleEn":"Supplement to The Removal of Confusion","genre":"sufi-doctrine","attestation":"A","byNiasse":True,"composed":{"hijri":"1351","gregorian":"1932","certainty":"attested"},"exegeticalRegister":["prooftext","formula","allusion"],"publish":True,"author":"Ibrāhīm Niasse","relation":"self","note":"His supplement to Kāshif al-ilbās: on tarbiya, the Tijānī wird and waẓīfa, Ṣalāt al-Fātiḥ, the vision of God, the shaṭaḥāt of the majdhūbs. Finished at Kaos, 8 Muḥarram 1351. Most of its verses sit inside passages he quotes (al-Yūsī, Rūḥ al-bayān, Ibn ʿArabī, Ibn Ḥajar)."})
+wids={w['id'] for w in d['witnesses']}
+for wit,work in (('kashif-casablanca-1353','kashif'),('tadhyil-casablanca-1353','tadhyil-kashif')):
+    if wit not in wids:
+        d['witnesses'].append({"id":wit,"workId":work,"medium":"print","language":"ar","year":"1353/1934–35","place":"Casablanca","addressScheme":"printed-page (PDF page in parentheses)","isBase":True,"editor":"First edition, printed for al-Sharīf Sīdī Muḥammad Būṭālib of Kaolack; Princeton University Library copy"})
 # Naming policy: never bare "Niasse" on the site (scripts/name-policy.py).
 import importlib.util
 _spec = importlib.util.spec_from_file_location('name_policy', 'scripts/name-policy.py')
