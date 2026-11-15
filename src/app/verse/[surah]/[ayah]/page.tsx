@@ -18,8 +18,6 @@ import {
 import VerseLocusCard, { type LocusExcerpt } from '@/components/VerseLocusCard';
 import { fatwaVerseExcerpt } from '@/lib/fatwaVerseExcerpts';
 import VersePicker from '@/components/VersePicker';
-import RootPanel from '@/components/RootPanel';
-import verseRootsData from '@/data/verseRoots.json';
 import SourceComparison from '@/components/SourceComparison';
 import { comparisonsForVerse } from '@/lib/sourceComparison';
 
@@ -132,9 +130,6 @@ export default async function VersePage({
   // word count between the two riwāyāt -- Q 3:133 reads سَارِعُوٓاْ here against
   // Ḥafṣ وَسَارِعُوا, one word fewer -- so a positional map built on Ḥafṣ cannot
   // be laid over this text without that alignment pass.
-  const arWords = text?.ar ? text.ar.split(/\s+/).filter(Boolean) : [];
-  const verseRoots =
-    (verseRootsData as Record<string, (string | null)[]>)[`${surah}:${ayah}`] ?? [];
   const printed = formatRef(suraRef(surah));
 
   // Resolve Fī Riyāḍ loci to their actual paragraphs, one lesson at a time and
@@ -229,20 +224,14 @@ export default async function VersePage({
           Shaykh Ibrāhīm Niasse on Q {surah}:{ayah}
         </h1>
 
+        {/* The āya stands as plain text. A lexicon panel used to sit on its
+            words; its dictionaries named no printed edition, and the page
+            leads with what Shaykh Ibrāhīm says, not with a word study. */}
         {text?.ar && (
-          arWords.length > 0 && verseRoots.length === arWords.length ? (
-            <RootPanel words={arWords} roots={verseRoots} />
-          ) : (
-            // The root array is index-parallel to this exact tokenisation of
-            // verse_text.json's Warsh text -- see scripts/align-warsh.mjs. If
-            // the two ever disagree the āya renders unannotated rather than
-            // attaching every gloss one word off, which is the failure the
-            // whole alignment step exists to prevent.
-            <p className="font-arabic text-[26px] leading-[2] mb-3 text-right" dir="rtl" translate="no"
-              style={{ color: 'var(--body-text, rgba(255,255,255,0.92))', textAlign: 'right' }}>
-              {text.ar}
-            </p>
-          )
+          <p className="font-arabic text-[26px] leading-[2] mb-3 text-right" dir="rtl" translate="no"
+            style={{ color: 'var(--body-text, rgba(255,255,255,0.92))', textAlign: 'right' }}>
+            {text.ar}
+          </p>
         )}
         {/* The English is never unattributed. AK's renderings carry
             interpretive weight -- the bāʾ read instrumentally, faʿīl's
