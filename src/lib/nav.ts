@@ -118,7 +118,7 @@ export const NAV: NavSection[] = [
     children: [
       { href: '/about', label: 'Manṭiq al-Fayḍa', hint: 'What the project collects, who makes it, how to cite it' },
       { href: '/about/tafsir', label: 'The tafsīr', hint: 'Shaykh Ibrāhīm, the tradition, and his two sources' },
-      { href: '/works', label: 'Sources', hint: 'The books and letters his commentary is drawn from' },
+      { href: '/works', label: 'Beyond Fī Riyāḍ', hint: 'His tafsīr in other sessions, letters, sermons, poems and journeys' },
       { href: '/translators-note', label: 'Editorial conventions', hint: 'Transliteration, honorifics, rasm' },
       { href: '/get-involved', label: 'Get in touch', hint: 'Feedback, corrections, joining' },
     ],

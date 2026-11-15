@@ -56,9 +56,11 @@ export default async function HomePage() {
 
         <p className="font-english text-base sm:text-lg leading-relaxed mb-3"
           style={{ color: 'var(--body-text, rgba(232,232,224,0.90))' }}>
-          Shaykh Ibrāhīm Niasse (d. 1975) of Kaolack in Senegal used the Qurʾān in everything he
-          wrote and said: his tafsīr, and also his treatises, letters, licences, sermons, fatwās,
-          poems, and the sayings his disciples kept.
+          The tafsīr of Shaykh Ibrāhīm Niasse (d. 1975), <em>ṣāḥib al-fayḍa</em>, by two paths:{' '}
+          <Link href="/read" className="text-gold hover:opacity-80">Fī Riyāḍ al-Tafsīr</Link>, his 1964
+          Arabic sessions on the whole Qurʾān, and{' '}
+          <Link href="/works" className="text-gold hover:opacity-80">beyond it</Link>, his explanation of
+          verses in his other sessions, letters, sermons, poems and journeys.
         </p>
         <p className="font-english text-base leading-relaxed mb-4"
           style={{ color: 'var(--body-sub, rgba(232,232,224,0.70))' }}>
@@ -124,7 +126,7 @@ export default async function HomePage() {
       <section className="max-w-3xl mx-auto px-5 pb-10 text-center">
         <p className="font-english text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-3"
           style={{ color: FAINT }}>
-          His works
+          Beyond Fī Riyāḍ al-Tafsīr
         </p>
         <ul className="flex flex-wrap justify-center gap-2 mb-4">
           {kinds.map(k => (

@@ -77,16 +77,19 @@ export default async function AboutPage() {
             What This Site Is
           </h2>
           <p className="leading-6">
-            One place to find what Shaykh Ibrāhīm Niasse (1900–1975) says about the verses of the
-            Qurʾān. Open a verse and you find every passage where he explains it, quotes it or puts it
-            to work, from his tafsīr and from his other writings, each in his Arabic with an English
-            rendering and a page reference. The{' '}
+            The tafsīr of Shaykh Ibrāhīm Niasse (1900–1975) in one place, by two paths. The first is{' '}
+            <em>Fī Riyāḍ al-Tafsīr</em>, the Arabic sessions of 1964 in which he explained the whole
+            Qurʾān. The second goes beyond it: his explanation of verses across other registers, of
+            language (Arabic, and Wolof as those sessions are found) and of genre (other tafsīr
+            sessions, letters, sermons, treatises, poems, journeys). Open a verse and both paths meet:
+            every passage where he explains it, quotes it or puts it to work, in his Arabic with an
+            English rendering and a page reference. The{' '}
             <Link href="/topics" className="text-gold/70 hover:text-gold transition-colors">topics</Link>{' '}
             gather what he says on one subject across many verses: the self, the heart, the spirit,
             knowing God. So far {indexedWorks} of his works beyond the tafsīr have been read verse by
             verse, giving {otherUses} passages; the{' '}
-            <Link href="/works" className="text-gold/70 hover:text-gold transition-colors">sources</Link>{' '}
-            page lists them. Below his words, a verse page can show how his students read the same
+            <Link href="/works" className="text-gold/70 hover:text-gold transition-colors">Beyond Fī Riyāḍ</Link>{' '}
+            page lists them by genre. Below his words, a verse page can show how his students read the same
             verse, marked as theirs.
           </p>
           <p className="leading-6 mt-3">

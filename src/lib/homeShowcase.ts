@@ -81,7 +81,7 @@ export async function showcaseCards(): Promise<ShowcaseCard[]> {
 // ---------------------------------------------------------------- his works
 
 /** The catalogue's genres, gathered into kinds a reader recognises. */
-const KIND_OF: Record<string, string> = {
+export const KIND_OF: Record<string, string> = {
   tafsir: 'Tafsīr',
   fatwa: 'Fatwās', fatawa: 'Fatwās', fiqh: 'Fatwās',
   rihla: 'Journeys',
@@ -93,7 +93,7 @@ const KIND_OF: Record<string, string> = {
   awrad: 'Litanies',
   biography: 'Sayings and accounts', nawadir: 'Sayings and accounts', asanid: 'Sayings and accounts',
 };
-const KIND_ORDER = ['Tafsīr', 'Treatises', 'Fatwās', 'Letters', 'Sermons', 'Journeys', 'Poems', 'Litanies', 'Sayings and accounts'];
+export const KIND_ORDER = ['Tafsīr', 'Treatises', 'Fatwās', 'Letters', 'Sermons', 'Journeys', 'Poems', 'Litanies', 'Sayings and accounts'];
 
 export interface WorkKind { kind: string; works: number }
 

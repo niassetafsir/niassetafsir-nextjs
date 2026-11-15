@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { workSummaries } from '@/lib/corpus';
+import { KIND_OF, KIND_ORDER } from '@/lib/homeShowcase';
 
 export const metadata = {
-  title: 'Sources',
+  title: 'Beyond Fī Riyāḍ al-Tafsīr',
   description:
     "The books, letters, sermons and poems from which Shaykh Ibrāhīm Niasse's Qurʾānic commentary on this site is drawn.",
 };
@@ -24,21 +25,31 @@ export default function WorksPage() {
   const pending = rows.filter(r => !(r.uses > 0 || r.work.id === 'fi-riyad'));
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
-      <p className="font-arabic text-gold text-lg mb-0.5" dir="rtl">المصادر</p>
+      <p className="font-arabic text-gold text-lg mb-0.5" dir="rtl">تفسيره في سائر آثاره</p>
       <h1 className="font-english font-semibold text-base mb-1"
         style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
-        Sources
+        Beyond Fī Riyāḍ al-Tafsīr
       </h1>
       <p className="font-english text-[13px] leading-relaxed mb-8"
         style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-        This site is arranged by verse. Shaykh Ibrāhīm comments on the Qurʾān outside his tafsīr
-        too, in letters, sermons, travelogues and poems, so each book below has been read for the
-        passages where he interprets, quotes or applies a verse, and only those passages are on the
-        site. Each one appears on its verse page, cited to the book and page it comes from.
+        <Link href="/read" className="text-gold/80 hover:text-gold underline">Fī Riyāḍ al-Tafsīr</Link>, the
+        1964 Arabic sessions on the whole Qurʾān, is one path into his tafsīr. This is the other: his
+        explanation of verses wherever else it survives, in other registers of language and of genre.
+        Each work below has been read for the passages where he explains, quotes or applies a verse,
+        and each passage stands on its verse page with the book and page it comes from. Other tafsīr
+        sessions, including those he gave in Wolof, will join them as they are found and transcribed.
       </p>
 
-      <ul className="space-y-3 mb-12">
-        {indexed.map(({ work, verses, uses, copied }) => (
+      {KIND_ORDER.concat(['Other', 'From his students']).map(kind => {
+        const kindOf = (w: { genre?: string; relation?: string }) =>
+          w.relation === 'student' ? 'From his students' : (KIND_OF[w.genre ?? ''] ?? 'Other');
+        const group = indexed.filter(r => r.work.id !== 'fi-riyad' && kindOf(r.work) === kind);
+        if (group.length === 0) return null;
+        return (
+      <section key={kind} className="mb-8">
+      <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-2.5">{kind}</h2>
+      <ul className="space-y-3">
+        {group.map(({ work, verses, uses }) => (
           <li key={work.id}>
             <Link href={work.id === 'fi-riyad' ? '/read' : `/works/${work.id}`}
               className="block rounded-lg border px-4 py-3 hover:border-gold/50 transition-colors"
@@ -60,12 +71,15 @@ export default function WorksPage() {
                 ].filter(Boolean).map(s => `${s} · `).join('')}
                 {work.id === 'fi-riyad'
                   ? 'the tafsīr: 56 sessions, read in its own reader'
-                  : <>{uses} {uses === 1 ? 'use' : 'uses'} of {verses} {verses === 1 ? 'āya' : 'āyāt'}{copied > 0 && <>, and {copied} in commentaries he copied</>}</>}
+                  : <>{uses} {uses === 1 ? 'use' : 'uses'} of {verses} {verses === 1 ? 'āya' : 'āyāt'}</>}
               </span>
             </Link>
           </li>
         ))}
       </ul>
+      </section>
+        );
+      })}
 
       {pending.length > 0 && (
         <>
