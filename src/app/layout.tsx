@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   creator: "Amadu Kunateh",
   metadataBase: new URL("https://niassetafsir.org"),
   alternates: { canonical: "/" },
+  // Chrome offers to translate any page whose language differs from the
+  // reader's, and translate="no" on <html> does not stop the offer. This
+  // meta does: no prompt, no machine translation of the edition.
+  other: { google: "notranslate" },
   openGraph: {
     type: "website",
     locale: "en_US",
