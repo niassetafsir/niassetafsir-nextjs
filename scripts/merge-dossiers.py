@@ -17,12 +17,29 @@ for l in add['loci']:
     if l['id']=='rijal-001': l['voice']='own'
     if 'copiedFrom' not in l and l.get('textEn'):
         l['editorialNote']='The English is a summary of how he uses the verse here, not a translation of the passage.'
+def source_name(raw):
+    """The author speaking, as a reader needs it on a card: work and author,
+    with the authority he cites where the dossier records one. The dossier's
+    working labels ('same bāb', 'Niasse: …') only make sense in its table."""
+    base=[('al-Rāzī','al-Rāzī, Mafātīḥ al-ghayb'),('al-Bukhārī','al-Bukhārī, al-Ṣaḥīḥ, Kitāb al-ʿIlm'),
+          ('Ibn Ḥajar','Ibn Ḥajar, Fatḥ al-bārī'),('Fatḥ al-bārī','Ibn Ḥajar, Fatḥ al-bārī'),
+          ('Ismāʿīl Ḥaqqī','Ismāʿīl Ḥaqqī, Rūḥ al-bayān'),('Rūḥ al-bayān','Ismāʿīl Ḥaqqī, Rūḥ al-bayān'),
+          ('al-Ghazālī','al-Ghazālī, Iḥyāʾ ʿulūm al-dīn'),('Iḥyāʾ','al-Ghazālī, Iḥyāʾ ʿulūm al-dīn'),
+          ('Asās al-iqtibās','Asās al-iqtibās'),('Lisān al-ʿArab','Ibn Manẓūr, Lisān al-ʿArab'),
+          ('Ibn Rushd','Ibn Rushd al-Jadd, al-Muqaddimāt'),('Anonymous verse','an anonymous poet')]
+    name=next((v for k,v in base if raw.startswith(k)),raw)
+    m=re.search(r'<\s*([^()]+?)(?:\s*\(|$)',raw)
+    if m: name+=', citing '+m.group(1).strip()
+    return name
+for l in add['loci']:
+    if 'copiedFrom' in l: l['copiedFrom']=source_name(l['copiedFrom'])
 d['loci']+=add['loci']; d['verseLinks']+=add['verseLinks']
+d['works']=[w for w in d['works'] if w['id'] not in ('tabsirat-al-anam','rijal-wa-adwar')]
 works={w['id'] for w in d['works']}
 if 'tabsirat-al-anam' not in works:
-    d['works'].append({"id":"tabsirat-al-anam","titleAr":"تبصرة الأنام في أن العلم هو الإمام","titleTranslit":"Tabṣirat al-anām fī anna al-ʿilm huwa al-imām","titleEn":"Enlightening Mankind: That Knowledge Is the Imām","genre":"risala","attestation":"A","byNiasse":True,"composed":{"hijri":"1366","gregorian":"1946–47","certainty":"attested"},"exegeticalRegister":["prooftext","formula","allusion"],"publish":True,"author":"Ibrāhīm Niasse","relation":"self","note":"A treatise against claiming religious leadership by descent. Most of it transcribes other authors — al-Rāzī's Mafātīḥ al-ghayb on Q 2:31 fills pp. 13–28; his own verse use is the opening khuṭba, the catena opening Faṣl 1, and the colophon (Kaolack, 1366)."})
+    d['works'].append({"id":"tabsirat-al-anam","titleAr":"تبصرة الأنام في أن العلم هو الإمام","titleTranslit":"Tabṣirat al-anām fī anna al-ʿilm huwa al-imām","titleEn":"Imparting Insight to Humanity Concerning the Fact That Knowledge Is the Imām","genre":"risala","attestation":"A","byNiasse":True,"composed":{"hijri":"1366","gregorian":"1946–47","certainty":"attested"},"exegeticalRegister":["prooftext","formula","allusion"],"publish":True,"author":"Ibrāhīm Niasse","relation":"self","note":"A treatise against claiming religious leadership by descent. Most of it transcribes other authors — al-Rāzī's Mafātīḥ al-ghayb on Q 2:31 fills pp. 13–28; his own verse use is the opening khuṭba, the catena opening Faṣl 1, and the colophon (Kaolack, 1366)."})
 if 'rijal-wa-adwar' not in works:
-    d['works'].append({"id":"rijal-wa-adwar","titleAr":"رجال وأدوار في ظل صاحب الفيضة التجانية: الملف السنغالي","titleTranslit":"Rijāl wa-adwār fī ẓill ṣāḥib al-fayḍa al-Tijāniyya: al-Malaff al-Sinighālī","titleEn":"Men and Roles in the Shade of the Master of the Fayḍa: The Senegal File","genre":"biography","attestation":"A","byNiasse":False,"composed":{"hijri":"1433","gregorian":"2012","certainty":"attested"},"exegeticalRegister":["allusion","application","formula"],"publish":True,"author":"Muḥammad wuld al-Shaykh ʿAbd Allāh al-Tijānī","relation":"compiler","note":"Notices of Niasse's muqaddams, reproducing his letters, ijāzas, taqdīms, poems and waṣiyya, and sayings reported of him. Entries here are his words only; the editor's own uses of verses are not indexed."})
+    d['works'].append({"id":"rijal-wa-adwar","titleAr":"رجال وأدوار في ظل صاحب الفيضة التجانية: الملف السنغالي","titleTranslit":"Rijāl wa-adwār fī ẓill ṣāḥib al-fayḍa al-Tijāniyya: al-Malaff al-Sinighālī","titleEn":"Men and Roles in the Shade of the Master of the Fayḍa: The Senegal File","genre":"biography","attestation":"A","byNiasse":False,"composed":{"hijri":"1433","gregorian":"2012","certainty":"attested"},"exegeticalRegister":["allusion","application","formula"],"publish":True,"author":"Ibrāhīm Niasse","compiler":"Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī","relation":"compiler","note":"Notices of Niasse's muqaddams, reproducing his letters, ijāzas, taqdīms, poems and waṣiyya, and sayings reported of him. Entries here are his words only; the editor's own uses of verses are not indexed."})
 wits={w['id'] for w in d['witnesses']}
 if 'tabsira-typescript' not in wits:
     d['witnesses'].append({"id":"tabsira-typescript","workId":"tabsirat-al-anam","medium":"digital","language":"ar","year":"2012","addressScheme":"pdf-page","isBase":True})

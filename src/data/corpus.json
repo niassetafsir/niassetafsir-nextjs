@@ -658,7 +658,7 @@
       "id": "tabsirat-al-anam",
       "titleAr": "تبصرة الأنام في أن العلم هو الإمام",
       "titleTranslit": "Tabṣirat al-anām fī anna al-ʿilm huwa al-imām",
-      "titleEn": "Enlightening Mankind: That Knowledge Is the Imām",
+      "titleEn": "Imparting Insight to Humanity Concerning the Fact That Knowledge Is the Imām",
       "genre": "risala",
       "attestation": "A",
       "byNiasse": true,
@@ -696,7 +696,8 @@
         "formula"
       ],
       "publish": true,
-      "author": "Muḥammad wuld al-Shaykh ʿAbd Allāh al-Tijānī",
+      "author": "Ibrāhīm Niasse",
+      "compiler": "Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī",
       "relation": "compiler",
       "note": "Notices of Niasse's muqaddams, reproducing his letters, ijāzas, taqdīms, poems and waṣiyya, and sayings reported of him. Entries here are his words only; the editor's own uses of verses are not indexed."
     }
@@ -3174,7 +3175,7 @@
       },
       "textAr": "يرفع الله الذين أمنوا منكم والذين أوتوا العلم درجات والله بما تعملون خبير",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Bukhārī, Ṣaḥīḥ, K. al-ʿIlm, bāb faḍl al-ʿilm"
+      "copiedFrom": "al-Bukhārī, al-Ṣaḥīḥ, Kitāb al-ʿIlm"
     },
     {
       "id": "tabsira-src-005",
@@ -3184,7 +3185,7 @@
       },
       "textAr": "رب زدني علما",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Bukhārī, same bāb"
+      "copiedFrom": "al-Bukhārī, al-Ṣaḥīḥ, Kitāb al-ʿIlm"
     },
     {
       "id": "tabsira-src-006",
@@ -3204,7 +3205,7 @@
       },
       "textAr": "نرفع درجات من نشاء",
       "transcriptionStatus": "draft",
-      "copiedFrom": "Fatḥ al-bārī < Zayd b. Aslam"
+      "copiedFrom": "Ibn Ḥajar, Fatḥ al-bārī, citing Zayd b. Aslam"
     },
     {
       "id": "tabsira-src-008",
@@ -3214,7 +3215,7 @@
       },
       "textAr": "رب زدني علما",
       "transcriptionStatus": "draft",
-      "copiedFrom": "Fatḥ al-bārī"
+      "copiedFrom": "Ibn Ḥajar, Fatḥ al-bārī"
     },
     {
       "id": "tabsira-src-009",
@@ -3224,7 +3225,7 @@
       },
       "textAr": "لا يضركم من ضل إذا اهتديتم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "Ismāʿīl Ḥaqqī, Rūḥ al-bayān, via al-Mahdī's ḥāshiya on al-Rasmūkī"
+      "copiedFrom": "Ismāʿīl Ḥaqqī, Rūḥ al-bayān"
     },
     {
       "id": "tabsira-src-010",
@@ -3234,7 +3235,7 @@
       },
       "textAr": "ولكل قوم هاد",
       "transcriptionStatus": "draft",
-      "copiedFrom": "Rūḥ al-bayān"
+      "copiedFrom": "Ismāʿīl Ḥaqqī, Rūḥ al-bayān"
     },
     {
       "id": "tabsira-src-011",
@@ -3244,7 +3245,7 @@
       },
       "textAr": "وأهديك إلى ربك فتخشى",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī, Mafātīḥ (introduced by Niasse: ويؤيده)"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-012",
@@ -3254,7 +3255,7 @@
       },
       "textAr": "هل لك إلى أن تزكى",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-013",
@@ -3264,7 +3265,7 @@
       },
       "textAr": "أن أنذروا أنه لا إله إلا أنا فاتقون",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-014",
@@ -3274,7 +3275,7 @@
       },
       "textAr": "إنني أنا الله لا إله إلا أنا فاعبدني",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-015",
@@ -3284,7 +3285,7 @@
       },
       "textAr": "إنما يخشى الله من عباده العلماء",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-016",
@@ -3294,7 +3295,7 @@
       },
       "textAr": "فاعلم أنه لا إله إلا الله",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Bukhārī, bāb al-ʿilm qabl al-qawl wa-l-ʿamal"
+      "copiedFrom": "al-Bukhārī, al-Ṣaḥīḥ, Kitāb al-ʿIlm"
     },
     {
       "id": "tabsira-src-017",
@@ -3304,7 +3305,7 @@
       },
       "textAr": "إنما يخشى الله من عباده العلماء",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Bukhārī, same bāb"
+      "copiedFrom": "al-Bukhārī, al-Ṣaḥīḥ, Kitāb al-ʿIlm"
     },
     {
       "id": "tabsira-src-018",
@@ -3314,7 +3315,7 @@
       },
       "textAr": "وما يعقلها إلا العالمون",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Bukhārī, same bāb"
+      "copiedFrom": "al-Bukhārī, al-Ṣaḥīḥ, Kitāb al-ʿIlm"
     },
     {
       "id": "tabsira-src-019",
@@ -3324,7 +3325,7 @@
       },
       "textAr": "وقالوا لو كنا نسمع أو نعقل ما كنا في أصحاب السعير",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Bukhārī, same bāb"
+      "copiedFrom": "al-Bukhārī, al-Ṣaḥīḥ, Kitāb al-ʿIlm"
     },
     {
       "id": "tabsira-src-020",
@@ -3334,7 +3335,7 @@
       },
       "textAr": "هل يستوي الذين يعلمون والذين لا يعلمون",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Bukhārī, same bāb"
+      "copiedFrom": "al-Bukhārī, al-Ṣaḥīḥ, Kitāb al-ʿIlm"
     },
     {
       "id": "tabsira-src-021",
@@ -3344,7 +3345,7 @@
       },
       "textAr": "كونوا ربانيين",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Bukhārī < Ibn ʿAbbās"
+      "copiedFrom": "al-Bukhārī, al-Ṣaḥīḥ, Kitāb al-ʿIlm, citing Ibn ʿAbbās"
     },
     {
       "id": "tabsira-src-022",
@@ -3354,7 +3355,7 @@
       },
       "textAr": "كشف الغطاء",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Ghazālī, Iḥyāʾ"
+      "copiedFrom": "al-Ghazālī, Iḥyāʾ ʿulūm al-dīn"
     },
     {
       "id": "tabsira-src-023",
@@ -3364,7 +3365,7 @@
       },
       "textAr": "ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة",
       "transcriptionStatus": "draft",
-      "copiedFrom": "Iḥyāʾ < al-Ḥasan al-Baṣrī"
+      "copiedFrom": "al-Ghazālī, Iḥyāʾ ʿulūm al-dīn, citing al-Ḥasan al-Baṣrī"
     },
     {
       "id": "tabsira-src-024",
@@ -3374,7 +3375,7 @@
       },
       "textAr": "أبكى وأضحك والذي أمات وأحيا",
       "transcriptionStatus": "draft",
-      "copiedFrom": "Lisān al-ʿArab < Abū Ṣakhr al-Hudhalī (verse)"
+      "copiedFrom": "Ibn Manẓūr, Lisān al-ʿArab, citing Abū Ṣakhr al-Hudhalī"
     },
     {
       "id": "tabsira-src-025",
@@ -3384,7 +3385,7 @@
       },
       "textAr": "وعلم آدم الأسماء كلها",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī, Mafātīḥ on 2:31 (Niasse: وقد جمع الفخر الرازي جملة صالحة فأوردتها)"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-026",
@@ -3394,7 +3395,7 @@
       },
       "textAr": "وما أنزل عليكم من الكتاب والحكمة",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < Muqātil"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing Muqātil"
     },
     {
       "id": "tabsira-src-027",
@@ -3404,7 +3405,7 @@
       },
       "textAr": "وأنزل الله عليك الكتاب والحكمة",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < Muqātil"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing Muqātil"
     },
     {
       "id": "tabsira-src-028",
@@ -3414,7 +3415,7 @@
       },
       "textAr": "",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < Muqātil"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing Muqātil"
     },
     {
       "id": "tabsira-src-029",
@@ -3424,7 +3425,7 @@
       },
       "textAr": "وآتيناه الحكم صبيا",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < Muqātil"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing Muqātil"
     },
     {
       "id": "tabsira-src-030",
@@ -3434,7 +3435,7 @@
       },
       "textAr": "ولقد آتينا لقمان الحكمة",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < Muqātil"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing Muqātil"
     },
     {
       "id": "tabsira-src-031",
@@ -3444,7 +3445,7 @@
       },
       "textAr": "أولئك الذين آتيناهم الكتاب والحكم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < Muqātil"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing Muqātil"
     },
     {
       "id": "tabsira-src-032",
@@ -3454,7 +3455,7 @@
       },
       "textAr": "فقد آتينا آل إبراهيم الكتاب والحكمة",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < Muqātil"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing Muqātil"
     },
     {
       "id": "tabsira-src-033",
@@ -3464,7 +3465,7 @@
       },
       "textAr": "وآتيناه الحكمة",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < Muqātil"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing Muqātil"
     },
     {
       "id": "tabsira-src-034",
@@ -3474,7 +3475,7 @@
       },
       "textAr": "وآتاه الله الملك والحكمة",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < Muqātil"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing Muqātil"
     },
     {
       "id": "tabsira-src-035",
@@ -3484,7 +3485,7 @@
       },
       "textAr": "ادع إلى سبيل ربك بالحكمة",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < Muqātil"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing Muqātil"
     },
     {
       "id": "tabsira-src-036",
@@ -3494,7 +3495,7 @@
       },
       "textAr": "ومن يؤت الحكمة فقد أوتي خيرا كثيرا",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-037",
@@ -3504,7 +3505,7 @@
       },
       "textAr": "وما أوتيتم من العلم إلا قليلا",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-038",
@@ -3514,7 +3515,7 @@
       },
       "textAr": "قل متاع الدنيا قليل",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-039",
@@ -3524,7 +3525,7 @@
       },
       "textAr": "قل هل يستوي الذين يعلمون والذين لا يعلمون",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-040",
@@ -3534,7 +3535,7 @@
       },
       "textAr": "قل يستوي الخبيث والطيب",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-041",
@@ -3544,7 +3545,7 @@
       },
       "textAr": "قل هل يستوي الأعمى والبصير أم هل تستوي الظلمات والنور",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-042",
@@ -3554,7 +3555,7 @@
       },
       "textAr": "",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-043",
@@ -3564,7 +3565,7 @@
       },
       "textAr": "ولا الظل ولا الحرور",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-044",
@@ -3574,7 +3575,7 @@
       },
       "textAr": "أطيعوا الله وأطيعوا الرسول وأولي الأمر منكم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-045",
@@ -3584,7 +3585,7 @@
       },
       "textAr": "شهد الله أنه لا إله إلا هو والملائكة وأولو العلم قائما بالقسط",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-046",
@@ -3594,7 +3595,7 @@
       },
       "textAr": "وما يعلم تأويله إلا الله والراسخون في العلم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-047",
@@ -3604,7 +3605,7 @@
       },
       "textAr": "قل كفى بالله شهيدا بيني وبينكم ومن عنده علم الكتاب",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-048",
@@ -3614,7 +3615,7 @@
       },
       "textAr": "يرفع الله الذين أمنوا منكم والذين أوتوا العلم درجات",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-049",
@@ -3624,7 +3625,7 @@
       },
       "textAr": "إنما المؤمنون الذين إذا ذكر الله وجلت قلوبهم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-050",
@@ -3634,7 +3635,7 @@
       },
       "textAr": "وفضل الله المجاهدين على القاعدين أجرا عظيما درجات منه ومغفرة ورحمة",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-051",
@@ -3644,7 +3645,7 @@
       },
       "textAr": "ومن يأته مؤمنا قد عمل الصالحات فأولئك لهم الدرجات العلى",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-052",
@@ -3654,7 +3655,7 @@
       },
       "textAr": "إنما يخشى الله من عباده العلماء",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-053",
@@ -3664,7 +3665,7 @@
       },
       "textAr": "والراسخون في العلم يقولون آمنا به",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-054",
@@ -3674,7 +3675,7 @@
       },
       "textAr": "شهد الله أنه لا إله إلا هو والملائكة وأولوا العلم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-055",
@@ -3684,7 +3685,7 @@
       },
       "textAr": "ويخرون للأذقان يبكون",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-056",
@@ -3694,7 +3695,7 @@
       },
       "textAr": "إن الذين أوتوا العلم من قبله",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-057",
@@ -3704,7 +3705,7 @@
       },
       "textAr": "فاحتمل السيل زبدا رابيا",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī (قال بعضهم)"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-058",
@@ -3714,7 +3715,7 @@
       },
       "textAr": "",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-059",
@@ -3724,7 +3725,7 @@
       },
       "textAr": "الدرك",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < al-Faqīh Abū l-Layth"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing al-Faqīh Abū l-Layth"
     },
     {
       "id": "tabsira-src-060",
@@ -3734,7 +3735,7 @@
       },
       "textAr": "علم آدم الأسماء كلها",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī (إن الله علم سبعة أنفار سبعة أشياء)"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-061",
@@ -3744,7 +3745,7 @@
       },
       "textAr": "وعلمناه من لدنا علما",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-062",
@@ -3754,7 +3755,7 @@
       },
       "textAr": "رب قد آتيتني من الملك وعلمتني من تأويل الأحاديث",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-063",
@@ -3764,7 +3765,7 @@
       },
       "textAr": "وعلمناه صنعة لبوس لكم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-064",
@@ -3774,7 +3775,7 @@
       },
       "textAr": "يا أيها الناس علمنا منطق الطير",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-065",
@@ -3784,7 +3785,7 @@
       },
       "textAr": "ويعلمه الكتاب والحكمة والتوراة والإنجيل",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-066",
@@ -3794,7 +3795,7 @@
       },
       "textAr": "وعلمك ما لم تكن تعلم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-067",
@@ -3804,7 +3805,7 @@
       },
       "textAr": "ويعلمهم الكتاب والحكمة",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-068",
@@ -3814,7 +3815,7 @@
       },
       "textAr": "الرحمن علم القرآن",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-069",
@@ -3824,7 +3825,7 @@
       },
       "textAr": "سلام قولا من رب رحيم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī (ثم قال)"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-070",
@@ -3834,7 +3835,7 @@
       },
       "textAr": "فأولئك مع الذين أنعم الله عليهم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-071",
@@ -3844,7 +3845,7 @@
       },
       "textAr": "والله يهدي من يشاء إلى صراط مستقيم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-072",
@@ -3854,7 +3855,7 @@
       },
       "textAr": "الله نور السموات والأرض",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī (cross-reference: سيجيء بيانه في تفسير…)"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-073",
@@ -3864,7 +3865,7 @@
       },
       "textAr": "اقرأ باسم ربك الذي خلق",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-074",
@@ -3874,7 +3875,7 @@
       },
       "textAr": "اقرأ وربك الأكرم الذي علم بالقلم علم الإنسان ما لم يعلم",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-075",
@@ -3884,7 +3885,7 @@
       },
       "textAr": "إنما يخشى الله من عباده العلماء",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-076",
@@ -3894,7 +3895,7 @@
       },
       "textAr": "جزاؤهم عند ربهم جنات عدن تجري من تحتها الأنهار",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-077",
@@ -3904,7 +3905,7 @@
       },
       "textAr": "إنما يخشى الله من عباده العلماء",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-078",
@@ -3914,7 +3915,7 @@
       },
       "textAr": "ذلك لمن خشي ربه",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-079",
@@ -3924,7 +3925,7 @@
       },
       "textAr": "وقل رب زدني علما",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-080",
@@ -3934,7 +3935,7 @@
       },
       "textAr": "هل أتبعك على أن تعلمن مما علمت رشدا",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī < Qatāda"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb, citing Qatāda"
     },
     {
       "id": "tabsira-src-081",
@@ -3944,7 +3945,7 @@
       },
       "textAr": "رب هب لي ملكا لا ينبغي لأحد من بعدي",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-082",
@@ -3954,7 +3955,7 @@
       },
       "textAr": "يا أيها الناس علمنا منطق الطير وأوتينا من كل شيء",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-083",
@@ -3964,7 +3965,7 @@
       },
       "textAr": "وداود وسليمان إذ يحكمان في الحرث",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-084",
@@ -3974,7 +3975,7 @@
       },
       "textAr": "أحطت بما لم تحط به",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī (قال بعضهم)"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-085",
@@ -3984,7 +3985,7 @@
       },
       "textAr": "وأقم الصلاة لذكري",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-086",
@@ -3994,7 +3995,7 @@
       },
       "textAr": "وعلمك ما لم تكن تعلم وكان فضل الله عليك عظيما",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-087",
@@ -4004,7 +4005,7 @@
       },
       "textAr": "الرحمن علم القرآن",
       "transcriptionStatus": "draft",
-      "copiedFrom": "al-Rāzī"
+      "copiedFrom": "al-Rāzī, Mafātīḥ al-ghayb"
     },
     {
       "id": "tabsira-src-088",
@@ -4014,7 +4015,7 @@
       },
       "textAr": "وأعرض عن الجاهلين",
       "transcriptionStatus": "draft",
-      "copiedFrom": "Asās al-iqtibās (Faṣl 2)"
+      "copiedFrom": "Asās al-iqtibās"
     },
     {
       "id": "tabsira-src-089",
@@ -4054,7 +4055,7 @@
       },
       "textAr": "الأكمه والأبرص",
       "transcriptionStatus": "draft",
-      "copiedFrom": "Asās al-iqtibās (saying of al-Masīḥ)"
+      "copiedFrom": "Asās al-iqtibās"
     },
     {
       "id": "tabsira-src-093",
@@ -4064,7 +4065,7 @@
       },
       "textAr": "خذ الكتاب بقوة",
       "transcriptionStatus": "draft",
-      "copiedFrom": "Anonymous verse (وقال الشاعر)"
+      "copiedFrom": "an anonymous poet"
     },
     {
       "id": "tabsira-src-094",
@@ -4084,7 +4085,7 @@
       },
       "textAr": "آتنا غداءنا لقد لقينا من سفرنا هذا نصبا",
       "transcriptionStatus": "draft",
-      "copiedFrom": "Ibn Rushd, al-Muqaddimāt"
+      "copiedFrom": "Ibn Rushd al-Jadd, al-Muqaddimāt"
     },
     {
       "id": "rijal-113",

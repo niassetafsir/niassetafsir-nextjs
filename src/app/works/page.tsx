@@ -10,6 +10,12 @@ export const metadata = {
 // The catalogue side of the corpus. /verse is keyed on the āya; this is keyed
 // on the book. A work with no indexed verses is listed too, marked as such:
 // an absent work reads as "he never used the Qurʾān there", which is false.
+function compiledBy(work: { compiler?: string | null; author?: string | null }): string | null {
+  const who = work.compiler ?? (work.author && !/Niasse/.test(work.author) ? work.author : null);
+  if (!who) return null;
+  return /^[A-Z][a-z]+ by /.test(who) ? who : `compiled by ${who}`;
+}
+
 export default function WorksPage() {
   const rows = workSummaries()
     .filter(r => r.work.publish !== false || r.uses > 0)
@@ -46,10 +52,13 @@ export default function WorksPage() {
                   style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>{work.titleAr}</span>
               )}
               <span className="block font-english text-[12px] mt-1" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-                {work.composed?.hijri && `${work.composed.hijri}`}{work.composed?.gregorian && ` / ${work.composed.gregorian}`}
-                {work.relation === 'compiler' && work.author && <> · compiled by {work.author}</>}
-                {work.relation === 'student' && work.author && <> · {work.author}</>}
-                {' · '}
+                {[
+                  [work.composed?.hijri, work.composed?.gregorian].filter(Boolean).join(' / '),
+                  // "compiled by" names the compiler, never Niasse himself. A record
+                  // whose compiler field is a phrase ("Introduction by …") prints as is.
+                  work.relation === 'compiler' && compiledBy(work),
+                  work.relation === 'student' && work.author,
+                ].filter(Boolean).map(s => `${s} · `).join('')}
                 {work.id === 'fi-riyad'
                   ? 'the tafsīr: 56 sessions, read in its own reader'
                   : <>{uses} {uses === 1 ? 'use' : 'uses'} of {verses} {verses === 1 ? 'āya' : 'āyāt'}{copied > 0 && <>, and {copied} in commentaries he copied</>}</>}
