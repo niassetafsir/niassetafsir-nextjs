@@ -21,6 +21,8 @@ export interface Topic {
   points: [string, string][];
   passages: TopicPassage[];
   related: string[];
+  /** English drafted and not yet reviewed by the translator. */
+  draft?: boolean;
 }
 
 export const TOPICS = (raw as unknown as { topics: Topic[] }).topics;

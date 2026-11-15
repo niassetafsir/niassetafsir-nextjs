@@ -76,7 +76,8 @@ export default function TopicPage({ params }: { params: { slug: string } }) {
 
       <p className="font-english text-[12.5px] mt-12 pt-4 border-t" style={{ borderColor: 'rgba(255,255,255,0.10)', color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
         Source: Shaykh Ibrāhīm Niasse, <em>Fī Riyāḍ al-Tafsīr li-l-Qurʾān al-Karīm</em>, ed. Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī,
-        2nd ed., 10 vols. (Tunis: Majmaʿ al-Yamāma, 2022). Translations by Amadu Kunateh.
+        2nd ed., 10 vols. (Tunis: Majmaʿ al-Yamāma, 2022).{' '}
+        {t.draft ? 'English drafted; not yet reviewed by the translator, Amadu Kunateh.' : 'Translations by Amadu Kunateh.'}
       </p>
     </main>
   );

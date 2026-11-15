@@ -35,6 +35,9 @@ const STATIC_ROUTES = [
   '/topics',
   '/topics/nafs',
   '/topics/sirr',
+  '/topics/ruh',
+  '/topics/qalb',
+  '/topics/marifa',
   '/term',
 ];
 

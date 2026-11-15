@@ -1,5 +1,5 @@
 {
-  "_note": "Topic pages: what Shaykh Ibrāhīm says on one subject, in his own words from Fī Riyāḍ al-Tafsīr, each passage with volume, page, lesson and verse. Built 7 Nov 2026 from verified passages (artifacts 'Niasse on the Self' and 'Niasse on the Secret'); no dissertation material. Arabic checked against src/data/lessons by tests/topics.test.js.",
+  "_note": "Topic pages: what Shaykh Ibrāhīm says on one subject, in his own words from Fī Riyāḍ al-Tafsīr, each passage with volume, page, lesson and verse. Built 7 Nov 2026 from verified passages (artifacts 'Niasse on the Self' and 'Niasse on the Secret'); no dissertation material. Arabic checked against src/data/lessons by tests/topics.test.js. 15 Nov 2026: added the spirit (rūḥ), the heart (qalb) and knowing God (maʿrifa), Arabic and pages from the Full Reading dossiers of the 2022 edition; English drafted, marked draft until AK reviews it.",
   "topics": [
     {
       "slug": "nafs",
@@ -66,7 +66,7 @@
           "en": "The human has two things in him: an intellect (ʿaql) and a self (nafs). His intellect has a demand and his self has a demand. The intellect seeks a trustee with whom to deposit all the good deeds it owns; the self needs a rich and generous One on whom to hang its hopes … So whoever knows God (ʿarafa Allāh) finds what he seeks."
         }
       ],
-      "related": ["sirr"]
+      "related": ["sirr", "ruh", "qalb", "marifa"]
     },
     {
       "slug": "sirr",
@@ -156,7 +156,221 @@
           "note": "The disciple had been given a covered bowl and told not to look into it. He looked, and the sparrow flew."
         }
       ],
-      "related": ["nafs"]
+      "related": ["nafs", "ruh", "qalb", "marifa"]
+    },
+    {
+      "slug": "ruh",
+      "term": "rūḥ",
+      "termAr": "الروح",
+      "title": "The spirit",
+      "question": "What does Shaykh Ibrāhīm say about the spirit (rūḥ)?",
+      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm makes the spirit what makes a person human. God breathes it into every human being, and that spirit is the spirit of Muḥammad: Ādam is the father of bodies, Muḥammad the father of spirits. The spirit belongs to the world of command, not of creation, so it has no place and no direction, and this is why the human alone can stand as God’s deputy. It came from the Divine Presence knowing nothing but God, it lives on remembrance as the body lives on food, and it is distinct from the animal spirit that sleep withdraws.",
+      "points": [
+        ["What makes us human.", "God breathes into every person a spirit from His spirit; by it a person is human."],
+        ["Muḥammad’s spirit.", "All spirits come from one spirit, the Prophet’s: “Ādam is the father of mankind and Muḥammad the father of spirits.”"],
+        ["From the world of command.", "Creation is made from something; command from nothing. The spirit is of command."],
+        ["Placeless, so a deputy.", "Like God, the spirit has no place and no direction; so only the human can be His deputy."],
+        ["Two spirits.", "An animal spirit, which sleep takes, and a human spirit, which death takes."],
+        ["Its food is remembrance.", "The body lives on food and drink; the spirit lives on the remembrance of God."]
+      ],
+      "passages": [
+        {
+          "title": "A spirit from His spirit in every human",
+          "volume": 3, "page": "8", "lesson": 13, "verse": [4, 159],
+          "ar": "كل إنسان خلقه الله ينفخ فيه روحا من روحه فبهذا الروح يكون إنسانا",
+          "en": "Every human being God creates, He breathes into him a spirit from His spirit, and by this spirit he is human."
+        },
+        {
+          "title": "Ādam the father of mankind, Muḥammad the father of spirits",
+          "volume": 4, "page": "21", "lesson": 20, "verse": [7, 189],
+          "ar": "الله تبارك وتعالى خلقنا كلنا من نفس واحدة وتلك النفس هي نفس آدم وخلق الأرواح كلا من روح واحد وذلك الروح روح محمد صلى الله عليه وسلم. فآدم أبو البشر ومحمد أبو الأرواح",
+          "en": "God created all of us from a single self, and that self is the self of Ādam. And He created all the spirits from a single spirit, and that spirit is the spirit of Muḥammad, God bless him and give him peace. So Ādam is the father of mankind, and Muḥammad is the father of spirits."
+        },
+        {
+          "title": "Of the world of command, made from nothing",
+          "volume": 3, "page": "208", "lesson": 18, "verse": [7, 54],
+          "ar": "الخلق ما ظهر من الخلائق، والأمر ما لم يظهر، الخلق ما خلق من شيء، والأمر ما خلق من لا شيء، فلهذا قال: الروح من أمر ربي، الروح من عالم الأمر، الخلق والأمر هو الملك والملكوت، هو الغيب والشهادة",
+          "en": "Creation (khalq) is what appears of created things, and command (amr) is what does not appear. Creation is what is made from something, and command is what is made from nothing. That is why He said, “The spirit is of my Lord’s command”: the spirit is of the world of command. Creation and command are the kingdom and the dominion, the unseen and the witnessed."
+        },
+        {
+          "title": "Placeless, and so God’s deputy",
+          "volume": 1, "page": "134", "lesson": 5, "verse": [2, 115],
+          "ar": "ولما لم يكن للروح مكان ولا جهة أصبح خليفة عن الله تعالى، فالله ليس له مكان ولا جهة والروح في الإنسان كذلك ليس له أين ولا كيف فلهذا لا يكون خليفة عن الله إلا الإنسان",
+          "en": "Since the spirit has no place and no direction, it became a deputy (khalīfa) for God. God has no place and no direction, and the spirit in the human being likewise has no where and no how. That is why none but the human being can be God’s deputy."
+        },
+        {
+          "title": "It came from the Presence knowing only God",
+          "volume": 5, "page": "70", "lesson": 28, "verse": [13, 19],
+          "ar": "الإنسان أصل روحه خرج من حضرة الله تبارك وتعالى غارقا في توحيد الله لا يعرف سوى الله تبارك وتعالى، فلما خوطبوا يوم ألست بربكم نطقوا كلا قالوا بلى، ولما تلبسوا بهذه الملابس والغواشي نسوا ذلك العهد القديم",
+          "en": "The human being’s spirit in its origin came out of the Presence of God, immersed in God’s oneness, knowing nothing but God. When they were addressed on the day of “Am I not your Lord?” they all spoke and said, “Yes.” And when they put on these garments and coverings, they forgot that ancient covenant."
+        },
+        {
+          "title": "Two spirits: the animal and the human",
+          "volume": 5, "page": "198", "lesson": 30, "verse": [17, 85],
+          "ar": "والإنسان فيه روحان روح حيواني وروح إنساني. هذا الروح الإنساني به تميز ابن آدم عن غيره من الحيوانات",
+          "en": "The human being has two spirits, an animal spirit and a human spirit. It is by this human spirit that the son of Ādam is set apart from the other animals."
+        },
+        {
+          "title": "Breath and motion; sleep takes only the self",
+          "volume": 8, "page": "143", "lesson": 43, "verse": [39, 42],
+          "ar": "الفرق بين النفس والروح، أن الروح منه النفَس والحركة والنفس التي ربما عُبّر عنها بالروح ولكن روح حيواني ليس روحا حقيقيا. الروح الحقيقي منه النفَس والحركة ما دام الإنسان حيا فهو يتنفس ويتحرك. والنفس منها التمييز",
+          "en": "The difference between the self and the spirit is this. From the spirit come breath and motion. The self is sometimes called a spirit, but it is an animal spirit, not a true spirit. From the true spirit come breath and motion: as long as a person is alive he breathes and moves. From the self comes discernment.",
+          "note": "He goes on: God takes both at death, and takes only the self in sleep, the “lesser death”."
+        },
+        {
+          "title": "The spirit lives on remembrance",
+          "volume": 2, "page": "84", "lesson": 9, "verse": [3, 95],
+          "ar": "والإنسان خلقه الله فجمع فيه بين الجسمانية والنورانية فهو عيشه جسماني موافق لجسمه الطعام والشراب وعيش روحه ذكر الله تبارك وتعالى لأنه روحاني",
+          "en": "God created the human being and joined in him the bodily and the luminous. So his living is bodily, suited to his body, food and drink; and the living of his spirit is the remembrance of God, because it is spiritual."
+        }
+      ],
+      "related": ["nafs", "sirr", "qalb", "marifa"],
+      "draft": true
+    },
+    {
+      "slug": "qalb",
+      "term": "qalb",
+      "termAr": "القلب",
+      "title": "The heart",
+      "question": "What does Shaykh Ibrāhīm say about the heart (qalb)?",
+      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the heart as the ground God wants for Himself alone. It lives when the self dies, and God accepts no heart shared with anything else. Hearts differ by what they rest in, from the world to the vision of God. In the order of the inner person the spirit rules, the intellect advises and the heart gives the ruling; remembrance moves from the tongue to the heart to the spirit, and the journey to God is made with the heart, not the body.",
+      "points": [
+        ["It lives when the self dies.", "When the self lives the heart dies; when the heart lives the self dies."],
+        ["God wants it alone.", "Enemies drive a person back to God, because God loves to have the heart to Himself."],
+        ["No shared heart.", "God does not accept a shared deed or enter a shared heart."],
+        ["Four hearts.", "Hard, forgetful, yearning and unitive: each rests in something different."],
+        ["The judge of the inner court.", "The spirit is the sultan, the intellect the vizier, the heart the muftī."],
+        ["The road is inward.", "In al-Tijānī’s words: the journey is with the heart, not the body."]
+      ],
+      "passages": [
+        {
+          "title": "When the self lives, the heart dies",
+          "volume": 1, "page": "109", "lesson": 4, "verse": [2, 74],
+          "ar": "إذا حييت النفس مات القلب وإذا حيي القلب ماتت النفس، موت النفس تركها مراداتها ورجوعها إلى الحق",
+          "en": "When the self lives, the heart dies, and when the heart lives, the self dies. The death of the self is its leaving what it wants and its return to the Real.",
+          "note": "He gives the remedy just before: the formula lā ilāha illā Llāh, reciting the Qurʾān, an empty stomach and prayer at night."
+        },
+        {
+          "title": "God loves to have the heart to Himself",
+          "volume": 3, "page": "161", "lesson": 17, "verse": [6, 112],
+          "ar": "تلك الأعداء منفعة لعبد الله الذي اختاره لأنهم يزعجونه فيرجع إلى خالقه وبارئه، فإنه لو لم يجد في الكون من يؤذيه لمال إليهم بطبعه ولاختطفوا شيئا من قلبه، والحق تبارك وتعالى يحب أن ينفرد بالقلب",
+          "en": "Those enemies are a benefit to the servant of God whom He has chosen, because they trouble him and he returns to his Creator and Maker. If he found no one in the world to harm him, he would lean towards people by his nature, and they would snatch away something of his heart. And the Real loves to have the heart to Himself alone."
+        },
+        {
+          "title": "No shared heart",
+          "volume": 6, "page": "18", "lesson": 31, "verse": [18, 26],
+          "ar": "العمل المشترك لا يتقبله الله تبارك وتعالى والقلب المشترك لا يقبل الله إليه، هذا لا يقبله وهذا لا يدخله. من أفرغ قلبه له سكن قلبه",
+          "en": "God does not accept a shared deed, and He does not come to a shared heart: the one He does not accept, the other He does not enter. Whoever empties his heart for Him, He dwells in his heart.",
+          "note": "He closes with the ḥadīth qudsī: “My heavens and My earth do not contain Me, but the heart of My believing servant contains Me.”"
+        },
+        {
+          "title": "Four hearts and what each rests in",
+          "volume": 5, "page": "76", "lesson": 28, "verse": [13, 28],
+          "ar": "القلوب أربعة: قلب قاس، وقلب ناس، وقلب مشتاق، وقلب وحداني. فقلوب الكفار تطمئن بالدنيا، وقلوب الناسين تطمئن بالتوبة، وقلوب المشتاقين تطمئن بذكر الله، وقلوب الوحدانيين أهل الحضرة لا تطمئن إلا بالرؤية",
+          "en": "Hearts are four: a hard heart, a forgetful heart, a yearning heart and a unitive heart. The hearts of the unbelievers rest in this world; the hearts of the forgetful rest in repentance; the hearts of the yearning rest in the remembrance of God; and the hearts of the unitive, the people of the Presence, rest only in vision.",
+          "note": "His example of the unitive heart is Ibrāhīm’s, which asked to see (Q 2:260)."
+        },
+        {
+          "title": "The spirit rules, the intellect advises, the heart gives the ruling",
+          "volume": 5, "page": "40", "lesson": 27, "verse": [12, 53],
+          "ar": "ولكن الإنسان فيه قلب وعقل وروح. الترتيب هكذا الروح هو السلطان والعقل هو الوزير والقلب هو المفتي. إذا اتفق هؤلاء الثلاثة تغلبوا على النفس الأمارة بالسوء فلا يصدر إلا خير",
+          "en": "But the human being has a heart, an intellect and a spirit. Their order is this: the spirit is the sultan, the intellect is the vizier and the heart is the muftī. When these three agree, they overcome the self that commands evil, and nothing but good comes out.",
+          "note": "He follows it with the fable of the three bulls: the self picks off the heart, then the intellect, then takes the spirit."
+        },
+        {
+          "title": "Remembrance from tongue to heart to spirit",
+          "volume": 2, "page": "139", "lesson": 10, "verse": [3, 191],
+          "ar": "وذكر الله تبارك وتعالى في البداية باللسان ثم بالقلب ثم بالروح، بذكر اللسان يجد الفناء في الأفعال، وبذكر القلب يجد الفناء في الصفات، وبذكر الروح يجد الفناء الكلي يفنى ثم يفنى ثم يفنى فكان فناؤه عين البقاء",
+          "en": "The remembrance of God is at first with the tongue, then with the heart, then with the spirit. By remembrance with the tongue one finds annihilation in the acts; by remembrance with the heart, annihilation in the attributes; and by remembrance with the spirit, total annihilation: he passes away, then passes away, then passes away, and his passing away is subsistence itself."
+        },
+        {
+          "title": "The human heart as the Frequented House",
+          "volume": 8, "page": "204", "lesson": 45, "verse": [41, 53],
+          "ar": "والعلماء يسمون الآفاق العالم الأكبر والإنسان العالم الأصغر والحقيقة أن الواقع هو العكس، الإنسان هو العالم الأكبر، فتجد العالم منطويا في جرم هذا العالم الصغير الذي هو الإنسان، فالإنسان جسمه الذي أحاط به كالعرش ونفسه كالكرسي، وقلبه كالبيت المعمور",
+          "en": "The scholars call the horizons the greater world and the human being the lesser world, but the truth is the reverse: the human being is the greater world. You find the world folded into the body of this small world that is the human being. His body, which encloses him, is like the Throne; his self is like the Footstool; and his heart is like the Frequented House."
+        },
+        {
+          "title": "The journey is with the heart",
+          "volume": 4, "page": "132", "lesson": 23, "verse": [9, 100],
+          "ar": "والسبق حقيقة بالهمم لا بالقدم وبعبارة شيخنا السير بالقلب لا بالبدن هذه عبارة الشيخ التجاني",
+          "en": "Precedence is in truth by aspiration, not by footsteps. In our shaykh’s words: the journey is with the heart, not with the body. This is Shaykh al-Tijānī’s phrase."
+        }
+      ],
+      "related": ["nafs", "ruh", "sirr", "marifa"],
+      "draft": true
+    },
+    {
+      "slug": "marifa",
+      "term": "maʿrifa",
+      "termAr": "المعرفة",
+      "title": "Knowing God",
+      "question": "What does Shaykh Ibrāhīm say about knowing God (maʿrifa)?",
+      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm makes knowledge of God the life of everything else in a person: the body lives by the spirit, the spirit by the intellect, the intellect by knowledge. That knowledge is taken from God without an intermediary, and at its height it is a kind of not-knowing: ignorance of the Essence as it is in itself. Knowing God is also remembering: the spirit knew Him before the body, and the path removes the veil so that it recalls. The one who knows (al-ʿārif) sees nothing but God, yet keeps the outward forms as courtesy (adab) towards Him.",
+      "points": [
+        ["The spirit of the spirit.", "Knowledge is the spirit of the intellect, the intellect the spirit of the spirit."],
+        ["Taken from God directly.", "Wisdom is knowing God: knowledge taken from Him without an intermediary."],
+        ["Knowing by not knowing.", "Ignorance of the Essence as it is in itself is knowledge of God itself."],
+        ["Knowing is remembering.", "Reflection seeks the truth; recollection finds what the spirit already knew."],
+        ["All directions are one.", "The true qibla is the Essence; the one who knows still faces one way, as adab."],
+        ["Never absent.", "For the gnostics God is never absent from the heart; “He” is enough."]
+      ],
+      "passages": [
+        {
+          "title": "Knowledge is the spirit of the spirit of the spirit",
+          "volume": 3, "page": "122", "lesson": 16, "verse": [6, 36],
+          "ar": "وإذا كان فيه روح وعقل بلا معرفة يكون العقل كأنه شيء ضائع لا ينتفع به وإذا كان فيه معرفة فهذا هو الحي الذي ينتفع بحياته إذا المعرفة روح روح الروح المعرفة روح العقل والعقل روح الروح والروح روح الجسد",
+          "en": "If he has a spirit and an intellect without knowledge, the intellect is like something wasted that is of no use. If he has knowledge, this is the living one who benefits from his life. So knowledge is the spirit of the spirit of the spirit: knowledge is the spirit of the intellect, the intellect is the spirit of the spirit, and the spirit is the spirit of the body.",
+          "note": "Just before: a body without a spirit is a corpse, and a spirit without an intellect is madness."
+        },
+        {
+          "title": "Wisdom is knowing God, taken from Him without intermediary",
+          "volume": 8, "page": "120–121", "lesson": 43, "verse": [38, 20],
+          "ar": "الحكمة معرفة الله تبارك وتعالى. الحكمة العلم المأخوذ من الله بلا واسطة وصاحبه لم يكن نبيا، الحكمة رمي يقصد قلب العبد والرامي هو الله",
+          "en": "Wisdom is knowledge of God. Wisdom is knowledge taken from God without an intermediary, when its possessor is not a prophet. Wisdom is a shot aimed at the servant’s heart, and the archer is God.",
+          "note": "For prophets, he adds, wisdom is prophecy; for others it is this knowledge of God."
+        },
+        {
+          "title": "The ignorance that is knowledge itself",
+          "volume": 3, "page": "135", "lesson": 16, "verse": [6, 54],
+          "ar": "الجهل جهلان: جهل بالله وحقوق ألوهيته الموجب خلود صاحبه في النار، والجهل الذي هو عين المعرفة بالله هو الجهل بكنه الذات من حيث ما هي هي الموجب لخلود صاحبه في الجنة",
+          "en": "Ignorance is of two kinds. One is ignorance of God and of the rights of His divinity, which brings its possessor to remain forever in the Fire. The other, the ignorance that is knowledge of God itself, is ignorance of the inmost nature of the Essence as it is in itself, which brings its possessor to remain forever in the Garden."
+        },
+        {
+          "title": "Reflection seeks the truth; recollection finds it",
+          "volume": 5, "page": "71", "lesson": 28, "verse": [13, 19],
+          "ar": "إذا زال الحجاب يشاهد ما استودع فيه من أسرار التوحيد والمعارف التي كان نسيها من قبل فيتذكر. هذا مقام التذكر، إنما الذي حدث له ليس بطارئ ولكن هو كان ناسيا والآن تذكر",
+          "en": "When the veil is removed, he witnesses the secrets of oneness and the knowings deposited in him, which he had forgotten before, and so he recollects. This is the station of recollection. What has happened to him is nothing new: he had forgotten, and now he remembers.",
+          "note": "And below that station: “remembrance with the tongue and the heart, and reflection: reflection is seeking the truth, recollection is finding it.”"
+        },
+        {
+          "title": "The true qibla is the Essence",
+          "volume": 1, "page": "132", "lesson": 5, "verse": [2, 115],
+          "ar": "فإفراد وجهة العبد ظاهرا يؤثر في الباطن حتى يرزقه الله إفراد الوجهة باطنا، والقبلة الحقيقية هي الذات العلية، المطلوب من العبد أن يكون قلبه متوجها إلى هذه القبلة الحقيقية دائما وسرمدا",
+          "en": "The servant’s facing one direction outwardly affects the inward, until God grants him a single direction inwardly. The true qibla is the exalted Essence, and what is asked of the servant is that his heart face this true qibla always and without end.",
+          "note": "Without the command to face one way, he says, praying towards a fixed direction would be hard for the one who knows, “for all directions are one.”"
+        },
+        {
+          "title": "The one who knows remembers God in pride and in need",
+          "volume": 1, "page": "168", "lesson": 6, "verse": [2, 200],
+          "ar": "فكما أن العبد يذكر أباه في الحالتين افتخارا وافتقارا، فالعارف بالله يذكر ربه افتخارا وافتقارا بل أشد من ذلك، فإن الولد ربما استغنى عن أبيه بولي غيره والعارف لا يجد غنى عن الله تبارك وتعالى ولا يرى غيره",
+          "en": "Just as a servant mentions his father in both states, in pride and in need, so the one who knows God remembers his Lord in pride and in need, and more intensely still. For a child may come to do without his father through some other guardian, but the one who knows finds no way to do without God, and sees nothing other than Him."
+        },
+        {
+          "title": "Seeking refuge does not contradict knowing",
+          "volume": 1, "page": "37", "lesson": 1, "verse": [16, 98],
+          "ar": "قيل صورة الإستعاذة تباين المعرفة، لأن الخوف من غير الله لا يرضى به العارفون لأنفسهم لأنهم لا يرون غير الله، ولكن هذا أدب مع الله حيث أمر به",
+          "en": "It has been said that the form of seeking refuge contradicts knowing God, because fearing anything other than God is not something the knowers accept for themselves, since they see nothing other than God. But this is courtesy (adab) towards God, since He commanded it."
+        },
+        {
+          "title": "For the gnostics, “He” is enough",
+          "volume": 10, "page": "231", "lesson": 56, "verse": [112, 1],
+          "ar": "العارفون المقربون عند الله تبارك وتعالى لا يغيب الله عن قلوبهم لحظة فهم يتذكرونه دائما فإذا قيل هو يكفيهم ذلك من ذكر الله",
+          "en": "The knowers, those brought near to God, God is never absent from their hearts for a moment. They remember Him always, so when “He” (huwa) is said, that is enough remembrance of God for them.",
+          "note": "He reads huwa, Allāh and aḥad in Q 112:1 as three stations: the near, the people of the right, and the people of the left."
+        }
+      ],
+      "related": ["ruh", "qalb", "sirr", "nafs"],
+      "draft": true
     }
   ]
 }
