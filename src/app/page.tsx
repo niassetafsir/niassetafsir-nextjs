@@ -56,11 +56,12 @@ export default async function HomePage() {
 
         <p className="font-english text-base sm:text-lg leading-relaxed mb-3"
           style={{ color: 'var(--body-text, rgba(232,232,224,0.90))' }}>
-          The tafsīr of Shaykh Ibrāhīm Niasse (d. 1975), <em>ṣāḥib al-fayḍa</em>, by two paths:{' '}
+          The tafsīr of Shaykh Ibrāhīm Niasse (d. 1975), <em>ṣāḥib al-fayḍa</em>, by three paths:{' '}
           <Link href="/read" className="text-gold hover:opacity-80">Fī Riyāḍ al-Tafsīr</Link>, his 1964
-          Arabic sessions on the whole Qurʾān, and{' '}
+          Arabic sessions on the whole Qurʾān;{' '}
           <Link href="/works" className="text-gold hover:opacity-80">beyond it</Link>, his explanation of
-          verses in his other sessions, letters, sermons, poems and journeys.
+          verses in his other sessions, letters, sermons, poems and journeys; and the{' '}
+          <Link href="/students" className="text-gold hover:opacity-80">commentaries of his students</Link>.
         </p>
         <p className="font-english text-base leading-relaxed mb-4"
           style={{ color: 'var(--body-sub, rgba(232,232,224,0.70))' }}>

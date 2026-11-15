@@ -301,7 +301,7 @@ export default async function VersePage({
       {schoolGroups.length > 0 && (
         <section className="mt-14 pt-8 border-t" style={{ borderColor: 'rgba(201,168,76,0.25)' }}>
           <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
-            From his students
+            Commentaries of his students
           </h2>
           <p className="font-english text-[13px] italic mb-5"
             style={{ color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>

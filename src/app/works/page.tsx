@@ -22,7 +22,7 @@ export default function WorksPage() {
     .filter(r => r.work.publish !== false || r.uses > 0)
     .sort((a, b) => b.uses - a.uses || (a.work.titleTranslit ?? '').localeCompare(b.work.titleTranslit ?? ''));
   const indexed = rows.filter(r => r.uses > 0 || r.work.id === 'fi-riyad');
-  const pending = rows.filter(r => !(r.uses > 0 || r.work.id === 'fi-riyad'));
+  const pending = rows.filter(r => !(r.uses > 0 || r.work.id === 'fi-riyad') && r.work.relation !== 'student');
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
       <p className="font-arabic text-gold text-lg mb-0.5" dir="rtl">تفسيره في سائر آثاره</p>
@@ -40,10 +40,9 @@ export default function WorksPage() {
         sessions, including those he gave in Wolof, will join them as they are found and transcribed.
       </p>
 
-      {KIND_ORDER.concat(['Other', 'From his students']).map(kind => {
-        const kindOf = (w: { genre?: string; relation?: string }) =>
-          w.relation === 'student' ? 'From his students' : (KIND_OF[w.genre ?? ''] ?? 'Other');
-        const group = indexed.filter(r => r.work.id !== 'fi-riyad' && kindOf(r.work) === kind);
+      {KIND_ORDER.concat(['Other']).map(kind => {
+        const kindOf = (w: { genre?: string }) => KIND_OF[w.genre ?? ''] ?? 'Other';
+        const group = indexed.filter(r => r.work.id !== 'fi-riyad' && r.work.relation !== 'student' && kindOf(r.work) === kind);
         if (group.length === 0) return null;
         return (
       <section key={kind} className="mb-8">

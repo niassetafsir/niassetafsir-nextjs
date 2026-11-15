@@ -114,11 +114,12 @@ export const NAV: NavSection[] = [
     labelAr: 'عن المشروع',
     hint: 'The project, the tafsīr, and how to reach us',
     icon: '⌂',
-    match: ['/about', '/works', '/editorial-note', '/translators-note', '/introduction', '/get-involved'],
+    match: ['/about', '/works', '/students', '/editorial-note', '/translators-note', '/introduction', '/get-involved'],
     children: [
       { href: '/about', label: 'Manṭiq al-Fayḍa', hint: 'What the project collects, who makes it, how to cite it' },
       { href: '/about/tafsir', label: 'The tafsīr', hint: 'Shaykh Ibrāhīm, the tradition, and his two sources' },
       { href: '/works', label: 'Beyond Fī Riyāḍ', hint: 'His tafsīr in other sessions, letters, sermons, poems and journeys' },
+      { href: '/students', label: 'Commentaries of his students', hint: 'How scholars of the Fayḍa who learned from him read the verses' },
       { href: '/translators-note', label: 'Editorial conventions', hint: 'Transliteration, honorifics, rasm' },
       { href: '/get-involved', label: 'Get in touch', hint: 'Feedback, corrections, joining' },
     ],
@@ -178,7 +179,7 @@ export const MOBILE_BAR: MobileTab[] = [
   { id: 'read',   href: '/read',   label: 'Tafsīr', icon: '◎', match: ['/read', '/lesson', '/volume', '/surah'] },
   { id: 'search', href: '/search', label: 'Search', icon: '⌕', match: ['/search'] },
   { id: 'listen', href: '/audio',  label: 'Listen', icon: '♪', match: ['/audio'] },
-  { id: 'more',                    label: 'More',   icon: '⋯', match: ['/research', '/topics', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/about', '/works', '/translators-note', '/get-involved'] },
+  { id: 'more',                    label: 'More',   icon: '⋯', match: ['/research', '/topics', '/glossary', '/glossary-map', '/term', '/notes', '/saved', '/about', '/works', '/students', '/translators-note', '/get-involved'] },
 ];
 
 /** The event PersistentNav fires to open SiteNav's menu. They are

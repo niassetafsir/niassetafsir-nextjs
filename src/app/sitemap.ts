@@ -32,6 +32,7 @@ const STATIC_ROUTES = [
   // for, and /surah/[id] is the whole commentary re-cut by sura.
   '/verse',
   '/works',
+  '/students',
   '/topics',
   '/topics/nafs',
   '/topics/sirr',
