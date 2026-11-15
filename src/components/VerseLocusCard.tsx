@@ -1,32 +1,10 @@
 import Link from 'next/link';
-import {
-  ACT_LABEL,
-  CONFIDENCE_LABEL,
-  CONFIDENCE_NOTE,
-  DERIVATION_LABEL,
-  DERIVATION_NOTE,
-  PROMPT_LABEL,
-  STANCE_LABEL,
-  VOICE_LABEL,
-  VOICE_NOTE,
-  type VerseEntry,
-} from '@/lib/corpus';
+import { type VerseEntry } from '@/lib/corpus';
 
-// One locus on a verse page.
-//
-// Identity is carried by the LABEL, not by colour. Six exegetical acts and
-// three confidence tiers do not survive as nine hues -- a categorical palette
-// that size fails colour-vision separation, and in any case a reader should
-// not have to learn a legend to find out whether they are looking at exegesis
-// or a proof-text. So the act is a word, the confidence is a word, and the one
-// accent colour on the page does interactive work only.
-//
-// Four states are renderable, and all four are visible on the site:
-//   loaded      -- text is here
-//   excerpted   -- text is in the lesson reader; a snippet plus a deep link
-//   known       -- the locus is attested but not yet ingested
-//   unlocated   -- the material has never been found
-// A silent gap would read as "he never said anything here", which is false.
+// One passage on a verse page, kept plain for a student or researcher: his
+// Arabic, an English rendering or summary, and a short citation. The working
+// apparatus (reader flags, derivation, stance, witness editors, confidence)
+// stays in the data and the Word dossiers, not on the page.
 
 export interface LocusExcerpt {
   ar?: string | null;
@@ -37,6 +15,15 @@ export interface LocusExcerpt {
   printedRef?: string | null;
 }
 
+/** A reader-sized title: "Fī Riyāḍ al-Tafsīr", "Kāshif al-ilbās". */
+export function shortTitle(work: { id: string; titleTranslit?: string | null }): string {
+  if (work.id === 'fi-riyad') return 'Fī Riyāḍ al-Tafsīr';
+  const t = work.titleTranslit ?? work.id;
+  const words = t.split(' ');
+  const cut = words.findIndex((w, i) => i >= 2 && /^(ʿan|fī|li-l-|bi-l-|ilā|wa-l-|min)$/.test(w));
+  return (cut > 0 ? words.slice(0, cut).join(' ') : t).replace(/[:,]$/, '');
+}
+
 export default function VerseLocusCard({
   entry,
   excerpt,
@@ -45,95 +32,60 @@ export default function VerseLocusCard({
   excerpt?: LocusExcerpt;
 }) {
   const { link, locus, witness, work } = entry;
-  const isPrimary = link.acts[0] === 'tafsir';
-  const address = locus.address.raw ?? formatAddress(entry);
-  // A session-coverage locus names the session running through this stretch of
-  // the mushaf. That session is transcribed and on this site, so the card has
-  // to send the reader to it rather than report an absence and stop.
   const inSession = link.derivation === 'session-range';
-  // Whether the compiler marked this as a quotation or this project did. Every
-  // other entry in the index comes from a span the printing itself encloses in
-  // ( ) or « », so the edition declares it a citation; these rest on a run of
-  // words identified by method. Rendering the two alike puts the project's
-  // reading behind the edition's authority, which is the one thing the
-  // apparatus exists to prevent — and it is why these rows were admitted at
-  // all. A dotted rule and a word, not a warning.
-  const unbracketed = link.derivation === 'unbracketed';
   const lessonId = locus.address.lesson;
   const lessonHref = lessonId !== undefined ? `/lesson/${lessonId}` : null;
-  // Excerpt first. A Fī Riyāḍ locus carries no text of its own and the excerpt
-  // is all there is; a fatwā locus carries the answer's default excerpt, and a
-  // per-verse cut, where one exists, says more about THIS āya than the default
-  // does — so the more specific text wins.
   const ar = excerpt?.ar ?? locus.textAr ?? null;
   const en = excerpt?.en ?? locus.textEn ?? null;
   const hasBody = Boolean(ar || en);
+  const isSummary = Boolean(locus.editorialNote && /summary/i.test(locus.editorialNote));
+
+  // Who is speaking, only when it is not plainly him.
+  const speaker =
+    entry.isNiasse
+      ? locus.voice === 'reported'
+        ? `Reported by ${work.relation === 'student' ? (work.author ?? 'a disciple') : 'a disciple'}`
+        : locus.voice === 'uncertain'
+          ? 'Attribution uncertain'
+          : locus.voice === 'on-behalf'
+            ? 'Written on his behalf'
+            : null
+      : locus.attributedTo ?? work.author ?? null;
+
+  // Citation: title, date, place in the book.
+  const where = lessonId !== undefined
+    ? `Lesson ${lessonId}${excerpt?.printedRef ? `, ${excerpt.printedRef}` : ''}`
+    : (locus.address.raw ?? '').replace(/\s*\(PDF[^)]*\)/g, '');
+  const date = work.composed?.hijri
+    ? [work.composed.hijri, work.composed.gregorian].filter(Boolean).join('/')
+    : null;
+  const titleHref = work.id === 'fi-riyad' ? (lessonHref ?? '/read') : `/works/${work.id}`;
 
   return (
-    <article
-      className="rounded-xl border mb-3.5 overflow-hidden"
-      style={{
-        borderColor: isPrimary ? 'rgba(201,168,76,0.28)' : 'rgba(255,255,255,0.10)',
-        borderStyle: unbracketed ? 'dotted' : 'solid',
-        borderLeftWidth: isPrimary ? 3 : 1,
-        borderLeftColor: isPrimary ? 'var(--gold, #C9A84C)' : 'rgba(255,255,255,0.10)',
-      }}
-      dir="ltr"
-    >
-      {/* The passage leads; the book it comes from is a citation at the foot
-          of the card, not a heading. This is a site of verses, and a reader
-          should meet what he says before where it was printed. The header
-          stays only for what changes how the passage is read: the question a
-          fatwā answers, and whose words these are when they are not his. */}
-      {(locus.question || entry.isCopied || (!entry.isNiasse && (locus.attributedTo || work.author)) || link.stance) && (
-      <div className="px-4 pt-3.5 pb-3 border-b" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
-        <div className="flex items-baseline gap-2 flex-wrap">
+    <article className="rounded-xl border mb-3.5 overflow-hidden" dir="ltr"
+      style={{ borderColor: 'rgba(201,168,76,0.22)' }}>
+      {(locus.question || speaker) && (
+        <div className="px-4 pt-3.5 pb-2.5 border-b" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
           {locus.question && (
-          <h3 className="font-english text-[15px] font-semibold"
-            style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
-            {locus.question.en}
-            {locus.question.editorial && (
-              <span className="font-english text-[11px] font-normal italic"
-                style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
-                {' '}— editorial summary; the printing states no question here
-              </span>
-            )}
-          </h3>
+            <h3 className="font-english text-[15px] font-semibold"
+              style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
+              {locus.question.en}
+            </h3>
           )}
-          {/* The badge names whoever actually spoke: a locus-level attribution
-              first, since a work of the Shaykh's answers can print someone
-              else's reply to him, then the work's own author. */}
-          {entry.isCopied && (
-            <span className="font-english text-[11px] px-2 py-0.5 rounded-full border"
-              style={{ borderColor: 'rgba(255,255,255,0.22)', color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
-              {locus.copiedFrom}
-            </span>
+          {locus.question?.ar && (
+            <p className="font-arabic text-[15.5px] leading-[1.95] mt-1.5 text-right" dir="rtl" translate="no"
+              style={{ color: 'var(--gold-light, #E8D4A0)', textAlign: 'right' }}>
+              {locus.question.ar}
+            </p>
           )}
-          {!entry.isNiasse && !entry.isCopied && (locus.attributedTo || work.author) && (
-            <span className="font-english text-[11px] px-2 py-0.5 rounded-full border"
-              style={{ borderColor: 'rgba(255,255,255,0.22)', color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
-              {locus.attributedTo ?? work.author}
-            </span>
+          {speaker && (
+            <p className="font-english text-[12px] mt-1" style={{ color: 'var(--body-sub, rgba(255,255,255,0.75))' }}>
+              {speaker}
+            </p>
           )}
         </div>
-
-        {locus.question?.ar && (
-          <p className="font-arabic text-[15.5px] leading-[1.95] mt-2 text-right" dir="rtl" translate="no"
-            style={{ color: 'var(--gold-light, #E8D4A0)', textAlign: 'right' }}>
-            {locus.question.ar}
-          </p>
-        )}
-        {link.stance && (
-          <p className="font-english text-[11.5px] mt-1"
-            style={{ color: 'var(--gold-light, #E8D4A0)' }}>
-            {STANCE_LABEL[link.stance]}
-            {link.stanceToward?.length ? ` — ${link.stanceToward.join(', ')}` : ''}
-          </p>
-        )}
-      </div>
       )}
 
-      {/* body — four states, and all four are shown rather than hidden */}
       <div className="px-4 py-4">
         {hasBody ? (
           <>
@@ -147,6 +99,7 @@ export default function VerseLocusCard({
             {en && (
               <p className="font-english text-[15px] leading-relaxed"
                 style={{ color: 'var(--body-faint, rgba(255,255,255,0.68))' }}>
+                {isSummary && <span className="text-[12px] uppercase tracking-[0.08em] mr-2" style={{ opacity: 0.6 }}>In brief</span>}
                 {en}
                 {excerpt?.truncated && <span style={{ opacity: 0.5 }}> …</span>}
               </p>
@@ -157,109 +110,29 @@ export default function VerseLocusCard({
                 Read in context →
               </Link>
             )}
-            {/* An unsigned draft translation reads exactly like a finished one
-                unless the page says which it is. */}
-            {locus.editorialNote && (
-              <p className="font-english text-[11.5px] italic mt-2 leading-relaxed"
-                style={{ color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
-                {locus.editorialNote}
-              </p>
-            )}
-            {/* Two separate facts, so two lines rather than one winning.
-                `note` says what the passage is doing with the āya — for a
-                cross-session locus, that the session runs elsewhere and quotes
-                this verse in passing. The derivation says who marked the
-                quotation. A card can need both, and the old `??` dropped the
-                second whenever the first existed.
-
-                Keyed by name, never by link.derivation:
-                DERIVATION_NOTE['session-range'] is written for a card that
-                supplies its own note, and reading the map by key would print
-                its placeholder. */}
-            {link.note && witness.id !== 'fi-riyad-site-transcription' && (
-              <p className="font-english text-[12px] italic mt-3 pt-3 border-t leading-relaxed"
-                style={{ borderColor: 'rgba(255,255,255,0.08)', color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
-                {link.note}
-              </p>
-            )}
           </>
         ) : (
-          <div className="rounded-lg border border-dashed px-3.5 py-3"
-            style={{ borderColor: 'rgba(255,255,255,0.16)' }}>
-            <p className="font-english text-[13px] leading-relaxed"
-              style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
-              <strong style={{ color: 'var(--body-text, rgba(255,255,255,0.8))' }}>
-                {inSession
-                  ? 'In this session, not yet located.'
-                  : witness.medium === 'audio'
-                    ? 'Not located.'
-                    : 'Not yet ingested.'}
-              </strong>{' '}
-              {link.note ??
-                'This locus is recorded because the attribution is attested, not because the text is available here.'}
-            </p>
+          <p className="font-english text-[13.5px] leading-relaxed"
+            style={{ color: 'var(--body-faint, rgba(255,255,255,0.6))' }}>
+            {inSession && link.note ? link.note : 'The passage has not yet been added here.'}{' '}
             {lessonHref && (
-              <Link href={lessonHref}
-                className="inline-block mt-3 font-english text-[12px] text-gold/70 hover:text-gold underline">
+              <Link href={lessonHref} className="text-gold/70 hover:text-gold underline">
                 Read Lesson {lessonId} →
               </Link>
             )}
-          </div>
+          </p>
         )}
       </div>
 
-      {/* citation */}
-      <p className="px-4 pb-3.5 -mt-1 font-english text-[11.5px] leading-relaxed"
-        style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-        —{' '}
-        <Link href={work.id === 'fi-riyad' ? (lessonHref ?? '/read') : `/works/${work.id}`} className="italic hover:text-gold"
-          style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
-          {work.titleTranslit ?? work.id}
+      <p className="px-4 pb-3.5 -mt-1 font-english text-[12px]"
+        style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
+        <Link href={titleHref} className="italic hover:text-gold" style={{ color: 'var(--body-faint, rgba(255,255,255,0.6))' }}>
+          {shortTitle(work)}
         </Link>
-        {entry.dateLabel && <>, {entry.dateLabel}</>}
-        {address && <>, {address}</>}
-        {locus.voice && (
-          <> · <span title={VOICE_NOTE[locus.voice]} className="cursor-help">{VOICE_LABEL[locus.voice]}</span></>
-        )}
-        {/* A member of a series cannot be found from its own title alone:
-            every maḥwar of the Mawsūʿa paginates from 1, so the address is
-            only an address once the series and the ordinal are attached. */}
-        {work.series && (
-          <> · {work.series}
-            {work.seriesIndex !== undefined && <>, maḥwar {work.seriesIndex}</>}
-            {work.seriesPart !== undefined && <>/{work.seriesPart}</>}
-          </>
-        )}
-        {witness.medium === 'audio' && <> · audio</>}
-        {work.compiler && <> · compiled by {shorten(work.compiler)}</>}
-        {witness.editor && witness.editor !== work.compiler && (
-          <> · {shorten(witness.editor)}</>
-        )}
+        {date && <>, {date}</>}
+        {where && <>, {where}</>}
+        {witness.medium === 'audio' && <> (audio)</>}
       </p>
     </article>
   );
-}
-
-function formatAddress(entry: VerseEntry): string {
-  const a = entry.locus.address;
-  if (a.lesson !== undefined) {
-    return `Lesson ${a.lesson}${a.paragraph !== undefined ? `, ¶${a.paragraph + 1}` : ''}`;
-  }
-  if (a.volume !== undefined) {
-    return `vol. ${a.volume}${a.page !== undefined ? `, p. ${a.page}` : ''}`;
-  }
-  if (a.page !== undefined) return `p. ${a.page}`;
-  if (a.cassette !== undefined) return `cassette ${a.cassette}`;
-  return '';
-}
-
-function languageName(code: string): string {
-  const names: Record<string, string> = {
-    ar: 'Arabic', wo: 'Wolof', fr: 'French', en: 'English', ha: 'Hausa', mixed: 'mixed',
-  };
-  return names[code] ?? code;
-}
-
-function shorten(s: string, max = 64): string {
-  return s.length <= max ? s : `${s.slice(0, max).replace(/[\s,;.]+$/, '')}…`;
 }

@@ -96,10 +96,10 @@ export async function generateMetadata({
   const meta = SURAH_LIST.find(s => s.id === surah);
   if (!meta) return {};
   return {
-    title: `Q ${surah}:${ayah} across the corpus — Shaykh Ibrāhīm Niasse`,
+    title: `Shaykh Ibrāhīm Niasse on Q ${surah}:${ayah}`,
     description:
-      `Every place in Shaykh Ibrāhīm Niasse's corpus where Q ${surah}:${ayah} ` +
-      `(Sūrat ${meta.nameEn}) is commented on, cited, or used.`,
+      `What Shaykh Ibrāhīm Niasse says about Q ${surah}:${ayah} (Sūrat ${meta.nameEn}), ` +
+      `from his tafsīr and his other works.`,
   };
 }
 
@@ -269,14 +269,6 @@ export default async function VersePage({
           )
         )}
 
-        {printed && (
-          <p className="font-english text-[12px] mt-4"
-            style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
-            In the printed edition: Sūrat {meta.nameEn} begins at{' '}
-            <strong style={{ color: 'var(--body-text, rgba(255,255,255,0.75))' }}>{printed}</strong>{' '}
-            <span style={{ opacity: 0.75 }}>({EDITION_LABEL})</span>
-          </p>
-        )}
 
       </div>
 
@@ -309,13 +301,12 @@ export default async function VersePage({
       {schoolGroups.length > 0 && (
         <section className="mt-14 pt-8 border-t" style={{ borderColor: 'rgba(201,168,76,0.25)' }}>
           <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
-            Read in the school
+            From his students
           </h2>
           <p className="font-english text-[13px] italic mb-5"
             style={{ color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
-            Not Shaykh Ibrāhīm&rsquo;s words. Students and successors reading the same verse — kept
-            below and apart, because a school&rsquo;s reading is evidence of transmission, not of
-            what the master said.
+            How scholars of the Fayḍa who learned from him read the same verse. These are their
+            words, not his.
           </p>
           {schoolGroups.map(g => g.entries.map(entry => (
             <VerseLocusCard key={`school-${entry.locus.id}-${entry.link.acts.join('+')}`} entry={entry} />

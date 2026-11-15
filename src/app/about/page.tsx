@@ -74,48 +74,65 @@ export default async function AboutPage() {
 
         <div>
           <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
-            The Project
+            What This Site Is
           </h2>
           <p className="leading-6">
-            <em>Manṭiq al-Fayḍa</em> collects the Qurʾānic exegesis of Shaykh Ibrāhīm Niasse (d. 1975)
-            wherever it occurs: in his tafsīr, and in his treatises, letters, licences, sermons, fatwās,
-            poems and the sayings his disciples kept. Each work is read for every verse he quotes,
-            comments on, applies or alludes to. Each use is recorded from its source with its page and
-            its Arabic, marked for what he does with the verse, and graded by whose words they are:
-            his own text, written on his behalf, or reported of him. The verse is the key: open an āya
-            and every use of it stands on one page. So far {indexedWorks} works beyond the tafsīr have
-            been read in this way, giving {otherUses} recorded uses of the Qurʾān; the{' '}
-            <Link href="/works" className="text-gold/70 hover:text-gold transition-colors">list of sources</Link>{' '}
-            shows which.
+            One place to find what Shaykh Ibrāhīm Niasse (1900–1975) says about the verses of the
+            Qurʾān. Open a verse and you find every passage where he explains it, quotes it or puts it
+            to work, from his tafsīr and from his other writings, each in his Arabic with an English
+            rendering and a page reference. The{' '}
+            <Link href="/topics" className="text-gold/70 hover:text-gold transition-colors">topics</Link>{' '}
+            gather what he says on one subject across many verses: the self, the heart, the spirit,
+            knowing God. So far {indexedWorks} of his works beyond the tafsīr have been read verse by
+            verse, giving {otherUses} passages; the{' '}
+            <Link href="/works" className="text-gold/70 hover:text-gold transition-colors">sources</Link>{' '}
+            page lists them. Below his words, a verse page can show how his students read the same
+            verse, marked as theirs.
           </p>
           <p className="leading-6 mt-3">
-            <em>Manṭiq</em> is the word of Q 27:16, <em>ʿullimnā manṭiq al-ṭayr</em>: speech. The title
-            names the way the Fayḍa speaks the Qurʾān.
-          </p>
-          <p className="leading-6 mt-3">
-            The collection serves a question about his exegesis: how he stands to the tradition he read.
-            His uses are set beside the commentaries he taught from — the <em>Jalālayn</em>, al-Ṣāwī&rsquo;s
-            gloss on it, Ismāʿīl Ḥaqqī&rsquo;s <em>Rūḥ al-bayān</em> — and beside those he copied into
-            his own works, as he copies al-Rāzī&rsquo;s <em>Mafātīḥ al-ghayb</em> into <em>Tabṣirat
-            al-anām</em>. Read together, they show where he takes a received reading as it stands, where he
-            qualifies it or departs from it, and where he carries it further.
-          </p>
-          <p className="leading-6 mt-3">
-            <em>Fī Riyāḍ al-Tafsīr</em>, his tafsīr of the whole Qurʾān in {facts.arabicLessons} sessions,
-            is the largest work in the collection and the only one the site carries whole: the Arabic of
-            every session
+            <em>Fī Riyāḍ al-Tafsīr</em>, his commentary on the whole Qurʾān in {facts.arabicLessons}{' '}
+            sessions, is the largest of these works and the only one the site carries whole, in Arabic
             {facts.translatedCount > 0 && (
-              <>, with an English translation of Lesson{facts.translatedCount > 1 ? 's' : ''}{' '}
-              {facts.translatedFirst}{facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''} in
-              draft</>
+              <>, with Lesson{facts.translatedCount > 1 ? 's' : ''} {facts.translatedFirst}
+              {facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''} in English</>
             )}.
           </p>
-          <p className="leading-6 mt-3">
-            What the research tools are, and what each is for, is listed on the{' '}
-            <Link href="/research" className="text-gold/70 hover:text-gold transition-colors">Research</Link>{' '}
-            page rather than duplicated here. A verse concordance and a scholar/source index are being held
-            back while a companion article is under preparation for <em>Islamic Africa</em> (Brill).
+        </div>
+
+        <div>
+          <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
+            Why the Qurʾān
+          </h2>
+          <p className="leading-6">
+            In West African Muslim societies, explaining the Qurʾān was the summit of learning, and it
+            was public Qurʾān explanation that launched the community of the Fayḍa (Wright 2024). In
+            Kano, his disciples remade the study, teaching and public performance of tafsīr in the
+            1950s and 1960s (Brigaglia 2009). Shaykh Ibrāhīm, <em>ṣāḥib al-fayḍa</em>, taught the
+            whole Qurʾān in public in the annual Ramaḍān sessions, and the last full cycle, recorded in
+            1964, is the text of <em>Fī Riyāḍ al-Tafsīr</em> (Ogunnaike 2018).
           </p>
+          <p className="leading-6 mt-3">
+            The Fayḍa is a flood of the knowledge of God, <em>maʿrifa</em> (Brigaglia 2000–2001;
+            Seesemann 2011). His community passed that knowledge on through the disciplines it already
+            taught, the Qurʾān first among them, so that Sufi training revived Islamic learning rather
+            than displacing it (Wright 2015; de Diego González 2020). The Qurʾān stays at the centre
+            of the community&rsquo;s life after him, in the teaching of men and women alike (Hill 2018,
+            2019). His tafsīr is where the Fayḍa&rsquo;s teaching on God, the human being and the path
+            is worked out verse by verse, and the history of the Fayḍa can be told from it (Kunateh
+            2026; Kunateh, dissertation in progress).
+          </p>
+          <ul className="mt-4 space-y-1.5 text-[12.5px] leading-5" style={{ color: 'rgba(255,255,255,0.55)' }}>
+            <li>Brigaglia, Andrea. &ldquo;The Fayda Tijaniyya of Ibrāhīm Nyass: Genesis and Implications of a Sufi Doctrine.&rdquo; <em>Islam et sociétés au sud du Sahara</em> 14–15 (2000–2001): 41–56.</li>
+            <li>Brigaglia, Andrea. &ldquo;Learning, Gnosis and Exegesis: Public Tafsīr and Sufi Revival in the City of Kano (Northern Nigeria), 1950–1970.&rdquo; <em>Die Welt des Islams</em> 49, no. 3/4 (2009): 334–66.</li>
+            <li>de Diego González, Antonio. <em>Ley y gnosis: Historia intelectual de la ṭarīqa Tijāniyya</em>. Granada: Editorial Universidad de Granada, 2020.</li>
+            <li>Hill, Joseph. <em>Wrapping Authority: Women Islamic Leaders in a Sufi Movement in Dakar, Senegal</em>. Toronto: University of Toronto Press, 2018.</li>
+            <li>Hill, Joseph. &ldquo;Women Who Are Men: Shaykha Maryam Niasse and the Qurʾān in Dakar.&rdquo; In <em>Approaches to the Qurʾān in Sub-Saharan Africa</em>. Oxford: Oxford University Press, 2019.</li>
+            <li>Kunateh, Amadu. &ldquo;Identity without Being: Personhood in the Tafsīr of Shaykh Ibrāhīm Niasse.&rdquo; <em>Sophia</em> 65, no. 3 (2026): 489–510.</li>
+            <li>Ogunnaike, Oludamini. &ldquo;In the Gardens with Ibrahim: An Evaluation of <em>Fī riyāḍ al-tafsīr</em> by Shaykh Ibrahim Niasse, a Contemporary, Traditional Tafsīr.&rdquo; <em>Journal of Qur&rsquo;anic Studies</em> 20 (2018). doi:10.3366/jqs.2018.0319.</li>
+            <li>Seesemann, Rüdiger. <em>The Divine Flood: Ibrāhīm Niasse and the Roots of a Twentieth-Century Sufi Revival</em>. New York: Oxford University Press, 2011.</li>
+            <li>Wright, Zachary Valentine. <em>Living Knowledge in West African Islam: The Sufi Community of Ibrāhīm Niasse</em>. Leiden: Brill, 2015.</li>
+            <li>Wright, Zachary Valentine. &ldquo;The Qurʾān and Knowledge of God in West Africa: The Sufi Tafsīr of Shaykh Ibrāhīm Niasse.&rdquo; <em>Islamic Africa</em> 15, no. 1 (2024): 69–97.</li>
+          </ul>
         </div>
 
         <div>

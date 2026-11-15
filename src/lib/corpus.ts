@@ -879,33 +879,11 @@ function fmt(v: [number, number]): string {
  * python3 scripts/build-lesson-ranges.py, then node scripts/build-verse-citations.js.
  */
 function coverageNote(lessonId: number, r: LessonRange): string {
-  const bounds = `${fmt(r.start)}–${fmt(r.end)}`;
-  const density =
-    r.span && r.attested !== undefined
-      // "as many as", not a flat count. `attested` in lessonRanges.json counts
-      // every match tier including fuzzy and every candidate of an ambiguous
-      // clause, while build-verse-citations.js prints only the substring and
-      // pair tiers -- so attested (3,146) exceeds the verses actually indexed
-      // (1,625). Stated flatly it would overclaim.
-      // The generosity runs the safe way for the sentence that follows: a verse
-      // absent even from the loose set really is absent, so declining to say he
-      // commented on it is the conservative reading, not a denial.
-      // Scoped to THIS session, and it has to be. The card now stands beside
-      // located loci from elsewhere in the corpus, so "quoted in the
-      // transcription ... this one is not among them" read as a denial that he
-      // ever quotes the āya, directly under a card showing him quoting it. He
-      // quotes Q 2:1 in Lesson 56; what is unestablished is whether he pauses
-      // on it in Lesson 1, where the sequence reaches it.
-      ? ` Of the ${r.span} āyāt in that span, as many as ${r.attested} are quoted where the ` +
-        'session reaches them; this one is not, so whether he takes it up here is not established.'
-      : '';
-  const provenance = r.exact
-    ? `Lesson ${lessonId} runs from ${bounds}.`
-    : `Lesson ${lessonId} is titled by sūra rather than by āya; its bounds (${bounds}) are ` +
-      'inferred from where the neighbouring sessions begin, so they are soft at the edges.';
-  return (
-    `${provenance}${density} The page given is where the lesson opens — start there and read on.`
-  );
+  // Plain words for the reader. The counting that used to fill this note
+  // (how many āyāt of the span are quoted, how soft the bounds are) lives in
+  // lessonRanges.json and the comments above; a student needs only where to read.
+  return `This verse falls in Lesson ${lessonId} (${fmt(r.start)} to ${fmt(r.end)}). ` +
+    'He does not always stop on every verse; read the lesson from where it opens.';
 }
 
 /** Split Shaykh Ibrahim's own loci from the school's. */
