@@ -44,7 +44,7 @@ export default function StudentsPage() {
                 <em>{work.titleTranslit ?? work.id}</em>
               </span>
               {work.titleAr && (
-                <span className="font-arabic text-[14px] ml-2" dir="rtl" translate="no"
+                <span className="block font-arabic text-[14px] mt-0.5" dir="rtl" translate="no"
                   style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>{work.titleAr}</span>
               )}
               <span className="block font-english text-[12px] mt-1" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
