@@ -109,6 +109,22 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
     hasEnglish && (englishText || '').trim().length > 200 ? 'bilingual' : 'arabic'
   );
   const [highlightedPara, setHighlightedPara] = useState<number>(-1);
+  const goToPara = (para: number) => {
+    if (view === 'english') setView('bilingual');
+    setHighlightedPara(para);
+    setTimeout(() => {
+      document.getElementById(`ar-para-${para}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, view === 'english' ? 120 : 0);
+  };
+  // On a phone the bar above scrolls away with the text. Once the reader is
+  // a few screens in, a small pill takes its place at the foot of the screen.
+  const [deep, setDeep] = useState(false);
+  useEffect(() => {
+    const on = () => setDeep(window.scrollY > 1600);
+    on();
+    window.addEventListener('scroll', on, { passive: true });
+    return () => window.removeEventListener('scroll', on);
+  }, []);
 
   const fnCursor = { i: 0 };
 
@@ -254,14 +270,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
               Go to verse
               <select
                 defaultValue=""
-                onChange={e => {
-                  const para = Number(e.target.value);
-                  if (view === 'english') setView('bilingual');
-                  setHighlightedPara(para);
-                  setTimeout(() => {
-                    document.getElementById(`ar-para-${para}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                  }, view === 'english' ? 120 : 0);
-                }}
+                onChange={e => goToPara(Number(e.target.value))}
                 className="font-english text-xs rounded-md border px-1.5 py-1"
                 style={{ borderColor: 'rgba(138,109,31,0.35)', background: 'rgba(255,255,255,0.6)', color: '#0D1F0A' }}>
                 <option value="" disabled>Q …</option>
@@ -269,6 +278,30 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
               </select>
             </label>
           )}
+        </div>
+      )}
+
+      {deep && (
+        <div className="md:hidden fixed right-3 z-40 flex items-center gap-1 rounded-full border shadow-md pl-3 pr-1 py-1"
+          dir="ltr"
+          style={{ bottom: 'calc(66px + env(safe-area-inset-bottom, 0px))', background: 'rgba(245,237,214,0.97)', borderColor: 'rgba(138,109,31,0.35)' }}>
+          {jumpVerses.length > 1 && (
+            <label className="flex items-center font-english text-xs" style={{ color: '#0D1F0A' }}>
+              <span className="sr-only">Go to verse</span>
+              <select
+                value=""
+                onChange={e => goToPara(Number(e.target.value))}
+                className="font-english text-xs bg-transparent py-1.5 pr-1"
+                style={{ color: '#0D1F0A' }}>
+                <option value="" disabled>Go to verse</option>
+                {jumpVerses.map(v => <option key={v.verse} value={v.paraIndex}>Q {v.verse}</option>)}
+              </select>
+            </label>
+          )}
+          <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="font-english text-sm w-9 h-9 rounded-full flex items-center justify-center"
+            style={{ color: '#8A6D1F', background: 'rgba(201,168,76,0.15)' }}
+            aria-label="Back to top">↑</button>
         </div>
       )}
 

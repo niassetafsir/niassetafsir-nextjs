@@ -18,6 +18,7 @@ import {
 import VerseLocusCard, { type LocusExcerpt } from '@/components/VerseLocusCard';
 import { fatwaVerseExcerpt } from '@/lib/fatwaVerseExcerpts';
 import VersePicker from '@/components/VersePicker';
+import Fold from '@/components/Fold';
 import SourceComparison from '@/components/SourceComparison';
 import { comparisonsForVerse } from '@/lib/sourceComparison';
 
@@ -291,11 +292,16 @@ export default async function VersePage({
           the coverage card in VerseLocusCard, where a reader will see it. */}
 
       {/* ── the acts ──────────────────────────────────────── */}
-      {groups.map(group => (
-        <section key={group.act} className="mb-10">
-          <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-4">
-            {ACT_HEADING[group.act]}
-          </h2>
+      {/* Each kind of passage folds; the first stands open and opening
+          another shuts it, so a heavily treated verse stays a short page. */}
+      {groups.map((group, gi) => (
+        <section key={group.act} className="mb-3 border-b" style={{ borderColor: 'rgba(201,168,76,0.18)' }}>
+          <Fold defaultOpen={gi === 0} group="verse-section" summary={<>
+            <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/70">
+              {ACT_HEADING[group.act]}
+            </h2>
+            <span className="ml-auto font-english text-[11px] text-gold/50">{group.entries.length}</span>
+          </>}>
           {group.entries.map((entry, i) => {
             // A run of passages from the same lesson or page carries one
             // citation and one link, printed under its last passage.
@@ -316,16 +322,22 @@ export default async function VersePage({
               />
             );
           })}
+          </Fold>
         </section>
       ))}
 
       {comparisons.length > 0 && <SourceComparison entries={comparisons} />}
 
       {schoolGroups.length > 0 && (
-        <section className="mt-14 pt-8 border-t" style={{ borderColor: 'rgba(201,168,76,0.25)' }}>
-          <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/60 mb-1.5">
-            Commentaries of his students
-          </h2>
+        <section className="mt-8 border-b" style={{ borderColor: 'rgba(201,168,76,0.18)' }}>
+          <Fold group="verse-section" summary={<>
+            <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/70">
+              Commentaries of his students
+            </h2>
+            <span className="ml-auto font-english text-[11px] text-gold/50">
+              {schoolGroups.reduce((n, g) => n + g.entries.length, 0)}
+            </span>
+          </>}>
           <p className="font-english text-[13px] italic mb-5"
             style={{ color: 'var(--body-sub, rgba(255,255,255,0.78))' }}>
             How scholars of the Fayḍa who learned from him read the same verse. These are their
@@ -334,6 +346,7 @@ export default async function VersePage({
           {schoolGroups.map(g => g.entries.map(entry => (
             <VerseLocusCard key={`school-${entry.locus.id}-${entry.link.acts.join('+')}`} entry={entry} />
           )))}
+          </Fold>
         </section>
       )}
 
