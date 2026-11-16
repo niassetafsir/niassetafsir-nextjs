@@ -75,7 +75,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
         .lesson-print-page .poem-block { font-size-adjust: none; text-align: center; font-family: 'Amiri', serif; direction: rtl; font-size: 13pt; color: #7B5C14; line-height: 2.0; margin-bottom: 0.6cm; }
         .lesson-print-page .body-ar { font-size-adjust: none; font-family: 'Amiri', serif; direction: rtl; text-align: justify; font-size: 13pt; line-height: 2.1; margin-top: 0.3cm; }
         .lesson-print-page .body-ar p { margin-bottom: 0.5cm; }
-        .lesson-print-page .body-en { font-size: 12pt; line-height: 1.9; margin-top: 0.8cm; padding-top: 0.6cm; border-top: 1px solid #ddd; }
+        .lesson-print-page .body-en { font-family: 'Fayda Text', 'Amiri', Georgia, serif; font-size: 12pt; line-height: 1.9; margin-top: 0.8cm; padding-top: 0.6cm; border-top: 1px solid #ddd; }
         .lesson-print-page .body-en p { margin-bottom: 0.5cm; }
         .lesson-print-page .section-label { font-size: 9pt; text-transform: uppercase; letter-spacing: 0.05em; color: #7B5C14; margin-bottom: 0.2cm; }
         .lesson-print-page .fn-link { color: #7B5C14; text-decoration: none; font-size: 8pt; vertical-align: super; }

@@ -14,6 +14,30 @@
    Do NOT add AmiriQuran to these stacks. It carries 266 glyphs and no Latin at
    all; one appearance in a body-text stack breaks every transliteration. */
 @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* English: Fayda Text, a Latin subset of Charis SIL 6.200 (SIL Open Font
+   License; renamed as the licence requires of a modified version, see
+   public/type/README.txt). About 57 KB a style, served from the site. */
+@font-face {
+  font-family: 'Fayda Text';
+  src: url('/type/FaydaText-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Fayda Text';
+  src: url('/type/FaydaText-Italic.woff2') format('woff2');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'Fayda Text';
+  src: url('/type/FaydaText-Bold.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Fayda Text';
+  src: url('/type/FaydaText-BoldItalic.woff2') format('woff2');
+  font-weight: 700; font-style: italic; font-display: swap;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -25,7 +49,7 @@
      was defined anywhere, so both declarations were invalid and silently
      inherited instead. It exists now. */
   --font-body: 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', serif;
-  --font-english: 'Amiri', system-ui, -apple-system, sans-serif;
+  --font-english: 'Fayda Text', 'Amiri', Georgia, serif;
 
   --bg: #0D1F0A;
   --nav-read: #C9A84C;

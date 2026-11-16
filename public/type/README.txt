@@ -1,0 +1,1 @@
+Fayda Text is a subset of Charis SIL 6.200 (SIL International), renamed as the SIL Open Font License requires of modified versions. Licensed under the SIL Open Font License 1.1; see FaydaText-OFL.txt.

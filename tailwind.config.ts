@@ -20,7 +20,7 @@ const config: Config = {
       // use it and several carry running Arabic rather than UI chrome.
       fontFamily: {
         arabic: ["Amiri", "Noto Naskh Arabic", "Traditional Arabic", "serif"],
-        english: ["Amiri", "system-ui", "-apple-system", "sans-serif"],
+        english: ["Fayda Text", "Amiri", "Georgia", "serif"],
         "arabic-sans": ["Amiri", "Noto Naskh Arabic", "Traditional Arabic", "serif"],
       },
     },
