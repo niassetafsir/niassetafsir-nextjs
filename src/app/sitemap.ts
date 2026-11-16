@@ -14,7 +14,7 @@ const BASE_URL = 'https://niassetafsir.org';
 // already indexed below -- an indexed redirect just splits the signal. For the
 // same reason /about/shaykh, /about/translator, /about/arabic-edition,
 // /about/companion-texts, /editorial-note and /glossary-map are absent: each is
-// now a redirect into /about, /about/tafsir, /translators-note or /glossary.
+// now a redirect into /about, /translators-note or /glossary.
 const STATIC_ROUTES = [
   '',
   '/read',

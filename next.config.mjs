@@ -39,11 +39,11 @@ const nextConfig = {
       // /about absorbed the edition description and the team block.
       { source: '/about/arabic-edition', destination: '/about', permanent: true },
       { source: '/about/translator', destination: '/about', permanent: true },
-      // /about/tafsir absorbed the essay on Niasse and the tafsīr tradition
-      // together with the companion texts that were arguing the same Wright
-      // thesis on a second page.
-      { source: '/about/shaykh', destination: '/about/tafsir', permanent: true },
-      { source: '/about/companion-texts', destination: '/about/tafsir', permanent: true },
+      // The essay that stood at /about/tafsir is off the site; About carries
+      // what a reader needs about the tafsīr.
+      { source: '/about/tafsir', destination: '/about', permanent: true },
+      { source: '/about/shaykh', destination: '/about', permanent: true },
+      { source: '/about/companion-texts', destination: '/about', permanent: true },
       // /translators-note absorbed the editorial note; the two cross-linked
       // each other for the same three translation choices.
       { source: '/editorial-note', destination: '/translators-note', permanent: true },
