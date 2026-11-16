@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Fold from '@/components/Fold';
 import { notFound } from 'next/navigation';
 import { TOPICS, getTopic } from '@/lib/topics';
 
@@ -42,18 +43,16 @@ export default function TopicPage({ params }: { params: { slug: string } }) {
           <li key={i} className="pt-4 border-t" style={{ borderColor: 'rgba(255,255,255,0.10)' }}>
             {/* Each passage folds to its title, so the page reads as a list of
                 what he says before it reads as the passages themselves. */}
-            <details open={i === 0} className="group">
-            <summary className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2 cursor-pointer list-none">
+            <Fold defaultOpen={i === 0} group="passage" summary={<span className="block min-w-0">
               <h3 className="font-english text-[15.5px] font-semibold" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
                 <span className="text-gold">{i + 1}.</span> {p.title}
               </h3>
-              <span className="font-english text-[12px]" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
+              <span className="block font-english text-[12px] mt-0.5" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
                 Vol. {p.volume}, p. {p.page} ·{' '}
                 <Link href={`/lesson/${p.lesson}`} className="hover:text-gold underline-offset-2 hover:underline">Lesson {p.lesson}</Link> ·{' '}
                 <Link href={`/verse/${p.verse[0]}/${p.verse[1]}`} className="hover:text-gold underline-offset-2 hover:underline">Q {p.verse[0]}:{p.verse[1]}</Link>
               </span>
-              <span className="ml-auto font-english text-[13px] text-gold/70 transition-transform group-open:rotate-90">›</span>
-            </summary>
+            </span>}>
             <p className="font-arabic text-[19px] leading-[2] text-right mb-2" dir="rtl" lang="ar" translate="no"
               style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
               {p.ar}
@@ -62,7 +61,7 @@ export default function TopicPage({ params }: { params: { slug: string } }) {
             {p.note && (
               <p className="font-english text-[13px] italic leading-relaxed mt-2" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>{p.note}</p>
             )}
-            </details>
+                        </Fold>
           </li>
         ))}
       </ol>

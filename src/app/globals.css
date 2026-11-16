@@ -13,7 +13,32 @@
 
    Do NOT add AmiriQuran to these stacks. It carries 266 glyphs and no Latin at
    all; one appearance in a body-text stack breaks every transliteration. */
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+/* Arabic: Scheherazade New 4.400 (SIL, unmodified, SIL Open Font License),
+   served from the site rather than Google: one less outside request, and
+   the same face everywhere. Amiri stays at the back of the stacks only for
+   a reader who happens to have it installed. */
+@font-face {
+  font-family: 'Scheherazade New';
+  src: url('/type/ScheherazadeNew-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+  /* Scheherazade sits small beside Amiri at the same size; this brings
+     every Arabic line up to the size the layout was drawn for. */
+  size-adjust: 118%;
+}
+/* The ﷺ in the English: Amiri's compact glyph, not Scheherazade's tall
+   ornament, in a 4 KB font that holds nothing else. */
+@font-face {
+  font-family: 'Fayda Mark';
+  src: url('/type/FaydaMark-Regular.woff2') format('woff2');
+  unicode-range: U+FDFA, U+FDFB, U+FDFD;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Scheherazade New';
+  src: url('/type/ScheherazadeNew-Bold.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+  size-adjust: 118%;
+}
 
 /* English: Fayda Text, a Latin subset of Charis SIL 6.200 (SIL Open Font
    License; renamed as the licence requires of a modified version, see
@@ -48,8 +73,8 @@
      `--font-english` was referenced by .fn-superscript and .verse-ref before it
      was defined anywhere, so both declarations were invalid and silently
      inherited instead. It exists now. */
-  --font-body: 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', serif;
-  --font-english: 'Fayda Text', 'Amiri', Georgia, serif;
+  --font-body: 'Fayda Text', 'Scheherazade New', 'Amiri', 'Noto Naskh Arabic', serif;
+  --font-english: 'Fayda Text', 'Fayda Mark', 'Scheherazade New', Georgia, serif;
 
   --bg: #0D1F0A;
   --nav-read: #C9A84C;
@@ -1373,3 +1398,22 @@ input.site-search-input,
 
 /* Collapsible sūra lists: the arrow is drawn in the summary itself. */
 summary::-webkit-details-marker { display: none; }
+
+/* Arabic reading text, set as Usul sets it: ragged at the line end rather
+   than stretched to fill it, and open leading. Justified Arabic left uneven
+   gaps between words on narrow screens. */
+.font-arabic.text-justify, .reading-ar, [dir="rtl"].text-justify, .font-arabic-sans.text-justify {
+  text-align: start !important;
+}
+.reading-ar { line-height: 2.1; }
+
+/* An open fold keeps its heading pinned under the site bar, so it can be
+   closed without scrolling back up (src/components/Fold.tsx). */
+.fold[open] > .fold-summary {
+  position: sticky;
+  top: var(--fold-top, 98px);
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid rgba(201,168,76,0.25);
+}
+@media (max-width: 767px) { :root { --fold-top: 66px; } }

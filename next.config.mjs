@@ -2,6 +2,11 @@
 const nextConfig = {
   async redirects() {
     return [
+      // "Beyond Fī Riyāḍ al-Tafsīr" moved from /works to /beyond, and a
+      // student's commentary from /works/[id] to /students/[id] (Nov 2026).
+      { source: '/works', destination: '/beyond', permanent: true },
+      { source: '/works/qanabil-yadawiyya', destination: '/students/qanabil-yadawiyya', permanent: true },
+      { source: '/works/:id', destination: '/beyond/:id', permanent: true },
       // Manzil pages (the old 7-part devotional/recitation-cycle browsing
       // scheme) were retired in favour of volume pages that mirror the
       // printed Arabic edition's own 10-volume structure -- the way

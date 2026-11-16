@@ -2,10 +2,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import SuraJump from '@/components/SuraJump';
+import Fold from '@/components/Fold';
 import { getWork, workEntries, workSummaries, VOICE_LABEL } from '@/lib/corpus';
 
+// His own works live here; a student's commentary has the same page at
+// /students/[id] (src/app/students/[id]/page.tsx renders this component).
 export function generateStaticParams() {
-  return workSummaries().filter(r => r.uses > 0 && r.work.id !== 'fi-riyad').map(r => ({ id: r.work.id }));
+  return workSummaries()
+    .filter(r => r.uses > 0 && r.work.id !== 'fi-riyad' && r.work.relation !== 'student')
+    .map(r => ({ id: r.work.id }));
 }
 
 export function generateMetadata({ params }: { params: { id: string } }) {
@@ -22,9 +27,10 @@ const ref = (s: number, a: number, b?: number) => `${s}:${a}${b && b !== a ? `�
 // One work's verse index, in Qurʾānic order: the dossier of the work, on the
 // site. Each row links to the verse page, where it stands beside every other
 // work's use of the same āya.
-export default function WorkPage({ params }: { params: { id: string } }) {
+export default function WorkPage({ params, student = false }: { params: { id: string }; student?: boolean }) {
   const work = getWork(params.id);
   if (!work || work.id === 'fi-riyad') notFound();
+  if ((work.relation === 'student') !== student) notFound();
   const all = workEntries(work.id);
   if (all.length === 0) notFound();
   const own = all.filter(e => !e.isCopied);
@@ -70,7 +76,7 @@ export default function WorkPage({ params }: { params: { id: string } }) {
 
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
-      <p className="font-english text-[12px] mb-3"><Link href={work.relation === 'student' ? '/students' : '/works'} className="text-gold/70 hover:text-gold">{work.relation === 'student' ? '← Commentaries of his students' : '← Beyond Fī Riyāḍ al-Tafsīr'}</Link></p>
+      <p className="font-english text-[12px] mb-3"><Link href={work.relation === 'student' ? '/students' : '/beyond'} className="text-gold/70 hover:text-gold">{work.relation === 'student' ? '← Commentaries of his students' : '← Beyond Fī Riyāḍ al-Tafsīr'}</Link></p>
       {work.titleAr && <p className="font-arabic text-gold text-lg mb-0.5" dir="rtl" translate="no">{work.titleAr}</p>}
       <h1 className="font-english font-semibold text-base mb-1" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
         <em>{work.titleTranslit}</em>
@@ -105,18 +111,14 @@ export default function WorkPage({ params }: { params: { id: string } }) {
             {!openAll && <SuraJump suras={list.map(({ meta, g }) => ({ id: meta.id, name: meta.nameEn, count: g.length }))} />}
             <div className="mb-12 divide-y" style={{ borderColor: 'rgba(201,168,76,0.18)' }}>
               {list.map(({ meta, g }) => (
-                <details key={meta.id} id={`sura-${meta.id}`} open={openAll} className="group scroll-mt-24">
-                  <summary className="flex items-baseline gap-2 py-2.5 cursor-pointer list-none font-english text-[14px]"
-                    style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
-                    <span className="text-gold/70 tabular-nums w-7 shrink-0">{meta.id}</span>
-                    <span className="font-semibold">Sūrat {meta.nameEn}</span>
-                    <span className="ml-auto text-[12px] tabular-nums" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-                      {g.length}
-                      <span className="inline-block ml-2 transition-transform group-open:rotate-90">›</span>
-                    </span>
-                  </summary>
+                <Fold key={meta.id} id={`sura-${meta.id}`} defaultOpen={openAll} group={openAll ? undefined : 'sura'}
+                  summary={<>
+                    <span className="font-english text-[14px] text-gold/70 tabular-nums w-7 shrink-0">{meta.id}</span>
+                    <span className="font-english text-[14px] font-semibold" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>Sūrat {meta.nameEn}</span>
+                    <span className="ml-auto font-english text-[12px] tabular-nums whitespace-nowrap" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>{g.length} {g.length === 1 ? 'verse' : 'verses'}</span>
+                  </>}>
                   <ul>{g.map(r => <Row key={`${r.e.locus.id}-${r.refs[0]}`} e={r.e} refs={r.refs} />)}</ul>
-                </details>
+                </Fold>
               ))}
             </div>
           </>

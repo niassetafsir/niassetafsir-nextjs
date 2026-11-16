@@ -80,7 +80,7 @@ export default function LessonReaderLayout({
           gap: 0.4rem;
         }
         .lesson-reader-meta-label {
-          font-family: 'IBM Plex Sans Arabic', 'Amiri', sans-serif;
+          font-family: 'Scheherazade New', 'Amiri', serif;
           font-size: 12px;
           color: rgba(13, 31, 10, 0.42);
           font-weight: 600;
@@ -91,7 +91,7 @@ export default function LessonReaderLayout({
           color: rgba(13, 31, 10, 0.75);
         }
         .lesson-reader-meta-value.arabic {
-          font-family: 'Amiri', 'IBM Plex Sans Arabic', serif;
+          font-family: 'Scheherazade New', 'Amiri', serif;
           font-size: 15px;
           direction: rtl;
           color: #8a6d1f;

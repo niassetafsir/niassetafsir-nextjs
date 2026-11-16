@@ -62,13 +62,13 @@ export const NAV: NavSection[] = [
   },
   {
     id: 'works',
-    href: '/works',
+    href: '/beyond',
     label: 'Beyond Fī Riyāḍ',
     labelShort: 'Beyond',
     labelAr: 'تفسيره في سائر آثاره',
     hint: 'His tafsīr in other sessions, letters, sermons, poems and journeys',
     icon: '✦',
-    match: ['/works'],
+    match: ['/beyond'],
     children: [],
   },
   {
@@ -158,7 +158,7 @@ export interface MobileTab {
 
 export const MOBILE_BAR: MobileTab[] = [
   { id: 'read',   href: '/read',   label: 'Tafsīr', icon: '◎', match: ['/read', '/lesson', '/volume', '/surah', '/audio'] },
-  { id: 'works',  href: '/works',  label: 'Beyond', icon: '✦', match: ['/works'] },
+  { id: 'works',  href: '/beyond',  label: 'Beyond', icon: '✦', match: ['/beyond'] },
   { id: 'search', href: '/search', label: 'Search', icon: '⌕', match: ['/search', '/verse'] },
   { id: 'topics', href: '/topics', label: 'Topics', icon: '⊞', match: ['/topics'] },
   { id: 'more',                    label: 'More',   icon: '⋯', match: ['/students', '/about', '/translators-note', '/get-involved'] },

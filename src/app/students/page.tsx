@@ -37,7 +37,7 @@ export default function StudentsPage() {
       <ul className="space-y-3">
         {rows.map(({ work, verses }) => (
           <li key={work.id}>
-            <Link href={`/works/${work.id}`}
+            <Link href={`/students/${work.id}`}
               className="block rounded-lg border px-4 py-3 hover:border-gold/50 transition-colors"
               style={{ borderColor: 'rgba(201,168,76,0.22)' }}>
               <span className="font-english text-[15px] font-semibold" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>

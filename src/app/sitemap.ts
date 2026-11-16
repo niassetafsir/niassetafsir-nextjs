@@ -27,7 +27,7 @@ const STATIC_ROUTES = [
   // index and the terms Niasse defines are exactly what a researcher searches
   // for, and /surah/[id] is the whole commentary re-cut by sura.
   '/verse',
-  '/works',
+  '/beyond',
   '/students',
   '/topics',
   '/topics/nafs',
@@ -93,5 +93,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ...surahEntries, ...verseEntries,
           ...workSummaries()
             .filter(r => r.uses > 0 && r.work.id !== 'fi-riyad')
-            .map(r => ({ url: `${BASE_URL}/works/${r.work.id}`, changeFrequency: 'monthly' as const, priority: 0.6 }))];
+            .map(r => ({ url: `${BASE_URL}/${r.work.relation === 'student' ? 'students' : 'beyond'}/${r.work.id}`, changeFrequency: 'monthly' as const, priority: 0.6 }))];
 }

@@ -137,7 +137,7 @@ export default function AnnotationSidebar({ lessonId, lessonTitle, verseRange, r
                     style={{fontSize:'11px', color:'rgba(255,255,255,0.8)',
                       lineHeight:1.5, marginBottom: ann.note ? '6px' : '8px',
                       direction: ann.language === 'ar' ? 'rtl' : 'ltr',
-                      fontFamily: ann.language === 'ar' ? 'Amiri, serif' : 'inherit'}}>
+                      fontFamily: ann.language === 'ar' ? "'Scheherazade New', Amiri, serif" : 'inherit'}}>
                     {ann.selectedText.slice(0, 120)}{ann.selectedText.length > 120 ? '…' : ''}
                   </p>
                   {/* Note */}

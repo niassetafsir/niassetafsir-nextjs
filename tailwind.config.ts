@@ -19,9 +19,9 @@ const config: Config = {
       // per glyph. "arabic-sans" is kept as an alias because twelve call sites
       // use it and several carry running Arabic rather than UI chrome.
       fontFamily: {
-        arabic: ["Amiri", "Noto Naskh Arabic", "Traditional Arabic", "serif"],
-        english: ["Fayda Text", "Amiri", "Georgia", "serif"],
-        "arabic-sans": ["Amiri", "Noto Naskh Arabic", "Traditional Arabic", "serif"],
+        arabic: ["Scheherazade New", "Fayda Text", "Amiri", "Noto Naskh Arabic", "serif"],
+        english: ["Fayda Text", "Fayda Mark", "Scheherazade New", "Georgia", "serif"],
+        "arabic-sans": ["Scheherazade New", "Fayda Text", "Amiri", "Noto Naskh Arabic", "serif"],
       },
     },
   },

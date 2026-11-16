@@ -54,7 +54,7 @@ export default async function AboutPage() {
             The tafsīr of Shaykh Ibrāhīm Niasse (d. 1975) in one place, by three paths.{' '}
             <Link href="/read" className="text-gold/70 hover:text-gold transition-colors"><em>Fī Riyāḍ al-Tafsīr</em></Link>{' '}
             holds the Arabic sessions of 1964 in which he explained the whole Qurʾān.{' '}
-            <Link href="/works" className="text-gold/70 hover:text-gold transition-colors">Beyond Fī Riyāḍ al-Tafsīr</Link>{' '}
+            <Link href="/beyond" className="text-gold/70 hover:text-gold transition-colors">Beyond Fī Riyāḍ al-Tafsīr</Link>{' '}
             gathers his explanation of verses in his other sessions, letters, sermons, treatises, poems
             and journeys: in Arabic, and in Wolof as those recordings are found.{' '}
             <Link href="/students" className="text-gold/70 hover:text-gold transition-colors">Commentaries of his students</Link>{' '}

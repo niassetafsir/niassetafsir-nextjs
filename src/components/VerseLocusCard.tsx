@@ -66,7 +66,7 @@ export default function VerseLocusCard({
   const date = work.composed?.hijri
     ? [work.composed.hijri, work.composed.gregorian].filter(Boolean).join('/')
     : null;
-  const titleHref = work.id === 'fi-riyad' ? (lessonHref ?? '/read') : `/works/${work.id}`;
+  const titleHref = work.id === 'fi-riyad' ? (lessonHref ?? '/read') : (work.relation === 'student' ? `/students/${work.id}` : `/beyond/${work.id}`);
 
   return (
     <article className="rounded-xl border mb-3.5 overflow-hidden" dir="ltr"

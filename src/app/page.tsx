@@ -61,7 +61,7 @@ export default async function HomePage() {
           {[
             { href: '/read', ar: 'فِي رِيَاضِ التَّفْسِير', en: 'Fī Riyāḍ al-Tafsīr',
               body: 'His Arabic sessions of 1964 on the whole Qurʾān, read lesson by lesson.' },
-            { href: '/works', ar: 'تَفْسِيرُهُ فِي سَائِرِ آثَارِه', en: 'Beyond Fī Riyāḍ al-Tafsīr',
+            { href: '/beyond', ar: 'تَفْسِيرُهُ فِي سَائِرِ آثَارِه', en: 'Beyond Fī Riyāḍ al-Tafsīr',
               body: 'His explanation of verses in other sessions, letters, sermons, treatises, poems and journeys.' },
             { href: '/students', ar: 'تَفَاسِيرُ تَلَامِذَتِه', en: 'Commentaries of his students',
               body: 'How scholars of the Fayḍa who learned from him explain the same verses.' },
