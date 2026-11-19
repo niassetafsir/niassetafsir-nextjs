@@ -35,8 +35,7 @@ export default function TermIndexPage() {
 
       <p className="font-english text-[13px] leading-relaxed mb-8"
         style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-        Elsewhere the site indexes what he says about a verse. These pages index what he means by a
-        word — passages where he stops to define a term rather than use it. Much of this comes from
+        What he means by a word: the passages where he stops to define a term rather than use it. Much of this comes from
         the fatāwā, where whole answers are given over to fixing the sense of <em>ikhlāṣ</em>,{' '}
         <em>hayba</em>, <em>sayr</em>, the <em>quṭb</em>. Where he adopts a formulation from someone
         else rather than coining it, the page says so and names them.

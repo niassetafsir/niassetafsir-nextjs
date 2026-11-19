@@ -307,8 +307,7 @@ export default function ComparativeCommentary({
     return (
       <div dir="ltr">
         <p className="font-english text-sm italic" style={{ color: 'rgba(13,31,10,0.45)' }}>
-          {verseRange} — verse-by-verse Arabic for Jalālayn and Rūḥ al-Bayān is being
-          transcribed sūrah by sūrah and has not reached this one.
+          Jalālayn and Rūḥ al-Bayān on {verseRange}:
         </p>
         <div className="flex gap-3 mt-3 flex-wrap">
           <a href={jalalaynUrl} target="_blank" rel="noopener"

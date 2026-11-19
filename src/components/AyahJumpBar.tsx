@@ -87,7 +87,7 @@ export default function AyahJumpBar() {
         </button>
       </div>
       <p className={`font-english text-[11px] text-center mt-1.5 min-h-[1.2em] ${notice ? 'text-gold/60' : 'text-white/30'}`}>
-        {notice || 'Covers al-Fātiḥa & al-Baqara 1–202 so far — more sūrahs added as they’re translated.'}
+        {notice}
       </p>
     </div>
   );

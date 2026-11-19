@@ -106,7 +106,6 @@ export default function VerseLocusCard({
             {en && (
               <p className="font-english text-[15px] leading-relaxed"
                 style={{ color: 'var(--body-faint, rgba(255,255,255,0.68))' }}>
-                {isSummary && <span className="text-[12px] uppercase tracking-[0.08em] mr-2" style={{ opacity: 0.6 }}>In brief</span>}
                 {en}
                 {excerpt?.truncated && <span style={{ opacity: 0.5 }}> …</span>}
               </p>

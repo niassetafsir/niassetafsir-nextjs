@@ -71,7 +71,7 @@ export default async function AboutPage() {
             Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī compiled from the original recordings
             {facts.translatedCount > 0 && (
               <>; the English covers Lesson{facts.translatedCount > 1 ? 's' : ''} {facts.translatedFirst}
-              {facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''} so far</>
+              {facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''}</>
             )}. The{' '}
             <Link href="/translators-note" className="text-gold/70 hover:text-gold transition-colors">editorial conventions</Link>{' '}
             explain how the text is presented.

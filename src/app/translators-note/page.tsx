@@ -68,9 +68,9 @@ export default async function EditorialConventionsPage() {
         <p className="mb-3">
           The English of <em>Fī Riyāḍ al-Tafsīr</em> is a translation by Amadu Kunateh
           {translatedCount > 0 && translatedFirst !== null && translatedLast !== null && (
-            <>, so far for Lessons {translatedFirst}–{translatedLast}</>
-          )}. Elsewhere, English marked <span className="text-[12px] uppercase tracking-[0.08em]" style={{ opacity: 0.7 }}>In brief</span>{' '}
-          sums up how he uses a verse and is not a translation.
+            <>, for Lessons {translatedFirst}–{translatedLast}</>
+          )}. Beside passages from his other works, the English sometimes describes how he uses
+          the verse rather than translating the passage.
         </p>
         <p className="mb-3">
           Three choices recur. The Basmala reads &ldquo;By Allāh&apos;s Name, The Entirely Merciful,

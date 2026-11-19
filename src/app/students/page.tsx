@@ -24,9 +24,8 @@ export default function StudentsPage() {
       <p className="font-english text-[13px] leading-relaxed mb-8"
         style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
         Scholars of the Fayḍa who learned from Shaykh Ibrāhīm explained the Qurʾān in their own
-        books and poems. Each work below has been read for the passages where its author explains a
-        verse, and each passage appears on its verse page under his own words, marked as the
-        student&apos;s. Where a student reports what Shaykh Ibrāhīm said, that passage stands with
+        books and poems. Their explanation of a verse appears on that verse&apos;s page, beneath his
+        own words and marked as theirs. Where a student reports what Shaykh Ibrāhīm said, that passage stands with
         his own commentary.
       </p>
       {rows.length === 0 ? (
