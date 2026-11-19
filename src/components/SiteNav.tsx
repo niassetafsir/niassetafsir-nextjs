@@ -123,7 +123,7 @@ function MobileNav() {
             <div>
               <p className="font-arabic text-gold font-bold text-base" dir="rtl" translate="no">مَنْطِقُ الفَيْضَة</p>
               <p className="font-english text-[10px]" style={{ color: 'rgba(255,255,255,0.35)' }}>
-                Manṭiq al-Fayḍa · The Collected Tafsīr of Shaykh Ibrāhīm Niasse
+                Shaykh Ibrāhīm Niasse and His School on the Qurʾān
               </p>
             </div>
             <button onClick={() => setOpen(false)}
@@ -232,7 +232,7 @@ export default function SiteNav() {
               مَنْطِقُ الفَيْضَة
             </span>
             <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors truncate max-w-full">
-              Manṭiq al-Fayḍa · The Collected Tafsīr of Shaykh Ibrāhīm Niasse
+              Shaykh Ibrāhīm Niasse and His School on the Qurʾān
             </span>
           </Link>
         </div>
