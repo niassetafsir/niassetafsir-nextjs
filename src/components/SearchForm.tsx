@@ -52,7 +52,7 @@ export default function SearchForm({
           value={q}
           onChange={e => setQ(e.target.value)}
           aria-label="Search for a verse, a topic, or ask a question"
-          placeholder="A verse (2:255), a topic, or a question"
+          placeholder="A verse, a topic or a question"
           type="text"
           dir="auto"
           inputMode="text"

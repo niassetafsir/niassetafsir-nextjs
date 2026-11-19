@@ -70,7 +70,7 @@ export default async function HomePage() {
         <div className="flex flex-wrap justify-center gap-2 mt-3">
           {examples.map(e => (
             <Link key={e.q} href={`/search?q=${encodeURIComponent(e.q)}`}
-              className={`${e.ar ? 'font-arabic text-[15px]' : 'font-english text-[13px]'} rounded-full border px-3 py-1 transition-colors hover:border-gold/60`}
+              className={`${e.ar ? 'font-arabic text-[20px] leading-[1.1]' : 'font-english text-[13px]'} rounded-full border px-3 py-1 transition-colors hover:border-gold/60`}
               style={{ borderColor: LINE, color: SUB }} dir={e.ar ? 'rtl' : undefined}>
               {e.label}
             </Link>
@@ -89,7 +89,7 @@ export default async function HomePage() {
               className="rounded-full border px-3 py-1 transition-colors hover:border-gold/60 inline-flex items-baseline gap-1.5"
               style={{ borderColor: LINE, background: 'rgba(138,109,31,0.05)' }}>
               <span className="font-english text-[13px]" style={{ color: TEXT }}>{t.title}</span>
-              <span className="font-arabic text-[14px]" dir="rtl" style={{ color: GOLD }}>{t.termAr}</span>
+              <span className="font-arabic text-[19px] leading-none" dir="rtl" style={{ color: GOLD }}>{t.termAr}</span>
             </Link>
           ))}
         </div>
