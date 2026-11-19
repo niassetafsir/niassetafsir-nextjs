@@ -40,7 +40,7 @@ export default async function AboutPage() {
         <div className="font-arabic text-gold text-2xl" dir="rtl" translate="no">مَنْطِقُ الفَيْضَة</div>
         <div className="font-english text-gold text-xl font-semibold mt-1">Manṭiq al-Fayḍa</div>
         <div className="font-english text-white/40 text-sm mt-2 italic">
-          Majmūʿ al-Tafsīr li-Ṣāḥib al-Fayḍa · The Collected Tafsīr of Ṣāḥib al-Fayḍa
+          Majmūʿ al-Tafsīr li-Ṣāḥib al-Fayḍa wa-Aṣḥābihi · The Collected Tafsīr of Ṣāḥib al-Fayḍa and His Companions
         </div>
       </div>
 

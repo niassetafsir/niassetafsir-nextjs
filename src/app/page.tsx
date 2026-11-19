@@ -54,7 +54,7 @@ export default async function HomePage() {
         <h1 className="font-arabic text-gold text-3xl sm:text-4xl leading-relaxed mb-1" dir="rtl">
           مَنْطِقُ الفَيْضَة
         </h1>
-        <p className="font-arabic text-gold/70 text-lg mb-1" dir="rtl">مَجْمُوعُ التَّفْسِيرِ لِصَاحِبِ الفَيْضَة</p>
+        <p className="font-arabic text-gold/70 text-lg mb-1" dir="rtl">مَجْمُوعُ التَّفْسِيرِ لِصَاحِبِ الفَيْضَةِ وَأَصْحَابِهِ</p>
         <p className="font-english text-sm italic mb-5" style={{ color: FAINT }}>
           Manṭiq al-Fayḍa · Shaykh Ibrāhīm Niasse and His School on the Qurʾān
         </p>
