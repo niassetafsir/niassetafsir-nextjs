@@ -329,7 +329,7 @@ export async function siteSearch(raw: string, expand?: Section, page = 1): Promi
     const text = (useAr ? l.textAr : l.textEn) ?? '';
     return {
       source: WORK_TITLE.get(work) ?? work,
-      where: `${l.address.raw} · on Q. ${link.surah}:${link.ayahStart}`,
+      where: `${l.address.raw.replace(/\s*\(PDF \d+\)/g, '')} · on Q. ${link.surah}:${link.ayahStart}`,
       snippet: excerpt(text, words, useAr),
       arabic: useAr,
       href: `/verse/${link.surah}/${link.ayahStart}`,

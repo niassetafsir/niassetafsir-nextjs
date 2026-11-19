@@ -114,5 +114,16 @@ import importlib.util
 _spec = importlib.util.spec_from_file_location('name_policy', 'scripts/name-policy.py')
 _np = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_np)
 d = _np.walk(d)
+# The site is public: no query or sic marks, and no internal shorthand, in
+# anything a reader sees.
+def _clean(x):
+    if isinstance(x,str):
+        x=re.sub(r' ?\[\?\]','',x); x=re.sub(r'(?<=\S)\(\?\)','',x)
+        x=re.sub(r' ?— ?\(\?\) ?',' — ',x); x=re.sub(r' ?\(\?\)','',x); x=re.sub(r' ?\[sic\]','',x)
+        return x.replace('(ed. AK)','(ed. Amadu Kunateh)')
+    if isinstance(x,list): return [_clean(v) for v in x]
+    if isinstance(x,dict): return {k:_clean(v) for k,v in x.items()}
+    return x
+d=_clean(d)
 json.dump(d,open(P,'w'),ensure_ascii=False,indent=2)
 print(len(d['works']),len(d['witnesses']),len(d['loci']),len(d['verseLinks']))

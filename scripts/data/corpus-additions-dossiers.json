@@ -116,7 +116,7 @@
    "address": {
     "raw": "p. 277"
    },
-   "textAr": "أنت الذي ترزق من تشاء / متى تشا تشا كما تشا ما شاءوا (?)",
+   "textAr": "أنت الذي ترزق من تشاء / متى تشا تشا كما تشا ما شاءوا",
    "textEn": "A divine attribute is used in petition.",
    "transcriptionStatus": "draft",
    "voice": "own"
@@ -842,7 +842,7 @@
    "address": {
     "raw": "p. 13"
    },
-   "textAr": "قال تعالى { ومن يوت [sic] الحكمة فقد أوتي خيرا كثيرا }",
+   "textAr": "قال تعالى { ومن يوت الحكمة فقد أوتي خيرا كثيرا }",
    "textEn": "Catena, third verse.",
    "transcriptionStatus": "draft",
    "voice": "own"
@@ -985,7 +985,7 @@
    "address": {
     "raw": "p. 13"
    },
-   "textAr": "وقال تعالى إنما يخش [sic] الله من عباده العلماء.",
+   "textAr": "وقال تعالى إنما يخش الله من عباده العلماء.",
    "textEn": "Catena, eighth verse.",
    "transcriptionStatus": "draft",
    "voice": "own"
@@ -2660,7 +2660,7 @@
    ],
    "confidence": "transcribed",
    "rasm": "unknown",
-   "note": "Reported by the editor without a source (also p. 307). — (?) The wording is too general to be certain. Editor's report without chain. Report: Part 4 B4."
+   "note": "Reported by the editor without a source (also p. 307). — The wording is too general to be certain. Editor's report without chain. Report: Part 4 B4."
   },
   {
    "locusId": "rijal-054",
@@ -2671,7 +2671,7 @@
    ],
    "confidence": "transcribed",
    "rasm": "unknown",
-   "note": "Quoted by the editor. — (?) The identification of Ibn Sālim is uncertain and the Qurʾānic link is weak. Report: Part 4 B5.",
+   "note": "Quoted by the editor. — The identification of Ibn Sālim is uncertain and the Qurʾānic link is weak. Report: Part 4 B5.",
    "ayahEnd": 73
   },
   {

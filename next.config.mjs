@@ -61,8 +61,11 @@ const nextConfig = {
         destination: '/lesson/:l?panel=citations',
         permanent: true,
       },
-      { source: '/footnotes', destination: '/research', permanent: true },
-      { source: '/hadith', destination: '/research', permanent: true },
+      { source: '/footnotes', destination: '/search', permanent: true },
+      { source: '/hadith', destination: '/search', permanent: true },
+      // The research hub and the reading notes were working pages, not public ones.
+      { source: '/research', destination: '/search', permanent: true },
+      { source: '/notes', destination: '/about', permanent: true },
     ];
   },
 };
