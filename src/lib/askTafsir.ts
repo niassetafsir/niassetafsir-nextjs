@@ -69,7 +69,7 @@ You receive the question and numbered candidate passages (C1, C2, ...). Each say
 - "works": his other writings.
 - "students": a student's commentary (the student's own words, not his).
 
-Output ONLY a JSON object:
+Answer by calling the "answer" tool, for example:
 {"none": false, "quotes": [{"c": "C3", "voice": "niasse", "text": "..."}]}
 
 Rules:
@@ -77,8 +77,7 @@ Rules:
 - "text" must be copied EXACTLY from the passage, character for character, one continuous stretch. To skip material inside a stretch, use " … " between two exact pieces. Keep each quotation to 1–4 sentences.
 - "voice": "niasse" for his own words; "jalalayn" for the Jalālayn gloss he reads out; "editor" for an editor's note; "student" for a student's own words (path "students"); "reported" for words a student reports from him.
 - Never quote the Qurʾān alone; quote what is said about it.
-- If no passage answers the question, output {"none": true, "quotes": []}.
-- Output JSON only.`;
+- If no passage answers the question, call it with {"none": true, "quotes": []}.`;
 
 // ---------------------------------------------------------------- limits
 
@@ -257,14 +256,45 @@ export async function askTafsir(raw: string): Promise<AskAnswer> {
         'x-api-key': process.env.ANTHROPIC_API_KEY as string,
         'anthropic-version': '2023-06-01',
       },
-      body: JSON.stringify({ model: MODEL, max_tokens: 1500, system: SYSTEM, messages: [{ role: 'user', content: prompt }] }),
+      // The answer comes back as a tool call, so the API hands over structured
+      // data: an Arabic quotation that contains a quotation mark can no longer
+      // break the reply the way free-text JSON did.
+      body: JSON.stringify({
+        model: MODEL, max_tokens: 1500, system: SYSTEM,
+        messages: [{ role: 'user', content: prompt }],
+        tools: [{
+          name: 'answer',
+          description: 'Return the passages that answer the question, quoted exactly from the candidates.',
+          input_schema: {
+            type: 'object',
+            properties: {
+              none: { type: 'boolean' },
+              quotes: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: { c: { type: 'string' }, voice: { type: 'string' }, text: { type: 'string' } },
+                  required: ['c', 'text'],
+                },
+              },
+            },
+            required: ['quotes'],
+          },
+        }],
+        tool_choice: { type: 'tool', name: 'answer' },
+      }),
     });
     if (!res.ok) throw new Error(`model ${res.status}`);
-    const data = (await res.json()) as { content?: { text?: string }[] };
-    const text = (data.content ?? []).map(c => c.text ?? '').join('');
-    const parsed = JSON.parse(text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1)) as {
-      none?: boolean; quotes?: { c?: string; voice?: string; text?: string }[];
-    };
+    type Parsed = { none?: boolean; quotes?: { c?: string; voice?: string; text?: string }[] };
+    const data = (await res.json()) as { content?: { type?: string; text?: string; input?: Parsed }[] };
+    const call = (data.content ?? []).find(c => c.type === 'tool_use' && c.input);
+    let parsed: Parsed;
+    if (call?.input) parsed = call.input;
+    else {
+      const text = (data.content ?? []).map(c => c.text ?? '').join('');
+      try { parsed = JSON.parse(text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1)) as Parsed; }
+      catch { parsed = { quotes: [] }; }
+    }
 
     const en = await englishByLesson();
     const byId = new Map(cands.map(c => [c.id, c]));
