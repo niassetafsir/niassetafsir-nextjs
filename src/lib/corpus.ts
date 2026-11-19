@@ -713,6 +713,24 @@ export const CONFIDENCE_NOTE: Record<Confidence, string> = {
     'Transcribed from the page image for the dossier of this work and identified verse by verse; not yet checked by the editor.',
 };
 
+/**
+ * When Shaykh Ibrāhīm's own words in a work were set down, for ordering his
+ * uses of a verse in time. Only an attested date counts. A later compilation
+ * (a biography or anthology printed decades on) carries the book's date, not
+ * the date of the words it quotes, so it counts as undated -- except the
+ * recorded tafsīr sessions, whose date is the sessions'.
+ */
+export function wordsDate(work: Work): { year: number; label: string } | null {
+  const c = work.composed;
+  if (!c || c.certainty !== 'attested' || !c.gregorian) return null;
+  if (work.relation === 'compiler' && work.genre !== 'tafsir') return null;
+  const m = c.gregorian.match(/\d{4}/);
+  if (!m) return null;
+  const label = (c.hijri ? `${c.hijri} / ${c.gregorian}` : c.gregorian).replace(/(\d)-(\d)/g, '$1–$2');
+  // A range sorts just after a single year it starts in (1951 before 1951–52).
+  return { year: Number(m[0]) + (/\d[–-]\d/.test(c.gregorian) ? 0.5 : 0), label };
+}
+
 /** Best-effort Gregorian year for ordering. Undatable sorts last. */
 function yearOf(work: Work): number {
   const g = work.composed?.gregorian;

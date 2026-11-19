@@ -14,8 +14,9 @@ import {
   splitBySpeaker,
   type VerseEntry,
   CORPUS_VERSE_LINKS,
+  wordsDate,
 } from '@/lib/corpus';
-import VerseLocusCard, { type LocusExcerpt } from '@/components/VerseLocusCard';
+import VerseLocusCard, { shortTitle, type LocusExcerpt } from '@/components/VerseLocusCard';
 import { fatwaVerseExcerpt } from '@/lib/fatwaVerseExcerpts';
 import VersePicker from '@/components/VersePicker';
 import Fold from '@/components/Fold';
@@ -130,6 +131,20 @@ export default async function VersePage({
   const allEntries = getVerseEntries(surah, ayah);
   const { niasse: entries, school, copied } = splitBySpeaker(allEntries);
   const groups = groupByAct(entries);
+  // His uses of this verse in time: one line per work, earliest first, the
+  // tafsīr sessions last. Shown only where more than one work uses the verse.
+  const KIND_SHORT: Record<string, string> = {
+    tafsir: 'explains it', gloss: 'glosses it', prooftext: 'quotes it', juristic: 'cites it as legal proof',
+    application: 'applies it', allusion: 'alludes to it', poetic: 'uses it in verse', formula: 'as a set formula',
+    lemma: 'quotes it as a heading',
+  };
+  const byWork = new Map<string, { title: string; date: ReturnType<typeof wordsDate>; kinds: Set<string> }>();
+  for (const e of entries) {
+    const row = byWork.get(e.work.id) ?? { title: shortTitle(e.work), date: wordsDate(e.work), kinds: new Set<string>() };
+    for (const a of e.link.acts) if (KIND_SHORT[a]) row.kinds.add(KIND_SHORT[a]);
+    byWork.set(e.work.id, row);
+  }
+  const chrono = Array.from(byWork.values()).sort((a, b) => (a.date?.year ?? 1e9) - (b.date?.year ?? 1e9) || a.title.localeCompare(b.title));
   const schoolGroups = groupByAct(school);
   const comparisons = comparisonsForVerse(surah, ayah);
   const text = VERSES[`${surah}:${ayah}`];
@@ -292,6 +307,26 @@ export default async function VersePage({
           the coverage card in VerseLocusCard, where a reader will see it. */}
 
       {/* ── the acts ──────────────────────────────────────── */}
+      {chrono.length > 1 && (
+        <section className="mb-3 border-b" style={{ borderColor: 'rgba(201,168,76,0.18)' }}>
+          <Fold summary={<>
+            <h2 className="font-english text-[11px] tracking-[0.12em] uppercase text-gold/70">
+              Across his works, by date
+            </h2>
+            <span className="ml-auto font-english text-[11px] text-gold/50">{chrono.length}</span>
+          </>}>
+            <ol className="font-english text-[13.5px] space-y-1.5 mb-2" style={{ color: 'var(--body-sub, rgba(255,255,255,0.8))' }}>
+              {chrono.map(r => (
+                <li key={r.title} className="flex gap-3">
+                  <span className="shrink-0 w-[7.5rem] text-gold/80 tabular-nums">{r.date?.label ?? 'Date not known'}</span>
+                  <span><em>{r.title}</em>{r.kinds.size > 0 && <span style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}> · {Array.from(r.kinds).join(', ')}</span>}</span>
+                </li>
+              ))}
+            </ol>
+          </Fold>
+        </section>
+      )}
+
       {/* Each kind of passage folds; the first stands open and opening
           another shuts it, so a heavily treated verse stays a short page. */}
       {groups.map((group, gi) => (

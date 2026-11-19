@@ -20,7 +20,7 @@ export function shortTitle(work: { id: string; titleTranslit?: string | null }):
   if (work.id === 'fi-riyad') return 'Fī Riyāḍ al-Tafsīr';
   const t = work.titleTranslit ?? work.id;
   const words = t.split(' ');
-  const cut = words.findIndex((w, i) => i >= 2 && /^(ʿan|fī|li-l-|bi-l-|ilā|wa-l-|min)$/.test(w));
+  const cut = words.findIndex((w, i) => i >= 2 && /^(ʿan|fī|li-l-|bi-l-|ilā|wa-l-|min|al-maʾkhūdha)$/.test(w));
   return (cut > 0 ? words.slice(0, cut).join(' ') : t).replace(/[:,]$/, '');
 }
 

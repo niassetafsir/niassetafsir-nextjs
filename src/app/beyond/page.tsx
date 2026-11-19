@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { workSummaries, workEntries } from '@/lib/corpus';
+import { workSummaries, workEntries, wordsDate } from '@/lib/corpus';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { shortTitle } from '@/components/VerseLocusCard';
 import WorksTabs from '@/components/WorksTabs';
@@ -49,6 +49,12 @@ export default function WorksPage() {
     verses: Array.from(verseWorks.values()).filter(v => v.surah === s.id).sort((a, b) => a.ayah - b.ayah),
   })).filter(s => s.verses.length > 0);
   const verseCount = verseWorks.size;
+  // By date: his works in the order he wrote them, the tafsīr sessions among
+  // them. Works whose date is not known follow, without a date.
+  const ownWorks = rows.filter(r => r.work.relation !== 'student' && (r.uses > 0 || r.work.id === 'fi-riyad'));
+  const dated = ownWorks.map(r => ({ ...r, date: wordsDate(r.work) })).filter(r => r.date)
+    .sort((a, b) => a.date!.year - b.date!.year);
+  const undated = ownWorks.filter(r => !wordsDate(r.work));
 
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
@@ -100,6 +106,38 @@ export default function WorksPage() {
           </div>
         </div>
         }
+        byDate={<>
+      <ol className="relative border-l ml-2 mb-8" style={{ borderColor: 'rgba(201,168,76,0.35)' }}>
+        {dated.map(({ work, verses, date }) => (
+          <li key={work.id} className="ml-5 mb-4">
+            <span className="absolute -left-[5px] mt-1.5 w-2.5 h-2.5 rounded-full" style={{ background: 'var(--gold, #C9A84C)' }} aria-hidden />
+            <span className="block font-english text-[12px] text-gold/80 tabular-nums">{date!.label}</span>
+            <Link href={work.id === 'fi-riyad' ? '/read' : `/beyond/${work.id}`} className="font-english text-[15px] font-semibold hover:text-gold"
+              style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
+              <em>{shortTitle(work)}</em>
+            </Link>
+            <span className="block font-english text-[12px]" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
+              {work.id === 'fi-riyad' ? 'the tafsīr sessions' : `${verses} ${verses === 1 ? 'verse' : 'verses'}`}
+            </span>
+          </li>
+        ))}
+      </ol>
+      {undated.length > 0 && (
+        <Fold group="date" summary={<>
+          <span className="font-english text-[14px] font-semibold" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>Date not known</span>
+          <span className="ml-auto font-english text-[12px]" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>{undated.length} {undated.length === 1 ? 'work' : 'works'}</span>
+        </>}>
+          <ul className="space-y-2">
+            {undated.map(({ work, verses }) => (
+              <li key={work.id} className="font-english text-[14px]">
+                <Link href={`/beyond/${work.id}`} className="hover:text-gold" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}><em>{shortTitle(work)}</em></Link>
+                <span style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}> · {verses} {verses === 1 ? 'verse' : 'verses'}</span>
+              </li>
+            ))}
+          </ul>
+        </Fold>
+      )}
+        </>}
         byWork={<>
       {KIND_ORDER.concat(['Other']).map(kind => {
         const kindOf = (w: { genre?: string }) => KIND_OF[w.genre ?? ''] ?? 'Other';
