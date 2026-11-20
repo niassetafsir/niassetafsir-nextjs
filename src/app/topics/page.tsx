@@ -14,8 +14,10 @@ export default function TopicsPage() {
         Topics
       </h1>
       <p className="font-english text-[13.5px] leading-relaxed mb-8" style={{ color: 'var(--body-faint, rgba(255,255,255,0.55))' }}>
-        One subject at a time: what Shaykh Ibrāhīm says about it, in his own words, with the volume, page,
-        lesson and verse of every passage.
+        Explore Shaykh Ibrāhīm&rsquo;s explanations of particular subjects across the tafsīr. Each topic
+        gathers related passages from different lessons, with their Arabic text, volume, page, lesson and
+        Qurʾānic reference. Each opens with a short summary by the editor; the passages that follow are
+        his words, and every point in the summary rests on them.
       </p>
       <ul className="space-y-3">
         {TOPICS.map(t => (

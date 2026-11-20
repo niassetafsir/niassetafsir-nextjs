@@ -230,7 +230,7 @@ export default function SiteNav() {
             <span className="font-wordmark text-gold text-2xl" dir="rtl" translate="no">
               منطق الفيضة
             </span>
-            <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors truncate max-w-full">
+            <span className="hidden 2xl:block font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors truncate max-w-full">
               Shaykh Ibrāhīm Niasse and His School on the Qurʾān
             </span>
           </Link>

@@ -29,19 +29,22 @@ export default async function ReadPage() {
       <div className="mb-5">
         <h1 className="font-english font-semibold text-base mb-0.5"
           style={{color:'var(--body-text, rgba(255,255,255,0.9))'}}>
-          Table of Contents
+          The 56 Lessons
         </h1>
         <p className="font-english text-xs italic"
           style={{color:'var(--body-faint, rgba(255,255,255,0.35))'}}>
-          Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm · 10 volumes · 56 lessons · Shaykh Ibrāhīm Niasse
+          <em>Fī Riyāḍ al-Tafsīr</em> · Tafsīr of the Noble Qurʾān · 10 volumes · 56 lessons
         </p>
         <p className="font-english text-[13px] leading-relaxed mt-2"
           style={{color:'var(--body-sub, rgba(255,255,255,0.7))'}}>
-          All {facts.arabicLessons} lessons in Arabic
+          Shaykh Ibrāhīm Niasse&rsquo;s recorded lessons on the whole Qurʾān, delivered during Ramaḍān 1964.
+          The complete Arabic text of all {facts.arabicLessons} lessons is presented in the order of the
+          original teaching.
           {facts.translatedCount > 0 && facts.translatedFirst !== null && facts.translatedLast !== null && (
-            <>; English for Lessons {facts.translatedFirst}–{facts.translatedLast}</>
+            <> English translations are available for Lessons {facts.translatedFirst}–{facts.translatedLast} (marked EN).</>
           )}
-          ; <Link href="/audio" className="text-gold/80 hover:text-gold underline">recordings</Link> for {facts.audioLessons}.
+          {' '}<Link href="/audio" className="text-gold/80 hover:text-gold underline">Recordings</Link> are available for {facts.audioLessons} lessons (marked ♪).
+          Search by sūra, lesson title or Qurʾānic verse, or browse the ten volumes below.
         </p>
       </div>
 

@@ -58,7 +58,14 @@ export default function ListenPage() {
         </h1>
         <p className="font-english text-xs italic"
           style={{color:'var(--body-sub, rgba(255,255,255,0.45))'}}>
-          Shaykh Ibrāhīm Niasse · Original recordings 1383 AH / 1964
+          Shaykh Ibrāhīm Niasse · Original recordings, 1383 AH / 1964
+        </p>
+        <p className="font-english text-[13px] leading-relaxed mt-3"
+          style={{color:'var(--body-sub, rgba(255,255,255,0.7))'}}>
+          Listen to the original recordings of Shaykh Ibrāhīm&rsquo;s Qurʾānic lessons in Arabic and Wolof.
+          These recordings preserve the oral delivery of the teaching presented in{' '}
+          <em>Fī Riyāḍ al-Tafsīr</em>. The Arabic recordings available here cover Sūras 1–{ARABIC_AUDIO.length};
+          each opens the written text of the same sūra. Select a language and choose a sūra to listen.
         </p>
       </div>
 
@@ -105,9 +112,14 @@ export default function ListenPage() {
                     Sūra {item.num}
                   </span>
                 </div>
-                <span className="font-arabic text-sm" dir="rtl"
-                  style={{color:'var(--body-sub, rgba(255,255,255,0.5))'}}>
-                  {item.suraAr}
+                <span className="flex items-center gap-3">
+                  <Link href={`/surah/${item.num}`} className="font-english text-[11px] text-gold/80 hover:text-gold underline">
+                    Read the text
+                  </Link>
+                  <span className="font-arabic text-sm" dir="rtl"
+                    style={{color:'var(--body-sub, rgba(255,255,255,0.5))'}}>
+                    {item.suraAr}
+                  </span>
                 </span>
               </div>
               <audio

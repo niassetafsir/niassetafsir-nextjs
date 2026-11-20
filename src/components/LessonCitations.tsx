@@ -91,7 +91,7 @@ export default function LessonCitations({ lessonId }: { lessonId: number }) {
       {compiler.length > 0 && (
         <section>
           <p className="font-english text-xs mb-4" style={{ color: 'rgba(255,255,255,0.35)' }}>
-            {compiler.length} footnote{compiler.length !== 1 ? 's' : ''} compiled by Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī for this lesson —
+            {compiler.length} footnote{compiler.length !== 1 ? 's' : ''} compiled by Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī for this lesson —
             numbered continuously through the lesson.
           </p>
           <div className="space-y-2">

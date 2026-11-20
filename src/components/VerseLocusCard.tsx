@@ -42,7 +42,11 @@ export default function VerseLocusCard({
   const ar = excerpt?.ar ?? locus.textAr ?? null;
   const en = excerpt?.en ?? locus.textEn ?? null;
   const hasBody = Boolean(ar || en);
-  const isSummary = Boolean(locus.editorialNote && /summary/i.test(locus.editorialNote));
+  // What kind of English the reader is given beside a passage from his other
+  // works: a translation, or a summary of how he uses the verse. Fī Riyāḍ
+  // English is always translation and needs no label.
+  const enLabel = work.id === 'fi-riyad' || excerpt?.en ? null
+    : locus.englishIsSummary ? 'Summary' : 'Translation';
 
   // A passage with no text and no lesson to point to has nothing to show.
   if (!hasBody && !lessonHref) return null;
@@ -101,6 +105,12 @@ export default function VerseLocusCard({
                 style={{ color: 'var(--body-text, rgba(255,255,255,0.88))', textAlign: 'right', whiteSpace: 'pre-line' }}>
                 {ar}
                 {excerpt?.truncated && <span style={{ opacity: 0.5 }}> …</span>}
+              </p>
+            )}
+            {en && enLabel && (
+              <p className="font-english text-[10.5px] uppercase tracking-[0.12em] mb-0.5"
+                style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>
+                {enLabel}
               </p>
             )}
             {en && (

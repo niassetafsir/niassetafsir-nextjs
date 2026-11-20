@@ -22,6 +22,13 @@ function compiledBy(work: { compiler?: string | null; author?: string | null }):
   return /^[A-Z][a-z]+ by /.test(who) ? who : `compiled by ${who}`;
 }
 
+// One-line descriptions, checked against the works themselves.
+const WORK_NOTES: Record<string, string> = {
+  kashif: 'A defence and explanation of the Fayḍa, written in answer to criticism of Shaykh Ibrāhīm’s spiritual claim.',
+  'tadhyil-kashif': 'A continuation of the discussion begun in Kāshif al-ilbās.',
+  'tabsirat-al-anam': 'A treatise on knowledge and its authority in religious life.',
+};
+
 export default function WorksPage() {
   const rows = workSummaries()
     .filter(r => r.work.publish !== false || r.uses > 0)
@@ -49,6 +56,7 @@ export default function WorksPage() {
     verses: Array.from(verseWorks.values()).filter(v => v.surah === s.id).sort((a, b) => a.ayah - b.ayah),
   })).filter(s => s.verses.length > 0);
   const verseCount = verseWorks.size;
+  const ownCount = new Set(Array.from(verseWorks.values()).flatMap(v => Array.from(v.works.keys()))).size;
   // By date: his works in the order he wrote them, the tafsīr sessions among
   // them. Works whose date is not known follow, without a date.
   const ownWorks = rows.filter(r => r.work.relation !== 'student' && (r.uses > 0 || r.work.id === 'fi-riyad'));
@@ -65,16 +73,22 @@ export default function WorksPage() {
       </h1>
       <p className="font-english text-[14px] leading-relaxed mb-6"
         style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
-        His explanation of verses outside <Link href="/read" className="text-gold/80 hover:text-gold underline">Fī Riyāḍ al-Tafsīr</Link>:
-        in his other sessions, letters, sermons, treatises, poems and journeys. Each verse opens its
-        own page, with the book and page it comes from.
+        Shaykh Ibrāhīm Niasse explained individual Qurʾānic verses throughout his other writings and
+        activities. This collection brings together passages from his sessions, letters, sermons,
+        treatises, poems and travel accounts.
+      </p>
+      <p className="font-english text-[14px] leading-relaxed mb-6"
+        style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
+        Each passage is linked to the verse it discusses, with its original work and page reference.
+        Explore his explanations by sūra, by work or by date. The collection currently includes{' '}
+        {verseCount} verses across {suras.length} sūras and {ownCount} works.
       </p>
 
       <WorksTabs
         bySura={
         <div>
           <p className="font-english text-[12.5px] mb-4" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-            {verseCount} verses in {suras.length} sūras.
+            Follow his explanations through the Qurʾānic text, sūra by sūra.
           </p>
           <SuraJump suras={suras.map(s => ({ id: s.id, name: s.nameEn, count: s.verses.length }))} />
           <div className="divide-y" style={{ borderColor: 'rgba(201,168,76,0.18)' }}>
@@ -107,6 +121,9 @@ export default function WorksPage() {
         </div>
         }
         byDate={<>
+      <p className="font-english text-[12.5px] mb-4" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
+        Follow the development of his Qurʾānic engagement chronologically, from 1931 onward, with the tafsīr sessions among his works.
+      </p>
       <ol className="relative border-l ml-2 mb-8" style={{ borderColor: 'rgba(201,168,76,0.35)' }}>
         {dated.map(({ work, verses, date }) => (
           <li key={work.id} className="ml-5 mb-4">
@@ -139,6 +156,9 @@ export default function WorksPage() {
       )}
         </>}
         byWork={<>
+      <p className="font-english text-[12.5px] mb-4" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
+        Study the Qurʾānic passages within a particular book or writing.
+      </p>
       {KIND_ORDER.concat(['Other']).map(kind => {
         const kindOf = (w: { genre?: string }) => KIND_OF[w.genre ?? ''] ?? 'Other';
         const group = indexed.filter(r => r.work.id !== 'fi-riyad' && r.work.relation !== 'student' && kindOf(r.work) === kind);
@@ -158,6 +178,11 @@ export default function WorksPage() {
               <span className="font-english text-[15px] font-semibold" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
                 <em>{work.titleTranslit ?? work.id}</em>
               </span>
+              {WORK_NOTES[work.id] && (
+                <span className="block font-english text-[13px] mt-0.5" style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
+                  {WORK_NOTES[work.id]}
+                </span>
+              )}
               {work.titleAr && (
                 <span className="block font-arabic text-[14px] mt-0.5" dir="rtl" translate="no"
                   style={{ color: 'var(--body-faint, rgba(255,255,255,0.45))' }}>{work.titleAr}</span>
@@ -184,6 +209,21 @@ export default function WorksPage() {
 
         </>}
       />
+
+      <section className="mt-12">
+        <h2 className="font-english text-[15px] font-semibold mb-2" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
+          Questions and occasions
+        </h2>
+        <p className="font-english text-[13px] leading-relaxed mb-3" style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
+          Many of these explanations answer a question, a dispute or an event. Some of the occasions, with their sources:
+        </p>
+        <ul className="font-english text-[13.5px] leading-relaxed space-y-1.5 list-disc pl-5" style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
+          <li>The claims of the Fayḍa and its critics: <Link href="/beyond/kashif" className="text-gold/80 hover:text-gold"><em>Kāshif al-ilbās</em></Link>, completed 1350/1931.</li>
+          <li>Whether the Qurʾān may be broadcast on the radio (Q 16:8, 6:19, 31:27): <em>al-Ḥujja al-bāligha fī kawn idhāʿat al-Qurʾān fī al-rādiyū sāʾigha</em>, 1375/1956; <em>Mawsūʿat al-āthār al-nathriyya</em>, Muʾallafāt, part 2, pp. 200–216.</li>
+          <li>Disputes over sighting the new moon (Q 2:185): <em>Kashf al-ghumma ʿan mirāʾ ʿulamāʾ al-umma</em>; <em>Mawsūʿa</em>, Muʾallafāt, part 2, pp. 270–285.</li>
+          <li>The meaning of space flight (Q 55:33, 16:8, 18:84–86): <em>Risālat al-īmān bi-l-qaḍāʾ fī masʾalat ghazw al-faḍāʾ</em>, Jumādā II 1389/1969; <em>Mawsūʿa</em>, Muʾallafāt, part 2, pp. 547–553.</li>
+        </ul>
+      </section>
     </main>
   );
 }

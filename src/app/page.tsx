@@ -61,10 +61,10 @@ export default async function HomePage() {
         </p>
 
         <p className="font-english text-[15px] sm:text-lg leading-relaxed mb-5" style={{ color: TEXT }}>
-          Shaykh Ibrāhīm Niasse (d. 1975) returned to the Qurʾān throughout his life, explaining its
-          verses in public lessons and answering the questions brought before him. This site brings
-          together his 1964 sessions on the whole Qurʾān, his explanations across other works, and the
-          commentaries of his students.
+          Shaykh Ibrāhīm Niasse (d. 1975) explained the Qurʾān throughout his life, in public lessons
+          and in response to questions brought before him. This collection brings together his 1964
+          sessions on the whole Qurʾān, his explanations across other writings, and the commentaries of
+          his students, verse by verse.
         </p>
 
         {/* Search first: most visitors come with a verse or a question. */}
@@ -97,15 +97,19 @@ export default async function HomePage() {
           ))}
         </div>
 
+        <p className="font-english text-center text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-3"
+          style={{ color: FAINT }}>
+          Three paths through the Qurʾān
+        </p>
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-3 text-left">
           {[
             { href: '/read', ar: 'فِي رِيَاضِ التَّفْسِير', en: 'Fī Riyāḍ al-Tafsīr',
-              body: 'His Arabic sessions of 1964 on the whole Qurʾān, read lesson by lesson.', count: '56 lessons' },
+              body: 'The 56 recorded lessons in which Shaykh Ibrāhīm explained the whole Qurʾān during Ramaḍān 1964. Read the Arabic text lesson by lesson, with English translations and recordings where available.', count: '56 lessons' },
             { href: '/beyond', ar: 'تَفْسِيرُهُ فِي سَائِرِ آثَارِه', en: 'Beyond Fī Riyāḍ al-Tafsīr',
-              body: 'His explanation of verses in his other sessions, letters, sermons, treatises, poems and journeys, from 1931 on.',
+              body: 'His explanations of Qurʾānic verses across other sessions, letters, sermons, treatises, poems and journeys. Follow each verse to the work and page where it appears.',
               count: `${counts.verses} verses in ${counts.worksWithPassages} works` },
-            { href: '/students', ar: 'تَفَاسِيرُ تَلَامِذَتِه', en: 'Commentaries of his students',
-              body: 'How scholars of the Fayḍa who learned from him explain the same verses.', count: '' },
+            { href: '/students', ar: 'تَفَاسِيرُ تَلَامِذَتِه', en: 'Commentaries of His Students',
+              body: 'Qurʾānic interpretations by scholars of the Fayḍa who learned from Shaykh Ibrāhīm. Read their explanations alongside his own wherever they address the same verses.', count: '' },
           ].map(p => (
             <li key={p.href}>
               <Link href={p.href}
@@ -134,6 +138,10 @@ export default async function HomePage() {
           <p className="font-english text-center text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-1"
             style={{ color: FAINT }}>
             One verse, across his works
+          </p>
+          <p className="font-english text-center text-[13px] mb-1" style={{ color: SUB }}>
+            Follow a single verse through his lessons and other writings, and compare his explanations
+            across different contexts.
           </p>
           <p className="font-english text-center text-sm mb-5" style={{ color: SUB }}>
             {SHOWCASE_VERSE.name} · Q. {SHOWCASE_VERSE.surah}:{SHOWCASE_VERSE.ayah}

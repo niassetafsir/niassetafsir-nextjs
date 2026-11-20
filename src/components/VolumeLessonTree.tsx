@@ -20,6 +20,7 @@ export interface TreeLesson {
   sura: string;
   verseRange: string;
   hasEnglish: boolean;
+  hasAudio?: boolean;
 }
 
 export interface TreeVolume {
@@ -163,6 +164,14 @@ export default function VolumeLessonTree({
                                 {l.sura} · {l.verseRange}
                               </span>
                             </span>
+                            {l.hasAudio && (
+                              <span title="Recording available" aria-label="Recording available"
+                                className="font-english text-[9px] flex-shrink-0 border rounded-full px-1.5 py-0.5 mr-1"
+                                style={{ color: 'rgba(138,109,31,0.8)', borderColor: 'rgba(138,109,31,0.3)' }}
+                              >
+                                ♪
+                              </span>
+                            )}
                             {l.hasEnglish && (
                               <span
                                 className="font-english text-[9px] flex-shrink-0 border rounded-full px-1.5 py-0.5"

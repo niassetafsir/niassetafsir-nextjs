@@ -69,5 +69,5 @@ export function buildAnnotationCitation(
   lessonId: number, lessonTitle: string, verseRange: string
 ): string {
   const date = new Date().toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
-  return `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, rev. 10-vol. ed. (n.p., n.d.), ${verseRange}. Digital ed., ed. Amadu Kunateh, niassetafsir.org/lesson/${lessonId}, accessed ${date}.`;
+  return `Ibrāhīm Niasse, Fī Riyāḍ al-Tafsīr li-l-Qurʾān al-Karīm, comp. Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī, 10 vols. (Tunis: Majmaʿ al-Yamāma, 2022), ${verseRange}. Digital ed., ed. Amadu Kunateh, niassetafsir.org/lesson/${lessonId}, accessed ${date}.`;
 }

@@ -11,7 +11,7 @@
 // rather than breaking the page.
 
 import corpus from '@/data/corpus.json';
-import { getLocus, getWitness, getWork, workSummaries } from '@/lib/corpus';
+import { getLocus, getWitness, getWork, workSummaries, workEntries } from '@/lib/corpus';
 import { getLesson } from '@/lib/lessons';
 import { commentaryParagraphs } from '@/lib/niasseVerseExcerpt';
 import { isShownLink } from '@/lib/scholarlyActs';
@@ -123,26 +123,18 @@ export function worksByKind(): WorkKind[] {
 // ---------------------------------------------------------------- the numbers
 
 export function corpusCounts() {
+  // Counted exactly as the Beyond page counts, so the two never disagree:
+  // his own words with text, outside Fī Riyāḍ, students excluded.
   const s = workSummaries();
-  const others = s.filter(x => x.work.id !== 'fi-riyad');
   const verses = new Set<string>();
-  const C = corpus as unknown as {
-    witnesses: { id: string; workId: string }[];
-    loci: { id: string; witnessId: string; textAr?: string; textEn?: string; copiedFrom?: string }[];
-    verseLinks: { locusId: string; surah: number; ayahStart: number; ayahEnd?: number; acts: string[] }[];
-  };
-  const workOf = new Map(C.witnesses.map(w => [w.id, w.workId]));
-  const loci = new Map(C.loci.map(l => [l.id, l]));
-  for (const v of C.verseLinks) {
-    if (!isShownLink(v)) continue;
-    const l = loci.get(v.locusId);
-    if (!l || l.copiedFrom || workOf.get(l.witnessId) === 'fi-riyad') continue;
-    for (let a = v.ayahStart; a <= (v.ayahEnd ?? v.ayahStart); a++) verses.add(`${v.surah}:${a}`);
+  const works = new Set<string>();
+  for (const { work } of s) {
+    if (work.id === 'fi-riyad' || work.relation === 'student') continue;
+    for (const e of workEntries(work.id)) {
+      if (!e.isNiasse || !e.hasText) continue;
+      works.add(work.id);
+      for (let a = e.ayahStart; a <= (e.ayahEnd ?? e.ayahStart); a++) verses.add(`${e.surah}:${a}`);
+    }
   }
-  return {
-    works: s.length,
-    worksWithPassages: others.filter(x => x.withText > 0).length,
-    passages: others.reduce((a, x) => a + x.withText, 0),
-    verses: verses.size,
-  };
+  return { works: s.length, worksWithPassages: works.size, verses: verses.size };
 }

@@ -45,7 +45,7 @@ const VERSES = verseText as unknown as Record<string, { ar: string; en: string }
 // note; the short version is that the bāʾ is read instrumentally throughout,
 // which is why 1:1 is "By Allah's Name" and not "In the name of Allah".
 const TRANSLATOR = (verseTranslation as { _translator: string })._translator;
-const BASE_TRANSLATOR = 'Pickthall';
+const BASE_TRANSLATOR = 'tr. M. M. Pickthall';
 const RENDERINGS = (verseTranslation as unknown as {
   verses: Record<string, { en: string; note?: string }>;
 }).verses;

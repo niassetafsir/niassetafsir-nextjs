@@ -41,7 +41,7 @@ export default async function AboutPage() {
         <div className="font-wordmark text-gold text-4xl" dir="rtl" translate="no">منطق الفيضة</div>
         <div className="font-english text-gold text-xl font-semibold mt-1">Manṭiq al-Fayḍa</div>
         <div className="font-english text-white/40 text-sm mt-2 italic">
-          Majmūʿ al-Tafsīr li-Ṣāḥib al-Fayḍa wa-Aṣḥābihi · The Collected Tafsīr of Ṣāḥib al-Fayḍa and His Companions
+          Shaykh Ibrāhīm Niasse and His School on the Qurʾān
         </div>
       </div>
       <VerseMarker className="mb-8" />
@@ -53,55 +53,93 @@ export default async function AboutPage() {
             What This Site Is
           </h2>
           <p className="leading-6">
-            The tafsīr of Shaykh Ibrāhīm Niasse (d. 1975) in one place, by three paths.{' '}
+            <em>Manṭiq al-Fayḍa</em> brings together the Qurʾānic explanations of Shaykh Ibrāhīm Niasse
+            (d. 1975) and scholars of the Fayḍa in one searchable collection. The collection follows three
+            paths.
+          </p>
+          <p className="leading-6 mt-3">
             <Link href="/read" className="text-gold/70 hover:text-gold transition-colors"><em>Fī Riyāḍ al-Tafsīr</em></Link>{' '}
-            holds the Arabic sessions of 1964 in which he explained the whole Qurʾān.{' '}
-            <Link href="/beyond" className="text-gold/70 hover:text-gold transition-colors">Beyond Fī Riyāḍ al-Tafsīr</Link>{' '}
-            gathers his explanation of verses in his other sessions, letters, sermons, treatises, poems
-            and journeys: in Arabic, and in Wolof as those recordings are found.{' '}
-            <Link href="/students" className="text-gold/70 hover:text-gold transition-colors">Commentaries of his students</Link>{' '}
-            holds how scholars of the Fayḍa who learned from him explain the same verses, marked as theirs.
+            presents Shaykh Ibrāhīm&rsquo;s 56 recorded lessons on the whole Qurʾān, delivered during
+            Ramaḍān 1964.
           </p>
           <p className="leading-6 mt-3">
-            Open a verse and the paths meet: what he says about it, wherever he says it, in his Arabic
-            with English and a page reference. The{' '}
-            <Link href="/topics" className="text-gold/70 hover:text-gold transition-colors">topics</Link>{' '}
-            gather what he says on one subject across many verses.
+            <Link href="/beyond" className="text-gold/70 hover:text-gold transition-colors"><em>Beyond Fī Riyāḍ al-Tafsīr</em></Link>{' '}
+            gathers his explanations of individual verses across other writings and activities, including
+            sessions, letters, sermons, treatises, poems and travel accounts.
           </p>
           <p className="leading-6 mt-3">
-            The Arabic of <em>Fī Riyāḍ al-Tafsīr</em> follows the revised ten-volume edition that
-            Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī compiled from the original recordings
+            <Link href="/students" className="text-gold/70 hover:text-gold transition-colors">Commentaries of His Students</Link>{' '}
+            brings together Qurʾānic interpretations by scholars who learned from Shaykh Ibrāhīm, placing
+            their explanations alongside his wherever they address the same verses.
+          </p>
+          <p className="leading-6 mt-3">
+            The three collections meet on the page of each verse. Readers can follow Shaykh Ibrāhīm&rsquo;s
+            explanations across different works and contexts, compare passages, and explore recurring
+            subjects through the <Link href="/topics" className="text-gold/70 hover:text-gold transition-colors">Topics</Link>.
+          </p>
+          <p className="leading-6 mt-3">
+            The Arabic text of <em>Fī Riyāḍ al-Tafsīr</em> follows the revised ten-volume edition compiled
+            by Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī from the original recordings.
             {facts.translatedCount > 0 && (
-              <>; the English covers Lesson{facts.translatedCount > 1 ? 's' : ''} {facts.translatedFirst}
-              {facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''}</>
-            )}. The{' '}
-            <Link href="/translators-note" className="text-gold/70 hover:text-gold transition-colors">editorial conventions</Link>{' '}
-            explain how the text is presented.
+              <> The English translation currently covers Lesson{facts.translatedCount > 1 ? 's' : ''} {facts.translatedFirst}
+              {facts.translatedCount > 1 ? `–${facts.translatedLast}` : ''}.</>
+            )}{' '}The <Link href="/translators-note" className="text-gold/70 hover:text-gold transition-colors">Editorial Conventions</Link> explain the sources,
+            translation choices and editorial distinctions used throughout the site.
           </p>
         </div>
         <div>
           <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
-            Why the Qurʾān
+            Why the Qurʾān?
           </h2>
           <p className="leading-6">
-            In West African Muslim societies, explaining the Qurʾān was the summit of learning, and it
-            was public Qurʾān explanation that launched the community of the Fayḍa (Wright 2024). In
-            Kano, his disciples remade the study, teaching and public performance of tafsīr in the
-            1950s and 1960s (Brigaglia 2009). Shaykh Ibrāhīm, <em>ṣāḥib al-fayḍa</em>, taught the
-            whole Qurʾān in public in the annual Ramaḍān sessions, and the last full cycle, recorded in
-            1964, is the text of <em>Fī Riyāḍ al-Tafsīr</em> (Ogunnaike 2018).
+            In West African Muslim societies, explaining the Qurʾān occupied the highest level of scholarly
+            learning. Public explanation of the Qurʾān also played a central role in the emergence of the
+            Fayḍa of Shaykh Ibrāhīm Niasse (Wright 2024).
           </p>
           <p className="leading-6 mt-3">
-            The Fayḍa is a flood of the recognition of Allah, <em>maʿrifa</em> (Brigaglia 2000–2001;
-            Seesemann 2011). His community passed that knowledge on through the disciplines it already
-            taught, the Qurʾān first among them, so that Sufi training revived Islamic learning rather
-            than displacing it (Wright 2015; de Diego González 2020). The Qurʾān stays at the centre
-            of the community&rsquo;s life after him, in the teaching of men and women alike (Hill 2018,
-            2019). His tafsīr is where the Fayḍa&rsquo;s teaching on Allah, the human being and the path
-            is worked out verse by verse, and the history of the Fayḍa can be told from it (Kunateh
-            2026; Kunateh, forthcoming).
+            In Kano, his disciples transformed the study, teaching and public performance of tafsīr during
+            the 1950s and 1960s (Brigaglia 2009). Shaykh Ibrāhīm himself taught the whole Qurʾān in public
+            during the annual Ramaḍān sessions. The last complete cycle, recorded in 1964, forms the basis
+            of <em>Fī Riyāḍ al-Tafsīr</em> (Ogunnaike 2018).
           </p>
-          <ul className="mt-4 space-y-1.5 text-[12.5px] leading-5" style={{ color: 'rgba(255,255,255,0.55)' }}>
+          <p className="leading-6 mt-3">
+            The Fayḍa, understood as a flood of the recognition of Allah (<em>maʿrifa</em>), brought renewed
+            attention to the Qurʾān and the disciplines of Islamic learning (Brigaglia 2000–2001; Seesemann
+            2011; Wright 2015; de Diego González 2020). Its scholars carried this recognition through
+            teaching, writing, spiritual formation and public instruction. The Qurʾān remained central to
+            this intellectual and spiritual life, including in the teaching of women scholars (Hill 2018,
+            2019).
+          </p>
+        </div>
+        <div>
+          <h2 className="font-english text-gold text-base font-semibold mb-3 pb-2 border-b border-gold/15">
+            Questions and the Qurʾān
+          </h2>
+          <p className="leading-6">
+            Shaykh Ibrāhīm&rsquo;s engagement with the Qurʾān extended throughout his life and across many
+            kinds of writing. He returned to individual verses in response to questions, criticisms,
+            disputes and new circumstances.
+          </p>
+          <p className="leading-6 mt-3">
+            His writings answer challenges to the Fayḍa (<em>Kāshif al-ilbās</em>, 1931), the
+            permissibility of broadcasting the Qurʾān by radio (<em>al-Ḥujja al-bāligha</em>, 1956),
+            disputes over sighting the new moon (<em>Kashf al-ghumma</em>) and the significance of space
+            flight (<em>Risālat al-īmān bi-l-qaḍāʾ fī masʾalat ghazw al-faḍāʾ</em>, 1969, on Q 55:33). In
+            each case, Qurʾānic verses provide the basis for his explanation and response. The sources are
+            listed under <Link href="/beyond" className="text-gold/70 hover:text-gold transition-colors">Questions and occasions</Link>.
+          </p>
+          <p className="leading-6 mt-3">
+            Reading these works together shows the range of contexts in which Shaykh Ibrāhīm interpreted
+            the Qurʾān. It also makes it possible to follow how particular verses recur across his writings
+            and how his explanations develop across different occasions.
+          </p>
+          <p className="leading-6 mt-3">
+            His tafsīr is an important source for the Fayḍa&rsquo;s teaching on Allah, the human being and the
+            spiritual path, and a way into the intellectual history of the community through its engagement
+            with the Qurʾān (Kunateh 2026; Kunateh, forthcoming).
+          </p>
+          <h3 className="font-english text-white/80 text-[13px] font-semibold mt-5">References</h3>
+          <ul className="mt-2 space-y-1.5 text-[12.5px] leading-5" style={{ color: 'rgba(255,255,255,0.55)' }}>
             <li>Brigaglia, Andrea. &ldquo;The Fayda Tijaniyya of Ibrāhīm Nyass: Genesis and Implications of a Sufi Doctrine.&rdquo; <em>Islam et sociétés au sud du Sahara</em> 14–15 (2000–2001): 41–56.</li>
             <li>Brigaglia, Andrea. &ldquo;Learning, Gnosis and Exegesis: Public Tafsīr and Sufi Revival in the City of Kano (Northern Nigeria), 1950–1970.&rdquo; <em>Die Welt des Islams</em> 49, no. 3/4 (2009): 334–66.</li>
             <li>de Diego González, Antonio. <em>Ley y gnosis: Historia intelectual de la ṭarīqa Tijāniyya</em>. Granada: Editorial Universidad de Granada, 2020.</li>
@@ -121,9 +159,10 @@ export default async function AboutPage() {
             Who Made It
           </h2>
           <p className="leading-6">
-            <strong className="text-white/85">Amadu Kunateh</strong>, a PhD candidate on the Committee
-            on the Study of Religion at Harvard University, built and maintains the site and translates
-            the tafsīr.
+            <em>Manṭiq al-Fayḍa</em> was established by <strong className="text-white/85">Amadu Kunateh</strong>,
+            a PhD candidate in the Committee on the Study of Religion at Harvard University. He oversees the
+            digital collection, translates <em>Fī Riyāḍ al-Tafsīr</em> and develops the scholarly materials
+            accompanying the texts.
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
             <a href="https://orcid.org/0009-0002-7839-6474" target="_blank" rel="noopener"
@@ -138,10 +177,11 @@ export default async function AboutPage() {
               niassetafsirproject@gmail.com
             </a>
           </div>
-          <p className="leading-6 mt-4 pt-4 border-t border-white/8">
-            <strong className="text-white/70">Ally Mahmoud</strong>, web development review.<br />
-            <strong className="text-white/70">Dayyib Bashir Sheikh Dahir</strong>, Arabic textual verification and proofreading.<br />
-            <strong className="text-white/70">Kabir Aliyu Sheikh Dahir</strong>, Arabic textual verification and proofreading.
+          <h3 className="font-english text-white/80 text-[13px] font-semibold mt-5 pt-4 border-t border-white/8">Contributors</h3>
+          <p className="leading-6 mt-1">
+            <strong className="text-white/70">Ally Mahmoud</strong>: web development review.<br />
+            <strong className="text-white/70">Dayyib Bashir Sheikh Dahir</strong>: Arabic textual verification and proofreading.<br />
+            <strong className="text-white/70">Kabir Aliyu Sheikh Dahir</strong>: Arabic textual verification and proofreading.
           </p>
         </div>
 
@@ -151,15 +191,18 @@ export default async function AboutPage() {
           </h2>
           <div className="p-4 border border-gold/20 rounded-xl bg-gold/4">
             <p className="font-english text-white/80 text-sm leading-7">
-              Ibrāhīm Niasse, <em>Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm</em>, comp.
-              Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, rev. 10-vol. ed.
-              (n.p., n.d.). Digital bilingual ed., ed. Amadu Kunateh
-              (ORCID: 0009-0002-7839-6474). niassetafsir.org, 2025. Edition 1.0.
+              Ibrāhīm Niasse, <em>Fī Riyāḍ al-Tafsīr li-l-Qurʾān al-Karīm</em>, comp. Muḥammad b.
+              al-Shaykh ʿAbd Allāh al-Tijānī, 10 vols. (Tunis: Majmaʿ al-Yamāma, 2022). Digital bilingual
+              edition and English translation by Amadu Kunateh, <em>Manṭiq al-Fayḍa</em>
+              (niassetafsir.org, 2025–), doi:10.5281/zenodo.22983107. Accessed [date].
             </p>
           </div>
           <p className="leading-6 mt-3 text-white/50 text-xs">
-            Any passage
-            you save on this site carries its own citation; see{' '}
+            The Arabic text is the compiler&rsquo;s edition; the digital edition, its presentation and the
+            English translation are Amadu Kunateh&rsquo;s. Give the date you consulted the site, since the
+            edition is updated as lessons are added. For individual passages, give the lesson, volume and
+            page of the printed edition; for passages from other works, the original work, its edition and
+            page. Any passage you save on this site carries its own citation; see{' '}
             <Link href="/saved" className="text-gold/70 hover:text-gold transition-colors">Saved</Link>.
           </p>
         </div>
@@ -169,10 +212,10 @@ export default async function AboutPage() {
             Copyright
           </h2>
           <p className="leading-6">
-            Arabic edition © Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī.
-            English translation © Amadu Kunateh. All rights reserved.
-            Scholarly quotation with full citation is permitted.
-            Reproduction, redistribution, or commercial use without written permission is prohibited.
+            Arabic edition © Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī. English translation and digital
+            edition © Amadu Kunateh. All rights reserved. Short passages may be quoted for scholarly
+            purposes with full citation. Reproducing substantial portions of the translation, or any
+            redistribution or commercial use, requires written permission.
           </p>
         </div>
 

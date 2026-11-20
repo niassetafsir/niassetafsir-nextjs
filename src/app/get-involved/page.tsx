@@ -25,28 +25,28 @@ const TOPICS: {
   blurb: string; messageLabel: string; messagePlaceholder: string;
 }[] = [
   {
-    id: 'feedback', label: 'Feedback', hint: 'How the edition reads',
+    id: 'feedback', label: 'Feedback on the edition', hint: 'How the texts and translation read',
     endpoint: 'https://formspree.io/f/mgoradan', subject: 'Feedback — niassetafsir.org',
-    blurb: 'Thoughts on the experience, or a general impression.',
+    blurb: 'Comments on the English translation, the texts or the site.',
     messageLabel: 'Your feedback', messagePlaceholder: 'Share your thoughts…',
   },
   {
-    id: 'suggestion', label: 'A suggestion', hint: 'Something the project could do',
+    id: 'suggestion', label: 'Suggestions for future additions', hint: 'Something the project could do',
     endpoint: 'https://formspree.io/f/mvzdklkv', subject: 'Suggestions — niassetafsir.org',
     blurb: 'Ideas for features, content, or directions the project could take.',
     messageLabel: 'Your suggestion', messagePlaceholder: 'Describe your idea…',
   },
   {
-    id: 'error', label: 'An error', hint: 'Something is wrong in the text',
+    id: 'error', label: 'Corrections to texts and references', hint: 'Something is wrong in the Arabic, English or a reference',
     endpoint: 'https://formspree.io/f/mwvalyla', subject: 'Report an Error — niassetafsir.org',
     blurb: 'An error in the Arabic, a problem with a translation, or a fault on the site.',
     messageLabel: 'What is wrong',
     messagePlaceholder: 'What you see on the site, and what the correct text should be…',
   },
   {
-    id: 'join', label: 'Joining the team', hint: 'Wolof and Hausa work',
-    endpoint: 'https://formspree.io/f/mnjlpwpy', subject: 'Join the Team — niassetafsir.org',
-    blurb: 'We are building the Wolof transcription and Hausa translation of Shaykh Ibrāhīm Niasse’s tafsīr.',
+    id: 'join', label: 'Contribute to the project', hint: 'Wolof and Hausa materials, web development',
+    endpoint: 'https://formspree.io/f/mnjlpwpy', subject: 'Contribute — niassetafsir.org',
+    blurb: 'Contributions to the Wolof transcription and Hausa translation of Shaykh Ibrāhīm’s tafsīr, a single correction or translation, or web development and technical assistance.',
     messageLabel: 'Anything else', messagePlaceholder: 'Anything else you would like to tell us…',
   },
 ];
@@ -100,7 +100,12 @@ export default function GetInvolvedPage() {
 
   return (
     <main className="max-w-xl mx-auto px-5 py-10 sm:py-16" dir="ltr">
-      <h1 className="font-english text-white text-2xl sm:text-3xl font-semibold mb-2">Get in touch</h1>
+      <h1 className="font-english text-white text-2xl sm:text-3xl font-semibold mb-2">Get in Touch</h1>
+      <p className="font-english text-white/70 text-base mb-2">
+        Manṭiq al-Fayḍa is an ongoing scholarly project. Your feedback helps improve the texts,
+        translations and resources available here. We welcome corrections to the Arabic text, comments
+        on the English translation, suggestions for the website and contributions to future materials.
+      </p>
       <p className="font-english text-white/50 text-base mb-7">{t.blurb}</p>
 
       {/* One tap to choose the topic. Full-width targets stacked on a phone, two
@@ -155,6 +160,7 @@ export default function GetInvolvedPage() {
                 <option value="Wolof Transcription">Wolof transcription</option>
                 <option value="Hausa Transcription">Hausa transcription</option>
                 <option value="Hausa Translation">Hausa translation</option>
+                <option value="Web Development">Web development and technical assistance</option>
               </select>
             </div>
             <div>

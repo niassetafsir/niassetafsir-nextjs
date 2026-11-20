@@ -37,3 +37,8 @@ export function publicNote(note: string | undefined, englishShown: boolean): str
   if (note === SUMMARY_NOTE) return englishShown ? undefined : 'English translation in preparation.';
   return note;
 }
+
+/** True when a dossier note says the English is a summary, not a translation. */
+export function isSummaryNote(note: string | undefined): boolean {
+  return note === SUMMARY_NOTE;
+}

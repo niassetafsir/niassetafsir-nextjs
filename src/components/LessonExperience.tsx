@@ -161,7 +161,7 @@ export default function LessonExperience({ tafsir, compare, citations, overview,
               <p className="font-english text-xs italic text-white/40">Loading…</p>
             )}
             <p className="font-english text-[10px] mt-2" style={{ color: 'rgba(255,255,255,0.4)' }} dir="ltr">
-              Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, in the Majmaʿ al-Yamāma printing ·{' '}
+              Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī, in the Majmaʿ al-Yamāma printing ·{' '}
               <button type="button" onClick={() => showInPanel(card.id)} className="text-gold/70 hover:text-gold underline">
                 all notes on this lesson
               </button>

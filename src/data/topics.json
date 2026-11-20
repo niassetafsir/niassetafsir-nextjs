@@ -5,15 +5,15 @@
       "slug": "nafs",
       "term": "nafs",
       "termAr": "النفس",
-      "title": "The self",
+      "title": "The Self",
       "question": "What does Shaykh Ibrāhīm say about the self (nafs)?",
-      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the self (nafs) as the lowest of five inner subtleties: self, heart, intellect, spirit and secret. The self belongs to the body and pulls toward the earth, while the spirit pulls toward Allah. Allah raises the self through seven ranks, from the self that commands evil to the perfected self, and He does it from within the person's own secret (sirr).",
+      "answer": "Shaykh Ibrāhīm discusses the self (nafs) in relation to the body, the other inner faculties of the human person, and the spiritual transformation of the human being. Across several lessons, he examines its qualities, its relation to divine guidance and the stages through which it is transformed. The passages below gather these discussions from across Fī Riyāḍ al-Tafsīr.",
       "points": [
-        ["Lowest of five.", "Every servant has a self, heart, intellect, spirit and secret; beyond the secret is Allah."],
-        ["Tied to the body.", "The self is the body's side of the person; it and the spirit are always at war."],
+        ["Five in every servant.", "Every servant has a self, heart, intellect, spirit and secret; beyond the secret is Allah."],
+        ["The self and the body.", "The self is the body's side of the person; it and the spirit are always at war."],
         ["Seven ranks.", "Commanding, blaming, inspired, tranquil, well-pleased, well-pleasing, perfected."],
-        ["Moved from within.", "Allah sends a prompter and an inspiration to the self “from its own secret.”"],
-        ["Its work is the sharīʿa.", "The self drinks from acts of worship and struggle, and is clothed by keeping the law."]
+        ["Divine guidance from within.", "Allah sends a prompter and an inspiration to the self “from its own secret.”"],
+        ["The self and the sharīʿa.", "The self's sustenance (mashrab) is acts of worship and struggle, and its garment is keeping the law."]
       ],
       "passages": [
         {
@@ -35,14 +35,14 @@
           "en": "The self (nafs) has seven divisions, as the Qurʾān states. The first is the self that commands evil (al-ammāra bi-l-sūʾ): the self of unbelievers and sinners. When Allah wills good for a person, He sends it a prompter (bāʿith) from its own secret (sirr) that blames it when it falls short in obedience or commits a sin, and the commanding self turns into a blaming self (lawwāma) … When He wills it further good, He sends it from its secret an inspiration (ilhām) toward the good: this is the inspired self (mulhama) … When it persists in that, it becomes tranquil in the good and distant from every evil, a tranquil self (muṭmaʾinna) … It is not well-pleasing (marḍiyya) until it has first been well-pleased (rāḍiya) … These are six divisions, and it returns perfect (kāmila), reaching perfection (kamāl)."
         },
         {
-          "title": "What the self drinks from",
+          "title": "The self's spiritual sustenance (mashrab)",
           "volume": 1, "page": "99", "lesson": 4, "verse": [2, 60],
           "ar": "مشرب النفس العبادات والمجاهدات، ومشرب القلب الخوف والرجاء، ومشرب العقل القبض والبسط، ومشرب الروح مشاهدة الجمال والجلال، ومشرب السر الأنس والهيبة.",
           "en": "The drinking-place (mashrab) of the self is acts of worship and spiritual struggle (al-ʿibādāt wa-l-mujāhadāt); of the heart, fear and hope; of the intellect, contraction and expansion; of the spirit, witnessing beauty and majesty; of the secret, intimacy and awe.",
           "note": "Shaykh Ibrāhīm reads the twelve springs struck from the rock by Mūsā as the twelve faculties of the person, with the spirit as Mūsā seeking water for them."
         },
         {
-          "title": "The garment of the self",
+          "title": "The self's garment",
           "volume": 3, "page": "200", "lesson": 18, "verse": [7, 26],
           "ar": "الله تبارك وتعالى كسا عباده الصالحين لباسا، لباس النفس ولباس القلب ولباس الروح ولباس السر. لباس النفس: العمل بالشريعة، امتثال الأمر واجتناب النهي، يستر عورة مخالفة أمر الله.",
           "en": "Allah clothed His righteous servants with a garment: a garment for the self, the heart, the spirit and the secret. The garment of the self is acting by the sharīʿa, obeying the command and avoiding the prohibition; it covers the shame of disobeying Allah's command."
@@ -60,7 +60,7 @@
           "en": "This is the entry of the self. The heart empties itself of every blameworthy trait and adorns itself with every praiseworthy one; the spirit stops turning to anything other than Allah; and the secret passes away (yafnā) in the Essence of Allah and sees nothing else."
         },
         {
-          "title": "The self's desire is met in knowing Allah",
+          "title": "The self's desire is met in recognizing Allah",
           "volume": 10, "page": "232", "lesson": 56, "verse": [112, 1],
           "ar": "والإنسان فيه شيئان: فيه عقل وفيه نفس، عقله له مطلب ونفسه لها مطلب. العقل مطلبه أن يجد أمينا يستودع عنده جميع ما يملك من الحسنات، والنفس تحتاج لغني جواد تعلق عليه أطماعها … إذاً من عرف الله وجد مراده.",
           "en": "The human has two things in him: an intellect (ʿaql) and a self (nafs). His intellect has a demand and his self has a demand. The intellect seeks a trustee with whom to deposit all the good deeds it owns; the self needs a rich and generous One on whom to hang its hopes … So whoever knows Allah (ʿarafa Allāh) finds what he seeks."
@@ -72,7 +72,7 @@
       "slug": "sirr",
       "term": "sirr",
       "termAr": "السر",
-      "title": "The secret",
+      "title": "The Secret",
       "question": "What does Shaykh Ibrāhīm say about the secret (sirr)?",
       "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the secret (sirr) as the innermost of the subtleties that make up a person — self, heart, intellect, spirit, secret — with Allah beyond it. He defines it by what it will not look at: its godfearing bars it from seeing anything but Allah, and its humility is that nothing other than Allah is there. It is also where a person's change begins, since Allah sends the self both its reproach and its inspiration from its own secret. The Prophet's secret is his alone, and among others the secret is entrusted only to one fit to carry it.",
       "points": [
@@ -162,7 +162,7 @@
       "slug": "ruh",
       "term": "rūḥ",
       "termAr": "الروح",
-      "title": "The spirit",
+      "title": "The Spirit",
       "question": "What does Shaykh Ibrāhīm say about the spirit (rūḥ)?",
       "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm makes the spirit what makes a person human. Allah breathes it into every human being, and that spirit is the spirit of Muḥammad: Ādam is the father of bodies, Muḥammad the father of spirits. The spirit belongs to the world of command, not of creation, so it has no place and no direction, and this is why the human alone can stand as Allah’s deputy. It came from the Divine Presence knowing nothing but Allah, it lives on remembrance as the body lives on food, and it is distinct from the animal spirit that sleep withdraws.",
       "points": [
@@ -231,7 +231,7 @@
       "slug": "qalb",
       "term": "qalb",
       "termAr": "القلب",
-      "title": "The heart",
+      "title": "The Heart",
       "question": "What does Shaykh Ibrāhīm say about the heart (qalb)?",
       "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the heart as the ground Allah wants for Himself alone. It lives when the self dies, and Allah accepts no heart shared with anything else. Hearts differ by what they rest in, from the world to the vision of Allah. In the order of the inner person the spirit rules, the intellect advises and the heart gives the ruling; remembrance moves from the tongue to the heart to the spirit, and the journey to Allah is made with the heart, not the body.",
       "points": [

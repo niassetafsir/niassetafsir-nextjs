@@ -35,7 +35,7 @@
 // src/lib/volumes.ts for why this matters on this site.
 
 import corpusRaw from '@/data/corpus.json';
-import { publicEnglish, publicNote } from '@/lib/publicEnglish';
+import { publicEnglish, publicNote, isSummaryNote } from '@/lib/publicEnglish';
 import { isShownLink } from '@/lib/scholarlyActs';
 import lessonRangesRaw from '@/data/lessonRanges.json';
 import termsRaw from '@/data/terms.json';
@@ -225,6 +225,9 @@ export interface Locus {
    * review it, which queue it is in -- does not belong on a public page.
    */
   editorialNote?: string;
+  /** Set at load: the English beside a passage from his other works is a
+   *  summary of how he uses the verse, not a translation. */
+  englishIsSummary?: boolean;
   /**
    * The question this passage answers.
    *
@@ -491,7 +494,9 @@ const COVERAGE_LOCI: Locus[] = LESSON_RANGES.map(([lessonId, r]) => ({
 const PUBLIC_LOCI: Locus[] = corpus.loci.map(l => {
   const en = publicEnglish(l.id, WITNESSES.get(l.witnessId)?.workId, l.textEn);
   const note = publicNote(l.editorialNote, Boolean(en));
-  return en === l.textEn && note === l.editorialNote ? l : { ...l, textEn: en, editorialNote: note };
+  const englishIsSummary = Boolean(en) && en === l.textEn && isSummaryNote(l.editorialNote);
+  return en === l.textEn && note === l.editorialNote && !englishIsSummary
+    ? l : { ...l, textEn: en, editorialNote: note, englishIsSummary };
 });
 
 const ALL_LOCI = new Map<string, Locus>(
@@ -626,7 +631,7 @@ export const ACT_LABEL: Record<ExegeticalAct, string> = {
 };
 
 export const ACT_HEADING: Record<ExegeticalAct, string> = {
-  tafsir: 'What he says about it',
+  tafsir: 'Shaykh Ibrāhīm’s commentary',
   gloss: 'Glossed in passing',
   prooftext: 'Where he quotes it',
   juristic: 'As legal proof',

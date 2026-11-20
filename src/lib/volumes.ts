@@ -66,6 +66,7 @@ export interface LessonIndexEntry {
   sura: string;
   verseRange: string;
   hasEnglish: boolean;
+  hasAudio?: boolean;
 }
 
 export function toLessonIndex(lessons: Lesson[]): LessonIndexEntry[] {
@@ -76,6 +77,7 @@ export function toLessonIndex(lessons: Lesson[]): LessonIndexEntry[] {
     sura: l.sura,
     verseRange: l.verseRange,
     hasEnglish: l.hasEnglish,
+    hasAudio: Boolean(l.arabicAudioUrl || l.arabicPlaylistId),
   }));
 }
 

@@ -2,9 +2,9 @@ import Link from 'next/link';
 import { workSummaries } from '@/lib/corpus';
 
 export const metadata = {
-  title: 'Commentaries of his students',
+  title: 'Commentaries of His Students',
   description:
-    'How scholars of the Fayḍa who learned from Shaykh Ibrāhīm Niasse explain the verses of the Qurʾān.',
+    'Qurʾānic explanations by scholars of the Fayḍa who learned from Shaykh Ibrāhīm Niasse, read alongside his own commentary on the same verses.',
 };
 
 // The third path. Works whose relation is 'student' are written by scholars
@@ -19,18 +19,19 @@ export default function StudentsPage() {
       <p className="font-arabic text-gold text-lg mb-0.5" dir="rtl">تفاسير تلامذته</p>
       <h1 className="font-english font-semibold text-base mb-1"
         style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>
-        Commentaries of his students
+        Commentaries of His Students
       </h1>
       <p className="font-english text-[13px] leading-relaxed mb-8"
         style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-        Scholars of the Fayḍa who learned from Shaykh Ibrāhīm explained the Qurʾān in their own
-        books and poems. Their explanation of a verse appears on that verse&apos;s page, beneath his
-        own words and marked as theirs. Where a student reports what Shaykh Ibrāhīm said, that passage stands with
-        his own commentary.
+        Scholars of the Fayḍa who learned from Shaykh Ibrāhīm also explained the Qurʾān in their own
+        writings. This collection brings together their commentaries and places them alongside his own
+        wherever they address the same verses. Each passage is attributed to its author. Where a student
+        transmits Shaykh Ibrāhīm&rsquo;s teaching, the passage is identified separately from the
+        student&rsquo;s own commentary.
       </p>
       {rows.length === 0 ? (
         <p className="font-english text-[13px] italic" style={{ color: 'var(--body-faint, rgba(255,255,255,0.4))' }}>
-          The first of these works is being read in.
+          No works are listed yet.
         </p>
       ) : (
       <ul className="space-y-3">

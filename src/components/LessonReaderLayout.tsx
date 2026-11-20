@@ -21,6 +21,8 @@ interface LessonReaderLayoutProps {
     verseRange: string;
     volume?: number | null;
     pageInVolume?: number | null;
+    id?: number;
+    hasEnglish?: boolean;
   };
   children: React.ReactNode;
   topContent?: React.ReactNode;
@@ -226,12 +228,23 @@ export default function LessonReaderLayout({
               <span className="lesson-reader-meta-label" title="Reference">المرجع</span>
               <span className="lesson-reader-meta-value english">
                 Vol. {lesson.volume}
-                {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ' · page TBC'}
+                {lesson.pageInVolume ? `, p. ${lesson.pageInVolume}` : ''}
               </span>
             </div>
           </>
         )}
       </div>
+
+      {lesson.id !== undefined && (
+        <div className="lesson-reader-gutter">
+          <p dir="ltr" className="font-english text-[13px] leading-relaxed mt-3 mb-1 text-center"
+            style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
+            <em>Fī Riyāḍ al-Tafsīr</em> · Lesson {lesson.id}. Shaykh Ibrāhīm Niasse&rsquo;s explanation of{' '}
+            {lesson.verseRange.replace(' · ', ' and ')}, delivered during Ramaḍān 1964. The Arabic text follows the revised
+            ten-volume edition{lesson.hasEnglish ? '; the English translation is by Amadu Kunateh' : ''}.
+          </p>
+        </div>
+      )}
 
       {/* Main content — capped and centred, see .lesson-reader-main
 

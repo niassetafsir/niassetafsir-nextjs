@@ -37,7 +37,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
   const fnCursor = { i: 0 };
   const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
-  const citationAr = `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, rev. 10-vol. ed. (n.p., n.d.)${volStr ? ', ' + volStr : ''}, ${lesson.englishTitle} (${lesson.verseRange}). Digital ed., ed. Amadu Kunateh. niassetafsir.org. Accessed ${today}.`;
+  const citationAr = `Ibrāhīm Niasse, Fī Riyāḍ al-Tafsīr li-l-Qurʾān al-Karīm, comp. Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī, 10 vols. (Tunis: Majmaʿ al-Yamāma, 2022)${volStr ? ', ' + volStr : ''}, ${lesson.englishTitle} (${lesson.verseRange}). Digital ed., ed. Amadu Kunateh. niassetafsir.org. Accessed ${today}.`;
 
   // NOTE: this page used to render its own <html>/<head>/<body> to get a
   // fully independent, clean document look -- but Next.js's App Router only
@@ -88,7 +88,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
 
       {/* PrintButton removed: PDF/print saving is disabled per user requirement (2026-08-17). This site is a digital companion to the user's published translations only. */}
 
-      <div className="work-title">Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm · فِي رِيَاضِ تَفْسِيرِ الْقُرْآنِ الْكَرِيمِ</div>
+      <div className="work-title">Fī Riyāḍ al-Tafsīr li-l-Qurʾān al-Karīm · فِي رِيَاضِ التَّفْسِيرِ لِلْقُرْآنِ الْكَرِيمِ</div>
       <div className="lesson-title-ar">{lesson.arabicTitle}</div>
       <div className="lesson-title-en">{lesson.englishTitle}</div>
       <div className="vol-ref">{lesson.verseRange}{volStr ? ` · Arabic compiled edition, ${volStr}` : ''}</div>

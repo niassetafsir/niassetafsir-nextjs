@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   if (!meta) return {};
   return {
     title: `Volume ${meta.roman} · Lessons ${meta.start}–${meta.end}`,
-    description: `Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, Volume ${meta.roman} of the revised ten-volume Arabic edition (${meta.rangeLabel}) · Lessons ${meta.start}–${meta.end}.`,
+    description: `Fī Riyāḍ al-Tafsīr li-l-Qurʾān al-Karīm, Volume ${meta.roman} of the revised ten-volume Arabic edition (${meta.rangeLabel}) · Lessons ${meta.start}–${meta.end}.`,
   };
 }
 

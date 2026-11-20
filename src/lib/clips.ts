@@ -65,16 +65,16 @@ export function buildCitation(
   const volStr = vol ? `, ${vol}` : '';
 
   if (language === 'en') {
-    return `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, trans. Amadu Kunateh (ORCID: 0009-0002-7839-6474) (niassetafsir.org, 2025)${volStr}, ${lessonTitleEn} (${verseRange}). Accessed ${date}.`;
+    return `Ibrāhīm Niasse, Fī Riyāḍ al-Tafsīr li-l-Qurʾān al-Karīm, trans. Amadu Kunateh (ORCID: 0009-0002-7839-6474) (niassetafsir.org, 2025)${volStr}, ${lessonTitleEn} (${verseRange}). Accessed ${date}.`;
   }
-  return `Ibrāhīm Niasse, Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm, comp. Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī, rev. 10-vol. ed. (n.p., n.d.)${volStr}, ${lessonTitleEn} (${verseRange}). Digital ed., ed. Amadu Kunateh, niassetafsir.org, 2025. Edition 1.0. Accessed ${date}.`;
+  return `Ibrāhīm Niasse, Fī Riyāḍ al-Tafsīr li-l-Qurʾān al-Karīm, comp. Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī, 10 vols. (Tunis: Majmaʿ al-Yamāma, 2022)${volStr}, ${lessonTitleEn} (${verseRange}). Digital ed., ed. Amadu Kunateh, niassetafsir.org, 2025. Edition 1.0. Accessed ${date}.`;
 }
 
 export function buildBibliography(language: 'ar' | 'en'): string {
   if (language === 'en') {
-    return 'Niasse, Ibrāhīm. Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. Translated by Amadu Kunateh. Digital scholarly edition. niassetafsir.org, 2025.';
+    return 'Niasse, Ibrāhīm. Fī Riyāḍ al-Tafsīr li-l-Qurʾān al-Karīm. Translated by Amadu Kunateh. Digital scholarly edition. niassetafsir.org, 2025.';
   }
-  return 'Niasse, Ibrāhīm. Fī Riyāḍ Tafsīr al-Qurʾān al-Karīm. Compiled by Muḥammad ibn Shaykh ʿAbd Allāh al-Tijānī al-Ibrāhīmī. 10 vols. n.p., n.d. Digital scholarly edition, ed. Amadu Kunateh. niassetafsir.org.';
+  return 'Niasse, Ibrāhīm. Fī Riyāḍ al-Tafsīr li-l-Qurʾān al-Karīm. Compiled by Muḥammad b. al-Shaykh ʿAbd Allāh al-Tijānī. 10 vols. Tunis: Majmaʿ al-Yamāma, 2022. Digital scholarly edition, ed. Amadu Kunateh. niassetafsir.org.';
 }
 
 export function exportClips(): string {
