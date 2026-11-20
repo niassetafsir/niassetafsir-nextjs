@@ -3,6 +3,7 @@ import SearchForm from '@/components/SearchForm';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { showcaseCards, SHOWCASE_VERSE, corpusCounts } from '@/lib/homeShowcase';
 import topicsData from '@/data/topics.json';
+import VerseMarker from '@/components/VerseMarker';
 
 const FAINT = 'var(--body-faint, rgba(232,232,224,0.45))';
 const SUB = 'var(--body-sub, rgba(232,232,224,0.70))';
@@ -51,8 +52,8 @@ export default async function HomePage() {
           mid-Rajab 1320 (October 1902) against the 1900 of most secondary
           literature, and the site should not settle that in a subtitle. */}
       <section className="max-w-3xl mx-auto px-5 pt-8 sm:pt-12 pb-9 text-center">
-        <h1 className="font-arabic text-gold text-3xl sm:text-4xl leading-relaxed mb-1" dir="rtl">
-          مَنْطِقُ الفَيْضَة
+        <h1 className="font-wordmark text-gold text-5xl sm:text-6xl mb-2" dir="rtl">
+          منطق الفيضة
         </h1>
         <p className="font-arabic text-gold/70 text-lg mb-1" dir="rtl">مَجْمُوعُ التَّفْسِيرِ لِصَاحِبِ الفَيْضَةِ وَأَصْحَابِهِ</p>
         <p className="font-english text-sm italic mb-5" style={{ color: FAINT }}>
@@ -127,6 +128,7 @@ export default async function HomePage() {
           at build time (src/lib/homeShowcase.ts). */}
       {cards.length > 0 && (
         <section className="max-w-3xl mx-auto px-5 pb-12">
+          <VerseMarker className="mb-8" />
           <p className="font-english text-center text-[10.5px] uppercase tracking-[0.13em] font-semibold mb-1"
             style={{ color: FAINT }}>
             One verse, across his works

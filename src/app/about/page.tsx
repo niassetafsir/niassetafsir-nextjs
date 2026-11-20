@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getEditionFacts } from '@/lib/coverage';
 import type { Metadata } from 'next';
+import VerseMarker from '@/components/VerseMarker';
 
 /**
  * What this edition is, what it rests on, who made it, and how to cite it.
@@ -36,13 +37,14 @@ export default async function AboutPage() {
 
   return (
     <main className="max-w-2xl mx-auto px-6 pb-24 pt-6" dir="ltr">
-      <div className="text-center pb-8 mb-8 border-b border-gold/20">
-        <div className="font-arabic text-gold text-2xl" dir="rtl" translate="no">مَنْطِقُ الفَيْضَة</div>
+      <div className="text-center pb-6 mb-2">
+        <div className="font-wordmark text-gold text-4xl" dir="rtl" translate="no">منطق الفيضة</div>
         <div className="font-english text-gold text-xl font-semibold mt-1">Manṭiq al-Fayḍa</div>
         <div className="font-english text-white/40 text-sm mt-2 italic">
           Majmūʿ al-Tafsīr li-Ṣāḥib al-Fayḍa wa-Aṣḥābihi · The Collected Tafsīr of Ṣāḥib al-Fayḍa and His Companions
         </div>
       </div>
+      <VerseMarker className="mb-8" />
 
       <div className="space-y-8 font-english text-white/70 leading-relaxed text-sm">
 

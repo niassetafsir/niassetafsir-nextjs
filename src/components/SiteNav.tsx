@@ -121,7 +121,7 @@ function MobileNav() {
           <div className="flex items-center justify-between px-5 py-3 border-b"
             style={{ borderColor: 'rgba(201,168,76,0.2)' }}>
             <div>
-              <p className="font-arabic text-gold font-bold text-base" dir="rtl" translate="no">مَنْطِقُ الفَيْضَة</p>
+              <p className="font-wordmark text-gold text-lg" dir="rtl" translate="no">منطق الفيضة</p>
               <p className="font-english text-[10px]" style={{ color: 'rgba(255,255,255,0.35)' }}>
                 Shaykh Ibrāhīm Niasse and His School on the Qurʾān
               </p>
@@ -227,9 +227,8 @@ export default function SiteNav() {
       <div dir="ltr" className="hidden md:flex items-center justify-between gap-3 px-5 py-2.5">
         <div className="flex flex-1 min-w-0">
           <Link href="/" className="flex flex-col items-start min-w-0 hover:opacity-80 transition-opacity group">
-            <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl" translate="no"
-              style={{ letterSpacing: '-0.01em', textShadow: '0 0 20px rgba(201,168,76,0.3)' }}>
-              مَنْطِقُ الفَيْضَة
+            <span className="font-wordmark text-gold text-2xl" dir="rtl" translate="no">
+              منطق الفيضة
             </span>
             <span className="font-english text-gold/40 text-[8px] leading-tight tracking-wide group-hover:text-gold/60 transition-colors truncate max-w-full">
               Shaykh Ibrāhīm Niasse and His School on the Qurʾān
@@ -261,9 +260,8 @@ export default function SiteNav() {
           <MobileNav />
         </div>
         <Link href="/" className="flex flex-col items-center mx-auto hover:opacity-80 transition-opacity group">
-          <span className="font-arabic text-gold font-bold text-base leading-tight" dir="rtl" translate="no"
-            style={{ letterSpacing: '-0.01em', textShadow: '0 0 20px rgba(201,168,76,0.3)' }}>
-            مَنْطِقُ الفَيْضَة
+          <span className="font-wordmark text-gold text-2xl" dir="rtl" translate="no">
+            منطق الفيضة
           </span>
         </Link>
       </div>
