@@ -73,10 +73,11 @@ export default async function EditorialConventionsPage() {
           the verse rather than translating the passage.
         </p>
         <p className="mb-3">
-          Three choices recur. The Basmala reads &ldquo;By Allāh&apos;s Name, The Entirely Merciful,
+          Three choices recur. The Basmala reads &ldquo;By Allah&apos;s Name: The Entirely Merciful,
           The Especially Merciful,&rdquo; keeping the distinction between al-Raḥmān and al-Raḥīm that
-          he draws at length. <em>ʿAbd</em> is &ldquo;slave.&rdquo; <em>Al-ḥamdu lillāh</em> is
-          &ldquo;The Praise is for God.&rdquo;
+          he draws at length. <em>ʿAbd</em> is &ldquo;slave.&rdquo; <em>Al-Ḥamdu li-Llāh</em> stays in
+          Arabic, glossed &ldquo;The Praise is for Allah.&rdquo; Allah is never rendered &ldquo;God&rdquo;:
+          Shaykh Ibrāhīm holds that Allah is a personal name.
         </p>
 
         <h2 className="font-english text-gold text-lg font-semibold mt-9 mb-3 pb-2 border-b border-gold/20">Transliteration and references</h2>

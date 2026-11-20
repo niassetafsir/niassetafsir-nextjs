@@ -90,12 +90,12 @@ export default async function AboutPage() {
             1964, is the text of <em>Fī Riyāḍ al-Tafsīr</em> (Ogunnaike 2018).
           </p>
           <p className="leading-6 mt-3">
-            The Fayḍa is a flood of the knowledge of God, <em>maʿrifa</em> (Brigaglia 2000–2001;
+            The Fayḍa is a flood of the recognition of Allah, <em>maʿrifa</em> (Brigaglia 2000–2001;
             Seesemann 2011). His community passed that knowledge on through the disciplines it already
             taught, the Qurʾān first among them, so that Sufi training revived Islamic learning rather
             than displacing it (Wright 2015; de Diego González 2020). The Qurʾān stays at the centre
             of the community&rsquo;s life after him, in the teaching of men and women alike (Hill 2018,
-            2019). His tafsīr is where the Fayḍa&rsquo;s teaching on God, the human being and the path
+            2019). His tafsīr is where the Fayḍa&rsquo;s teaching on Allah, the human being and the path
             is worked out verse by verse, and the history of the Fayḍa can be told from it (Kunateh
             2026; Kunateh, forthcoming).
           </p>

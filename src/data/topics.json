@@ -1,5 +1,5 @@
 {
-  "_note": "Topic pages: what Shaykh Ibrāhīm says on one subject, in his own words from Fī Riyāḍ al-Tafsīr, each passage with volume, page, lesson and verse. Built 7 Nov 2026 from verified passages (artifacts 'Niasse on the Self' and 'Niasse on the Secret'); no dissertation material. Arabic checked against src/data/lessons by tests/topics.test.js. 15 Nov 2026: added the spirit (rūḥ), the heart (qalb) and knowing God (maʿrifa), Arabic and pages from the Full Reading dossiers of the 2022 edition; English drafted, marked draft until AK reviews it.",
+  "_note": "Topic pages: what Shaykh Ibrāhīm says on one subject, in his own words from Fī Riyāḍ al-Tafsīr, each passage with volume, page, lesson and verse. Built 7 Nov 2026 from verified passages (artifacts 'Niasse on the Self' and 'Niasse on the Secret'); no dissertation material. Arabic checked against src/data/lessons by tests/topics.test.js. 15 Nov 2026: added the spirit (rūḥ), the heart (qalb) and knowing Allah (maʿrifa), Arabic and pages from the Full Reading dossiers of the 2022 edition; English drafted, marked draft until AK reviews it.",
   "topics": [
     {
       "slug": "nafs",
@@ -7,12 +7,12 @@
       "termAr": "النفس",
       "title": "The self",
       "question": "What does Shaykh Ibrāhīm say about the self (nafs)?",
-      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the self (nafs) as the lowest of five inner subtleties: self, heart, intellect, spirit and secret. The self belongs to the body and pulls toward the earth, while the spirit pulls toward God. God raises the self through seven ranks, from the self that commands evil to the perfected self, and He does it from within the person's own secret (sirr).",
+      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the self (nafs) as the lowest of five inner subtleties: self, heart, intellect, spirit and secret. The self belongs to the body and pulls toward the earth, while the spirit pulls toward Allah. Allah raises the self through seven ranks, from the self that commands evil to the perfected self, and He does it from within the person's own secret (sirr).",
       "points": [
-        ["Lowest of five.", "Every servant has a self, heart, intellect, spirit and secret; beyond the secret is God."],
+        ["Lowest of five.", "Every servant has a self, heart, intellect, spirit and secret; beyond the secret is Allah."],
         ["Tied to the body.", "The self is the body's side of the person; it and the spirit are always at war."],
         ["Seven ranks.", "Commanding, blaming, inspired, tranquil, well-pleased, well-pleasing, perfected."],
-        ["Moved from within.", "God sends a prompter and an inspiration to the self “from its own secret.”"],
+        ["Moved from within.", "Allah sends a prompter and an inspiration to the self “from its own secret.”"],
         ["Its work is the sharīʿa.", "The self drinks from acts of worship and struggle, and is clothed by keeping the law."]
       ],
       "passages": [
@@ -20,19 +20,19 @@
           "title": "The five subtleties of every servant",
           "volume": 6, "page": "74", "lesson": 32, "verse": [20, 7],
           "ar": "كذلك كل عبد له نفس وله قلب وله عقل وله روح وله سر، والسر وأخفى من السر هو الله.",
-          "en": "Likewise every servant has a self (nafs), a heart (qalb), an intellect (ʿaql), a spirit (rūḥ) and a secret (sirr). And what is more hidden than the secret is God."
+          "en": "Likewise every servant has a self (nafs), a heart (qalb), an intellect (ʿaql), a spirit (rūḥ) and a secret (sirr). And what is more hidden than the secret is Allah."
         },
         {
           "title": "The self and the spirit at war",
           "volume": 5, "page": "198", "lesson": 30, "verse": [17, 85],
           "ar": "لما كان هذا الروح هو أصل الموجودات وهذا الروح من حضرة الله تبارك وتعالى، لهذا تجد الإنسان روحه ونفسه في حرب دائما. النفس البدن، الجسد من هذا التراب ولا يحب إلا الرجوع إليه، والروح من تلك الحضرة المقدسة ولا يريد إلا الرجوع إليها. فيتحاربان دائما: إذا غلب الروح على النفس رجع العبد إلى حضرة مولاه تبارك وتعالى، وإذا غلبت النفس رجع أسفل سافلين.",
-          "en": "Since this spirit (rūḥ) is the root of existing things, and this spirit is from the Presence (ḥaḍra) of God, you find that a person's spirit and self (nafs) are always at war. The self is the body (badan): the body is from this earth and loves only to return to it, and the spirit is from that holy Presence and wants only to return to it. So the two fight without end. When the spirit overcomes the self, the servant returns to the Presence of his Master; when the self overcomes, he returns to the lowest of the low."
+          "en": "Since this spirit (rūḥ) is the root of existing things, and this spirit is from the Presence (ḥaḍra) of Allah, you find that a person's spirit and self (nafs) are always at war. The self is the body (badan): the body is from this earth and loves only to return to it, and the spirit is from that holy Presence and wants only to return to it. So the two fight without end. When the spirit overcomes the self, the servant returns to the Presence of his Master; when the self overcomes, he returns to the lowest of the low."
         },
         {
           "title": "The seven ranks of the self",
           "volume": 10, "page": "119–120", "lesson": 53, "verse": [75, 2],
           "ar": "النفس سبعة أقسام كما جاء في القرآن. الأولى: النفس الأمارة بالسوء، هذه نفس الكفار والعصاة. فإذا أراد الله بالإنسان خيرا أرسل لها باعثا من سرها يلومها إذا قصرت في الطاعة أو إذا ارتكبت معصية، فتصير النفس الأمارة تتقلب لوامة … فإذا أراد بها خيرا زائدا بعث لها من سرها إلهاما يلهمها على الخير، هذه النفس الملهمة … فإذا استمرت على ذلك اطمأنت على الخير وتباعدت عن كل شر، صارت نفسا مطمئنة … لا تكون مرضية إلا بعد أن كانت راضية … هذه ستة أقسام، فترجع كاملة تصل إلى الكمال.",
-          "en": "The self (nafs) has seven divisions, as the Qurʾān states. The first is the self that commands evil (al-ammāra bi-l-sūʾ): the self of unbelievers and sinners. When God wills good for a person, He sends it a prompter (bāʿith) from its own secret (sirr) that blames it when it falls short in obedience or commits a sin, and the commanding self turns into a blaming self (lawwāma) … When He wills it further good, He sends it from its secret an inspiration (ilhām) toward the good: this is the inspired self (mulhama) … When it persists in that, it becomes tranquil in the good and distant from every evil, a tranquil self (muṭmaʾinna) … It is not well-pleasing (marḍiyya) until it has first been well-pleased (rāḍiya) … These are six divisions, and it returns perfect (kāmila), reaching perfection (kamāl)."
+          "en": "The self (nafs) has seven divisions, as the Qurʾān states. The first is the self that commands evil (al-ammāra bi-l-sūʾ): the self of unbelievers and sinners. When Allah wills good for a person, He sends it a prompter (bāʿith) from its own secret (sirr) that blames it when it falls short in obedience or commits a sin, and the commanding self turns into a blaming self (lawwāma) … When He wills it further good, He sends it from its secret an inspiration (ilhām) toward the good: this is the inspired self (mulhama) … When it persists in that, it becomes tranquil in the good and distant from every evil, a tranquil self (muṭmaʾinna) … It is not well-pleasing (marḍiyya) until it has first been well-pleased (rāḍiya) … These are six divisions, and it returns perfect (kāmila), reaching perfection (kamāl)."
         },
         {
           "title": "What the self drinks from",
@@ -45,7 +45,7 @@
           "title": "The garment of the self",
           "volume": 3, "page": "200", "lesson": 18, "verse": [7, 26],
           "ar": "الله تبارك وتعالى كسا عباده الصالحين لباسا، لباس النفس ولباس القلب ولباس الروح ولباس السر. لباس النفس: العمل بالشريعة، امتثال الأمر واجتناب النهي، يستر عورة مخالفة أمر الله.",
-          "en": "God clothed His righteous servants with a garment: a garment for the self, the heart, the spirit and the secret. The garment of the self is acting by the sharīʿa, obeying the command and avoiding the prohibition; it covers the shame of disobeying God's command."
+          "en": "Allah clothed His righteous servants with a garment: a garment for the self, the heart, the spirit and the secret. The garment of the self is acting by the sharīʿa, obeying the command and avoiding the prohibition; it covers the shame of disobeying Allah's command."
         },
         {
           "title": "Why a bad deed counts once",
@@ -57,13 +57,13 @@
           "title": "How the self enters Islam",
           "volume": 1, "page": "173", "lesson": 6, "verse": [2, 208],
           "ar": "هذا دخول النفس، والقلب يتخلى عن جميع الأخلاق الذميمة ويتحلى بجميع الأخلاق الحميدة، والروح يترك الالتفات إلى غير الله تبارك وتعالى، والسر يفنى في ذات الله تبارك وتعالى ولا يرى غيره.",
-          "en": "This is the entry of the self. The heart empties itself of every blameworthy trait and adorns itself with every praiseworthy one; the spirit stops turning to anything other than God; and the secret passes away (yafnā) in the Essence of God and sees nothing else."
+          "en": "This is the entry of the self. The heart empties itself of every blameworthy trait and adorns itself with every praiseworthy one; the spirit stops turning to anything other than Allah; and the secret passes away (yafnā) in the Essence of Allah and sees nothing else."
         },
         {
-          "title": "The self's desire is met in knowing God",
+          "title": "The self's desire is met in knowing Allah",
           "volume": 10, "page": "232", "lesson": 56, "verse": [112, 1],
           "ar": "والإنسان فيه شيئان: فيه عقل وفيه نفس، عقله له مطلب ونفسه لها مطلب. العقل مطلبه أن يجد أمينا يستودع عنده جميع ما يملك من الحسنات، والنفس تحتاج لغني جواد تعلق عليه أطماعها … إذاً من عرف الله وجد مراده.",
-          "en": "The human has two things in him: an intellect (ʿaql) and a self (nafs). His intellect has a demand and his self has a demand. The intellect seeks a trustee with whom to deposit all the good deeds it owns; the self needs a rich and generous One on whom to hang its hopes … So whoever knows God (ʿarafa Allāh) finds what he seeks."
+          "en": "The human has two things in him: an intellect (ʿaql) and a self (nafs). His intellect has a demand and his self has a demand. The intellect seeks a trustee with whom to deposit all the good deeds it owns; the self needs a rich and generous One on whom to hang its hopes … So whoever knows Allah (ʿarafa Allāh) finds what he seeks."
         }
       ],
       "related": ["sirr", "ruh", "qalb", "marifa"]
@@ -74,11 +74,11 @@
       "termAr": "السر",
       "title": "The secret",
       "question": "What does Shaykh Ibrāhīm say about the secret (sirr)?",
-      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the secret (sirr) as the innermost of the subtleties that make up a person — self, heart, intellect, spirit, secret — with God beyond it. He defines it by what it will not look at: its godfearing bars it from seeing anything but God, and its humility is that nothing other than God is there. It is also where a person's change begins, since God sends the self both its reproach and its inspiration from its own secret. The Prophet's secret is his alone, and among others the secret is entrusted only to one fit to carry it.",
+      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the secret (sirr) as the innermost of the subtleties that make up a person — self, heart, intellect, spirit, secret — with Allah beyond it. He defines it by what it will not look at: its godfearing bars it from seeing anything but Allah, and its humility is that nothing other than Allah is there. It is also where a person's change begins, since Allah sends the self both its reproach and its inspiration from its own secret. The Prophet's secret is his alone, and among others the secret is entrusted only to one fit to carry it.",
       "points": [
-        ["Innermost, counted either way.", "Read inward from the self — self, heart, intellect, spirit, secret — it comes last. Read in the order God clothes the Muḥammadan Reality — secret, spirit, intellect, heart, self — it comes first. Either way it is the one nearest God."],
+        ["Innermost, counted either way.", "Read inward from the self — self, heart, intellect, spirit, secret — it comes last. Read in the order Allah clothes the Muḥammadan Reality — secret, spirit, intellect, heart, self — it comes first. Either way it is the one nearest Allah."],
         ["Not one fixed scheme.", "He counts five of these subtleties in one place and four in another, leaving the intellect out. What holds across them is the secret's position, not the number."],
-        ["Defined by what it will not see.", "Its godfearing bars it from seeing anything but God; its humility is that nothing else is there."],
+        ["Defined by what it will not see.", "Its godfearing bars it from seeing anything but Allah; its humility is that nothing else is there."],
         ["It moves the self.", "The prompter that blames, and the inspiration toward the good, are sent to the self from its own secret."],
         ["The Prophet's is his own.", "Others drink from his self, heart, intellect and spirit; his secret belongs to him alone."],
         ["Not given to everyone.", "The secret is entrusted only to one fit to carry it."]
@@ -88,13 +88,13 @@
           "title": "The five subtleties, and what lies beyond",
           "volume": 6, "page": "74", "lesson": 32, "verse": [20, 7],
           "ar": "كذلك كل عبد له نفس وله قلب وله عقل وله روح وله سر، والسر وأخفَى من السر هو الله",
-          "en": "Likewise every servant has a self (nafs), a heart (qalb), an intellect (ʿaql), a spirit (rūḥ) and a secret (sirr). And the secret, and what is more hidden than the secret — that is God."
+          "en": "Likewise every servant has a self (nafs), a heart (qalb), an intellect (ʿaql), a spirit (rūḥ) and a secret (sirr). And the secret, and what is more hidden than the secret — that is Allah."
         },
         {
           "title": "The Prophet's secret is his alone",
           "volume": 6, "page": "74", "lesson": 32, "verse": [20, 7],
           "ar": "والأقطاب والأنبياء والمرسلون مشربهم روحه صلى اللّه عليه وسلم، سره خاص به، (لي وقت مع اللّه لا يسعني فيه ملك مقرب ولا نبي مرسل)",
-          "en": "The poles (aqṭāb), the prophets and the messengers drink from his spirit (rūḥ); his secret (sirr) is his alone — ⟨I have a time with God in which no angel brought near nor prophet sent can contain me.⟩",
+          "en": "The poles (aqṭāb), the prophets and the messengers drink from his spirit (rūḥ); his secret (sirr) is his alone — ⟨I have a time with Allah in which no angel brought near nor prophet sent can contain me.⟩",
           "note": "Here Shaykh Ibrāhīm names the five presences (ḥaḍarāt) of the Prophet from the innermost outward — secret, spirit, intellect, heart, self — the reverse of the order in passage 1. He sets them beside the five realms, nāsūt, malakūt, jabarūt, lāhūt and hāhūt, which he names in the opposite direction. The righteous drink from his self, those after them from his heart, those after them from his intellect."
         },
         {
@@ -115,37 +115,37 @@
           "title": "The garment of the secret",
           "volume": 3, "page": "200", "lesson": 18, "verse": [7, 26],
           "ar": "اللّٰه تبارك وتعالى كسا عباده الصالحين لباسا، لباس النفس ولباس القلب ولباس الروح ولباس السر، لباس النفس: العمل بالشريعة، امتثال الأمر واجتناب النهي يستر عورة مخالفة أمر الله. ولباس القلب التقوى أيضا وهو تقوى يمنع العبد من الاشتغال بغير الله. ولباس الروح التقوى أيضا ولكن لباس يمنعه من الالتفات إلى غير اللّٰه تبارك وتعالى. ولباس السر التقوى ولكن تقوى يحجزه عن رؤية ما سوى اللّٰه تبارك وتعالى",
-          "en": "God clothed His righteous servants with a garment: a garment for the self, for the heart, for the spirit and for the secret. The garment of the self is acting by the sharīʿa, obeying the command and avoiding the prohibition; it covers the shame of disobeying God's command. The garment of the heart is godfearing (taqwā) too, a godfearing that keeps the servant from occupying himself with any but God. The garment of the spirit is godfearing as well, but a garment that keeps him from turning to any but God. And the garment of the secret is a godfearing that bars him from seeing anything other than God."
+          "en": "Allah clothed His righteous servants with a garment: a garment for the self, for the heart, for the spirit and for the secret. The garment of the self is acting by the sharīʿa, obeying the command and avoiding the prohibition; it covers the shame of disobeying Allah's command. The garment of the heart is godfearing (taqwā) too, a godfearing that keeps the servant from occupying himself with any but Allah. The garment of the spirit is godfearing as well, but a garment that keeps him from turning to any but Allah. And the garment of the secret is a godfearing that bars him from seeing anything other than Allah."
         },
         {
-          "title": "Its humility: that nothing but God is there",
+          "title": "Its humility: that nothing but Allah is there",
           "volume": 6, "page": "168", "lesson": 35, "verse": [23, 2],
           "ar": "وبقي خشوع الباطن، خشوع الباطن الذكر والحضور مع اللّٰه وعدم التفكر في سوى اللّه، وخشوع الروح عدم الالتفات إلى غير الله، وخشوع السر عدم وجود ما سوى اللّٰه تبارك وتعالى",
-          "en": "What remains is the humility of the inward. The humility (khushūʿ) of the inward is remembrance and presence with God, and not thinking on any but God; the humility of the spirit is not turning to any but God; and the humility of the secret is that nothing other than God is there at all."
+          "en": "What remains is the humility of the inward. The humility (khushūʿ) of the inward is remembrance and presence with Allah, and not thinking on any but Allah; the humility of the spirit is not turning to any but Allah; and the humility of the secret is that nothing other than Allah is there at all."
         },
         {
           "title": "Where it goes when a person enters Islam entirely",
           "volume": 1, "page": "174", "lesson": 6, "verse": [2, 208],
           "ar": "هذا دخول النفس، والقلب يتخلى عن جميع الأخلاق الذميمة ويتحلى بجميع الأخلاق الحميدة، والروح يترك الإلتفات إلى غير اللّٰه تبارك وتعالى، والسر يفنى في ذات اللّٰه تبارك وتعالى ولا يرى غيره",
-          "en": "This is the entry of the self. The heart empties itself of every blameworthy trait and adorns itself with every praiseworthy one; the spirit stops turning to anything other than God; and the secret passes away (yafnā) in the Essence of God and sees nothing else."
+          "en": "This is the entry of the self. The heart empties itself of every blameworthy trait and adorns itself with every praiseworthy one; the spirit stops turning to anything other than Allah; and the secret passes away (yafnā) in the Essence of Allah and sees nothing else."
         },
         {
           "title": "Remembrance must reach it",
           "volume": 4, "page": "52–53", "lesson": 21, "verse": [8, 47],
           "ar": "فهو مفتاح الولاية، فمن أعطي الذكر لم يحرم الولاية، ولابد من الذكر باللسان أولا ثم بالقلب ثم بالروح والسر حتى يصل إلى المطلوب فيكون ذكرا وذاكرا ومذكورا لم يبق إلا الله",
-          "en": "It is the key of sainthood (walāya): whoever is given remembrance (dhikr) is not denied sainthood. Remembrance must be on the tongue first, then in the heart, then in the spirit and the secret, until he arrives at what is sought and becomes remembrance, rememberer and Remembered — nothing remaining but God."
+          "en": "It is the key of sainthood (walāya): whoever is given remembrance (dhikr) is not denied sainthood. Remembrance must be on the tongue first, then in the heart, then in the spirit and the secret, until he arrives at what is sought and becomes remembrance, rememberer and Remembered — nothing remaining but Allah."
         },
         {
           "title": "It is what moves the self",
           "volume": 10, "page": "119", "lesson": 53, "verse": [75, 2],
           "ar": "فإذا أراد اللّٰه بالإنسان خيرا أرسل لها باعثا من سرها يلومها إذا قصرت في الطاعة أو إذا ارتكبت معصية فتصير النفس الأمارة تتقلب لوامة دخلت في حيز الخير واستحقت أن أقسم اللّٰه بها … فإذا أراد بها خيرا زائدا بعث لها من سرها إلهاما يلهمها على الخير",
-          "en": "When God wills good for a person, He sends the self a prompter (bāʿith) from its own secret that blames it when it falls short in obedience or commits a sin; the commanding self turns over into a blaming self, enters the bounds of the good, and becomes worthy of God's swearing by it … And when He wills it further good, He sends it from its secret an inspiration (ilhām) toward the good."
+          "en": "When Allah wills good for a person, He sends the self a prompter (bāʿith) from its own secret that blames it when it falls short in obedience or commits a sin; the commanding self turns over into a blaming self, enters the bounds of the good, and becomes worthy of Allah's swearing by it … And when He wills it further good, He sends it from its secret an inspiration (ilhām) toward the good."
         },
         {
           "title": "It is given only to one fit to carry it",
           "volume": 9, "page": "73", "lesson": 47, "verse": [48, 26],
           "ar": "إن اللّه تبارك وتعالى عرف من كان أهلا لهذا السر الأكبر وهم الصحابة فألزمهم هذه الكلمة. من هنا أخذ الشيوخ أن السر لا يعطى إلا لمن يستحقه، من كان أهلا له",
-          "en": "God knew who was fit for this greatest secret (al-sirr al-akbar) — and they were the Companions — so He bound them to this word. From here the shaykhs took it that the secret is given only to one who deserves it, to one who is fit for it.",
+          "en": "Allah knew who was fit for this greatest secret (al-sirr al-akbar) — and they were the Companions — so He bound them to this word. From here the shaykhs took it that the secret is given only to one who deserves it, to one who is fit for it.",
           "note": "The word is the shahāda. Commenting on «He bound them to the word of godfearing», Shaykh Ibrāhīm glosses it as lā ilāha illa'Llāh, Muḥammad rasūl Allāh — called the word of godfearing because it is its cause; it is truthfulness, the word of sincerity, the goodly word, the word of oneness. That is what he here calls the greatest secret."
         },
         {
@@ -164,27 +164,27 @@
       "termAr": "الروح",
       "title": "The spirit",
       "question": "What does Shaykh Ibrāhīm say about the spirit (rūḥ)?",
-      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm makes the spirit what makes a person human. God breathes it into every human being, and that spirit is the spirit of Muḥammad: Ādam is the father of bodies, Muḥammad the father of spirits. The spirit belongs to the world of command, not of creation, so it has no place and no direction, and this is why the human alone can stand as God’s deputy. It came from the Divine Presence knowing nothing but God, it lives on remembrance as the body lives on food, and it is distinct from the animal spirit that sleep withdraws.",
+      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm makes the spirit what makes a person human. Allah breathes it into every human being, and that spirit is the spirit of Muḥammad: Ādam is the father of bodies, Muḥammad the father of spirits. The spirit belongs to the world of command, not of creation, so it has no place and no direction, and this is why the human alone can stand as Allah’s deputy. It came from the Divine Presence knowing nothing but Allah, it lives on remembrance as the body lives on food, and it is distinct from the animal spirit that sleep withdraws.",
       "points": [
-        ["What makes us human.", "God breathes into every person a spirit from His spirit; by it a person is human."],
+        ["What makes us human.", "Allah breathes into every person a spirit from His spirit; by it a person is human."],
         ["Muḥammad’s spirit.", "All spirits come from one spirit, the Prophet’s: “Ādam is the father of mankind and Muḥammad the father of spirits.”"],
         ["From the world of command.", "Creation is made from something; command from nothing. The spirit is of command."],
-        ["Placeless, so a deputy.", "Like God, the spirit has no place and no direction; so only the human can be His deputy."],
+        ["Placeless, so a deputy.", "Like Allah, the spirit has no place and no direction; so only the human can be His deputy."],
         ["Two spirits.", "An animal spirit, which sleep takes, and a human spirit, which death takes."],
-        ["Its food is remembrance.", "The body lives on food and drink; the spirit lives on the remembrance of God."]
+        ["Its food is remembrance.", "The body lives on food and drink; the spirit lives on the remembrance of Allah."]
       ],
       "passages": [
         {
           "title": "A spirit from His spirit in every human",
           "volume": 3, "page": "8", "lesson": 13, "verse": [4, 159],
           "ar": "كل إنسان خلقه الله ينفخ فيه روحا من روحه فبهذا الروح يكون إنسانا",
-          "en": "Every human being God creates, He breathes into him a spirit from His spirit, and by this spirit he is human."
+          "en": "Every human being Allah creates, He breathes into him a spirit from His spirit, and by this spirit he is human."
         },
         {
           "title": "Ādam the father of mankind, Muḥammad the father of spirits",
           "volume": 4, "page": "21", "lesson": 20, "verse": [7, 189],
           "ar": "الله تبارك وتعالى خلقنا كلنا من نفس واحدة وتلك النفس هي نفس آدم وخلق الأرواح كلا من روح واحد وذلك الروح روح محمد صلى الله عليه وسلم. فآدم أبو البشر ومحمد أبو الأرواح",
-          "en": "God created all of us from a single self, and that self is the self of Ādam. And He created all the spirits from a single spirit, and that spirit is the spirit of Muḥammad, God bless him and give him peace. So Ādam is the father of mankind, and Muḥammad is the father of spirits."
+          "en": "Allah created all of us from a single self, and that self is the self of Ādam. And He created all the spirits from a single spirit, and that spirit is the spirit of Muḥammad ﷺ. So Ādam is the father of mankind, and Muḥammad is the father of spirits."
         },
         {
           "title": "Of the world of command, made from nothing",
@@ -193,16 +193,16 @@
           "en": "Creation (khalq) is what appears of created things, and command (amr) is what does not appear. Creation is what is made from something, and command is what is made from nothing. That is why He said, “The spirit is of my Lord’s command”: the spirit is of the world of command. Creation and command are the kingdom and the dominion, the unseen and the witnessed."
         },
         {
-          "title": "Placeless, and so God’s deputy",
+          "title": "Placeless, and so Allah’s deputy",
           "volume": 1, "page": "134", "lesson": 5, "verse": [2, 115],
           "ar": "ولما لم يكن للروح مكان ولا جهة أصبح خليفة عن الله تعالى، فالله ليس له مكان ولا جهة والروح في الإنسان كذلك ليس له أين ولا كيف فلهذا لا يكون خليفة عن الله إلا الإنسان",
-          "en": "Since the spirit has no place and no direction, it became a deputy (khalīfa) for God. God has no place and no direction, and the spirit in the human being likewise has no where and no how. That is why none but the human being can be God’s deputy."
+          "en": "Since the spirit has no place and no direction, it became a deputy (khalīfa) for Allah. Allah has no place and no direction, and the spirit in the human being likewise has no where and no how. That is why none but the human being can be Allah’s deputy."
         },
         {
-          "title": "It came from the Presence knowing only God",
+          "title": "It came from the Presence knowing only Allah",
           "volume": 5, "page": "70", "lesson": 28, "verse": [13, 19],
           "ar": "الإنسان أصل روحه خرج من حضرة الله تبارك وتعالى غارقا في توحيد الله لا يعرف سوى الله تبارك وتعالى، فلما خوطبوا يوم ألست بربكم نطقوا كلا قالوا بلى، ولما تلبسوا بهذه الملابس والغواشي نسوا ذلك العهد القديم",
-          "en": "The human being’s spirit in its origin came out of the Presence of God, immersed in God’s oneness, knowing nothing but God. When they were addressed on the day of “Am I not your Lord?” they all spoke and said, “Yes.” And when they put on these garments and coverings, they forgot that ancient covenant."
+          "en": "The human being’s spirit in its origin came out of the Presence of Allah, immersed in Allah’s oneness, knowing nothing but Allah. When they were addressed on the day of “Am I not your Lord?” they all spoke and said, “Yes.” And when they put on these garments and coverings, they forgot that ancient covenant."
         },
         {
           "title": "Two spirits: the animal and the human",
@@ -215,13 +215,13 @@
           "volume": 8, "page": "143", "lesson": 43, "verse": [39, 42],
           "ar": "الفرق بين النفس والروح، أن الروح منه النفَس والحركة والنفس التي ربما عُبّر عنها بالروح ولكن روح حيواني ليس روحا حقيقيا. الروح الحقيقي منه النفَس والحركة ما دام الإنسان حيا فهو يتنفس ويتحرك. والنفس منها التمييز",
           "en": "The difference between the self and the spirit is this. From the spirit come breath and motion. The self is sometimes called a spirit, but it is an animal spirit, not a true spirit. From the true spirit come breath and motion: as long as a person is alive he breathes and moves. From the self comes discernment.",
-          "note": "He goes on: God takes both at death, and takes only the self in sleep, the “lesser death”."
+          "note": "He goes on: Allah takes both at death, and takes only the self in sleep, the “lesser death”."
         },
         {
           "title": "The spirit lives on remembrance",
           "volume": 2, "page": "84", "lesson": 9, "verse": [3, 95],
           "ar": "والإنسان خلقه الله فجمع فيه بين الجسمانية والنورانية فهو عيشه جسماني موافق لجسمه الطعام والشراب وعيش روحه ذكر الله تبارك وتعالى لأنه روحاني",
-          "en": "God created the human being and joined in him the bodily and the luminous. So his living is bodily, suited to his body, food and drink; and the living of his spirit is the remembrance of God, because it is spiritual."
+          "en": "Allah created the human being and joined in him the bodily and the luminous. So his living is bodily, suited to his body, food and drink; and the living of his spirit is the remembrance of Allah, because it is spiritual."
         }
       ],
       "related": ["nafs", "sirr", "qalb", "marifa"],
@@ -233,11 +233,11 @@
       "termAr": "القلب",
       "title": "The heart",
       "question": "What does Shaykh Ibrāhīm say about the heart (qalb)?",
-      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the heart as the ground God wants for Himself alone. It lives when the self dies, and God accepts no heart shared with anything else. Hearts differ by what they rest in, from the world to the vision of God. In the order of the inner person the spirit rules, the intellect advises and the heart gives the ruling; remembrance moves from the tongue to the heart to the spirit, and the journey to God is made with the heart, not the body.",
+      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm treats the heart as the ground Allah wants for Himself alone. It lives when the self dies, and Allah accepts no heart shared with anything else. Hearts differ by what they rest in, from the world to the vision of Allah. In the order of the inner person the spirit rules, the intellect advises and the heart gives the ruling; remembrance moves from the tongue to the heart to the spirit, and the journey to Allah is made with the heart, not the body.",
       "points": [
         ["It lives when the self dies.", "When the self lives the heart dies; when the heart lives the self dies."],
-        ["God wants it alone.", "Enemies drive a person back to God, because God loves to have the heart to Himself."],
-        ["No shared heart.", "God does not accept a shared deed or enter a shared heart."],
+        ["Allah wants it alone.", "Enemies drive a person back to Allah, because Allah loves to have the heart to Himself."],
+        ["No shared heart.", "Allah does not accept a shared deed or enter a shared heart."],
         ["Four hearts.", "Hard, forgetful, yearning and unitive: each rests in something different."],
         ["The judge of the inner court.", "The spirit is the sultan, the intellect the vizier, the heart the muftī."],
         ["The road is inward.", "In al-Tijānī’s words: the journey is with the heart, not the body."]
@@ -251,23 +251,23 @@
           "note": "He gives the remedy just before: the formula lā ilāha illā Llāh, reciting the Qurʾān, an empty stomach and prayer at night."
         },
         {
-          "title": "God loves to have the heart to Himself",
+          "title": "Allah loves to have the heart to Himself",
           "volume": 3, "page": "161", "lesson": 17, "verse": [6, 112],
           "ar": "تلك الأعداء منفعة لعبد الله الذي اختاره لأنهم يزعجونه فيرجع إلى خالقه وبارئه، فإنه لو لم يجد في الكون من يؤذيه لمال إليهم بطبعه ولاختطفوا شيئا من قلبه، والحق تبارك وتعالى يحب أن ينفرد بالقلب",
-          "en": "Those enemies are a benefit to the servant of God whom He has chosen, because they trouble him and he returns to his Creator and Maker. If he found no one in the world to harm him, he would lean towards people by his nature, and they would snatch away something of his heart. And the Real loves to have the heart to Himself alone."
+          "en": "Those enemies are a benefit to the servant of Allah whom He has chosen, because they trouble him and he returns to his Creator and Maker. If he found no one in the world to harm him, he would lean towards people by his nature, and they would snatch away something of his heart. And the Real loves to have the heart to Himself alone."
         },
         {
           "title": "No shared heart",
           "volume": 6, "page": "18", "lesson": 31, "verse": [18, 26],
           "ar": "العمل المشترك لا يتقبله الله تبارك وتعالى والقلب المشترك لا يقبل الله إليه، هذا لا يقبله وهذا لا يدخله. من أفرغ قلبه له سكن قلبه",
-          "en": "God does not accept a shared deed, and He does not come to a shared heart: the one He does not accept, the other He does not enter. Whoever empties his heart for Him, He dwells in his heart.",
+          "en": "Allah does not accept a shared deed, and He does not turn to a shared heart: the one He does not accept, the other He does not enter. Whoever empties his heart for Him, He dwells in his heart.",
           "note": "He closes with the ḥadīth qudsī: “My heavens and My earth do not contain Me, but the heart of My believing servant contains Me.”"
         },
         {
           "title": "Four hearts and what each rests in",
           "volume": 5, "page": "76", "lesson": 28, "verse": [13, 28],
           "ar": "القلوب أربعة: قلب قاس، وقلب ناس، وقلب مشتاق، وقلب وحداني. فقلوب الكفار تطمئن بالدنيا، وقلوب الناسين تطمئن بالتوبة، وقلوب المشتاقين تطمئن بذكر الله، وقلوب الوحدانيين أهل الحضرة لا تطمئن إلا بالرؤية",
-          "en": "Hearts are four: a hard heart, a forgetful heart, a yearning heart and a unitive heart. The hearts of the unbelievers rest in this world; the hearts of the forgetful rest in repentance; the hearts of the yearning rest in the remembrance of God; and the hearts of the unitive, the people of the Presence, rest only in vision.",
+          "en": "Hearts are four: a hard heart, a forgetful heart, a yearning heart and a unitive heart. The hearts of the unbelievers rest in this world; the hearts of the forgetful rest in repentance; the hearts of the yearning rest in the remembrance of Allah; and the hearts of the unitive, the people of the Presence, rest only in vision.",
           "note": "His example of the unitive heart is Ibrāhīm’s, which asked to see (Q 2:260)."
         },
         {
@@ -281,7 +281,7 @@
           "title": "Remembrance from tongue to heart to spirit",
           "volume": 2, "page": "139", "lesson": 10, "verse": [3, 191],
           "ar": "وذكر الله تبارك وتعالى في البداية باللسان ثم بالقلب ثم بالروح، بذكر اللسان يجد الفناء في الأفعال، وبذكر القلب يجد الفناء في الصفات، وبذكر الروح يجد الفناء الكلي يفنى ثم يفنى ثم يفنى فكان فناؤه عين البقاء",
-          "en": "The remembrance of God is at first with the tongue, then with the heart, then with the spirit. By remembrance with the tongue one finds annihilation in the acts; by remembrance with the heart, annihilation in the attributes; and by remembrance with the spirit, total annihilation: he passes away, then passes away, then passes away, and his passing away is subsistence itself."
+          "en": "The remembrance of Allah is at first with the tongue, then with the heart, then with the spirit. By remembrance with the tongue one finds annihilation in the acts; by remembrance with the heart, annihilation in the attributes; and by remembrance with the spirit, total annihilation: he passes away, then passes away, then passes away, and his passing away is subsistence itself."
         },
         {
           "title": "The human heart as the Frequented House",
@@ -303,16 +303,16 @@
       "slug": "marifa",
       "term": "maʿrifa",
       "termAr": "المعرفة",
-      "title": "Knowing God",
-      "question": "What does Shaykh Ibrāhīm say about knowing God (maʿrifa)?",
-      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm makes recognition of God the life of everything else in a person: the body lives by the spirit, the spirit by the intellect, the intellect by recognition. It is taken from God without an intermediary, and at its height it is a kind of not-knowing: ignorance of the Essence as it is in itself. Recognizing God is also remembering: the spirit knew Him before the body, and the path removes the veil so that it recalls. The recognizer (al-ʿārif) sees nothing but God, yet keeps the outward forms as courtesy (adab) towards Him.",
+      "title": "Recognition",
+      "question": "What does Shaykh Ibrāhīm say about recognition (maʿrifa)?",
+      "answer": "In Fī Riyāḍ al-Tafsīr, Shaykh Ibrāhīm makes recognition of Allah the life of everything else in a person: the body lives by the spirit, the spirit by the intellect, the intellect by recognition. It is taken from Allah without an intermediary, and at its height it is a kind of not-knowing: ignorance of the Essence as it is in itself. Recognizing Allah is also remembering: the spirit knew Him before the body, and the path removes the veil so that it recalls. The recognizer (al-ʿārif) sees nothing but Allah, yet keeps the outward forms as courtesy (adab) towards Him.",
       "points": [
         ["The spirit of the spirit.", "Recognition is the spirit of the intellect, the intellect the spirit of the spirit."],
-        ["Taken from God directly.", "Wisdom is recognizing God: knowledge taken from Him without an intermediary."],
-        ["Knowing by not knowing.", "Ignorance of the Essence as it is in itself is recognition of God itself."],
+        ["Taken from Allah directly.", "Wisdom is recognizing Allah: knowledge taken from Him without an intermediary."],
+        ["Knowing by not knowing.", "Ignorance of the Essence as it is in itself is recognition of Allah itself."],
         ["Recognizing is remembering.", "Reflection seeks the truth; recollection finds what the spirit already knew."],
         ["All directions are one.", "The true qibla is the Essence; the recognizer still faces one way, as adab."],
-        ["Never absent.", "For the recognizers, God is never absent from the heart; “He” is enough."]
+        ["Never absent.", "For the recognizers, Allah is never absent from the heart; “He” is enough."]
       ],
       "passages": [
         {
@@ -323,17 +323,17 @@
           "note": "Just before: a body without a spirit is a corpse, and a spirit without an intellect is madness."
         },
         {
-          "title": "Wisdom is recognizing God, taken from Him without intermediary",
+          "title": "Wisdom is recognizing Allah, taken from Him without intermediary",
           "volume": 8, "page": "120–121", "lesson": 43, "verse": [38, 20],
           "ar": "الحكمة معرفة الله تبارك وتعالى. الحكمة العلم المأخوذ من الله بلا واسطة وصاحبه لم يكن نبيا، الحكمة رمي يقصد قلب العبد والرامي هو الله",
-          "en": "Wisdom is recognition of God. Wisdom is knowledge taken from God without an intermediary, when its possessor is not a prophet. Wisdom is a shot aimed at the servant’s heart, and the archer is God.",
-          "note": "For prophets, he adds, wisdom is prophecy; for others it is this recognition of God."
+          "en": "Wisdom is recognition of Allah. Wisdom is knowledge taken from Allah without an intermediary, when its possessor is not a prophet. Wisdom is a shot aimed at the servant’s heart, and the archer is Allah.",
+          "note": "For prophets, he adds, wisdom is prophecy; for others it is this recognition of Allah."
         },
         {
           "title": "The ignorance that is recognition itself",
           "volume": 3, "page": "135", "lesson": 16, "verse": [6, 54],
           "ar": "الجهل جهلان: جهل بالله وحقوق ألوهيته الموجب خلود صاحبه في النار، والجهل الذي هو عين المعرفة بالله هو الجهل بكنه الذات من حيث ما هي هي الموجب لخلود صاحبه في الجنة",
-          "en": "Ignorance is of two kinds. One is ignorance of God and of the rights of His divinity, which brings its possessor to remain forever in the Fire. The other, the ignorance that is recognition of God itself, is ignorance of the inmost nature of the Essence as it is in itself, which brings its possessor to remain forever in the Garden."
+          "en": "Ignorance is of two kinds. One is ignorance of Allah and of the rights of His divinity, which brings its possessor to remain forever in the Fire. The other, the ignorance that is recognition of Allah itself, is ignorance of the inmost nature of the Essence as it is in itself, which brings its possessor to remain forever in the Garden."
         },
         {
           "title": "Reflection seeks the truth; recollection finds it",
@@ -346,26 +346,26 @@
           "title": "The true qibla is the Essence",
           "volume": 1, "page": "132", "lesson": 5, "verse": [2, 115],
           "ar": "فإفراد وجهة العبد ظاهرا يؤثر في الباطن حتى يرزقه الله إفراد الوجهة باطنا، والقبلة الحقيقية هي الذات العلية، المطلوب من العبد أن يكون قلبه متوجها إلى هذه القبلة الحقيقية دائما وسرمدا",
-          "en": "The servant’s facing one direction outwardly affects the inward, until God grants him a single direction inwardly. The true qibla is the exalted Essence, and what is asked of the servant is that his heart face this true qibla always and without end.",
+          "en": "The servant’s facing one direction outwardly affects the inward, until Allah grants him a single direction inwardly. The true qibla is the exalted Essence, and what is asked of the servant is that his heart face this true qibla always and without end.",
           "note": "Without the command to face one way, he says, praying towards a fixed direction would be hard for the recognizer, “for all directions are one.”"
         },
         {
-          "title": "The recognizer remembers God in pride and in need",
+          "title": "The recognizer remembers Allah in pride and in need",
           "volume": 1, "page": "168", "lesson": 6, "verse": [2, 200],
           "ar": "فكما أن العبد يذكر أباه في الحالتين افتخارا وافتقارا، فالعارف بالله يذكر ربه افتخارا وافتقارا بل أشد من ذلك، فإن الولد ربما استغنى عن أبيه بولي غيره والعارف لا يجد غنى عن الله تبارك وتعالى ولا يرى غيره",
-          "en": "Just as a servant mentions his father in both states, in pride and in need, so the recognizer of God (al-ʿārif bi-llāh) remembers his Lord in pride and in need, and more intensely still. For a child may come to do without his father through some other guardian, but the recognizer finds no way to do without God, and sees nothing other than Him."
+          "en": "Just as a servant mentions his father in both states, in pride and in need, so the recognizer of Allah (al-ʿārif bi-llāh) remembers his Lord in pride and in need, and more intensely still. For a child may come to do without his father through some other guardian, but the recognizer finds no way to do without Allah, and sees nothing other than Him."
         },
         {
-          "title": "Seeking refuge does not contradict recognizing God",
+          "title": "Seeking refuge does not contradict recognizing Allah",
           "volume": 1, "page": "37", "lesson": 1, "verse": [16, 98],
           "ar": "قيل صورة الإستعاذة تباين المعرفة، لأن الخوف من غير الله لا يرضى به العارفون لأنفسهم لأنهم لا يرون غير الله، ولكن هذا أدب مع الله حيث أمر به",
-          "en": "It has been said that the form of seeking refuge contradicts recognizing God, because fearing anything other than God is not something the recognizers accept for themselves, since they see nothing other than God. But this is courtesy (adab) towards God, since He commanded it."
+          "en": "It has been said that the form of seeking refuge contradicts recognizing Allah, because fearing anything other than Allah is not something the recognizers accept for themselves, since they see nothing other than Allah. But this is courtesy (adab) towards Allah, since He commanded it."
         },
         {
           "title": "For the recognizers, “He” is enough",
           "volume": 10, "page": "231", "lesson": 56, "verse": [112, 1],
           "ar": "العارفون المقربون عند الله تبارك وتعالى لا يغيب الله عن قلوبهم لحظة فهم يتذكرونه دائما فإذا قيل هو يكفيهم ذلك من ذكر الله",
-          "en": "For the recognizers brought near to God, God is never absent from their hearts for a moment. They remember Him always, so when “He” (huwa) is said, that is enough remembrance of God for them.",
+          "en": "For the recognizers brought near to Allah, Allah is never absent from their hearts for a moment. They remember Him always, so when “He” (huwa) is said, that is enough remembrance of Allah for them.",
           "note": "He reads huwa, Allāh and aḥad in Q 112:1 as three stations: the near, the people of the right, and the people of the left."
         }
       ],
