@@ -61,8 +61,10 @@ export default async function HomePage() {
         </p>
 
         <p className="font-english text-[15px] sm:text-lg leading-relaxed mb-5" style={{ color: TEXT }}>
-          Shaykh Ibrāhīm Niasse (d. 1975) explained the Qurʾān across his whole life. Here it is,
-          verse by verse: his 1964 sessions on the whole Qurʾān, his other works, and his students.
+          Shaykh Ibrāhīm Niasse (d. 1975) returned to the Qurʾān throughout his life, explaining its
+          verses in public lessons and answering the questions brought before him. This site brings
+          together his 1964 sessions on the whole Qurʾān, his explanations across other works, and the
+          commentaries of his students.
         </p>
 
         {/* Search first: most visitors come with a verse or a question. */}
