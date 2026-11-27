@@ -18,7 +18,7 @@ export default function TopicPage({ params }: { params: { slug: string } }) {
   if (!t) notFound();
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
-      <p className="font-english text-[12px] mb-3"><Link href="/topics" className="text-gold/70 hover:text-gold">← Topics</Link></p>
+      <p className="font-english text-[12px] mb-3"><Link href="/topics" className="text-gold/70 hover:text-gold">← Topics and terms</Link></p>
       <p className="font-arabic text-gold text-xl mb-1" dir="rtl" translate="no">{t.termAr}</p>
       <h1 className="font-english text-[20px] font-semibold leading-snug mb-4" style={{ color: 'var(--body-text, rgba(255,255,255,0.92))' }}>
         {t.question}

@@ -119,8 +119,9 @@ function englishParagraphs(html: string | undefined): string[] {
   for (const p of html.split(/(?=<p[^>]*>)/)) {
     if (!/<p[^>]*\bclass="[^"]*\ben-para\b[^"]*"/.test(p)) continue;
     const t = p.replace(/<sup[\s\S]*?<\/sup>/g, '').replace(/<[^>]+>/g, ' ')
-      .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;|&rsquo;/g, '’')
-      .replace(/&quot;/g, '"').replace(/\[\d+\]/g, '').replace(/\s+/g, ' ').trim();
+      .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;|&#x27;|&rsquo;/g, '’')
+      .replace(/&quot;/g, '"').replace(/\[\d+\]/g, '').replace(/\s+/g, ' ')
+      .replace(/\s+([,;:.])(?=\s|$)/g, '$1').replace(/\(\s+/g, '(').replace(/\s+\)/g, ')').trim();
     if (t) out.push(t);
   }
   return out;

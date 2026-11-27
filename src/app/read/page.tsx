@@ -5,6 +5,11 @@ import ReadTableOfContents from '@/components/ReadTableOfContents';
 import Link from 'next/link';
 import { getEditionFacts } from '@/lib/coverage';
 
+export const metadata = {
+  title: 'The 56 Lessons',
+  description: 'Fī Riyāḍ al-Tafsīr: the 56 recorded lessons in which Shaykh Ibrāhīm Niasse explained the whole Qurʾān in Ramaḍān 1964, in Arabic with English for Lessons 1–17.',
+};
+
 // Full table of contents, styled after usul.ai's expandable reader outline.
 // This page (and VolumeLessonTree, which it shares with the desktop sidebar
 // and mobile drawer) is now the single place volume → lesson browsing is

@@ -41,7 +41,7 @@ async function lookupWord(word: string): Promise<WordData> {
 
   // Fallback: basic morphological hints
   const roots: Record<string, {root: string, gloss: string}> = {
-    'الله': {root: 'اله', gloss: 'God, the one God'},
+    'الله': {root: 'اله', gloss: 'Allah'},
     'رحمن': {root: 'رحم', gloss: 'Intensely merciful, the Most Gracious'},
     'رحيم': {root: 'رحم', gloss: 'Especially merciful, Most Merciful'},
     'حمد': {root: 'حمد', gloss: 'praise, commendation'},
@@ -61,7 +61,7 @@ async function lookupWord(word: string): Promise<WordData> {
     'رسول': {root: 'رسل', gloss: 'messenger, apostle'},
     'صلاة': {root: 'صلو', gloss: 'prayer, blessing, connection'},
     'إيمان': {root: 'أمن', gloss: 'faith, belief, security'},
-    'تقوى': {root: 'وقي', gloss: 'God-consciousness, piety, protection'},
+    'تقوى': {root: 'وقي', gloss: 'mindfulness of Allah, piety, protection'},
   };
 
   // Try to find a match

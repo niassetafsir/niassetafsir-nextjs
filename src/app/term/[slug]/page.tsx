@@ -143,11 +143,13 @@ export default function TermPage({ params }: { params: { slug: string } }) {
                 </p>
               ) : null}
 
-              {locus.editorialNote && (
+              {/* No editorial notes on the site; the one note allowed is
+                  "Draft translation" (AK). The dossier notes stay in the data. */}
+              {locus.textEn && (
                 <p className="font-english text-[11.5px] italic mt-3 pt-3 border-t leading-relaxed"
                   style={{ borderColor: 'rgba(255,255,255,0.08)',
                            color: 'var(--body-faint, rgba(255,255,255,0.35))' }}>
-                  {locus.editorialNote}
+                  Draft translation
                 </p>
               )}
             </div>

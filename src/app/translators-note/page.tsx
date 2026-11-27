@@ -83,11 +83,8 @@ export default async function EditorialConventionsPage() {
           )}.
         </p>
         <p className="mb-3">
-          For passages from Shaykh Ibrāhīm&apos;s other works, the English is either a direct translation
-          or a concise account of how he interprets the verse. Each is labelled above the English: 
-          <em>Translation</em> where the English renders the Arabic passage, <em>Summary</em> where it
-          summarizes his interpretation of the verse. A reader quoting the English should not cite a
-          summary as a translation. The short account at the head of each topic page is the
+          Passages from Shaykh Ibrāhīm&apos;s other works appear in Arabic, with an English translation
+          where one has been made. The short account at the head of each topic page is the
           editor&apos;s; the passages beneath it are Shaykh Ibrāhīm&apos;s words.
         </p>
         <p className="mb-3">

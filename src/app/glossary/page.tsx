@@ -117,9 +117,14 @@ export default function TermsPage() {
     }
   }, [fromUrl, concordance]);
 
+  // The page is built before its data loads, so the heading is drawn in the
+  // loading state too: without it the built page was a bare "Loading…".
   if (!concordance) return (
-    <main className="max-w-5xl mx-auto px-4 py-12 text-center">
-      <p className="font-english animate-pulse" style={{ color: 'rgba(255,255,255,0.3)' }}>Loading…</p>
+    <main className="max-w-5xl mx-auto px-4 pb-24 pt-6" dir="ltr">
+      <Link href="/topics" className="font-english text-xs text-gold/70 hover:text-gold inline-block mb-3">← Topics and terms</Link>
+      <div className="font-arabic text-gold text-xl mb-1" dir="rtl">فهرس المصطلحات</div>
+      <h1 className="font-english text-lg font-semibold" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>Technical Terms</h1>
+      <p className="font-english animate-pulse mt-8 text-center" style={{ color: 'rgba(255,255,255,0.3)' }}>Loading…</p>
     </main>
   );
 
