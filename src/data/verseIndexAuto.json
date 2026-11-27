@@ -2043,6 +2043,11 @@
       "uncertain": true
     },
     {
+      "verse": "2:280",
+      "paraIndex": 57,
+      "uncertain": true
+    },
+    {
       "verse": "2:281",
       "paraIndex": 58,
       "uncertain": true
@@ -2054,7 +2059,7 @@
     },
     {
       "verse": "2:283",
-      "paraIndex": 60,
+      "paraIndex": 59,
       "uncertain": true
     },
     {
@@ -2065,11 +2070,6 @@
     {
       "verse": "2:285",
       "paraIndex": 62,
-      "editorial": true
-    },
-    {
-      "verse": "2:285",
-      "paraIndex": 63,
       "uncertain": true
     },
     {
@@ -2106,6 +2106,11 @@
       "verse": "3:6",
       "paraIndex": 72,
       "uncertain": true
+    },
+    {
+      "verse": "112:1",
+      "paraIndex": 73,
+      "editorial": true
     },
     {
       "verse": "3:7",
