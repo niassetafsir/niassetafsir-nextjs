@@ -85,9 +85,9 @@ export const NAV: NavSection[] = [
     href: '/topics',
     label: 'Topics',
     labelAr: 'موضوعات',
-    hint: 'Thematic index',
+    hint: 'Topics and terms',
     icon: '⊞',
-    match: ['/topics'],
+    match: ['/topics', '/term', '/glossary'],
     children: [],
   },
   {

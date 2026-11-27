@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { getLesson } from '@/lib/lessons';
 import { commentaryParagraphs, curatedFatihaPair } from '@/lib/niasseVerseExcerpt';
+import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
 import { EDITION_LABEL, formatRef, lessonRef, suraRef } from '@/lib/edition';
 import verseText from '@/data/verse_text.json';
 import verseTranslation from '@/data/verseTranslation.json';
@@ -107,6 +108,24 @@ function trimToWord(s: string, max: number): string {
   return (space > max * 0.6 ? cut.slice(0, space) : cut).trimEnd();
 }
 
+/**
+ * The English paragraphs of a translated lesson, in order, as plain text.
+ * Paired with the Arabic through the translator's alignment
+ * (bilingualAlignment.ts), paragraph to paragraph.
+ */
+function englishParagraphs(html: string | undefined): string[] {
+  if (!html) return [];
+  const out: string[] = [];
+  for (const p of html.split(/(?=<p[^>]*>)/)) {
+    if (!/<p[^>]*\bclass="[^"]*\ben-para\b[^"]*"/.test(p)) continue;
+    const t = p.replace(/<sup[\s\S]*?<\/sup>/g, '').replace(/<[^>]+>/g, ' ')
+      .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&#39;|&rsquo;/g, '’')
+      .replace(/&quot;/g, '"').replace(/\[\d+\]/g, '').replace(/\s+/g, ' ').trim();
+    if (t) out.push(t);
+  }
+  return out;
+}
+
 export async function generateStaticParams() {
   return crossCorpusVerses().map(v => ({
     surah: String(v.surah),
@@ -205,6 +224,8 @@ export default async function VersePage({
   // Arabic-and-English object this site holds. Used once per page: two loci
   // showing the same pair would be the reuse bug wearing a new coat.
   let pairShown = false;
+  const usedEnglish = new Set<string>();
+  const englishByLesson = new Map<number, string[]>();
 
   for (const e of lessonLoci) {
     const lessonId = e.locus.address.lesson as number;
@@ -235,8 +256,25 @@ export default async function VersePage({
     if (!opened) continue;
     const raw = endAtSentence(opened, paras[para + 1]);
     const truncated = raw.length > SNIPPET_CHARS;
+    // English, for a translated lesson, where the Arabic shown is the whole
+    // paragraph the alignment pairs (not cut at either end, at most a clause
+    // carried over from the next paragraph), and each English paragraph once
+    // per page, so one translation never sits under two different excerpts.
+    let en: string | undefined;
+    const al = lesson.hasEnglish ? BILINGUAL_ALIGNMENT[lessonId] : undefined;
+    if (al && !truncated && opened === paras[para] && raw.length - opened.length < 160) {
+      const block = al.blocks.find(b => b.arabicIndices.length === 1 && b.arabicIndices[0] === para);
+      const key = `${lessonId}:${block?.englishIndices.join(',')}`;
+      if (block && block.englishIndices.length && !usedEnglish.has(key)) {
+        const ens = englishByLesson.get(lessonId) ?? englishParagraphs(lesson.englishText ?? undefined);
+        englishByLesson.set(lessonId, ens);
+        const t = block.englishIndices.map(i => ens[i]).filter(Boolean).join(' ');
+        if (t) { en = t; usedEnglish.add(key); }
+      }
+    }
     excerpts.set(e.locus.id, {
       ar: truncated ? trimToWord(raw, SNIPPET_CHARS) : raw,
+      ...(en ? { en } : {}),
       href: `/lesson/${lessonId}#ar-para-${para}`,
       truncated,
       printedRef: formatRef(lessonRef(lessonId)),

@@ -23,6 +23,7 @@ export default function TermIndexPage() {
 
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
+      <Link href="/topics" className="font-english text-xs text-gold/70 hover:text-gold inline-block mb-3">← Topics and terms</Link>
       <p className="font-arabic text-gold text-lg mb-0.5" dir="rtl">فهرس المصطلحات المعرَّفة</p>
       <h1 className="font-english font-semibold text-base mb-1"
         style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>

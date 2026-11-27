@@ -167,6 +167,7 @@ export default function TermsPage() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 pb-24 pt-6" dir="ltr">
+      <Link href="/topics" className="font-english text-xs text-gold/70 hover:text-gold inline-block mb-3">← Topics and terms</Link>
       <div className="mb-7">
         <div className="font-arabic text-gold text-xl mb-1" dir="rtl">فهرس المصطلحات</div>
         <h1 className="font-english text-2xl font-semibold"

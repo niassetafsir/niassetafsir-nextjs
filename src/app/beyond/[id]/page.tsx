@@ -82,9 +82,16 @@ export default function WorkPage({ params, student = false }: { params: { id: st
         <em>{work.titleTranslit}</em>
       </h1>
       <p className="font-english text-[12px] mb-4" style={{ color: 'var(--body-faint, rgba(255,255,255,0.5))' }}>
-        {work.titleEn}
-        {work.composed?.gregorian && <> · {work.composed.hijri && `${work.composed.hijri} / `}{work.composed.gregorian}</>}
-        {work.relation === 'compiler' && work.author && <> · compiled by {work.author}</>}
+        {/* "compiled by" names the compiler, never Shaykh Ibrāhīm (it read
+            "compiled by Ibrāhīm Niasse" on the Mawsūʿa pages). */}
+        {[
+          work.titleEn,
+          work.composed?.gregorian ? `${work.composed.hijri ? `${work.composed.hijri} / ` : ''}${work.composed.gregorian}` : null,
+          (work as { series?: string; seriesIndex?: number }).series
+            ? `${(work as { series?: string }).series}${(work as { seriesIndex?: number }).seriesIndex ? `, maḥwar ${(work as { seriesIndex?: number }).seriesIndex}` : ''}`
+            : null,
+          work.relation === 'compiler' && work.compiler ? `compiled by ${work.compiler}` : null,
+        ].filter(Boolean).join(' · ')}
       </p>
       {work.note && (
         <p className="font-english text-[13.5px] leading-relaxed mb-8" style={{ color: 'var(--body-sub, rgba(255,255,255,0.75))' }}>{work.note}</p>

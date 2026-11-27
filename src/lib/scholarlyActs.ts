@@ -14,10 +14,9 @@ export const SHOWN_ACTS: ReadonlySet<ExegeticalAct> = new Set<ExegeticalAct>([
   'gloss',      // an interpretive equivalence
   'juristic',   // the verse as legal proof
   'prooftext',  // the verse warranting a claim he argues
-  'allusion',   // its words worked into his own argument
 ]);
 
-// "Application" covers two different things. Most are rites: a verse recited
+// "Application" and "allusion" each cover two different things. Most are rites: a verse recited
 // for travel, a cure, a wird. Those stay off. These are the rest: places where
 // he (or, in al-Qanābil, his student) argues from the verse or reads it, which
 // is commentary in AK's sense even though the act recorded is application.
@@ -31,6 +30,17 @@ const ARGUED_APPLICATIONS: ReadonlySet<string> = new Set([
   'qanabil-p05-07:13:39', 'qanabil-p09-11:98:7', 'qanabil-p12-16:9:102',
   'qanabil-p19-22:17:81', 'qanabil-p26-26:3:73', 'qanabil-p26-26:57:29',
   'qanabil-p40-35:2:269', 'qanabil-p40-35:3:7', 'qanabil-p42-39:99:2',
+  // Allusions read one by one (AK, 27 Nov 2026: "do them"). An allusion
+  // shows only where the verse is read or argued from: the nearness verses
+  // and the caliphate argument in al-Qanābil, the two "names" of 89:3, the
+  // women among "the chosen" in the Tadhyīl. Travel narrative, greetings,
+  // closing prayers and borrowed phrasing stay off.
+  'rijal-069:76:20', 'kashif-246:38:47',
+  'qanabil-p04-01:3:54', 'qanabil-p05-02:50:16', 'qanabil-p05-03:8:24', 'qanabil-p05-04:7:56',
+  'qanabil-p05-05:53:9', 'qanabil-p05-06:21:87', 'qanabil-p06-08:98:6', 'qanabil-p07-09:98:7',
+  'qanabil-p07-10:89:28', 'qanabil-p10-12:25:70', 'qanabil-p18-18:2:30', 'qanabil-p18-18:38:26',
+  'qanabil-p18-19:9:30', 'qanabil-p23-23:4:150', 'qanabil-p29-27:89:3', 'qanabil-p31-29:25:45',
+  'qanabil-p40-34:89:3', 'qanabil-p42-37:48:4', 'qanabil-p42-38:57:20',
 ]);
 
 // Passages in verse. AK, 27 Nov 2026: "i want only prose." The three
