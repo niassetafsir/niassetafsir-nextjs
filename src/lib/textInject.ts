@@ -52,15 +52,30 @@ export function stripEnFootnotes(html: string): string {
  * more. Site review, 27 Nov 2026.
  */
 function tidyUnverified(text: string): string {
-  if (/^\s*\d{1,2}\s*[-–]\s/.test(text)) return '';
+  if (/^\s*\d{1,2}\s*(?:[-–]|\\?_)\s?/.test(text)) return '';
+  // A line that is only a page reference left from a note ("ص332.[2]",
+  // "ص ١ه وفي حاشيته ص163."), or scanner debris with no Arabic in it
+  // (Lesson 44: "T/CC", "MEN", "OK").
+  if (text.length < 60 && /^\s*[صج]\s*[\d\u0660-\u0669]/.test(text)) return '';
+  if (!/[\u0621-\u064A]/.test(text)) return '';
   return text
     .replace(/\[\d+\]/g, '')
     .replace(/([)\]»"])\d{1,2}(?=[\s.،:؛]|$)/g, '$1')
     .replace(/([\u0621-\u064A\u064B-\u0652]{3,})\d{1,2}(?=[\s.،:؛]|$)/g, '$1');
 }
 
+/**
+ * A scanning error in the Qurʾān quotations of every lesson: the Warsh
+ * printing's مِّن was read as «صِ», which is not a word (265 times; every
+ * one checked in a sample is مِن). Display only; the data is unchanged.
+ */
+export function fixQuranOcr(text: string): string {
+  return text.replace(/(^|[^\u0621-\u064A\u064B-\u0652])صِ(?=\s|$)/g, '$1مِن');
+}
+
 export function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrder?: string[], cursor?: { i: number }): string {
   if (!lessonId) return text;
+  text = fixQuranOcr(text);
 
   // A lesson whose apparatus is not yet verified shows no markers at all --
   // see src/lib/apparatus.ts. Its bodies still carry the old [N] from the

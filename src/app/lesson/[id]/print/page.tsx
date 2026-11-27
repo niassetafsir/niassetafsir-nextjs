@@ -68,7 +68,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
         .lesson-print-page { font-family: 'Scheherazade New', 'Fayda Text', 'Amiri', serif; font-size: 12pt; line-height: 1.8; font-size-adjust: ex-height 0.52; color: #111; background: white; padding: 2.5cm; max-width: 21cm; margin: 0 auto; }
         .lesson-print-page .work-title { text-align: center; font-size: 10pt; color: #666; margin-bottom: 0.3cm; letter-spacing: 0.03em; }
         .lesson-print-page .lesson-title-ar { font-size-adjust: none; text-align: center; font-family: 'Scheherazade New', 'Amiri', serif; font-size: 18pt; color: #7B5C14; direction: rtl; margin-bottom: 0.2cm; }
-        .lesson-print-page .lesson-title-en { text-align: center; font-size: 11pt; color: #444; margin-bottom: 0.1cm; }
+        .lesson-print-page .lesson-title-en { text-align: center; font-size: 11pt; font-weight: normal; margin-top: 0; color: #444; margin-bottom: 0.1cm; }
         .lesson-print-page .vol-ref { text-align: center; font-size: 9pt; color: #888; margin-bottom: 0.6cm; }
         .lesson-print-page hr { border: none; border-top: 1px solid #C9A84C; margin: 0.5cm 0; opacity: 0.4; }
         .lesson-print-page .poem-block { font-size-adjust: none; text-align: center; font-family: 'Scheherazade New', 'Amiri', serif; direction: rtl; font-size: 13pt; color: #7B5C14; line-height: 2.0; margin-bottom: 0.6cm; }
@@ -90,7 +90,7 @@ export default async function PrintPage({ params }: { params: { id: string } }) 
 
       <div className="work-title">Fī Riyāḍ al-Tafsīr li-l-Qurʾān al-Karīm · فِي رِيَاضِ التَّفْسِيرِ لِلْقُرْآنِ الْكَرِيمِ</div>
       <div className="lesson-title-ar">{lesson.arabicTitle}</div>
-      <div className="lesson-title-en">{lesson.englishTitle}</div>
+      <h1 className="lesson-title-en">{lesson.englishTitle}</h1>
       <div className="vol-ref">{lesson.verseRange}{volStr ? ` · Arabic compiled edition, ${volStr}` : ''}</div>
       <hr />
 

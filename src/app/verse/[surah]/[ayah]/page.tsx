@@ -4,6 +4,7 @@ import { SURAH_LIST } from '@/lib/verseRanges';
 import { getLesson } from '@/lib/lessons';
 import { commentaryParagraphs, curatedFatihaPair } from '@/lib/niasseVerseExcerpt';
 import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
+import { fixQuranOcr } from '@/lib/textInject';
 import { EDITION_LABEL, formatRef, lessonRef, suraRef } from '@/lib/edition';
 import verseText from '@/data/verse_text.json';
 import verseTranslation from '@/data/verseTranslation.json';
@@ -274,7 +275,7 @@ export default async function VersePage({
       }
     }
     excerpts.set(e.locus.id, {
-      ar: truncated ? trimToWord(raw, SNIPPET_CHARS) : raw,
+      ar: fixQuranOcr(truncated ? trimToWord(raw, SNIPPET_CHARS) : raw),
       ...(en ? { en } : {}),
       href: `/lesson/${lessonId}#ar-para-${para}`,
       truncated,

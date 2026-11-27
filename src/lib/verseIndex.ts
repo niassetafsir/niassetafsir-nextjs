@@ -91,9 +91,21 @@ const FATIHA_LESSON_1: VerseIndexEntry[] = [
   { verse: '1:5', paraIndex: 54 },
 ];
 
-export const VERSE_INDEX: Record<number, VerseIndexEntry[]> = {
-  ...(AUTO_VERSE_INDEX as unknown as Record<number, VerseIndexEntry[]>),
-};
+// Paragraphs that are the compiler's hadith apparatus run into the body at a
+// page break (a ḥadīth text ending "صحيح البخاري: كتاب … / باب … (6530)").
+// The āya they match is quoted inside the ḥadīth, so a verse card built from
+// them shows a takhrīj, not the Shaykh's commentary. "lesson:paragraph".
+const APPARATUS_PARAS = new Set([
+  '18:73', '20:6', '22:112', '23:44', '24:73', '26:121', '28:98', '29:7',
+  '29:141', '30:98', '32:61', '33:87', '34:68', '34:154', '36:59', '44:160',
+  '45:129', '46:86', '48:122', '50:120', '51:103',
+]);
+
+export const VERSE_INDEX: Record<number, VerseIndexEntry[]> = Object.fromEntries(
+  Object.entries(AUTO_VERSE_INDEX as unknown as Record<number, VerseIndexEntry[]>).map(
+    ([lesson, entries]) => [lesson, entries.filter(e => !APPARATUS_PARAS.has(`${lesson}:${e.paraIndex}`))]
+  )
+);
 {
   const held = new Set((VERSE_INDEX[1] || []).map(e => e.verse));
   const add = FATIHA_LESSON_1.filter(e => !held.has(e.verse));

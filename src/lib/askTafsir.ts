@@ -1,3 +1,4 @@
+import { fixQuranOcr } from '@/lib/textInject';
 // Ask the Tafsīr, in his words.
 //
 // A reader asks a question; the answer is made only of his text. The search
@@ -306,7 +307,7 @@ export async function askTafsir(raw: string): Promise<AskAnswer> {
       if (!c || typeof qt.text !== 'string') continue;
       const found = locate(qt.text, c.text);
       if (!found) continue; // not in the passage: dropped
-      const ar = found.text;
+      const ar = fixQuranOcr(found.text);
       // Which paragraph of the window the quotation starts in: link and
       // translate that one.
       let paraIndex = c.paraIndex;

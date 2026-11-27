@@ -12,7 +12,7 @@ export default function SiteFooter() {
   return (
     <footer translate="yes" style={{borderTop:'1px solid rgba(255,255,255,0.06)', paddingTop:'12px', paddingBottom:'12px', paddingLeft:'24px', paddingRight:'24px', background:'transparent'}}>
       <div style={{maxWidth:'1100px', margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:'8px'}}>
-        <p className="font-english" style={{fontSize:'10px', color:'rgba(255,255,255,0.2)', letterSpacing:'0.02em'}}>
+        <p dir="ltr" className="font-english" style={{fontSize:'10px', color:'rgba(255,255,255,0.2)', letterSpacing:'0.02em'}}>
           © Manṭiq al-Fayḍa · niassetafsir.org
         </p>
         {/* Plain links, so every page has a crawlable path to About and the
@@ -23,7 +23,7 @@ export default function SiteFooter() {
           <Link href="/verse" className="hover:text-gold" style={{color:'rgba(255,255,255,0.45)'}}>Find a verse</Link>
           <Link href="/get-involved" className="hover:text-gold" style={{color:'rgba(255,255,255,0.45)'}}>Get in touch</Link>
         </nav>
-        <p className="font-english" style={{fontSize:'10px', color:'rgba(255,255,255,0.15)'}}>
+        <p dir="ltr" className="font-english" style={{fontSize:'10px', color:'rgba(255,255,255,0.15)'}}>
           niassetafsirproject@gmail.com
         </p>
       </div>
