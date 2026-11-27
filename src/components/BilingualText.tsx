@@ -26,6 +26,8 @@ interface BilingualTextProps {
    *  removed) -- see src/lib/arabicCommentary.ts. Published in full,
    *  site-wide (AK confirmed 2026-08-16; see CLAUDE.md). */
   arabicParagraphs: string[];
+  /** Arabic withheld for this lesson: show the English alone, no view switch. */
+  englishOnly?: boolean;
   /** paraIndex -> spanIndex -> "surah:ayah", high-confidence matches only,
    *  for the small verse-number badge injectVerseNumbers() appends after a
    *  quoted Qur'anic clause -- see src/data/verseCitations.json. */
@@ -100,13 +102,13 @@ function TabBtn({ label, active, onClick }: { label: string; active: boolean; on
 }
 
 
-export default function BilingualText({ poemLines, arabicParagraphs, citations, citationStatus, englishText, hasEnglish, lessonId, footnoteOrder, alignment, verseEntries = [], jumpVerses = [] }: BilingualTextProps) {
+export default function BilingualText({ englishOnly = false, poemLines, arabicParagraphs, citations, citationStatus, englishText, hasEnglish, lessonId, footnoteOrder, alignment, verseEntries = [], jumpVerses = [] }: BilingualTextProps) {
   // Opening on 'bilingual' regardless of whether a translation exists gave 51
   // of 56 lessons a two-column layout in which one column said "English
   // translation forthcoming" -- half the reading width spent on an absence.
   // Those lessons open on the Arabic, full width.
   const [view, setView] = useState<View>(
-    hasEnglish && (englishText || '').trim().length > 200 ? 'bilingual' : 'arabic'
+    englishOnly ? 'english' : hasEnglish && (englishText || '').trim().length > 200 ? 'bilingual' : 'arabic'
   );
   const [highlightedPara, setHighlightedPara] = useState<number>(-1);
   const goToPara = (para: number) => {
@@ -244,7 +246,7 @@ export default function BilingualText({ poemLines, arabicParagraphs, citations, 
           they announced intentions and did nothing, so they are gone from the
           reading page. Sticky from tablet up only: on a phone a pinned control
           bar ate a fifth of the screen over the text. */}
-      {(hasTranslation || jumpVerses.length > 1) && (
+      {!englishOnly && (hasTranslation || jumpVerses.length > 1) && (
         <div
           className="px-3 py-2 border-b md:sticky z-30 flex gap-1.5 flex-wrap items-center"
           dir="ltr"

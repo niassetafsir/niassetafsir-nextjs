@@ -26,6 +26,7 @@
 const fs = require('fs');
 const path = require('path');
 
+const PROOFREAD = new Set(require('../src/data/arabicProofread.json').lessons);
 const LESSONS_DIR = path.join(__dirname, '..', 'src', 'data', 'lessons');
 const OUT_FILE = path.join(__dirname, '..', 'public', 'data', 'search-main.json');
 
@@ -93,7 +94,7 @@ for (let id = 1; id <= 56; id++) {
 
   // Arabic -- Qur'anic citation fragments only.
   // Arabic of Lessons 31-56 is withheld (src/lib/arabicPublished.ts).
-  const arFragments = id <= 30 ? redactToQuranicFragments(lesson.arabicBody || lesson.arabicText) : [];
+  const arFragments = PROOFREAD.has(id) ? redactToQuranicFragments(lesson.arabicBody || lesson.arabicText) : [];
   arFragments.forEach((text, i) => {
     entries.push({
       id: `l${id}-niasse-ar-${i}`,
