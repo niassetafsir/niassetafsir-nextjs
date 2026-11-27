@@ -1452,7 +1452,7 @@
   "6": [
     {
       "verse": "2:203",
-      "paraIndex": 1,
+      "paraIndex": 0,
       "uncertain": true
     },
     {
@@ -1468,6 +1468,11 @@
     {
       "verse": "2:204",
       "paraIndex": 6,
+      "uncertain": true
+    },
+    {
+      "verse": "2:205",
+      "paraIndex": 7,
       "uncertain": true
     },
     {
@@ -1657,8 +1662,13 @@
     },
     {
       "verse": "2:235",
-      "paraIndex": 81,
+      "paraIndex": 80,
       "uncertain": true
+    },
+    {
+      "verse": "2:235",
+      "paraIndex": 81,
+      "editorial": true
     },
     {
       "verse": "2:236",

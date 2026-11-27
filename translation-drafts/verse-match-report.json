@@ -9691,29 +9691,46 @@
     "surahs": [
       2
     ],
-    "spanCount": 360,
+    "spanCount": 411,
     "spans": [
+      {
+        "paraIndex": 0,
+        "spanIndex": 0,
+        "text": "فِےٓ أَيَّامࣲ مَّعْدُودَٰتࣲۖ",
+        "match": {
+          "verse": "2:203",
+          "score": 0.11,
+          "type": "enclosed",
+          "scope": "none"
+        }
+      },
       {
         "paraIndex": 1,
         "spanIndex": 0,
-        "text": "فِے يَوْمَيْنِ",
+        "text": "فَمَن تَعَجَّلَ",
         "match": null
       },
       {
         "paraIndex": 1,
         "spanIndex": 1,
-        "text": "وَمَن تَأَخَّرَ",
+        "text": "فِے يَوْمَيْنِ",
         "match": null
       },
       {
         "paraIndex": 1,
         "spanIndex": 2,
-        "text": "لِمَنِ اِ۪تَّق۪يٰۖ",
+        "text": "وَمَن تَأَخَّرَ",
         "match": null
       },
       {
         "paraIndex": 1,
         "spanIndex": 3,
+        "text": "لِمَنِ اِ۪تَّق۪يٰۖ",
+        "match": null
+      },
+      {
+        "paraIndex": 1,
+        "spanIndex": 4,
         "text": "وَاتَّقُواْ اُ۬للَّهَ وَاعْلَمُوٓاْ أَنَّكُمُۥٓ إِلَيْهِ تُحْشَرُونَۖ",
         "match": {
           "verse": "2:203",
@@ -9732,7 +9749,7 @@
       {
         "paraIndex": 2,
         "spanIndex": 1,
-        "text": "لا يموتن أحدكم إلا وهو يحسن بالف الظن",
+        "text": "لا يموتن أحدكم إلا وهو يحسن بالله الظن",
         "match": null
       },
       {
@@ -9842,6 +9859,18 @@
       {
         "paraIndex": 7,
         "spanIndex": 3,
+        "text": "وَاللَّهُ لَا يُحِبُّ اُ۬لْفَسَادَۖ",
+        "match": {
+          "verse": "2:205",
+          "score": 0.26,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
+        }
+      },
+      {
+        "paraIndex": 7,
+        "spanIndex": 4,
         "text": "وَإِذَا قِيلَ لَهُ اُ۪تَّقِ اِ۬للَّهَ",
         "match": {
           "verse": "2:206",
@@ -9853,25 +9882,25 @@
       },
       {
         "paraIndex": 7,
-        "spanIndex": 4,
+        "spanIndex": 5,
         "text": "أَخَذَتْهُ اُ۬لْعِزَّةُ",
         "match": null
       },
       {
         "paraIndex": 7,
-        "spanIndex": 5,
+        "spanIndex": 6,
         "text": "بِالِاثْمِ",
         "match": null
       },
       {
         "paraIndex": 7,
-        "spanIndex": 6,
-        "text": "مَحَسْبُهُ",
+        "spanIndex": 7,
+        "text": "فَحَسْبُهُۥ",
         "match": null
       },
       {
         "paraIndex": 7,
-        "spanIndex": 7,
+        "spanIndex": 8,
         "text": "جَهَنَّمُۖ وَلَبِيسَ اَ۬لْمِهَادُۖ",
         "match": {
           "verse": "2:206",
@@ -10016,7 +10045,7 @@
       {
         "paraIndex": 9,
         "spanIndex": 7,
-        "text": "كَابَّةً",
+        "text": "كَآفَّةࣰ",
         "match": null
       },
       {
@@ -10075,18 +10104,30 @@
       {
         "paraIndex": 11,
         "spanIndex": 5,
-        "text": "وَالْمَلَٰٓئِكَةُ",
+        "text": "فِے ظُلَلࣲ",
         "match": null
       },
       {
         "paraIndex": 11,
         "spanIndex": 6,
-        "text": "وَقُضِيَ اَ۬لَامْرُۖ",
+        "text": "مِّنَ اَ۬لْغَمَٰمِ",
         "match": null
       },
       {
         "paraIndex": 11,
         "spanIndex": 7,
+        "text": "وَالْمَلَٰٓئِكَةُ",
+        "match": null
+      },
+      {
+        "paraIndex": 11,
+        "spanIndex": 8,
+        "text": "وَقُضِيَ اَ۬لَامْرُۖ",
+        "match": null
+      },
+      {
+        "paraIndex": 11,
+        "spanIndex": 9,
         "text": "وَإِلَي اَ۬للَّهِ تُرْجَعُ اُ۬لُامُورُۖ",
         "match": {
           "verse": "2:210",
@@ -10098,7 +10139,19 @@
       },
       {
         "paraIndex": 11,
-        "spanIndex": 8,
+        "spanIndex": 10,
+        "text": "سَلْ",
+        "match": null
+      },
+      {
+        "paraIndex": 11,
+        "spanIndex": 11,
+        "text": "بَنِےٓ إِسْرَآءِيلَ",
+        "match": null
+      },
+      {
+        "paraIndex": 11,
+        "spanIndex": 12,
         "text": "كَمَ اٰتَيْنَٰهُم مِّنَ اٰيَةِۢ بَيِّنَةࣲۖ",
         "match": {
           "verse": "2:211",
@@ -10109,7 +10162,7 @@
       },
       {
         "paraIndex": 11,
-        "spanIndex": 9,
+        "spanIndex": 13,
         "text": "وَمَنْ يُّبَدِّلْ نِعْمَةَ اَ۬للَّهِ",
         "match": {
           "verse": "2:211",
@@ -10229,6 +10282,12 @@
       {
         "paraIndex": 13,
         "spanIndex": 7,
+        "text": "مُبَشِّرِينَ",
+        "match": null
+      },
+      {
+        "paraIndex": 13,
+        "spanIndex": 8,
         "text": "وَأَنزَلَ مَعَهُمُ اُ۬لْكِتَٰبَ",
         "match": {
           "verse": "2:213",
@@ -10239,7 +10298,7 @@
       },
       {
         "paraIndex": 13,
-        "spanIndex": 8,
+        "spanIndex": 9,
         "text": "بِالْحَقِّ لِيَحْكُمَ بَيْنَ اَ۬لنَّاسِ فِيمَا اَ۪خْتَلَفُواْ فِيهِۖ",
         "match": {
           "verse": "2:213",
@@ -10307,6 +10366,12 @@
       {
         "paraIndex": 14,
         "spanIndex": 5,
+        "text": "بِإِذْنِهِۦۖ",
+        "match": null
+      },
+      {
+        "paraIndex": 14,
+        "spanIndex": 6,
         "text": "وَاللَّهُ يَهْدِے مَنْ يَّشَآءُ اِ۪لَيٰ صِرَٰطࣲ مُّسْتَقِيمٍۖ",
         "match": {
           "verse": "2:213",
@@ -10318,13 +10383,13 @@
       },
       {
         "paraIndex": 14,
-        "spanIndex": 6,
+        "spanIndex": 7,
         "text": "كل مولود يولد على الفطرة فأبواه يهودانه أو ينصرانه أو يمجسانه",
         "match": null
       },
       {
         "paraIndex": 14,
-        "spanIndex": 7,
+        "spanIndex": 8,
         "text": "اَمْ حَسِبْتُمُۥٓ أَن تَدْخُلُواْ اُ۬لْجَنَّةَ",
         "match": {
           "verse": "2:214",
@@ -10349,12 +10414,18 @@
       {
         "paraIndex": 16,
         "spanIndex": 0,
-        "text": "مَّسَّتْهُمُ لأس شدة الر وَالضَّرَّآءُ",
+        "text": "مَّسَّتْهُمُ اُ۬لْبَأْسَآءُ",
         "match": null
       },
       {
         "paraIndex": 16,
         "spanIndex": 1,
+        "text": "وَالضَّرَّآءُ",
+        "match": null
+      },
+      {
+        "paraIndex": 16,
+        "spanIndex": 2,
         "text": "وَزُلْزِلُواْ",
         "match": null
       },
@@ -10409,11 +10480,12 @@
       {
         "paraIndex": 18,
         "spanIndex": 0,
-        "text": "يَسْـَٔلُونَكَ مَاذَا يُنصِفُولَ",
+        "text": "يَسْـَٔلُونَكَ مَاذَا يُنفِقُونَۖ",
         "match": {
           "verse": "2:215",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.15,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -10436,6 +10508,12 @@
       {
         "paraIndex": 18,
         "spanIndex": 3,
+        "text": "فَلِلْوَٰلِدَيْنِ",
+        "match": null
+      },
+      {
+        "paraIndex": 18,
+        "spanIndex": 4,
         "text": "وَالَاقْرَبِينَ وَالْيَتَٰم۪يٰ وَالْمَسَٰكِينِ وَابْنِ اِ۬لسَّبِيلِۖ",
         "match": {
           "verse": "2:215",
@@ -10447,7 +10525,7 @@
       },
       {
         "paraIndex": 18,
-        "spanIndex": 4,
+        "spanIndex": 5,
         "text": "وَمَا تَفْعَلُواْ مِنْ خَيْرࣲ",
         "match": {
           "verse": "2:215",
@@ -10459,7 +10537,7 @@
       },
       {
         "paraIndex": 18,
-        "spanIndex": 5,
+        "spanIndex": 6,
         "text": "فَإِنَّ اَ۬للَّهَ بِهِۦ عَلِيمࣱۖ",
         "match": {
           "verse": "2:215",
@@ -10471,31 +10549,31 @@
       },
       {
         "paraIndex": 18,
-        "spanIndex": 6,
+        "spanIndex": 7,
         "text": "كُتِبَ",
         "match": null
       },
       {
         "paraIndex": 18,
-        "spanIndex": 7,
+        "spanIndex": 8,
         "text": "عَلَيْكُمُ اُ۬لْقِتَالُ",
         "match": null
       },
       {
         "paraIndex": 18,
-        "spanIndex": 8,
+        "spanIndex": 9,
         "text": "وَهُوَ كُرْهࣱ",
         "match": null
       },
       {
         "paraIndex": 18,
-        "spanIndex": 9,
+        "spanIndex": 10,
         "text": "لَكُمْ",
         "match": null
       },
       {
         "paraIndex": 18,
-        "spanIndex": 10,
+        "spanIndex": 11,
         "text": "وَعَس۪يٰٓ أَن تَكْرَهُواْ شَئْاࣰ وَهُوَ خَيْرࣱ لَّكُمْۖ وَعَس۪يٰٓ أَن تُحِبُّواْ شَئْاࣰ وَهُوَ شَرࣱّ لَّكُمْۖ",
         "match": {
           "verse": "2:216",
@@ -10507,13 +10585,13 @@
       },
       {
         "paraIndex": 18,
-        "spanIndex": 11,
+        "spanIndex": 12,
         "text": "وَاللَّهُ يَعْلَمُۖ",
         "match": null
       },
       {
         "paraIndex": 18,
-        "spanIndex": 12,
+        "spanIndex": 13,
         "text": "وَأَنتُمْ لا تَعْلَمُونَۖ",
         "match": {
           "verse": "2:216",
@@ -10528,19 +10606,19 @@
       },
       {
         "paraIndex": 18,
-        "spanIndex": 13,
+        "spanIndex": 14,
         "text": "يَسْـَٔلُونَكَ",
         "match": null
       },
       {
         "paraIndex": 18,
-        "spanIndex": 14,
+        "spanIndex": 15,
         "text": "مَاذَا يُنفِقُونَۖ",
         "match": null
       },
       {
         "paraIndex": 18,
-        "spanIndex": 15,
+        "spanIndex": 16,
         "text": "وَمَا تَفْعَلُواْ مِنْ خَيْرࣲ فَإِنَّ اَ۬للَّهَ بِهِۦ عَلِيمࣱۖ",
         "match": {
           "verse": "2:215",
@@ -10571,7 +10649,7 @@
       {
         "paraIndex": 20,
         "spanIndex": 2,
-        "text": "وَكُبْرَبِهِ",
+        "text": "وَكُفْرُۢ بِهِۦ",
         "match": null
       },
       {
@@ -10810,20 +10888,38 @@
       {
         "paraIndex": 37,
         "spanIndex": 0,
-        "text": "فَلِ",
+        "text": "قُلِ",
         "match": null
       },
       {
         "paraIndex": 37,
         "spanIndex": 1,
-        "text": "الْعَجْوَ",
+        "text": "اِ۬لْعَفْوَۖ",
         "match": null
       },
       {
         "paraIndex": 37,
         "spanIndex": 2,
-        "text": "بداً بنفسك ثم يمن تعول أفضل الصدقة ما كان عن ظهر غنى",
+        "text": "ابدأ بنفسك ثم بمن تعول أفضل الصدقة ما كان عن ظهر غنى",
         "match": null
+      },
+      {
+        "paraIndex": 42,
+        "spanIndex": 0,
+        "text": "كَذَٰلِكَ",
+        "match": null
+      },
+      {
+        "paraIndex": 42,
+        "spanIndex": 1,
+        "text": "يُبَيِّنُ اُ۬للَّهُ لَكُمُ اُ۬لَايَٰتِ لَعَلَّكُمْ تَتَفَكَّرُونَ",
+        "match": {
+          "verse": "2:219",
+          "score": 0.23,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
+        }
       },
       {
         "paraIndex": 43,
@@ -10868,7 +10964,7 @@
       {
         "paraIndex": 48,
         "spanIndex": 3,
-        "text": "بَإِخْوَانُكُمْ",
+        "text": "فَإِخْوَٰنُكُمْۖ",
         "match": null
       },
       {
@@ -10885,7 +10981,7 @@
       {
         "paraIndex": 48,
         "spanIndex": 5,
-        "text": "صَ الْمُصْلِحْ",
+        "text": "مِنَ اَ۬لْمُصْلِحِۖ",
         "match": null
       },
       {
@@ -11094,7 +11190,7 @@
       {
         "paraIndex": 54,
         "spanIndex": 1,
-        "text": "مِنْ حَيْثُ أَمَرَكُمُ اُ۬للَّهُۖ",
+        "text": "فَإِذَا تَطَهَّرْنَ فَاتُوهُنَّ",
         "match": {
           "verse": "2:222",
           "score": 0.12,
@@ -11105,12 +11201,41 @@
       {
         "paraIndex": 54,
         "spanIndex": 2,
+        "text": "مِنْ حَيْثُ أَمَرَكُمُ اُ۬للَّهُۖ",
+        "match": {
+          "verse": "2:222",
+          "score": 0.12,
+          "type": "enclosed",
+          "scope": "none"
+        }
+      },
+      {
+        "paraIndex": 54,
+        "spanIndex": 3,
+        "text": "إِنَّ اَ۬للَّهَ يُحِبُّ",
+        "match": {
+          "verse": "2:222",
+          "score": 0.08,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
+        }
+      },
+      {
+        "paraIndex": 54,
+        "spanIndex": 4,
+        "text": "اُ۬لتَّوَّٰبِينَ",
+        "match": null
+      },
+      {
+        "paraIndex": 54,
+        "spanIndex": 5,
         "text": "وَيُحِبُّ اُ۬لْمُتَطَهِّرِينَۖ",
         "match": null
       },
       {
         "paraIndex": 54,
-        "spanIndex": 3,
+        "spanIndex": 6,
         "text": "نِسَآؤُكُمْ حَرْثࣱ لَّكُمْ",
         "match": {
           "verse": "2:223",
@@ -11120,8 +11245,26 @@
         }
       },
       {
+        "paraIndex": 55,
+        "spanIndex": 0,
+        "text": "نِسَآؤُكُمْ",
+        "match": null
+      },
+      {
+        "paraIndex": 55,
+        "spanIndex": 1,
+        "text": "حَرْثࣱ لَّكُمْ",
+        "match": null
+      },
+      {
         "paraIndex": 56,
         "spanIndex": 0,
+        "text": "فَاتُواْ حَرْثَكُمُۥٓ",
+        "match": null
+      },
+      {
+        "paraIndex": 56,
+        "spanIndex": 1,
         "text": "أَنّ۪يٰ شِئْتُمْۖ",
         "match": null
       },
@@ -11134,13 +11277,13 @@
       {
         "paraIndex": 59,
         "spanIndex": 0,
-        "text": "وَاتَّقُواْ اُ۬للَّهَۖ",
+        "text": "وَقَدِّمُواْ لِأَنفُسِكُمْۖ",
         "match": null
       },
       {
         "paraIndex": 59,
         "spanIndex": 1,
-        "text": "وَقَدِّمُوا لَا نْجُيكُمْ",
+        "text": "وَاتَّقُواْ اُ۬للَّهَۖ",
         "match": null
       },
       {
@@ -11157,7 +11300,7 @@
       {
         "paraIndex": 60,
         "spanIndex": 1,
-        "text": "وَتَقْرِ الْمَومِنِينَ",
+        "text": "وَبَشِّرِ اِ۬لْمُومِنِينَۖ",
         "match": null
       },
       {
@@ -11180,11 +11323,12 @@
       {
         "paraIndex": 60,
         "spanIndex": 4,
-        "text": "لَا لِّأَيْمَٰنِكُمُۥٓۖ أَن تَبَرُّواْ",
+        "text": "لِّأَيْمَٰنِكُمُۥٓۖ أَن تَبَرُّواْ",
         "match": {
           "verse": "2:224",
-          "score": 0.75,
-          "type": "fuzzy"
+          "score": 0.21,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -11256,12 +11400,18 @@
       {
         "paraIndex": 61,
         "spanIndex": 4,
-        "text": "قَإِن جَآءَو",
+        "text": "فَإِن فَآءُو",
         "match": null
       },
       {
         "paraIndex": 62,
         "spanIndex": 0,
+        "text": "رَّحِيمࣱۖ",
+        "match": null
+      },
+      {
+        "paraIndex": 62,
+        "spanIndex": 1,
         "text": "وَإِنْ عَزَمُواْ اُ۬لطَّلَٰقَ",
         "match": {
           "verse": "2:227",
@@ -11273,7 +11423,7 @@
       },
       {
         "paraIndex": 62,
-        "spanIndex": 1,
+        "spanIndex": 2,
         "text": "إِنَّ اللَّهَ سَمِيعٌ",
         "match": {
           "verse": "2:244",
@@ -11285,38 +11435,32 @@
       },
       {
         "paraIndex": 62,
-        "spanIndex": 2,
+        "spanIndex": 3,
         "text": "عَلِيمࣱۖ",
         "match": null
       },
       {
         "paraIndex": 62,
-        "spanIndex": 3,
+        "spanIndex": 4,
         "text": "وَالْمُطَلَّقَٰتُ يَتَرَبَّصْنَ",
         "match": null
       },
       {
         "paraIndex": 62,
-        "spanIndex": 4,
+        "spanIndex": 5,
         "text": "بِأَنفُسِهِنَّ",
         "match": null
       },
       {
         "paraIndex": 62,
-        "spanIndex": 5,
-        "text": "ثَلَئَةَ فَرْوَءِ",
-        "match": null
-      },
-      {
-        "paraIndex": 62,
         "spanIndex": 6,
-        "text": "غَفُورٌ",
+        "text": "ثَلَٰثَةَ قُرُوٓءࣲۖ",
         "match": null
       },
       {
         "paraIndex": 62,
         "spanIndex": 7,
-        "text": "رَحِيمُم",
+        "text": "غَفُورٌ",
         "match": null
       },
       {
@@ -11333,6 +11477,29 @@
       {
         "paraIndex": 63,
         "spanIndex": 1,
+        "text": "إِن كُنَّ يُومِنَّ بِاللَّهِ وَالْيَوْمِ اِ۬لَاخِرِۖ وَبُعُولَتُهُنَّ",
+        "match": {
+          "verse": "2:228",
+          "score": 0.18,
+          "type": "enclosed",
+          "scope": "none"
+        }
+      },
+      {
+        "paraIndex": 63,
+        "spanIndex": 2,
+        "text": "أَحَقُّ بِرَدِّهِنَّ",
+        "match": null
+      },
+      {
+        "paraIndex": 63,
+        "spanIndex": 3,
+        "text": "فِے ذَٰلِكَ",
+        "match": null
+      },
+      {
+        "paraIndex": 63,
+        "spanIndex": 4,
         "text": "إِنَ اَرَادُوٓاْ إِصْلَٰحاࣰۖ",
         "match": {
           "verse": "2:228",
@@ -11343,19 +11510,30 @@
       },
       {
         "paraIndex": 63,
-        "spanIndex": 2,
-        "text": "وَلَهْرَّ",
+        "spanIndex": 5,
+        "text": "وَلَهُنَّ",
         "match": null
       },
       {
         "paraIndex": 63,
-        "spanIndex": 3,
+        "spanIndex": 6,
+        "text": "مِثْلُ اُ۬لذِے عَلَيْهِنَّ",
+        "match": {
+          "verse": "2:228",
+          "score": 0.07,
+          "type": "enclosed",
+          "scope": "none"
+        }
+      },
+      {
+        "paraIndex": 63,
+        "spanIndex": 7,
         "text": "بِالْمَعْرُوفِۖ",
         "match": null
       },
       {
         "paraIndex": 63,
-        "spanIndex": 4,
+        "spanIndex": 8,
         "text": "وَلِلرِّجَالِ عَلَيْهِنَّ دَرَجَةࣱۖ",
         "match": {
           "verse": "2:228",
@@ -11366,13 +11544,13 @@
       },
       {
         "paraIndex": 63,
-        "spanIndex": 5,
+        "spanIndex": 9,
         "text": "وَاللَّهُ عَزِيزٌ",
         "match": null
       },
       {
         "paraIndex": 63,
-        "spanIndex": 6,
+        "spanIndex": 10,
         "text": "حَكِيمٌۖ",
         "match": null
       },
@@ -11391,19 +11569,31 @@
       {
         "paraIndex": 67,
         "spanIndex": 0,
-        "text": "يتَعْرُوب",
+        "text": "فَإِمْسَاكُۢ",
         "match": null
       },
       {
         "paraIndex": 67,
         "spanIndex": 1,
+        "text": "بِمَعْرُوفٍ",
+        "match": null
+      },
+      {
+        "paraIndex": 67,
+        "spanIndex": 2,
         "text": "اَوْ تَسْرِيحُۢ",
+        "match": null
+      },
+      {
+        "paraIndex": 67,
+        "spanIndex": 3,
+        "text": "بِإِحْسَٰنࣲۖ",
         "match": null
       },
       {
         "paraIndex": 68,
         "spanIndex": 0,
-        "text": "وَلَا يَحِلُّ لَكُمُۥٓ\"",
+        "text": "وَلَا يَحِلُّ لَكُمُۥٓ",
         "match": {
           "verse": "2:229",
           "score": 0.05,
@@ -11550,6 +11740,12 @@
       {
         "paraIndex": 74,
         "spanIndex": 5,
+        "text": "لِّتَعْتَدُواْۖ",
+        "match": null
+      },
+      {
+        "paraIndex": 74,
+        "spanIndex": 6,
         "text": "وَلَا تَتَّخِذُوٓاْ ءَايَٰتِ اِ۬للَّهِ هُزُؤاࣰۖ",
         "match": {
           "verse": "2:231",
@@ -11560,7 +11756,7 @@
       },
       {
         "paraIndex": 74,
-        "spanIndex": 6,
+        "spanIndex": 7,
         "text": "وَاذْكُرُواْ نِعْمَتَ اَ۬للَّهِ عَلَيْكُمْ",
         "match": {
           "verse": "2:231",
@@ -11572,7 +11768,7 @@
       },
       {
         "paraIndex": 74,
-        "spanIndex": 7,
+        "spanIndex": 8,
         "text": "وَمَآ أَنزَلَ عَلَيْكُم مِّنَ اَ۬لْكِتَٰبِ",
         "match": {
           "verse": "2:231",
@@ -11583,7 +11779,7 @@
       },
       {
         "paraIndex": 74,
-        "spanIndex": 8,
+        "spanIndex": 9,
         "text": "وَالْحِكْمَةِ",
         "match": null
       },
@@ -11611,19 +11807,25 @@
       {
         "paraIndex": 75,
         "spanIndex": 2,
-        "text": "وباً تَعْضَلُوهُنَّ",
+        "text": "فَلَا تَعْضُلُوهُنَّ",
         "match": null
       },
       {
         "paraIndex": 75,
         "spanIndex": 3,
-        "text": "أَنْ يَّنكِحْنَ أَزْوَٰجَهُنَّ",
+        "text": "أَنْ يَّنكِحْنَ أَزْوَٰجَهُنَّ",
         "match": {
           "verse": "2:232",
           "score": 0.08,
           "type": "enclosed",
           "scope": "none"
         }
+      },
+      {
+        "paraIndex": 75,
+        "spanIndex": 4,
+        "text": "إِذَا تَرَٰضَوْاْ",
+        "match": null
       },
       {
         "paraIndex": 76,
@@ -11640,24 +11842,35 @@
       {
         "paraIndex": 76,
         "spanIndex": 2,
-        "text": "ذَلِكُمُوَ",
-        "match": null
+        "text": "يُوعَظُ بِهِۦ مَن كَانَ مِنكُمْ يُومِنُ بِاللَّهِ وَالْيَوْمِ اِ۬لَاخِرِۖ",
+        "match": {
+          "verse": "2:232",
+          "score": 0.24,
+          "type": "enclosed",
+          "scope": "none"
+        }
       },
       {
         "paraIndex": 76,
         "spanIndex": 3,
-        "text": "أَزْك۪يٰ",
+        "text": "ذَٰلِكُمُۥٓ",
         "match": null
       },
       {
         "paraIndex": 76,
         "spanIndex": 4,
-        "text": "لَكُمْ وَأَطْهَرُۖ",
+        "text": "أَزْك۪يٰ",
         "match": null
       },
       {
         "paraIndex": 76,
         "spanIndex": 5,
+        "text": "لَكُمْ وَأَطْهَرُۖ",
+        "match": null
+      },
+      {
+        "paraIndex": 76,
+        "spanIndex": 6,
         "text": "وَاللَّهُ يَعْلَمُۖ",
         "match": null
       },
@@ -11679,24 +11892,30 @@
       {
         "paraIndex": 77,
         "spanIndex": 1,
-        "text": "يَرْضِعْرَ",
+        "text": "وَالْوَٰلِدَٰتُ",
         "match": null
       },
       {
         "paraIndex": 77,
         "spanIndex": 2,
-        "text": "أَوْلَٰدَهُنَّ حَوْلَيْنِ",
+        "text": "يُرْضِعْنَ",
         "match": null
       },
       {
         "paraIndex": 77,
         "spanIndex": 3,
-        "text": "كَامِلَيْنِۖ",
+        "text": "أَوْلَٰدَهُنَّ حَوْلَيْنِ",
         "match": null
       },
       {
         "paraIndex": 77,
         "spanIndex": 4,
+        "text": "كَامِلَيْنِۖ",
+        "match": null
+      },
+      {
+        "paraIndex": 77,
+        "spanIndex": 5,
         "text": "وَعَلَي اَ۬لْمَوْلُودِ لَهُۥ",
         "match": {
           "verse": "2:233",
@@ -11707,25 +11926,25 @@
       },
       {
         "paraIndex": 77,
-        "spanIndex": 5,
-        "text": "رِزْفُهُرَّ",
-        "match": null
-      },
-      {
-        "paraIndex": 77,
         "spanIndex": 6,
-        "text": "وَكِسْوَتُهُنَّ",
+        "text": "رِزْقُهُنَّ",
         "match": null
       },
       {
         "paraIndex": 77,
         "spanIndex": 7,
-        "text": "بِالْمَعْرُوفِۖ",
+        "text": "وَكِسْوَتُهُنَّ",
         "match": null
       },
       {
         "paraIndex": 77,
         "spanIndex": 8,
+        "text": "بِالْمَعْرُوفِۖ",
+        "match": null
+      },
+      {
+        "paraIndex": 77,
+        "spanIndex": 9,
         "text": "لَا تُكَلَّفُ نَفْسٌ اِلَّا وُسْعَهَاۖ",
         "match": {
           "verse": "2:233",
@@ -11736,8 +11955,8 @@
       },
       {
         "paraIndex": 77,
-        "spanIndex": 9,
-        "text": "لا تُضَآرَّ وَٰلِدَةُۢ بِوَلَدِهَا",
+        "spanIndex": 10,
+        "text": "لَا تُضَآرَّ وَٰلِدَةُۢ بِوَلَدِهَا",
         "match": {
           "verse": "2:233",
           "score": 0.05,
@@ -11747,13 +11966,13 @@
       },
       {
         "paraIndex": 77,
-        "spanIndex": 10,
+        "spanIndex": 11,
         "text": "وَلا",
         "match": null
       },
       {
         "paraIndex": 77,
-        "spanIndex": 11,
+        "spanIndex": 12,
         "text": "مَوْلُودࣱ لَّهُۥ بِوَلَدِهِۦۖ",
         "match": {
           "verse": "2:233",
@@ -11764,14 +11983,20 @@
       },
       {
         "paraIndex": 77,
-        "spanIndex": 12,
+        "spanIndex": 13,
         "text": "وَعَلَي اَ۬لْوَارِثِ",
         "match": null
       },
       {
         "paraIndex": 77,
-        "spanIndex": 13,
-        "text": "بِصَالًا",
+        "spanIndex": 14,
+        "text": "فَإِنَ اَرَادَا",
+        "match": null
+      },
+      {
+        "paraIndex": 77,
+        "spanIndex": 15,
+        "text": "فِصَالاً",
         "match": null
       },
       {
@@ -11783,18 +12008,34 @@
       {
         "paraIndex": 78,
         "spanIndex": 1,
-        "text": "«مِّنْهُمَا وَتَشَاوُرࣲ",
+        "text": "مِّنْهُمَا وَتَشَاوُرࣲ",
         "match": null
       },
       {
         "paraIndex": 78,
         "spanIndex": 2,
+        "text": "فَلَا جُنَاحَ عَلَيْهِمَاۖ",
+        "match": {
+          "verse": "2:230",
+          "score": 0.1,
+          "type": "ambiguous",
+          "scope": "range",
+          "candidates": [
+            "2:229",
+            "2:230",
+            "2:233"
+          ]
+        }
+      },
+      {
+        "paraIndex": 78,
+        "spanIndex": 3,
         "text": "وَإِنَ اَرَدتُّمُۥٓ",
         "match": null
       },
       {
         "paraIndex": 78,
-        "spanIndex": 3,
+        "spanIndex": 4,
         "text": "أَن تَسْتَرْضِعُوٓاْ أَوْلَٰدَكُمْ",
         "match": {
           "verse": "2:233",
@@ -11805,7 +12046,7 @@
       },
       {
         "paraIndex": 78,
-        "spanIndex": 4,
+        "spanIndex": 5,
         "text": "فَلَا جُنَاحَ عَلَيْكُمُۥٓ",
         "match": {
           "verse": "2:240",
@@ -11821,25 +12062,25 @@
       },
       {
         "paraIndex": 78,
-        "spanIndex": 5,
+        "spanIndex": 6,
         "text": "إِذَا سَلَّمْتُم",
         "match": null
       },
       {
         "paraIndex": 78,
-        "spanIndex": 6,
+        "spanIndex": 7,
         "text": "مَّآ ءَاتَيْتُم",
         "match": null
       },
       {
         "paraIndex": 78,
-        "spanIndex": 7,
+        "spanIndex": 8,
         "text": "بِالْمَعْرُوفِۖ",
         "match": null
       },
       {
         "paraIndex": 78,
-        "spanIndex": 8,
+        "spanIndex": 9,
         "text": "وَاتَّقُواْ اُ۬للَّهَۖ وَاعْلَمُوٓاْ أَنَّ اَ۬للَّهَ بِمَا تَعْمَلُونَ بَصِيرࣱۖ",
         "match": {
           "verse": "2:233",
@@ -11850,20 +12091,26 @@
       },
       {
         "paraIndex": 78,
-        "spanIndex": 9,
-        "text": "مِنكُمْ وَيَذَرُونَ",
-        "match": null
-      },
-      {
-        "paraIndex": 78,
         "spanIndex": 10,
-        "text": "أَزْوَاجاً يَتَرَبَّصْنَ",
+        "text": "وَالذِينَ يُتَوَفَّوْنَ",
         "match": null
       },
       {
         "paraIndex": 78,
         "spanIndex": 11,
-        "text": "بِأَنجُسِصَِّ",
+        "text": "مِنكُمْ وَيَذَرُونَ",
+        "match": null
+      },
+      {
+        "paraIndex": 78,
+        "spanIndex": 12,
+        "text": "أَزْوَٰجاࣰ يَتَرَبَّصْنَ",
+        "match": null
+      },
+      {
+        "paraIndex": 78,
+        "spanIndex": 13,
+        "text": "بِأَنفُسِهِنَّ",
         "match": null
       },
       {
@@ -11892,29 +12139,64 @@
       {
         "paraIndex": 79,
         "spanIndex": 2,
+        "text": "فَلَا جُنَاحَ عَلَيْكُمْ فِيمَا فَعَلْنَ فِےٓ أَنفُسِهِنَّ",
+        "match": {
+          "verse": "2:234",
+          "score": 0.23,
+          "type": "enclosed",
+          "scope": "none"
+        }
+      },
+      {
+        "paraIndex": 79,
+        "spanIndex": 3,
         "text": "بِالْمَعْرُوفِۖ",
         "match": null
       },
       {
         "paraIndex": 80,
         "spanIndex": 0,
-        "text": "وَلَا جُنَاحَ عَلَيْكُمْ فِيمَا عَرَّطْنُ لوحتم بِهِۦ، مِنْ خِطْبَةِ اِ۬لنِّسَآءِ",
+        "text": "وَاللَّهُ بِمَا تَعْمَلُونَ خَبِيرࣱۖ",
         "match": {
-          "verse": "2:235",
-          "score": 0.8,
-          "type": "fuzzy"
+          "verse": "2:234",
+          "score": 0.14,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
         }
       },
       {
         "paraIndex": 80,
         "spanIndex": 1,
+        "text": "وَلَا جُنَاحَ عَلَيْكُمْ فِيمَا عَرَّضْتُم",
+        "match": {
+          "verse": "2:235",
+          "score": 0.1,
+          "type": "enclosed",
+          "scope": "none"
+        }
+      },
+      {
+        "paraIndex": 80,
+        "spanIndex": 2,
+        "text": "بِهِۦ مِنْ خِطْبَةِ اِ۬لنِّسَآءِ",
+        "match": {
+          "verse": "2:235",
+          "score": 0.07,
+          "type": "enclosed",
+          "scope": "none"
+        }
+      },
+      {
+        "paraIndex": 80,
+        "spanIndex": 3,
         "text": "اَ۬وَ اَكْنَنتُمْ",
         "match": null
       },
       {
         "paraIndex": 80,
-        "spanIndex": 2,
-        "text": "مِي أَنْجُسِكُمْ",
+        "spanIndex": 4,
+        "text": "فِےٓ أَنفُسِكُمْۖ",
         "match": null
       },
       {
@@ -11970,12 +12252,23 @@
       {
         "paraIndex": 81,
         "spanIndex": 5,
+        "text": "وَاعْلَمُوٓاْ أَنَّ اَ۬للَّهَ يَعْلَمُ مَا فِےٓ أَنفُسِكُمْ",
+        "match": {
+          "verse": "2:235",
+          "score": 0.13,
+          "type": "enclosed",
+          "scope": "none"
+        }
+      },
+      {
+        "paraIndex": 81,
+        "spanIndex": 6,
         "text": "فَاحْذَرُوهُۖ",
         "match": null
       },
       {
         "paraIndex": 81,
-        "spanIndex": 6,
+        "spanIndex": 7,
         "text": "وَاعْلَمُوٓاْ أَنَّ اَ۬للَّهَ غَفُورٌ",
         "match": {
           "verse": "2:235",
@@ -11986,7 +12279,7 @@
       },
       {
         "paraIndex": 81,
-        "spanIndex": 7,
+        "spanIndex": 8,
         "text": "حَلِيمࣱۖ",
         "match": null
       },
@@ -12025,9 +12318,15 @@
         }
       },
       {
+        "paraIndex": 84,
+        "spanIndex": 2,
+        "text": "قَدْرُهُۥ",
+        "match": null
+      },
+      {
         "paraIndex": 85,
         "spanIndex": 0,
-        "text": "مَتَاعاً",
+        "text": "مَتَٰعاَۢ",
         "match": null
       },
       {
@@ -12050,13 +12349,13 @@
       {
         "paraIndex": 86,
         "spanIndex": 1,
-        "text": "إِلَّ",
+        "text": "إِلَّآ",
         "match": null
       },
       {
         "paraIndex": 86,
         "spanIndex": 2,
-        "text": "أَنْ يَّعْفُونَ",
+        "text": "أَنْ يَّعْفُونَ",
         "match": null
       },
       {
@@ -12175,12 +12474,18 @@
       {
         "paraIndex": 91,
         "spanIndex": 3,
-        "text": "فَاذْكُرُواْ اُ۬للَّهَ",
+        "text": "فَإِذَآ أَمِنتُمْ",
         "match": null
       },
       {
         "paraIndex": 91,
         "spanIndex": 4,
+        "text": "فَاذْكُرُواْ اُ۬للَّهَ",
+        "match": null
+      },
+      {
+        "paraIndex": 91,
+        "spanIndex": 5,
         "text": "كَمَا عَلَّمَكُم مَّا لَمْ تَكُونُواْ تَعْلَمُونَۖ",
         "match": {
           "verse": "2:239",
@@ -12232,7 +12537,7 @@
       {
         "paraIndex": 96,
         "spanIndex": 1,
-        "text": "بَإِنْ خَرَجْرَ",
+        "text": "فَإِنْ خَرَجْنَ",
         "match": null
       },
       {
@@ -12277,6 +12582,12 @@
       {
         "paraIndex": 96,
         "spanIndex": 6,
+        "text": "وَلِلْمُطَلَّقَٰتِ مَتَٰعُۢ",
+        "match": null
+      },
+      {
+        "paraIndex": 96,
+        "spanIndex": 7,
         "text": "بِالْمَعْرُوفِۖ",
         "match": null
       },
@@ -12295,7 +12606,7 @@
       {
         "paraIndex": 98,
         "spanIndex": 0,
-        "text": "كَذَاِكَ",
+        "text": "كَذَٰلِكَ",
         "match": null
       },
       {
@@ -12313,6 +12624,30 @@
       {
         "paraIndex": 99,
         "spanIndex": 0,
+        "text": "أَلَمْ تَرَ",
+        "match": null
+      },
+      {
+        "paraIndex": 99,
+        "spanIndex": 1,
+        "text": "إِلَي اَ۬لذِينَ خَرَجُواْ مِن دِيٰ۪رِهِمْ وَهُمُۥٓ أُلُوفٌ",
+        "match": {
+          "verse": "2:243",
+          "score": 0.25,
+          "type": "substring",
+          "scope": "none",
+          "within": "clause"
+        }
+      },
+      {
+        "paraIndex": 99,
+        "spanIndex": 2,
+        "text": "حَذَرَ اَ۬لْمَوْتِ",
+        "match": null
+      },
+      {
+        "paraIndex": 99,
+        "spanIndex": 3,
         "text": "فَقَالَ لَهُمُ اُ۬للَّهُ مُوتُواْ",
         "match": {
           "verse": "2:243",
@@ -12323,13 +12658,13 @@
       },
       {
         "paraIndex": 99,
-        "spanIndex": 1,
+        "spanIndex": 4,
         "text": "ثُمَّ أَحْي۪اهُمُۥٓۖ",
         "match": null
       },
       {
         "paraIndex": 99,
-        "spanIndex": 2,
+        "spanIndex": 5,
         "text": "وَلَٰكِنَّ أَحْر اَ۬لنَّاسِ",
         "match": {
           "verse": "2:13",
@@ -12339,13 +12674,13 @@
       },
       {
         "paraIndex": 99,
-        "spanIndex": 3,
+        "spanIndex": 6,
         "text": "لا يَشْكُرُونَۖ",
         "match": null
       },
       {
         "paraIndex": 99,
-        "spanIndex": 4,
+        "spanIndex": 7,
         "text": "وَقَٰتِلُواْ فِے سَبِيلِ اِ۬للَّهِ",
         "match": {
           "verse": "2:244",
@@ -12357,7 +12692,7 @@
       },
       {
         "paraIndex": 99,
-        "spanIndex": 5,
+        "spanIndex": 8,
         "text": "وَاعْلَمُوٓاْ أَنَّ اَ۬للَّهَ سَمِيعٌ",
         "match": {
           "verse": "2:244",
@@ -12369,13 +12704,13 @@
       },
       {
         "paraIndex": 99,
-        "spanIndex": 6,
+        "spanIndex": 9,
         "text": "عَلِيمࣱۖ",
         "match": null
       },
       {
         "paraIndex": 99,
-        "spanIndex": 7,
+        "spanIndex": 10,
         "text": "مَّن ذَا اَ۬لذِے يُقْرِضُ اُ۬للَّهَ",
         "match": {
           "verse": "2:245",
@@ -12387,13 +12722,13 @@
       },
       {
         "paraIndex": 99,
-        "spanIndex": 8,
+        "spanIndex": 11,
         "text": "قَرْضاً حَسَناࣰ",
         "match": null
       },
       {
         "paraIndex": 99,
-        "spanIndex": 9,
+        "spanIndex": 12,
         "text": "فَيُضَٰعِفُهُۥ لَهُۥٓ أَضْعَافاࣰ كَثِيرَةࣰۖ",
         "match": {
           "verse": "2:245",
@@ -12412,7 +12747,7 @@
       {
         "paraIndex": 105,
         "spanIndex": 1,
-        "text": "تَيَبْصُظُ",
+        "text": "وَيَبْصُطُۖ",
         "match": null
       },
       {
@@ -12513,16 +12848,23 @@
       {
         "paraIndex": 106,
         "spanIndex": 7,
-        "text": "إِلَّ اَ۬للَّهَ اَ۪صْطَف۪يٰهُ",
-        "match": {
-          "verse": "2:247",
-          "score": 0.67,
-          "type": "fuzzy"
-        }
+        "text": "قَالَ",
+        "match": null
       },
       {
         "paraIndex": 106,
         "spanIndex": 8,
+        "text": "إِنَّ اَ۬للَّهَ اَ۪صْطَف۪يٰهُ",
+        "match": {
+          "verse": "2:247",
+          "score": 0.07,
+          "type": "enclosed",
+          "scope": "none"
+        }
+      },
+      {
+        "paraIndex": 106,
+        "spanIndex": 9,
         "text": "عَلَيْكُمْ وَزَادَهُۥ بَسْطَةࣰ",
         "match": {
           "verse": "2:247",
@@ -12533,13 +12875,13 @@
       },
       {
         "paraIndex": 106,
-        "spanIndex": 9,
+        "spanIndex": 10,
         "text": "مِ اِ۬لْعِلْمِ وَالْجِسْمِۖ",
         "match": null
       },
       {
         "paraIndex": 106,
-        "spanIndex": 10,
+        "spanIndex": 11,
         "text": "وَاللَّهُ يُوتِے مُلْكَهُۥ مَنْ يَّشَآءُۖ",
         "match": {
           "verse": "2:247",
@@ -12550,13 +12892,13 @@
       },
       {
         "paraIndex": 106,
-        "spanIndex": 11,
+        "spanIndex": 12,
         "text": "وَاللَّهُ وَاسِعُ",
         "match": null
       },
       {
         "paraIndex": 106,
-        "spanIndex": 12,
+        "spanIndex": 13,
         "text": "وَقَالَ لَهُمْ نَبِيٓـُٔهُمُۥٓ",
         "match": {
           "verse": "2:248",
@@ -12625,6 +12967,18 @@
       {
         "paraIndex": 109,
         "spanIndex": 3,
+        "text": "فَلَمَّا فَصَلَ",
+        "match": null
+      },
+      {
+        "paraIndex": 109,
+        "spanIndex": 4,
+        "text": "طَالُوتُ بِالْجُنُودِ",
+        "match": null
+      },
+      {
+        "paraIndex": 109,
+        "spanIndex": 5,
         "text": "قَالَ إِنَّ اَ۬للَّهَ مُبْتَلِيكُم",
         "match": {
           "verse": "2:249",
@@ -12635,23 +12989,30 @@
       },
       {
         "paraIndex": 109,
-        "spanIndex": 4,
-        "text": "قَمَل شَرِبَ مِنْهُ",
+        "spanIndex": 6,
+        "text": "بِنَهَرࣲ",
+        "match": null
+      },
+      {
+        "paraIndex": 109,
+        "spanIndex": 7,
+        "text": "فَمَن شَرِبَ مِنْهُ",
         "match": {
           "verse": "2:249",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.04,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
         "paraIndex": 109,
-        "spanIndex": 5,
+        "spanIndex": 8,
         "text": "فَلَيْسَ مِنِّے",
         "match": null
       },
       {
         "paraIndex": 109,
-        "spanIndex": 6,
+        "spanIndex": 9,
         "text": "وَمَن لَّمْ يَطْعَمْهُ",
         "match": {
           "verse": "2:249",
@@ -12662,7 +13023,7 @@
       },
       {
         "paraIndex": 109,
-        "spanIndex": 7,
+        "spanIndex": 10,
         "text": "فَإِنَّهُۥ مِنِّيَ إِلَّا مَنِ اِ۪غْتَرَفَ غَرْفَةَۢ بِيَدِهِۦۖ",
         "match": {
           "verse": "2:249",
@@ -12673,7 +13034,13 @@
       },
       {
         "paraIndex": 109,
-        "spanIndex": 8,
+        "spanIndex": 11,
+        "text": "فَشَرِبُواْ مِنْهُ",
+        "match": null
+      },
+      {
+        "paraIndex": 109,
+        "spanIndex": 12,
         "text": "إِلَّا قَلِيلاࣰ مِّنْهُمْۖ",
         "match": {
           "verse": "2:246",
@@ -12688,7 +13055,7 @@
       },
       {
         "paraIndex": 109,
-        "spanIndex": 9,
+        "spanIndex": 13,
         "text": "فَلَمَّا جَاوَزَهُۥ هُوَ وَالذِينَ ءَامَنُواْ مَعَهُۥ",
         "match": {
           "verse": "2:249",
@@ -12797,6 +13164,30 @@
         "paraIndex": 111,
         "spanIndex": 3,
         "text": "وَقَتَلَ دَاوُۥدُ",
+        "match": null
+      },
+      {
+        "paraIndex": 112,
+        "spanIndex": 0,
+        "text": "جَالُوتَ",
+        "match": null
+      },
+      {
+        "paraIndex": 112,
+        "spanIndex": 1,
+        "text": "وَءَات۪يٰهُ",
+        "match": null
+      },
+      {
+        "paraIndex": 112,
+        "spanIndex": 2,
+        "text": "اُ۬للَّهُ",
+        "match": null
+      },
+      {
+        "paraIndex": 112,
+        "spanIndex": 3,
+        "text": "اُ۬لْمُلْكَ",
         "match": null
       },
       {
