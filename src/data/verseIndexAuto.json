@@ -248,6 +248,11 @@
       "uncertain": true
     },
     {
+      "verse": "2:15",
+      "paraIndex": 9,
+      "uncertain": true
+    },
+    {
       "verse": "2:16",
       "paraIndex": 11,
       "uncertain": true
@@ -264,7 +269,7 @@
     },
     {
       "verse": "2:19",
-      "paraIndex": 12,
+      "paraIndex": 11,
       "uncertain": true
     },
     {
@@ -273,7 +278,27 @@
       "uncertain": true
     },
     {
+      "verse": "23:2",
+      "paraIndex": 18,
+      "editorial": true
+    },
+    {
+      "verse": "23:10",
+      "paraIndex": 19,
+      "editorial": true
+    },
+    {
       "verse": "19:59",
+      "paraIndex": 20,
+      "editorial": true
+    },
+    {
+      "verse": "74:42",
+      "paraIndex": 20,
+      "editorial": true
+    },
+    {
+      "verse": "74:43",
       "paraIndex": 20,
       "editorial": true
     },
@@ -308,12 +333,22 @@
       "uncertain": true
     },
     {
+      "verse": "17:88",
+      "paraIndex": 32,
+      "editorial": true
+    },
+    {
       "verse": "1:5",
       "paraIndex": 33,
       "editorial": true
     },
     {
       "verse": "108:1",
+      "paraIndex": 33,
+      "editorial": true
+    },
+    {
+      "verse": "108:2",
       "paraIndex": 33,
       "editorial": true
     },
