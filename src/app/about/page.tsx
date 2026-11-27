@@ -54,8 +54,10 @@ export default async function AboutPage() {
           </h2>
           <p className="leading-6">
             <em>Manṭiq al-Fayḍa</em> brings together the Qurʾānic explanations of Shaykh Ibrāhīm Niasse
-            (d. 1975) and scholars of the Fayḍa in one searchable collection. The collection follows three
-            paths.
+            (d. 1975) and scholars of the Fayḍa in one searchable collection. It is a collection of
+            Qurʾānic commentary: a passage is included when it explains a verse, saying what the verse
+            means or how it is to be read, and not when a verse is only quoted in support of a point.
+            The collection follows three paths.
           </p>
           <p className="leading-6 mt-3">
             <Link href="/read" className="text-gold/70 hover:text-gold transition-colors"><em>Fī Riyāḍ al-Tafsīr</em></Link>{' '}

@@ -47,8 +47,8 @@ export default async function HomePage() {
     <main className="pb-20" dir="ltr">
 
       {/* ---- Claim ----
-          The site is Manṭiq al-Fayḍa: every place Shaykh Ibrāhīm uses a verse,
-          across his works. Fī Riyāḍ al-Tafsīr is the largest of those works and
+          The site is Manṭiq al-Fayḍa: every place Shaykh Ibrāhīm explains a
+          verse, across his works (a verse he only quotes is left out). Fī Riyāḍ al-Tafsīr is the largest of those works and
           has its own reader below, but it is one work in the corpus, not the
           corpus. The verse lookup comes first because the āya is the key the
           whole collection is indexed on. No birth year: the documents give
@@ -67,7 +67,8 @@ export default async function HomePage() {
           Shaykh Ibrāhīm Niasse (d. 1975) explained the Qurʾān throughout his life, in public lessons
           and in response to questions brought before him. This collection brings together his 1964
           sessions on the whole Qurʾān, his explanations across other writings, and the commentaries of
-          his students, verse by verse.
+          his students, verse by verse. Every passage here says what a verse means; a verse he only
+          quotes is not included.
         </p>
 
         {/* Search first: most visitors come with a verse or a question. */}
@@ -109,7 +110,7 @@ export default async function HomePage() {
             { href: '/read', ar: 'فِي رِيَاضِ التَّفْسِير', en: 'Fī Riyāḍ al-Tafsīr',
               body: 'The 56 recorded lessons in which Shaykh Ibrāhīm explained the whole Qurʾān during Ramaḍān 1964. Read the Arabic text lesson by lesson, with English translations and recordings where available.', count: '56 lessons' },
             { href: '/beyond', ar: 'تَفْسِيرُهُ فِي سَائِرِ آثَارِه', en: 'Beyond Fī Riyāḍ al-Tafsīr',
-              body: 'His explanations of Qurʾānic verses across other sessions, letters, sermons, treatises and travel accounts. Follow each verse to the work and page where it appears.',
+              body: 'Where he explains a verse outside the 1964 lessons: in sermons, sessions, letters and treatises. Each passage is linked to its verse, work and page.',
               count: `${counts.verses} verses in ${counts.worksWithPassages} works` },
             { href: '/students', ar: 'تَفَاسِيرُ تَلَامِذَتِه', en: 'Commentaries of His Students',
               body: 'Qurʾānic interpretations by scholars of the Fayḍa who learned from Shaykh Ibrāhīm. Read their explanations alongside his own wherever they address the same verses.',

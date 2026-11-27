@@ -9,11 +9,13 @@
 
 import type { ExegeticalAct } from '@/lib/corpus';
 
+// AK, 27 Nov 2026: "i dont simply want quotes without it being a real
+// quranic commentary". A verse quoted to warrant a claim (prooftext) or a
+// ruling (juristic) is a quotation, not commentary, and comes off with the
+// rest. The site shows where he says what a verse means.
 export const SHOWN_ACTS: ReadonlySet<ExegeticalAct> = new Set<ExegeticalAct>([
   'tafsir',     // what he says about it
   'gloss',      // an interpretive equivalence
-  'juristic',   // the verse as legal proof
-  'prooftext',  // the verse warranting a claim he argues
 ]);
 
 // "Application" and "allusion" each cover two different things. Most are rites: a verse recited

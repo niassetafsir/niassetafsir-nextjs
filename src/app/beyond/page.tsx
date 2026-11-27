@@ -73,9 +73,10 @@ export default function WorksPage() {
       </h1>
       <p className="font-english text-[14px] leading-relaxed mb-6"
         style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
-        Shaykh Ibrāhīm Niasse explained individual Qurʾānic verses throughout his other writings and
-        activities. This collection brings together passages from his sessions, letters, sermons,
-        treatises and travel accounts.
+        Outside the 1964 lessons, Shaykh Ibrāhīm Niasse explained Qurʾānic verses in sermons, teaching
+        sessions, letters and treatises. This collection gathers those explanations: each passage says
+        what a verse means or how to read it. Places where he only quotes a verse in support of a
+        point are not included.
       </p>
       <p className="font-english text-[14px] leading-relaxed mb-6"
         style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
