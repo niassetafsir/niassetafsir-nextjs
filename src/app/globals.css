@@ -1425,3 +1425,22 @@ summary::-webkit-details-marker { display: none; }
   border-bottom: 1px solid rgba(201,168,76,0.25);
 }
 @media (max-width: 767px) { :root { --fold-top: 66px; } }
+
+/* ── Phones: English left-aligned, footnote marks tappable ─────────
+ * Justified English on a 390px column opens rivers between words
+ * ("Everyone   who   embarks"). Arabic keeps its justification, which
+ * kashīda-free naskh handles far better. Footnote and verse marks are
+ * superscripts a few pixels high; padding gives the finger a target
+ * without moving the line (site review, 27 Nov 2026).
+ */
+@media (max-width: 767px) {
+  .reading-en, .reading-en p, .reading-en div, [dir="ltr"] .text-justify, .font-english.text-justify {
+    text-align: left !important;
+    hyphens: auto;
+  }
+  sup a, a sup, a.fn-superscript, a[data-fn] {
+    display: inline-block;
+    padding: 0.35rem 0.3rem;
+    margin: -0.35rem -0.1rem;
+  }
+}

@@ -194,14 +194,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
         trailing={
           <span className="flex items-center gap-3">
           <TextSizeControl />
-          <a href="/read"
-            className="tap font-english hover:text-gold transition-colors flex items-center gap-1 text-xs"
-            style={{color:'var(--body-faint, rgba(232,232,224,0.45))'}}>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="m15 18-6-6 6-6"/>
-            </svg>
-            Contents
-          </a>
+
           </span>
         }
       />

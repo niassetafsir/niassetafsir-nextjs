@@ -117,7 +117,7 @@ export default function GetInvolvedPage() {
           return (
             <button key={x.id} type="button" role="radio" aria-checked={on}
               onClick={() => setTopic(x.id)}
-              className="text-left rounded-xl px-4 py-3 transition-all border"
+              className="text-left rounded-xl px-4 py-3 transition-all border flex flex-col items-start"
               style={{
                 borderColor: on ? 'var(--gold, #C9A84C)' : 'rgba(255,255,255,0.15)',
                 background: on ? 'rgba(201,168,76,0.12)' : 'transparent',

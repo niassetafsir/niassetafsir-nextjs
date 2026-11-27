@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Manṭiq al-Fayḍa — Shaykh Ibrāhīm Niasse and His School on the Qurʾān | niassetafsir.org",
     template: "%s | niassetafsir.org",
   },
-  description: "Manṭiq al-Fayḍa collects every place Shaykh Ibrāhīm Niasse quotes, comments on, applies or alludes to a Qurʾānic verse — in his tafsīr, treatises, letters, sermons, poems and reported sayings — documented from its source and indexed verse by verse, with Fī Riyāḍ al-Tafsīr in Arabic and English.",
+  description: "Manṭiq al-Fayḍa gathers the passages where Shaykh Ibrāhīm Niasse explains or argues from a Qurʾānic verse — in his tafsīr, treatises, letters, sermons and reported sayings — each documented from its source and indexed verse by verse, with Fī Riyāḍ al-Tafsīr in Arabic and English.",
   keywords: ["Niasse", "tafsir", "tafsīr", "Quran", "West African Islam", "Tijaniyya", "Ibrahim Niasse", "Islamic studies", "Fī Riyāḍ", "Manṭiq al-Fayḍa", "Fayḍa"],
   authors: [{ name: "Amadu Kunateh", url: "https://orcid.org/0009-0002-7839-6474" }],
   creator: "Amadu Kunateh",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     // place a stale number can hide -- it renders in link previews, not on the
     // site, so nobody proofreading a page ever sees it. Pages that want the
     // real total read it from src/data via getEditionFacts().
-    description: "Manṭiq al-Fayḍa collects every place Shaykh Ibrāhīm Niasse quotes, comments on, applies or alludes to a Qurʾānic verse — in his tafsīr, treatises, letters, sermons, poems and reported sayings — documented from its source and indexed verse by verse, with Fī Riyāḍ al-Tafsīr in Arabic and English.",
+    description: "Manṭiq al-Fayḍa gathers the passages where Shaykh Ibrāhīm Niasse explains or argues from a Qurʾānic verse — in his tafsīr, treatises, letters, sermons and reported sayings — each documented from its source and indexed verse by verse, with Fī Riyāḍ al-Tafsīr in Arabic and English.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Manṭiq al-Fayḍa — niassetafsir.org" }],
   },
   twitter: {

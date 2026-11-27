@@ -124,12 +124,13 @@ export function worksByKind(): WorkKind[] {
 
 export function corpusCounts() {
   // Counted exactly as the Beyond page counts, so the two never disagree:
-  // his own words with text, outside Fī Riyāḍ, students excluded.
-  const s = workSummaries();
+  // his own words with text, outside Fī Riyāḍ. A student's report of his
+  // words counts; a student's own reading does not (isNiasse).
+  const s = workSummaries().filter(r => r.work.publish !== false || r.uses > 0);
   const verses = new Set<string>();
   const works = new Set<string>();
   for (const { work } of s) {
-    if (work.id === 'fi-riyad' || work.relation === 'student') continue;
+    if (work.id === 'fi-riyad') continue;
     for (const e of workEntries(work.id)) {
       if (!e.isNiasse || !e.hasText) continue;
       works.add(work.id);

@@ -76,10 +76,33 @@ function startAtSentence(raw: string | undefined, prev: string | undefined): str
   return m && m.index !== undefined ? raw.slice(m.index + m[0].length) : raw;
 }
 
-/** Cut at the last word break so a snippet never ends inside a word. */
+/**
+ * The mirror of startAtSentence: a paragraph can stop mid-sentence where the
+ * printed page broke ("… في جانب"). Carry on into the next paragraph as far
+ * as its first sentence mark, so the excerpt closes where a sentence does.
+ */
+function endAtSentence(raw: string, next: string | undefined): string {
+  if (!next || /[.!؟:»"”)\]]\s*$/.test(raw.trim())) return raw;
+  // A compiler's footnote mark ("للحق[48]") closes a clause as surely as a
+  // full stop does; the mark itself is left out.
+  const m = next.slice(0, 300).match(/[.!؟:]|\[\d+\]/);
+  if (!m || m.index === undefined) return raw;
+  const tail = m[0].startsWith('[') ? next.slice(0, m.index) : next.slice(0, m.index + 1);
+  return `${raw.trimEnd()} ${tail.trimEnd()}`;
+}
+
+/**
+ * Cut at the last sentence mark before the limit, so a snippet ends on a full
+ * sentence; fall back to the last word break only when no sentence ends in the
+ * second half of the window.
+ */
 function trimToWord(s: string, max: number): string {
   if (s.length <= max) return s;
   const cut = s.slice(0, max);
+  let end = -1;
+  const re = /[.!؟:]\s/g;
+  for (let m = re.exec(cut); m; m = re.exec(cut)) end = m.index + 1;
+  if (end > max * 0.5) return cut.slice(0, end).trimEnd();
   const space = cut.lastIndexOf(' ');
   return (space > max * 0.6 ? cut.slice(0, space) : cut).trimEnd();
 }
@@ -208,8 +231,9 @@ export default async function VersePage({
     }
 
     const paras = commentaryParagraphs(body);
-    const raw = startAtSentence(paras[para], paras[para - 1]);
-    if (!raw) continue;
+    const opened = startAtSentence(paras[para], paras[para - 1]);
+    if (!opened) continue;
+    const raw = endAtSentence(opened, paras[para + 1]);
     const truncated = raw.length > SNIPPET_CHARS;
     excerpts.set(e.locus.id, {
       ar: truncated ? trimToWord(raw, SNIPPET_CHARS) : raw,

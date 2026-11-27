@@ -2,6 +2,7 @@ import Link from 'next/link';
 import SearchForm from '@/components/SearchForm';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { showcaseCards, SHOWCASE_VERSE, corpusCounts } from '@/lib/homeShowcase';
+import { workSummaries } from '@/lib/corpus';
 import topicsData from '@/data/topics.json';
 import VerseMarker from '@/components/VerseMarker';
 
@@ -31,6 +32,8 @@ const LINE = 'rgba(138,109,31,0.22)';
 export default async function HomePage() {
   const cards = await showcaseCards();
   const counts = corpusCounts();
+  const students = workSummaries().filter(r => r.work.relation === 'student' && (r.work.publish !== false || r.uses > 0));
+  const studentVerses = students.reduce((n, r) => n + r.verses, 0);
   const topics = (topicsData as { topics: { slug: string; title: string; termAr: string }[] }).topics;
   // Tappable examples under the search box: one of each kind of query it takes.
   const examples = [
@@ -106,10 +109,11 @@ export default async function HomePage() {
             { href: '/read', ar: 'فِي رِيَاضِ التَّفْسِير', en: 'Fī Riyāḍ al-Tafsīr',
               body: 'The 56 recorded lessons in which Shaykh Ibrāhīm explained the whole Qurʾān during Ramaḍān 1964. Read the Arabic text lesson by lesson, with English translations and recordings where available.', count: '56 lessons' },
             { href: '/beyond', ar: 'تَفْسِيرُهُ فِي سَائِرِ آثَارِه', en: 'Beyond Fī Riyāḍ al-Tafsīr',
-              body: 'His explanations of Qurʾānic verses across other sessions, letters, sermons, treatises, poems and journeys. Follow each verse to the work and page where it appears.',
+              body: 'His explanations of Qurʾānic verses across other sessions, letters, sermons, treatises and travel accounts. Follow each verse to the work and page where it appears.',
               count: `${counts.verses} verses in ${counts.worksWithPassages} works` },
             { href: '/students', ar: 'تَفَاسِيرُ تَلَامِذَتِه', en: 'Commentaries of His Students',
-              body: 'Qurʾānic interpretations by scholars of the Fayḍa who learned from Shaykh Ibrāhīm. Read their explanations alongside his own wherever they address the same verses.', count: '' },
+              body: 'Qurʾānic interpretations by scholars of the Fayḍa who learned from Shaykh Ibrāhīm. Read their explanations alongside his own wherever they address the same verses.',
+              count: `${studentVerses} verses in ${students.length} ${students.length === 1 ? 'work' : 'works'}` },
           ].map(p => (
             <li key={p.href}>
               <Link href={p.href}

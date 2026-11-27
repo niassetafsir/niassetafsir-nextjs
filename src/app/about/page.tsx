@@ -39,7 +39,7 @@ export default async function AboutPage() {
     <main className="max-w-2xl mx-auto px-6 pb-24 pt-6" dir="ltr">
       <div className="text-center pb-6 mb-2">
         <div className="font-wordmark text-gold text-4xl" dir="rtl" translate="no">منطق الفيضة</div>
-        <div className="font-english text-gold text-xl font-semibold mt-1">Manṭiq al-Fayḍa</div>
+        <h1 className="font-english text-gold text-xl font-semibold mt-1">Manṭiq al-Fayḍa</h1>
         <div className="font-english text-white/40 text-sm mt-2 italic">
           Shaykh Ibrāhīm Niasse and His School on the Qurʾān
         </div>
@@ -65,7 +65,7 @@ export default async function AboutPage() {
           <p className="leading-6 mt-3">
             <Link href="/beyond" className="text-gold/70 hover:text-gold transition-colors"><em>Beyond Fī Riyāḍ al-Tafsīr</em></Link>{' '}
             gathers his explanations of individual verses across other writings and activities, including
-            sessions, letters, sermons, treatises, poems and travel accounts.
+            sessions, letters, sermons, treatises and travel accounts.
           </p>
           <p className="leading-6 mt-3">
             <Link href="/students" className="text-gold/70 hover:text-gold transition-colors">Commentaries of His Students</Link>{' '}

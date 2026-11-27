@@ -103,8 +103,10 @@ function MobileNav() {
 
   return (
     <>
+      {/* On phones the bottom bar's More opens this same sheet, so the
+          hamburger shows only where the bar does not: the lesson pages. */}
       <button onClick={() => setOpen(true)}
-        className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-md hover:bg-white/5 transition-all flex-shrink-0"
+        className={`md:hidden ${pathname.startsWith('/lesson/') ? 'flex' : 'hidden'} flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-md hover:bg-white/5 transition-all flex-shrink-0`}
         aria-label="Open menu">
         <span className="block w-5 h-0.5 bg-gold/70 rounded-full" />
         <span className="block w-5 h-0.5 bg-gold/70 rounded-full" />

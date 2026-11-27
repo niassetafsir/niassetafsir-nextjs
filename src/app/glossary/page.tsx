@@ -175,8 +175,7 @@ export default function TermsPage() {
         </h1>
         <p className="font-english text-sm mt-2 leading-6" style={{ color: 'var(--body-sub, rgba(255,255,255,0.5))' }}>
           Where each term occurs in Shaykh Ibrāhīm&apos;s text, in context and linked to the passage, and
-          how he connects the terms to one another. Interpretive definitions are reserved for the
-          forthcoming scholarly edition.
+          how he connects the terms to one another.
         </p>
       </div>
 

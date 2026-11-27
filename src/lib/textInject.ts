@@ -40,6 +40,25 @@ export function stripEnFootnotes(html: string): string {
              .replace(/<div class="en-footnotes"[\s\S]*/g, '');
 }
 
+/**
+ * Display clean-up for a lesson whose apparatus is not yet verified (18–56).
+ * The import left the printed footnotes in the running text: a number glued
+ * to the word or bracket it annotates ("جناح بعوضة)1", "كبش1"), and the
+ * notes themselves set as paragraphs ("2 - … نور الأبصار للشبلنجي"). No
+ * markers show for these lessons (see above), so both come out of the
+ * rendered text. Display only: the data, and every paragraph index the verse
+ * index and editor notes key on, are unchanged. A number after ج or ص (a
+ * volume or page) is left alone: the word before must be three letters or
+ * more. Site review, 27 Nov 2026.
+ */
+function tidyUnverified(text: string): string {
+  if (/^\s*\d{1,2}\s*[-–]\s/.test(text)) return '';
+  return text
+    .replace(/\[\d+\]/g, '')
+    .replace(/([)\]»"])\d{1,2}(?=[\s.،:؛]|$)/g, '$1')
+    .replace(/([\u0621-\u064A\u064B-\u0652]{3,})\d{1,2}(?=[\s.،:؛]|$)/g, '$1');
+}
+
 export function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrder?: string[], cursor?: { i: number }): string {
   if (!lessonId) return text;
 
@@ -47,7 +66,7 @@ export function injectFootnoteLinks(text: string, lessonId?: number, footnoteOrd
   // see src/lib/apparatus.ts. Its bodies still carry the old [N] from the
   // pre-recovery import, and those are the ones that link to nothing, so they
   // are removed from the rendered text rather than left as dead superscripts.
-  if (!hasApparatus(lessonId)) return text.replace(/\[\d+\]/g, '');
+  if (!hasApparatus(lessonId)) return tidyUnverified(text);
 
   // Strip inline bibliographic refs like "تفسير القرطبي ج35/" before [N]
   // Uses Unicode code points to avoid regex literal issues in TSX

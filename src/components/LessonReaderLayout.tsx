@@ -211,12 +211,12 @@ export default function LessonReaderLayout({
           {/* No label here: the value is already "الدرس الأول", so a
             * "الدرس" label in front of it reads as a stutter. */}
           <span className="lesson-reader-meta-value arabic">{lesson.arabicTitle}</span>
-          <span className="lesson-reader-meta-value english">{lesson.englishTitle}</span>
+          <span className="lesson-reader-meta-value english max-md:!hidden">{lesson.englishTitle}</span>
         </div>
 
-        <div className="lesson-reader-meta-divider" />
+        <div className="lesson-reader-meta-divider max-md:!hidden" />
 
-        <div className="lesson-reader-meta-item">
+        <div className="lesson-reader-meta-item max-md:!hidden">
           <span className="lesson-reader-meta-label" title="Verses">الآيات</span>
           <span className="lesson-reader-meta-value english">{lesson.verseRange}</span>
         </div>
@@ -237,11 +237,12 @@ export default function LessonReaderLayout({
 
       {lesson.id !== undefined && (
         <div className="lesson-reader-gutter">
+          <h1 className="sr-only">Fī Riyāḍ al-Tafsīr, Lesson {lesson.id}: {lesson.verseRange}</h1>
           <p dir="ltr" className="font-english text-[13px] leading-relaxed mt-3 mb-1 text-center"
             style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
             <em>Fī Riyāḍ al-Tafsīr</em> · Lesson {lesson.id}. Shaykh Ibrāhīm Niasse&rsquo;s explanation of{' '}
-            {lesson.verseRange.replace(' · ', ' and ')}, delivered during Ramaḍān 1964. The Arabic text follows the revised
-            ten-volume edition{lesson.hasEnglish ? '; the English translation is by Amadu Kunateh' : ''}.
+            {lesson.verseRange.replace(' · ', ' and ')}, delivered during Ramaḍān 1964.<span className="hidden md:inline"> The Arabic text follows the revised
+            ten-volume edition{lesson.hasEnglish ? '; the English translation is by Amadu Kunateh' : ''}.</span>
           </p>
         </div>
       )}

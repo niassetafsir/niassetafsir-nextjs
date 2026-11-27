@@ -62,7 +62,7 @@ export default function VersePicker({
           if (Number(ayah) > cap) setAyah('1');
         }}
         aria-label="Sūrah"
-        className="font-english text-[13px] rounded-lg border px-2 py-1.5 min-w-0 flex-1"
+        className="font-english text-[13px] rounded-lg border px-2 py-1.5 min-w-0 flex-1 max-sm:basis-[calc(100%-3.5rem)]"
         style={{
           borderColor: 'var(--tree-input-border, rgba(201,168,76,0.25))',
           background: 'var(--tree-input-bg, rgba(255,255,255,0.06))',

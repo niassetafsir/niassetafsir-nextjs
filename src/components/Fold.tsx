@@ -44,7 +44,7 @@ export default function Fold({
         <span className="flex-1 min-w-0 flex items-baseline gap-2">{summary}</span>
         <span className="shrink-0 font-english text-[12px] text-gold/80 select-none">
           <span className="group-open:hidden text-[15px]" aria-label="Open">›</span>
-          <span className="hidden group-open:inline">Close ✕</span>
+          <span className="hidden group-open:inline" aria-label="Hide">Hide ⌃</span>
         </span>
       </summary>
       <div className="pb-3">{children}</div>

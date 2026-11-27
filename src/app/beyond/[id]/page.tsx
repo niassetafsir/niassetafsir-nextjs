@@ -110,8 +110,8 @@ export default function WorkPage({ params, student = false }: { params: { id: st
           <>
             {!openAll && <SuraJump suras={list.map(({ meta, g }) => ({ id: meta.id, name: meta.nameEn, count: g.length }))} />}
             <div className="mb-12 divide-y" style={{ borderColor: 'rgba(201,168,76,0.18)' }}>
-              {list.map(({ meta, g }) => (
-                <Fold key={meta.id} id={`sura-${meta.id}`} defaultOpen={openAll} group={openAll ? undefined : 'sura'}
+              {list.map(({ meta, g }, i) => (
+                <Fold key={meta.id} id={`sura-${meta.id}`} defaultOpen={openAll || i === 0} group={openAll ? undefined : 'sura'}
                   summary={<>
                     <span className="font-english text-[14px] text-gold/70 tabular-nums w-7 shrink-0">{meta.id}</span>
                     <span className="font-english text-[14px] font-semibold" style={{ color: 'var(--body-text, rgba(255,255,255,0.9))' }}>Sūrat {meta.nameEn}</span>

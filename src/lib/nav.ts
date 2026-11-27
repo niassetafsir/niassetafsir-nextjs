@@ -177,9 +177,9 @@ export interface MobileTab {
 export const MOBILE_BAR: MobileTab[] = [
   { id: 'read',   href: '/read',   label: 'Tafsīr', icon: '◎', match: ['/read', '/lesson', '/volume', '/surah'] },
   { id: 'works',  href: '/beyond',  label: 'Beyond', icon: '✦', match: ['/beyond'] },
-  { id: 'search', href: '/search', label: 'Search', icon: '⌕', match: ['/search', '/verse'] },
-  { id: 'topics', href: '/topics', label: 'Topics', icon: '⊞', match: ['/topics'] },
-  { id: 'more',                    label: 'More',   icon: '⋯', match: ['/students', '/audio', '/about', '/translators-note', '/get-involved'] },
+  { id: 'verse',  href: '/verse',  label: 'Verse',  icon: '۝', match: ['/verse'] },
+  { id: 'search', href: '/search', label: 'Search', icon: '⌕', match: ['/search'] },
+  { id: 'more',                    label: 'More',   icon: '⋯', match: ['/topics', '/term', '/glossary', '/students', '/audio', '/about', '/translators-note', '/get-involved', '/saved'] },
 ];
 
 /** The event PersistentNav fires to open SiteNav's menu. They are

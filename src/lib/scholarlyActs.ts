@@ -33,8 +33,19 @@ const ARGUED_APPLICATIONS: ReadonlySet<string> = new Set([
   'qanabil-p40-35:2:269', 'qanabil-p40-35:3:7', 'qanabil-p42-39:99:2',
 ]);
 
+// Passages in verse. AK, 27 Nov 2026: "i want only prose." The three
+// versified journeys (Nafaḥāt al-Malik al-Ghanī, al-Riḥla al-Gannāriyya,
+// Nayl al-mafāz) and the poems quoted in Rijāl wa-adwār come off the site
+// whatever act they carry. Verse the Shaykh quotes inside his own prose stays,
+// and so does the opening chant of the lessons. Display rule only.
+export const VERSE_LOCI: ReadonlySet<string> = new Set([
+  'rihlat-067', 'rihlat-077', 'rihlat-087', 'rihlat-108',
+  'rijal-011', 'rijal-047', 'rijal-049', 'rijal-055', 'rijal-065', 'rijal-068', 'rijal-070',
+]);
+
 /** A link is shown when any of its acts is one the site shows. */
 export function isShownLink(link: { acts: string[]; locusId?: string; surah?: number; ayahStart?: number }): boolean {
+  if (link.locusId && VERSE_LOCI.has(link.locusId)) return false;
   if (link.acts.some(a => SHOWN_ACTS.has(a as ExegeticalAct))) return true;
   return ARGUED_APPLICATIONS.has(`${link.locusId}:${link.surah}:${link.ayahStart}`);
 }

@@ -309,11 +309,12 @@ export async function askTafsir(raw: string): Promise<AskAnswer> {
       // Which paragraph of the window the quotation starts in: link and
       // translate that one.
       let paraIndex = c.paraIndex;
+      let paraLen = c.text.length;
       if (c.windowStart != null && c.windowLens) {
         let off = 0;
         paraIndex = c.windowStart;
         for (let k = 0; k < c.windowLens.length; k++) {
-          if (found.start < off + c.windowLens[k]) { paraIndex = c.windowStart + k; break; }
+          if (found.start < off + c.windowLens[k]) { paraIndex = c.windowStart + k; paraLen = c.windowLens[k]; break; }
           off += c.windowLens[k];
         }
       }
@@ -323,7 +324,10 @@ export async function askTafsir(raw: string): Promise<AskAnswer> {
       if (c.path === 'students' && voice !== 'reported') voice = 'student';
       if (c.path !== 'students' && (voice === 'student' || voice === 'reported')) voice = 'niasse';
       let english: string | undefined;
-      if (c.lessonId != null && paraIndex != null) {
+      // The alignment is paragraph to paragraph. Under a short quotation from a
+      // long paragraph the English would translate other sentences, so it is
+      // shown only when the quotation is most of its paragraph.
+      if (c.lessonId != null && paraIndex != null && ar.length >= 0.6 * paraLen) {
         const l = en.get(c.lessonId);
         const idx = l?.para2en.get(paraIndex);
         if (l && idx && idx.length) english = idx.map(i => l.paras[i]).filter(Boolean).join(' ');

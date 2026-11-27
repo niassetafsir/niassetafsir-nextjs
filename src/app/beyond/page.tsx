@@ -10,7 +10,7 @@ import { KIND_OF, KIND_ORDER } from '@/lib/homeShowcase';
 export const metadata = {
   title: 'Beyond Fī Riyāḍ al-Tafsīr',
   description:
-    "The books, letters, sermons and poems from which Shaykh Ibrāhīm Niasse's Qurʾānic commentary on this site is drawn.",
+    "The books, letters and sermons from which Shaykh Ibrāhīm Niasse's Qurʾānic commentary on this site is drawn.",
 };
 
 // The catalogue side of the corpus. /verse is keyed on the āya; this is keyed
@@ -75,7 +75,7 @@ export default function WorksPage() {
         style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
         Shaykh Ibrāhīm Niasse explained individual Qurʾānic verses throughout his other writings and
         activities. This collection brings together passages from his sessions, letters, sermons,
-        treatises, poems and travel accounts.
+        treatises and travel accounts.
       </p>
       <p className="font-english text-[14px] leading-relaxed mb-6"
         style={{ color: 'var(--body-sub, rgba(255,255,255,0.7))' }}>
