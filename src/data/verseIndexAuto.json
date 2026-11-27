@@ -370,11 +370,6 @@
       "uncertain": true
     },
     {
-      "verse": "2:26",
-      "paraIndex": 1,
-      "editorial": true
-    },
-    {
       "verse": "22:73",
       "paraIndex": 2,
       "editorial": true
@@ -551,8 +546,13 @@
     },
     {
       "verse": "2:49",
-      "paraIndex": 58,
+      "paraIndex": 56,
       "uncertain": true
+    },
+    {
+      "verse": "26:100",
+      "paraIndex": 56,
+      "editorial": true
     },
     {
       "verse": "2:50",

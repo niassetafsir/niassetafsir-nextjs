@@ -2088,7 +2088,7 @@
     "surahs": [
       2
     ],
-    "spanCount": 139,
+    "spanCount": 144,
     "spans": [
       {
         "paraIndex": 0,
@@ -2778,11 +2778,12 @@
       {
         "paraIndex": 46,
         "spanIndex": 2,
-        "text": "قَمَر تَبِعَ هُد۪ايَ",
+        "text": "فَمَن تَبِعَ هُد۪ايَ",
         "match": {
           "verse": "2:38",
-          "score": 0.67,
-          "type": "fuzzy"
+          "score": 0.14,
+          "type": "enclosed",
+          "scope": "none"
         }
       },
       {
@@ -2838,7 +2839,13 @@
       {
         "paraIndex": 51,
         "spanIndex": 0,
-        "text": "وَوْمُوا بِعَهْدِة",
+        "text": "وَأَوْفُواْ بِعَهْدِےٓ",
+        "match": null
+      },
+      {
+        "paraIndex": 52,
+        "spanIndex": 0,
+        "text": "أُوفِ بِعَهْدِكُمْ",
         "match": null
       },
       {
@@ -2901,30 +2908,36 @@
       {
         "paraIndex": 53,
         "spanIndex": 6,
-        "text": "وَلَا تَلْبِسُواْ",
+        "text": "وَإِيَّٰيَ فَاتَّقُونِۖ",
         "match": null
       },
       {
         "paraIndex": 53,
         "spanIndex": 7,
-        "text": "بالْبَاطِلِ",
+        "text": "وَلَا تَلْبِسُواْ",
         "match": null
       },
       {
         "paraIndex": 53,
         "spanIndex": 8,
-        "text": "وَتَكْتُمُواْ اُ۬لْحَقَّ",
+        "text": "بالْبَاطِلِ",
         "match": null
       },
       {
         "paraIndex": 53,
         "spanIndex": 9,
-        "text": "وَأَنتُمْ تَعْلَمُونَۖ",
+        "text": "تَكْتُمُواْ اُ۬لْحَقَّ",
         "match": null
       },
       {
         "paraIndex": 53,
         "spanIndex": 10,
+        "text": "وَأَنتُمْ تَعْلَمُونَۖ",
+        "match": null
+      },
+      {
+        "paraIndex": 53,
+        "spanIndex": 11,
         "text": "وَأَقِيمُواْ اُ۬لصَّلَوٰةَ وَءَاتُواْ اُ۬لزَّكَوٰةَۖ وَارْكَعُواْ مَعَ اَ۬لرَّٰكِعِينَۖ",
         "attests": [
           {
@@ -2944,7 +2957,7 @@
       },
       {
         "paraIndex": 53,
-        "spanIndex": 11,
+        "spanIndex": 12,
         "text": "أَتَامُرُونَ اَ۬لنَّاسَ بِالْبِرِّ",
         "match": {
           "verse": "2:44",
@@ -3072,18 +3085,35 @@
       {
         "paraIndex": 56,
         "spanIndex": 2,
+        "text": "وَلَا يُوخَذُ مِنْهَا عَدْلࣱ",
+        "match": {
+          "verse": "2:48",
+          "score": 0.2,
+          "type": "enclosed",
+          "scope": "none"
+        }
+      },
+      {
+        "paraIndex": 56,
+        "spanIndex": 3,
         "text": "إِذْ نَجَّيْنَٰكُم",
         "match": null
       },
       {
         "paraIndex": 56,
-        "spanIndex": 3,
-        "text": "ال فِرْعَوْنَ",
-        "match": null
+        "spanIndex": 4,
+        "text": "مِّنَ اٰلِ فِرْعَوْنَ",
+        "match": {
+          "verse": "2:49",
+          "score": 0.11,
+          "type": "substring",
+          "scope": "range",
+          "within": "clause"
+        }
       },
       {
         "paraIndex": 56,
-        "spanIndex": 4,
+        "spanIndex": 5,
         "text": "يَسُومُونَكُمْ",
         "match": null
       },
@@ -3299,6 +3329,18 @@
       {
         "paraIndex": 65,
         "spanIndex": 5,
+        "text": "وَقُولُواْ",
+        "match": null
+      },
+      {
+        "paraIndex": 65,
+        "spanIndex": 6,
+        "text": "حِطَّةࣱ",
+        "match": null
+      },
+      {
+        "paraIndex": 65,
+        "spanIndex": 7,
         "text": "يُغْفَرْ لَكُمْ خَطَٰيٰ۪كُمْۖ وَسَنَزِيدُ اُ۬لْمُحْسِنِينَۖ فَبَدَّلَ اَ۬لذِينَ ظَلَمُواْ",
         "match": {
           "verse": "2:58-2:59",
@@ -3309,7 +3351,7 @@
       },
       {
         "paraIndex": 65,
-        "spanIndex": 6,
+        "spanIndex": 8,
         "text": "قَوْلاً غَيْرَ اَ۬لذِے قِيلَ لَهُمْ",
         "match": {
           "verse": "2:59",
@@ -3321,11 +3363,11 @@
       },
       {
         "paraIndex": 65,
-        "spanIndex": 7,
-        "text": "«فَأَنزَلْنَا عَلَي اَ۬لذِينَ ظَلَمُواْ رِجْزاࣰ عذابا طاعونا مِ اَ۬لسَّمَآءِ بِمَا كَانُواْ يَمْسُفُونَ",
+        "spanIndex": 9,
+        "text": "«فَأَنزَلْنَا عَلَي اَ۬لذِينَ ظَلَمُواْ رِجْزاࣰ عذابا طاعونا مِّنَ اَ۬لسَّمَآءِ بِمَا كَانُواْ يَفْسُقُونَۖ",
         "match": {
           "verse": "2:59",
-          "score": 0.73,
+          "score": 0.83,
           "type": "fuzzy"
         }
       }
@@ -3369,6 +3411,14 @@
           "rule": "align",
           "mode": "plain",
           "run": 6
+        }
+      ],
+      "56": [
+        {
+          "verse": "26:100",
+          "rule": "align",
+          "mode": "plain",
+          "run": 5
         }
       ],
       "64": [
