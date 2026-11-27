@@ -1,4 +1,5 @@
 'use client';
+import { arabicPublished } from '@/lib/arabicPublished';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
@@ -102,7 +103,7 @@ export default function TermsPage() {
   const [fromUrl, setFromUrl] = useState(false);
 
   useEffect(() => {
-    fetch('/data/term_concordance.json').then(r => r.json()).then(setConcordance).catch(() => setConcordance([]));
+    fetch('/data/term_concordance.json').then(r => r.json()).then((d: TermEntry[]) => setConcordance(d.map(t => ({ ...t, occurrences: (t.occurrences || []).filter((o: { lessonId?: number }) => arabicPublished(o.lessonId)) })))).catch(() => setConcordance([]));
     fetch('/data/glossary_graph.json').then(r => r.json()).then(setGraph).catch(() => setGraph(null));
     // /search links a term here as ?term=<key>; open that entry.
     const t = new URLSearchParams(window.location.search).get('term');

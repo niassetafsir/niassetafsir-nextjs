@@ -1,4 +1,5 @@
 import { getLesson, getAllLessons } from '@/lib/lessons';
+import { arabicPublished, ARABIC_PUBLISHED_THROUGH } from '@/lib/arabicPublished';
 import { notFound, redirect } from 'next/navigation';
 import LessonExperience from '@/components/LessonExperience';
 import lessonRangesData from '@/data/lessonRanges.json';
@@ -212,7 +213,11 @@ export default async function LessonPage({ params }: { params: { id: string } })
         {lesson.openingInvocation && (
           <OpeningInvocation html={(lesson as any).openingInvocation} />
         )}
-        <BilingualText
+        {!arabicPublished(lesson.id) ? (
+          <div className="p-6 font-english text-white/60 text-sm" dir="ltr">
+            The Arabic text of the tafsīr is published for Lessons 1–{ARABIC_PUBLISHED_THROUGH}. This lesson can be heard in the recording above.
+          </div>
+        ) : <BilingualText
           poemLines={arabicFull.poemLines}
           arabicParagraphs={arabicFull.paragraphs}
           citations={lessonCitations}
@@ -223,7 +228,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
           alignment={BILINGUAL_ALIGNMENT[lesson.id]}
           verseEntries={VERSE_INDEX[lesson.id] ?? []}
           jumpVerses={jumpVersesFor(lesson.id)}
-        />
+        />}
       </>}
       compare={<>
         <div className="p-5" dir="ltr">

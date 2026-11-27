@@ -92,7 +92,8 @@ for (let id = 1; id <= 56; id++) {
   const verseRange = lesson.verseRange || '';
 
   // Arabic -- Qur'anic citation fragments only.
-  const arFragments = redactToQuranicFragments(lesson.arabicBody || lesson.arabicText);
+  // Arabic of Lessons 31-56 is withheld (src/lib/arabicPublished.ts).
+  const arFragments = id <= 30 ? redactToQuranicFragments(lesson.arabicBody || lesson.arabicText) : [];
   arFragments.forEach((text, i) => {
     entries.push({
       id: `l${id}-niasse-ar-${i}`,

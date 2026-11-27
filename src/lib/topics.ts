@@ -1,4 +1,5 @@
 import raw from '@/data/topics.json';
+import { arabicPublished } from '@/lib/arabicPublished';
 
 export interface TopicPassage {
   title: string;
@@ -25,7 +26,9 @@ export interface Topic {
   draft?: boolean;
 }
 
-export const TOPICS = (raw as unknown as { topics: Topic[] }).topics;
+// Passages from lessons whose Arabic is withheld are left out with it.
+export const TOPICS = (raw as unknown as { topics: Topic[] }).topics
+  .map(t => ({ ...t, passages: t.passages.filter(p => arabicPublished(p.lesson)) }));
 
 export function getTopic(slug: string): Topic | undefined {
   return TOPICS.find(t => t.slug === slug);
