@@ -2702,6 +2702,11 @@
       "uncertain": true
     },
     {
+      "verse": "3:118",
+      "paraIndex": 50,
+      "uncertain": true
+    },
+    {
       "verse": "2:120",
       "paraIndex": 51,
       "editorial": true
@@ -2710,11 +2715,6 @@
       "verse": "2:217",
       "paraIndex": 51,
       "editorial": true
-    },
-    {
-      "verse": "3:118",
-      "paraIndex": 51,
-      "uncertain": true
     },
     {
       "verse": "3:119",
@@ -2737,6 +2737,11 @@
       "uncertain": true
     },
     {
+      "verse": "3:122",
+      "paraIndex": 55,
+      "uncertain": true
+    },
+    {
       "verse": "3:123",
       "paraIndex": 56,
       "uncertain": true
@@ -2748,6 +2753,11 @@
     },
     {
       "verse": "3:126",
+      "paraIndex": 57,
+      "uncertain": true
+    },
+    {
+      "verse": "3:127",
       "paraIndex": 57,
       "uncertain": true
     },
@@ -2797,6 +2807,11 @@
       "editorial": true
     },
     {
+      "verse": "3:139",
+      "paraIndex": 61,
+      "uncertain": true
+    },
+    {
       "verse": "3:140",
       "paraIndex": 61,
       "uncertain": true
@@ -2842,6 +2857,11 @@
       "uncertain": true
     },
     {
+      "verse": "3:150",
+      "paraIndex": 68,
+      "uncertain": true
+    },
+    {
       "verse": "3:151",
       "paraIndex": 69,
       "uncertain": true
@@ -2883,7 +2903,7 @@
     },
     {
       "verse": "3:159",
-      "paraIndex": 75,
+      "paraIndex": 74,
       "uncertain": true
     },
     {
