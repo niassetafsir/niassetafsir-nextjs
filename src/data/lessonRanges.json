@@ -126,18 +126,18 @@
   ],
   "end": [
    3,
-   175
+   170
   ],
   "exact": true,
   "volume": 2,
   "page": 79,
-  "span": 84,
+  "span": 79,
   "attested": 60
  },
  "10": {
   "start": [
    3,
-   176
+   171
   ],
   "end": [
    4,
@@ -146,7 +146,7 @@
   "exact": true,
   "volume": 2,
   "page": 124,
-  "span": 48,
+  "span": 53,
   "attested": 35
  },
  "11": {
@@ -471,27 +471,27 @@
   ],
   "end": [
    20,
-   52
+   54
   ],
-  "exact": false,
+  "exact": true,
   "volume": 6,
   "page": 40,
-  "span": 150,
+  "span": 152,
   "attested": 81
  },
  "33": {
   "start": [
    20,
-   53
+   55
   ],
   "end": [
    21,
    63
   ],
-  "exact": false,
+  "exact": true,
   "volume": 6,
   "page": 84,
-  "span": 146,
+  "span": 144,
   "attested": 98
  },
  "34": {
@@ -516,27 +516,27 @@
   ],
   "end": [
    24,
-   9
+   11
   ],
-  "exact": false,
+  "exact": true,
   "volume": 6,
   "page": 167,
-  "span": 127,
+  "span": 129,
   "attested": 81
  },
  "36": {
   "start": [
    24,
-   10
+   53
   ],
   "end": [
    25,
    77
   ],
-  "exact": false,
+  "exact": true,
   "volume": 7,
   "page": 3,
-  "span": 132,
+  "span": 89,
   "attested": 72
  },
  "37": {
@@ -546,27 +546,27 @@
   ],
   "end": [
    27,
-   58
+   55
   ],
-  "exact": false,
+  "exact": true,
   "volume": 7,
   "page": 52,
-  "span": 285,
+  "span": 282,
   "attested": 155
  },
  "38": {
   "start": [
    27,
-   59
+   56
   ],
   "end": [
    28,
    88
   ],
-  "exact": false,
+  "exact": true,
   "volume": 7,
   "page": 96,
-  "span": 123,
+  "span": 126,
   "attested": 92
  },
  "39": {
@@ -591,27 +591,27 @@
   ],
   "end": [
    33,
-   55
+   30
   ],
-  "exact": false,
+  "exact": true,
   "volume": 7,
   "page": 195,
-  "span": 98,
+  "span": 73,
   "attested": 60
  },
  "41": {
   "start": [
    33,
-   56
+   31
   ],
   "end": [
    35,
    14
   ],
-  "exact": false,
+  "exact": true,
   "volume": 8,
   "page": 3,
-  "span": 86,
+  "span": 111,
   "attested": 66
  },
  "42": {
@@ -666,57 +666,57 @@
   ],
   "end": [
    44,
-   19
+   23
   ],
-  "exact": false,
+  "exact": true,
   "volume": 8,
   "page": 203,
-  "span": 169,
+  "span": 173,
   "attested": 108
  },
  "46": {
   "start": [
    44,
-   20
+   24
   ],
   "end": [
    48,
-   16
+   17
   ],
-  "exact": false,
+  "exact": true,
   "volume": 9,
   "page": 3,
-  "span": 166,
+  "span": 163,
   "attested": 106
  },
  "47": {
   "start": [
    48,
-   17
+   18
   ],
   "end": [
    51,
-   27
+   30
   ],
-  "exact": false,
+  "exact": true,
   "volume": 9,
   "page": 56,
-  "span": 103,
+  "span": 105,
   "attested": 53
  },
  "48": {
   "start": [
    51,
-   28
+   31
   ],
   "end": [
    54,
    55
   ],
-  "exact": false,
+  "exact": true,
   "volume": 9,
   "page": 108,
-  "span": 199,
+  "span": 196,
   "attested": 96
  },
  "49": {

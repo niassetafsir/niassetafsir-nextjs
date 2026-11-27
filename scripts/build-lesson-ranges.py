@@ -240,6 +240,21 @@ for i, lid in enumerate(ids):
         'page': ref['page'] if ref else None,
     }
 
+# Seams checked by hand against the opening words of each lesson's Arabic and
+# the Full Reading index (27 Nov 2026). The chain above guessed these.
+HAND_SEAMS = {
+    '9': ((3, 92), (3, 170)), '10': ((3, 171), (4, 23)),
+    '32': ((19, 1), (20, 54)), '33': ((20, 55), (21, 63)),
+    '35': ((23, 1), (24, 11)), '36': ((24, 53), (25, 77)),
+    '37': ((26, 1), (27, 55)), '38': ((27, 56), (28, 88)),
+    '40': ((31, 22), (33, 30)), '41': ((33, 31), (35, 14)),
+    '45': ((41, 47), (44, 23)), '46': ((44, 24), (48, 17)),
+    '47': ((48, 18), (51, 30)), '48': ((51, 31), (54, 55)),
+}
+for lid, (st, en) in HAND_SEAMS.items():
+    if lid in out:
+        out[lid].update({'start': list(st), 'end': list(en), 'exact': True})
+
 json.dump(out, open('src/data/lessonRanges.json', 'w', encoding='utf-8'),
           ensure_ascii=False, indent=1)
 
