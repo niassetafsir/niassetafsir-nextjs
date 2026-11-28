@@ -1600,3 +1600,6 @@ html .lesson-reading-page.book-page .br-speaking {
     box-shadow: 0 6px 22px rgba(0,0,0,.25);
   }
 }
+/* Word-by-word highlight while reading aloud (CSS Custom Highlight API). */
+::highlight(br-sent) { background-color: color-mix(in srgb, #B8963E 22%, transparent); }
+::highlight(br-word) { background-color: #E2C26A; color: #1E1E1A; }
