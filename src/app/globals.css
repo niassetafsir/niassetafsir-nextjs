@@ -1501,7 +1501,7 @@ html .lesson-reading-page.book-page .bp-dots span { width: 7px; height: 7px; bor
 html .lesson-reading-page.book-page .bp-headnote { background: var(--bp-panel); border-top: 1px solid var(--bp-gold); border-bottom: 1px solid var(--bp-gold); padding: .8rem 1.3rem; margin: 0 0 .8rem; }
 html .lesson-reading-page.book-page .bp-headnote > summary { cursor: pointer; font: 600 13px 'EB Garamond', serif; letter-spacing: .14em; color: var(--bp-olive) !important; }
 html .lesson-reading-page.book-page .bp-headnote > summary i { font-weight: 400; letter-spacing: 0; color: var(--bp-sub) !important; }
-html .lesson-reading-page.book-page .bp-headnote p { font: 1rem/1.6 'EB Garamond', serif; color: var(--bp-ink) !important; text-align: justify; margin: .7rem 0 0; }
+html .lesson-reading-page.book-page .bp-headnote p { font: calc(1rem * var(--reading-en-scale, 1))/1.6 'EB Garamond', serif; color: var(--bp-ink) !important; text-align: justify; margin: .7rem 0 0; }
 html .lesson-reading-page.book-page .bp-headnote .bp-topics b { font: 600 12px 'EB Garamond', serif; letter-spacing: .14em; color: var(--bp-olive) !important; margin-right: .6em; }
 html .lesson-reading-page.book-page .bp-headnote .bp-sig { text-align: right; font-style: italic; }
 html .lesson-reading-page.book-page .bp-book { margin-top: 1.2rem; padding: .9rem; border: 1px solid var(--bp-gold); background: var(--bp-panel); display: flex; flex-direction: column; gap: .4rem; font-family: 'EB Garamond', serif; }
@@ -1520,17 +1520,17 @@ html .lesson-reading-page.book-page .br-target { background: color-mix(in srgb, 
 html .lesson-reading-page.book-page .br-side { display: flex; flex-direction: column; gap: .3rem; align-items: flex-start; padding-top: .25rem; }
 html .lesson-reading-page.book-page .br-num { font: 600 12px/1 'EB Garamond', serif; color: var(--bp-olive) !important; white-space: nowrap; }
 html .lesson-reading-page.book-page .br-en, html .lesson-reading-page.book-page .br-en * { color: var(--bp-ink) !important; font-family: 'EB Garamond', var(--font-english) !important; }
-html .lesson-reading-page.book-page .br-en { font-size: 1.19rem; line-height: 1.66; text-align: justify; hyphens: auto; }
+html .lesson-reading-page.book-page .br-en { font-size: calc(1.19rem * var(--reading-en-scale, 1)); line-height: 1.66; text-align: justify; hyphens: auto; }
 html .lesson-reading-page.book-page .br-en p { margin: 0 0 .8rem; }
 html .lesson-reading-page.book-page .br-en strong, html .lesson-reading-page.book-page .br-en strong * { font-weight: 400; color: var(--bp-red) !important; }
 html .lesson-reading-page.book-page .br-en .quranic-verse { color: inherit !important; }
 html .lesson-reading-page.book-page .br-en em { font-style: italic; }
 html .lesson-reading-page.book-page .br-ar, html .lesson-reading-page.book-page .br-ar * { color: var(--bp-ink) !important; }
-html .lesson-reading-page.book-page .br-ar { font-family: var(--font-body); font-size: 1.3rem; line-height: 2; text-align: justify; margin: .5rem 0 0; }
+html .lesson-reading-page.book-page .br-ar { font-family: var(--font-body); font-size: calc(1.3rem * var(--reading-ar-scale, 1)); line-height: 2; text-align: justify; margin: .5rem 0 0; }
 html .lesson-reading-page.book-page .br-ar .quranic-verse, html .lesson-reading-page.book-page .br-ar .quranic-verse * { color: var(--bp-red) !important; }
 html .lesson-reading-page.book-page .br-ar .verse-ref, html .lesson-reading-page.book-page .br-en .verse-ref { color: var(--bp-olive) !important; }
 html .lesson-reading-page.book-page .br-ar .fn-superscript { color: var(--bp-accent) !important; }
-html .lesson-reading-page.book-page .br-ar-main { font-size: 1.35rem; margin: 0; }
+html .lesson-reading-page.book-page .br-ar-main { font-size: calc(1.35rem * var(--reading-ar-scale, 1)); margin: 0; }
 html .lesson-reading-page.book-page .br-ar-fold { margin-top: .35rem; }
 html .lesson-reading-page.book-page .br-ar-fold > summary { cursor: pointer; font: 13px 'EB Garamond', serif; color: var(--bp-sub) !important; }
 html .lesson-reading-page.book-page summary::marker { color: var(--bp-gold); }
@@ -1549,7 +1549,7 @@ html .lesson-reading-page.book-page .br-btn-main { background: var(--bp-olive); 
 @media (max-width: 640px) {
   html .lesson-reading-page.book-page .br-passage { grid-template-columns: 1fr; gap: .2rem; }
   html .lesson-reading-page.book-page .br-side { flex-direction: row; align-items: center; gap: .6rem; }
-  html .lesson-reading-page.book-page .br-en { font-size: 1.1rem; }
+  html .lesson-reading-page.book-page .br-en { font-size: calc(1.1rem * var(--reading-en-scale, 1)); }
   html .lesson-reading-page.book-page .br-hint { display: none; }
   html .lesson-reading-page.book-page .bp-head h1 { font-size: 2rem; }
 }

@@ -25,7 +25,8 @@ const KEY = 'niassetafsir:reading-size';
 // Factors, not sizes. The middle step is 1 -- an untouched control
 // changes nothing, and whatever base size the theme sets is the one
 // that scales. See the note in globals.css.
-const STEPS = ['0.85', '0.93', '1', '1.12', '1.26', '1.42'];
+// Two larger steps (1.6, 1.8) for readers who struggle with small type (AK, 28 Nov 2026).
+const STEPS = ['0.85', '0.93', '1', '1.12', '1.26', '1.42', '1.6', '1.8'];
 const DEFAULT = 2;
 
 type Sizes = { ar: number; en: number };
