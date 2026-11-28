@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import SearchForm from '@/components/SearchForm';
 import { SURAH_LIST } from '@/lib/verseRanges';
-import { showcaseCards, SHOWCASE_VERSE, corpusCounts } from '@/lib/homeShowcase';
-import { workSummaries } from '@/lib/corpus';
+import { showcaseCards, SHOWCASE_VERSE, beyondIndex, studentIndex } from '@/lib/homeShowcase';
 import topicsData from '@/data/topics.json';
 import VerseMarker from '@/components/VerseMarker';
 
@@ -31,9 +30,8 @@ const LINE = 'rgba(138,109,31,0.22)';
 
 export default async function HomePage() {
   const cards = await showcaseCards();
-  const counts = corpusCounts();
-  const students = workSummaries().filter(r => r.work.relation === 'student' && (r.work.publish !== false || r.uses > 0));
-  const studentVerses = students.reduce((n, r) => n + r.verses, 0);
+  const beyond = beyondIndex();
+  const { works: students, verses: studentVerses } = studentIndex();
   const topics = (topicsData as { topics: { slug: string; title: string; termAr: string }[] }).topics;
   // Tappable examples under the search box: one of each kind of query it takes.
   const examples = [
@@ -64,11 +62,11 @@ export default async function HomePage() {
         </p>
 
         <p className="font-english text-[15px] sm:text-lg leading-relaxed mb-5" style={{ color: TEXT }}>
-          Shaykh Ibrāhīm Niasse (d. 1975) explained the Qurʾān throughout his life, in public lessons
-          and in response to questions brought before him. This collection brings together his 1964
-          sessions on the whole Qurʾān, his explanations across other writings, and the commentaries of
-          his students, verse by verse. Every passage here says what a verse means; a verse he only
-          quotes is not included.
+          Shaykh Ibrāhīm Niasse (d. 1975) explained the Qurʾān throughout his life: in his 1964 Ramaḍān
+          sessions on the whole Qurʾān, and in sermons, letters, treatises and answers to questions
+          brought before him. This collection gathers those explanations, with the commentaries of his
+          students, verse by verse, so that a reader can follow what he said about a verse from one work
+          and one decade to the next.
         </p>
 
         {/* Search first: most visitors come with a verse or a question. */}
@@ -111,7 +109,7 @@ export default async function HomePage() {
               body: 'The 56 recorded lessons in which Shaykh Ibrāhīm explained the whole Qurʾān during Ramaḍān 1964. Read the Arabic text lesson by lesson, with English translations and recordings where available.', count: '56 lessons' },
             { href: '/beyond', ar: 'تَفْسِيرُهُ فِي سَائِرِ آثَارِه', en: 'Beyond Fī Riyāḍ al-Tafsīr',
               body: 'Where he explains a verse outside the 1964 lessons: in sermons, sessions, letters and treatises. Each passage is linked to its verse, work and page.',
-              count: `${counts.verses} verses in ${counts.worksWithPassages} works` },
+              count: `${beyond.verses} verses in ${beyond.works.length} works` },
             { href: '/students', ar: 'تَفَاسِيرُ تَلَامِذَتِه', en: 'Commentaries of His Students',
               body: 'Qurʾānic interpretations by scholars of the Fayḍa who learned from Shaykh Ibrāhīm. Read their explanations alongside his own wherever they address the same verses.',
               count: `${studentVerses} verses in ${students.length} ${students.length === 1 ? 'work' : 'works'}` },

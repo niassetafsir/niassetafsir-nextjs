@@ -1,3 +1,4 @@
+import arabicProofread from '@/data/arabicProofread.json';
 import { getVolumeIndex } from '@/lib/volumes';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { getLessonIdsForSurah } from '@/lib/surahLessons';
@@ -27,6 +28,10 @@ export default async function ReadPage() {
     lessonIds: getLessonIdsForSurah(s.id),
   })).filter(s => s.lessonIds.length > 0);
 
+  // The proofread lessons run 1..n; if the list ever has a gap, say nothing
+  // rather than claim a range it does not cover.
+  const proofread = (arabicProofread as { lessons: number[] }).lessons;
+  const arabicRun = proofread.every((id, i) => id === i + 1) ? proofread.length : 0;
   return (
     <main className="max-w-2xl mx-auto px-4 pb-32 pt-6" dir="ltr">
 
@@ -42,9 +47,11 @@ export default async function ReadPage() {
         </p>
         <p className="font-english text-[13px] leading-relaxed mt-2"
           style={{color:'var(--body-sub, rgba(255,255,255,0.7))'}}>
-          Shaykh Ibrāhīm Niasse&rsquo;s recorded lessons on the whole Qurʾān, delivered during Ramaḍān 1964.
-          The complete Arabic text of all {facts.arabicLessons} lessons is presented in the order of the
-          original teaching.
+          Shaykh Ibrāhīm Niasse&rsquo;s recorded lessons on the whole Qurʾān, delivered during Ramaḍān 1964,
+          listed in the order of the original teaching.
+          {arabicRun > 0 && arabicRun < facts.totalLessons && (
+            <> The Arabic text is available for Lessons 1–{arabicRun}.</>
+          )}
           {facts.translatedCount > 0 && facts.translatedFirst !== null && facts.translatedLast !== null && (
             <> English translations are available for Lessons {facts.translatedFirst}–{facts.translatedLast} (marked EN).</>
           )}

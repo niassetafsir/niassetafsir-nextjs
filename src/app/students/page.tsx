@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { workSummaries } from '@/lib/corpus';
+import { studentIndex } from '@/lib/homeShowcase';
 
 export const metadata = {
   title: 'Commentaries of His Students',
@@ -11,9 +11,7 @@ export const metadata = {
 // who learned from him; their passages are their words, not his. Where they
 // report his words, those passages stand with his own on the verse page.
 export default function StudentsPage() {
-  const rows = workSummaries()
-    .filter(r => r.work.relation === 'student' && (r.work.publish !== false || r.uses > 0))
-    .sort((a, b) => b.uses - a.uses || (a.work.titleTranslit ?? '').localeCompare(b.work.titleTranslit ?? ''));
+  const rows = studentIndex().works;
   return (
     <main className="max-w-3xl mx-auto px-4 pb-32 pt-6" dir="ltr">
       <p className="font-arabic text-gold text-lg mb-0.5" dir="rtl">تفاسير تلامذته</p>

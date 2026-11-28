@@ -122,20 +122,41 @@ export function worksByKind(): WorkKind[] {
 
 // ---------------------------------------------------------------- the numbers
 
-export function corpusCounts() {
-  // Counted exactly as the Beyond page counts, so the two never disagree:
-  // his own words with text, outside Fī Riyāḍ. A student's report of his
-  // words counts; a student's own reading does not (isNiasse).
-  const s = workSummaries().filter(r => r.work.publish !== false || r.uses > 0);
-  const verses = new Set<string>();
-  const works = new Set<string>();
-  for (const { work } of s) {
-    if (work.id === 'fi-riyad') continue;
+/**
+ * The one count of his commentary outside Fī Riyāḍ: the home page, the Beyond
+ * page and its three listings all read it, so no two figures can disagree.
+ * A work counts when it carries at least one passage of his own words with
+ * text (isNiasse && hasText). Student works are left out even where they
+ * report him: they are counted once, under Students (studentIndex).
+ */
+export function beyondIndex() {
+  const rows = workSummaries().filter(r => r.work.id !== 'fi-riyad' && r.work.relation !== 'student'
+    && (r.work.publish !== false || r.uses > 0));
+  const verseWorks = new Map<string, { surah: number; ayah: number; workIds: string[] }>();
+  const perWork = new Map<string, Set<string>>();
+  for (const { work } of rows) {
     for (const e of workEntries(work.id)) {
       if (!e.isNiasse || !e.hasText) continue;
-      works.add(work.id);
-      for (let a = e.ayahStart; a <= (e.ayahEnd ?? e.ayahStart); a++) verses.add(`${e.surah}:${a}`);
+      const set = perWork.get(work.id) ?? new Set<string>();
+      for (let a = e.ayahStart; a <= (e.ayahEnd ?? e.ayahStart); a++) {
+        const k = `${e.surah}:${a}`;
+        set.add(k);
+        const v = verseWorks.get(k) ?? { surah: e.surah, ayah: a, workIds: [] };
+        if (!v.workIds.includes(work.id)) v.workIds.push(work.id);
+        verseWorks.set(k, v);
+      }
+      perWork.set(work.id, set);
     }
   }
-  return { works: s.length, worksWithPassages: works.size, verses: verses.size };
+  const works = rows.filter(r => perWork.has(r.work.id))
+    .map(r => ({ ...r, verses: perWork.get(r.work.id)!.size }));
+  return { works, verseWorks, verses: verseWorks.size };
+}
+
+/** Student works, counted for the home page and /students alike. */
+export function studentIndex() {
+  const works = workSummaries()
+    .filter(r => r.work.relation === 'student' && (r.work.publish !== false || r.uses > 0))
+    .sort((a, b) => b.uses - a.uses || (a.work.titleTranslit ?? '').localeCompare(b.work.titleTranslit ?? ''));
+  return { works, verses: works.reduce((n, r) => n + r.verses, 0) };
 }

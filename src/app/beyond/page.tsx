@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { workSummaries, workEntries, wordsDate } from '@/lib/corpus';
+import { workSummaries, wordsDate } from '@/lib/corpus';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { shortTitle } from '@/components/VerseLocusCard';
 import WorksTabs from '@/components/WorksTabs';
 import SuraJump from '@/components/SuraJump';
 import Fold from '@/components/Fold';
-import { KIND_OF, KIND_ORDER } from '@/lib/homeShowcase';
+import { KIND_OF, KIND_ORDER, beyondIndex } from '@/lib/homeShowcase';
 
 export const metadata = {
   title: 'Beyond Fī Riyāḍ al-Tafsīr',
@@ -33,33 +33,25 @@ export default function WorksPage() {
   const rows = workSummaries()
     .filter(r => r.work.publish !== false || r.uses > 0)
     .sort((a, b) => b.uses - a.uses || (a.work.titleTranslit ?? '').localeCompare(b.work.titleTranslit ?? ''));
-  const indexed = rows.filter(r => r.uses > 0 || r.work.id === 'fi-riyad');
-  const pending = rows.filter(r => !(r.uses > 0 || r.work.id === 'fi-riyad') && r.work.relation !== 'student');
-  // By sūra: every verse he quotes, explains or applies outside the tafsīr,
-  // with the works it appears in. His words only (a student's report of him
-  // counts; a student's own reading does not).
-  const verseWorks = new Map<string, { surah: number; ayah: number; works: Map<string, string> }>();
-  for (const { work } of indexed) {
-    if (work.id === 'fi-riyad') continue;
-    for (const e of workEntries(work.id)) {
-      if (!e.isNiasse || !e.hasText) continue;
-      for (let ayah = e.ayahStart; ayah <= (e.ayahEnd ?? e.ayahStart); ayah++) {
-        const k = `${e.surah}:${ayah}`;
-        const v = verseWorks.get(k) ?? { surah: e.surah, ayah, works: new Map() };
-        v.works.set(work.id, shortTitle(work));
-        verseWorks.set(k, v);
-      }
-    }
-  }
+  const fiRiyad = rows.filter(r => r.work.id === 'fi-riyad');
+  // By sūra, by work and by date all read one index (homeShowcase.beyondIndex),
+  // as does the home page: his own words with text, outside the tafsīr.
+  // Student works are counted under Students only.
+  const beyond = beyondIndex();
+  const indexed = beyond.works;
   const suras = SURAH_LIST.map(s => ({
     ...s,
-    verses: Array.from(verseWorks.values()).filter(v => v.surah === s.id).sort((a, b) => a.ayah - b.ayah),
+    verses: Array.from(beyond.verseWorks.values()).filter(v => v.surah === s.id).sort((a, b) => a.ayah - b.ayah)
+      .map(v => ({ ...v, works: new Map(v.workIds.map(id => {
+        const w = indexed.find(r => r.work.id === id)!.work;
+        return [id, shortTitle(w)] as [string, string];
+      })) })),
   })).filter(s => s.verses.length > 0);
-  const verseCount = verseWorks.size;
-  const ownCount = new Set(Array.from(verseWorks.values()).flatMap(v => Array.from(v.works.keys()))).size;
+  const verseCount = beyond.verses;
+  const ownCount = indexed.length;
   // By date: his works in the order he wrote them, the tafsīr sessions among
   // them. Works whose date is not known follow, without a date.
-  const ownWorks = rows.filter(r => r.work.relation !== 'student' && (r.uses > 0 || r.work.id === 'fi-riyad'));
+  const ownWorks = [...fiRiyad, ...indexed];
   const dated = ownWorks.map(r => ({ ...r, date: wordsDate(r.work) })).filter(r => r.date)
     .sort((a, b) => a.date!.year - b.date!.year);
   const undated = ownWorks.filter(r => !wordsDate(r.work));
