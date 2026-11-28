@@ -728,7 +728,7 @@ nav .font-english.text-xs {
 [data-theme="light"] .verse-ref {
   color: #0d7a5f;
 }
-.lesson-reading-page .verse-ref { color: #0d7a5f !important; }
+html:not([data-theme='dark']) .lesson-reading-page .verse-ref { color: #0d7a5f !important; }
 
 /* Collation mark — what the edition can say about the TEXT of a bracketed
    citation, as against .verse-ref beside it, which says which aya it is.
@@ -762,8 +762,8 @@ nav .font-english.text-xs {
 [data-theme="light"] .cite-status { color: rgba(0,0,0,0.3); }
 .light .cite-status[data-status="diverges"],
 [data-theme="light"] .cite-status[data-status="diverges"] { color: #8a6d1f; }
-.lesson-reading-page .cite-status { color: rgba(0,0,0,0.3); }
-.lesson-reading-page .cite-status[data-status="diverges"] { color: #8a6d1f; }
+html:not([data-theme='dark']) .lesson-reading-page .cite-status { color: rgba(0,0,0,0.3); }
+html:not([data-theme='dark']) .lesson-reading-page .cite-status[data-status="diverges"] { color: #8a6d1f; }
 
 /* A mark carrying data-cite is one a reader can act on: it opens the
    "suggest a reading" dialog (src/components/CitationFeedback.tsx). Given an
@@ -784,7 +784,7 @@ nav .font-english.text-xs {
   outline: 2px solid var(--gold, #C9A84C);
   outline-offset: 1px;
 }
-.lesson-reading-page .cite-status[data-cite]:hover { background: rgba(138,109,31,0.16); }
+html:not([data-theme='dark']) .lesson-reading-page .cite-status[data-cite]:hover { background: rgba(138,109,31,0.16); }
 
 /* Off by default for print: an apparatus mark is for the screen edition. */
 @media print { .cite-status { display: none; } }
@@ -918,7 +918,7 @@ body:has(.lesson-reading-page) {
   padding-bottom: 0 !important;
 }
 
-.lesson-reading-page {
+html:not([data-theme='dark']) .lesson-reading-page {
   background: #F5EDD6;
   color: #0D1F0A;
   --bg: #F5EDD6;
@@ -931,248 +931,246 @@ body:has(.lesson-reading-page) {
   --panel-header-text: rgba(13,31,10,0.85);
   --panel-title-en: rgba(13,31,10,0.85);
 }
-.lesson-reading-page,
-[data-theme='light'] .lesson-reading-page,
-[data-theme='dark'] .lesson-reading-page {
+html:not([data-theme='dark']) .lesson-reading-page {
   background: #F5EDD6 !important;
 }
-.lesson-reading-page .font-arabic,
-.lesson-reading-page .font-english,
-.lesson-reading-page body,
-.lesson-reading-page p,
-.lesson-reading-page span,
-.lesson-reading-page div,
-.lesson-reading-page li,
-.lesson-reading-page a,
-.lesson-reading-page button {
+html:not([data-theme='dark']) .lesson-reading-page .font-arabic,
+html:not([data-theme='dark']) .lesson-reading-page .font-english,
+html:not([data-theme='dark']) .lesson-reading-page body,
+html:not([data-theme='dark']) .lesson-reading-page p,
+html:not([data-theme='dark']) .lesson-reading-page span,
+html:not([data-theme='dark']) .lesson-reading-page div,
+html:not([data-theme='dark']) .lesson-reading-page li,
+html:not([data-theme='dark']) .lesson-reading-page a,
+html:not([data-theme='dark']) .lesson-reading-page button {
   color: #0D1F0A;
 }
-.lesson-reading-page .font-arabic {
+html:not([data-theme='dark']) .lesson-reading-page .font-arabic {
   color: #0D1F0A !important;
 }
-.lesson-reading-page .font-english {
+html:not([data-theme='dark']) .lesson-reading-page .font-english {
   color: rgba(13,31,10,0.9) !important;
 }
 
-.lesson-reading-page .text-white\/3 { color: rgba(13,31,10,0.03) !important; }
-.lesson-reading-page .border-white\/3 { border-color: rgba(13,31,10,0.03) !important; }
-.lesson-reading-page .bg-white\/3 { background-color: rgba(13,31,10,0.03) !important; }
-.lesson-reading-page .divide-white\/3 > * + * { border-color: rgba(13,31,10,0.03) !important; }
-.lesson-reading-page .text-gold\/3 { color: rgba(138,109,31,0.03) !important; }
-.lesson-reading-page .border-gold\/3 { border-color: rgba(13,31,10,0.06) !important; }
-.lesson-reading-page .text-white\/5 { color: rgba(13,31,10,0.05) !important; }
-.lesson-reading-page .border-white\/5 { border-color: rgba(13,31,10,0.05) !important; }
-.lesson-reading-page .bg-white\/5 { background-color: rgba(13,31,10,0.05) !important; }
-.lesson-reading-page .divide-white\/5 > * + * { border-color: rgba(13,31,10,0.05) !important; }
-.lesson-reading-page .text-gold\/5 { color: rgba(138,109,31,0.05) !important; }
-.lesson-reading-page .border-gold\/5 { border-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .text-white\/8 { color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .border-white\/8 { border-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .bg-white\/8 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/8 > * + * { border-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .text-gold\/8 { color: rgba(138,109,31,0.08) !important; }
-.lesson-reading-page .border-gold\/8 { border-color: rgba(13,31,10,0.11) !important; }
-.lesson-reading-page .text-white\/10 { color: rgba(13,31,10,0.1) !important; }
-.lesson-reading-page .border-white\/10 { border-color: rgba(13,31,10,0.1) !important; }
-.lesson-reading-page .bg-white\/10 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/10 > * + * { border-color: rgba(13,31,10,0.1) !important; }
-.lesson-reading-page .text-gold\/10 { color: rgba(138,109,31,0.1) !important; }
-.lesson-reading-page .border-gold\/10 { border-color: rgba(13,31,10,0.13) !important; }
-.lesson-reading-page .text-white\/12 { color: rgba(13,31,10,0.12) !important; }
-.lesson-reading-page .border-white\/12 { border-color: rgba(13,31,10,0.12) !important; }
-.lesson-reading-page .bg-white\/12 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/12 > * + * { border-color: rgba(13,31,10,0.12) !important; }
-.lesson-reading-page .text-gold\/12 { color: rgba(138,109,31,0.12) !important; }
-.lesson-reading-page .border-gold\/12 { border-color: rgba(13,31,10,0.15) !important; }
-.lesson-reading-page .text-white\/15 { color: rgba(13,31,10,0.15) !important; }
-.lesson-reading-page .border-white\/15 { border-color: rgba(13,31,10,0.15) !important; }
-.lesson-reading-page .bg-white\/15 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/15 > * + * { border-color: rgba(13,31,10,0.15) !important; }
-.lesson-reading-page .text-gold\/15 { color: rgba(138,109,31,0.15) !important; }
-.lesson-reading-page .border-gold\/15 { border-color: rgba(13,31,10,0.18) !important; }
-.lesson-reading-page .text-white\/20 { color: rgba(13,31,10,0.2) !important; }
-.lesson-reading-page .border-white\/20 { border-color: rgba(13,31,10,0.2) !important; }
-.lesson-reading-page .bg-white\/20 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/20 > * + * { border-color: rgba(13,31,10,0.2) !important; }
-.lesson-reading-page .text-gold\/20 { color: rgba(138,109,31,0.2) !important; }
-.lesson-reading-page .border-gold\/20 { border-color: rgba(13,31,10,0.23) !important; }
-.lesson-reading-page .text-white\/25 { color: rgba(13,31,10,0.25) !important; }
-.lesson-reading-page .border-white\/25 { border-color: rgba(13,31,10,0.25) !important; }
-.lesson-reading-page .bg-white\/25 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/25 > * + * { border-color: rgba(13,31,10,0.25) !important; }
-.lesson-reading-page .text-gold\/25 { color: rgba(138,109,31,0.25) !important; }
-.lesson-reading-page .border-gold\/25 { border-color: rgba(13,31,10,0.28) !important; }
-.lesson-reading-page .text-white\/30 { color: rgba(13,31,10,0.3) !important; }
-.lesson-reading-page .border-white\/30 { border-color: rgba(13,31,10,0.3) !important; }
-.lesson-reading-page .bg-white\/30 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/30 > * + * { border-color: rgba(13,31,10,0.3) !important; }
-.lesson-reading-page .text-gold\/30 { color: rgba(138,109,31,0.3) !important; }
-.lesson-reading-page .border-gold\/30 { border-color: rgba(13,31,10,0.32999999999999996) !important; }
-.lesson-reading-page .text-white\/35 { color: rgba(13,31,10,0.35) !important; }
-.lesson-reading-page .border-white\/35 { border-color: rgba(13,31,10,0.35) !important; }
-.lesson-reading-page .bg-white\/35 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/35 > * + * { border-color: rgba(13,31,10,0.35) !important; }
-.lesson-reading-page .text-gold\/35 { color: rgba(138,109,31,0.35) !important; }
-.lesson-reading-page .border-gold\/35 { border-color: rgba(13,31,10,0.38) !important; }
-.lesson-reading-page .text-white\/40 { color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .border-white\/40 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .bg-white\/40 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/40 > * + * { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-gold\/40 { color: rgba(138,109,31,0.4) !important; }
-.lesson-reading-page .border-gold\/40 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-white\/45 { color: rgba(13,31,10,0.45) !important; }
-.lesson-reading-page .border-white\/45 { border-color: rgba(13,31,10,0.45) !important; }
-.lesson-reading-page .bg-white\/45 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/45 > * + * { border-color: rgba(13,31,10,0.45) !important; }
-.lesson-reading-page .text-gold\/45 { color: rgba(138,109,31,0.45) !important; }
-.lesson-reading-page .border-gold\/45 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-white\/50 { color: rgba(13,31,10,0.5) !important; }
-.lesson-reading-page .border-white\/50 { border-color: rgba(13,31,10,0.5) !important; }
-.lesson-reading-page .bg-white\/50 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/50 > * + * { border-color: rgba(13,31,10,0.5) !important; }
-.lesson-reading-page .text-gold\/50 { color: rgba(138,109,31,0.5) !important; }
-.lesson-reading-page .border-gold\/50 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-white\/55 { color: rgba(13,31,10,0.55) !important; }
-.lesson-reading-page .border-white\/55 { border-color: rgba(13,31,10,0.55) !important; }
-.lesson-reading-page .bg-white\/55 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/55 > * + * { border-color: rgba(13,31,10,0.55) !important; }
-.lesson-reading-page .text-gold\/55 { color: rgba(138,109,31,0.55) !important; }
-.lesson-reading-page .border-gold\/55 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-white\/60 { color: rgba(13,31,10,0.6) !important; }
-.lesson-reading-page .border-white\/60 { border-color: rgba(13,31,10,0.6) !important; }
-.lesson-reading-page .bg-white\/60 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/60 > * + * { border-color: rgba(13,31,10,0.6) !important; }
-.lesson-reading-page .text-gold\/60 { color: rgba(138,109,31,0.6) !important; }
-.lesson-reading-page .border-gold\/60 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-white\/65 { color: rgba(13,31,10,0.65) !important; }
-.lesson-reading-page .border-white\/65 { border-color: rgba(13,31,10,0.65) !important; }
-.lesson-reading-page .bg-white\/65 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/65 > * + * { border-color: rgba(13,31,10,0.65) !important; }
-.lesson-reading-page .text-gold\/65 { color: rgba(138,109,31,0.65) !important; }
-.lesson-reading-page .border-gold\/65 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-white\/70 { color: rgba(13,31,10,0.7) !important; }
-.lesson-reading-page .border-white\/70 { border-color: rgba(13,31,10,0.7) !important; }
-.lesson-reading-page .bg-white\/70 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/70 > * + * { border-color: rgba(13,31,10,0.7) !important; }
-.lesson-reading-page .text-gold\/70 { color: rgba(138,109,31,0.7) !important; }
-.lesson-reading-page .border-gold\/70 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-white\/75 { color: rgba(13,31,10,0.75) !important; }
-.lesson-reading-page .border-white\/75 { border-color: rgba(13,31,10,0.75) !important; }
-.lesson-reading-page .bg-white\/75 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/75 > * + * { border-color: rgba(13,31,10,0.75) !important; }
-.lesson-reading-page .text-gold\/75 { color: rgba(138,109,31,0.75) !important; }
-.lesson-reading-page .border-gold\/75 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-white\/80 { color: rgba(13,31,10,0.8) !important; }
-.lesson-reading-page .border-white\/80 { border-color: rgba(13,31,10,0.8) !important; }
-.lesson-reading-page .bg-white\/80 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/80 > * + * { border-color: rgba(13,31,10,0.8) !important; }
-.lesson-reading-page .text-gold\/80 { color: rgba(138,109,31,0.8) !important; }
-.lesson-reading-page .border-gold\/80 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-white\/85 { color: rgba(13,31,10,0.85) !important; }
-.lesson-reading-page .border-white\/85 { border-color: rgba(13,31,10,0.85) !important; }
-.lesson-reading-page .bg-white\/85 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/85 > * + * { border-color: rgba(13,31,10,0.85) !important; }
-.lesson-reading-page .text-gold\/85 { color: rgba(138,109,31,0.85) !important; }
-.lesson-reading-page .border-gold\/85 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-white\/90 { color: rgba(13,31,10,0.9) !important; }
-.lesson-reading-page .border-white\/90 { border-color: rgba(13,31,10,0.9) !important; }
-.lesson-reading-page .bg-white\/90 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/90 > * + * { border-color: rgba(13,31,10,0.9) !important; }
-.lesson-reading-page .text-gold\/90 { color: rgba(138,109,31,0.9) !important; }
-.lesson-reading-page .border-gold\/90 { border-color: rgba(13,31,10,0.4) !important; }
-.lesson-reading-page .text-white\/95 { color: rgba(13,31,10,0.95) !important; }
-.lesson-reading-page .border-white\/95 { border-color: rgba(13,31,10,0.95) !important; }
-.lesson-reading-page .bg-white\/95 { background-color: rgba(13,31,10,0.08) !important; }
-.lesson-reading-page .divide-white\/95 > * + * { border-color: rgba(13,31,10,0.95) !important; }
-.lesson-reading-page .text-gold\/95 { color: rgba(138,109,31,0.95) !important; }
-.lesson-reading-page .border-gold\/95 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/3 { color: rgba(13,31,10,0.03) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/3 { border-color: rgba(13,31,10,0.03) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/3 { background-color: rgba(13,31,10,0.03) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/3 > * + * { border-color: rgba(13,31,10,0.03) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/3 { color: rgba(138,109,31,0.03) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/3 { border-color: rgba(13,31,10,0.06) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/5 { color: rgba(13,31,10,0.05) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/5 { border-color: rgba(13,31,10,0.05) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/5 { background-color: rgba(13,31,10,0.05) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/5 > * + * { border-color: rgba(13,31,10,0.05) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/5 { color: rgba(138,109,31,0.05) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/5 { border-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/8 { color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/8 { border-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/8 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/8 > * + * { border-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/8 { color: rgba(138,109,31,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/8 { border-color: rgba(13,31,10,0.11) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/10 { color: rgba(13,31,10,0.1) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/10 { border-color: rgba(13,31,10,0.1) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/10 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/10 > * + * { border-color: rgba(13,31,10,0.1) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/10 { color: rgba(138,109,31,0.1) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/10 { border-color: rgba(13,31,10,0.13) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/12 { color: rgba(13,31,10,0.12) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/12 { border-color: rgba(13,31,10,0.12) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/12 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/12 > * + * { border-color: rgba(13,31,10,0.12) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/12 { color: rgba(138,109,31,0.12) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/12 { border-color: rgba(13,31,10,0.15) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/15 { color: rgba(13,31,10,0.15) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/15 { border-color: rgba(13,31,10,0.15) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/15 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/15 > * + * { border-color: rgba(13,31,10,0.15) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/15 { color: rgba(138,109,31,0.15) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/15 { border-color: rgba(13,31,10,0.18) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/20 { color: rgba(13,31,10,0.2) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/20 { border-color: rgba(13,31,10,0.2) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/20 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/20 > * + * { border-color: rgba(13,31,10,0.2) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/20 { color: rgba(138,109,31,0.2) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/20 { border-color: rgba(13,31,10,0.23) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/25 { color: rgba(13,31,10,0.25) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/25 { border-color: rgba(13,31,10,0.25) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/25 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/25 > * + * { border-color: rgba(13,31,10,0.25) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/25 { color: rgba(138,109,31,0.25) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/25 { border-color: rgba(13,31,10,0.28) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/30 { color: rgba(13,31,10,0.3) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/30 { border-color: rgba(13,31,10,0.3) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/30 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/30 > * + * { border-color: rgba(13,31,10,0.3) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/30 { color: rgba(138,109,31,0.3) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/30 { border-color: rgba(13,31,10,0.32999999999999996) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/35 { color: rgba(13,31,10,0.35) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/35 { border-color: rgba(13,31,10,0.35) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/35 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/35 > * + * { border-color: rgba(13,31,10,0.35) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/35 { color: rgba(138,109,31,0.35) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/35 { border-color: rgba(13,31,10,0.38) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/40 { color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/40 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/40 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/40 > * + * { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/40 { color: rgba(138,109,31,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/40 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/45 { color: rgba(13,31,10,0.45) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/45 { border-color: rgba(13,31,10,0.45) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/45 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/45 > * + * { border-color: rgba(13,31,10,0.45) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/45 { color: rgba(138,109,31,0.45) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/45 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/50 { color: rgba(13,31,10,0.5) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/50 { border-color: rgba(13,31,10,0.5) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/50 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/50 > * + * { border-color: rgba(13,31,10,0.5) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/50 { color: rgba(138,109,31,0.5) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/50 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/55 { color: rgba(13,31,10,0.55) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/55 { border-color: rgba(13,31,10,0.55) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/55 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/55 > * + * { border-color: rgba(13,31,10,0.55) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/55 { color: rgba(138,109,31,0.55) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/55 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/60 { color: rgba(13,31,10,0.6) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/60 { border-color: rgba(13,31,10,0.6) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/60 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/60 > * + * { border-color: rgba(13,31,10,0.6) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/60 { color: rgba(138,109,31,0.6) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/60 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/65 { color: rgba(13,31,10,0.65) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/65 { border-color: rgba(13,31,10,0.65) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/65 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/65 > * + * { border-color: rgba(13,31,10,0.65) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/65 { color: rgba(138,109,31,0.65) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/65 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/70 { color: rgba(13,31,10,0.7) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/70 { border-color: rgba(13,31,10,0.7) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/70 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/70 > * + * { border-color: rgba(13,31,10,0.7) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/70 { color: rgba(138,109,31,0.7) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/70 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/75 { color: rgba(13,31,10,0.75) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/75 { border-color: rgba(13,31,10,0.75) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/75 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/75 > * + * { border-color: rgba(13,31,10,0.75) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/75 { color: rgba(138,109,31,0.75) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/75 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/80 { color: rgba(13,31,10,0.8) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/80 { border-color: rgba(13,31,10,0.8) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/80 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/80 > * + * { border-color: rgba(13,31,10,0.8) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/80 { color: rgba(138,109,31,0.8) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/80 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/85 { color: rgba(13,31,10,0.85) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/85 { border-color: rgba(13,31,10,0.85) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/85 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/85 > * + * { border-color: rgba(13,31,10,0.85) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/85 { color: rgba(138,109,31,0.85) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/85 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/90 { color: rgba(13,31,10,0.9) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/90 { border-color: rgba(13,31,10,0.9) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/90 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/90 > * + * { border-color: rgba(13,31,10,0.9) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/90 { color: rgba(138,109,31,0.9) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/90 { border-color: rgba(13,31,10,0.4) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-white\/95 { color: rgba(13,31,10,0.95) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-white\/95 { border-color: rgba(13,31,10,0.95) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-white\/95 { background-color: rgba(13,31,10,0.08) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .divide-white\/95 > * + * { border-color: rgba(13,31,10,0.95) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold\/95 { color: rgba(138,109,31,0.95) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-gold\/95 { border-color: rgba(13,31,10,0.4) !important; }
 
 /* Solid gold text/labels — use the AA-contrast deep gold on cream */
-.lesson-reading-page .text-gold {
+html:not([data-theme='dark']) .lesson-reading-page .text-gold {
   color: #8a6d1f !important;
 }
-.lesson-reading-page .text-gold-light {
+html:not([data-theme='dark']) .lesson-reading-page .text-gold-light {
   color: #6b551a !important;
 }
 /* bg-gold (solid) is used as an active-pill/CTA background — keep the
    brand gold fill, it already pairs with dark ink text on top */
-.lesson-reading-page .bg-gold {
+html:not([data-theme='dark']) .lesson-reading-page .bg-gold {
   background-color: #C9A84C !important;
 }
-.lesson-reading-page .bg-gold.text-bg,
-.lesson-reading-page .bg-gold .text-bg {
+html:not([data-theme='dark']) .lesson-reading-page .bg-gold.text-bg,
+html:not([data-theme='dark']) .lesson-reading-page .bg-gold .text-bg {
   color: #0D1F0A !important;
 }
 
 /* Deep-gold accent utility for small text/labels on the cream page */
-.lesson-reading-page .text-gold-deep { color: #8a6d1f !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-gold-deep { color: #8a6d1f !important; }
 
 /* Jalālayn (blue) / Rūḥ al-Bayān (green) accent boxes — darkened for
    AA contrast on cream (JalalaynVerseView / InlineCompare) */
-.lesson-reading-page .text-blue-100 { color: rgba(13,31,10,0.85) !important; }
-.lesson-reading-page .text-blue-300 { color: #1d4ed8 !important; }
-.lesson-reading-page .text-blue-400 { color: #1d4ed8 !important; }
-.lesson-reading-page .border-blue-900\/30,
-.lesson-reading-page .border-blue-900\/20 { border-color: rgba(29,78,216,0.3) !important; }
-.lesson-reading-page .bg-blue-950\/20,
-.lesson-reading-page .bg-blue-900\/20 { background-color: rgba(29,78,216,0.07) !important; }
-.lesson-reading-page .text-green-100 { color: rgba(13,31,10,0.85) !important; }
-.lesson-reading-page .text-green-300 { color: #15803d !important; }
-.lesson-reading-page .text-green-400 { color: #15803d !important; }
-.lesson-reading-page .border-green-900\/30,
-.lesson-reading-page .border-green-900\/20,
-.lesson-reading-page .border-green-500\/30 { border-color: rgba(21,128,61,0.3) !important; }
-.lesson-reading-page .bg-green-950\/20,
-.lesson-reading-page .bg-green-900\/20 { background-color: rgba(21,128,61,0.07) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-blue-100 { color: rgba(13,31,10,0.85) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-blue-300 { color: #1d4ed8 !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-blue-400 { color: #1d4ed8 !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-blue-900\/30,
+html:not([data-theme='dark']) .lesson-reading-page .border-blue-900\/20 { border-color: rgba(29,78,216,0.3) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-blue-950\/20,
+html:not([data-theme='dark']) .lesson-reading-page .bg-blue-900\/20 { background-color: rgba(29,78,216,0.07) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-green-100 { color: rgba(13,31,10,0.85) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-green-300 { color: #15803d !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-green-400 { color: #15803d !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-green-900\/30,
+html:not([data-theme='dark']) .lesson-reading-page .border-green-900\/20,
+html:not([data-theme='dark']) .lesson-reading-page .border-green-500\/30 { border-color: rgba(21,128,61,0.3) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-green-950\/20,
+html:not([data-theme='dark']) .lesson-reading-page .bg-green-900\/20 { background-color: rgba(21,128,61,0.07) !important; }
 
 /* Quranic verse citation highlight — deep green readable on cream */
-.lesson-reading-page .quranic-verse { color: #0d7a5f !important; }
+html:not([data-theme='dark']) .lesson-reading-page .quranic-verse { color: #0d7a5f !important; }
 
 /* Footnote superscripts */
-.lesson-reading-page .fn-superscript { color: rgba(138,109,31,0.8) !important; }
-.lesson-reading-page .fn-superscript:hover { color: #8a6d1f !important; }
+html:not([data-theme='dark']) .lesson-reading-page .fn-superscript { color: rgba(138,109,31,0.8) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .fn-superscript:hover { color: #8a6d1f !important; }
 
 /* Selection/annotation + misc borders scoped to ink family */
-.lesson-reading-page ::-webkit-scrollbar-thumb { background: rgba(13,31,10,0.25); }
+html:not([data-theme='dark']) .lesson-reading-page ::-webkit-scrollbar-thumb { background: rgba(13,31,10,0.25); }
 
 
 /* Arabic word-lookup tooltip (ArabicWordTool) — keep readable if opened */
-.lesson-reading-page .bg-bg { background: #F5EDD6 !important; border-color: rgba(13,31,10,0.15) !important; box-shadow: 0 8px 30px rgba(13,31,10,0.15) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-bg { background: #F5EDD6 !important; border-color: rgba(13,31,10,0.15) !important; box-shadow: 0 8px 30px rgba(13,31,10,0.15) !important; }
 
 /* Hover-state variants used inside the lesson page (buttons/links) */
-.lesson-reading-page .hover\:text-white\/35:hover { color: rgba(13,31,10,0.35) !important; }
-.lesson-reading-page .hover\:text-white\/60:hover { color: rgba(13,31,10,0.6) !important; }
-.lesson-reading-page .hover\:text-white\/65:hover { color: rgba(13,31,10,0.65) !important; }
-.lesson-reading-page .hover\:text-white\/70:hover { color: rgba(13,31,10,0.7) !important; }
-.lesson-reading-page .hover\:border-white\/35:hover { border-color: rgba(13,31,10,0.35) !important; }
-.lesson-reading-page .hover\:border-gold\/40:hover { border-color: rgba(13,31,10,0.45) !important; }
-.lesson-reading-page .hover\:border-gold\/50:hover { border-color: rgba(13,31,10,0.45) !important; }
-.lesson-reading-page .hover\:text-gold:hover { color: #8a6d1f !important; }
-.lesson-reading-page .hover\:bg-gold\/20:hover { background-color: rgba(201,168,76,0.2) !important; }
-.lesson-reading-page .hover\:text-green-400:hover { color: #15803d !important; }
-.lesson-reading-page .hover\:border-green-400\/50:hover { border-color: rgba(21,128,61,0.5) !important; }
-.lesson-reading-page .hover\:bg-green-900\/20:hover { background-color: rgba(21,128,61,0.1) !important; }
-.lesson-reading-page .hover\:bg-blue-900\/20:hover { background-color: rgba(29,78,216,0.1) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:text-white\/35:hover { color: rgba(13,31,10,0.35) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:text-white\/60:hover { color: rgba(13,31,10,0.6) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:text-white\/65:hover { color: rgba(13,31,10,0.65) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:text-white\/70:hover { color: rgba(13,31,10,0.7) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:border-white\/35:hover { border-color: rgba(13,31,10,0.35) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:border-gold\/40:hover { border-color: rgba(13,31,10,0.45) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:border-gold\/50:hover { border-color: rgba(13,31,10,0.45) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:text-gold:hover { color: #8a6d1f !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:bg-gold\/20:hover { background-color: rgba(201,168,76,0.2) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:text-green-400:hover { color: #15803d !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:border-green-400\/50:hover { border-color: rgba(21,128,61,0.5) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:bg-green-900\/20:hover { background-color: rgba(21,128,61,0.1) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .hover\:bg-blue-900\/20:hover { background-color: rgba(29,78,216,0.1) !important; }
 
 
 /* Exact opacity-variant classes found in JalalaynVerseView / InlineCompare */
-.lesson-reading-page .text-blue-100\/70 { color: rgba(13,31,10,0.7) !important; }
-.lesson-reading-page .text-blue-300\/40 { color: rgba(29,78,216,0.55) !important; }
-.lesson-reading-page .text-blue-300\/70 { color: rgba(29,78,216,0.85) !important; }
-.lesson-reading-page .text-blue-300\/80 { color: rgba(29,78,216,0.9) !important; }
-.lesson-reading-page .text-blue-400\/40 { color: rgba(29,78,216,0.6) !important; }
-.lesson-reading-page .text-green-100\/30 { color: rgba(13,31,10,0.3) !important; }
-.lesson-reading-page .text-green-300\/40 { color: rgba(21,128,61,0.55) !important; }
-.lesson-reading-page .text-green-300\/70 { color: rgba(21,128,61,0.85) !important; }
-.lesson-reading-page .text-green-300\/80 { color: rgba(21,128,61,0.9) !important; }
-.lesson-reading-page .text-green-400\/40 { color: rgba(21,128,61,0.6) !important; }
-.lesson-reading-page .text-green-400\/70 { color: rgba(21,128,61,0.85) !important; }
-.lesson-reading-page .border-blue-900\/20 { border-color: rgba(29,78,216,0.25) !important; }
-.lesson-reading-page .border-green-400\/50 { border-color: rgba(21,128,61,0.5) !important; }
-.lesson-reading-page .border-green-500\/30 { border-color: rgba(21,128,61,0.35) !important; }
-.lesson-reading-page .border-green-900\/20 { border-color: rgba(21,128,61,0.25) !important; }
-.lesson-reading-page .bg-blue-900\/20 { background-color: rgba(29,78,216,0.06) !important; }
-.lesson-reading-page .bg-green-900\/20 { background-color: rgba(21,128,61,0.06) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-blue-100\/70 { color: rgba(13,31,10,0.7) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-blue-300\/40 { color: rgba(29,78,216,0.55) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-blue-300\/70 { color: rgba(29,78,216,0.85) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-blue-300\/80 { color: rgba(29,78,216,0.9) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-blue-400\/40 { color: rgba(29,78,216,0.6) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-green-100\/30 { color: rgba(13,31,10,0.3) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-green-300\/40 { color: rgba(21,128,61,0.55) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-green-300\/70 { color: rgba(21,128,61,0.85) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-green-300\/80 { color: rgba(21,128,61,0.9) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-green-400\/40 { color: rgba(21,128,61,0.6) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .text-green-400\/70 { color: rgba(21,128,61,0.85) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-blue-900\/20 { border-color: rgba(29,78,216,0.25) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-green-400\/50 { border-color: rgba(21,128,61,0.5) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-green-500\/30 { border-color: rgba(21,128,61,0.35) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .border-green-900\/20 { border-color: rgba(21,128,61,0.25) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-blue-900\/20 { background-color: rgba(29,78,216,0.06) !important; }
+html:not([data-theme='dark']) .lesson-reading-page .bg-green-900\/20 { background-color: rgba(21,128,61,0.06) !important; }
 
 
 /* Lesson print/PDF-export pages (src/app/lesson/[id]/print/page.tsx) render
@@ -1443,4 +1441,135 @@ summary::-webkit-details-marker { display: none; }
     padding: 0.35rem 0.3rem;
     margin: -0.35rem -0.1rem;
   }
+}
+
+/* ══════════════════════════════════════════════════════════
+   Book reader (/lesson/[id]), 28 Nov 2026.
+   The lesson page set like AK's printed translation: paper, Garamond, red
+   lemmata, olive and gold. Light and dark each have their own palette; every
+   text colour below passes WCAG AA on its own background.
+   Selectors open with `html .lesson-reading-page.book-page` so they outrank
+   the cream-page overrides above, which are light-mode only.
+   ══════════════════════════════════════════════════════════ */
+@font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(/type/eb-garamond/eb-garamond-latin-400-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url(/type/eb-garamond/eb-garamond-latin-ext-400-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'EB Garamond'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url(/type/eb-garamond/eb-garamond-latin-400-italic.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'EB Garamond'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url(/type/eb-garamond/eb-garamond-latin-ext-400-italic.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url(/type/eb-garamond/eb-garamond-latin-600-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url(/type/eb-garamond/eb-garamond-latin-ext-600-normal.woff2) format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+
+html .lesson-reading-page.book-page {
+  --bp-paper: #FBF8F1; --bp-panel: #F3EEDF; --bp-ink: #1E1E1A; --bp-sub: #5A5446;
+  --bp-olive: #4A5228; --bp-accent: #7A5E12; --bp-gold: #B8963E; --bp-red: #A11D1D;
+  --bp-rule: #E2D9C2; --bp-btn-ink: #FBF8F1;
+  --body-text: var(--bp-ink); --body-sub: var(--bp-sub); --body-faint: #6E6857;
+  background: var(--bp-paper) !important; color: var(--bp-ink);
+}
+html[data-theme='dark'] .lesson-reading-page.book-page {
+  --bp-paper: #141A0E; --bp-panel: #1C2314; --bp-ink: #ECE6D6; --bp-sub: #BDB6A2;
+  --bp-olive: #C3CD86; --bp-accent: #E2C26A; --bp-gold: #C9A84C; --bp-red: #EE8F80;
+  --bp-rule: #3A422B; --bp-btn-ink: #141A0E;
+  --body-text: var(--bp-ink); --body-sub: var(--bp-sub); --body-faint: #A39C88;
+}
+html .lesson-reading-page.book-page .bp-grid { max-width: 1400px; margin: 0 auto; padding: 1.25rem 1.5rem 2rem; display: flex; flex-wrap: wrap; gap: 2.25rem; align-items: flex-start; }
+html .lesson-reading-page.book-page .bp-aside { flex: 1 1 240px; max-width: 280px; position: sticky; top: 64px; max-height: calc(100vh - 80px); overflow-y: auto; font-family: 'EB Garamond', var(--font-english); }
+html .lesson-reading-page.book-page .bp-main { flex: 999 1 560px; min-width: 0; max-width: 800px; }
+@media (max-width: 1023px) { html .lesson-reading-page.book-page .bp-aside { display: none; } html .lesson-reading-page.book-page .bp-grid { padding: 1rem; } }
+html .lesson-reading-page.book-page .bp-label { font: 600 12px/1 'EB Garamond', serif; letter-spacing: .12em; color: var(--bp-sub) !important; text-transform: uppercase; }
+html .lesson-reading-page.book-page .bp-aside details > summary { cursor: pointer; padding: 6px 4px; list-style-position: inside; color: var(--bp-olive) !important; }
+html .lesson-reading-page.book-page .bp-aside a { color: var(--bp-ink) !important; text-decoration: none; }
+html .lesson-reading-page.book-page .bp-aside a:hover { color: var(--bp-olive) !important; }
+html .lesson-reading-page.book-page .bp-jump a { display: block; padding: 4px 6px; font: 14px/1.35 'EB Garamond', serif; }
+html .lesson-reading-page.book-page .bp-head { text-align: center; padding: .25rem 0 1.1rem; }
+html .lesson-reading-page.book-page .bp-head .bp-kicker { font: 600 13px/1 'EB Garamond', serif; letter-spacing: .2em; color: var(--bp-sub) !important; text-transform: uppercase; }
+html .lesson-reading-page.book-page .bp-head h1 { margin: .6rem 0 .2rem; font: 400 2.6rem/1.1 'EB Garamond', serif; letter-spacing: .06em; color: var(--bp-ink) !important; }
+html .lesson-reading-page.book-page .bp-head .bp-sub { font: italic 1.1rem/1.4 'EB Garamond', serif; color: var(--bp-olive) !important; }
+html .lesson-reading-page.book-page .bp-dots { display: flex; justify-content: center; gap: 6px; margin-top: .8rem; }
+html .lesson-reading-page.book-page .bp-dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--bp-gold); }
+html .lesson-reading-page.book-page .bp-headnote { background: var(--bp-panel); border-top: 1px solid var(--bp-gold); border-bottom: 1px solid var(--bp-gold); padding: .8rem 1.3rem; margin: 0 0 .8rem; }
+html .lesson-reading-page.book-page .bp-headnote > summary { cursor: pointer; font: 600 13px 'EB Garamond', serif; letter-spacing: .14em; color: var(--bp-olive) !important; }
+html .lesson-reading-page.book-page .bp-headnote > summary i { font-weight: 400; letter-spacing: 0; color: var(--bp-sub) !important; }
+html .lesson-reading-page.book-page .bp-headnote p { font: 1rem/1.6 'EB Garamond', serif; color: var(--bp-ink) !important; text-align: justify; margin: .7rem 0 0; }
+html .lesson-reading-page.book-page .bp-headnote .bp-topics b { font: 600 12px 'EB Garamond', serif; letter-spacing: .14em; color: var(--bp-olive) !important; margin-right: .6em; }
+html .lesson-reading-page.book-page .bp-headnote .bp-sig { text-align: right; font-style: italic; }
+html .lesson-reading-page.book-page .bp-book { margin-top: 1.2rem; padding: .9rem; border: 1px solid var(--bp-gold); background: var(--bp-panel); display: flex; flex-direction: column; gap: .4rem; font-family: 'EB Garamond', serif; }
+html .lesson-reading-page.book-page .bp-book a.bp-order { background: var(--bp-olive); color: var(--bp-btn-ink) !important; text-align: center; padding: .55rem .8rem; border-radius: 4px; font-weight: 600; }
+
+html .lesson-reading-page.book-page .book-reader { font-family: 'EB Garamond', var(--font-english); }
+html .lesson-reading-page.book-page .br-progress { position: sticky; top: 56px; z-index: 20; height: 3px; background: var(--bp-rule); margin-bottom: .4rem; }
+html .lesson-reading-page.book-page .br-progress > div { height: 3px; background: var(--bp-gold); transition: width .25s ease; }
+html .lesson-reading-page.book-page .br-bar { display: flex; justify-content: space-between; align-items: center; gap: .8rem; flex-wrap: wrap; padding: .3rem 0; font-size: 14px; color: var(--bp-sub) !important; }
+html .lesson-reading-page.book-page .br-bar span { color: var(--bp-sub) !important; }
+html .lesson-reading-page.book-page .br-bar-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+html .lesson-reading-page.book-page .br-bar button { background: none; border: 0; padding: .3rem 0; min-height: 36px; cursor: pointer; font: 14px 'EB Garamond', serif; color: var(--bp-olive) !important; text-decoration: underline; text-underline-offset: 3px; }
+html .lesson-reading-page.book-page .br-draft { font: italic 12px 'EB Garamond', serif; color: var(--bp-accent) !important; margin: .2rem 0 0; }
+html .lesson-reading-page.book-page .br-passage { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 1rem; padding: 1.1rem 0; border-top: 1px solid var(--bp-rule); }
+html .lesson-reading-page.book-page .br-target { background: color-mix(in srgb, var(--bp-gold) 12%, transparent); }
+html .lesson-reading-page.book-page .br-side { display: flex; flex-direction: column; gap: .3rem; align-items: flex-start; padding-top: .25rem; }
+html .lesson-reading-page.book-page .br-num { font: 600 12px/1 'EB Garamond', serif; color: var(--bp-olive) !important; white-space: nowrap; }
+html .lesson-reading-page.book-page .br-en, html .lesson-reading-page.book-page .br-en * { color: var(--bp-ink) !important; font-family: 'EB Garamond', var(--font-english) !important; }
+html .lesson-reading-page.book-page .br-en { font-size: 1.19rem; line-height: 1.66; text-align: justify; hyphens: auto; }
+html .lesson-reading-page.book-page .br-en p { margin: 0 0 .8rem; }
+html .lesson-reading-page.book-page .br-en strong, html .lesson-reading-page.book-page .br-en strong * { font-weight: 400; color: var(--bp-red) !important; }
+html .lesson-reading-page.book-page .br-en .quranic-verse { color: inherit !important; }
+html .lesson-reading-page.book-page .br-en em { font-style: italic; }
+html .lesson-reading-page.book-page .br-ar, html .lesson-reading-page.book-page .br-ar * { color: var(--bp-ink) !important; }
+html .lesson-reading-page.book-page .br-ar { font-family: var(--font-body); font-size: 1.3rem; line-height: 2; text-align: justify; margin: .5rem 0 0; }
+html .lesson-reading-page.book-page .br-ar .quranic-verse, html .lesson-reading-page.book-page .br-ar .quranic-verse * { color: var(--bp-red) !important; }
+html .lesson-reading-page.book-page .br-ar .verse-ref, html .lesson-reading-page.book-page .br-en .verse-ref { color: var(--bp-olive) !important; }
+html .lesson-reading-page.book-page .br-ar .fn-superscript { color: var(--bp-accent) !important; }
+html .lesson-reading-page.book-page .br-ar-main { font-size: 1.35rem; margin: 0; }
+html .lesson-reading-page.book-page .br-ar-fold { margin-top: .35rem; }
+html .lesson-reading-page.book-page .br-ar-fold > summary { cursor: pointer; font: 13px 'EB Garamond', serif; color: var(--bp-sub) !important; }
+html .lesson-reading-page.book-page summary::marker { color: var(--bp-gold); }
+html .lesson-reading-page.book-page .br-anchor { display: block; position: relative; top: -90px; visibility: hidden; height: 0; }
+html .lesson-reading-page.book-page .br-menu { position: relative; }
+html .lesson-reading-page.book-page .br-menu > summary { list-style: none; cursor: pointer; font-size: 18px; line-height: 1; padding: 4px 6px; color: var(--bp-sub) !important; border-radius: 4px; }
+html .lesson-reading-page.book-page .br-menu > summary::-webkit-details-marker { display: none; }
+html .lesson-reading-page.book-page .br-menu-pop { position: absolute; left: 0; top: 30px; z-index: 30; min-width: 170px; background: var(--bp-paper); border: 1px solid var(--bp-rule); border-radius: 4px; box-shadow: 0 6px 18px rgba(0,0,0,.15); padding: .35rem; display: flex; flex-direction: column; }
+html .lesson-reading-page.book-page .br-menu-pop button { text-align: left; background: none; border: 0; padding: .5rem .6rem; min-height: 40px; cursor: pointer; font: 15px 'EB Garamond', serif; color: var(--bp-ink) !important; border-radius: 3px; }
+html .lesson-reading-page.book-page .br-menu-pop button:hover { background: var(--bp-panel); }
+html .lesson-reading-page.book-page .br-menu-done { font: italic 13px 'EB Garamond', serif; color: var(--bp-olive) !important; padding: .3rem .6rem; }
+html .lesson-reading-page.book-page .br-pager { display: flex; justify-content: space-between; align-items: center; gap: .8rem; margin: 1.6rem 0 2.5rem; padding-top: 1rem; border-top: 1px solid var(--bp-rule); }
+html .lesson-reading-page.book-page .br-hint { font-size: 13px; color: var(--bp-sub) !important; }
+html .lesson-reading-page.book-page .br-btn { font: 16px 'EB Garamond', serif; color: var(--bp-olive) !important; background: transparent; border: 1px solid var(--bp-rule); border-radius: 4px; padding: .6rem 1rem; min-height: 44px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+html .lesson-reading-page.book-page .br-btn-main { background: var(--bp-olive); border-color: var(--bp-olive); color: var(--bp-btn-ink) !important; }
+@media (max-width: 640px) {
+  html .lesson-reading-page.book-page .br-passage { grid-template-columns: 1fr; gap: .2rem; }
+  html .lesson-reading-page.book-page .br-side { flex-direction: row; align-items: center; gap: .6rem; }
+  html .lesson-reading-page.book-page .br-en { font-size: 1.1rem; }
+  html .lesson-reading-page.book-page .br-hint { display: none; }
+  html .lesson-reading-page.book-page .bp-head h1 { font-size: 2rem; }
+}
+@media print { html .lesson-reading-page.book-page .bp-aside, html .lesson-reading-page.book-page .br-pager, html .lesson-reading-page.book-page .br-progress, html .lesson-reading-page.book-page .br-bar, html .lesson-reading-page.book-page .br-menu { display: none; } }
+/* Book reader, round two: one slim bar, modes and search in the side panel. */
+html .lesson-reading-page.book-page .bp-topbar { display: flex; align-items: center; gap: .6rem; padding: .35rem 0; border-bottom: 1px solid var(--bp-rule); }
+html .lesson-reading-page.book-page .bp-topbar > div > div { border-bottom: 0 !important; }
+html .lesson-reading-page.book-page .bp-topbar button, html .lesson-reading-page.book-page .bp-topbar span { color: var(--bp-sub) !important; }
+@media (min-width: 1024px) { html .lesson-reading-page.book-page [data-lx-tabs] { display: none !important; } }
+html .lesson-reading-page.book-page .bp-tools form { display: flex; flex-direction: column; gap: .35rem; }
+html .lesson-reading-page.book-page .bp-tools input { width: 100%; font: 15px 'EB Garamond', serif; padding: .5rem .65rem; border-radius: 4px; border: 1px solid var(--bp-rule); background: var(--bp-paper); color: var(--bp-ink) !important; }
+html .lesson-reading-page.book-page .bp-tools input::placeholder { color: var(--bp-sub); opacity: .85; }
+html .lesson-reading-page.book-page .bp-search-res { font: italic 13px 'EB Garamond', serif; color: var(--bp-olive) !important; }
+html .lesson-reading-page.book-page .bp-modes { display: flex; flex-direction: column; margin-top: .8rem; border-top: 1px solid var(--bp-rule); padding-top: .4rem; }
+html .lesson-reading-page.book-page .bp-modes button { text-align: left; background: none; border: 0; padding: .4rem 4px; min-height: 36px; cursor: pointer; font: 15px/1.3 'EB Garamond', serif; color: var(--bp-ink) !important; }
+html .lesson-reading-page.book-page .bp-modes button[aria-pressed="true"] { color: var(--bp-olive) !important; font-weight: 600; }
+html .lesson-reading-page.book-page .bp-modes button[aria-pressed="true"]::before { content: '▸ '; color: var(--bp-gold); }
+html .lesson-reading-page.book-page .bp-aside span.flex-shrink-0.border.rounded-full { display: none !important; }
+@media (max-width: 1023px) {
+  html .lesson-reading-page.book-page [data-lx-tabs] { gap: .3rem !important; margin-bottom: .6rem !important; }
+  html .lesson-reading-page.book-page [data-lx-tabs] button { font-size: 14px !important; padding: .3rem .75rem !important; min-height: 36px; }
+  html .lesson-reading-page.book-page [data-lx-tabs] button * { font-size: 14px !important; }
 }

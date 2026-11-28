@@ -6,7 +6,7 @@ import lessonRangesData from '@/data/lessonRanges.json';
 import { BILINGUAL_ALIGNMENT } from '@/lib/bilingualAlignment';
 import { VERSE_INDEX } from '@/lib/verseIndex';
 import BilingualText from '@/components/BilingualText';
-import PanelJumpTabs from '@/components/PanelJumpTabs';
+import MobileLessonDrawer from '@/components/MobileLessonDrawer';
 import LessonAudioBar from '@/components/LessonAudioBar';
 import TextSizeControl from '@/components/TextSizeControl';
 import OpeningInvocation from '@/components/OpeningInvocation';
@@ -15,7 +15,6 @@ import LessonAnnotationLayer from '@/components/LessonAnnotationLayer';
 import SelectionClip from '@/components/SelectionClip';
 import LessonCitations from '@/components/LessonCitations';
 import { hasApparatus } from '@/lib/apparatus';
-import LessonReaderLayout from '@/components/LessonReaderLayout';
 import Link from 'next/link';
 import { SURAH_LIST } from '@/lib/verseRanges';
 import { splitArabicCommentary } from '@/lib/arabicCommentary';
@@ -24,6 +23,12 @@ import verseCitations from '@/data/verseCitations.json';
 import fs from 'fs';
 import path from 'path';
 import ComparativeCommentary from '@/components/ComparativeCommentary';
+import BookLayout from '@/components/reader/BookLayout';
+import BookReader, { type ReaderBlock } from '@/components/reader/BookReader';
+import HeadnoteFold from '@/components/reader/HeadnoteFold';
+import headnotes from '@/data/headnotes.json';
+import { volumesFromLessons } from '@/lib/volumes';
+import { injectFootnoteLinks, injectVerseNumbers, highlightEnVerses, stripEnFootnotes } from '@/lib/textInject';
 import { getNiasseVerseExcerpts, getNiasseUnits } from '@/lib/niasseVerseExcerpt';
 
 export async function generateStaticParams() {
@@ -181,26 +186,46 @@ export default async function LessonPage({ params }: { params: { id: string } })
   const lessonCitations = (verseCitations as Record<string, Record<string, Record<string, string>>>)[String(lesson.id)];
   const arabicFull = splitArabicCommentary(lesson.arabicBody || lesson.arabicText);
 
-  // Top content: breadcrumb and jump tabs
-  const topContent = (
-    <>
-      {/* "All Sūrahs" used to occupy a full-width band of its own directly
-          below the drawer bar, which held one button. Three stacked
-          single-purpose rows -- drawer, audio, breadcrumb -- came to 137px
-          before the lesson's own title. The breadcrumb rides in the drawer
-          bar's spare width now. */}
-      <PanelJumpTabs
-        lessonId={lesson.id}
-        lessons={lessonIndex}
-        trailing={
-          <span className="flex items-center gap-3">
-          <TextSizeControl />
+  // The book reader's passages, marked up here so the client receives finished
+  // HTML. Footnote numbering runs through the Arabic in order, as in
+  // BilingualText.
+  const withheld = !arabicPublished(lesson.id);
+  const fnOrder = hasApparatus(lesson.id) ? (lesson as any).footnoteOrder : undefined;
+  const fnCursor = { i: 0 };
+  const arHtml = withheld ? [] : arabicFull.paragraphs.map((p, i) =>
+    injectFootnoteLinks(injectVerseNumbers(p, lessonCitations?.[String(i)], undefined, { lessonId: lesson.id, paraIndex: i }), lesson.id, fnOrder, fnCursor));
+  const enParas: string[] = [];
+  (lesson.englishText || '').split(/(?=<p[^>]*>)/).filter(x => x.startsWith('<p')).forEach(m => {
+    if (!/<p[^>]*\bclass="[^"]*\ben-para\b[^"]*"/.test(m)) return;
+    if (m.replace(/<[^>]+>/g, '').trim()) enParas.push(highlightEnVerses(stripEnFootnotes(m)));
+  });
+  const translated = !!lesson.hasEnglish && enParas.length > 0;
+  const align = BILINGUAL_ALIGNMENT[lesson.id];
+  let readerBlocks: ReaderBlock[] | null = null;
+  if (translated && align) {
+    readerBlocks = align.blocks.map(b => ({
+      arIdx: b.arabicIndices,
+      ar: b.arabicIndices.map(i => arHtml[i]).filter(Boolean),
+      en: b.englishIndices.map(i => enParas[i]).filter(Boolean),
+    }));
+    for (const g of align.englishOnly) readerBlocks.push({ arIdx: [], ar: [], en: g.indices.map(i => enParas[i]).filter(Boolean) });
+  } else if (!translated && !withheld) {
+    readerBlocks = arHtml.map((h, i) => ({ arIdx: [i], ar: [h], en: [] }));
+  }
+  const jumpVerses = jumpVersesFor(lesson.id);
+  const verseParas = Object.fromEntries(jumpVerses.map(v => [v.verse, v.paraIndex]));
+  const hn = (headnotes as Record<string, { topics: string[]; body: string[]; author: string }>)[String(lesson.id)];
 
-          </span>
-        }
-      />
-      <LessonAudioBar lessonId={lesson.id} />
-    </>
+  // Top content: breadcrumb and jump tabs
+  // One slim bar above the lesson (AK, 28 Nov 2026): the lessons drawer on
+  // phones and tablets (the right-hand panel does that job on a desktop), the
+  // recording, and text size.
+  const topContent = (
+    <div className="bp-topbar" dir="ltr">
+      <span className="lg:hidden"><MobileLessonDrawer lessonId={lesson.id} lessons={lessonIndex} /></span>
+      <div style={{ flex: 1, minWidth: 0 }}><LessonAudioBar lessonId={lesson.id} /></div>
+      <TextSizeControl />
+    </div>
   );
 
 
@@ -217,6 +242,16 @@ export default async function LessonPage({ params }: { params: { id: string } })
           <div className="p-6 font-english text-white/60 text-sm" dir="ltr">
             This lesson can be heard in the recording above.
           </div>
+        ) : readerBlocks ? (
+          <BookReader
+            lessonId={lesson.id}
+            blocks={readerBlocks}
+            translated={translated}
+            verseParas={verseParas}
+            prevId={lesson.prevId}
+            nextId={lesson.nextId}
+            draftNotice={translated}
+          />
         ) : <BilingualText
           englishOnly={!arabicPublished(lesson.id)}
           poemLines={arabicFull.poemLines}
@@ -282,7 +317,7 @@ export default async function LessonPage({ params }: { params: { id: string } })
   // Bottom content: navigation
   const bottomContent = (
     <>
-      <div className="flex justify-between items-center mt-10 pt-6 border-t border-gold/15" dir="ltr">
+      {!readerBlocks && <div className="flex justify-between items-center mt-10 pt-6 border-t border-gold/15" dir="ltr">
         {lesson.prevId ? (
           <Link href={"/lesson/" + lesson.prevId}
             className="tap font-english text-sm text-white/50 hover:text-gold border border-gold/20 hover:border-gold/50 px-4 py-2 rounded-lg transition-all">
@@ -299,20 +334,25 @@ export default async function LessonPage({ params }: { params: { id: string } })
             Lesson {lesson.nextId} →
           </Link>
         ) : <span />}
-      </div>
-      <LessonNav lessonId={lesson.id} manzil={lesson.manzil} />
+      </div>}
+      {!readerBlocks && <LessonNav lessonId={lesson.id} manzil={lesson.manzil} />}
     </>
   );
 
   return (
     <>
-      <LessonReaderLayout
-        lesson={lesson}
+      <BookLayout
+        lesson={{ id: lesson.id, verseRange: lesson.verseRange, sura: lesson.sura, volume: lesson.volume, hasEnglish: lesson.hasEnglish }}
+        volumes={volumesFromLessons(lessonIndex) as any}
+        jumpVerses={jumpVerses}
         topContent={topContent}
+        headnote={hn ? <HeadnoteFold lessonId={lesson.id} topics={hn.topics} body={hn.body} author={hn.author} /> : null}
         bottomContent={bottomContent}
+        hasCompare={!!(jalalaynArabicText || ruhArabicText)}
+        hasCitations={hasApparatus(lesson.id)}
       >
         {mainContent}
-      </LessonReaderLayout>
+      </BookLayout>
       <LessonAnnotationLayer lessonId={lesson.id} lessonTitle={lesson.englishTitle || ""} verseRange={lesson.verseRange || ""} />
     </>
   );

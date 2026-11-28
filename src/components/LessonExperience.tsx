@@ -74,6 +74,17 @@ export default function LessonExperience({ tafsir, compare, citations, overview,
     if (p && modes.some(m => m.id === p)) setMode(p as LessonMode);
   }, [hideCitations]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // The book layout's right-hand panel switches modes from outside (AK, 28 Nov
+  // 2026: fewer controls above the text). It sends a 'lesson-mode' event.
+  useEffect(() => {
+    const on = (e: Event) => {
+      const m = (e as CustomEvent<string>).detail;
+      if (modes.some(x => x.id === m)) setMode(m as LessonMode);
+    };
+    window.addEventListener('lesson-mode', on);
+    return () => window.removeEventListener('lesson-mode', on);
+  }, [hideCitations, hideCompare]); // eslint-disable-line react-hooks/exhaustive-deps
+
   // The compiler's notes are served where they are anchored (AK, 13 Nov 2026).
   // A click on [n] opens the note in a card at the marker, in his Arabic and
   // under his name, and the reader stays in the text. The Citations tab still
@@ -179,6 +190,7 @@ export default function LessonExperience({ tafsir, compare, citations, overview,
       {/* One slim row of tabs. They were four cards, each with Arabic, English
           and a hint line: some 100px of chrome above the text on every lesson. */}
       <div
+        data-lx-tabs=""
         role="tablist"
         aria-label="Choose how to read this lesson"
         className="flex flex-wrap gap-1.5 mb-4"
