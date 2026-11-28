@@ -1573,3 +1573,30 @@ html .lesson-reading-page.book-page .bp-aside span.flex-shrink-0.border.rounded-
   html .lesson-reading-page.book-page [data-lx-tabs] button { font-size: 14px !important; padding: .3rem .75rem !important; min-height: 36px; }
   html .lesson-reading-page.book-page [data-lx-tabs] button * { font-size: 14px !important; }
 }
+
+
+/* Read aloud (ReadAloud.tsx) */
+html .lesson-reading-page.book-page .br-listen { display: inline-flex; align-items: center; gap: .45rem; }
+html .lesson-reading-page.book-page .br-listen button {
+  text-decoration: none !important; font: 600 .82rem/1 'EB Garamond', serif; letter-spacing: .02em;
+  color: var(--bp-olive) !important; border: 1px solid color-mix(in srgb, var(--bp-olive) 45%, transparent);
+  border-radius: 999px; padding: .32rem .75rem; min-height: 30px; white-space: nowrap; background: transparent;
+}
+html .lesson-reading-page.book-page .br-listen button:first-child { background: var(--bp-olive); color: var(--bp-btn-ink) !important; border-color: var(--bp-olive); }
+html .lesson-reading-page.book-page .br-listen select {
+  font: .8rem 'EB Garamond', serif; color: var(--bp-ink); background: var(--bp-paper);
+  border: 1px solid var(--bp-rule); border-radius: 6px; padding: .2rem .3rem;
+}
+html .lesson-reading-page.book-page .br-speaking {
+  background: color-mix(in srgb, var(--bp-gold) 16%, transparent);
+  box-shadow: -.6rem 0 0 color-mix(in srgb, var(--bp-gold) 16%, transparent), .6rem 0 0 color-mix(in srgb, var(--bp-gold) 16%, transparent);
+  border-radius: 4px; transition: background .3s;
+}
+/* On phones the controls float at the bottom while reading, so Pause stays in reach. */
+@media (max-width: 1023px) {
+  html .lesson-reading-page.book-page .br-listen-on {
+    position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 60;
+    background: var(--bp-panel); border: 1px solid var(--bp-rule); border-radius: 999px; padding: .4rem .55rem;
+    box-shadow: 0 6px 22px rgba(0,0,0,.25);
+  }
+}

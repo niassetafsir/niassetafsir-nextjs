@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import ReadAloud from './ReadAloud';
 import Link from 'next/link';
 
 /**
@@ -198,6 +199,18 @@ export default function BookReader({ lessonId, blocks, translated, verseParas, p
     return () => { window.removeEventListener('keydown', key); window.removeEventListener('touchstart', ts); window.removeEventListener('touchend', te); };
   }); // re-bound each render so `page` is current
 
+  // For read-aloud: turn the page from a speech callback, using refs so the
+  // callback never sees a stale page number.
+  const pageRef = useRef(0); pageRef.current = page;
+  const wholeRef = useRef(false); wholeRef.current = whole;
+  const goRef = useRef(go); goRef.current = go;
+  const nextPageRef = useRef(() => {
+    if (wholeRef.current || pageRef.current >= pagesLenRef.current - 1) return false;
+    goRef.current(pageRef.current + 1);
+    return true;
+  });
+  const pagesLenRef = useRef(0); pagesLenRef.current = pages.length;
+
   const toggleWhole = () => {
     const v = !whole; setWhole(v);
     try { localStorage.setItem('reader-whole', v ? '1' : '0'); } catch { /* ignore */ }
@@ -219,6 +232,7 @@ export default function BookReader({ lessonId, blocks, translated, verseParas, p
       <div className="br-bar" dir="ltr">
         <span>{whole ? 'Whole lesson' : `Page ${page + 1} of ${pages.length}`}</span>
         <span className="br-bar-actions">
+          <ReadAloud pageKey={`${page}-${whole}`} nextPage={nextPageRef.current} lang={translated ? 'en' : 'ar'} />
           {translated && hasArabic && (
             <button type="button" onClick={toggleAr}>{arOpen ? 'Fold the Arabic' : 'Open all Arabic'}</button>
           )}
