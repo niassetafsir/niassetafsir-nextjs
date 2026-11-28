@@ -4595,7 +4595,7 @@
     },
     {
       "verse": "5:90",
-      "paraIndex": 23,
+      "paraIndex": 22,
       "uncertain": true
     },
     {
@@ -4689,6 +4689,11 @@
       "uncertain": true
     },
     {
+      "verse": "5:108",
+      "paraIndex": 58,
+      "uncertain": true
+    },
+    {
       "verse": "5:109",
       "paraIndex": 60,
       "uncertain": true
@@ -4727,6 +4732,11 @@
       "verse": "5:118",
       "paraIndex": 76,
       "uncertain": true
+    },
+    {
+      "verse": "26:80",
+      "paraIndex": 77,
+      "editorial": true
     },
     {
       "verse": "5:116",
